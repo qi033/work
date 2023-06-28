@@ -1,60 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
 </head>
 <style>
-    #box table{
-        border: 1px solid rgb(103, 151, 235);
-    }
-    thead th,
-    tbody td{
-            padding: 20px;
-        }
-    a{
-        text-decoration: none;
-    }
-    b{
-        font-weight: 500;
-        font-size: 12px;
-    }
+  html {
+    background-color: rgb(225, 242, 255);
+  }
+  *{
+    margin: 0px;
+    padding: 0px;
+  }
+  #box {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+  }
+  .child {
+  flex: 1;
+  flex-basis: 20%;
+  height: 20%;
+  margin: 20px;
+  background-color: rgb(255, 255, 255);
+}
 </style>
-
 <body>
-    <div id="box">
-        <table border="1" style="border-collapse: collapse;">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>名称/<b>链接<b></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td><a href="./liuhao/index.html">刘豪</a></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td><a href="./zhaozongfu/zzf-index.html"">赵宗福</a></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td><a href="./liuzhenzhou/index.html">刘振洲</a></td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td><a href="./shenzhuofan/申卓凡.html">申卓凡</a></td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td><a href="./zhaocanlong/index.html">赵灿龙</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div id="box">
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+  </div>
 </body>
 </html>
