@@ -267,6 +267,9 @@
 
                     </div>
                 </div>
+                <div id="ye4" style="display: none" class="xiang">
+                    
+                </div>
             </div>
         </div>
     </div>
@@ -297,6 +300,10 @@
             $("#ye2,#ye1").css("display", "none");
         });
 
+        $("#yemian4").on("click", function () {
+            $("#ye3").css("display", "block");
+            $("#ye2,#ye1,#ye3").css("display", "none");
+        });
         var yc = document.getElementById("yc");
         var ychz = document.getElementById("ychz");
         yc.addEventListener("click", function () {
