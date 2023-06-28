@@ -5,13 +5,213 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="" />
-    <script src=""></script>
+    <link rel="stylesheet" href="./sass/image.css" />
+    <link
+      rel="stylesheet"
+      href="../插件/layui-v2.8.8/layui-v2.8.8/layui/css/layui.css" />
+    <script src="../插件/layui-v2.8.8/layui-v2.8.8/layui/layui.js"></script>
   </head>
   <style></style>
   <body>
-    <div id="box"></div>
+    <div class="box">
+      <ul class="layui-nav layui-nav-tree">
+        <li class="layui-nav-item">
+          <h1>壁纸库</h1>
+        </li>
+        <li class="layui-nav-item"><a href="javascript:;">纯色</a></li>
+        <li class="layui-nav-item"><a href="javascript:;">官方壁纸</a></li>
+        <li class="layui-nav-item"><a href="javascript:;">自定义壁纸</a></li>
+        <li class="layui-nav-item"><a href="javascript:;">我的收藏</a></li>
+      </ul>
+      <div class="good">
+        <div class="goods-left">
+          <div class="header">
+            <div class="palette">
+              <h3>自定义颜色</h3>
+              <a href="#" class="one"></a>
+              <a href="#" class="two"></a>
+              <a href="#" class="three"></a>
+              <a href="#" class="four"></a>
+              <a href="#" class="five"></a>
+              <a href="#" class="six"></a>
+              <a href="#" class="seven"></a>
+              <a href="#" class="eight"></a>
+              <a href="#" class="nine"></a>
+              <a href="#" class="ten"></a>
+              <a href="#" class="eleven"></a>
+              <a href="#" class="twelve"></a>
+            </div>
+            <div class="goods-centent">
+              <div class="black"></div>
+              <div class="black"></div>
+              <div class="black"></div>
+              <div class="black"></div>
+              <div class="black"></div>
+              <div class="black"></div>
+              <div class="black"></div>
+              <div class="black"></div>
+              <div class="black"></div>
+              <div class="black"></div>
+              <div class="black"></div>
+              <div class="black"></div>
+              <div class="black"></div>
+              <div class="black"></div>
+              <div class="black"></div>
+              <div class="black"></div>
+            </div>
+          </div>
+        </div>
+        <div class="goods-image">
+          <div class="goods-image-header">
+            <div class="image-content">
+              <div class="inlink">
+                <h5>PS:此壁纸收集于互联网，如有侵权，请联系作者</h5>
+              </div>
+              <div id="content"></div>
+            </div>
+          </div>
+        </div>
+        <div class="foot">
+          <div class="container">
+            <div class="header">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M7 10V9C7 6.23858 9.23858 4 12 4C14.7614 4 17 6.23858 17 9V10C19.2091 10 21 11.7909 21 14C21 15.4806 20.1956 16.8084 19 17.5M7 10C4.79086 10 3 11.7909 3 14C3 15.4806 3.8044 16.8084 5 17.5M7 10C7.43285 10 7.84965 10.0688 8.24006 10.1959M12 12V21M12 12L15 15M12 12L9 15"
+                    stroke="#000000"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </g>
+              </svg>
+              <p>Browse File to upload!</p>
+            </div>
+            <label for="file" class="footer">
+              <svg
+                fill="#000000"
+                viewBox="0 0 32 32"
+                xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path d="M15.331 6H8.5v20h15V14.154h-8.169z"></path>
+                  <path d="M18.153 6h-.009v5.342H23.5v-.002z"></path>
+                </g>
+              </svg>
+              <p>Not selected file</p>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M5.16565 10.1534C5.07629 8.99181 5.99473 8 7.15975 8H16.8402C18.0053 8 18.9237 8.9918 18.8344 10.1534L18.142 19.1534C18.0619 20.1954 17.193 21 16.1479 21H7.85206C6.80699 21 5.93811 20.1954 5.85795 19.1534L5.16565 10.1534Z"
+                    stroke="#000000"
+                    stroke-width="2"></path>
+                  <path
+                    d="M19.5 5H4.5"
+                    stroke="#000000"
+                    stroke-width="2"
+                    stroke-linecap="round"></path>
+                  <path
+                    d="M10 3C10 2.44772 10.4477 2 11 2H13C13.5523 2 14 2.44772 14 3V5H10V3Z"
+                    stroke="#000000"
+                    stroke-width="2"></path>
+                </g>
+              </svg>
+            </label>
+            <input id="file" type="file" />
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
-  <script></script>
+  <script>
+    layui.use(function () {
+      var element = layui.element;
+      element.render("nav");
+    });
+    const images = [
+      "./image/1.jpg",
+      "./image/2.jpg",
+      "./image/3.jpg",
+      "./image/4.jpg",
+      "./image/5.jpg",
+      "./image/6.jpg",
+      "./image/7.jpg",
+      "./image/9.jpg",
+      "./image/10.jpg",
+      "./image/11.jpg",
+      "./image/12.jpg",
+      "./image/13.jpg",
+      "./image/14.jpg",
+      "./image/15.jpg",
+      "./image/16.jpg",
+      "./image/17.jpg",
+      "./image/18.jpg",
+      "./image/19.jpg",
+    ];
+    $(function () {
+      $(".goods-image-header").hide();
+      $(".foot").hide();
+      showlist();
+    });
+    function showlist() {
+      let html = "";
+      for (let i = 0; i < images.length; i++) {
+        html += `
+        <div class="img">
+                <img src="${images[i]}" alt="" />
+              </div>`;
+      }
+      $("#content").html(html);
+      $("#content").on("click", switchFun);
+    }
+    function switchFun(image) {
+      console.log(image);
+      //   $("body").addClass("img");
+      //   console.log(showlist());
+    }
+    $("ul li").on("click", function () {
+      // console.log(event.target);
+      if (event.target.nodeName == "A" && event.target.innerHTML == "纯色") {
+        $(".goods-left").show();
+        $(".goods-image-header").hide();
+        $(".foor").hide();
+      }
+      if (
+        event.target.nodeName == "A" &&
+        event.target.innerHTML == "官方壁纸"
+      ) {
+        $(".goods-left").hide();
+        $(".goods-image-header").show();
+        $(".foor").hide();
+      }
+      if (
+        event.target.nodeName == "A" &&
+        event.target.innerHTML == "自定义壁纸"
+      ) {
+        $(".goods-left").hide();
+        $(".goods-image-header").hide();
+        $(".foot").show();
+      }
+    });
+  </script>
 </html>
