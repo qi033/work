@@ -108,6 +108,13 @@
         float: left;
         display: none;
         overflow: auto;
+        overflow-y: scroll;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+      }
+      #right-bos1::-webkit-scrollbar {
+        width: 0; /* Chrome, Safari, and Opera */
+        background: transparent;
       }
       #right-bos2 {
         width: 800px;
@@ -143,6 +150,7 @@
         height: 100vh;
         z-index: -10;
         zoom: 1;
+        overflow: hidden;
       }
       #file-upload-button {
         display: block !important;
@@ -211,7 +219,8 @@
       <div id="right-bos2">
         <div id="con-right">
           <div class="left-link">
-            <b>使用自定义壁纸</b>
+            <b>使用自定义壁纸</b><br />
+
             <!-- <div id="files">
               <div class="d-con">上传图片</div>
             </div> -->
