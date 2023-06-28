@@ -21,7 +21,7 @@ body{
     margin-top: 150px;
     background-color: #f1f1f1;;
     position: relative;
-    /* display: none; */
+    display: none;
 }
 .wrap .back{
     width: 300px;
@@ -47,7 +47,7 @@ body{
     height: 600px;
     position: relative;
 }
-.wrap .content ul div{
+.wrap .content ul .box{
     width: 800px;
     height: 580px;
     position: absolute;
@@ -55,15 +55,21 @@ body{
     top: 0px;
     overflow-y:scroll ;
     display: none;
-    padding-bottom: 20px;
 }
-.wrap .content .layui-nav-tree div img{
+.wrap .content .layui-nav-tree .box #mydiv{
     width: 150px;
     height: 150px;
     border-radius: 10px;
     margin-top: 30px;
     margin-left: 30px;
+    float: left;
 }
-.wrap .content .layui-nav-tree div img:hover{
+.wrap .content .layui-nav-tree .box #mydiv img{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    margin-left: 30px;
+}
+.wrap .content .layui-nav-tree .box #mydiv img:hover{
     cursor: pointer;
 }
