@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./引入/jquery.js"></script>
+    <title>Document</title>
+</head>
+<img id="image" src="./img/背景图.jpg" oncontextmenu="return false;">
+
+<body>
+    <script>
+        $(document).ready(function () {
+            // 捕捉图像的右键点击事件
+            $('#image').on('mousedown', function (e) {
+                if (e.button == 2) { // 鼠标右键
+                    // 防止默认行为
+                    e.preventDefault();
+
+                    // 计算弹出层的位置
+                    const posX = e.pageX + 'px';
+                    const posY = e.pageY + 'px';
+
+                    // 创建弹出层
+                    const popup = $('<div>', {
+                        id: 'popup',
+                        css: {
+                            position: 'absolute',
+                            top: posY,
+                            left: posX,
+                            background: 'white',
+                            border: '1px solid black',
+                            padding: '5px'
+                        }
+                    });
+
+                    // 创建下载链接
+                    const downloadLink = $('<a>', {
+                        href: this.src,
+                        download: 'image.jpg',
+                        css: {
+                            display: 'block',
+                            marginBottom: '5px'
+                        }
+                    }).text('下载图片');
+
+                    // 将下载链接添加到弹出层
+                    popup.append(downloadLink);
+
+                    // 添加弹出层到页面
+                    $('body').append(popup);
+
+                    // 向页面添加鼠标移动事件
+                    // 当鼠标移动到除了弹出层以外的地方时，关闭弹出层
+                    $(document).on('mousemove', function (e) {
+                        if (!$(e.target).closest('#popup').length) {
+                            // 移除弹出层
+                            popup.remove();
+                            // 移除鼠标移动事件
+                            $(document).off('mousemove');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
