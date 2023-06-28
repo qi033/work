@@ -117,7 +117,7 @@ $("#right-bos1").on("mouseleave", ".imgs", function () {
 });
 $("#right-bos1").on("click", ".imgs", function () {
   let srcy = `background-image:url(` + $(this).attr("src") + `)`;
-  console.log(srcy);
+  // console.log(srcy);
   $("body").attr("style", srcy);
 });
 $("#right-bos1").on("cllick", ".imgs", function () {});
@@ -182,7 +182,7 @@ $("#left-bos ul li").on("click", function () {
 });
 $("#con-right").on("click", ".col", function () {
   let att = $(this).attr("style");
-  console.log(att);
+  // console.log(att);
   $("body").attr("style", att);
   $("body").css("repeat", "none");
 });
@@ -308,4 +308,11 @@ layui.use(function () {
       // …
     },
   });
+});
+
+$("body").on("contextmenu", function (e) {
+  if (e.button == 2) {
+    alert("您按下了鼠标右键!");
+  }
+  e.preventDefault();
 });

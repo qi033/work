@@ -57,7 +57,7 @@
         let html = "";
         stu.forEach((item) => {
           html += `
-             <div class="no">
+            <div class="no">
         <dl>
           <dd>
             <img src="${item.imgs}" alt="" />
@@ -65,6 +65,7 @@
           <dd><a href="${item.src}">${item.name}</a></dd>
         </dl>
       </div>
+
              `;
         });
         $("#box").html(html);
