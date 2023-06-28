@@ -328,31 +328,32 @@ h2 {
 .fff12 {
     background-color: rgb(0, 0, 0);
 }
-
-#box3 {
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    top: 20px;
-    width: 120vh;
-    height: 83%;
+.hhdged{
     margin: auto;
-    background-color: azure;
+    width: 800px;
+    height: 86.5%;
     border-bottom-right-radius: 10px;
     overflow-y: scroll;
+    background-color: azure;
+}
+#box3 {
+    width: 800px;
+    height: 86.5%;
+    margin: auto;
+   
+   
 }
 ::-webkit-scrollbar{
     display: none;
 }
 #box3 div {
-    display: flex;
-    margin-left: 24px;
-    margin-right: 24px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: inline-block;
     margin-top: 10px;
     border-radius: 5px;
     width: 220px;
     height: 120px;
-    background-color: #3883f7;
 }
 .div1{
    background: linear-gradient(0deg, rgb(161, 140, 209) 0%, rgb(251, 194, 235) 100%); 
