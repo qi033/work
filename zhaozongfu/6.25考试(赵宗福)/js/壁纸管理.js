@@ -150,21 +150,19 @@ $(document).ready(function () {
         $('body').toggleClass('div24');
     })
 });
-  $(".icon1").click(function(){
+$(".icon1").click(function () {
     $(".lloo").slideDown(2000);
     $("#box").slideUp(2000)
-    
-  })
-  $(".lloo").click(function(){
+
+})
+$(".lloo").click(function () {
     $("#box").slideDown(2000);
     $(".lloo").slideUp()
-  })
-   $(function () {
-          //给li点击事件
-          $("li").click(liFun);
-        });
-        function liFun() {
-          let url = $(this).attr("data-url");
-          $("#ifrm").prop("src", url);
-          console.log(url);
-        }
+})
+$(".li1").click(function () {
+   $(".hhdged").css('display', 'block');
+});
+$(".li2").click(function () {
+    $(".hhdged").css("display","none");
+});
+    
