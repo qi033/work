@@ -79,6 +79,12 @@
     margin-left: 200px;
     margin-top: -490px;
 }
+.xiangp{
+    width: 780px;
+    height: 490px;
+    margin-left: 200px;
+    margin-top: -490px;
+}
 .size{
     width: 695px;
     height: 30px;
@@ -106,6 +112,7 @@
     overflow: scroll;
     height:450px ;
     width:826px;
+    background-color: rgb(177, 255, 255);
 }
 
 #ychz{

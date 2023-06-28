@@ -33,7 +33,9 @@
                     <li class="layui-nav-item"><a href="javascript:;">Unsplash</a></li>
                     <li class="layui-nav-item"><a href="javascript:;">Wallhaven</a></li>
                     <li class="layui-nav-item"><a href="javascript:;">deepin</a></li>
-                    <li class="layui-nav-item"><a href="javascript:;">自定义壁纸</a></li>
+                    <li class="layui-nav-item" id="yemian4">
+                        <a href="javascript:;">自定义壁纸</a>
+                    </li>
                     <li class="layui-nav-item"><a href="javascript:;">我的收藏</a></li>
                 </ul>
                 <div id="ye1" style="display: none" class="xiang">
@@ -191,6 +193,9 @@
                     </div>
 
                 </div>
+
+
+
                 <div id="ye3" style="display: none" class="xiangt">
                     <div class="size">PS: 此壁纸收集于互联网,如有侵权,请联系作者</div>
                     <div class="flow-demo" id="ID-flow-demo-manual">
@@ -267,6 +272,17 @@
 
                     </div>
                 </div>
+               
+                <div id="ye4" style="display: none" class="xiangp">
+                    <div class="flow-demo" id="ID-flow-demo-manual">
+                        
+                        
+
+                    </div>
+                </div>
+
+
+
             </div>
         </div>
     </div>
@@ -284,19 +300,23 @@
 
         $("#yemian").on("click", function () {
             $("#ye1").css("display", "block");
-            $("#ye2,#ye3").css("display", "none");
+            $("#ye2,#ye3,#ye4").css("display", "none");
         });
 
         $("#yemian2").on("click", function () {
             $("#ye2").css("display", "block");
-            $("#ye1,#ye3").css("display", "none");
+            $("#ye1,#ye3,#ye4").css("display", "none");
         });
 
         $("#yemian3").on("click", function () {
             $("#ye3").css("display", "block");
-            $("#ye2,#ye1").css("display", "none");
+            $("#ye2,#ye1,#ye4").css("display", "none");
         });
 
+        $("#yemian4").on("click", function () {
+            $("#ye4").css("display", "block");
+            $("#ye2,#ye1,#ye3").css("display", "none");
+        });
         var yc = document.getElementById("yc");
         var ychz = document.getElementById("ychz");
         yc.addEventListener("click", function () {
