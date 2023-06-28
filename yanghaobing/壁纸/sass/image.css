@@ -1,0 +1,298 @@
+:root {
+  --background-clip: #0072ff;
+  --color-clip: #c6ffdd;
+  --border-color: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background: url("../image/18.jpg") no-repeat;
+  background-size: cover;
+}
+
+li {
+  text-align: center;
+}
+
+ul {
+  height: 100%;
+  float: left;
+}
+
+.box {
+  width: 1000px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.layui-nav-item:first {
+  font-size: 30px;
+}
+
+.good {
+  overflow: hidden;
+  float: right;
+  width: 800px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  background-size: cover;
+}
+
+.palette a {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  margin-left: 22px;
+}
+
+.palette {
+  display: flex;
+  padding: 15px 10px;
+}
+
+h3 {
+  color: var(--border-color);
+}
+
+.one {
+  background-color: #b92b27;
+}
+
+.two {
+  background-color: #1565c0;
+}
+
+.three {
+  background-color: #373b44;
+}
+
+.four {
+  background-color: #2980b9;
+}
+
+.five {
+  background-color: #6dd5fa;
+}
+
+.six {
+  background-color: #c31432;
+}
+
+.seven {
+  background-color: #240b36;
+}
+
+.eight {
+  background-color: #f12711;
+}
+
+.nine {
+  background-color: #f5af19;
+}
+
+.ten {
+  background-color: #659999;
+}
+
+.eleven {
+  background-color: #dd3e54;
+}
+
+.twelve {
+  background: radial-gradient(circle, #6be585, #8360c3, #2ebf91, #544a7d, #ffd452, #009fff, #ec2f4b);
+}
+
+.goods-centent {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.black {
+  width: 190px;
+  height: 150px;
+  background-color: #ec2f4b;
+  border-radius: 16px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.black:nth-child(1) {
+  background-color: #009fff;
+}
+
+.black:nth-child(2) {
+  background-color: #ec2f4b;
+}
+
+.black:nth-child(3) {
+  background-color: #fc4a1a;
+}
+
+.black:nth-child(4) {
+  background-color: #f7b733;
+}
+
+.black:nth-child(5) {
+  background-color: #74ebd5;
+}
+
+.black:nth-child(6) {
+  background-color: #acb6e5;
+}
+
+.black:nth-child(7) {
+  background-color: #6d6027;
+}
+
+.black:nth-child(8) {
+  background-color: #d3cbb8;
+}
+
+.black:nth-child(9) {
+  background-color: #03001e;
+}
+
+.black:nth-child(10) {
+  background-color: #7303c0;
+}
+
+.black:nth-child(11) {
+  background-color: #ec38bc;
+}
+
+.black:nth-child(12) {
+  background-color: #667db6;
+}
+
+.black:nth-child(13) {
+  background-color: #0082c8;
+}
+
+.black:nth-child(14) {
+  background-color: #667db6;
+}
+
+.black:nth-child(15) {
+  background-color: #ada996;
+}
+
+.black:nth-child(16) {
+  background-color: #f2f2f2;
+}
+
+.image-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.inlink {
+  width: 100%;
+  padding: 15px 10px;
+}
+
+.img {
+  width: 190px;
+  height: 150px;
+  border-radius: 16px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+img {
+  width: 190px;
+  height: 150px;
+  border-radius: 16px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+#content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.foot {
+  width: 800px;
+  height: 100%;
+}
+
+.foot .container {
+  height: 300px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  gap: 5px;
+  background-color: rgba(0, 110, 255, 0.041);
+}
+
+.foot .container .header {
+  flex: 1;
+  width: 100%;
+  border: 2px dashed royalblue;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.foot .container .header svg {
+  height: 100px;
+}
+
+.foot .container .header p {
+  text-align: center;
+  color: black;
+}
+
+.footer {
+  background-color: rgba(0, 110, 255, 0.075);
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: black;
+  border: none;
+}
+
+.footer svg {
+  height: 130%;
+  fill: royalblue;
+  background-color: rgba(70, 66, 66, 0.103);
+  border-radius: 50%;
+  padding: 2px;
+  cursor: pointer;
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.205);
+}
+
+.footer p {
+  flex: 1;
+  text-align: center;
+}
+
+#file {
+  display: none;
+}/*# sourceMappingURL=image.css.map */
