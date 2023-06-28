@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<script src="../chajia/cdn.jsdelivr.net_npm_echarts@5.4.2_dist_echarts.min.js"></script>
-<body>
-    <div id="main" style="width: 500px; height: 500px; background-color: aqua;"></div>
+  </head>
+  <script src="../chajia/cdn.jsdelivr.net_npm_echarts@5.4.2_dist_echarts.min.js"></script>
+  <body>
+    <div
+      id="main"
+      style="width: 500px; height: 500px; background-color: aqua"
+    ></div>
     <script>
+      var chartDom = document.getElementById("main");
+      var myChart = echarts.init(chartDom);
+      var option;
 
-        var chartDom = document.getElementById('main');
-var myChart = echarts.init(chartDom);
-var option;
+      option = {
+        xAxis: {
+          type: "category",
+          boundaryGap: false,
+          data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            data: [820, 932, 901, 934, 1290, 1330, 1320],
+            type: "line",
+            areaStyle: {},
+          },
+        ],
+      };
 
-option = {
-  xAxis: {
-    type: 'category',
-    boundaryGap: false,
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-  },
-  yAxis: {
-    type: 'value'
-  },
-  series: [
-    {
-      data: [820, 932, 901, 934, 1290, 1330, 1320],
-      type: 'line',
-      areaStyle: {}
-    }
-  ]
-};
-
-option && myChart.setOption(option);
+      option && myChart.setOption(option);
     </script>
-</body>
+  </body>
 </html>
