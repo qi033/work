@@ -100,17 +100,71 @@ $(document).ready(function () {
 
         $('body').toggleClass('div11');
     })
-    $(".div11").on("click", function () {
+    $(".div12").on("click", function () {
 
         $('body').toggleClass('div12');
     })
+    $(".div13").on("click", function () {
+        $('body').toggleClass('div13');
+    })
+    $(".div14").on("click", function () {
+
+        $('body').toggleClass('div14');
+    })
+    $(".div15").on("click", function () {
+
+        $('body').toggleClass('div15');
+    })
+    $(".div16").on("click", function () {
+
+        $('body').toggleClass('div16');
+    })
+    $(".div17").on("click", function () {
+        $('body').toggleClass('div17');
+    })
+    $(".div18").on("click", function () {
+
+        $('body').toggleClass('div18');
+    })
+    $(".div19").on("click", function () {
+
+        $('body').toggleClass('div19');
+    })
+    $(".div20").on("click", function () {
+
+        $('body').toggleClass('div20');
+    })
+    $(".div21").on("click", function () {
+        $('body').toggleClass('div21');
+    })
+    $(".div22").on("click", function () {
+
+        $('body').toggleClass('div22');
+    })
+    $(".div23").on("click", function () {
+
+        $('body').toggleClass('div23');
+    })
+    $(".div24").on("click", function () {
+
+        $('body').toggleClass('div24');
+    })
 });
   $(".icon1").click(function(){
-    $(".lloo").fadeIn(3000);
-    $("#box").css("display", "none");
+    $(".lloo").slideDown(2000);
+    $("#box").slideUp(2000)
     
   })
   $(".lloo").click(function(){
-    $("#box").fadeIn(3000);
-    $(".lloo").css("display", "none");
+    $("#box").slideDown(2000);
+    $(".lloo").slideUp()
   })
+   $(function () {
+          //给li点击事件
+          $("li").click(liFun);
+        });
+        function liFun() {
+          let url = $(this).attr("data-url");
+          $("#ifrm").prop("src", url);
+          console.log(url);
+        }

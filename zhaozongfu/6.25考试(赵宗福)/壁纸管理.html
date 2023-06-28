@@ -34,10 +34,10 @@
         <div id="box1">
             <h2>壁纸库</h2>
             <ul id="ul">
-                <li><a href="">纯色</a></li>
-                <li><a href="">官方壁纸</a></li>
-                <li><a href="">自定义壁纸</a></li>
-                <li><a href="">我的收藏</a></li>
+                <li data-url=""><a href="javascript:;">纯色</a></li>
+                <li data-url=""><a href="javascript:;">官方壁纸</a></li>
+                <li data-url=""><a href="javascript:;">自定义壁纸</a></li>
+                <li data-url><a href="javascript:;">我的收藏</a></li>
             </ul>
         </div>
         <div id="box2">
@@ -57,6 +57,10 @@
             <span id="span12"></span>
         </div>
         <div id="box3">
+             <iframe class="layui-card-body" id="ifrm" style="width: 100%; background-color: aqua; height: 100%"
+                        src="1.html" frameborder="0">
+             </iframe>
+            
             <div class="div1"></div>
             <div class="div2"></div>
             <div class="div3"></div>
@@ -84,6 +88,7 @@
         </div>
     </div>
 </body>
+<script src="./引入/layui.js"></script>
 <script src="./引入/jquery.js"></script>
 <script src="./js/壁纸管理.js"></script>
 
