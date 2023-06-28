@@ -1,11 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: aliceblue;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        height: 75%;
+        margin: 3% auto;
+    }
+
+    .container>div {
+        width: 20vw;
+        height: 20vh;
+        border-radius: 6%;
+        margin: 1%;
+        box-shadow: 5px 5px 5px #cfcfcf;
+    }
+
+    .container>div:hover {
+        margin-top: -1%;
+    }
+
+    img {
+        width: 80%;
+        height: 80%;
+        border-radius: 6%;
+        margin: 10px;
+    }
+
+    a {
+        display: block;
+        text-decoration: none;
+        text-align: left;
+        line-height: 7vh;
+        font-size: 18px;
+        margin-left: 10px;
+        color: rgb(167, 105, 248);
+    }
+
+    @media (max-width: 900px) {
+        .container>div {
+            width: 27vw;
+            height: 23vh;
+        }
+    }
+    @media (max-width: 600px) {
+        .container>div {
+            width: 41vw;
+            height: 23vh;
+        }
+    }
+    @media (max-width: 370px) {
+        .container>div {
+            margin: auto;
+            width: 60vw;
+            height: 25vh;
+        }
+    }
+    .cont{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .item1{
+        width: 40%;
+        height: 50%;
+        border-radius: 6% 0 0 0;
+    }
+    .item2{
+        
+        width: 60%;
+        height: 50%;
+        border-radius:0 6% 0 0;
+    }
+    .item3{
+        width: 100%;
+        height: 50%;
+        border-radius: 0 0 6% 6%;
+    }
+    span{
+        margin-left: 10px;
+    }
+</style>
+</head>
+
 <body>
-    <h1>你好</h1>
+    <div class="container">
+        <div style="background: linear-gradient(0deg, rgb(161, 140, 209) 0%, rgb(251, 194, 235) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img2.baidu.com/it/u=1386687878,3725017399&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+        <div
+            style="background: linear-gradient(0deg, rgb(255, 154, 158) 0%, rgb(254, 207, 239) 99%, rgb(254, 207, 239) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+
+        </div>
+        <div style="background: linear-gradient(0deg, rgb(251, 194, 235) 0%, rgb(166, 193, 238) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+        <div
+            style="background: linear-gradient(0deg, rgb(253, 203, 241) 0%, rgb(253, 203, 241) 1%, rgb(230, 222, 233) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+        <div style="background: linear-gradient(120deg, rgb(161, 196, 253) 0%, rgb(194, 233, 251) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+        <div style="background: linear-gradient(120deg, rgb(212, 252, 121) 0%, rgb(150, 230, 161) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+        <div style="background: linear-gradient(120deg, rgb(132, 250, 176) 0%, rgb(143, 211, 244) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+        <div style="background: linear-gradient(0deg, rgb(207, 217, 223) 0%, rgb(226, 235, 240) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+        <div style="background: linear-gradient(120deg, rgb(166, 192, 254) 0%, rgb(246, 128, 132) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+        <div style="background: linear-gradient(120deg, rgb(224, 195, 252) 0%, rgb(142, 197, 252) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+        <div style="background: linear-gradient(120deg, rgb(253, 251, 251) 0%, rgb(235, 237, 238) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+        <div style="background: linear-gradient(0deg, rgb(79, 172, 254) 0%, rgb(0, 242, 254) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+        <div style="background: linear-gradient(0deg, rgb(67, 233, 123) 0%, rgb(56, 249, 215) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+        <div style="background: linear-gradient(120deg, rgb(240, 147, 251) 0%, rgb(245, 87, 108) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+        <div
+            style="background: linear-gradient(0deg, rgb(238, 162, 162) 0%, rgb(187, 193, 191) 19%, rgb(87, 198, 225) 42%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+        <div style="background: linear-gradient(0deg, rgb(106, 17, 203) 0%, rgb(37, 117, 252) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+        <div
+            style="background: linear-gradient(0deg, rgb(221, 232, 178) 0%, rgb(89, 179, 148) 24%, rgb(184, 35, 90) 59%, rgb(128, 19, 87) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+        <div style="background: linear-gradient(0deg, rgb(2, 80, 197) 0%, rgb(212, 63, 141) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+        <div style="background: linear-gradient(0deg, rgb(217, 175, 217) 0%, rgb(151, 217, 225) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+        <div style="background: linear-gradient(0deg, rgb(199, 29, 111) 0%, rgb(208, 150, 147) 100%);">
+            <div class="cont">
+                <div class="item1"><img src="https://img0.baidu.com/it/u=677514572,1498200651&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt=""></div>
+                <div class="item2"><a href="">zcl</a></div>
+                <div class="item3"><span>作业文档,文本</span></div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
