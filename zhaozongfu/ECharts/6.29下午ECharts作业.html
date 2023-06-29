@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../引入/echarts.min.js"></script>
+    <script src="../引入/jquery.min.js"></script>
+    <style>
+        .box {
+            width: 800px;
+            height: 600px;
+            margin: auto;
+        }
+
+        .open {
+            width: 800px;
+            height: 50px;
+        }
+
+        .open ul li {
+            position: relative;
+            left: -55px;
+            list-style: none;
+            float: left;
+            margin-left: 35px;
+            margin-right: 35px;
+            text-align: center;
+        }
+
+        .open ul li p {
+            margin-top: 5px;
+        }
+
+        .gang {
+            position: relative;
+            top: -50px;
+            left: 70px;
+            color: gray;
+        }
+
+        .icon {
+            margin-top: 10px;
+            margin-left: -60px;
+        }
+
+        .open1 {
+            position: relative;
+            top: -62px;
+            width: 200px;
+            height: 50px;
+            float: right;
+        }
+
+        .open1 span {
+            line-height: 50px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        .open2 {
+            float: left;
+            display: flex;
+            flex-wrap: wrap;
+            width: 70%;
+            height: 516px;
+            background-color: aqua;
+
+        }
+
+        .cen {
+            width: 100%;
+            height: 50%;
+            background-image: linear-gradient(0deg, #e7f0fd 0%, #cddef0 100%);
+        }
+
+        .cen1 {
+            width: 100%;
+            height: 50%;
+            background-image: linear-gradient(0deg, white 0%, #eab6b3 100%);
+        }
+
+        .open3 {
+            display: flex;
+            position: relative;
+            top: -28px;
+            width: 240px;
+            height: 516px;
+        }
+        .open3 ul{
+            position: relative;
+            left: -18px;
+            width: 240px;
+        }
+        .open3 ul li {
+            width: 100%;
+            list-style: none;
+        }
+        .open3 ul li button{
+            width: 100%;
+            height: 40px;
+            border: none;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="open">
+            <ul>
+                <li><span>时间</span>
+                    <p>06-24 00:10</p>
+                    <span class="gang">|</span>
+                </li>
+                <li><span>类型</span>
+                    <p>大乱斗</p>
+                    <span class="gang">|</span>
+                </li>
+                <li><span>比赛时长</span>
+                    <p>20分钟</p>
+                    <span class="gang">|</span>
+                </li>
+                <li><span>击杀</span>
+                    <p>52/62</p>
+                </li>
+                <svg t="1688026913446" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="2470" width="32" height="32">
+                    <path
+                        d="M512 42.666667C252.793333 42.666667 42.666667 252.793333 42.666667 512s210.126667 469.333333 469.333333 469.333333 469.333333-210.126667 469.333333-469.333333S771.206667 42.666667 512 42.666667z m196.546667 500.493333l-266.666667 176A37.333333 37.333333 0 0 1 384 688V336.033333a37.333333 37.333333 0 0 1 57.893333-31.16l266.666667 176a37.333333 37.333333 0 0 1 0 62.32z"
+                        fill="#707070" p-id="2471"></path>
+                </svg>
+            </ul>
+            <div class="open1">
+                <span>基础</span>
+                <span style="border-bottom: 1px rgb(3, 85, 3) solid; color: rgb(3, 85, 3);">高阶数据</span>
+                <span>我的表现</span>
+            </div>
+        </div>
+        <div class="open2">
+            <div class="cen">
+                <div id="main" style="width: 100%; height: 100%;"></div>
+            </div>
+            <div class="cen1">
+                <div id="main1" style="width: 100%; height: 100%;"></div>
+            </div>
+        </div>
+        <div class="open3">
+            <ul>
+                <li><button id="option">对英雄的总伤害</button></li>
+                <li><button id="option1">对英雄的物理伤害</button></li>
+                <li><button id="option2">对英雄的魔法伤害</button></li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    var chartDom = document.getElementById('main');
+    var myChart = echarts.init(chartDom);
+    var option;
+    var option2;
+    var option4;
+    const weatherIcons = {
+        Sunny: 'https://files.codelife.cc/itab/defaultWallpaper/videos/33.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp',
+        Summer: 'https://files.codelife.cc/itab/defaultWallpaper/videos/44.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp',
+        jaion: 'https://files.codelife.cc/itab/defaultWallpaper/videos/v-29.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp',
+        China:"https://files.codelife.cc/itab/defaultWallpaper/videos/45.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp",
+        helan:"https://files.codelife.cc/itab/defaultWallpaper/videos/26.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp",
+    };
+    option = {
+        title: {
+            text: '对英雄的总伤害'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {},
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            boundaryGap: [0, 0.01],
+            axisLabel: { show: false },
+        },
+        yAxis: {
+            type: 'category',
+            data: ['Sunny', 'Summer', 'jaion', 'China', 'helan'],
+            axisLabel: {
+                formatter: function (value) {
+                    return '{' + value + '| }\n{value|' + value + '}';
+                },
+                rich: {
+                    Sunny: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons.Sunny
+                        }
+                    },
+                    Summer: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons.Summer
+                        }
+                    },
+                    jaion: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons.jaion
+                        }
+                    },
+                    China: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons.China
+                        }
+                    },
+                    helan: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons.helan
+                        }
+                    }
+                }
+            },
+
+        },
+        series: [
+            {
+                label: {
+                    show: true,
+                    position: 'right'
+                },
+                type: 'bar',
+                data: [14.7, 54.2, 26.9, 16.8, 32.2],
+                itemStyle: {
+                    color: "#5193af"
+                }
+            }
+        ]
+    };
+    option2 = {
+        title: {
+            text: '对英雄的物理伤害'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {},
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            boundaryGap: [0, 0.01],
+            axisLabel: { show: false },
+        },
+        yAxis: {
+            type: 'category',
+            data: ['Sunny', 'Summer', 'jaion', 'China', 'helan'],
+            axisLabel: {
+                formatter: function (value) {
+                    return '{' + value + '| }\n{value|' + value + '}';
+                },
+                rich: {
+                    Sunny: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons.Sunny
+                        }
+                    },
+                    Summer: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons.Summer
+                        }
+                    },
+                    jaion: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons.jaion
+                        }
+                    },
+                    China: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons.China
+                        }
+                    },
+                    helan: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons.helan
+                        }
+                    }
+                }
+            },
+
+        },
+        series: [
+            {
+                label: {
+                    show: true,
+                    position: 'right'
+                },
+                type: 'bar',
+                data: [18.0, 23.2, 67.9, 32.8, 10.2],
+                itemStyle: {
+                    color: "#5193af"
+                }
+            }
+        ]
+    };
+    option4 = {
+        title: {
+            text: '对英雄的魔法伤害'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {},
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            boundaryGap: [0, 0.01],
+            axisLabel: { show: false },
+        },
+        yAxis: {
+            type: 'category',
+            data: ['Sunny', 'Summer', 'jaion', 'China', 'helan'],
+            axisLabel: {
+                formatter: function (value) {
+                    return '{' + value + '| }\n{value|' + value + '}';
+                },
+                rich: {
+                    Sunny: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons.Sunny
+                        }
+                    },
+                    Summer: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons.Summer
+                        }
+                    },
+                    jaion: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons.jaion
+                        }
+                    },
+                    China: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons.China
+                        }
+                    },
+                    helan: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons.helan
+                        }
+                    }
+                }
+            },
+
+        },
+        series: [
+            {
+                label: {
+                    show: true,
+                    position: 'right'
+                },
+                type: 'bar',
+                data: [68.0, 73.2, 27.9, 92.8, 30.2],
+                itemStyle: {
+                    color: "#5193af"
+                }
+            }
+        ]
+    };
+    option && myChart.setOption(option);
+    var chartDom1 = document.getElementById('main1');
+    var myChart1 = echarts.init(chartDom1);
+    var option1;
+    var option3;
+    var option5;
+    const weatherIcons1 = {
+        Sunny: 'https://files.codelife.cc/itab/defaultWallpaper/videos/v-13.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp',
+        Summer: 'https://files.codelife.cc/itab/defaultWallpaper/videos/v-11.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp',
+        jaion: 'https://files.codelife.cc/itab/defaultWallpaper/videos/21.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp',
+        China:"https://files.codelife.cc/itab/defaultWallpaper/videos/13.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp",
+        helan:"https://files.codelife.cc/itab/defaultWallpaper/videos/19.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp",
+    };
+    option1 = {
+        title: {
+            text: '对英雄的总伤害'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {},
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            boundaryGap: [0, 0.01],
+            axisLabel: { show: false },
+        },
+        yAxis: {
+            type: 'category',
+            data: ['Sunny', 'Summer', 'jaion', 'China', 'helan'],
+            axisLabel: {
+                formatter: function (value) {
+                    return '{' + value + '| }\n{value|' + value + '}';
+                },
+                rich: {
+                    Sunny: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons1.Sunny
+                        }
+                    },
+                    Summer: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons1.Summer
+                        }
+                    },
+                    jaion: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons1.jaion
+                        }
+                    },
+                    China: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons1.China
+                        }
+                    },
+                    helan: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons1.helan
+                        }
+                    }
+                }
+            },
+        },
+        series: [
+            {
+                label: {
+                    show: true,
+                    position: 'right'
+                },
+                type: 'bar',
+                data: [78.7, 24.2, 86.9, 32.8, 12.2],
+                itemStyle: {
+                    color: "#eab6b3"
+                }
+            }
+        ]
+    };
+    option3 = {
+        title: {
+            text: '对英雄的物理伤害'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {},
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            boundaryGap: [0, 0.01],
+            axisLabel: { show: false },
+        },
+        yAxis: {
+            type: 'category',
+            data: ['Sunny', 'Summer', 'jaion', 'China', 'helan'],
+            axisLabel: {
+                formatter: function (value) {
+                    return '{' + value + '| }\n{value|' + value + '}';
+                },
+                rich: {
+                    Sunny: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons1.Sunny
+                        }
+                    },
+                    Summer: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons1.Summer
+                        }
+                    },
+                    jaion: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons1.jaion
+                        }
+                    },
+                    China: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons1.China
+                        }
+                    },
+                    helan: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons1.helan
+                        }
+                    }
+                }
+            },
+        },
+        series: [
+            {
+                label: {
+                    show: true,
+                    position: 'right'
+                },
+                type: 'bar',
+                data: [91.7, 14.2, 26.9, 16.8, 32.2],
+                itemStyle: {
+                    color: "#eab6b3"
+                }
+            }
+        ]
+    };
+    option5 = {
+        title: {
+            text: '对英雄的魔法伤害'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {},
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            boundaryGap: [0, 0.01],
+            axisLabel: { show: false },
+        },
+        yAxis: {
+            type: 'category',
+            data: ['Sunny', 'Summer', 'jaion', 'China', 'helan'],
+            axisLabel: {
+                formatter: function (value) {
+                    return '{' + value + '| }\n{value|' + value + '}';
+                },
+                rich: {
+                    Sunny: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons1.Sunny
+                        }
+                    },
+                    Summer: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons1.Summer
+                        }
+                    },
+                    jaion: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons1.jaion
+                        }
+                    },
+                    China: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons1.China
+                        }
+                    },
+                    helan: {
+                        height: 25,
+                        align: 'center',
+                        backgroundColor: {
+                            image: weatherIcons1.helan
+                        }
+                    }
+                }
+            },
+        },
+        series: [
+            {
+                label: {
+                    show: true,
+                    position: 'right'
+                },
+                type: 'bar',
+                data: [11.7, 54.2, 86.9, 46.8, 62.2],
+                itemStyle: {
+                    color: "#eab6b3"
+                }
+            }
+        ]
+    };
+    option1 && myChart1.setOption(option1);
+    $("#option").on("click", function () {
+        myChart.setOption(option);//蓝色
+        myChart1.setOption(option1);//红色
+      });
+      $("#option1").on("click", function () {
+        myChart.setOption(option2);
+        myChart1.setOption(option3);
+      });
+      $("#option2").on("click", function () {
+        myChart.setOption(option4);
+        myChart1.setOption(option5);
+      });
+</script>
+   
+</html>
