@@ -63,22 +63,15 @@ let scl = [
 ]
 function sclfun(){
     scl.forEach((item,index) => {
-        const div = document.createElement('div');
-        div.id = 'mydiv'
         const img = document.createElement('img')
         img.src = item
         img.id = 'imgs'
-        div.appendChild(img);
-        div.addEventListener('click', () => cliFn(item))
-        $('#solidColor').append(div)
+        img.addEventListener('click', () => cliFn(item))
+        $('solidColor').append(img)
     });
-    function cliFn(url){
-        $('body').css('background', `url(${url})no-repeat 0 0/100% 100%`)
-        localStorage.setItem('back',url)
-    }
-    const image = localStorage.getItem('back');
-    if(image){
-        $('body').css('background', `url(${image})no-repeat 0 0/100% 100%`)
-    }
 }
+
+// function imgs(url){
+//     $('body').css('background',`url(${url})no-repeat 0 0/100% 100%`)
+// }
 
