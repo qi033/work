@@ -3,274 +3,159 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <style>
-    BODY {
-        background: #000;
+    :root {
+        --text: #2B3044;
+        --line: #275EFE;
+        --font-size: 16px;
+        --duration: .44s;
+        --duration-line: .84s;
     }
 
-    .svg-fulscreen {
+    p {
+        font-size: 18px;
+        margin: 0;
+        font-size: var(--font-size);
+        line-height: var(--font-size);
+        zoom: 1.5;
+        color: white;
+    }
+
+    p .link {
+        display: inline-block;
+        position: relative;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    p .link div {
+        overflow: hidden;
+    }
+
+    p .link div:first-child {
+        display: -webkit-box;
+        display: flex;
+        overflow: hidden;
+        text-shadow: 0 var(--font-size) 0 var(--text);
+
+    }
+
+    p .link div:last-child {
         position: absolute;
-        top: 0;
+        pointer-events: none;
+        right: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
-        transform: translateZ(200px);
+        bottom: -3px;
+        height: 5px;
+
     }
 
-    .heart__fill-circle {
-        transform-origin: 400px 300px;
-        -webkit-animation: rotation 17s infinite alternate;
-        animation: rotation 17s infinite alternate;
+    p .link div:last-child svg {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 300%;
+        height: 5px;
+        fill: none;
+        stroke: var(--line);
+        stroke-width: 1.5px;
+        stroke-linecap: round;
+        stroke-dasharray: 63.5px 128px;
+        stroke-dashoffset: var(--line-offset, 190.25px);
+        -webkit-transform: translateX(var(--line-x)) translateZ(0);
+        transform: translateX(var(--line-x)) translateZ(0);
+        -webkit-transition: stroke-dashoffset var(--line-d, 0s), -webkit-transform var(--line-d, 0s);
+        transition: stroke-dashoffset var(--line-d, 0s), -webkit-transform var(--line-d, 0s);
+        transition: transform var(--line-d, 0s), stroke-dashoffset var(--line-d, 0s);
+        transition: transform var(--line-d, 0s), stroke-dashoffset var(--line-d, 0s), -webkit-transform var(--line-d, 0s);
+
     }
 
-    .heart__fill-circle:nth-child(6n+1) {
-        -webkit-animation-delay: -2s;
-        animation-delay: -2s;
+    p .link div span {
+        display: block;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        font-style: normal;
+        -webkit-transition: -webkit-transform var(--duration) ease;
+        transition: -webkit-transform var(--duration) ease;
+        transition: transform var(--duration) ease;
+        transition: transform var(--duration) ease, -webkit-transform var(--duration) ease;
+        -webkit-transform: translateY(var(--m, 0));
+        transform: translateY(var(--m, 0));
+
     }
 
-    .heart__fill-circle:nth-child(6n+2) {
-        -webkit-animation-delay: -1s;
-        animation-delay: -1s;
+    p .link:hover {
+        --m: calc(var(--font-size) * -1);
+        --line-d: var(--duration-line);
+        --line-x: 65.66%;
+        --line-offset: 63.5px;
+
     }
 
-    .heart__fill-circle:nth-child(6n+3) {
-        -webkit-animation-delay: -2.5s;
-        animation-delay: -2.5s;
+    html {
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        --u: 2vmin;
+        --r: calc(var(--u) / 1.75);
+        --c0: #09222e;
+        --c1: #0f536880;
+        --rad: var(--c0) 0 var(--r), #fff0 calc(var(--r) + 0.1vmin) 100%;
+        --rad2: var(--c1) 0 var(--r), #fff0 calc(var(--r) + 1vmin) 100%;
+        --lin: #fff0 0% 23%, var(--c0) 23% 27%, #fff0 27% 73%, var(--c0) 73% 77%, #fff0 77% 100%;
+        --lin2: #fff0 0% 12%, var(--c1) 15% 19%, #fff0 22% 62%, var(--c1) 65% 69%, #fff0 72% 92%;
+        --lin3: #fff0 0% 12%, var(--c1) 15% 19%, #fff0 22% 62%, var(--c1) 65% 69%, #fff0 72% 100%;
+        --gp: 50%/calc(var(--u) * 10) calc(var(--u) * 10);
+        height: 100vh;
+        background:
+            radial-gradient(circle at 50% 100%, var(--rad)) var(--gp),
+            radial-gradient(circle at 50% 0%, var(--rad)) var(--gp),
+            radial-gradient(circle at 100% 50%, var(--rad)) var(--gp),
+            radial-gradient(circle at 0% 50%, var(--rad)) var(--gp),
+            linear-gradient(-135deg, var(--lin)) var(--gp),
+            linear-gradient(225deg, var(--lin)) var(--gp),
+            linear-gradient(-225deg, var(--lin)) var(--gp),
+            linear-gradient(135deg, var(--lin)) var(--gp),
+            radial-gradient(circle at 34% 0%, var(--rad2)) var(--gp),
+            radial-gradient(circle at 34% 100%, var(--rad2)) var(--gp),
+            radial-gradient(circle at 84% 50%, var(--rad2)) var(--gp),
+            linear-gradient(45deg, var(--lin3)) var(--gp),
+            linear-gradient(135deg, var(--lin2)) var(--gp),
+            linear-gradient(25deg, #0d506b 10%, #18aede, #0d506b 80%);
+        background-color: var(--c2);
+
     }
 
-    .heart__fill-circle:nth-child(6n+4) {
-        -webkit-animation-delay: -0.5s;
-        animation-delay: -0.5s;
+    * {
+        box-sizing: inherit;
     }
 
-    .heart__fill-circle:nth-child(6n+5) {
-        -webkit-animation-delay: -1.5s;
-        animation-delay: -1.5s;
+    *:before,
+    *:after {
+        box-sizing: inherit;
+
     }
 
-    @-webkit-keyframes rotation {
-        0% {
-            transform: rotate(0);
-        }
+    body {
+        font-family: 'Inter', Arial;
 
-        50% {
-            transform: rotate(180deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-    @keyframes rotation {
-        0% {
-            transform: rotate(0);
-        }
-
-        50% {
-            transform: rotate(180deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
     }
 </style>
 
-<svg class="svg-fulscreen heart" viewBox="0 0 800 600">
-    <filter id="filter-gooey" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox"
-        primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-        <feGaussianBlur stdDeviation="10" x="0%" y="0%" width="100%" height="100%" edgeMode="none" in="SourceGraphic"
-            result="blur" />
-
-        <feColorMatrix type="matrix" values="1 0 0 0 0
-                0 1 0 0 0
-                0 0 1 0 0
-                0 0 0 19 -10" x="0%" y="0%" width="100%" height="100%" in="blur" result="colormatrix" />
-    </filter>
-
-    <filter id="filter-heart-blur" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox"
-        primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-
-        <feGaussianBlur stdDeviation="1" x="0%" y="0%" width="100%" height="100%" edgeMode="none" result="blur" />
-
-        <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="1" seed="1" stitchTiles="stitch"
-            result="turbulence" />
-
-        <feDisplacementMap scale="50" xChannelSelector="R" yChannelSelector="A" class="distortion-waves__map" in="blur"
-            in2="turbulence" result="displacementMap" />
-    </filter>
-
-    <mask id="mask" maskUnits="objectBoundingBox">
-        <g filter="url(#filter-gooey)" fill="white">
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-            <circle r="50" cx="50%" cy="50%" class="heart__mask-circle" />
-
-            <svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid meet">
-                <svg viewBox="0 0 400 329" preserveAspectRatio="xMidYMid meet">
-                    <path
-                        d="M199.707062,328.924193 C306.1279,286.264571 371.305914,223.788236 395.241104,141.495189 C411.10542,86.9511117 389.083175,0.0955637558 302.216473,9.38591108e-05 C244.305338,-0.0635527387 210.135535,32.2422428 199.707062,96.9174805 C192.538642,32.3058894 159.023393,0.031917158 99.1613163,0.0955637558 C9.36820111,0.191033652 -11.317258,86.0580148 5.18615059,141.495189 C29.2163218,222.215775 94.0566258,284.692109 199.707062,328.924193 Z">
-                    </path>
-                </svg>
-            </svg>
-        </g>
-    </mask>
-
-    <g mask="url(#mask)" filter="url(#filter-heart-blur)" fill="none" stroke-width="500" stroke-dasharray="52 260"
-        class="heart__fill-circles-group">
-        <circle r="250" cx="50%" cy="50%" stroke="crimson" class="heart__fill-circle" />
-        <circle r="250" cx="50%" cy="50%" stroke="gold" stroke-dashoffset="52" class="heart__fill-circle" />
-        <circle r="250" cx="50%" cy="50%" stroke="lightseagreen" stroke-dashoffset="104" class="heart__fill-circle" />
-        <circle r="250" cx="50%" cy="50%" stroke="yellowgreen" stroke-dashoffset="156" class="heart__fill-circle" />
-        <circle r="250" cx="50%" cy="50%" stroke="teal" stroke-dashoffset="208" class="heart__fill-circle" />
-        <circle r="250" cx="50%" cy="50%" stroke="orange" stroke-dashoffset="260" class="heart__fill-circle" />
-        <circle r="600" cx="50%" cy="50%" stroke-width="0" fill="transparent" />
-    </g>
-</svg>
+<body>
+    <p><a href="./6.25考试/6.25考试.html" class="link"
+            style="--slist: #ebac79,#d65b56;">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;壁纸</a></p>
+</body>
 <script>
-    var requestAnimationFrame = window.requestAnimationFrame
-        || window.mozRequestAnimationFrame
-        || window.webkitRequestAnimationFrame
-        || window.msRequestAnimationFrame;
-
-    const circlesGroup = document.querySelector('.heart__fill-circles-group');
-    const circlesElems = document.querySelectorAll('.heart__mask-circle');
-    const circles = [];
-    const groupAnimatedClass = 'heart__fill-circles-group--animated';
-
-    const pathLength = 350;
-    const maxSteps = 80;
-    const maxR = 50;
-    const rStep = maxR / maxSteps;
-
-    const Circle = function ({ elem, direction, delay }) {
-        this.elem = elem;
-        this.direction = direction;
-        this.delay = delay;
-
-        this.resetValues();
-    };
-
-    Circle.prototype.resetValues = function () {
-        const angleDeg = Math.round(Math.random() * 360);
-        const angleRad = angleDeg * Math.PI / 180;
-
-        this.x = pathLength * Math.sin(angleRad); // c * sin(B)
-        this.y = pathLength * Math.cos(angleRad); // c * cos(B)
-        this.xStep = this.x / maxSteps;
-        this.yStep = this.y / maxSteps;
-        this.currentStep = maxSteps / 4.5;
-    };
-
-    Circle.prototype.changeProp = function () {
-        let x = this.xStep * this.currentStep;
-        let y = this.yStep * this.currentStep;
-
-        if (this.direction === 1) {
-            // right top
-            y *= -1;
-        }
-        else if (this.direction === 2) {
-            // right bottom
-            // make nothing
-        }
-        else if (this.direction === 3) {
-            // left bottom
-            x *= -1;
-        }
-        else if (this.direction === 4) {
-            // left top
-            x *= -1;
-            y *= -1;
-        }
-
-        this.currentStep++;
-
-        this.elem.setAttribute('transform', `translate(${x}, ${y})`);
-        this.elem.setAttribute('r', (Math.abs(maxSteps - this.currentStep)) * rStep);
-
-        if (this.currentStep >= maxSteps) {
-            this.resetValues();
-        }
-
-        requestAnimationFrame(() => {
-            this.changeProp();
-        });
-    };
-
-    function setInitial() {
-        circles.forEach(circle => {
-            circle.elem.setAttribute('transform', `translate(0, 0)`);
-            circle.elem.setAttribute('r', maxR);
-        })
-    };
-
-    const runAnimation = () => {
-        circles.forEach((circle, i) => {
-            setTimeout(() => {
-                circle.resetValues();
-                circle.changeProp();
-            }, circle.delay);
-        })
-    };
-
-    const prepareCircles = () => {
-        circlesElems.forEach((elem, i) => {
-            const direction = Math.floor(Math.random() * 4) + 1;
-            const circle = new Circle({
-                elem,
-                direction,
-                delay: i * 100
-            });
-
-            circles.push(circle);
-        });
-    }
-
-    // ------------------------------
-
-    prepareCircles();
-    requestAnimationFrame(runAnimation);
+    document.querySelectorAll('.link').forEach(link => {
+        link.innerHTML = '<div><span>' + link.textContent.trim().split('').join('</span><span>') + '</span></div>'
+        link.querySelectorAll('span').forEach(s => s.innerHTML = s.textContent == ' ' ? ' ' : s.textContent)
+        link.insertAdjacentHTML('beforeend', '<div><svg preserveAspectRatio="none" viewBox="0 0 192 5"><path d="M191.246 4H129C129 4 127.781 4.00674 127 4C114.767 3.89447 108.233 1 96 1C83.7669 1 77.2327 3.89447 65 4C64.219 4.00674 63 4 63 4H0.751923" /></svg></div>')
+    });
 </script>
 
 </html>
