@@ -335,18 +335,14 @@ h2 {
 }
 
 .hhdged {
-#box3 {
-    display: flex;
-    flex-wrap: wrap;
     position: relative;
     top: 20px;
     width: 120vh;
-    height: 83%;
+    height: 83.5%;
     margin: auto;
     background-color: azure;
     border-bottom-right-radius: 10px;
     overflow-y: scroll;
-    background-color: azure;
 }
 
 .taikula {
@@ -360,6 +356,8 @@ h2 {
 }
 .taikula img{
     margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
     width: 180px;
     height: 120px;
 }
@@ -372,17 +370,11 @@ h2 {
     background-color: azure;
     display: none;
 }
-.taikula1 img{
-    margin-left: 10px;
-    width: 180px;
-    height: 120px;
-}
 #box3 {
     width: 800px;
-    height: 86.5%;
+    height: 100%;
     margin: auto;
-
-
+    overflow-y: scroll;
 }
 
 ::-webkit-scrollbar {
@@ -390,11 +382,11 @@ h2 {
 }
 
 #box3 div {
-    display: flex;
-    margin-left: 24px;
-    margin-right: 24px;
+    display: inline-block;
     margin-top: 10px;
     border-radius: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
     width: 220px;
     height: 120px;
     background-color: #3883f7;
@@ -493,4 +485,4 @@ h2 {
 }
 .div24 {
     background: linear-gradient(-225deg, rgb(105, 234, 203) 0%, rgb(234, 204, 248) 48%, rgb(102, 84, 241) 100%);
-}}
+}
