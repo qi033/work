@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="./625.css">
+<script src="./jquery-3.7.0.min(1).js"></script>
+
+<body>
+    <div class="jj">
+        <button class="bizhi"><span>点击壁纸</span></button>
+    </div>
+
+    <div class="main">
+        <div class="left">
+            <ul>
+                <li class="chunse">
+                    <a href="#" class="chunse">纯色</a>
+
+                </li>
+                <li class="guanfang"><a href="#">官方壁纸</a></li>
+                <li><a href="#" class="ziz">自定义壁纸</a></li>
+                <li><a href="#">动态壁纸</a></li>
+                <li><a href="#">我的收藏</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <span class="cuo">❌</span>
+        </div>
+        <div class="chun">
+
+        </div>
+        <div class="guan">
+
+        </div>
+        <div class="zidingyi">
+
+        </div>
+</body>
+<script>
+    $('.main').css('display', 'none');
+    $(".bizhi").click(function () {
+        $(".main").css("display", "block");
+    })
+
+    $(".cuo").click(function () {
+        $(".main").css("display", "none");
+    })
+
+    $(".guan").css("display", "none");
+    $(".guanfang").click(function () {
+        $(".guan").css("display", "block");
+        $(".chun").css("display", "none");
+        $(".zidingyi").css("display", "none");
+    })
+
+    $(".chunse").click(function () {
+        $(".zidingyi").css("display", "none");
+        $(".guan").css("display", "none");
+        $(".chun").css("display", "block");
+    })
+
+    $('.ziz').click(function () {
+        $(".guan").css("display", "none");
+        $(".chun").css("display", "none");
+        $(".zidingyi").css("display", "block");
+    })
+    window.onload = function () {
+        list();
+        cs();
+    }
+    let img = [
+        "https://files.codelife.cc/itab/defaultWallpaper/videos/33.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp",
+        "https://files.codelife.cc/itab/defaultWallpaper/videos/41.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp",
+        "https://files.codelife.cc/itab/defaultWallpaper/videos/44.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp",
+        "https://files.codelife.cc/itab/defaultWallpaper/videos/v-29.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp",
+        "https://files.codelife.cc/itab/defaultWallpaper/videos/v-32.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp",
+        "https://files.codelife.cc/itab/defaultWallpaper/videos/25.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp",
+        "https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/5g/5g7ew7.jpg?w=400&h=200&fmt=webp",
+        "https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/9d/9dolj1.jpg?w=400&h=200&fmt=webp",
+        "https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/7p/7p2zz3.jpg?w=400&h=200&fmt=webp",
+        "https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/7p/7p1lw9.jpg?w=400&h=200&fmt=webp",
+        "https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/1p/1pqyyw.jpg?w=400&h=200&fmt=webp",
+        "https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/gp/gpq51d.jpg?w=400&h=200&fmt=webp"
+    ];
+    function list() {
+        let html = "";
+        img.filter((item, index) => {
+            html += `
+             <img src='${item}' class='tu' onclick='add("${item}")'>
+                  `
+        })
+        $(".guan").append(html);
+    }
+
+    let imgs = [
+        "https://img2.baidu.com/it/u=1277599156,3097465022&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1687798800&t=19b19826d0247884dbd873911fb72fb7",
+        "https://img1.baidu.com/it/u=1935366219,1600926755&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1687798800&t=8b8270d4d71feddb2cbe746fe3d0cae5",
+        "https://img2.baidu.com/it/u=1856217139,2592600197&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1687798800&t=ba1b6965121e31fc774e4d60799fca24",
+        "https://img0.baidu.com/it/u=1489782107,3519116124&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1687798800&t=2be2b34e3f98e7b1340f3ae33fe743e8",
+        "https://img1.baidu.com/it/u=671033973,1243150112&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1687798800&t=f745f1fbc5b10e0b1be1b56535019dfc",
+        "https://img1.baidu.com/it/u=3210817148,3150249325&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=1082",
+        "https://img1.baidu.com/it/u=4262801865,497791046&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1687798800&t=bea8429f2093771715e862d65e8fec3e",
+        "https://img2.baidu.com/it/u=1136537753,1872938280&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1687798800&t=0742cb922ef2f73bddda60a8b4f4a79a",
+        "https://img2.baidu.com/it/u=2512961321,2459079440&fm=253&app=138&size=w931&n=0&f=PNG&fmt=auto?sec=1687798800&t=753a45724ffc0428011de00a273e5b30",
+        "https://img2.baidu.com/it/u=1569414381,597150743&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1687798800&t=986b7a5f1da20109bb9b8a598fd8904a",
+        "https://img1.baidu.com/it/u=2376797368,3361648723&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=890",
+        "https://img0.baidu.com/it/u=3974924179,2340775161&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=1083",
+    ];
+    function cs() {
+        let html = "";
+        imgs.filter((item, index) => {
+            html += `
+             <img src='${item}' class='tu' onclick='add("${item}")'>
+                  `
+        })
+        $(".chun").append(html);
+    }
+
+    function add(url) {
+        $('body').css('background', `url(${url})no-repeat 0 0/100% 100%`)
+    }
+
+
+
+</script>
+
+</html>
