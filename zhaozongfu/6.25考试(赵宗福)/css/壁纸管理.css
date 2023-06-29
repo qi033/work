@@ -335,9 +335,15 @@ h2 {
 }
 
 .hhdged {
+#box3 {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    top: 20px;
+    width: 120vh;
+    height: 83%;
     margin: auto;
-    width: 800px;
-    height: 86.5%;
+    background-color: azure;
     border-bottom-right-radius: 10px;
     overflow-y: scroll;
     background-color: azure;
@@ -384,13 +390,14 @@ h2 {
 }
 
 #box3 div {
-    margin-left: 20px;
-    margin-right: 20px;
-    display: inline-block;
+    display: flex;
+    margin-left: 24px;
+    margin-right: 24px;
     margin-top: 10px;
     border-radius: 5px;
     width: 220px;
     height: 120px;
+    background-color: #3883f7;
 }
 
 .div1 {
