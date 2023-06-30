@@ -1,0 +1,3295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="./插件/layui-v2.8.8/layui-v2.8.8/layui/css/layui.css" />
+    <script src="./插件/layui-v2.8.8/layui-v2.8.8/layui/layui.js"></script>
+    <script src="../common/echarts.js"></script>
+  </head>
+  <style>
+    #box {
+      width: 100%;
+      height: 1200px;
+      border-radius: 50px;
+      background: #e0e0e0;
+      box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    }
+    #main {
+      width: 500px;
+      height: 500px;
+      border: 1px solid red;
+    }
+    #ple {
+      width: 100%;
+      height: 500px;
+      border: 1px solid red;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+    }
+    #line {
+      width: 500px;
+      height: 500px;
+      border: 1px solid red;
+    }
+    #boos {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: stretch;
+      flex-direction: row;
+    }
+    .ple-image {
+      width: 500px;
+      height: 500px;
+      border: 1px solid red;
+    }
+    #radar {
+      width: 500px;
+      height: 500px;
+      background: #3a1c71; /* fallback for old browsers */
+      background: -webkit-linear-gradient(
+        to right,
+        #ffaf7b,
+        #d76d77,
+        #3a1c71
+      ); /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(
+        to right,
+        #ffaf7b,
+        #d76d77,
+        #3a1c71
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+    #dynamic {
+      width: 100%;
+      height: 500px;
+      background: #000046; /* fallback for old browsers */
+      background: -webkit-linear-gradient(
+        to right,
+        #1cb5e0,
+        #000046
+      ); /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(
+        to right,
+        #1cb5e0,
+        #000046
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+  </style>
+  <body>
+    <center>
+      <div id="box">
+        <div id="but">
+          <button class="layui-btn" onclick="yangfun()">杨浩冰</button>
+          <button class="layui-btn" onclick="zhaofun()">赵宗福</button>
+          <button class="layui-btn" onclick="onjiajiafun()">刘佳佳</button>
+          <button class="layui-btn" onclick="linkfun()">甘天鸽</button>
+          <button class="layui-btn" onclick="liufun()">刘振洲</button>
+        </div>
+        <div id="boos">
+          <div id="main"></div>
+          <div id="line"></div>
+          <div id="radar"></div>
+          <div id="ple">
+            <div id="ple-image" class="ple-image"></div>
+            <div id="pleimages" class="ple-image"></div>
+            <div id="ple-images" class="ple-image"></div>
+            <div id="ple-image-fate" class="ple-image"></div>
+          </div>
+        </div>
+        <div id="dynamic"></div>
+      </div>
+    </center>
+  </body>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+  <!-- 杨浩冰考试成绩 -->
+  <script>
+    function yangfun() {
+      //雷达图
+      var myChart = echarts.init(document.getElementById("radar"));
+      const tooltip = {};
+
+      const grid = { left: 0, right: 0, bottom: 0, top: 0 };
+
+      const legend = {
+        top: "0%",
+        right: "2%",
+        orient: "vertical",
+        textStyle: { color: "#fff", fontSize: 22 },
+        data: ["平均分"],
+        icon: "roundRect",
+      };
+
+      const radar = {
+        radius: "60%",
+        center: ["50%", "52%"],
+        startAngle: 0,
+        triggerEvent: true,
+        name: {
+          textStyle: {
+            color: "#fff",
+            fontSize: "20",
+            borderRadius: 3,
+            padding: [20, 5],
+          },
+        },
+        nameGap: "2",
+        indicator: [
+          { name: "6月2日", max: 100 },
+          { name: "6月9日", max: 100 },
+          { name: "6月16日", max: 100 },
+          { name: "6月23日", max: 100 },
+        ],
+        splitArea: {
+          areaStyle: {
+            color: [
+              "rgba(0,255,255, 0.1)",
+              "rgba(0,255,255, 0.2)",
+              "rgba(0,255,255, 0.3)",
+              "rgba(0,255,255, 0.4)",
+              "rgba(0,255,255, 0.5)",
+              "rgba(0,255,255, 0.6)",
+            ].reverse(),
+            shadowColor: "rgba(0, 0, 0, 1)",
+            shadowBlur: 30,
+            shadowOffsetX: 10,
+            shadowOffsetY: 10,
+          },
+        },
+        axisLine: { lineStyle: { color: "rgba(0,206,209, 0.3)" } },
+        splitLine: {
+          lineStyle: {
+            width: 1,
+            color: [
+              "rgba(0,206,209, 0.1)",
+              "rgba(0,206,209, 0.2)",
+              "rgba(0,206,209, 0.3)",
+              "rgba(0,206,209, 0.4)",
+              "rgba(0,206,209, 0.5)",
+              "rgba(0,206,209, 0.6)",
+            ].reverse(),
+          },
+        },
+      };
+
+      const series = [
+        {
+          name: "平均分",
+          type: "radar",
+          areaStyle: { color: "rgba(127,255,210, 0.5)" },
+          symbol: "circle",
+          symbolSize: 12,
+          itemStyle: {
+            color: "rgba(127,255,210,0.8)",
+            borderColor: "rgba(127,255,210,0.2)",
+            borderWidth: 10,
+          },
+          lineStyle: { color: "rgba(127,255,210, 0.6)", width: 2 },
+          label: { show: false },
+          data: [[67.5, 58, 53, 56]],
+        },
+      ];
+
+      option = {
+        grid,
+        legend,
+        tooltip,
+        radar,
+        series,
+        backgroundColor: "rgba(0, 0, 0, .8)",
+      };
+      option && myChart.setOption(option);
+      //折线图
+      var chartDom = document.getElementById("line");
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: "考试成绩",
+        },
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "line",
+          },
+        },
+        legend: {},
+        xAxis: {
+          type: "category",
+          data: ["6月2日", "6月9日", "6月19日", "6月23日"],
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            name: "笔试",
+            data: [60, 46, 46, 52],
+            type: "line",
+            smooth: "true",
+          },
+          {
+            name: "机试",
+            data: [75, 70, 60, 60],
+            type: "line",
+            smooth: "true",
+          },
+          {
+            name: "平均分",
+            data: [67.5, 58, 53, 56],
+            type: "line",
+            smooth: "true",
+          },
+        ],
+      };
+
+      option && myChart.setOption(option);
+      //饼图
+      var myChart = echarts.init(document.getElementById("ple-image-fate"));
+      var pieData = [
+        { value: 60, name: "机试" },
+        { value: 52, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月23日成绩",
+        },
+        color: ["#fdbb2d", "#b21f1f"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+          text: "6月考试",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          width: "248px",
+          height: "248px",
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+      option && myChart.setOption(option);
+      var myChart = echarts.init(document.getElementById("pleimages"));
+      var pieData = [
+        { value: 70, name: "机试" },
+        { value: 46, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月9日成绩",
+        },
+        color: ["#7F00FF", "#E100FF"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+          text: "6月考试",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          width: "248px",
+          height: "248px",
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+
+      option && myChart.setOption(option);
+      var myChart = echarts.init(document.getElementById("ple-image"));
+      var pieData = [
+        { value: 75, name: "机试" },
+        { value: 60, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月2日成绩",
+        },
+        color: ["#37a2da", "#32c5e9", "#9fe6b8", "#ffdb5c", "#ff9f7f"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+      option && myChart.setOption(option);
+      var myChart = echarts.init(document.getElementById("ple-images"));
+      var pieData = [
+        { value: 60, name: "机试" },
+        { value: 46, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月16日成绩",
+        },
+        color: ["#de6161", "#2657eb"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+          text: "6月考试",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          width: "248px",
+          height: "248px",
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+      option && myChart.setOption(option);
+      //柱状图
+      var chartDom = document.getElementById("main");
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: "杨浩冰考试成绩",
+        },
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "shadow",
+          },
+        },
+        legend: {},
+        xAxis: {
+          type: "category",
+          data: ["6月2日", "6月9日", "6月16日", "6月23日"],
+        },
+        yAxis: {
+          type: "value",
+        },
+
+        series: [
+          {
+            name: "笔试",
+            data: [60, 46, 46, 52],
+            type: "bar",
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgba(180, 180, 180, 0.2)",
+            },
+          },
+          {
+            name: "机试",
+            data: [75, 70, 60, 60],
+            type: "bar",
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgba(180, 180, 180, 0.2)",
+            },
+          },
+          {
+            name: "平均分",
+            data: [67.5, 58, 53, 56],
+            type: "bar",
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgba(180, 180, 180, 0.2)",
+            },
+          },
+        ],
+      };
+
+      option && myChart.setOption(option);
+    }
+  </script>
+  <!-- //赵宗福考试成绩 -->
+  <script>
+    function zhaofun() {
+      //雷达图
+      var myChart = echarts.init(document.getElementById("radar"));
+      const tooltip = {};
+
+      const grid = { left: 0, right: 0, bottom: 0, top: 0 };
+
+      const legend = {
+        top: "0%",
+        right: "2%",
+        orient: "vertical",
+        textStyle: { color: "#fff", fontSize: 22 },
+        data: ["平均分"],
+        icon: "roundRect",
+      };
+
+      const radar = {
+        radius: "60%",
+        center: ["50%", "52%"],
+        startAngle: 0,
+        triggerEvent: true,
+        name: {
+          textStyle: {
+            color: "#fff",
+            fontSize: "20",
+            borderRadius: 3,
+            padding: [20, 5],
+          },
+        },
+        nameGap: "2",
+        indicator: [
+          { name: "6月2日", max: 100 },
+          { name: "6月9日", max: 100 },
+          { name: "6月16日", max: 100 },
+          { name: "6月23日", max: 100 },
+        ],
+        splitArea: {
+          areaStyle: {
+            color: [
+              "rgba(0,255,255, 0.1)",
+              "rgba(0,255,255, 0.2)",
+              "rgba(0,255,255, 0.3)",
+              "rgba(0,255,255, 0.4)",
+              "rgba(0,255,255, 0.5)",
+              "rgba(0,255,255, 0.6)",
+            ].reverse(),
+            shadowColor: "rgba(0, 0, 0, 1)",
+            shadowBlur: 30,
+            shadowOffsetX: 10,
+            shadowOffsetY: 10,
+          },
+        },
+        axisLine: { lineStyle: { color: "rgba(0,206,209, 0.3)" } },
+        splitLine: {
+          lineStyle: {
+            width: 1,
+            color: [
+              "rgba(0,206,209, 0.1)",
+              "rgba(0,206,209, 0.2)",
+              "rgba(0,206,209, 0.3)",
+              "rgba(0,206,209, 0.4)",
+              "rgba(0,206,209, 0.5)",
+              "rgba(0,206,209, 0.6)",
+            ].reverse(),
+          },
+        },
+      };
+
+      const series = [
+        {
+          name: "平均分",
+          type: "radar",
+          areaStyle: { color: "rgba(127,255,210, 0.5)" },
+          symbol: "circle",
+          symbolSize: 12,
+          itemStyle: {
+            color: "rgba(127,255,210,0.8)",
+            borderColor: "rgba(127,255,210,0.2)",
+            borderWidth: 10,
+          },
+          lineStyle: { color: "rgba(127,255,210, 0.6)", width: 2 },
+          label: { show: false },
+          data: [[77.5, 71.5, 54.5, 51]],
+        },
+      ];
+
+      option = {
+        grid,
+        legend,
+        tooltip,
+        radar,
+        series,
+        backgroundColor: "rgba(0, 0, 0, .8)",
+      };
+      option && myChart.setOption(option);
+      //折线图
+      var chartDom = document.getElementById("line");
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: "考试成绩",
+        },
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "line",
+          },
+        },
+        legend: {},
+        xAxis: {
+          type: "category",
+          data: ["6月2日", "6月9日", "6月19日", "6月23日"],
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            name: "笔试",
+            data: [60, 53, 49, 42],
+            type: "line",
+            smooth: "true",
+          },
+          {
+            name: "机试",
+            data: [95, 90, 60, 60],
+            type: "line",
+            smooth: "true",
+          },
+          {
+            name: "平均分",
+            data: [77.5, 71.5, 54.5, 51],
+            type: "line",
+            smooth: "true",
+          },
+        ],
+      };
+
+      option && myChart.setOption(option);
+      //饼图
+      var myChart = echarts.init(document.getElementById("ple-image-fate"));
+      var pieData = [
+        { value: 60, name: "机试" },
+        { value: 42, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月23日成绩",
+        },
+        color: ["#fdbb2d", "#b21f1f"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+          text: "6月考试",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          width: "248px",
+          height: "248px",
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+      option && myChart.setOption(option);
+      var myChart = echarts.init(document.getElementById("pleimages"));
+      var pieData = [
+        { value: 90, name: "机试" },
+        { value: 53, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月9日成绩",
+        },
+        color: ["#7F00FF", "#E100FF"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+          text: "6月考试",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          width: "248px",
+          height: "248px",
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+
+      option && myChart.setOption(option);
+      var myChart = echarts.init(document.getElementById("ple-image"));
+      var pieData = [
+        { value: 95, name: "机试" },
+        { value: 60, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月2日成绩",
+        },
+        color: ["#37a2da", "#32c5e9", "#9fe6b8", "#ffdb5c", "#ff9f7f"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+      option && myChart.setOption(option);
+      var myChart = echarts.init(document.getElementById("ple-images"));
+      var pieData = [
+        { value: 60, name: "机试" },
+        { value: 49, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月16日成绩",
+        },
+        color: ["#de6161", "#2657eb"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+          text: "6月考试",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          width: "248px",
+          height: "248px",
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+      option && myChart.setOption(option);
+      //柱状图
+      var chartDom = document.getElementById("main");
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: "赵宗福考试成绩",
+        },
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "shadow",
+          },
+        },
+        legend: {},
+        xAxis: {
+          type: "category",
+          data: ["6月2日", "6月9日", "6月16日", "6月23日"],
+        },
+        yAxis: {
+          type: "value",
+        },
+
+        series: [
+          {
+            name: "笔试",
+            data: [60, 53, 49, 42],
+            type: "bar",
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgba(180, 180, 180, 0.2)",
+            },
+          },
+          {
+            name: "机试",
+            data: [95, 90, 60, 60],
+            type: "bar",
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgba(180, 180, 180, 0.2)",
+            },
+          },
+          {
+            name: "平均分",
+            data: [77.5, 71.5, 54.5, 51],
+            type: "bar",
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgba(180, 180, 180, 0.2)",
+            },
+          },
+        ],
+      };
+
+      option && myChart.setOption(option);
+    }
+  </script>
+  <!-- //刘佳佳考试成绩 -->
+  <script>
+    function onjiajiafun() {
+      //雷达图
+      var myChart = echarts.init(document.getElementById("radar"));
+      const tooltip = {};
+
+      const grid = { left: 0, right: 0, bottom: 0, top: 0 };
+
+      const legend = {
+        top: "0%",
+        right: "2%",
+        orient: "vertical",
+        textStyle: { color: "#fff", fontSize: 22 },
+        data: ["平均分"],
+        icon: "roundRect",
+      };
+
+      const radar = {
+        radius: "60%",
+        center: ["50%", "52%"],
+        startAngle: 0,
+        triggerEvent: true,
+        name: {
+          textStyle: {
+            color: "#fff",
+            fontSize: "20",
+            borderRadius: 3,
+            padding: [20, 5],
+          },
+        },
+        nameGap: "2",
+        indicator: [
+          { name: "6月2日", max: 100 },
+          { name: "6月9日", max: 100 },
+          { name: "6月16日", max: 100 },
+          { name: "6月23日", max: 100 },
+        ],
+        splitArea: {
+          areaStyle: {
+            color: [
+              "rgba(0,255,255, 0.1)",
+              "rgba(0,255,255, 0.2)",
+              "rgba(0,255,255, 0.3)",
+              "rgba(0,255,255, 0.4)",
+              "rgba(0,255,255, 0.5)",
+              "rgba(0,255,255, 0.6)",
+            ].reverse(),
+            shadowColor: "rgba(0, 0, 0, 1)",
+            shadowBlur: 30,
+            shadowOffsetX: 10,
+            shadowOffsetY: 10,
+          },
+        },
+        axisLine: { lineStyle: { color: "rgba(0,206,209, 0.3)" } },
+        splitLine: {
+          lineStyle: {
+            width: 1,
+            color: [
+              "rgba(0,206,209, 0.1)",
+              "rgba(0,206,209, 0.2)",
+              "rgba(0,206,209, 0.3)",
+              "rgba(0,206,209, 0.4)",
+              "rgba(0,206,209, 0.5)",
+              "rgba(0,206,209, 0.6)",
+            ].reverse(),
+          },
+        },
+      };
+
+      const series = [
+        {
+          name: "平均分",
+          type: "radar",
+          areaStyle: { color: "rgba(127,255,210, 0.5)" },
+          symbol: "circle",
+          symbolSize: 12,
+          itemStyle: {
+            color: "rgba(127,255,210,0.8)",
+            borderColor: "rgba(127,255,210,0.2)",
+            borderWidth: 10,
+          },
+          lineStyle: { color: "rgba(127,255,210, 0.6)", width: 2 },
+          label: { show: false },
+          data: [[83.5, 68.75, 60, 51.5]],
+        },
+      ];
+
+      option = {
+        grid,
+        legend,
+        tooltip,
+        radar,
+        series,
+        backgroundColor: "rgba(0, 0, 0, .8)",
+      };
+      option && myChart.setOption(option);
+      //折线图
+      var chartDom = document.getElementById("line");
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: "考试成绩",
+        },
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "line",
+          },
+        },
+        legend: {},
+        xAxis: {
+          type: "category",
+          data: ["6月2日", "6月9日", "6月19日", "6月23日"],
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            name: "笔试",
+            data: [72.5, 47.5, 50, 53],
+            type: "line",
+            smooth: "true",
+          },
+          {
+            name: "机试",
+            data: [95, 90, 70, 50],
+            type: "line",
+            smooth: "true",
+          },
+          {
+            name: "平均分",
+            data: [83.5, 68.75, 60, 51.5],
+            type: "line",
+            smooth: "true",
+          },
+        ],
+      };
+
+      option && myChart.setOption(option);
+      //饼图
+      var myChart = echarts.init(document.getElementById("ple-image-fate"));
+      var pieData = [
+        { value: 50, name: "机试" },
+        { value: 53, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月23日成绩",
+        },
+        color: ["#fdbb2d", "#b21f1f"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+          text: "6月考试",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          width: "248px",
+          height: "248px",
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+      option && myChart.setOption(option);
+      var myChart = echarts.init(document.getElementById("pleimages"));
+      var pieData = [
+        { value: 90, name: "机试" },
+        { value: 47.5, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月9日成绩",
+        },
+        color: ["#7F00FF", "#E100FF"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+          text: "6月考试",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          width: "248px",
+          height: "248px",
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+
+      option && myChart.setOption(option);
+      var myChart = echarts.init(document.getElementById("ple-image"));
+      var pieData = [
+        { value: 95, name: "机试" },
+        { value: 72.5, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月2日成绩",
+        },
+        color: ["#37a2da", "#32c5e9", "#9fe6b8", "#ffdb5c", "#ff9f7f"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+      option && myChart.setOption(option);
+      var myChart = echarts.init(document.getElementById("ple-images"));
+      var pieData = [
+        { value: 70, name: "机试" },
+        { value: 50, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月16日成绩",
+        },
+        color: ["#de6161", "#2657eb"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+          text: "6月考试",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          width: "248px",
+          height: "248px",
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+      option && myChart.setOption(option);
+      //柱状图
+      var chartDom = document.getElementById("main");
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: "刘佳佳考试成绩",
+        },
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "shadow",
+          },
+        },
+        legend: {},
+        xAxis: {
+          type: "category",
+          data: ["6月2日", "6月9日", "6月16日", "6月23日"],
+        },
+        yAxis: {
+          type: "value",
+        },
+
+        series: [
+          {
+            name: "笔试",
+            data: [72.5, 47.5, 50, 53],
+            type: "bar",
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgba(180, 180, 180, 0.2)",
+            },
+          },
+          {
+            name: "机试",
+            data: [95, 90, 70, 54],
+            type: "bar",
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgba(180, 180, 180, 0.2)",
+            },
+          },
+          {
+            name: "平均分",
+            data: [83.75, 68.75, 60, 51.5],
+            type: "bar",
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgba(180, 180, 180, 0.2)",
+            },
+          },
+        ],
+      };
+
+      option && myChart.setOption(option);
+    }
+  </script>
+  <!-- 甘天鸽考试成绩 -->
+  <script>
+    function linkfun() {
+      //雷达图
+      var myChart = echarts.init(document.getElementById("radar"));
+      const tooltip = {};
+
+      const grid = { left: 0, right: 0, bottom: 0, top: 0 };
+
+      const legend = {
+        top: "0%",
+        right: "2%",
+        orient: "vertical",
+        textStyle: { color: "#fff", fontSize: 22 },
+        data: ["平均分"],
+        icon: "roundRect",
+      };
+
+      const radar = {
+        radius: "60%",
+        center: ["50%", "52%"],
+        startAngle: 0,
+        triggerEvent: true,
+        name: {
+          textStyle: {
+            color: "#fff",
+            fontSize: "20",
+            borderRadius: 3,
+            padding: [20, 5],
+          },
+        },
+        nameGap: "2",
+        indicator: [
+          { name: "6月2日", max: 100 },
+          { name: "6月9日", max: 100 },
+          { name: "6月16日", max: 100 },
+          { name: "6月23日", max: 100 },
+        ],
+        splitArea: {
+          areaStyle: {
+            color: [
+              "rgba(0,255,255, 0.1)",
+              "rgba(0,255,255, 0.2)",
+              "rgba(0,255,255, 0.3)",
+              "rgba(0,255,255, 0.4)",
+              "rgba(0,255,255, 0.5)",
+              "rgba(0,255,255, 0.6)",
+            ].reverse(),
+            shadowColor: "rgba(0, 0, 0, 1)",
+            shadowBlur: 30,
+            shadowOffsetX: 10,
+            shadowOffsetY: 10,
+          },
+        },
+        axisLine: { lineStyle: { color: "rgba(0,206,209, 0.3)" } },
+        splitLine: {
+          lineStyle: {
+            width: 1,
+            color: [
+              "rgba(0,206,209, 0.1)",
+              "rgba(0,206,209, 0.2)",
+              "rgba(0,206,209, 0.3)",
+              "rgba(0,206,209, 0.4)",
+              "rgba(0,206,209, 0.5)",
+              "rgba(0,206,209, 0.6)",
+            ].reverse(),
+          },
+        },
+      };
+
+      const series = [
+        {
+          name: "平均分",
+          type: "radar",
+          areaStyle: { color: "rgba(127,255,210, 0.5)" },
+          symbol: "circle",
+          symbolSize: 12,
+          itemStyle: {
+            color: "rgba(127,255,210,0.8)",
+            borderColor: "rgba(127,255,210,0.2)",
+            borderWidth: 10,
+          },
+          lineStyle: { color: "rgba(127,255,210, 0.6)", width: 2 },
+          label: { show: false },
+          data: [[36.5, 35, 62.5, 43.5]],
+        },
+      ];
+
+      option = {
+        grid,
+        legend,
+        tooltip,
+        radar,
+        series,
+        backgroundColor: "rgba(0, 0, 0, .8)",
+      };
+      option && myChart.setOption(option);
+      //折线图
+      var chartDom = document.getElementById("line");
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: "考试成绩",
+        },
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "line",
+          },
+        },
+        legend: {},
+        xAxis: {
+          type: "category",
+          data: ["6月2日", "6月9日", "6月19日", "6月23日"],
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            name: "笔试",
+            data: [33, 10, 65, 27],
+            type: "line",
+            smooth: "true",
+          },
+          {
+            name: "机试",
+            data: [40, 60, 60, 60],
+            type: "line",
+            smooth: "true",
+          },
+          {
+            name: "平均分",
+            data: [36.5, 35, 62.5, 43.5],
+            type: "line",
+            smooth: "true",
+          },
+        ],
+      };
+
+      option && myChart.setOption(option);
+      //饼图
+      var myChart = echarts.init(document.getElementById("ple-image-fate"));
+      var pieData = [
+        { value: 60, name: "机试" },
+        { value: 27, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月23日成绩",
+        },
+        color: ["#fdbb2d", "#b21f1f"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+          text: "6月考试",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          width: "248px",
+          height: "248px",
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+      option && myChart.setOption(option);
+      var myChart = echarts.init(document.getElementById("pleimages"));
+      var pieData = [
+        { value: 60, name: "机试" },
+        { value: 10, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月9日成绩",
+        },
+        color: ["#7F00FF", "#E100FF"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+          text: "6月考试",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          width: "248px",
+          height: "248px",
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+
+      option && myChart.setOption(option);
+      var myChart = echarts.init(document.getElementById("ple-image"));
+      var pieData = [
+        { value: 40, name: "机试" },
+        { value: 33, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月2日成绩",
+        },
+        color: ["#37a2da", "#32c5e9", "#9fe6b8", "#ffdb5c", "#ff9f7f"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+      option && myChart.setOption(option);
+      var myChart = echarts.init(document.getElementById("ple-images"));
+      var pieData = [
+        { value: 65, name: "机试" },
+        { value: 60, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月16日成绩",
+        },
+        color: ["#de6161", "#2657eb"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+          text: "6月考试",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          width: "248px",
+          height: "248px",
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+      option && myChart.setOption(option);
+      //柱状图
+      var chartDom = document.getElementById("main");
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: "甘天鸽考试成绩",
+        },
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "shadow",
+          },
+        },
+        legend: {},
+        xAxis: {
+          type: "category",
+          data: ["6月2日", "6月9日", "6月16日", "6月23日"],
+        },
+        yAxis: {
+          type: "value",
+        },
+
+        series: [
+          {
+            name: "笔试",
+            data: [33, 10, 65, 27],
+            type: "bar",
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgba(180, 180, 180, 0.2)",
+            },
+          },
+          {
+            name: "机试",
+            data: [40, 60, 60, 60],
+            type: "bar",
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgba(180, 180, 180, 0.2)",
+            },
+          },
+          {
+            name: "平均分",
+            data: [36.5, 35, 62.5, 43.5],
+            type: "bar",
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgba(180, 180, 180, 0.2)",
+            },
+          },
+        ],
+      };
+
+      option && myChart.setOption(option);
+    }
+  </script>
+  <!-- 刘振洲考试成绩 -->
+  <script>
+    function liufun() {
+      //雷达图
+      var myChart = echarts.init(document.getElementById("radar"));
+      const tooltip = {};
+
+      const grid = { left: 0, right: 0, bottom: 0, top: 0 };
+
+      const legend = {
+        top: "0%",
+        right: "2%",
+        orient: "vertical",
+        textStyle: { color: "#fff", fontSize: 22 },
+        data: ["平均分"],
+        icon: "roundRect",
+      };
+
+      const radar = {
+        radius: "60%",
+        center: ["50%", "52%"],
+        startAngle: 0,
+        triggerEvent: true,
+        name: {
+          textStyle: {
+            color: "#fff",
+            fontSize: "20",
+            borderRadius: 3,
+            padding: [20, 5],
+          },
+        },
+        nameGap: "2",
+        indicator: [
+          { name: "6月2日", max: 100 },
+          { name: "6月9日", max: 100 },
+          { name: "6月16日", max: 100 },
+          { name: "6月23日", max: 100 },
+        ],
+        splitArea: {
+          areaStyle: {
+            color: [
+              "rgba(0,255,255, 0.1)",
+              "rgba(0,255,255, 0.2)",
+              "rgba(0,255,255, 0.3)",
+              "rgba(0,255,255, 0.4)",
+              "rgba(0,255,255, 0.5)",
+              "rgba(0,255,255, 0.6)",
+            ].reverse(),
+            shadowColor: "rgba(0, 0, 0, 1)",
+            shadowBlur: 30,
+            shadowOffsetX: 10,
+            shadowOffsetY: 10,
+          },
+        },
+        axisLine: { lineStyle: { color: "rgba(0,206,209, 0.3)" } },
+        splitLine: {
+          lineStyle: {
+            width: 1,
+            color: [
+              "rgba(0,206,209, 0.1)",
+              "rgba(0,206,209, 0.2)",
+              "rgba(0,206,209, 0.3)",
+              "rgba(0,206,209, 0.4)",
+              "rgba(0,206,209, 0.5)",
+              "rgba(0,206,209, 0.6)",
+            ].reverse(),
+          },
+        },
+      };
+
+      const series = [
+        {
+          name: "平均分",
+          type: "radar",
+          areaStyle: { color: "rgba(127,255,210, 0.5)" },
+          symbol: "circle",
+          symbolSize: 12,
+          itemStyle: {
+            color: "rgba(127,255,210,0.8)",
+            borderColor: "rgba(127,255,210,0.2)",
+            borderWidth: 10,
+          },
+          lineStyle: { color: "rgba(127,255,210, 0.6)", width: 2 },
+          label: { show: false },
+          data: [[75, 65.5, 64, 65.5]],
+        },
+      ];
+
+      option = {
+        grid,
+        legend,
+        tooltip,
+        radar,
+        series,
+        backgroundColor: "rgba(0, 0, 0, .8)",
+      };
+      option && myChart.setOption(option);
+      //折线图
+      var chartDom = document.getElementById("line");
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: "考试成绩",
+        },
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "line",
+          },
+        },
+        legend: {},
+        xAxis: {
+          type: "category",
+          data: ["6月2日", "6月9日", "6月19日", "6月23日"],
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            name: "笔试",
+            data: [55, 41, 48, 51],
+            type: "line",
+            smooth: "true",
+          },
+          {
+            name: "机试",
+            data: [95, 90, 80, 80],
+            type: "line",
+            smooth: "true",
+          },
+          {
+            name: "平均分",
+            data: [75, 65.5, 64, 65.5],
+            type: "line",
+            smooth: "true",
+          },
+        ],
+      };
+
+      option && myChart.setOption(option);
+      //饼图
+      var myChart = echarts.init(document.getElementById("ple-image-fate"));
+      var pieData = [
+        { value: 80, name: "机试" },
+        { value: 51, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月23日成绩",
+        },
+        color: ["#fdbb2d", "#b21f1f"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+          text: "6月考试",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          width: "248px",
+          height: "248px",
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+      option && myChart.setOption(option);
+      var myChart = echarts.init(document.getElementById("pleimages"));
+      var pieData = [
+        { value: 90, name: "机试" },
+        { value: 41, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月9日成绩",
+        },
+        color: ["#7F00FF", "#E100FF"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+          text: "6月考试",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          width: "248px",
+          height: "248px",
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+
+      option && myChart.setOption(option);
+      var myChart = echarts.init(document.getElementById("ple-image"));
+      var pieData = [
+        { value: 95, name: "机试" },
+        { value: 55, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月2日成绩",
+        },
+        color: ["#37a2da", "#32c5e9", "#9fe6b8", "#ffdb5c", "#ff9f7f"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+      option && myChart.setOption(option);
+      var myChart = echarts.init(document.getElementById("ple-images"));
+      var pieData = [
+        { value: 80, name: "机试" },
+        { value: 48, name: "笔试" },
+        // { value: 58, name: "空调" },
+        // { value: 54, name: "温度计" },
+        // { value: 32, name: "其他" },
+      ];
+      option = {
+        title: {
+          text: "6月16日成绩",
+        },
+        color: ["#de6161", "#2657eb"],
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b} : {c} ({d}%)",
+          text: "6月考试",
+        },
+        toolbox: {
+          show: true,
+        },
+        legend: {
+          width: "248px",
+          height: "248px",
+          x: "right", //可设定图例在左、右、居中
+          y: "center", //可设定图例在上、下、居中
+          align: "left", //字在图例的左边或右边【left/right】
+          orient: "vertical", //图例方向【horizontal/vertical】
+          icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+          itemGap: 16,
+          formatter(name) {
+            const item = pieData.filter((item) => item.name === name)[0];
+            return `{name|${name}}{value| ${item.value}}`;
+          },
+          textStyle: {
+            rich: {
+              name: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+              value: {
+                color: "#595959",
+                fontSize: 14,
+                width: 100,
+                fontWeight: 600,
+              },
+            },
+          },
+        },
+        series: [
+          {
+            name: "考试",
+            type: "pie",
+            radius: [0, 150],
+            center: ["30%", "50%"],
+            label: {
+              normal: {
+                show: true,
+                position: "inside",
+                formatter: "{b}",
+                textStyle: {
+                  align: "center",
+                  baseline: "middle",
+                  fontSize: 16,
+                  fontWeight: "100",
+                  color: "#fff",
+                },
+              },
+            },
+            labelLine: {
+              show: true,
+            },
+            data: pieData,
+          },
+        ],
+      };
+      option && myChart.setOption(option);
+      //柱状图
+      var chartDom = document.getElementById("main");
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      option = {
+        title: {
+          text: "刘振洲考试成绩",
+        },
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "shadow",
+          },
+        },
+        legend: {},
+        xAxis: {
+          type: "category",
+          data: ["6月2日", "6月9日", "6月16日", "6月23日"],
+        },
+        yAxis: {
+          type: "value",
+        },
+
+        series: [
+          {
+            name: "笔试",
+            data: [55, 41, 48, 51],
+            type: "bar",
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgba(180, 180, 180, 0.2)",
+            },
+          },
+          {
+            name: "机试",
+            data: [95, 90, 80, 80],
+            type: "bar",
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgba(180, 180, 180, 0.2)",
+            },
+          },
+          {
+            name: "平均分",
+            data: [75, 65.5, 64, 65.5],
+            type: "bar",
+            showBackground: true,
+            backgroundStyle: {
+              color: "rgba(180, 180, 180, 0.2)",
+            },
+          },
+        ],
+      };
+
+      option && myChart.setOption(option);
+    }
+  </script>
+  <script>
+    var myChart = echarts.init(document.getElementById("radar"));
+    const tooltip = {};
+
+    const grid = { left: 0, right: 0, bottom: 0, top: 0 };
+
+    const legend = {
+      top: "0%",
+      right: "2%",
+      orient: "vertical",
+      textStyle: { color: "#fff", fontSize: 22 },
+      data: ["平均分"],
+      icon: "roundRect",
+    };
+
+    const radar = {
+      radius: "60%",
+      center: ["50%", "52%"],
+      startAngle: 0,
+      triggerEvent: true,
+      name: {
+        textStyle: {
+          color: "#fff",
+          fontSize: "20",
+          borderRadius: 3,
+          padding: [20, 5],
+        },
+      },
+      nameGap: "2",
+      indicator: [
+        { name: "6月2日", max: 100 },
+        { name: "6月9日", max: 100 },
+        { name: "6月16日", max: 100 },
+        { name: "6月23日", max: 100 },
+      ],
+      splitArea: {
+        areaStyle: {
+          color: [
+            "rgba(0,255,255, 0.1)",
+            "rgba(0,255,255, 0.2)",
+            "rgba(0,255,255, 0.3)",
+            "rgba(0,255,255, 0.4)",
+            "rgba(0,255,255, 0.5)",
+            "rgba(0,255,255, 0.6)",
+          ].reverse(),
+          shadowColor: "rgba(0, 0, 0, 1)",
+          shadowBlur: 30,
+          shadowOffsetX: 10,
+          shadowOffsetY: 10,
+        },
+      },
+      axisLine: { lineStyle: { color: "rgba(0,206,209, 0.3)" } },
+      splitLine: {
+        lineStyle: {
+          width: 1,
+          color: [
+            "rgba(0,206,209, 0.1)",
+            "rgba(0,206,209, 0.2)",
+            "rgba(0,206,209, 0.3)",
+            "rgba(0,206,209, 0.4)",
+            "rgba(0,206,209, 0.5)",
+            "rgba(0,206,209, 0.6)",
+          ].reverse(),
+        },
+      },
+    };
+
+    const series = [
+      {
+        name: "平均分",
+        type: "radar",
+        areaStyle: { color: "rgba(127,255,210, 0.5)" },
+        symbol: "circle",
+        symbolSize: 12,
+        itemStyle: {
+          color: "rgba(127,255,210,0.8)",
+          borderColor: "rgba(127,255,210,0.2)",
+          borderWidth: 10,
+        },
+        lineStyle: { color: "rgba(127,255,210, 0.6)", width: 2 },
+        label: { show: false },
+        data: [[67.5, 58, 53, 56]],
+      },
+    ];
+
+    option = {
+      grid,
+      legend,
+      tooltip,
+      radar,
+      series,
+      backgroundColor: "rgba(0, 0, 0, .8)",
+    };
+    option && myChart.setOption(option);
+  </script>
+  <script>
+    var chartDom = document.getElementById("line");
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    option = {
+      title: {
+        text: "考试成绩",
+      },
+      tooltip: {
+        trigger: "axis",
+        axisPointer: {
+          type: "line",
+        },
+      },
+      legend: {},
+      xAxis: {
+        type: "category",
+        data: ["6月2日", "6月9日", "6月19日", "6月23日"],
+      },
+      yAxis: {
+        type: "value",
+      },
+      series: [
+        {
+          name: "笔试",
+          data: [60, 46, 46, 52],
+          type: "line",
+          smooth: "true",
+        },
+        {
+          name: "机试",
+          data: [75, 70, 60, 60],
+          type: "line",
+          smooth: "true",
+        },
+        {
+          name: "平均分",
+          data: [67.5, 58, 53, 56],
+          type: "line",
+          smooth: "true",
+        },
+      ],
+    };
+
+    option && myChart.setOption(option);
+  </script>
+  <script>
+    var myChart = echarts.init(document.getElementById("ple-image-fate"));
+    var pieData = [
+      { value: 60, name: "机试" },
+      { value: 52, name: "笔试" },
+      // { value: 58, name: "空调" },
+      // { value: 54, name: "温度计" },
+      // { value: 32, name: "其他" },
+    ];
+    option = {
+      title: {
+        text: "6月23日成绩",
+      },
+      color: ["#fdbb2d", "#b21f1f"],
+      tooltip: {
+        trigger: "item",
+        formatter: "{a} <br/>{b} : {c} ({d}%)",
+        text: "6月考试",
+      },
+      toolbox: {
+        show: true,
+      },
+      legend: {
+        width: "248px",
+        height: "248px",
+        x: "right", //可设定图例在左、右、居中
+        y: "center", //可设定图例在上、下、居中
+        align: "left", //字在图例的左边或右边【left/right】
+        orient: "vertical", //图例方向【horizontal/vertical】
+        icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+        itemGap: 16,
+        formatter(name) {
+          const item = pieData.filter((item) => item.name === name)[0];
+          return `{name|${name}}{value| ${item.value}}`;
+        },
+        textStyle: {
+          rich: {
+            name: {
+              color: "#595959",
+              fontSize: 14,
+              width: 100,
+              fontWeight: 600,
+            },
+            value: {
+              color: "#595959",
+              fontSize: 14,
+              width: 100,
+              fontWeight: 600,
+            },
+          },
+        },
+      },
+      series: [
+        {
+          name: "考试",
+          type: "pie",
+          radius: [0, 150],
+          center: ["30%", "50%"],
+          label: {
+            normal: {
+              show: true,
+              position: "inside",
+              formatter: "{b}",
+              textStyle: {
+                align: "center",
+                baseline: "middle",
+                fontSize: 16,
+                fontWeight: "100",
+                color: "#fff",
+              },
+            },
+          },
+          labelLine: {
+            show: true,
+          },
+          data: pieData,
+        },
+      ],
+    };
+    option && myChart.setOption(option);
+  </script>
+  <script>
+    var myChart = echarts.init(document.getElementById("ple-images"));
+    var pieData = [
+      { value: 60, name: "机试" },
+      { value: 46, name: "笔试" },
+      // { value: 58, name: "空调" },
+      // { value: 54, name: "温度计" },
+      // { value: 32, name: "其他" },
+    ];
+    option = {
+      title: {
+        text: "6月16日成绩",
+      },
+      color: ["#de6161", "#2657eb"],
+      tooltip: {
+        trigger: "item",
+        formatter: "{a} <br/>{b} : {c} ({d}%)",
+        text: "6月考试",
+      },
+      toolbox: {
+        show: true,
+      },
+      legend: {
+        width: "248px",
+        height: "248px",
+        x: "right", //可设定图例在左、右、居中
+        y: "center", //可设定图例在上、下、居中
+        align: "left", //字在图例的左边或右边【left/right】
+        orient: "vertical", //图例方向【horizontal/vertical】
+        icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+        itemGap: 16,
+        formatter(name) {
+          const item = pieData.filter((item) => item.name === name)[0];
+          return `{name|${name}}{value| ${item.value}}`;
+        },
+        textStyle: {
+          rich: {
+            name: {
+              color: "#595959",
+              fontSize: 14,
+              width: 100,
+              fontWeight: 600,
+            },
+            value: {
+              color: "#595959",
+              fontSize: 14,
+              width: 100,
+              fontWeight: 600,
+            },
+          },
+        },
+      },
+      series: [
+        {
+          name: "考试",
+          type: "pie",
+          radius: [0, 150],
+          center: ["30%", "50%"],
+          label: {
+            normal: {
+              show: true,
+              position: "inside",
+              formatter: "{b}",
+              textStyle: {
+                align: "center",
+                baseline: "middle",
+                fontSize: 16,
+                fontWeight: "100",
+                color: "#fff",
+              },
+            },
+          },
+          labelLine: {
+            show: true,
+          },
+          data: pieData,
+        },
+      ],
+    };
+    option && myChart.setOption(option);
+  </script>
+  <script>
+    var myChart = echarts.init(document.getElementById("pleimages"));
+    var pieData = [
+      { value: 70, name: "机试" },
+      { value: 46, name: "笔试" },
+      // { value: 58, name: "空调" },
+      // { value: 54, name: "温度计" },
+      // { value: 32, name: "其他" },
+    ];
+    option = {
+      title: {
+        text: "6月9日成绩",
+      },
+      color: ["#7F00FF", "#E100FF"],
+      tooltip: {
+        trigger: "item",
+        formatter: "{a} <br/>{b} : {c} ({d}%)",
+        text: "6月考试",
+      },
+      toolbox: {
+        show: true,
+      },
+      legend: {
+        width: "248px",
+        height: "248px",
+        x: "right", //可设定图例在左、右、居中
+        y: "center", //可设定图例在上、下、居中
+        align: "left", //字在图例的左边或右边【left/right】
+        orient: "vertical", //图例方向【horizontal/vertical】
+        icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+        itemGap: 16,
+        formatter(name) {
+          const item = pieData.filter((item) => item.name === name)[0];
+          return `{name|${name}}{value| ${item.value}}`;
+        },
+        textStyle: {
+          rich: {
+            name: {
+              color: "#595959",
+              fontSize: 14,
+              width: 100,
+              fontWeight: 600,
+            },
+            value: {
+              color: "#595959",
+              fontSize: 14,
+              width: 100,
+              fontWeight: 600,
+            },
+          },
+        },
+      },
+      series: [
+        {
+          name: "考试",
+          type: "pie",
+          radius: [0, 150],
+          center: ["30%", "50%"],
+          label: {
+            normal: {
+              show: true,
+              position: "inside",
+              formatter: "{b}",
+              textStyle: {
+                align: "center",
+                baseline: "middle",
+                fontSize: 16,
+                fontWeight: "100",
+                color: "#fff",
+              },
+            },
+          },
+          labelLine: {
+            show: true,
+          },
+          data: pieData,
+        },
+      ],
+    };
+    option && myChart.setOption(option);
+  </script>
+  <script>
+    var myChart = echarts.init(document.getElementById("ple-image"));
+    var pieData = [
+      { value: 75, name: "机试" },
+      { value: 60, name: "笔试" },
+      // { value: 58, name: "空调" },
+      // { value: 54, name: "温度计" },
+      // { value: 32, name: "其他" },
+    ];
+    option = {
+      title: {
+        text: "6月2日成绩",
+      },
+      color: ["#37a2da", "#32c5e9", "#9fe6b8", "#ffdb5c", "#ff9f7f"],
+      tooltip: {
+        trigger: "item",
+        formatter: "{a} <br/>{b} : {c} ({d}%)",
+      },
+      toolbox: {
+        show: true,
+      },
+      legend: {
+        x: "right", //可设定图例在左、右、居中
+        y: "center", //可设定图例在上、下、居中
+        align: "left", //字在图例的左边或右边【left/right】
+        orient: "vertical", //图例方向【horizontal/vertical】
+        icon: "circle", //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+        itemGap: 16,
+        formatter(name) {
+          const item = pieData.filter((item) => item.name === name)[0];
+          return `{name|${name}}{value| ${item.value}}`;
+        },
+        textStyle: {
+          rich: {
+            name: {
+              color: "#595959",
+              fontSize: 14,
+              width: 100,
+              fontWeight: 600,
+            },
+            value: {
+              color: "#595959",
+              fontSize: 14,
+              width: 100,
+              fontWeight: 600,
+            },
+          },
+        },
+      },
+      series: [
+        {
+          name: "考试",
+          type: "pie",
+          radius: [0, 150],
+          center: ["30%", "50%"],
+          label: {
+            normal: {
+              show: true,
+              position: "inside",
+              formatter: "{b}",
+              textStyle: {
+                align: "center",
+                baseline: "middle",
+                fontSize: 16,
+                fontWeight: "100",
+                color: "#fff",
+              },
+            },
+          },
+          labelLine: {
+            show: true,
+          },
+          data: pieData,
+        },
+      ],
+    };
+    option && myChart.setOption(option);
+  </script>
+  <script>
+    var chartDom = document.getElementById("main");
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    option = {
+      title: {
+        text: "杨浩冰考试成绩",
+      },
+      tooltip: {
+        trigger: "axis",
+        axisPointer: {
+          type: "shadow",
+        },
+      },
+      legend: {},
+      xAxis: {
+        type: "category",
+        data: ["6月2日", "6月9日", "6月16日", "6月23日"],
+      },
+      yAxis: {
+        type: "value",
+      },
+
+      series: [
+        {
+          name: "笔试",
+          data: [60, 46, 46, 52],
+          type: "bar",
+          showBackground: true,
+          backgroundStyle: {
+            color: "rgba(180, 180, 180, 0.2)",
+          },
+        },
+        {
+          name: "机试",
+          data: [75, 70, 60, 60],
+          type: "bar",
+          showBackground: true,
+          backgroundStyle: {
+            color: "rgba(180, 180, 180, 0.2)",
+          },
+        },
+        {
+          name: "平均分",
+          data: [67.5, 58, 53, 56],
+          type: "bar",
+          showBackground: true,
+          backgroundStyle: {
+            color: "rgba(180, 180, 180, 0.2)",
+          },
+        },
+      ],
+    };
+
+    option && myChart.setOption(option);
+  </script>
+  <script>
+    var chartDom = document.getElementById("dynamic");
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    const data = [1];
+    for (let i = 0; i < 5; ++i) {
+      data.push(Math.round(Math.random() * 300));
+    }
+    option = {
+      title: {
+        text: "杨浩冰考试成绩",
+      },
+      xAxis: {
+        max: "dataMax",
+      },
+      yAxis: {
+        type: "category",
+        data: [
+          "杨浩冰",
+          "赵宗福",
+          "刘佳佳",
+          "刘振洲",
+          "余浩",
+          "杨宏承",
+          "甘天鸽",
+          "苏鹏杰",
+          "申卓凡",
+          "赵帅博",
+          "郑哲元",
+          "刘超祥",
+          "甘天鸽",
+        ],
+        inverse: true,
+        animationDuration: 300,
+        animationDurationUpdate: 300,
+        max: 5, // only the largest 3 bars will be displayed
+      },
+      series: [
+        {
+          realtimeSort: true,
+          name: "Y",
+          type: "bar",
+          data: data,
+          label: {
+            show: true,
+            position: "right",
+            valueAnimation: true,
+          },
+        },
+      ],
+      legend: {
+        show: true,
+      },
+      animationDuration: 0,
+      animationDurationUpdate: 3000,
+      animationEasing: "linear",
+      animationEasingUpdate: "linear",
+    };
+    function run() {
+      for (var i = 0; i < data.length; ++i) {
+        if (Math.random() > 1) {
+          data[i] += Math.round(Math.random() * 100);
+        } else {
+          data[i] += Math.round(Math.random() * 100);
+        }
+      }
+      myChart.setOption({
+        series: [
+          {
+            type: "bar",
+            data,
+          },
+        ],
+      });
+    }
+    setTimeout(function () {
+      run();
+    }, 0);
+    setInterval(function () {
+      run();
+    }, 3000);
+
+    option && myChart.setOption(option);
+  </script>
+</html>
