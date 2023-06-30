@@ -199,6 +199,7 @@ img {
   cursor: pointer;
 }
 #content {
+  overflow: auto;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -208,7 +209,9 @@ img {
   height: 100%;
   // background-color: #0072ff;
 }
-
+.inlink {
+  color: #fdeff9;
+}
 .foot .container {
   height: 300px;
   width: 300px;
