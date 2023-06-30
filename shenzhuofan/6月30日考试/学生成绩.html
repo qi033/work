@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./学生成绩.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="title">
+            <div>
+                <h1>学生成绩总览</h1>
+            </div>
+        </div>
+        <div class="content">
+            <div class="student">
+                <ul>
+                    <li id="yang"><a href="#">杨宏承</a></li>
+                    <li id="yu"><a href="#">余浩</a></li>
+                    <li id="su"><a href="#">苏鹏杰</a></li>
+                    <li id="shen"><a href="#">申卓凡</a></li>
+                </ul>
+            </div>
+
+            <div class="all">
+                <h3>柱状图</h3>
+                <div class="histogram" id="histogram"></div>
+                <h3>饼状图</h3>
+                <div class="pies">
+                    <p>第一周:</p>
+                    <div id="pies1"></div>
+                    <p>第二周:</p>
+                    <div id="pies2"></div>
+                    <p>第三周:</p>
+                    <div id="pies3"></div>
+                    <p>第四周:</p>
+                    <div id="pies4"></div>
+                </div>
+                <h3>折线图</h3>
+                <div class="foldline" id="foldline"></div>
+                <h3>雷达图</h3>
+                <div class="radarchart" id="radarchart"></div>
+                <h3>排序图</h3>
+                <div class="sort" id="sort"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./jquery-3.7.0.min.js"></script>
+    <script src="../node_modules/echarts/dist/echarts.min.js"></script>
+    <script src="./学生成绩.js"></script>
+    <script src="./成绩切换.js"></script>
+
+</body>
+
+</html>
