@@ -88,10 +88,12 @@ let wallpaper = [
   "./images/20230612dikcge.webp",
   "./images/20230612ijncb4.webp",
 ];
+let collects = [];
 $("#left-bos ul li:eq(2)").on("click", function () {
   $("#right-bos1").css("display", "none");
   $("#right-bos2").css("display", "block");
   $("#right-bos").css("display", "none");
+  $("#right-bos3").css("display", "none");
 });
 $("#files").on("click", function () {
   $("#text").click();
@@ -103,6 +105,7 @@ $("#left-bos ul li:eq(1)").on("click", function () {
   $("#right-bos1").css("display", "block");
   $("#right-bos2").css("display", "none");
   $("#right-bos").css("display", "none");
+  $("#right-bos3").css("display", "none");
   let wall = "";
   wallpaper.forEach((item) => {
     wall += `<div class="div-imgs"><img src ="${item}" class="imgs"></div>`;
@@ -120,11 +123,17 @@ $("#right-bos1").on("click", ".imgs", function () {
   // console.log(srcy);
   $("body").attr("style", srcy);
 });
-$("#right-bos1").on("cllick", ".imgs", function () {});
 $("#left-bos ul li:eq(0)").on("click", function () {
   $("#right-bos1").css("display", "none");
   $("#right-bos").css("display", "block");
   $("#right-bos2").css("display", "none");
+  $("#right-bos3").css("display", "none");
+});
+$("#left-bos ul li:eq(3)").on("click", function () {
+  $("#right-bos1").css("display", "none");
+  $("#right-bos").css("display", "none");
+  $("#right-bos2").css("display", "none");
+  $("#right-bos3").css("display", "block");
 });
 $("#colour1").on("click", function () {
   let cos = co[0].back;
@@ -312,7 +321,31 @@ layui.use(function () {
 
 $("body").on("contextmenu", function (e) {
   if (e.button == 2) {
-    alert("您按下了鼠标右键!");
+    e.preventDefault();
+    if ($(this).attr("style")) {
+      let x = e.clientX;
+      let y = e.clientY;
+      // console.log(x + "px", y + "px");
+      $(".pop-up").css("top", y + "px");
+      $(".pop-up").css("left", x + "px");
+      $(".pop-up").css("display", "block");
+      console.log($(this).attr("style"));
+      let bac = $(this).attr("style");
+      var startIndex = bac.indexOf(".");
+      // console.log(startIndex);
+      var result = bac.slice(startIndex, bac.length - 1);
+      $(".collect-add").on("click", function () {
+        console.log(result);
+        collects.push(result);
+        console.log(collects);
+        $(".pop-up").css("display", "none");
+        console.log(result);
+        if (result) {
+          result == undefined;
+        }
+      });
+    } else {
+      console.log(111);
+    }
   }
-  e.preventDefault();
 });
