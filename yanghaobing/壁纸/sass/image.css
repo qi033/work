@@ -220,6 +220,7 @@ img {
 }
 
 #content {
+  overflow: auto;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -228,6 +229,10 @@ img {
 .foot {
   width: 800px;
   height: 100%;
+}
+
+.inlink {
+  color: #fdeff9;
 }
 
 .foot .container {
