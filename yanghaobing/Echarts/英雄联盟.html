@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="" />
+    <script src="../js/cdn.Echarts.js"></script>
+    <script src="../js/color.echarts.js"></script>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* #main {
+      position: absolute;
+      top: 469px;
+      left: 67%;
+      transform: translate(-50%, -50%);
+    } */
+    @media screen and (min-width: 1422px) {
+      .left {
+        width: 385px;
+        height: 250px;
+        /* border: 1px solid red; */
+        background: url("../壁纸/image/18.jpg") no-repeat;
+        background-size: cover;
+        /* position: absolute;
+        top: 344px;
+        left: 428px; */
+      }
+      /* #main {
+        position: absolute;
+        top: 469px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      } */
+      .left::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 385px;
+        height: 250px;
+
+        background-image: linear-gradient(
+          to left,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.5)
+        );
+        z-index: 999;
+      }
+      .right {
+        width: 385px;
+        height: 250px;
+
+        background: url("https://img0.baidu.com/it/u=755340463,2919838980&fm=253&fmt=auto&app=138&f=JPEG?w=799&h=500")
+          no-repeat;
+        background-size: cover;
+        /* position: absolute;
+        top: 344px;
+        right: 430px; */
+      }
+    }
+    @media screen and (max-width: 1422px) {
+      .left {
+        width: 385px;
+        height: 250px;
+        /* border: 1px solid red; */
+        background: url("../壁纸/image/18.jpg") no-repeat;
+        background-size: cover;
+        /* position: absolute;
+        top: 334px;
+        left: 179px; */
+      }
+      #main {
+        position: absolute;
+        top: 469px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .left::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 385px;
+        height: 250px;
+
+        background-image: linear-gradient(
+          to left,
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.5)
+        );
+        z-index: 999;
+      }
+      .right {
+        width: 385px;
+        height: 250px;
+        /* border: 1px solid red; */
+        background: url("https://img0.baidu.com/it/u=755340463,2919838980&fm=253&fmt=auto&app=138&f=JPEG?w=799&h=500")
+          no-repeat;
+        background-size: cover;
+        /* position: absolute;
+        top: 334px;
+        right: 180px; */
+      }
+    }
+    .left h3 {
+      background-image: linear-gradient(
+        to right,
+        rgba(41, 5, 247, 0.5),
+        rgba(188, 187, 192, 0.5)
+      );
+    }
+    #main {
+      background: #c31432; /* fallback for old browsers */
+      background: -webkit-linear-gradient(
+        to right,
+        #240b36,
+        #c31432
+      ); /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(
+        to right,
+        #240b36,
+        #c31432
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      z-index: 999;
+    }
+    #footer {
+      width: 550px;
+      height: 500px;
+      border: 1px solid red;
+      z-index: -1;
+    }
+    #closp {
+      width: 1200px;
+
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+  <body>
+    <div id="closp" style="position: relative">
+      <div class="left">
+        <h3>胜方</h3>
+      </div>
+      <div id="main" style="width: 293px; height: 250px"></div>
+      <div class="right"></div>
+    </div>
+    <div id="footer"></div>
+  </body>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+  <script>
+    var myChart = echarts.init(document.getElementById("main"), "vintage");
+    var option;
+
+    option = {
+      title: {
+        text: "",
+      },
+      legend: {
+        data: ["胜方", "败方"],
+      },
+      radar: {
+        // shape: "circle",
+        indicator: [
+          { name: "对英雄总伤害" },
+          { name: "参团率" },
+          { name: "金钱" },
+          { name: "评价" },
+          { name: "承伤" },
+        ],
+      },
+      series: [
+        {
+          name: "Budget vs spending",
+          type: "radar",
+          data: [
+            {
+              value: [14700, 519, 12000, 640, 43600],
+              name: "胜方",
+            },
+            {
+              value: [29100, 629, 14000, 890, 19200],
+              name: "败方",
+            },
+          ],
+        },
+      ],
+    };
+    myChart.setOption(option);
+  </script>
+  <script>
+    var myChart = echarts.init(document.getElementById("footer"));
+    let xData = ["对英雄总伤害", "参团率", "金钱", "评价", "承伤"];
+    let eventWarning = [14700, 51.9, 12000, 6.4, 43600];
+    let eventHandling = [29100, 62.9, 14000, 8.9, 19200];
+    let legend = ["事件预警", "事件处置"];
+    option = {
+      backgroundColor: "#000",
+      color: ["#2CF1FF", "#3456FF"],
+      timeline: {
+        show: false,
+      },
+      tooltip: {
+        trigger: "axis",
+        axisPointer: {
+          type: "shadow",
+        },
+        backgroundColor: "rgba(255,255,255,0.75)",
+        extraCssText: "box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.3);",
+        textStyle: {
+          fontSize: 14,
+          color: "#000",
+        },
+        formatter: "{a}<br/>{b} :\n\n{c} 个",
+      },
+      legend: {
+        top: 0,
+        right: "center",
+        itemWidth: 16,
+        itemHeight: 6,
+        itemGap: 20,
+        icon: "horizontal",
+        textStyle: {
+          color: "#ffffff",
+          fontSize: 16,
+        },
+        data: legend,
+      },
+      grid: [
+        // 左边
+        {
+          show: false,
+          left: "5%",
+          top: "15%",
+          bottom: "2%",
+          containLabel: true,
+          width: "40%",
+        },
+        // 中间
+        {
+          show: false,
+          left: "51%",
+          top: "15%",
+          bottom: "4%",
+          width: "0%",
+        },
+        // 右边
+        {
+          show: false,
+          right: "5%",
+          top: "15%",
+          bottom: "2%",
+          containLabel: true,
+          width: "40%",
+        },
+      ],
+      xAxis: [
+        {
+          type: "value",
+          inverse: true,
+          axisTick: {
+            show: false,
+          },
+          axisLabel: {
+            show: false,
+          },
+          axisLabel: {
+            show: true,
+            verticalAlign: "middle",
+            textStyle: {
+              color: "rgba(255, 255, 255, 0.7)",
+              fontSize: 12,
+            },
+          },
+          splitLine: {
+            show: false,
+          },
+        },
+        {
+          gridIndex: 1,
+          show: false,
+        },
+        {
+          gridIndex: 2,
+          axisLine: {
+            show: false,
+          },
+          axisTick: {
+            show: false,
+          },
+          axisLabel: {
+            show: true,
+            verticalAlign: "middle",
+            textStyle: {
+              color: "rgba(255, 255, 255, 0.7)",
+              fontSize: 12,
+            },
+          },
+          splitLine: {
+            show: false,
+          },
+        },
+      ],
+      yAxis: [
+        {
+          type: "category",
+          inverse: true,
+          position: "right",
+          axisLine: {
+            show: false,
+          },
+          axisTick: {
+            show: false,
+          },
+          axisLabel: {
+            show: false,
+          },
+          data: xData,
+        },
+        {
+          gridIndex: 1,
+          type: "category",
+          inverse: true,
+          position: "left",
+          axisLine: {
+            show: false,
+          },
+          axisTick: {
+            show: false,
+          },
+          axisLabel: {
+            show: true,
+            color: "rgba(255, 255, 255, 0.7)",
+            fontSize: 16,
+            align: "center",
+          },
+          data: xData.map(function (value) {
+            return {
+              value: value,
+              textStyle: {
+                align: "center",
+              },
+            };
+          }),
+        },
+        {
+          gridIndex: 2,
+          type: "category",
+          inverse: true,
+          position: "left",
+          axisLine: {
+            show: false,
+          },
+          axisTick: {
+            show: false,
+          },
+          axisLabel: {
+            show: false,
+          },
+          data: xData,
+        },
+      ],
+      series: [
+        {
+          name: legend[0],
+          type: "bar",
+          barWidth: 10,
+          stack: "1",
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+              {
+                offset: 0,
+                color: "#2CF1FF",
+              },
+              {
+                offset: 1,
+                color: "#3456FF",
+              },
+            ]),
+          },
+          label: {
+            show: false,
+            position: "left",
+            color: "rgba(255, 255, 255, 0.7)",
+          },
+          data: eventWarning,
+          animationEasing: "elasticOut",
+          showBackground: true,
+          backgroundStyle: {
+            color: "rgba(180, 180, 180, 0.2)",
+          },
+        },
+        {
+          name: legend[1],
+          type: "bar",
+          stack: "2",
+          barWidth: 10,
+          xAxisIndex: 2,
+          yAxisIndex: 2,
+          itemStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+              {
+                offset: 0,
+                color: "#FF2E62",
+              },
+              {
+                offset: 1,
+                color: "#FF5FAC",
+              },
+            ]),
+          },
+          label: {
+            show: false,
+            position: "right",
+            color: "rgba(255, 255, 255, 0.7)",
+          },
+          data: eventHandling,
+          animationEasing: "elasticOut",
+          showBackground: true,
+          backgroundStyle: {
+            color: "rgba(180, 180, 180, 0.2)",
+          },
+        },
+      ],
+    };
+    myChart.setOption(option);
+  </script>
+</html>
