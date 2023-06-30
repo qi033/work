@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../common/echars/echarts.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            height: 100%;
+            background-color: blanchedalmond;
+        }
+
+        #son1 {
+            width: 100%;
+            height: 400px;
+            background-color: rgb(0, 0, 0);
+        }
+
+        #son2 {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            background-color: rgb(56, 56, 56);
+        }
+
+        #son2 div {
+            width: 330px;
+            height: 100%;
+        }
+
+        #son3 {
+            width: 100%;
+            height: 400px;
+            background-color: rgb(184, 184, 184);
+        }
+
+        #son4 {
+            width: 100%;
+            height: 400px;
+            background-color: rgb(175, 175, 175);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="son1">
+            <!-- //柱状图 -->
+
+        </div>
+
+        <div id="son2">
+            <!-- //饼状图 -->
+            <div id="son2-sun1"></div>
+            <div id="son2-sun2"></div>
+            <div id="son2-sun3"></div>
+            <div id="son2-sun4"></div>
+        </div>
+
+        <div id="son3">
+            <!-- //折线图 -->
+
+        </div>
+
+        <div id="son4">
+            <!-- //雷达图 -->
+
+        </div>
+
+    </div>
+    <script>  //柱状图
+        var chartDom = document.getElementById('son1');
+        var myChart = echarts.init(chartDom,);//"dark"
+        var optionl
+        option = {
+            title: {
+                show: false
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                right: '15%',
+                top: 10,
+                icon: 'circle',
+                itemWidth: 8,
+                itemHeight: 8,
+                itemGap: 37,
+                textStyle: {
+                    fontSize: 12,
+                    fontFamily: 'Microsoft YaHei',
+                    fontWeight: 'normal',
+                    color: '#82DAF7'
+                }
+            },
+            grid: {
+                x: '5%',
+                y: '15%',
+                x2: '5%',
+                y2: '15%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                axisTick: {
+                    show: false
+                },
+                axisLabel: {
+                    interval: 0,
+                    textStyle: {
+                        fontSize: 18,
+                        fontFamily: 'Alibaba PuHuiTi',
+                        fontWeight: 400,
+                        color: '#82DAF7',
+                        padding: [5, 0, 0, 0]
+                    }
+                },
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        color: '#294462',
+                        opacity: 0.3
+                    }
+                },
+                data: ['6.2', '6.9', '6.16', '6.21']
+            },
+            yAxis: {
+                type: 'value',
+                minInterval: 5,
+                name: '',
+                nameTextStyle: {
+                    fontSize: 18,
+                    fontFamily: 'CenturyGothic',
+                    color: '#ffffff',
+                    padding: [0, 0, 0, 30]
+                },
+                axisTick: {
+                    show: false
+                },
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: '#06304C'
+                    }
+                },
+                axisLabel: {
+                    textStyle: {
+                        fontSize: 14,
+                        fontFamily: 'CenturyGothic',
+                        fontWeight: 'normal',
+                        color: '#82DAF7',
+                        padding: [0, 5, 0, 0]
+                    }
+                }
+            },
+            dataZoom: [
+                {
+                    // x轴没有具体的数值
+                    type: 'inside', // 图形内部的滚动条
+                    xAxisIndex: [0], // 明确指定滚动的轴
+                    minValueSpan: 1, // x轴最小的index
+                    maxValueSpan: 3, // x轴最大的index
+                    zoomOnMouseWheel: false // 关闭鼠标滚轮缩放
+                }
+            ],
+            series: [{
+                name: '笔试',
+                type: 'bar',
+                barWidth: 10,
+                barGap: '80%',
+                itemStyle: {
+                    borderWidth: 1,
+                    borderRadius: [3, 3, 0, 0],
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0, color: '#A5ADFF' // 0% 处的颜色
+                        }, {
+                            offset: 1, color: '#9B69EC' // 100% 处的颜色
+                        }]
+                    }
+                },
+                data: [54.5, 33, 51.5,46]
+            }, {
+                name: '机试',
+                type: 'bar',
+                barWidth: 10,
+                barGap: '80%',
+                itemStyle: {
+                    borderWidth: 1,
+                    borderRadius: [3, 3, 0, 0],
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0, color: '#E1B031' // 0% 处的颜色
+                        }, {
+                            offset: 1, color: '#FF8143' // 100% 处的颜色
+                        }]
+                    }
+                },
+                data: [75, 75, 60, 50]
+            }, {
+                name: '平均成绩',
+                type: 'bar',
+                barWidth: 10,
+                barGap: '80%',
+                itemStyle: {
+                    borderWidth: 1,
+                    borderRadius: [3, 3, 0, 0],
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0, color: '#00BEFF' // 0% 处的颜色
+                        }, {
+                            offset: 1, color: '#247FFF' // 100% 处的颜色
+                        }]
+                    }
+                },
+                data: [64.75, 54, 55.75, 48],
+            },
+            ]
+        };
+        myChart.setOption(option);
+    </script>
+    <script>  //饼状图 
+        var chartDom = document.getElementById('son2-sun1');
+        var myChart = echarts.init(chartDom);
+        var option;
+        option = {
+            title: [
+                {
+                    top: '5%',
+                    text: '6.2日，机试笔试',
+                    left: 'center'
+                },],
+            legend: {
+                top: '15%',
+                left: 'center'
+            },
+            series: [
+
+                {
+                    top: "18%",
+                    name: 'Access From',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: 40,
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: [
+                        { value: 54.5, name: '笔试' },
+                        { value: 75, name: '机试' },
+                    ]
+                }
+            ]
+        };
+        option && myChart.setOption(option);
+
+        var chartDom = document.getElementById('son2-sun2');
+        var myChart = echarts.init(chartDom);
+        var option;
+        option = {
+            title: [
+                {
+                    top: '5%',
+                    text: '6.9日，机试笔试',
+                    left: 'center'
+                },],
+            legend: {
+                top: '15%',
+                left: 'center'
+            },
+            series: [
+                {
+                    top: "18%",
+                    name: 'Access From',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: 40,
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: [
+                        { value: 33, name: '笔试' },
+                        { value: 75, name: '机试' },
+                    ]
+                }
+            ]
+        };
+        option && myChart.setOption(option);
+
+        var chartDom = document.getElementById('son2-sun3');
+        var myChart = echarts.init(chartDom);
+        var option;
+        option = {
+            title: [
+                {
+                    top: '5%',
+                    text: '6.16日，机试笔试',
+                    left: 'center'
+                },],
+            legend: {
+                top: '15%',
+                left: 'center'
+            },
+            series: [
+                {
+                    top: "18%",
+                    name: 'Access From',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: 40,
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: [
+                        { value: 51.5, name: '笔试' },
+                        { value: 60, name: '机试' },
+                    ]
+                }
+            ]
+        };
+        option && myChart.setOption(option);
+
+        var chartDom = document.getElementById('son2-sun4');
+        var myChart = echarts.init(chartDom);
+        var option;
+        option = {
+            title: [
+                {
+                    top: '5%',
+                    text: '6.21日，机试笔试',
+                    left: 'center'
+                },],
+            legend: {
+                top: '15%',
+                left: 'center'
+            },
+            series: [
+                {
+                    top: "18%",
+                    name: 'Access From',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: 40,
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: [
+                        { value: 46, name: '笔试' },
+                        { value: 50, name: '机试' },
+                    ]
+                }
+            ]
+        };
+        option && myChart.setOption(option);
+    </script>
+    <script>  //折线图
+        var chartDom = document.getElementById('son3');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+            title: {
+                text: '三段每周笔试+机试的平均分'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {},
+            toolbox: {
+                show: true,
+                feature: {
+                    dataZoom: {
+                        yAxisIndex: 'none'
+                    },
+                    dataView: { readOnly: false },
+                    magicType: { type: ['line', 'bar'] },
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['6-2', '6-9', '6-16', '6-21']
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value} '
+                }
+            },
+            series: [
+                {
+                    name: '每周平均分',
+                    type: 'line',
+                    data: [64.75, 54, 55.75, 48],
+
+                    markLine: {
+                        data: [
+                            { type: 'average', name: 'Avg' },
+                            [
+                                {
+                                    symbol: 'none',
+                                    x: '75%',
+                                    yAxis: 'max'
+                                },
+                                {
+                                    symbol: 'circle',
+                                    label: {
+                                        position: 'start',
+                                        formatter: 'Max'
+                                    },
+                                    type: 'max',
+                                    name: '最高点'
+                                }
+                            ]
+                        ]
+                    }
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+
+    </script>
+    <script>  //雷达图
+        var chartDom = document.getElementById('son4');
+        var myChart = echarts.init(chartDom);
+        var option;
+        const legendData = ['车辆数', '设计车位']; //图例
+        const color = ['#4A99FF', '#4BFFFC']; //线条边框颜色
+        const backgroundColor = '#101736';
+
+        const title = {
+            text: '三段每周机试笔试分数雷达图',
+            textStyle: {
+                color: '#fff',
+                fontSize: 16,
+            },
+            padding: 0,
+            top: 35,
+            left: 40,
+        };
+        const legend = {
+            //data，就是取得每个series里面的name属性。
+            orient: 'vertical',
+            icon: 'circle', //图例形状
+            padding: 0,
+            top: 35,
+            right: 40,
+            itemWidth: 14, //小圆点宽度
+            itemHeight: 14, // 小圆点高度
+            itemGap: 21, // 图例每项之间的间隔。[ default: 10 ]横向布局时为水平间隔，纵向布局时为纵向间隔。
+            textStyle: {
+                fontSize: 14,
+                color: '#00E4FF',
+            },
+        };
+        const tooltip = {
+            show: true,
+        };
+        const indicator = [
+            {
+                name: '6-2',
+                max: 100,
+            },
+            {
+                name: '6-9',
+                max: 100,
+            },
+            {
+                name: '6-16',
+                max: 100,
+            },
+            {
+                name: '6-21',
+                max: 100,
+            },
+        ];
+        const dataArr = [
+            {
+                name: '笔试',
+                value: [54.5, 33, 51.5, 46],
+                symbolSize: 8,
+                symbol: 'circle',
+
+                lineStyle: {
+                    width: 2,
+                },
+                areaStyle: {
+                    // 单项区域填充样式
+                    color: {
+                        type: 'linear',
+                        x: 0, //右
+                        y: 0, //下
+                        x2: 1, //左
+                        y2: 1, //上
+                        colorStops: [
+                            {
+                                offset: 0,
+                                color: color[0],
+                            },
+                            {
+                                offset: 0.5,
+                                color: 'rgba(0,0,0,0)',
+                            },
+                            {
+                                offset: 1,
+                                color: color[0],
+                            },
+                        ],
+                        global: false,
+                    },
+                    opacity: 1, // 区域透明度
+                },
+            },
+            {
+                value: [75, 75, 60, 50],
+                name: '机试',
+                symbolSize: 8,
+                symbol: 'circle',
+                lineStyle: {
+                    width: 2,
+                },
+
+                areaStyle: {
+                    // 单项区域填充样式
+                    color: {
+                        type: 'linear',
+                        x: 0, //右
+                        y: 0, //下
+                        x2: 1, //左
+                        y2: 1, //上
+                        colorStops: [
+                            {
+                                offset: 0,
+                                color: color[1],
+                            },
+                            {
+                                offset: 0.5,
+                                color: 'rgba(0,0,0,0)',
+                            },
+                            {
+                                offset: 1,
+                                color: color[1],
+                            },
+                        ],
+                        global: false,
+                    },
+                    opacity: 1, // 区域透明度
+                },
+            },
+        ];
+
+        option = {
+            color,
+            title,
+            legend,
+            tooltip,
+            radar: {
+                center: ['50%', '50%'], //圆心坐标距离左边和上边的距离
+                radius: ['1%', '75%'], //内外半径，不写默认是75%
+                startAngle: 90, //可以旋转图形
+                shape: 'polygon',
+                axisName: {
+                    color: '#fff',
+                    fontSize: 16,
+                },
+                indicator: indicator,
+                splitArea: {
+                    show: false, //默认显示颜色分割区域，不需要显示
+                },
+                axisLine: {
+                    show: true, //是否显示十字交叉线
+                    //指向外圈文本的分隔线样式
+                    lineStyle: {
+                        color: '#146269', //线条颜色
+                    },
+                },
+                axisLabel: { show: false },
+                splitLine: {
+                    //雷达一圈圈
+                    show: true,
+                    lineStyle: {
+                        type: 'solid',
+                        color: '#113865', // 雷达一圈圈颜色分隔线颜色
+                        width: 1, // 分隔线线宽
+                    },
+                },
+            },
+            series: [
+                {
+                    type: 'radar',
+                    data: dataArr,
+                },
+            ],
+        };
+
+
+        option && myChart.setOption(option);
+
+    </script>
+</body>
+
+</html>
