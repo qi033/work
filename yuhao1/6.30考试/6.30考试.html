@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
+<script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+<script src="../../../../Echarts/node_modules/echarts/dist/echarts.min.js"></script>
+<script src="../../common/jquery-3.7.0.js"></script>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&display=swap");
+
+    a {
+        font-family: 'Roboto Mono', monospace;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        background: linear-gradient(to bottom, var(--mainColor) 0%, var(--mainColor) 100%);
+        background-position: 0 100%;
+        background-repeat: repeat-x;
+        background-size: 3px 3px;
+        color: #000;
+        text-decoration: none;
+    }
+
+    a:hover {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23ff9800' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+        background-position: 0 100%;
+        background-size: auto 6px;
+        background-repeat: repeat-x;
+        text-decoration: none;
+    }
+
+    .char {
+        font-variation-settings: 'wght' var(--weight, 100);
+        color: hsl(var(--hue), calc(var(--saturation) * 1%), 65%);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        list-style: none;
+    }
+
+    .box {
+        width: 1400px;
+        height: 2500px;
+        margin: auto;
+        box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    ul {
+        margin: auto;
+    }
+
+    li {
+        float: left;
+        margin-left: 200px;
+        margin-top: 50px;
+    }
+
+    li a {
+        color: black;
+    }
+
+    .title {
+        width: 1400px;
+        height: 100px;
+    }
+
+    .foot {
+        width: 1400px;
+        height: 400px;
+    }
+
+    .yuan {
+        width: 1400px;
+        height: 400px;
+        margin-top: 40px;
+        display: inline-block;
+    }
+
+
+
+    .foot #echarts {
+        width: 600px;
+        height: 400px;
+        float: left;
+        margin-top: 60px;
+        margin-left: 340px;
+    }
+
+
+    #echarts1,
+    #echarts2,
+    #echarts3,
+    #echarts4 {
+        width: 320px;
+        height: 400px;
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    .xian {
+        width: 1400px;
+        height: 500px;
+        display: inline-block;
+    }
+
+    .leida {
+        width: 1400px;
+        height: 300px;
+        display: inline-block;
+    }
+
+    #echarts6 {
+        width: 1400px;
+        height: 400px;
+        display: inline-block;
+    }
+
+    #echarts5 {
+        width: 1400px;
+        height: 500px;
+        display: inline-block;
+    }
+
+    .main {
+        width: 1400px;
+        height: 1800px;
+    }
+
+    .dongtai {
+        width: 1400px;
+        height: 600px;
+    }
+
+    #echarts7 {
+        width: 1400px;
+        height: 550px;
+        display: inline-block;
+        margin-top: 50px;
+    }
+
+
+    @import url("https://fonts.googleapis.com/css2?family=Exo:wght@900&display=swap");
+
+    :root {
+        --color-1: #186cb8;
+        --color-2: #2a9a9f;
+        --color-3: #f1b211;
+        --color-4: #e83611;
+        --color-5: #f9002f;
+    }
+
+
+
+    h1 {
+        font-family: "Exo", sans-serif;
+        text-transform: uppercase;
+        background: linear-gradient(360deg,
+                var(--color-1) 19%,
+                transparent 19%, transparent 20%,
+                var(--color-2) 20%, var(--color-2) 39%,
+                transparent 39%, transparent 40%,
+                var(--color-3) 40%, var(--color-3) 59%,
+                transparent 59%, transparent 60%,
+                var(--color-4) 60%, var(--color-4) 79%,
+                transparent 79%, transparent 80%,
+                var(--color-5) 80%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        margin-left: 590px;
+    }
+
+
+    @media screen and (min-width: 768px) {
+        h1 {
+            font-size: 20px;
+        }
+    }
+</style>
+
+<body>
+    <div class="box">
+        <h1>成绩表</h1>
+        <div class="title">
+            <ul>
+                <li><a href="#" id="asd" data-splitting="chars">身着饭</a></li>
+                <li><a href="#" id="ssd" data-splitting="chars">索恩姐</a></li>
+                <li><a href="#" id="ds" data-splitting="chars">留针舟</a></li>
+                <li><a href="#" id="ad" data-splitting="chars">阳鞃成</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="foot">
+                <div id="echarts"></div>
+            </div>
+
+            <div class="yuan">
+                <div id="echarts1"></div>
+                <div id="echarts2"></div>
+                <div id="echarts3"></div>
+                <div id="echarts4"></div>
+            </div>
+            <div class="xian">
+                <div id="echarts5"></div>
+            </div>
+            <div class="leida">
+                <div id="echarts6"></div>
+            </div>
+        </div>
+
+        <div class="dongtai">
+            <div id="echarts7">
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    Splitting()
+    gsap.set('.char', {
+        '--hue': gsap.utils.distribute({
+            base: 0,
+            amount: 330,
+        })
+    })
+    gsap.to('.char', {
+        '--weight': 700,
+        '--saturation': 80,
+        ease: 'sine.inOut',
+        duration: 0.5,
+        stagger: {
+            yoyo: true,
+            repeat: -1,
+            each: 0.15,
+        }
+    }).time(2)
+
+    const asd = document.getElementById('asd')
+    const ssd = document.getElementById('ssd')
+    const ds = document.getElementById('ds')
+    const ad = document.getElementById('ad')
+    // 身着饭
+    asd.addEventListener('click', function () {
+        myChart.setOption(option);
+        myChart1.setOption(option1)
+        myChart2.setOption(option2)
+        myChart3.setOption(option3);
+        myChart4.setOption(option4);
+        myChart5.setOption(option5);
+        myChart6.setOption(option6);
+    })
+    //苏蓬街
+    ssd.addEventListener('click', function () {
+        myChart.setOption(option8);
+        myChart1.setOption(option11)
+        myChart2.setOption(option14)
+        myChart3.setOption(option17);
+        myChart4.setOption(option20);
+        myChart5.setOption(option23);
+        myChart6.setOption(option26);
+    })
+    //刘振周
+    ds.addEventListener('click', function () {
+        myChart.setOption(option9);
+        myChart1.setOption(option12);
+        myChart2.setOption(option15)
+        myChart3.setOption(option18);
+        myChart4.setOption(option21);
+        myChart5.setOption(option24);
+        myChart6.setOption(option27);
+    })
+    //阳鞃成
+    ad.addEventListener('click', function () {
+        myChart.setOption(option10);
+        myChart1.setOption(option13);
+        myChart2.setOption(option16)
+        myChart3.setOption(option19);
+        myChart4.setOption(option22);
+        myChart5.setOption(option25);
+        myChart6.setOption(option28);
+    })
+</script>
+
+<script>
+    var chartDom = document.getElementById('echarts');
+    var myChart = echarts.init(chartDom);
+    var option;
+    var option8;
+    var option9;
+    var option10;
+    option = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            },
+        },
+        legend: {
+            data: ['笔试', '机试', '平均分']
+        },
+        xAxis: [
+            {
+                type: 'category',
+                axisTick: { show: false },
+                data: ['6.2', '6.9', '6.16', '6.21']
+            },
+            {
+                type: 'category',
+                show: false,
+                axisTick: { show: false },
+                data: ['6.2', '6.9', '6.16', '6.21']
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            },
+            {
+                type: 'value',
+                position: 'right'
+            },
+
+
+        ],
+        color: ['#5aabff', '#fc8452', '#ea7ccc'],
+        series: [
+            {
+                name: '笔试',
+                type: 'bar',
+                barGap: 0,
+                xAxisIndex: 0,
+                itemStyle: {
+                    opacity: 0.5
+                },
+            },
+            {
+                name: '机试',
+                type: 'bar',
+                xAxisIndex: 0,
+                itemStyle: {
+                    opacity: 0.5
+                }
+            },
+            {
+                name: '平均分',
+                type: 'bar',
+                xAxisIndex: 0,
+                itemStyle: {
+                    opacity: 0.5
+                }
+            },
+
+            {
+                name: '笔试',
+                type: 'bar',
+                barGap: 0,
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: [68, 58, 51, 52]
+            },
+            {
+                name: '机试',
+                type: 'bar',
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: [60, 40, 80, 70]
+            },
+            {
+                name: '平均分',
+                type: 'bar',
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: [64, 49, 65.5, 61]
+            },
+            {
+                label: {
+                    show: true,
+                    position: 'top'
+                }
+            }
+        ]
+
+    };
+
+    option8 = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            },
+        },
+        legend: {
+            data: ['笔试', '机试', '平均分']
+        },
+        xAxis: [
+            {
+                type: 'category',
+                axisTick: { show: false },
+                data: ['6.2', '6.9', '6.16', '6.21']
+            },
+            {
+                type: 'category',
+                show: false,
+                axisTick: { show: false },
+                data: ['6.2', '6.9', '6.16', '6.21']
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            },
+            {
+                type: 'value',
+                position: 'right'
+            },
+
+
+        ],
+        color: ['#5aabff', '#fc8452', '#ea7ccc'],
+        series: [
+            {
+                name: '笔试',
+                type: 'bar',
+                barGap: 0,
+                xAxisIndex: 0,
+                itemStyle: {
+                    opacity: 0.5
+                },
+            },
+            {
+                name: '机试',
+                type: 'bar',
+                xAxisIndex: 0,
+                itemStyle: {
+                    opacity: 0.5
+                }
+            },
+            {
+                name: '平均分',
+                type: 'bar',
+                xAxisIndex: 0,
+                itemStyle: {
+                    opacity: 0.5
+                }
+            },
+
+            {
+                name: '笔试',
+                type: 'bar',
+                barGap: 0,
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: [77, 50, 50, 52]
+            },
+            {
+                name: '机试',
+                type: 'bar',
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: [45, 49, 70, 70]
+            },
+            {
+                name: '平均分',
+                type: 'bar',
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: [61, 51, 60, 61]
+            },
+            {
+                label: {
+                    show: true,
+                    position: 'top'
+                }
+            }
+        ]
+
+    };
+
+    option9 = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            },
+        },
+        legend: {
+            data: ['笔试', '机试', '平均分']
+        },
+        xAxis: [
+            {
+                type: 'category',
+                axisTick: { show: false },
+                data: ['6.2', '6.9', '6.16', '6.21']
+            },
+            {
+                type: 'category',
+                show: false,
+                axisTick: { show: false },
+                data: ['6.2', '6.9', '6.16', '6.21']
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            },
+            {
+                type: 'value',
+                position: 'right'
+            },
+
+
+        ],
+        color: ['#5aabff', '#fc8452', '#ea7ccc'],
+        series: [
+            {
+                name: '笔试',
+                type: 'bar',
+                barGap: 0,
+                xAxisIndex: 0,
+                itemStyle: {
+                    opacity: 0.5
+                },
+            },
+            {
+                name: '机试',
+                type: 'bar',
+                xAxisIndex: 0,
+                itemStyle: {
+                    opacity: 0.5
+                }
+            },
+            {
+                name: '平均分',
+                type: 'bar',
+                xAxisIndex: 0,
+                itemStyle: {
+                    opacity: 0.5
+                }
+            },
+
+            {
+                name: '笔试',
+                type: 'bar',
+                barGap: 0,
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: [55, 41, 48, 51]
+            },
+            {
+                name: '机试',
+                type: 'bar',
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: [95, 90, 80, 80]
+            },
+            {
+                name: '平均分',
+                type: 'bar',
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: [75, 65.5, 64, 65.5]
+            },
+            {
+                label: {
+                    show: true,
+                    position: 'top'
+                }
+            }
+        ]
+
+    };
+
+    option10 = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            },
+        },
+        legend: {
+            data: ['笔试', '机试', '平均分']
+        },
+        xAxis: [
+            {
+                type: 'category',
+                axisTick: { show: false },
+                data: ['6.2', '6.9', '6.16', '6.21']
+            },
+            {
+                type: 'category',
+                show: false,
+                axisTick: { show: false },
+                data: ['6.2', '6.9', '6.16', '6.21']
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            },
+            {
+                type: 'value',
+                position: 'right'
+            },
+
+
+        ],
+        color: ['#5aabff', '#fc8452', '#ea7ccc'],
+        series: [
+            {
+                name: '笔试',
+                type: 'bar',
+                barGap: 0,
+                xAxisIndex: 0,
+                itemStyle: {
+                    opacity: 0.5
+                },
+            },
+            {
+                name: '机试',
+                type: 'bar',
+                xAxisIndex: 0,
+                itemStyle: {
+                    opacity: 0.5
+                }
+            },
+            {
+                name: '平均分',
+                type: 'bar',
+                xAxisIndex: 0,
+                itemStyle: {
+                    opacity: 0.5
+                }
+            },
+
+            {
+                name: '笔试',
+                type: 'bar',
+                barGap: 0,
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: [24.5, 36, 38, 37]
+            },
+            {
+                name: '机试',
+                type: 'bar',
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: [70, 60, 70, 65]
+            },
+            {
+                name: '平均分',
+                type: 'bar',
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data: [47.25, 48, 54, 51]
+            },
+            {
+                label: {
+                    show: true,
+                    position: 'top'
+                }
+            }
+        ]
+
+    };
+    option && myChart.setOption(option);
+</script>
+
+
+<script>
+    var chartDom1 = document.getElementById('echarts1');
+    var myChart1 = echarts.init(chartDom1);
+    var option1;
+    var option11;
+    var option12;
+    var option13;
+    function addBlank(list) {
+        const ret = []
+        for (let _list of list) {
+            ret.push(_list)
+            ret.push({
+                name: '',
+                value: 1
+            })
+        }
+        return ret
+    }
+    const list1 = [
+        { value: 68, name: '笔试' },
+        { value: 60, name: '机试' },
+    ]
+    option1 = {
+        title: {
+            text: '6.2笔试机试',
+            textStyle: {
+                fontSize: 22,
+            },
+            subtextStyle: {
+                color: 'rgba(223, 245, 252, 1)'
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: null,
+        // 可动态生成颜色集合
+        color: ['rgba(241, 196, 71, 1)', null, 'rgba(251, 109, 48, 1)', null, 'rgba(239, 61, 119, 1)', null],
+        series: [
+            {
+                name: '成绩',
+                type: 'pie',
+                radius: ['40%', '50%'],
+                label: {
+                    show: false
+                },
+                data: addBlank(list1)
+            },
+            {
+                type: 'pie',
+                radius: ['55%', '55.5%'],
+                label: {
+                    show: true
+                },
+                data: addBlank(list1)
+            }
+        ]
+    };
+
+    function addBlank(list) {
+        const ret = []
+        for (let _list of list) {
+            ret.push(_list)
+            ret.push({
+                name: '',
+                value: 1
+            })
+        }
+        return ret
+    }
+    const list5 = [
+        { value: 77, name: '笔试' },
+        { value: 45, name: '机试' },
+    ]
+    option11 = {
+        title: {
+            text: '6.2笔试机试',
+            textStyle: {
+                fontSize: 22,
+            },
+            subtextStyle: {
+                color: 'rgba(223, 245, 252, 1)'
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: null,
+        // 可动态生成颜色集合
+        color: ['rgba(241, 196, 71, 1)', null, 'rgba(251, 109, 48, 1)', null, 'rgba(239, 61, 119, 1)', null],
+        series: [
+            {
+                name: '成绩',
+                type: 'pie',
+                radius: ['40%', '50%'],
+                label: {
+                    show: false
+                },
+                data: addBlank(list5)
+            },
+            {
+                type: 'pie',
+                radius: ['55%', '55.5%'],
+                label: {
+                    show: true
+                },
+                data: addBlank(list5)
+            }
+        ]
+    };
+
+
+    function addBlank(list) {
+        const ret = []
+        for (let _list of list) {
+            ret.push(_list)
+            ret.push({
+                name: '',
+                value: 1
+            })
+        }
+        return ret
+    }
+    const list6 = [
+        { value: 55, name: '笔试' },
+        { value: 95, name: '机试' },
+    ]
+    option12 = {
+        title: {
+            text: '6.2笔试机试',
+            textStyle: {
+                fontSize: 22,
+            },
+            subtextStyle: {
+                color: 'rgba(223, 245, 252, 1)'
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: null,
+        // 可动态生成颜色集合
+        color: ['rgba(241, 196, 71, 1)', null, 'rgba(251, 109, 48, 1)', null, 'rgba(239, 61, 119, 1)', null],
+        series: [
+            {
+                name: '成绩',
+                type: 'pie',
+                radius: ['40%', '50%'],
+                label: {
+                    show: false
+                },
+                data: addBlank(list6)
+            },
+            {
+                type: 'pie',
+                radius: ['55%', '55.5%'],
+                label: {
+                    show: true
+                },
+                data: addBlank(list6)
+            }
+        ]
+    };
+
+
+    function addBlank(list) {
+        const ret = []
+        for (let _list of list) {
+            ret.push(_list)
+            ret.push({
+                name: '',
+                value: 1
+            })
+        }
+        return ret
+    }
+    const list7 = [
+        { value: 24.5, name: '笔试' },
+        { value: 70, name: '机试' },
+    ]
+    option13 = {
+        title: {
+            text: '6.2笔试机试',
+            textStyle: {
+                fontSize: 22,
+            },
+            subtextStyle: {
+                color: 'rgba(223, 245, 252, 1)'
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: null,
+        // 可动态生成颜色集合
+        color: ['rgba(241, 196, 71, 1)', null, 'rgba(251, 109, 48, 1)', null, 'rgba(239, 61, 119, 1)', null],
+        series: [
+            {
+                name: '成绩',
+                type: 'pie',
+                radius: ['40%', '50%'],
+                label: {
+                    show: false
+                },
+                data: addBlank(list7)
+            },
+            {
+                type: 'pie',
+                radius: ['55%', '55.5%'],
+                label: {
+                    show: true
+                },
+                data: addBlank(list7)
+            }
+        ]
+    };
+    option1 && myChart1.setOption(option1);
+</script>
+
+<script>
+    var chartDom2 = document.getElementById('echarts2');
+    var myChart2 = echarts.init(chartDom2);
+    var option2;
+    var option14;
+    var option15;
+    var option16;
+    function addBlank(list) {
+        const ret = []
+        for (let _list of list) {
+            ret.push(_list)
+            ret.push({
+                name: '',
+                value: 1
+            })
+        }
+        return ret
+    }
+    const list10 = [
+        { value: 36, name: '笔试' },
+        { value: 60, name: '机试' },
+    ]
+    option16 = {
+        title: {
+            text: '6.9笔试机试',
+            textStyle: {
+                fontSize: 22,
+            },
+            subtextStyle: {
+                color: 'rgba(223, 245, 252, 1)'
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: null,
+        // 可动态生成颜色集合
+        color: ['rgba(241, 196, 71, 1)', null, 'rgba(251, 109, 48, 1)', null, 'rgba(239, 61, 119, 1)', null],
+        series: [
+            {
+                name: '成绩',
+                type: 'pie',
+                radius: ['40%', '50%'],
+                label: {
+                    show: false
+                },
+                data: addBlank(list10)
+            },
+            {
+                type: 'pie',
+                radius: ['55%', '55.5%'],
+                label: {
+                    show: true
+                },
+                data: addBlank(list10)
+            }
+        ]
+    };
+
+    function addBlank(list) {
+        const ret = []
+        for (let _list of list) {
+            ret.push(_list)
+            ret.push({
+                name: '',
+                value: 1
+            })
+        }
+        return ret
+    }
+    const list9 = [
+        { value: 41, name: '笔试' },
+        { value: 90, name: '机试' },
+    ]
+    option15 = {
+
+        title: {
+            text: '6.9笔试机试',
+            textStyle: {
+                fontSize: 22,
+            },
+            subtextStyle: {
+                color: 'rgba(223, 245, 252, 1)'
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: null,
+        // 可动态生成颜色集合
+        color: ['rgba(241, 196, 71, 1)', null, 'rgba(251, 109, 48, 1)', null, 'rgba(239, 61, 119, 1)', null],
+        series: [
+            {
+                name: '成绩',
+                type: 'pie',
+                radius: ['40%', '50%'],
+                label: {
+                    show: false
+                },
+                data: addBlank(list9)
+            },
+            {
+                type: 'pie',
+                radius: ['55%', '55.5%'],
+                label: {
+                    show: true
+                },
+                data: addBlank(list9)
+            }
+        ]
+    };
+
+    function addBlank(list) {
+        const ret = []
+        for (let _list of list) {
+            ret.push(_list)
+            ret.push({
+                name: '',
+                value: 1
+            })
+        }
+        return ret
+    }
+    const list8 = [
+        { value: 58, name: '笔试' },
+        { value: 60, name: '机试' },
+    ]
+    option14 = {
+        title: {
+            text: '6.9笔试机试',
+            textStyle: {
+                fontSize: 22,
+            },
+            subtextStyle: {
+                color: 'rgba(223, 245, 252, 1)'
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: null,
+        // 可动态生成颜色集合
+        color: ['rgba(241, 196, 71, 1)', null, 'rgba(251, 109, 48, 1)', null, 'rgba(239, 61, 119, 1)', null],
+        series: [
+            {
+                name: '成绩',
+                type: 'pie',
+                radius: ['40%', '50%'],
+                label: {
+                    show: false
+                },
+                data: addBlank(list8)
+            },
+            {
+                type: 'pie',
+                radius: ['55%', '55.5%'],
+                label: {
+                    show: true
+                },
+                data: addBlank(list8)
+            }
+        ]
+    };
+
+    function addBlank(list) {
+        const ret = []
+        for (let _list of list) {
+            ret.push(_list)
+            ret.push({
+                name: '',
+                value: 1
+            })
+        }
+        return ret
+    }
+    const list2 = [
+        { value: 58, name: '笔试' },
+        { value: 40, name: '机试' },
+    ]
+    option2 = {
+        title: {
+            text: '6.9笔试机试',
+            textStyle: {
+                fontSize: 22,
+            },
+            subtextStyle: {
+                color: 'rgba(223, 245, 252, 1)'
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: null,
+        // 可动态生成颜色集合
+        color: ['rgba(241, 196, 71, 1)', null, 'rgba(251, 109, 48, 1)', null, 'rgba(239, 61, 119, 1)', null],
+        series: [
+            {
+                name: '成绩',
+                type: 'pie',
+                radius: ['40%', '50%'],
+                label: {
+                    show: false
+                },
+                data: addBlank(list2)
+            },
+            {
+                type: 'pie',
+                radius: ['55%', '55.5%'],
+                label: {
+                    show: true
+                },
+                data: addBlank(list2)
+            }
+        ]
+    };
+
+    option2 && myChart2.setOption(option2);
+</script>
+
+
+<script>
+    var chartDom3 = document.getElementById('echarts3');
+    var myChart3 = echarts.init(chartDom3);
+    var option3;
+    var option17;
+    var option18
+    var option19;
+    function addBlank(list) {
+        const ret = []
+        for (let _list of list) {
+            ret.push(_list)
+            ret.push({
+                name: '',
+                value: 1
+            })
+        }
+        return ret
+    }
+    const list13 = [
+        { value: 38, name: '笔试' },
+        { value: 70, name: '机试' },
+    ]
+    option19 = {
+        title: {
+            text: '6.16笔试机试',
+            textStyle: {
+                fontSize: 22,
+            },
+            subtextStyle: {
+                color: 'rgba(223, 245, 252, 1)'
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: null,
+        // 可动态生成颜色集合
+        color: ['rgba(241, 196, 71, 1)', null, 'rgba(251, 109, 48, 1)', null, 'rgba(239, 61, 119, 1)', null],
+        series: [
+            {
+                name: '成绩',
+                type: 'pie',
+                radius: ['40%', '50%'],
+                label: {
+                    show: false
+                },
+                data: addBlank(list13)
+            },
+            {
+                type: 'pie',
+                radius: ['55%', '55.5%'],
+                label: {
+                    show: true
+                },
+                data: addBlank(list13)
+            }
+        ]
+    };
+
+    function addBlank(list) {
+        const ret = []
+        for (let _list of list) {
+            ret.push(_list)
+            ret.push({
+                name: '',
+                value: 1
+            })
+        }
+        return ret
+    }
+    const list12 = [
+        { value: 48, name: '笔试' },
+        { value: 80, name: '机试' },
+    ]
+    option18 = {
+        title: {
+            text: '6.16笔试机试',
+            textStyle: {
+                fontSize: 22,
+            },
+            subtextStyle: {
+                color: 'rgba(223, 245, 252, 1)'
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: null,
+        // 可动态生成颜色集合
+        color: ['rgba(241, 196, 71, 1)', null, 'rgba(251, 109, 48, 1)', null, 'rgba(239, 61, 119, 1)', null],
+        series: [
+            {
+                name: '成绩',
+                type: 'pie',
+                radius: ['40%', '50%'],
+                label: {
+                    show: false
+                },
+                data: addBlank(list12)
+            },
+            {
+                type: 'pie',
+                radius: ['55%', '55.5%'],
+                label: {
+                    show: true
+                },
+                data: addBlank(list12)
+            }
+        ]
+    };
+
+    function addBlank(list) {
+        const ret = []
+        for (let _list of list) {
+            ret.push(_list)
+            ret.push({
+                name: '',
+                value: 1
+            })
+        }
+        return ret
+    }
+    const list11 = [
+        { value: 50, name: '笔试' },
+        { value: 70, name: '机试' },
+    ]
+    option17 = {
+        title: {
+            text: '6.16笔试机试',
+            textStyle: {
+                fontSize: 22,
+            },
+            subtextStyle: {
+                color: 'rgba(223, 245, 252, 1)'
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: null,
+        // 可动态生成颜色集合
+        color: ['rgba(241, 196, 71, 1)', null, 'rgba(251, 109, 48, 1)', null, 'rgba(239, 61, 119, 1)', null],
+        series: [
+            {
+                name: '成绩',
+                type: 'pie',
+                radius: ['40%', '50%'],
+                label: {
+                    show: false
+                },
+                data: addBlank(list11)
+            },
+            {
+                type: 'pie',
+                radius: ['55%', '55.5%'],
+                label: {
+                    show: true
+                },
+                data: addBlank(list11)
+            }
+        ]
+    };
+
+    function addBlank(list) {
+        const ret = []
+        for (let _list of list) {
+            ret.push(_list)
+            ret.push({
+                name: '',
+                value: 1
+            })
+        }
+        return ret
+    }
+    const list3 = [
+        { value: 51, name: '笔试' },
+        { value: 80, name: '机试' },
+    ]
+    option3 = {
+        title: {
+            text: '6.16笔试机试',
+            textStyle: {
+                fontSize: 22,
+            },
+            subtextStyle: {
+                color: 'rgba(223, 245, 252, 1)'
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: null,
+        // 可动态生成颜色集合
+        color: ['rgba(241, 196, 71, 1)', null, 'rgba(251, 109, 48, 1)', null, 'rgba(239, 61, 119, 1)', null],
+        series: [
+            {
+                name: '成绩',
+                type: 'pie',
+                radius: ['40%', '50%'],
+                label: {
+                    show: false
+                },
+                data: addBlank(list3)
+            },
+            {
+                type: 'pie',
+                radius: ['55%', '55.5%'],
+                label: {
+                    show: true
+                },
+                data: addBlank(list3)
+            }
+        ]
+    };
+
+    option3 && myChart3.setOption(option3);
+</script>
+
+<script>
+    var chartDom4 = document.getElementById('echarts4');
+    var myChart4 = echarts.init(chartDom4);
+    var option4;
+    var option20;
+    var option21;
+    var option22;
+    function addBlank(list) {
+        const ret = []
+        for (let _list of list) {
+            ret.push(_list)
+            ret.push({
+                name: '',
+                value: 1
+            })
+        }
+        return ret
+    }
+    const list16 = [
+        { value: 37, name: '笔试' },
+        { value: 65, name: '机试' },
+    ]
+    option22 = {
+        title: {
+            text: '6.21笔试机试',
+            textStyle: {
+                fontSize: 22,
+            },
+            subtextStyle: {
+                color: 'rgba(223, 245, 252, 1)'
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: null,
+        // 可动态生成颜色集合
+        color: ['rgba(241, 196, 71, 1)', null, 'rgba(251, 109, 48, 1)', null, 'rgba(239, 61, 119, 1)', null],
+        series: [
+            {
+                name: '成绩',
+                type: 'pie',
+                radius: ['40%', '50%'],
+                label: {
+                    show: false
+                },
+                data: addBlank(list16)
+            },
+            {
+                type: 'pie',
+                radius: ['55%', '55.5%'],
+                label: {
+                    show: true
+                },
+                data: addBlank(list16)
+            },
+        ]
+    };
+
+    function addBlank(list) {
+        const ret = []
+        for (let _list of list) {
+            ret.push(_list)
+            ret.push({
+                name: '',
+                value: 1
+            })
+        }
+        return ret
+    }
+    const list15 = [
+        { value: 51, name: '笔试' },
+        { value: 80, name: '机试' },
+    ]
+    option21 = {
+        title: {
+            text: '6.21笔试机试',
+            textStyle: {
+                fontSize: 22,
+            },
+            subtextStyle: {
+                color: 'rgba(223, 245, 252, 1)'
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: null,
+        // 可动态生成颜色集合
+        color: ['rgba(241, 196, 71, 1)', null, 'rgba(251, 109, 48, 1)', null, 'rgba(239, 61, 119, 1)', null],
+        series: [
+            {
+                name: '成绩',
+                type: 'pie',
+                radius: ['40%', '50%'],
+                label: {
+                    show: false
+                },
+                data: addBlank(list15)
+            },
+            {
+                type: 'pie',
+                radius: ['55%', '55.5%'],
+                label: {
+                    show: true
+                },
+                data: addBlank(list15)
+            },
+        ]
+    };
+
+    function addBlank(list) {
+        const ret = []
+        for (let _list of list) {
+            ret.push(_list)
+            ret.push({
+                name: '',
+                value: 1
+            })
+        }
+        return ret
+    }
+    const list14 = [
+        { value: 52, name: '笔试' },
+        { value: 70, name: '机试' },
+    ]
+    option20 = {
+        title: {
+            text: '6.21笔试机试',
+            textStyle: {
+                fontSize: 22,
+            },
+            subtextStyle: {
+                color: 'rgba(223, 245, 252, 1)'
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: null,
+        // 可动态生成颜色集合
+        color: ['rgba(241, 196, 71, 1)', null, 'rgba(251, 109, 48, 1)', null, 'rgba(239, 61, 119, 1)', null],
+        series: [
+            {
+                name: '成绩',
+                type: 'pie',
+                radius: ['40%', '50%'],
+                label: {
+                    show: false
+                },
+                data: addBlank(list14)
+            },
+            {
+                type: 'pie',
+                radius: ['55%', '55.5%'],
+                label: {
+                    show: true
+                },
+                data: addBlank(list14)
+            },
+        ]
+    };
+
+    function addBlank(list) {
+        const ret = []
+        for (let _list of list) {
+            ret.push(_list)
+            ret.push({
+                name: '',
+                value: 1
+            })
+        }
+        return ret
+    }
+    const list4 = [
+        { value: 52, name: '笔试' },
+        { value: 70, name: '机试' },
+    ]
+    option4 = {
+        title: {
+            text: '6.21笔试机试',
+            textStyle: {
+                fontSize: 22,
+            },
+            subtextStyle: {
+                color: 'rgba(223, 245, 252, 1)'
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: null,
+        // 可动态生成颜色集合
+        color: ['rgba(241, 196, 71, 1)', null, 'rgba(251, 109, 48, 1)', null, 'rgba(239, 61, 119, 1)', null],
+        series: [
+            {
+                name: '成绩',
+                type: 'pie',
+                radius: ['40%', '50%'],
+                label: {
+                    show: false
+                },
+                data: addBlank(list4)
+            },
+            {
+                type: 'pie',
+                radius: ['55%', '55.5%'],
+                label: {
+                    show: true
+                },
+                data: addBlank(list4)
+            },
+        ]
+    };
+
+    option4 && myChart4.setOption(option4);
+</script>
+<script>
+    var chartDom5 = document.getElementById('echarts5');
+    var myChart5 = echarts.init(chartDom5);
+    var option5;
+    var option23;
+    var option24;
+    var option25;
+    option23 = {
+        xAxis: {
+            type: 'category',
+            data: ['6.2号平均分', '6.9号平均分', '6.16号平均分', '6.21号平均分']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                data: [61, 45, 60, 61],
+                type: 'line',
+                symbol: 'triangle',
+                symbolSize: 20,
+                lineStyle: {
+                    color: '#5470C6',
+                    width: 4,
+                    type: 'dashed'
+                },
+                itemStyle: {
+                    borderWidth: 3,
+                    borderColor: '#EE6666',
+                    color: 'yellow'
+                },
+                label: {
+                    show: true,
+                    position: 'top'
+                }
+            }
+        ]
+    };
+
+    option24 = {
+        xAxis: {
+            type: 'category',
+            data: ['6.2号平均分', '6.9号平均分', '6.16号平均分', '6.21号平均分']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                data: [75, 65.5, 64, 65.5],
+                type: 'line',
+                symbol: 'triangle',
+                symbolSize: 20,
+                lineStyle: {
+                    color: '#5470C6',
+                    width: 4,
+                    type: 'dashed'
+                },
+                itemStyle: {
+                    borderWidth: 3,
+                    borderColor: '#EE6666',
+                    color: 'yellow'
+                },
+                label: {
+                    show: true,
+                    position: 'top'
+                }
+            }
+        ]
+    };
+
+    option25 = {
+        xAxis: {
+            type: 'category',
+            data: ['6.2号平均分', '6.9号平均分', '6.16号平均分', '6.21号平均分']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                data: [47.25, 48, 54, 51],
+                type: 'line',
+                symbol: 'triangle',
+                symbolSize: 20,
+                lineStyle: {
+                    color: '#5470C6',
+                    width: 4,
+                    type: 'dashed'
+                },
+                itemStyle: {
+                    borderWidth: 3,
+                    borderColor: '#EE6666',
+                    color: 'yellow'
+                },
+                label: {
+                    show: true,
+                    position: 'top'
+                }
+            }
+        ]
+    };
+
+    option5 = {
+        xAxis: {
+            type: 'category',
+            data: ['6.2号平均分', '6.9号平均分', '6.16号平均分', '6.21号平均分']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                data: [64, 49, 65.5, 61],
+                type: 'line',
+                symbol: 'triangle',
+                symbolSize: 20,
+                lineStyle: {
+                    color: '#5470C6',
+                    width: 4,
+                    type: 'dashed'
+                },
+                itemStyle: {
+                    borderWidth: 3,
+                    borderColor: '#EE6666',
+                    color: 'yellow'
+                },
+                label: {
+                    show: true,
+                    position: 'top'
+                }
+            }
+        ]
+    };
+
+    option5 && myChart5.setOption(option5);
+</script>
+
+<script>
+    var chartDom6 = document.getElementById('echarts6');
+    var myChart6 = echarts.init(chartDom6);
+    var option6;
+    var option26;
+    var option27;
+    var option28;
+
+    option28 = {
+        title: {
+            text: '每周的成绩'
+        },
+        legend: {
+            data: ['机试', '笔试']
+        },
+        radar: {
+            // shape: 'circle',
+            indicator: [
+                { name: '6.2成绩', max: 100 },
+                { name: '6.9成绩', max: 100 },
+                { name: '6.16成绩', max: 100 },
+                { name: '6.21成绩', max: 100 },
+            ]
+        },
+        series: [
+            {
+                name: 'Budget vs spending',
+                type: 'radar',
+                data: [
+                    {
+                        value: [70, 60, 70, 65],
+                        name: '机试'
+                    },
+                    {
+                        value: [24.5, 36, 38, 37],
+                        name: '笔试'
+                    }
+                ]
+            }
+        ]
+    };
+
+    option27 = {
+        title: {
+            text: '每周的成绩'
+        },
+        legend: {
+            data: ['机试', '笔试']
+        },
+        radar: {
+            // shape: 'circle',
+            indicator: [
+                { name: '6.2成绩', max: 100 },
+                { name: '6.9成绩', max: 100 },
+                { name: '6.16成绩', max: 100 },
+                { name: '6.21成绩', max: 100 },
+            ]
+        },
+        series: [
+            {
+                name: 'Budget vs spending',
+                type: 'radar',
+                data: [
+                    {
+                        value: [95, 90, 80, 80],
+                        name: '机试'
+                    },
+                    {
+                        value: [55, 41, 48, 51],
+                        name: '笔试'
+                    }
+                ]
+            }
+        ]
+    };
+
+    option26 = {
+        title: {
+            text: '每周的成绩'
+        },
+        legend: {
+            data: ['机试', '笔试']
+        },
+        radar: {
+            // shape: 'circle',
+            indicator: [
+                { name: '6.2成绩', max: 100 },
+                { name: '6.9成绩', max: 100 },
+                { name: '6.16成绩', max: 100 },
+                { name: '6.21成绩', max: 100 },
+            ]
+        },
+        series: [
+            {
+                name: 'Budget vs spending',
+                type: 'radar',
+                data: [
+                    {
+                        value: [45, 40, 70, 70],
+                        name: '机试'
+                    },
+                    {
+                        value: [77, 50, 50, 52],
+                        name: '笔试'
+                    }
+                ]
+            }
+        ]
+    };
+
+    option6 = {
+        title: {
+            text: '每周的成绩'
+        },
+        legend: {
+            data: ['机试', '笔试']
+        },
+        radar: {
+            // shape: 'circle',
+            indicator: [
+                { name: '6.2成绩', max: 100 },
+                { name: '6.9成绩', max: 100 },
+                { name: '6.16成绩', max: 100 },
+                { name: '6.21成绩', max: 100 },
+            ]
+        },
+        series: [
+            {
+                name: 'Budget vs spending',
+                type: 'radar',
+                data: [
+                    {
+                        value: [60, 40, 70, 70],
+                        name: '机试'
+                    },
+                    {
+                        value: [68, 58, 51, 52],
+                        name: '笔试'
+                    }
+                ]
+            }
+        ]
+    };
+
+    option6 && myChart6.setOption(option6);
+
+</script>
+<script>
+    var chartDom7 = document.getElementById('echarts7');
+    var myChart7 = echarts.init(chartDom7);
+    var option7;
+    var year = [6.2, 6.9, 6.12, 6.21]
+    var data = [
+        [59.05, 55.9, 66, 50.625],
+        [61, 61, 65.5, 51],
+        [65.5, 52, 64, 54],
+        [49, 53, 65.5, 48],
+        [64, 61, 75, 47.25],
+    ]
+    // 指定图表的配置项和数据
+    var option7 = {
+        title: {
+            text: '成绩排名',
+        },
+        tooltip: {},
+        legend: {
+            data: ['每人成绩']
+        },
+        yAxis: {
+            data: ['身着饭', '苏蓬街', '刘振洲', '杨宏承'
+            ],
+            inverse: true,
+        },
+        xAxis: {},
+        series: [{
+            realtimeSort: true,
+            name: '每人成绩',
+            showBackground: true,
+            label: {
+                show: true,
+                position: 'right',
+                valueAnimation: true
+            },
+            stack: {},
+            type: 'bar',
+            data: [0, 0, 0, 0, 0, 0, 0, 0]
+        }],
+        animationDuration: 0,
+        animationDurationUpdate: 500,
+        animationEasing: 'linear',
+        animationEasingUpdate: 'linear'
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart7.setOption(option7);
+
+    for (let i = 0; i < data.length; i++) {
+        setTimeout(function () {
+            var option7 = {
+                title: {
+                    text: year[data.length - i - 1].toString() + '成绩'
+                },
+                series: [{
+                    data: data[data.length - i - 1]
+                }]
+            }
+            myChart7.setOption(option7)
+        }, 1000 * i)
+    }
+
+    option7 && myChart7.setOption(option7);
+</script>
+
+</html>

@@ -6,204 +6,188 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        :root {
+            --text: #2B3044;
+            --line: #275EFE;
+            --font-size: 16px;
+            --duration: .44s;
+            --duration-line: .84s;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 0;
+            color: var(--text);
+            font-size: var(--font-size);
+            line-height: var(--font-size);
+            zoom: 1.5;
+            margin-top: 20px;
+        }
+
+        p .link {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        p .link div {
+            overflow: hidden;
+        }
+
+        p .link div:first-child {
+            display: -webkit-box;
+            display: flex;
+            overflow: hidden;
+            text-shadow: 0 var(--font-size) 0 var(--text);
+        }
+
+        p .link div:last-child {
+            position: absolute;
+            pointer-events: none;
+            right: 0;
+            left: 0;
+            bottom: -3px;
+            height: 5px;
+        }
+
+        p .link div:last-child svg {
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 300%;
+            height: 5px;
+            fill: none;
+            stroke: var(--line);
+            stroke-width: 1.5px;
+            stroke-linecap: round;
+            stroke-dasharray: 63.5px 128px;
+            stroke-dashoffset: var(--line-offset, 190.25px);
+            -webkit-transform: translateX(var(--line-x)) translateZ(0);
+            transform: translateX(var(--line-x)) translateZ(0);
+            -webkit-transition: stroke-dashoffset var(--line-d, 0s), -webkit-transform var(--line-d, 0s);
+            transition: stroke-dashoffset var(--line-d, 0s), -webkit-transform var(--line-d, 0s);
+            transition: transform var(--line-d, 0s), stroke-dashoffset var(--line-d, 0s);
+            transition: transform var(--line-d, 0s), stroke-dashoffset var(--line-d, 0s), -webkit-transform var(--line-d, 0s);
+        }
+
+        p .link div span {
+            display: block;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            font-style: normal;
+            -webkit-transition: -webkit-transform var(--duration) ease;
+            transition: -webkit-transform var(--duration) ease;
+            transition: transform var(--duration) ease;
+            transition: transform var(--duration) ease, -webkit-transform var(--duration) ease;
+            -webkit-transform: translateY(var(--m, 0));
+            transform: translateY(var(--m, 0));
+        }
+
+        p .link div span:nth-child(1) {
+            -webkit-transition-delay: 0.05s;
+            transition-delay: 0.05s;
+        }
+
+        p .link div span:nth-child(2) {
+            -webkit-transition-delay: 0.1s;
+            transition-delay: 0.1s;
+        }
+
+        p .link div span:nth-child(3) {
+            -webkit-transition-delay: 0.15s;
+            transition-delay: 0.15s;
+        }
+
+        p .link div span:nth-child(4) {
+            -webkit-transition-delay: 0.2s;
+            transition-delay: 0.2s;
+        }
+
+        p .link div span:nth-child(5) {
+            -webkit-transition-delay: 0.25s;
+            transition-delay: 0.25s;
+        }
+
+        p .link div span:nth-child(6) {
+            -webkit-transition-delay: 0.3s;
+            transition-delay: 0.3s;
+        }
+
+        p .link div span:nth-child(7) {
+            -webkit-transition-delay: 0.35s;
+            transition-delay: 0.35s;
+        }
+
+        p .link div span:nth-child(8) {
+            -webkit-transition-delay: 0.4s;
+            transition-delay: 0.4s;
+        }
+
+        p .link div span:nth-child(9) {
+            -webkit-transition-delay: 0.45s;
+            transition-delay: 0.45s;
+        }
+
+        p .link div span:nth-child(10) {
+            -webkit-transition-delay: 0.5s;
+            transition-delay: 0.5s;
+        }
+
+        p .link div span:nth-child(11) {
+            -webkit-transition-delay: 0.55s;
+            transition-delay: 0.55s;
+        }
+
+        p .link:hover {
+            --m: calc(var(--font-size) * -1);
+            --line-d: var(--duration-line);
+            --line-x: 65.66%;
+            --line-offset: 63.5px;
+        }
+
+        html {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        * {
+            box-sizing: inherit;
+        }
+
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
         body {
             min-height: 100vh;
+            display: -webkit-box;
             display: flex;
-            align-items: center;
+            font-family: 'Inter', Arial;
+            -webkit-box-pack: center;
             justify-content: center;
-            background: black;
-            overflow: hidden
-        }
-
-        .loader-cont {
-            height: 480px;
-            width: 480px;
-            position: relative;
-        }
-
-        .dots {
-            height: 100%;
-            width: 100%;
-            border-radius: 50%;
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .dots>span {
-            content: '';
-            display: block;
-            height: 20px;
-            width: 20px;
-            background: white;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .dots:nth-child(2)>span {
-            top: calc(20px * 1);
-        }
-
-        .dots:nth-child(3)>span {
-            top: calc(20px * 2);
-        }
-
-        .dots:nth-child(4)>span {
-            top: calc(20px * 3);
-        }
-
-        .dots:nth-child(5)>span {
-            top: calc(20px * 4);
-        }
-
-        .dots:nth-child(6)>span {
-            top: calc(20px * 5);
-        }
-
-        .dots:nth-child(7)>span {
-            top: calc(20px * 6);
-        }
-
-        .dots:nth-child(8)>span {
-            top: calc(20px * 7);
-        }
-
-        .dots:nth-child(9)>span {
-            top: calc(20px * 8);
-        }
-
-        .dots:nth-child(10)>span {
-            top: calc(20px * 9);
-        }
-
-        .dots:nth-child(11)>span {
-            top: calc(20px * 10);
-        }
-
-        .dots:nth-child(12)>span {
-            top: calc(20px * 11);
+            -webkit-box-align: center;
+            align-items: center;
+            background: #F6F8FF;
         }
     </style>
 </head>
 
 <body>
-    <script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/gsap/3.6.0/gsap.min.js"></script>
-    <div class="loader-cont">
-        <div class="dots dot-one">
-            <span></span>
-        </div>
-        <div class="dots dot-two">
-            <span></span>
-        </div>
-        <div class="dots dot-three">
-            <span></span>
-        </div>
-        <div class="dots dot-four">
-            <span></span>
-        </div>
-        <div class="dots dot-five">
-            <span></span>
-        </div>
-        <div class="dots dot-six">
-            <span></span>
-        </div>
-        <div class="dots dot-seven">
-            <span></span>
-        </div>
-        <div class="dots dot-eight">
-            <span></span>
-        </div>
-        <div class="dots dot-nine">
-            <span></span>
-        </div>
-        <div class="dots dot-ten">
-            <span></span>
-        </div>
-        <div class="dots dot-eleven">
-            <span></span>
-        </div>
-        <div class="dots dot-twelve">
-            <span></span>
+    <div class="wrap">
+        <div class="content">
+            <p>这里是 <a class="link" href="./壁纸库/壁纸库.html">壁纸库</a>点就完了</p>
+            <p>这里是 <a class="link" href="./6月30日考试/学生成绩.html">成绩图表</a>不点不行</p>
         </div>
     </div>
-
     <script>
-        var tl = gsap.timeline({ defaults: { duration: 0.25, ease: "none" }, repeat: -1 });
-        tl.to(".dots:not(.dot-one)", { rotate: "+=30" });
-
-        tl.to(".dots:not(.dot-one):not(.dot-two)", { rotate: "+=30" });
-        tl.to(".dots.dot-two > span", { top: 0 }, "<");
-
-        tl.to(".dots:not(.dot-one):not(.dot-two):not(.dot-three)", { rotate: "+=30" });
-        tl.to(".dots.dot-three > span", { top: 0 }, "<");
-
-        tl.to(".dots:not(.dot-one):not(.dot-two):not(.dot-three):not(.dot-four)", { rotate: "+=30" });
-        tl.to(".dots.dot-four > span", { top: 0 }, "<");
-
-        tl.to(".dots:not(.dot-one):not(.dot-two):not(.dot-three):not(.dot-four):not(.dot-five)", { rotate: "+=30" });
-        tl.to(".dots.dot-five > span", { top: 0 }, "<");
-
-        tl.to(".dots:not(.dot-one):not(.dot-two):not(.dot-three):not(.dot-four):not(.dot-five):not(.dot-six)", { rotate: "+=30" });
-        tl.to(".dots.dot-six > span", { top: 0 }, "<");
-
-        tl.to(".dots:not(.dot-one):not(.dot-two):not(.dot-three):not(.dot-four):not(.dot-five):not(.dot-six):not(.dot-seven)", { rotate: "+=30" });
-        tl.to(".dots.dot-seven > span", { top: 0 }, "<");
-
-        tl.to(".dots:not(.dot-one):not(.dot-two):not(.dot-three):not(.dot-four):not(.dot-five):not(.dot-six):not(.dot-seven):not(.dot-eight)", { rotate: "+=30" });
-        tl.to(".dots.dot-eight > span", { top: 0 }, "<");
-
-        tl.to(".dots:not(.dot-one):not(.dot-two):not(.dot-three):not(.dot-four):not(.dot-five):not(.dot-six):not(.dot-seven):not(.dot-eight):not(.dot-nine)", { rotate: "+=30" });
-        tl.to(".dots.dot-nine > span", { top: 0 }, "<");
-
-        tl.to(".dots:not(.dot-one):not(.dot-two):not(.dot-three):not(.dot-four):not(.dot-five):not(.dot-six):not(.dot-seven):not(.dot-eight):not(.dot-nine):not(.dot-ten)", { rotate: "+=30" });
-        tl.to(".dots.dot-ten > span", { top: 0 }, "<");
-
-        tl.to(".dots:not(.dot-one):not(.dot-two):not(.dot-three):not(.dot-four):not(.dot-five):not(.dot-six):not(.dot-seven):not(.dot-eight):not(.dot-nine):not(.dot-ten):not(.dot-eleven)", { rotate: "+=30" });
-        tl.to(".dots.dot-eleven > span", { top: 0 }, "<");
-
-        tl.to(".dots:not(.dot-one):not(.dot-two):not(.dot-three):not(.dot-four):not(.dot-five):not(.dot-six):not(.dot-seven):not(.dot-eight):not(.dot-nine):not(.dot-ten):not(.dot-eleven):not(.dot-twelve)", { rotate: "+=30" });
-        tl.to(".dots.dot-twelve > span", { top: 0 }, "<");
-
-        tl.to(".dots.dot-one", { rotate: "+=30" });
-        tl.to(".dots.dot-one > span", { top: 220 }, "<");
-
-        tl.to(".dots.dot-one, .dots.dot-two", { rotate: "+=30" });
-        tl.to(".dots.dot-two > span", { top: 200 }, "<");
-
-        tl.to(".dots.dot-one, .dots.dot-two, .dots.dot-three", { rotate: "+=30" });
-        tl.to(".dots.dot-three > span", { top: 180 }, "<");
-
-        tl.to(".dots.dot-one, .dots.dot-two, .dots.dot-three, .dots.dot-four", { rotate: "+=30" });
-        tl.to(".dots.dot-four > span", { top: 160 }, "<");
-
-        tl.to(".dots.dot-one, .dots.dot-two, .dots.dot-three, .dots.dot-four, .dots.dot-five", { rotate: "+=30" });
-        tl.to(".dots.dot-five > span", { top: 140 }, "<");
-
-        tl.to(".dots.dot-one, .dots.dot-two, .dots.dot-three, .dots.dot-four, .dots.dot-five, .dots.dot-six", { rotate: "+=30" });
-        tl.to(".dots.dot-six > span", { top: 120 }, "<");
-
-        tl.to(".dots.dot-one, .dots.dot-two, .dots.dot-three, .dots.dot-four, .dots.dot-five, .dots.dot-six, .dots.dot-seven", { rotate: "+=30" });
-        tl.to(".dots.dot-seven > span", { top: 100 }, "<");
-
-        tl.to(".dots.dot-one, .dots.dot-two, .dots.dot-three, .dots.dot-four, .dots.dot-five, .dots.dot-six, .dots.dot-seven, .dots.dot-eight", { rotate: "+=30" });
-        tl.to(".dots.dot-eight > span", { top: 80 }, "<");
-
-        tl.to(".dots.dot-one, .dots.dot-two, .dots.dot-three, .dots.dot-four, .dots.dot-five, .dots.dot-six, .dots.dot-seven, .dots.dot-eight, .dots.dot-nine", { rotate: "+=30" });
-        tl.to(".dots.dot-nine > span", { top: 60 }, "<");
-
-        tl.to(".dots.dot-one, .dots.dot-two, .dots.dot-three, .dots.dot-four, .dots.dot-five, .dots.dot-six, .dots.dot-seven, .dots.dot-eight, .dots.dot-nine, .dots.dot-ten", { rotate: "+=30" });
-        tl.to(".dots.dot-ten > span", { top: 40 }, "<");
-
-        tl.to(".dots.dot-one, .dots.dot-two, .dots.dot-three, .dots.dot-four, .dots.dot-five, .dots.dot-six, .dots.dot-seven, .dots.dot-eight, .dots.dot-nine, .dots.dot-ten, .dots.dot-eleven", { rotate: "+=30" });
-        tl.to(".dots.dot-eleven > span", { top: 20 }, "<");
-
-        tl.to(".dots.dot-one, .dots.dot-two, .dots.dot-three, .dots.dot-four, .dots.dot-five, .dots.dot-six, .dots.dot-seven, .dots.dot-eight, .dots.dot-nine, .dots.dot-ten, .dots.dot-eleven, .dots.dot-twelve", { rotate: "+=30" });
-        tl.to(".dots.dot-twelve > span", { top: 0 }, "<");
-
+        document.querySelectorAll('.link').forEach(link => {
+            link.innerHTML = '<div><span>' + link.textContent.trim().split('').join('</span><span>') + '</span></div>'
+            link.querySelectorAll('span').forEach(s => s.innerHTML = s.textContent == ' ' ? ' ' : s.textContent)
+            link.insertAdjacentHTML('beforeend', '<div><svg preserveAspectRatio="none" viewBox="0 0 192 5"><path d="M191.246 4H129C129 4 127.781 4.00674 127 4C114.767 3.89447 108.233 1 96 1C83.7669 1 77.2327 3.89447 65 4C64.219 4.00674 63 4 63 4H0.751923" /></svg></div>')
+        });
     </script>
 </body>
 
