@@ -7,7 +7,7 @@ layui.use("table", function () {
   function showList() {
     let html = "";
     students.forEach((item, index) => {
-      html += `<button class="layui-btn layui-btn-lg layui-btn-radius layui-btn-normal" dataBtnIndex = ${index}>${item.name}</button>`;
+      html += `<button class="layui-btn layui-btn-lg layui-btn-normal" dataBtnIndex = ${index}>${item.name}</button>`;
     });
     $("#studentBtn").html(html);
   }
@@ -16,6 +16,7 @@ layui.use("table", function () {
     initEcharts(dataIndex);
   });
   function initEcharts(dataIndex = 0) {
+    // console.log(students[dataIndex].result[dataIndex]);
     var myChart = echarts.init(document.getElementById("main"));
     option = {
       tooltip: {
@@ -65,21 +66,23 @@ layui.use("table", function () {
   //获取X轴的数据
   function xData(dataIndex) {
     let res = students[dataIndex].result.map((item, index) => {
-      return item.date;
+      return item.dataList;
     });
     return res;
   }
   //获取成绩
   function getScore(dataIndex) {
     let jishiScore = students[dataIndex].result.map((item) => {
+      // console.log(item.subject[1]);
       return item.subject.filter((item) => {
         return item.name == "机试";
-      })[0].score;
+      })[0].score1;
     });
     let bishiScore = students[dataIndex].result.map((item) => {
+      //   console.log(item.subject[dataIndex]);
       return item.subject.filter((item) => {
         return item.name == "笔试";
-      })[0].score;
+      })[0].score2;
     });
     let pingjunScore = students[dataIndex].result.map((item) => {
       return item.subject.filter((item) => {
