@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="box">
+      <button id="btn1">杨宏承</button>
+      <button id="btn2">刘振洲</button>
+      <button id="btn3">申卓凡</button>
+      <button id="btn4">苏鹏杰</button>
+
+      <div id="page1" class="page active">
+        <div class="chengji"></div>
+      </div>
+
+      <div id="page2" class="page">
+        <div class="chengji"></div>
+      </div>
+
+      <div id="page3" class="page">
+        <div class="chengji"></div>
+      </div>
+
+      <div id="page4" class="page">
+        <div class="chengji"></div>
+      </div>
+    </div>
+    <style>
+      .page {
+        display: none;
+      }
+
+      .page.active {
+        display: block;
+      }
+      .chengji{
+        width: 800px;
+        height: 35px;
+        float: left;
+        background-color: rgb(255, 236, 162);
+      }
+    </style>
+    <script src="../../../../node_modules/echarts/dist/echarts.js"></script>
+    <script src="../"></script>
+    <script>
+        //切换
+      const btn1 = document.getElementById("btn1");
+      const btn2 = document.getElementById("btn2");
+      const btn3 = document.getElementById("btn3");
+      const btn4 = document.getElementById("btn4");
+      const page1 = document.getElementById("page1");
+      const page2 = document.getElementById("page2");
+      const page3 = document.getElementById("page3");
+      const page4 = document.getElementById("page4");
+
+      btn1.addEventListener("click", () => {
+        showPage(page1);
+      });
+      btn2.addEventListener("click", () => {
+        showPage(page2);
+      });
+      btn3.addEventListener("click", () => {
+        showPage(page3);
+      });
+      btn4.addEventListener("click", () => {
+        showPage(page4);
+      });
+      function showPage(page) {
+        const pages = document.querySelectorAll(".page");
+        pages.forEach((page) => {
+          page.classList.remove("active");
+        });
+        page.classList.add("active");
+      }
+
+
+    </script>
+  </body>
+</html>
