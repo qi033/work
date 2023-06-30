@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 800px;
+            height: 500px;
+            background-color: blueviolet;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            ;
+
+        }
+
+        .open1 {
+            float: left;
+            margin-top: -15px;
+            width: 400px;
+            height: 200px;
+            background-color: blue;
+        }
+        .open1 p{
+            margin-top: 0px;
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            background: linear-gradient(to right, rgb(10, 160, 160), #FFFFFF);
+        }
+        .open2 {
+            float: right;
+            margin-top: -15px;
+            width: 400px;
+            height: 200px;
+            background-color: aqua;
+        }
+        .open2 p{
+            margin-top: 0px;
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            background: linear-gradient(to left, #da4343, #FFFFFF);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="open1">
+            <p><span>胜方</span></p>
+        </div>
+        <div class="open2">
+            <p><span>败方</span></p>
+        </div>
+    </div>
+
+</body>
+
+</html>
