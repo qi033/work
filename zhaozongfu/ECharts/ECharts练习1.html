@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            width: 80%;
+            height: 500px;
+            margin: auto;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<script src="../引入/echarts.min.js"></script>
+<script src="../../../myhomework/5.6考试/Swiper,layui,jQ,Echarts/jquery.min.js"></script>
+
+<body>
+    <div id="main"></div>
+    <script>
+        var chartDom = document.getElementById('main');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+            title: {
+                text: 'Step Line'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['刘佳佳', '自己', '吊毛赵灿龙']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name: '刘佳佳',
+                    type: 'line',
+                    step: 'start',
+                    data: [120, 132, 101, 134, 90, 230, 210]
+                },
+                {
+                    name: '自己',
+                    type: 'line',
+                    step: 'middle',
+                    data: [220, 282, 201, 234, 290, 430, 410]
+                },
+                {
+                    name: '吊毛赵灿龙',
+                    type: 'line',
+                    step: 'end',
+                    data: [450, 432, 401, 454, 590, 530, 510]
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+
+    </script>
+</body>
+
+</html>

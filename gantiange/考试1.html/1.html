@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <script src="/work/common/echarts.js"></script>
+ <script src="/work/common/jquery-3.7.0.min.js"></script>
+ <style>
+    #main{
+           width: 600px;
+           height: 500px;
+    }
+   a{
+            width:100px;
+            height:50px;
+           display: inline-block;
+           line-height: 50px;
+           text-align: center;
+           margin: 20px;
+           color:white;
+           text-decoration: none;
+          background-color: aqua;
+    }
+    h3{
+       color: brown;
+    }
+    
+    #bok{
+          width:600px;
+          height:600px;
+          display: inline-block;
+          background-color: aqua;
+    }
+   #bos{
+          width:1207px;
+         background-color: brown;
+    }
+   #re{
+        width: 600px;
+        height:600px;
+        display: inline-block;
+        background-color: bisque;
+       }
+     #yuan{
+        width: 600px;
+        height:600px;
+        background-color: bisque;
+       } 
+    #tub{
+        width: 600px;
+        height:600px;
+        display: inline-block;
+        background-color: rgb(210, 196, 255);
+       }
+  #zhe{
+        width: 600px;
+        height:600px;
+    }
+    #lei{
+        width: 600px;
+        height:600px;
+     
+       }
+   #dong{
+        width: 600px;
+        height:600px;
+        background-color: aquamarine
+       }               
+ </style>
+</head>
+<body>
+  <a href="./1.html">甘天鸽</a>
+   <a href="./a.html">刘佳佳</a>
+   <a href="./b.html">赵宗福</button>
+   <a href="./c.html">刘振洲</a>
+   
+    <div id="bos">
+        <div id="bok">
+           <div id="main"></div>
+         </div>
+      <div id="re">
+        <div id="yuan"></div>
+      </div>
+      <div id="tub">
+        <div id="zhe"></div>
+      </div>
+      <div id="tub">
+        <div id="lei"></div>
+      </div>
+     <div id="tub">
+        <div id="dong"></div> 
+      </div>
+  </div>
+
+</body>
+<script>
+var app = {};
+var chartDom = document.getElementById('main');
+var myChart = echarts.init(chartDom);
+var option;
+option = {
+  legend: {},
+  tooltip: {},
+  dataset: {
+    source: [
+      ['第一周', 33, 40, 36.5],
+      ['第二周', 10, 60, 35],
+      ['第三周', 65, 60, 62.5],
+      ['第四周', 27, 60, 43.5]
+    ]
+  },
+  xAxis: { 
+           type: 'category',
+           },
+  yAxis: {
+    },
+ series:
+   [
+    { name:"笔试",
+      type: 'bar',  
+    color: 'blue',//背景颜色
+     },
+   { name:"机试",
+    type: 'bar',
+   color: 'red',
+   }, 
+   { name:"平均分",
+    type: 'bar',
+   color: 'green',
+   }],
+ 
+   };
+   option && myChart.setOption(option);
+  </script>
+  <script>
+  var chartDomt = document.getElementById('yuan');
+var myChartt = echarts.init(chartDomt);
+var optiont;
+
+optiont = {
+  
+  tooltip: {
+    trigger: 'item',
+  },
+  series: [
+    {
+      name: '百分比%',
+      type: 'pie',
+      radius: '50%',
+      
+    data: [
+         { value: 7, name: '笔试' },
+        { value: 11.4, name: '机试' },
+        { value:18.4, name: '平均分' },
+        
+      ],
+      
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(0, 0, 0, 0.5)',
+    
+        }
+      }
+      
+    }
+  ]
+};
+optiont && myChartt.setOption(optiont);
+  </script>
+<script>
+var chartDom = document.getElementById('zhe');
+var myChart = echarts.init(chartDom);
+var option;
+option = {
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {},
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: ['第一周', '第二周', '第三周', '第四周']
+  },
+  yAxis: {
+    type: 'value',
+    },
+  series: [
+    {
+      name: '笔试',
+      type: 'line',
+      data: [33,10,65,27],
+    },
+    
+    {
+      name: '机试',
+      type: 'line',
+      data: [40,60,60,60],
+    },
+    {
+      name: '平均',
+      type: 'line',
+      data: [36.5,35,62.5,43.5],
+    },
+  ]
+};
+option && myChart.setOption(option);
+</script>
+<script>
+ var chartDom = document.getElementById('lei');
+var myChart = echarts.init(chartDom);
+var option;
+option = {
+  legend: {
+    data: ['第一周', '第二周','第三周', '第四周']
+  },
+  radar: {
+   
+    indicator: [
+      { name: '第一周', max: 100 },
+      { name: '第二周', max: 100 },
+      { name: '第三周', max: 100 },
+      { name: '第四周', max: 100 },
+      ]
+  },
+  series: [
+    {
+      name: 'Budget vs spending',
+      type: 'radar',
+      itemStyle:{
+       normal:{
+        label:{
+          show:true
+        }
+       }
+      },
+      data: [
+        {
+          value: [33,40,36.5],
+          name:'第一周',
+         
+        },
+        {
+          value: [10,60,35],
+          name: '第二周',
+          
+         },
+        {
+          value: [65,60,62.5],
+          name: '第三周',
+         
+        },
+        {
+          value: [27,60,43.5],
+          name: '第四周',
+          
+        }
+      ]
+    }
+  ]
+};
+option && myChart.setOption(option);
+</script>
+<script>
+var chartDom = document.getElementById('dong');
+var myChart = echarts.init(chartDom);
+var option;
+
+const data = [
+         
+];
+for (let i = 0; i < 4; ++i) {
+  data.push(Math.round(Math.random() * 200));
+}
+option = {
+  xAxis: {
+    max: 'dataMax'
+  },
+  yAxis: {
+    type: 'category',
+    data: [],
+    inverse: true,
+    animationDuration: 300,
+    animationDurationUpdate: 300,
+    max: 2 // only the largest 3 bars will be displayed
+  },
+  series: [
+    {
+      realtimeSort: true,
+      name: '第一周',
+      type: 'bar',
+      data: data,
+      label: {
+        show: true,
+        position: 'right',
+        valueAnimation: true
+      }
+    }
+  ],
+  legend: {
+    show: true
+  },
+  animationDuration: 0,
+  animationDurationUpdate: 3000,
+  animationEasing: 'linear',
+  animationEasingUpdate: 'linear'
+};
+function run() {
+  for (var i = 0; i < data.length; ++i) {
+    if (Math.random() > 0.9) {
+      data[i] += Math.round(Math.random() * 2000);
+    } else {
+      data[i] += Math.round(Math.random() * 200);
+    }
+  }
+  myChart.setOption({
+    series: [
+      {
+        type: 'bar',
+        data
+      }
+    ]
+  });
+}
+setTimeout(function () {
+  run();
+}, 0);
+setInterval(function () {
+  run();
+}, 3000);
+
+option && myChart.setOption(option);
+
+
+
+</script>
+</html>

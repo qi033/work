@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <script src="/work/common/echarts.js"></script>
+ <script src="/work/common/jquery-3.7.0.min.js"></script>
+ <style>
+    #main{
+           width: 600px;
+           height: 500px;
+    }
+   a{
+            width:100px;
+            height:50px;
+           display: inline-block;
+           line-height: 50px;
+           text-align: center;
+           margin: 20px;
+           color:white;
+           text-decoration: none;
+          background-color: aqua;
+    }
+    h3{
+       color: brown;
+    }
+    
+    #bok{
+          width:600px;
+          height:600px;
+          display: inline-block;
+          background-color: aqua;
+    }
+   #bos{
+          width:1207px;
+        
+          background-color: brown;
+    }
+   #re{
+        width: 600px;
+        height:600px;
+        display: inline-block;
+        background-color: bisque;
+       }
+     #yuan{
+        width: 600px;
+        height:600px;
+        background-color: bisque;
+       } 
+    #tub{
+        width: 600px;
+        height:600px;
+        display: inline-block;
+        background-color: rgb(210, 196, 255);
+       }
+  #zhe{
+        width: 600px;
+        height:600px;
+     
+       }     
+   #lei{
+        width: 600px;
+        height:600px;
+     
+       }       
+ </style>
+</head>
+<body>
+  <a href="./1.html">甘天鸽</a>
+   <a href="./a.html">刘佳佳</a>
+   <a href="./b.html">赵宗福</button>
+   <a href="./c.html">刘振洲</a>
+   
+    <div id="bos">
+        <div id="bok">
+           <div id="main"></div>
+         </div>
+      <div id="re">
+        <div id="yuan"></div>
+      </div>
+      <div id="tub">
+        <div id="zhe"></div>
+      </div>
+      <div id="tub">
+        <div id="lei"></div>
+      </div>
+  </div>
+  
+</body>
+<script>
+var app = {};
+var chartDom = document.getElementById('main');
+var myChart = echarts.init(chartDom);
+
+var option;
+
+  option = {
+  legend: {},
+  tooltip: {},
+  dataset: {
+    source: [
+    //   ['product', '2015', '2016', '2017'],
+      ['第一周', 60, 95, 77.5],
+      ['第二周', 53, 90, 71.5],
+      ['第三周', 49, 60, 54.5],
+      ['第四周', 42, 60, 51]
+    ]
+  },
+  xAxis: { 
+           type: 'category',
+           },
+  yAxis: {
+    },
+    series:
+   [
+    { name:"笔试",
+      type: 'bar',  
+    color: 'blue',//背景颜色
+     },
+   { name:"机试",
+    type: 'bar',
+   color: 'red',
+   }, 
+   { name:"平均分",
+    type: 'bar',
+   color: 'green',
+   }],
+ 
+   };
+   option && myChart.setOption(option);
+  
+</script>
+<script>
+    
+
+  var chartDomt = document.getElementById('yuan');
+  var myChartt = echarts.init(chartDomt);
+  var optiont;
+  
+  optiont = {
+    
+    tooltip: {
+      trigger: 'item',
+    },
+    series: [
+      {
+        name: '百分比%',
+        type: 'pie',
+        radius: '50%',
+        
+      data: [
+           { value: 10.5, name: '笔试' },
+          { value: 15.8, name: '机试' },
+          { value:26.3, name: '平均分' },
+          
+        ],
+        
+        emphasis: {
+          itemStyle: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: 'rgba(0, 0, 0, 0.5)',
+      
+          }
+        }
+        
+      }
+    ]
+  };
+  optiont && myChartt.setOption(optiont);
+    </script>
+    <script>
+      var chartDom = document.getElementById('zhe');
+      var myChart = echarts.init(chartDom);
+      var option;
+      option = {
+        
+        tooltip: {
+          trigger: 'axis'
+        },
+        legend: {},
+        xAxis: {
+          type: 'category',
+          boundaryGap: false,
+          data: ['第一周', '第二周', '第三周', '第四周']
+        },
+        yAxis: {
+          type: 'value',
+          },
+        series: [
+          {
+            name: '笔试',
+            type: 'line',
+            data: [60,53,49,42],
+          },
+          
+          {
+            name: '机试',
+            type: 'line',
+            data: [95,90,60,60],
+          },
+          {
+            name: '平均',
+            type: 'line',
+            data: [77.5,49,54.5,51],
+          },
+        ]
+      };
+      option && myChart.setOption(option);
+      </script>
+       <script>
+        var chartDom = document.getElementById('lei');
+       var myChart = echarts.init(chartDom);
+       var option;
+       option = {
+         legend: {
+           data: ['第一周', '第二周','第三周', '第四周']
+         },
+         radar: {
+          
+           indicator: [
+             { name: '第一周', max: 100 },
+             { name: '第二周', max: 100 },
+             { name: '第三周', max: 100 },
+             { name: '第四周', max: 100 },
+             ]
+         },
+         series: [
+           {
+             name: 'Budget vs spending',
+             type: 'radar',
+             itemStyle:{
+              normal:{
+               label:{
+                 show:true
+               }
+              }
+             },
+            data: [
+               {
+                 value: [60,95,77.5],
+                 name:'第一周',
+                
+               },
+               {
+                 value: [53,90,71.5],
+                 name: '第二周',
+                 
+                },
+               {
+                 value: [49,60,54.5],
+                 name: '第三周',
+                
+               },
+               {
+                 value: [42,60,51],
+                 name: '第四周',
+                 
+               }
+             ]
+           }
+         ]
+       };
+       option && myChart.setOption(option);
+       </script>
+</html>
