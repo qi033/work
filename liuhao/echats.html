@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./node_modules/echarts/dist/echarts.js"></script>
+    <!-- 引入jquery cdn -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="box" style="width: 600px; height: 400px"></div>
+    <script>
+      var chartDom = document.getElementById("box");
+      var myChart = echarts.init(chartDom);
+      console.log(myChart);
+      var option;
+
+      const updateFrequency = 2000; //更新速率
+      const dimension = 0; //尺寸
+      const countryColors = {
+        //国家颜色
+        Australia: "#00008b", //澳大利亚
+        Canada: "#f00", //加拿大
+        China: "#ffde00", //中国
+        Cuba: "#002a8f", //古巴
+        Finland: "#003580", //芬兰
+        France: "#ed2939", //法国
+        Germany: "#000", //德国
+        Iceland: "#003897", // 冰岛
+        India: "#f93", //印度
+        Japan: "#bc002d", //日报
+        "North Korea": "#024fa2", // 朝鲜
+        "South Korea": "#000", //韩国
+        "New Zealand": "#00247d", //新西兰
+        Norway: "#ef2b2d", //挪威
+        Poland: "#dc143c", //波兰
+        Russia: "#d52b1e", //俄罗斯
+        Turkey: "#e30a17", //土耳其
+        "United Kingdom": "#00247d", //英国
+        "United States": "#b22234", //美国
+      };
+
+      //同时发出2个请求 请求数据
+      $.when(
+        $.getJSON(
+          "https://fastly.jsdelivr.net/npm/emoji-flags@1.3.0/data.json"
+        ),
+        $.getJSON("./echats-data.json")
+      ).done(function (res0, res1) {
+        const flags = res0[0]; //emoji-flags
+        const data = res1[0]; //echats-data
+        const years = []; //年份
+        //循环遍历所有数据的年份
+        for (let i = 0; i < data.length; ++i) {
+          if (years.length === 0 || years[years.length - 1] !== data[i][4]) {
+            years.push(data[i][4]);
+          }
+        }
+
+        function getFlag(countryName) {
+          if (!countryName) {
+            return "";
+          }
+          return (
+            flags.find(function (item) {
+              return item.name === countryName;
+            }) || {}
+          ).emoji;
+        }
+
+        let startIndex = 10;
+        let startYear = years[startIndex];
+        console.log(startYear);
+        option = {
+          grid: {
+            top: 10,
+            bottom: 30,
+            left: 150,
+            right: 80,
+          },
+          xAxis: {
+            //X轴
+            max: "dataMax", //最大刻度值
+            axisLabel: {
+              // show: false,
+              formatter: function (n) {
+                return Math.round(n) + "";
+              },
+            },
+          },
+          dataset: {
+            source: data.slice(1).filter(function (d) {
+              return d[4] === startYear;
+            }),
+          },
+          yAxis: {
+            type: "category",
+            inverse: true,
+            max: 5,
+            axisLabel: {
+              show: true,
+              fontSize: 12,
+              formatter: function (value) {
+                return value + "{flag|" + getFlag(value) + "}";
+              },
+              rich: {
+                flag: {
+                  fontSize: 25,
+                  padding: 5,
+                },
+              },
+            },
+            animationDuration: 300,
+            animationDurationUpdate: 300,
+          },
+          series: [
+            {
+              realtimeSort: true,
+              seriesLayoutBy: "column",
+              type: "bar",
+              itemStyle: {
+                color: function (param) {
+                  console.log(param.value[3]);
+                  return countryColors[param.value[3]] || "#5470c6";
+                },
+              },
+              encode: {
+                x: dimension,
+                y: 3, // 国家的名字
+              },
+              label: {
+                show: true,
+                precision: 1,
+                position: "right",
+                valueAnimation: true,
+                fontFamily: "monospace",
+              },
+            },
+          ],
+          // Disable init animation.
+          animationDuration: 0,
+          animationDurationUpdate: updateFrequency,
+          animationEasing: "linear",
+          animationEasingUpdate: "linear",
+          graphic: {
+            elements: [
+              {
+                type: "text",
+                right: 60,
+                bottom: 10,
+                style: {
+                  text: startYear,
+                  font: "bolder 80px monospace",
+                  fill: "red",
+                },
+                z: 100,
+              },
+            ],
+          },
+        };
+        // console.log(option);
+        myChart.setOption(option);
+        for (let i = startIndex; i < years.length - 1; ++i) {
+          (function (i) {
+            setTimeout(function () {
+              updateYear(years[i + 1]);
+            }, (i - startIndex) * updateFrequency);
+          })(i);
+        }
+        function updateYear(year) {
+          let source = data.slice(1).filter(function (d) {
+            return d[4] === year;
+          });
+          option.series[0].data = source;
+          option.graphic.elements[0].style.text = year;
+          myChart.setOption(option);
+        }
+      });
+
+      option && myChart.setOption(option);
+    </script>
+  </body>
+</html>

@@ -123,6 +123,13 @@
         display: none;
         overflow: auto;
       }
+      #right-bos3 {
+        width: 800px;
+        height: 92%;
+        float: left;
+        display: none;
+        overflow: auto;
+      }
       .div-imgs {
         width: 160px;
         height: 100px;
@@ -182,12 +189,51 @@
       #text {
         display: none;
       }
+      .pop-up {
+        width: 200px;
+        height: 100px;
+        border: 1px solid #ccc;
+        background-color: rgba(82, 81, 81, 0.8);
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+      }
+      .pop-up p {
+        font-size: 20px;
+        width: 100%;
+        text-align: center;
+        margin-top: 5px;
+      }
+      .collect-add {
+        width: 60px;
+        height: 28px;
+        float: left;
+        margin-top: 40px;
+        color: #fff;
+        background-color: #57c3c2;
+        border: none;
+      }
+      .collect-del {
+        width: 60px;
+        float: right;
+        height: 28px;
+        margin-top: 40px;
+        color: #fff;
+        background-color: #57c3c2;
+        border: none;
+      }
     </style>
     <link rel="stylesheet" href="./Css/layui.css" />
   </head>
   <body>
     <div id="box">
       <button id="show">i壁纸</button>
+    </div>
+    <div class="pop-up">
+      <p>收藏</p>
+      <button class="collect-add">确定</button>
+      <button class="collect-del">取消</button>
     </div>
     <div id="bos">
       <a href="#">X</a>
@@ -249,6 +295,9 @@
           </div>
           <div class="right-file"></div>
         </div>
+      </div>
+      <div id="right-bos3">
+        <div id="con-right"></div>
       </div>
     </div>
     <script src="./introduceJs/code.jquery.com_jquery-3.7.0.min.js"></script>

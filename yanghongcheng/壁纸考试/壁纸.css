@@ -3,8 +3,8 @@
     padding: 0;
 }
 .box{
-    width: 1400px;
-    height: 640px;
+    width: 2400px;
+    height: 940px;
     margin: auto;
     background-repeat:no-repeat ;
     background-color: antiquewhite;
@@ -28,6 +28,7 @@
     margin: 10px;
     float: left;
     /* border: 1px black solid; */
+    transition: all 0.3s ease;
     background-color: #ffffe3;
 }
 .layui-nav-item h1{
@@ -64,18 +65,31 @@
     width: 780px;
     height: 490px;
     margin-left: 200px;
-    margin-top: -490px;
+    /* margin-top: -490px; */
 }
 .xiangs{
     width: 780px;
     height: 490px;
     margin-left: 200px;
-    margin-top: -490px;
+    /* margin-top: -490px; */
 }
+#ID-flow-demo-manual {
+    overflow: scroll;
+  }
+  
+  #ID-flow-demo-manual::-webkit-scrollbar {
+    display: none;
+  }
 .xiangt{
     width: 780px;
     height: 490px;
     float: left;
+    margin-left: 200px;
+    /* margin-top: -452px; */
+}
+.xiangp{
+    width: 780px;
+    height: 490px;
     margin-left: 200px;
     margin-top: -490px;
 }
@@ -104,20 +118,23 @@
 .flow-demo{
     float: left;
     overflow: scroll;
-    height:450px ;
+    height:468px ;
     width:826px;
+    margin-top: -468px;
+    /* background-color: rgb(177, 255, 255); */
 }
 
 #ychz{
     background-color: black;
 }
 .image{
-    width: 175px;
+    width: 183px;
     height: 130px;
+    margin: 0 18px;
     border-radius: 10px;
 }
 .image:hover{
-    width: 177px;
+    width: 185px;
     height: 133px;
     border-radius: 10px;
 }
@@ -125,4 +142,10 @@
     width: 10px;
     height: 10px;
   }
-
+.shanc{
+    width: 132px;
+    height: 200px;
+    margin: auto;
+    margin-top: 130px;
+    /* background-color: aquamarine; */
+}
