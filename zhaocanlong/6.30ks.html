@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="../引入/echarts.min.js"></script>
-    <script src="../引入/jquery.min.js"></script>
-    <link rel="stylesheet" href="../引入/layui.css">
+    <script src="../zhaocanlong/插件/echarts.min.js"></script>
+    <script src="../zhaocanlong/插件/jquery.js"></script>
+    <link rel="stylesheet" href="../zhaocanlong/插件/layui.css">
 </head>
 <style>
     * {
@@ -34,7 +34,7 @@
         width: 1100px;
         height: 1200px;
         background-color: #fff;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        box-shadow: 5px 5px 10px rgba(113, 108, 108, 0.5);
         border-radius: 10px;
     }
 
@@ -79,7 +79,7 @@
         top: -400px;
         width: 1100px;
         height: 450px;
-        background-color: aliceblue;
+        background-color: rgb(215, 242, 242);
     }
 </style>
 
@@ -87,43 +87,43 @@
     <div class="layui-btn-container">
         <button type="button" class="layui-btn" id="option">刘佳佳</button>
         <button type="button" class="layui-btn layui-btn-normal" id="option1">赵宗福</button>
-        <button type="button" class="layui-btn layui-btn-warm" id="option2">刘振洲</button>
-        <button type="button" class="layui-btn layui-btn-danger" id="option3">杨浩冰</button>
+        <button type="button" class="layui-btn layui-btn-warm" id="option2">赵帅博</button>
+        <button type="button" class="layui-btn layui-btn-danger" id="option3">郑哲元</button>
     </div>
     <div class="box">
         <div class="leftmin-box">
             <div id="leftmain"
-                style="width: 550px;height: 300px; background-color: aliceblue; border-top-left-radius: 10px;"></div>
+                style="width: 550px;height: 300px; background-color: rgb(204, 241, 250); border-top-left-radius: 10px;"></div>
         </div>
         <div class="rightBox">
             <div id="rmain"
-                style="width: 550px;height: 300px; background-color: aliceblue; border-top-right-radius: 10px;">
+                style="width: 550px;height: 300px; background-color: rgb(204, 241, 250); border-top-right-radius: 10px;">
             </div>
             <div class="rightmin-box">
                 <div id="rightmain"
-                    style="width: 250px;height: 200px; background-color: aliceblue; border-radius: 10px;">
+                    style="width: 250px;height: 200px; background-color: rgb(204, 241, 250); border-radius: 10px;">
                 </div>
             </div>
             <div class="rightmin-box1">
                 <div id="rightmain1"
-                    style="width: 250px;height: 200px; background-color: aliceblue; border-radius: 10px;">
+                    style="width: 250px;height: 200px; background-color: rgb(204, 241, 250); border-radius: 10px;">
                 </div>
             </div>
             <div class="rightmin-box2">
                 <div id="rightmain2"
-                    style="width: 250px;height: 200px; background-color: aliceblue; border-radius: 10px;">
+                    style="width: 250px;height: 200px; background-color: rgb(204, 241, 250); border-radius: 10px;">
                 </div>
             </div>
             <div class="rightmin-box3">
                 <div id="rightmain3"
-                    style="width: 250px;height: 200px; background-color: aliceblue; border-radius: 10px;">
+                    style="width: 250px;height: 200px; background-color: rgb(204, 241, 250); border-radius: 10px;">
                 </div>
             </div>
             <div class="leftBox">
-                <div id="lmain" style="width: 550px;height: 410px; background-color: aliceblue;"></div>
+                <div id="lmain" style="width: 550px;height: 410px; background-color: rgb(204, 241, 250);"></div>
             </div>
             <div class="bottomBox">
-                <div id="bmain" style="width: 1100px;height: 450px; background-color: aliceblue;"></div>
+                <div id="bmain" style="width: 1100px;height: 450px; background-color: rgb(204, 241, 250);"></div>
             </div>
         </div>
         <script>
@@ -227,14 +227,6 @@
                 title: {
                     text: '刘佳佳个人成绩',
                     subtext: '柱状图',
-                    left: 20,
-                    top: 20
-                },
-                grid: {
-                    left: '20%',
-                    right: '10%',
-                    top: '30%',
-                    bottom: '10%',
                 },
                 tooltip: {
                     trigger: 'axis',
@@ -243,7 +235,6 @@
                     }
                 },
                 legend: {
-                    top: 20,
                     left: "right",
                     data: ['笔试', '机试', '平均分']
                 },
@@ -304,14 +295,6 @@
                 title: {
                     text: '赵宗福个人成绩',
                     subtext: '柱状图',
-                    left: 20,
-                    top: 20
-                },
-                grid: {
-                    left: '20%',
-                    right: '10%',
-                    top: '30%',
-                    bottom: '10%',
                 },
                 tooltip: {
                     trigger: 'axis',
@@ -320,7 +303,6 @@
                     }
                 },
                 legend: {
-                    top: 20,
                     left: "right",
                     data: ['笔试', '机试', '平均分']
                 },
@@ -379,16 +361,8 @@
             };
             option2 = {
                 title: {
-                    text: '刘振洲个人成绩',
+                    text: '赵帅博个人成绩',
                     subtext: '柱状图',
-                    left: 20,
-                    top: 20
-                },
-                grid: {
-                    left: '20%',
-                    right: '10%',
-                    top: '30%',
-                    bottom: '10%',
                 },
                 tooltip: {
                     trigger: 'axis',
@@ -397,7 +371,6 @@
                     }
                 },
                 legend: {
-                    top: 20,
                     left: "right",
                     data: ['笔试', '机试', '平均分']
                 },
@@ -426,7 +399,7 @@
                         emphasis: {
                             focus: 'series'
                         },
-                        data: [55, 41, 48, 51]
+                        data: [54.5, 33, 51.5, 46]
                     },
                     {
                         name: '机试',
@@ -438,7 +411,7 @@
                         emphasis: {
                             focus: 'series'
                         },
-                        data: [95, 90, 80, 80]
+                        data: [75, 75, 60, 50]
                     },
                     {
                         name: '平均分',
@@ -450,22 +423,14 @@
                         emphasis: {
                             focus: 'series'
                         },
-                        data: [75, 65.5, 64, 80]
+                        data: [64.75, 54, 55.75, 48]
                     },
                 ]
             };
             option3 = {
                 title: {
-                    text: '杨浩冰个人成绩',
+                    text: '郑哲元个人成绩',
                     subtext: '柱状图',
-                    left: 20,
-                    top: 20
-                },
-                grid: {
-                    left: '20%',
-                    right: '10%',
-                    top: '30%',
-                    bottom: '10%',
                 },
                 tooltip: {
                     trigger: 'axis',
@@ -474,7 +439,6 @@
                     }
                 },
                 legend: {
-                    top: 20,
                     left: "right",
                     data: ['笔试', '机试', '平均分']
                 },
@@ -503,7 +467,7 @@
                         emphasis: {
                             focus: 'series'
                         },
-                        data: [60, 46, 46, 52]
+                        data: [58, 41, 85, 27.5]
                     },
                     {
                         name: '机试',
@@ -515,7 +479,7 @@
                         emphasis: {
                             focus: 'series'
                         },
-                        data: [75, 70, 60, 60]
+                        data: [90, 50, 60, 50]
                     },
                     {
                         name: '平均分',
@@ -527,7 +491,7 @@
                         emphasis: {
                             focus: 'series'
                         },
-                        data: [67.5, 58, 53, 56]
+                        data: [74, 45.5, 72.5, 38.75]
                     },
                 ]
             };
@@ -600,7 +564,7 @@
             };
             option6 = {
                 title: {
-                    text: '刘振洲个人成绩',
+                    text: '赵帅博个人成绩',
                     subtext: '6.2(星期五)',
                     left: 'center'
                 },
@@ -614,8 +578,8 @@
 
                         radius: '50%',
                         data: [
-                            { value: 55, name: '笔试' },
-                            { value: 95, name: '机试' },
+                            { value: 54.5, name: '笔试' },
+                            { value: 75, name: '机试' },
 
                         ],
                         emphasis: {
@@ -631,7 +595,7 @@
             };
             option7 = {
                 title: {
-                    text: '杨浩冰个人成绩',
+                    text: '郑哲元个人成绩',
                     subtext: '6.2(星期五)',
                     left: 'center'
                 },
@@ -645,8 +609,8 @@
 
                         radius: '50%',
                         data: [
-                            { value: 60, name: '笔试' },
-                            { value: 75, name: '机试' },
+                            { value: 58, name: '笔试' },
+                            { value: 90, name: '机试' },
 
                         ],
                         emphasis: {
@@ -676,7 +640,7 @@
                 },
                 series: [
                     {
-
+                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
@@ -704,7 +668,7 @@
                 },
                 series: [
                     {
-
+                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
@@ -723,7 +687,7 @@
             };
             option10 = {
                 title: {
-                    text: '刘振洲个人成绩',
+                    text: '赵帅博个人成绩',
                     subtext: '6.9 (星期五)',
                     left: 'center'
                 },
@@ -732,12 +696,12 @@
                 },
                 series: [
                     {
-
+                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
-                            { value: 41, name: '笔试' },
-                            { value: 90, name: '机试' },
+                            { value: 33, name: '笔试' },
+                            { value: 75, name: '机试' },
                         ],
                         emphasis: {
                             itemStyle: {
@@ -751,7 +715,7 @@
             };
             option11 = {
                 title: {
-                    text: '杨浩冰个人成绩',
+                    text: '郑哲元个人成绩',
                     subtext: '6.9 (星期五)',
                     left: 'center'
                 },
@@ -760,12 +724,12 @@
                 },
                 series: [
                     {
-
+                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
-                            { value: 46, name: '笔试' },
-                            { value: 70, name: '机试' },
+                            { value: 41, name: '笔试' },
+                            { value: 50, name: '机试' },
                         ],
                         emphasis: {
                             itemStyle: {
@@ -794,6 +758,7 @@
 
                 series: [
                     {
+                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
@@ -822,7 +787,7 @@
 
                 series: [
                     {
-
+                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
@@ -841,7 +806,7 @@
             };
             option14 = {
                 title: {
-                    text: '刘振洲个人成绩',
+                    text: '赵帅博个人成绩',
                     subtext: '6.16(星期五)',
                     left: 'center'
                 },
@@ -851,11 +816,12 @@
 
                 series: [
                     {
+                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
-                            { value: 48, name: '笔试' },
-                            { value: 80, name: '机试' },
+                            { value: 51.5, name: '笔试' },
+                            { value: 60, name: '机试' },
                         ],
                         emphasis: {
                             itemStyle: {
@@ -869,7 +835,7 @@
             };
             option15 = {
                 title: {
-                    text: '杨浩冰个人成绩',
+                    text: '郑哲元个人成绩',
                     subtext: '6.16(星期五)',
                     left: 'center'
                 },
@@ -879,10 +845,11 @@
 
                 series: [
                     {
+                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
-                            { value: 46, name: '笔试' },
+                            { value: 85, name: '笔试' },
                             { value: 60, name: '机试' },
                         ],
                         emphasis: {
@@ -911,6 +878,7 @@
 
                 series: [
                     {
+                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
@@ -939,6 +907,7 @@
 
                 series: [
                     {
+                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
@@ -957,7 +926,7 @@
             };
             option18 = {
                 title: {
-                    text: '刘振洲个人成绩',
+                    text: '赵帅博个人成绩',
                     subtext: '4.21 (星期五)',
                     left: 'center'
                 },
@@ -967,11 +936,12 @@
 
                 series: [
                     {
+                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
-                            { value: 51, name: '笔试' },
-                            { value: 80, name: '机试' },
+                            { value: 46, name: '笔试' },
+                            { value: 50, name: '机试' },
                         ],
                         emphasis: {
                             itemStyle: {
@@ -985,7 +955,7 @@
             };
             option19 = {
                 title: {
-                    text: '杨浩冰个人成绩',
+                    text: '郑哲元个人成绩',
                     subtext: '4.21 (星期五)',
                     left: 'center'
                 },
@@ -995,11 +965,12 @@
 
                 series: [
                     {
+                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
-                            { value: 52, name: '笔试' },
-                            { value: 60, name: '机试' },
+                            { value: 27.5, name: '笔试' },
+                            { value: 50, name: '机试' },
                         ],
                         emphasis: {
                             itemStyle: {
@@ -1036,13 +1007,13 @@
                         symbol: 'triangle',
                         symbolSize: 20,
                         lineStyle: {
-                            color: '#5470C6',
+                            color: 'green',
                             width: 4,
                             type: 'dashed'
                         },
                         itemStyle: {
                             borderWidth: 3,
-                            borderColor: 'rgb(10, 160, 160)',
+                            borderColor: 'rgb(111, 10, 500)',
                             color: 'aqua'
                         },
                         label: {
@@ -1072,14 +1043,14 @@
                         symbol: 'triangle',
                         symbolSize: 20,
                         lineStyle: {
-                            color: '#5470C6',
+                            color: 'blue',
                             width: 4,
                             type: 'dashed'
                         },
                         itemStyle: {
                             borderWidth: 3,
-                            borderColor: 'block',
-                            color: 'gray'
+                            borderColor: 'green',
+                            color: '#fff'
                         },
                         label: {
                             show: true,
@@ -1090,7 +1061,7 @@
             };
             option22 = {
                 title: {
-                    text: '刘振洲个人成绩',
+                    text: '赵帅博个人成绩',
                     subtext: '折线图',
                     left: "center"
                 },
@@ -1103,12 +1074,12 @@
                 },
                 series: [
                     {
-                        data: [75, 65.5, 64, 65.5],
+                        data: [64.75, 54, 55.75, 48],
                         type: 'line',
                         symbol: 'triangle',
                         symbolSize: 20,
                         lineStyle: {
-                            color: '#5470C6',
+                            color: 'gray',
                             width: 4,
                             type: 'dashed'
                         },
@@ -1126,7 +1097,7 @@
             };
             option23 = {
                 title: {
-                    text: '杨浩冰个人成绩',
+                    text: '郑哲元个人成绩',
                     subtext: '折线图',
                     left: "center"
                 },
@@ -1139,18 +1110,18 @@
                 },
                 series: [
                     {
-                        data: [67.5, 58, 53, 56],
+                        data: [74, 45.5, 72.5, 38.75],
                         type: 'line',
                         symbol: 'triangle',
                         symbolSize: 20,
                         lineStyle: {
-                            color: '#5470C6',
+                            color: '#5420C6',
                             width: 4,
                             type: 'dashed'
                         },
                         itemStyle: {
                             borderWidth: 3,
-                            borderColor: 'blue',
+                            borderColor: 'gray',
                             color: 'white'
                         },
                         label: {
@@ -1181,6 +1152,8 @@
                         { name: '4.21 (星期五)' },
                     ]
                 },
+
+
                 series: [
                     {
                         name: 'Budget vs spending',
@@ -1188,11 +1161,23 @@
                         data: [
                             {
                                 value: [72.5, 47.5, 50, 53],
-                                name: '笔试'
+                                name: '笔试',
+                                areaStyle: {
+                                    normal: {
+                                        color: 'blue',
+                                        opacity: 0.4
+                                    }
+                                },
                             },
                             {
                                 value: [95, 90, 70, 50],
-                                name: '机试'
+                                name: '机试',
+                                areaStyle: {
+                                    normal: {
+                                        color: 'green',
+                                        opacity: 0.4
+                                    }
+                                },
                             }
                         ]
                     }
@@ -1221,11 +1206,23 @@
                         data: [
                             {
                                 value: [60, 53, 49, 42],
-                                name: '笔试'
+                                name: '笔试',
+                                areaStyle: {
+                                    normal: {
+                                        color: 'blue',
+                                        opacity: 0.4
+                                    }
+                                },
                             },
                             {
                                 value: [95, 90, 60, 60],
-                                name: '机试'
+                                name: '机试',
+                                areaStyle: {
+                                    normal: {
+                                        color: 'green',
+                                        opacity: 0.4
+                                    }
+                                },
                             }
                         ]
                     }
@@ -1233,7 +1230,7 @@
             };
             option26 = {
                 title: {
-                    text: '刘振洲个人成绩'
+                    text: '赵帅博个人成绩'
                 },
                 legend: {
                     data: ['笔试', '机试']
@@ -1253,12 +1250,24 @@
                         type: 'radar',
                         data: [
                             {
-                                value: [55, 41, 48, 51],
-                                name: '笔试'
+                                value: [54.5, 33, 51.5, 46],
+                                name: '笔试',
+                                areaStyle: {
+                                    normal: {
+                                        color: 'blue',
+                                        opacity: 0.4
+                                    }
+                                },
                             },
                             {
-                                value: [95, 90, 80, 80],
-                                name: '机试'
+                                value: [75, 75, 60, 50],
+                                name: '机试',
+                                areaStyle: {
+                                    normal: {
+                                        color: 'green',
+                                        opacity: 0.4
+                                    }
+                                },
                             }
                         ]
                     }
@@ -1266,7 +1275,7 @@
             };
             option27 = {
                 title: {
-                    text: '杨浩冰个人成绩'
+                    text: '郑哲元个人成绩'
                 },
                 legend: {
                     data: ['笔试', '机试']
@@ -1286,12 +1295,24 @@
                         type: 'radar',
                         data: [
                             {
-                                value: [60, 46, 46, 52],
-                                name: '笔试'
+                                value: [58, 41, 85, 27.5],
+                                name: '笔试',
+                                areaStyle: {
+                                    normal: {
+                                        color: 'blue',
+                                        opacity: 0.4
+                                    }
+                                },
                             },
                             {
-                                value: [75, 70, 60, 60],
-                                name: '机试'
+                                value: [90, 50, 60, 50],
+                                name: '机试',
+                                areaStyle: {
+                                    normal: {
+                                        color: 'green',
+                                        opacity: 0.4
+                                    }
+                                },
                             }
                         ]
                     }
@@ -1300,10 +1321,10 @@
             option24 && myChart6.setOption(option24);
             var year = [6.2, 6.9, 6.16, 4.21]
             var data = [
-                [83.75, 77.5, 75, 67.5, 55, 42, 36.5],
-                [68.75, 71.5, 65.5, 58, 65, 60, 35],
-                [60, 54.5, 64, 53, 65, 60.25, 62.5],
-                [51.5, 51, 65.5, 56, 70, 44.5, 43.5],
+                [83.75, 77.5, 73, 67.5, 45, 42, 34.5],
+                [66.75, 71.5, 65.5, 58, 60.5, 65, 35],
+                [60, 56.5, 64, 53, 55, 60.25, 62.5],
+                [51.5, 51, 65.5, 56, 75.5, 44.5, 43.5],
 
             ]
             // 指定图表的配置项和数据
@@ -1316,7 +1337,7 @@
                     data: ['人均平均分']
                 },
                 yAxis: {
-                    data: ["刘佳佳", "赵宗福", "刘振洲", "杨浩冰", "余浩", "刘超祥", "甘天鸽"],
+                    data: ["刘佳佳", "赵宗福", "赵帅博", "郑哲元", "杨浩冰", "甘天鸽", ""],
                     inverse: true,
                 },
                 xAxis: {},
@@ -1354,7 +1375,7 @@
                     }
                     console.log(option41)
                     myChart40.setOption(option41)
-                }, 3000 * i)
+                }, 1000 * i)
             }
             option40 && myChart40.setOption(option40);
             $("#option").on("click", function () {
