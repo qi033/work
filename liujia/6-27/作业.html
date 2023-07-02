@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -554,4 +555,562 @@
     </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>晚上考试背景切换</title>
+    <script src="../common/jQuery/jquery-3.7.0.js"></script>
+    <link rel="stylesheet" href="../common/layui/css/layui.css">
+    <script src="../common/layui/layui.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        #box {
+            width: 99%;
+            border: 1px solid transparent;
+            height: 740px;
+            background-color: rgb(255, 255, 255);
+            position: relative;
+        }
+
+        .options-menu {
+            border-radius: 30px;
+
+        }
+
+        .shoucang {
+            width: 150px;
+            height: 60px;
+            line-height: 60px;
+            margin-left: 50px;
+            display: inline-block;
+        }
+
+        button {
+            padding: 10px 20px;
+
+            background-color: cadetblue;
+            border-radius: 20px;
+        }
+
+
+
+        #zi {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 1000px;
+            display: none;
+            border-radius: 15px;
+            height: 600px;
+            background-color: rgb(255, 255, 255);
+            transition: all 0.2s ease;
+        }
+
+        #zi.show {
+            width: 99.5vw;
+            height: 99.5vh;
+            border-radius: 1px;
+        }
+
+        #zi.show22 {
+            width: 100%;
+            height: 700px !important;
+        }
+
+        .zi-left {
+            width: 20%;
+            height: 100%;
+            float: left;
+        }
+
+        .zi-left li:first-child {
+            height: 80px;
+            line-height: 80px;
+            font-size: 15px;
+        }
+
+        .zi-left li:hover {
+            color: rgb(32, 193, 218);
+        }
+
+        .zi-right {
+            width: 80%;
+            height: 600px;
+            float: right;
+            background-color: #5c81b9;
+        }
+
+        .zi-right-top {
+            width: 100%;
+            height: 8.5%;
+            line-height: 50px;
+        }
+
+        .zi-right-top storng,
+        .zi-right-top b {
+            float: right;
+            margin-right: 5px;
+            font-size: 20px;
+            height: 40px;
+            line-height: 40px;
+            padding: 5px;
+        }
+
+        /* .zi-right-top i {
+             width: 40px;
+            height: 50px;
+            line-height: 50px;
+        } */
+
+        .zi-right-top storng:hover {
+            background-color: rgb(150, 134, 134);
+            padding: 5px;
+
+        }
+
+        .zi-right-top-left {
+            float: left;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        #zi-right-buttom {
+            width: 100%;
+            height: 91.5%;
+            background-color: #3c64a1;
+            display: flex;
+            flex-wrap: wrap;
+            overflow: auto;
+
+        }
+
+        #strong {
+            position: relative;
+            top: 5px;
+            left: 30px;
+            display: inline-block;
+            margin-left: 15px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid gray;
+            background-color: #fff;
+        }
+
+        #strong1 {
+            position: relative;
+            top: 5px;
+            left: 30px;
+            display: inline-block;
+            margin-left: 15px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #3883f7;
+        }
+
+        #strong2 {
+            position: relative;
+            top: 5px;
+            left: 30px;
+            display: inline-block;
+            margin-left: 15px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgb(0, 175, 199);
+        }
+
+        #strong3 {
+            position: relative;
+            top: 5px;
+            left: 30px;
+            display: inline-block;
+            margin-left: 15px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgb(59, 75, 168);
+        }
+
+        #strong4 {
+            position: relative;
+            top: 5px;
+            left: 30px;
+            display: inline-block;
+            margin-left: 15px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgb(141, 36, 160);
+        }
+
+        #strong5 {
+            position: relative;
+            top: 5px;
+            left: 30px;
+            display: inline-block;
+            margin-left: 15px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgb(0, 139, 125);
+        }
+
+        #strong6 {
+            position: relative;
+            top: 5px;
+            left: 30px;
+            display: inline-block;
+            margin-left: 15px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgb(15, 146, 81);
+        }
+
+        #strong7 {
+            position: relative;
+            top: 5px;
+            left: 30px;
+            display: inline-block;
+            margin-left: 15px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgb(187, 201, 52);
+        }
+
+        #strong8 {
+            position: relative;
+            top: 5px;
+            left: 30px;
+            display: inline-block;
+            margin-left: 15px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgb(226, 166, 0);
+        }
+
+        #strong9 {
+            position: relative;
+            top: 5px;
+            left: 30px;
+            display: inline-block;
+            margin-left: 15px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: red;
+        }
+
+        #strong10 {
+            position: relative;
+            top: 5px;
+            left: 30px;
+            display: inline-block;
+            margin-left: 15px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgb(112, 79, 66);
+        }
+
+        .fff {
+            background-color: #fff !important;
+        }
+
+        .fff1 {
+            background-color: #3883f7 !important;
+        }
+
+        .fff2 {
+            background-color: rgb(0, 175, 199) !important;
+        }
+
+        .fff3 {
+            background-color: rgb(59, 75, 168) !important;
+        }
+
+        .fff4 {
+            background-color: rgb(141, 36, 160) !important;
+        }
+
+        .fff5 {
+            background-color: rgb(0, 139, 125) !important;
+        }
+
+        .fff6 {
+            background-color: rgb(15, 146, 81) !important;
+        }
+
+        .fff7 {
+            background-color: rgb(187, 201, 52) !important;
+        }
+
+        .fff8 {
+            background-color: rgb(226, 166, 0) !important;
+        }
+
+        .fff9 {
+            background-color: red !important;
+        }
+
+        .fff10 {
+            background-color: rgb(112, 79, 66) !important;
+        }
+
+        #zi-right-buttom div {
+            margin: 10px;
+            background-color: aqua;
+            width: 200px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <button>壁纸</button>
+        <div id="zi">
+            <ul class="layui-nav layui-nav-tree zi-left" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">壁纸库</li>
+                <li class="layui-nav-item"><a href="javascript:;">纯色</a></li>
+                <li class="layui-nav-item"><a href="javascript:;">官方壁纸</a></li>
+                <li class="layui-nav-item"><a href="javascript:;">自定义壁纸</a></li>
+            </ul>
+            <div class="zi-right">
+                <div class="zi-right-top">
+                    <div class="zi-right-top-left">
+                        <strong id="datacolor">自定义颜色</strong>
+                        <strong id="strong"></strong>
+                        <strong id="strong1"></strong>
+                        <strong id="strong2"></strong>
+                        <strong id="strong3"></strong>
+                        <strong id="strong4"></strong>
+                        <strong id="strong5"></strong>
+                        <strong id="strong6"></strong>
+                        <strong id="strong7"></strong>
+                        <strong id="strong8"></strong>
+                        <strong id="strong9"></strong>
+                        <strong id="strong10"></strong>
+                    </div>
+                    <b>X</b>
+                    <storng>
+                        <svg t="1687693740606" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="2591" width="32" height="32">
+
+                            <path
+                                d="M983.04 727.04a40.96 40.96 0 0 0-40.96 40.96v173.592381h-174.08a40.96 40.96 0 1 0 0 82.407619h173.592381A82.407619 82.407619 0 0 0 1024 941.592381v-173.592381a40.96 40.96 0 0 0-40.96-40.96zM941.592381 0h-173.592381a40.96 40.96 0 1 0 0 82.407619h173.592381v173.592381a40.96 40.96 0 1 0 82.407619 0V82.407619A82.407619 82.407619 0 0 0 941.592381 0zM256 941.592381H82.407619v-173.592381a40.96 40.96 0 1 0-82.407619 0v173.592381A82.407619 82.407619 0 0 0 82.407619 1024h173.592381a40.96 40.96 0 1 0 0-82.407619zM40.96 296.96a40.96 40.96 0 0 0 40.96-40.96V82.407619h174.08a40.96 40.96 0 1 0 0-82.407619H82.407619A82.407619 82.407619 0 0 0 0 82.407619v173.592381a40.96 40.96 0 0 0 40.96 40.96z m682.666667 425.20381H301.83619V301.83619h420.815239z m82.407619 0V301.83619a82.407619 82.407619 0 0 0-83.870476-82.407619H301.83619A82.407619 82.407619 0 0 0 219.428571 301.83619v420.815239a82.407619 82.407619 0 0 0 82.407619 81.92h420.815239a82.407619 82.407619 0 0 0 81.92-82.407619z"
+                                fill="#8a8a8a" p-id="2592"></path>
+                        </svg>
+
+                    </storng>
+
+                </div>
+                <div id="zi-right-buttom">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let optionsMenu = null;
+        let arr = [
+            {
+                backgroundColor: "gray",
+            },
+            {
+                backgroundColor: "gray",
+            },
+            {
+                backgroundColor: "gray",
+            },
+            {
+                backgroundColor: "rgb(0, 139, 125)",
+            },
+            {
+                backgroundColor: "rgb(15, 146, 81)",
+            },
+            {
+                backgroundColor: "rgb(187, 201, 52)",
+            },
+            {
+                backgroundColor: "rgb(226, 166, 0)",
+            },
+            {
+                backgroundColor: "red",
+            },
+            {
+                backgroundColor: " rgb(112, 79, 66)",
+            },
+        ]
+        let asss = [{ color: 'gray' }]
+        $(document).on('contextmenu', '#box', function (event) {
+            // 阻止默认的右键菜单弹出
+            event.preventDefault();
+
+            // 获取鼠标点击位置
+            const mouseX = event.pageX;
+            const mouseY = event.pageY;
+
+            // 删除旧的小选项框（如果存在）
+            if (optionsMenu) {
+                optionsMenu.remove();
+            }
+            // 创建一个新的小选项框
+            optionsMenu = $('<div>').addClass('options-menu');
+            optionsMenu.css({
+                marginLeft: mouseX + 'px',
+                marginTop: mouseY + 'px',
+                width: "200px",
+                height: "80px",
+                background: "gray",
+            });
+            // 将小选项框添加到页面中
+            $('#box').append(optionsMenu);
+            // 绑定 click 事件的监听器，用于取消小选项框
+            $("#box").one('click', function () {
+                optionsMenu.remove();
+                optionsMenu = null;
+            });
+            xuanran(arr, asss)
+
+        });
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#zi").css("display", "block");
+            })
+            $(".icon").click(function () {
+                $("#zi").toggleClass("show")
+                $("#zi-right-buttom").toggleClass("show22")
+                console.log(56556);
+            });
+            $("b").click(function () {
+                $("#zi").css("display", "none");
+            })
+            $("#strong").on("click", function () {
+
+                $('#box').toggleClass('fff');
+            })
+            $("#strong1").on("click", function () {
+
+                $('#box').toggleClass('fff1');
+            })
+            $("#strong2").on("click", function () {
+
+                $('#box').toggleClass('fff2');
+            })
+            $("#strong3").on("click", function () {
+
+                $('#box').toggleClass('fff3');
+            })
+            $("#strong4").on("click", function () {
+
+                $('#box').toggleClass('fff4');
+            })
+            $("#strong5").on("click", function () {
+                $('#box').toggleClass('fff5');
+            })
+            $("#strong6").on("click", function () {
+
+                $('#box').toggleClass('fff6');
+            })
+            $("#strong7").on("click", function () {
+
+                $('#box').toggleClass('fff7');
+            })
+            $("#strong8").on("click", function () {
+
+                $('#box').toggleClass('fff8');
+            })
+            $("#strong9").on("click", function () {
+                $('#box').toggleClass('fff9');
+            })
+            $("#strong10").on("click", function () {
+                $('#box').toggleClass('fff10');
+            })
+            xuanran2()
+        })
+        function xuanran(arr, asss) {
+            let html = "";
+            console.log(arr)
+            console.log(asss);
+            arr.forEach((item, index) => {
+                console.log(item);
+                console.log(1223);
+                html = `
+                <a href="#" class="shoucang " >收藏</a>
+                `;
+            })
+            $('.options-menu').append(html);
+            $(".options-menu").on('click', function () {
+                if (confirm("确定收藏")) {
+                    $(".shoucang").css("color", "red")
+                } else {
+                    $(".shoucang").css("color", "")
+                }
+            })
+
+        }
+        function xuanran2() {
+            let html2 = "";
+            console.log(arr)
+            console.log(asss);
+            console.log(arr);
+            arr.forEach((item, index) => {
+                console.log(item.backgroundColor);
+                html2 += `
+                <div style="width: 200px;height: 150px; background-color:'${item.backgroundColor}'">111111</div>
+                `;
+            })
+            $("#zi-right-buttom").append(html2)
+        }
+    </script>
+</body>
+
+>>>>>>> 6c4c93b347e9b99e37c4ef6c2080bb198d1385b0
 </html>

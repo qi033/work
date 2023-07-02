@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+html{
+    background-color: #e3e2e3;
+}
+body{
+    width: 1700px;
+    height: 800px;
+}
+.bizhi {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    outline: none;
+}
+
+.bizhi {
+    background: rgb(0, 172, 238);
+    background: linear-gradient(0deg, rgba(0, 172, 238, 1) 0%, rgba(2, 126, 251, 1) 100%);
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+
+}
+
+.bizhi span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.bizhi:before,
+.bizhi:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    background: rgba(2, 126, 251, 1);
+    transition: all 0.3s ease;
+}
+
+.bizhi:before {
+    height: 0%;
+    width: 2px;
+}
+
+.bizhi:after {
+    width: 0%;
+    height: 2px;
+}
+
+.bizhi:hover {
+    background: transparent;
+    box-shadow: none;
+}
+
+.bizhi:hover:before {
+    height: 100%;
+}
+
+.bizhi:hover:after {
+    width: 100%;
+}
+
+.bizhi span:hover {
+    color: rgba(2, 126, 251, 1);
+}
+
+.bizhi span:before,
+.bizhi span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    background: rgba(2, 126, 251, 1);
+    transition: all 0.3s ease;
+}
+
+.bizhi span:before {
+    width: 2px;
+    height: 0%;
+}
+
+.bizhi span:after {
+    width: 0%;
+    height: 2px;
+}
+
+.bizhi span:hover:before {
+    height: 100%;
+}
+
+.bizhi span:hover:after {
+    width: 100%;
+}
+.jj{
+    width: 130px;
+    height: 40px;
+    margin: auto;
+}
+.main{
+    width: 900px;
+    height: 600px;
+    margin: auto;
+    background-color: white;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.4);
+    margin-top: 50px;
+}
+.left{
+    height: 600px;
+    width: 150px;
+    float: left;
+    background-color: rgb(240, 241, 244);
+}
+.left li{
+width: 150px;
+height: 60px;
+text-align: center;
+line-height: 60px;
+
+}
+.left li a{
+    color: black;
+}
+.left li:hover{
+    background-color: aqua;
+    cursor: pointer;
+}
+.right{
+    width: 900px;
+    height: 25px;
+}
+.cuo{
+    float: right;
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background-color: black;
+    text-align: center;
+    line-height: 25px;
+    cursor: pointer;
+}
+.zidingyi,
+.chun,
+.guan{
+    float: left;
+    width: 750px;
+    height: 575px;
+}
+
+.tu{
+    width: 200px;
+    height: 120px;
+    margin-left: 35px;
+    margin-top: 15px;
+}

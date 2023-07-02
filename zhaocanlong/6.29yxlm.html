@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./插件/echarts.min.js"></script>
+    <script src="./插件/jquery.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .tf_box {
+        display: flex;
+        margin: 0px auto;
+        width: 85vw;
+        height: 10vh;
+    }
+
+    .item1 {
+        position: relative;
+    }
+
+    .item1 P {
+        color: rgb(151, 151, 151);
+        position: absolute;
+        top: 20%;
+    }
+
+    .item1 span {
+        position: absolute;
+        top: 50%;
+    }
+
+    .item1 {
+        flex: 1.5;
+    }
+
+    .item2 {
+        flex: 1;
+    }
+
+    .item2 span {
+        position: absolute;
+        top: 5%;
+    }
+
+    .item2 img {
+        margin-top: -15px;
+    }
+
+    .cont {
+        display: flex;
+        margin: auto;
+        width: 90vw;
+        height: 90vh;
+    }
+
+    .Left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        /* 将容器的主轴方向设置为垂直（从上到下） */
+
+        /* 设置线性渐变背景 */
+    }
+
+    .Right {
+        width: 20vw;
+    }
+
+    .top-column {
+        flex: 1;
+        width: 100%;
+        height: 50%;
+        background: linear-gradient(to bottom, #e6f3ff, #fbfeff, #fbfeff);
+    }
+
+    .top-column #main {
+        width: 100%;
+        height: 100%;
+    }
+
+    .Left .bottom-column {
+        flex: 1;
+        background: linear-gradient(to bottom, #ffefef, #fff7f7, #fffcfc);
+    }
+
+    .bottom-column #main1 {
+        width: 100%;
+        height: 100%;
+    }
+
+    .lf {
+        padding: 12px;
+        width: 200px;
+        height: 60px;
+        margin-left: 50px;
+        background-color: #c8e5ff;
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: 600;
+        color: rgb(65, 154, 157);
+        border: none;
+    }
+    .hf {
+        padding: 12px;
+        width: 200px;
+        height: 60px;
+        margin-left: 50px;
+        background-color: #ffc8c8;
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: 600;
+        color: rgb(65, 154, 157);
+        border: none;
+    }
+
+    .lf:hover {
+        background-color: #d8eeff;
+        color: rgb(100, 159, 161);
+    }
+    .hf:hover{
+        background-color: #ffd8d8;
+        color: rgb(100, 159, 161);
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="tf_box">
+            <div class="item1">
+                <p>时间</p>
+                <span>06-24 00:10</span>
+            </div>
+            <div class="item1">
+                <p>类型</p>
+                <span>大乱斗</span>
+            </div>
+            <div class="item1">
+                <p>比赛时长</p>
+                <span>20分钟</span>
+            </div>
+            <div class="item1">
+                <p>击杀</p>
+                <span>52/62</span>
+            </div>
+            <div class="item2">
+                <span><img src="./img/暂停.png" width="38px" height="38px" alt=""></span>
+            </div>
+            <div class="item2">
+                <span>基础</span>
+            </div>
+            <div class="item2">
+                <span>高阶数据</span>
+            </div>
+            <div class="item2">
+                <span>我的表现</span>
+            </div>
+        </div>
+        <div class="cont">
+            <div class="Left">
+                <div class="top-column">
+                    <div id="main"></div>
+                </div>
+                <div class="bottom-column">
+                    <div id="main1"></div>
+                </div>
+            </div>
+            <div class="Right">
+                <div class="bottom-column"> <br><br>
+                    <button id="lanfang1" class="lf">蓝方的物理伤害</button><br><br>
+                    <button id="lanfang2" class="lf">蓝方的魔法伤害</button><br><br>
+                    <button id="lanfang3" class="lf">蓝方的真实伤害</button><br><br>
+                    <br><br><br><br><br><br><br><br>
+                    <button id="hongfang1" class="hf">红方的物理伤害</button><br><br>
+                    <button id="hongfang2" class="hf">红方的魔法伤害</button><br><br>
+                    <button id="hongfang3" class="hf">红方的真实伤害</button><br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var chartDom = document.getElementById('main');
+        var myChart = echarts.init(chartDom);
+        var option;
+        $("#lanfang1").click(function () {
+            let list =
+            [
+                ['北凉少爷徐凤年', 0.6,],
+                ['aaxiaot', 7.2,],
+                ['你说行就行', 19.5,],
+                ['还是喜欢Summer', 49.3,],
+                ['郁金香妹你浴巾香', 10.1,],
+            ];
+            name(list)
+        })
+        $("#lanfang2").click(function () {
+            list =
+                [
+                    ['北凉少爷徐凤年', 14.1,],
+                    ['aaxiaot', 58.2,],
+                    ['你说行就行', 38.9,],
+                    ['还是喜欢Summer', 49.7,],
+                    ['郁金香妹你浴巾香', 20.1,],
+                ];
+            name(list)
+        })
+        $("#lanfang3").click(function () {
+            list =
+                [
+                    ['北凉少爷徐凤年', 25.5,],
+                    ['aaxiaot', 77.2,],
+                    ['你说行就行', 67.7,],
+                    ['还是喜欢Summer', 41.7,],
+                    ['郁金香妹你浴巾香', 29.1,],
+                ];
+            name(list)
+        })
+        name(list)
+        function name(params) {
+            option = {
+                dataset: [
+                    {
+                        transform: []
+                    },
+                    {
+                        dimensions: ['name', 'age', 'profession', 'date'],
+                        source: params
+                    },
+                ],
+                grid: {
+                    left: '18%', // 设置左边界距离为20%
+
+                },
+                yAxis: {
+                    type: 'category',
+                    axisLine: {
+                        show: true, // 设置为false即可隐藏左侧y轴线条
+                    },
+                },
+                xAxis: {
+                    axisTick: {
+                        show: false, // 设置为false即可隐藏左侧x轴短线条
+                    },
+                },
+                series: [{
+                    type: 'bar',
+                    encode: { y: 'name', x: 'score' },
+                    datasetIndex: 1,
+                    barWidth: 25, // 设置柱状图的宽度为20
+                    itemStyle: {
+                        color: "rgb(60, 200, 200)",
+                    },
+                    label: {
+                        show: true, //是否可见
+                        position: "right",
+                        formatter: function (params) {
+                            var value = params.value[1];
+                            if (value > 0) {
+                                return (value / 1).toFixed(1) + 'k';
+                            } else {
+                                return value;
+                            }
+                        }
+                    }
+                }],
+                toolbox: {
+                    feature: {
+                        saveAsImage: {}, //将图表保存为图片
+                        dataView: {},     //是否显示出原始数据
+                        restore: {},      //还原图表
+                        dataZoom: {},     //数据缩放
+                        magicType: {      //将图表在不同类型之间切换
+                            type: ["bar", "line"]
+                        }
+                    }
+                }
+            };
+
+            option && myChart.setOption(option);
+        }
+    </script>
+    <script>
+        var chartDom1 = document.getElementById('main1');
+        var myChart1 = echarts.init(chartDom1);
+        var option1;
+        $("#hongfang1").click(function () {
+            let list1 =
+            [
+                ['永夜的催眠曲', 21.1,],
+                ['邻家、小浩', 44.8,],
+                ['别喷我我骂不过', 3.3,],
+                ['蠢萌蠢萌的电脑人', 0.7,],
+                ['魔女 | 伊芙琳', 28.2,],
+            ];
+            name1(list1)
+        })
+        $("#hongfang2").click(function () {
+            list1 =
+                [
+                    ['永夜的催眠曲', 17.1,],
+                    ['邻家、小浩', 28.8,],
+                    ['别喷我我骂不过', 39.3,],
+                    ['蠢萌蠢萌的电脑人', 12.7,],
+                    ['魔女 | 伊芙琳', 55.2,],
+                ];
+            name1(list1)
+        })
+        $("#hongfang3").click(function () {
+            list1 =
+                [
+                    ['永夜的催眠曲', 11.1,],
+                    ['邻家、小浩', 23.8,],
+                    ['别喷我我骂不过', 69.3,],
+                    ['蠢萌蠢萌的电脑人', 17.7,],
+                    ['魔女 | 伊芙琳', 34.2,],
+                ];
+            name1(list1)
+        })
+        name1(list1)
+        function name1(list1) {
+            option1 = {
+            dataset: [
+                {
+                    transform: []
+                },
+                {
+                    dimensions: ['name', 'age', 'profession', 'date'],
+                    source:list1
+                },
+            ],
+            grid: {
+                left: '18%', // 设置左边界距离为20%
+
+            },
+            yAxis: {
+                type: 'category',
+                axisLine: {
+                    show: true, // 设置为false即可隐藏左侧y轴线条
+                },
+            },
+            xAxis: {
+                axisTick: {
+                    show: false, // 设置为false即可隐藏左侧x轴短线条
+                },
+            },
+            series: [{
+                type: 'bar',
+                encode: { y: 'name', x: 'score' },
+                datasetIndex: 1,
+                barWidth: 25, // 设置柱状图的宽度为20
+                itemStyle: {
+                    color: "#a83535",
+                },
+                label: {
+                    show: true, //是否可见
+                    position: "right",
+                    formatter: function (params) {
+                        var value = params.value[1];
+                        if (value > 0) {
+                            return (value / 1).toFixed(1) + 'k';
+                        } else {
+                            return value;
+                        }
+                    }
+                }
+            }],
+            toolbox: {
+                feature: {
+                    saveAsImage: {}, //将图表保存为图片
+                    dataView: {},     //是否显示出原始数据
+                    restore: {},      //还原图表
+                    dataZoom: {},     //数据缩放
+                    magicType: {      //将图表在不同类型之间切换
+                        type: ["bar", "line"]
+                    }
+                }
+            }
+        };
+
+        option1 && myChart1.setOption(option1);
+        }
+    </script>
+</body>
+
+</html>

@@ -2,99 +2,97 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="../common/echars/echarts.min.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../common/echars/echarts.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
 
-        #box {
-            height: 640px;
-            background-color: rgb(255, 243, 224);
-        }
+    #box {
+      height: 640px;
+      background-color: rgb(255, 243, 224);
+    }
 
-        #main {
-            width: 100%;
-            height: 100%;
-            background-color: rgb(174, 174, 174);
-        }
-    </style>
+    #main {
+      width: 100%;
+      height: 100%;
+      background-color: rgb(174, 174, 174);
+    }
+  </style>
 </head>
 
 <body>
-    <div id="box">
-        <div id="main"></div>
-    </div>
-    <script>
-        let sort = document.getElementById('main')
-        let myChart = echarts.init(sort);
-        var year = ['第四周', '第三周', '第二周', '第一周']
-        var data = [
-            [51.5, 51, 65.5, 56, 38.75, 44.25, 48, 43.5, 51, 59.5, 61, 61],
-            [60, 54.5, 64, 53, 72.5, 60.25, 55.75, 62.5, 54, 65, 60, 65.5],
-            [68.75, 71.5, 65.5, 58, 45.5, 60, 54, 35, 48, 65, 45, 45],
-            [83.75, 77.5, 75, 67.5, 74, 42, 64.75, 40, 70, 60, 45, 60],
-        ]
-        // 指定图表的配置项和数据
-        var option = {
-            title: {
-                text: 'ECharts 入门示例',
-            },
-            tooltip: {},
-            legend: {
-                data: ['平均分对比']
-            },
-            yAxis: {
-                data: ['刘佳佳', '赵宗福', '刘振洲', '杨浩冰', '郑哲员', '刘超祥', '赵帅博', '甘天鸽', '杨宏承', '余浩', '苏鹏杰', '申卓凡'],
-                inverse: true,
-            },
-            xAxis: {
-                max: 100
-            },
-            series: [{
-                realtimeSort: true,
-                name: '平均分对比',
-                showBackground: true,
-                label: {
-                    show: true,
-                    position: 'right',
-                    valueAnimation: true
-                },
-                stack: {},
-                type: 'bar',
-                data: [120, 206, 392, 150]
-            }],
-            animationDuration: 0,
-            animationDurationUpdate: 500,
-            animationEasing: 'linear',
-            animationEasingUpdate: 'linear'
-        };
+  <div id="box">
+    <div id="main"></div>
+  </div>
+  <script>
+    let sort = document.getElementById('main')
+    let myChart = echarts.init(sort);
+    var year = ['第四周', '第三周', '第二周', '第一周']
+    var data = [
+      [51.5, 51, 65.5, 56, 38.75, 44.25, 48, 43.5, 51, 59.5, 61, 61],
+      [60, 54.5, 64, 53, 72.5, 60.25, 55.75, 62.5, 54, 65, 60, 65.5],
+      [68.75, 71.5, 65.5, 58, 45.5, 60, 54, 35, 48, 65, 45, 45],
+      [83.75, 77.5, 75, 67.5, 74, 42, 64.75, 40, 70, 60, 45, 60],
+    ]
+    // 指定图表的配置项和数据
+    var option = {
+      title: {
+        text: 'ECharts 入门示例',
+      },
+      tooltip: {},
+      legend: {
+        data: ['平均分对比']
+      },
+      yAxis: {
+        data: ['刘佳佳', '赵宗福', '刘振洲', '杨浩冰', '郑哲员', '刘超祥', '赵帅博', '甘天鸽', '杨宏承', '余浩', '苏鹏杰', '申卓凡'],
+        inverse: true,
+      },
+      xAxis: {
+        max: 100
+      },
+      series: [{
+        realtimeSort: true,
+        name: '平均分对比',
+        showBackground: true,
+        label: {
+          show: true,
+          position: 'right',
+          valueAnimation: true
+        },
+        stack: {},
+        type: 'bar',
+        data: [120, 206, 392, 150]
+      }],
+      animationDuration: 0,
+      animationDurationUpdate: 500,
+      animationEasing: 'linear',
+      animationEasingUpdate: 'linear'
+    };
 
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
 
-        for (let i = 0; i < data.length; i++) {
-            setTimeout(function () {
-                var option1 = {
-                    title: {
-                        text: year[data.length - i - 1].toString()
-                    },
-                    series: [{
-                        data: data[data.length - i - 1]
-                    }]
-                }
-                myChart.setOption(option1)
-            }, 2000 * i)
+    for (let i = 0; i < data.length; i++) {
+      setTimeout(function () {
+        var option1 = {
+          title: {
+            text: year[data.length - i - 1].toString()
+          },
+          series: [{
+            data: data[data.length - i - 1]
+          }]
         }
-        option && myChart.setOption(option);
+        myChart.setOption(option1)
+      }, 2000 * i)
+    }
+    option && myChart.setOption(option);
 
 
 
-    </script>
+  </script>
 </body>
-
-</html>

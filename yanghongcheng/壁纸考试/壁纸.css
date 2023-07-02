@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.box{
+    width: 2400px;
+    height: 940px;
+    margin: auto;
+    background-repeat:no-repeat ;
+    background-color: antiquewhite;
+}
+
+.bizhi{
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    margin: 10px;
+    float: left;
+    font-family: '幼圆', Arial, sans-serif;
+    background-color: aquamarine;
+}
+.tan{
+    width: 1026px;
+    height: 490px;
+    border: none;
+    margin: 10px;
+    float: left;
+    /* border: 1px black solid; */
+    transition: all 0.3s ease;
+    background-color: #ffffe3;
+}
+.layui-nav-item h1{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size:30px ;
+}
+.cha{
+    width: 40px;
+    height: 30px;
+    float: right;
+    border: none;
+    text-align: center;
+    font-size: 25px;
+    background-color: rgba(0, 0, 0, 0);
+}
+.cha:hover{
+    color: aliceblue;
+    background-color: rgb(247, 121, 121);
+}
+.chas{
+    width: 40px;
+    height: 30px;
+    float: right;
+    border: none;
+    text-align: center;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0);
+}
+.chas:hover{
+    background-color: rgb(138, 138, 138);
+}
+.xiang{
+    width: 780px;
+    height: 490px;
+    margin-left: 200px;
+    /* margin-top: -490px; */
+}
+.xiangs{
+    width: 780px;
+    height: 490px;
+    margin-left: 200px;
+    /* margin-top: -490px; */
+}
+#ID-flow-demo-manual {
+    overflow: scroll;
+  }
+  
+  #ID-flow-demo-manual::-webkit-scrollbar {
+    display: none;
+  }
+.xiangt{
+    width: 780px;
+    height: 490px;
+    float: left;
+    margin-left: 200px;
+    /* margin-top: -452px; */
+}
+.xiangp{
+    width: 780px;
+    height: 490px;
+    margin-left: 200px;
+    margin-top: -490px;
+}
+.size{
+    width: 695px;
+    height: 30px;
+    color: dimgrey;
+    margin: 10px 0px 0px 5px ;
+}
+.tu{
+    width: 175px;
+    height: 130px;
+    float: left;
+    margin: 8px;
+    border-radius: 10px;
+}
+.fas{
+    width: 175px;
+    height: 130px;
+}
+.fas img{
+    width: 1400px;
+    height: 640px;
+    border: 10px;
+}
+.flow-demo{
+    float: left;
+    overflow: scroll;
+    height:468px ;
+    width:826px;
+    margin-top: -468px;
+    /* background-color: rgb(177, 255, 255); */
+}
+
+#ychz{
+    background-color: black;
+}
+.image{
+    width: 183px;
+    height: 130px;
+    margin: 0 18px;
+    border-radius: 10px;
+}
+.image:hover{
+    width: 185px;
+    height: 133px;
+    border-radius: 10px;
+}
+.box::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+.shanc{
+    width: 132px;
+    height: 200px;
+    margin: auto;
+    margin-top: 130px;
+    /* background-color: aquamarine; */
+}

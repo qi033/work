@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="./cdn.Echarts.min.js"></script>
+    <style>
+      #bz {
+        position: absolute;
+        left: 65%;
+        top: 15%;
+      }
+      #leida {
+        position: absolute;
+        left: 65%;
+        top: 60%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+
+    <select
+      name="quiz2"
+      value="11111"
+      style="
+        height: 30px;
+        border: 1px solid grey;
+        outline: none;
+        width: 100px;
+        margin: 50px;
+      "
+    >
+      <option value="333" style="border: none">请选择日期</option>
+      <option value="6.2">6.2</option>
+      <option value="6.9">6.9</option>
+      <option value="6.16">6.16</option>
+      <option value="6.21">6.21</option>
+    </select>
+
+    <div id="main" style="width: 1200px; height: 400px"></div>
+    <div id="bz" style="width: 600px; height: 400px"></div>
+    <div id="zx" style="width: 1200px; height: 400px"></div>
+    <div id="leida" style="width: 600px; height: 400px"></div>
+    <script src="./成绩.js"></script>
+    <script type="text/javascript">
+      let js = arr[0].jiShi,
+        bx = arr[0].biShi,
+        pj = arr[0].pj,
+        mz = arr[0].mz;
+      $(function () {
+        console.log($("select").val());
+        $("select").change(function () {
+          let res = $(this).val();
+          if (res == "6.9") {
+            mz = arr[1].mz;
+            pj = arr[1].pj;
+            js = arr[1].jiShi;
+            bx = arr[1].biShi;
+          } else if (res == "6.16") {
+            mz = arr[2].mz;
+            pj = arr[2].pj;
+            js = arr[2].jiShi;
+            bx = arr[2].biShi;
+          } else if (res == "6.21") {
+            mz = arr[3].mz;
+            pj = arr[3].pj;
+            js = arr[3].jiShi;
+            bx = arr[3].biShi;
+          } else {
+            zt(mz, js, bx, pj);
+            fun3(mz, js, bx);
+            fun4(mz, js, bx);
+          }
+          zt(mz, js, bx, pj);
+          fun3(mz, js, bx);
+          fun4(mz, js, bx);
+        });
+        zt(mz, js, bx, pj);
+        fun2();
+        fun3(mz, js, bx);
+        fun4(mz, js, bx);
+      });
+
+      function zt(mz, js, bx, pj) {
+        // 基于准备好的dom，初始化echarts实例
+        let myChart = echarts.init(document.getElementById("main"));
+
+        // 指定图表的配置项和数据
+        let option = {
+          title: {
+            text: mz + "成绩",
+            left: "100px", // 居中对齐
+            top: "20px", // 顶部对齐
+            textStyle: {
+              color: "grey", // 标题颜色
+              fontSize: 12, // 标题字体大小
+            },
+          },
+          tooltip: {},
+          legend: {
+            data: ["笔试", "机时", "平均分"],
+          },
+          xAxis: {
+            data: [
+              "刘佳佳",
+              "赵宗福",
+              "刘振洲",
+              "杨浩冰",
+              "郑哲元",
+              "刘超祥",
+              "赵帅博",
+              "甘天鸽",
+              "李优美",
+              "杨宏承",
+              "余浩",
+              "苏鹏杰",
+              "申卓凡",
+            ],
+          },
+          yAxis: {},
+          series: [
+            {
+              name: "笔试",
+              type: "bar",
+              data: bx,
+              label: {
+                show: true,
+                position: "top",
+                formatter: function (params) {
+                  return params.value + "分";
+                },
+              },
+            },
+
+            {
+              name: "机时",
+              type: "bar",
+              data: js,
+              label: {
+                show: true,
+                position: "top",
+                formatter: function (params) {
+                  return params.value + "分";
+                },
+              },
+            },
+            {
+              name: "平均分",
+              type: "bar",
+              data: pj,
+              label: {
+                show: true,
+                position: "top",
+                formatter: function (params) {
+                  return params.value + "分";
+                },
+              },
+            },
+          ],
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+      }
+      function fun2() {
+        let chartDom = document.getElementById("bz");
+        let myChart = echarts.init(chartDom);
+        let option;
+
+        option = {
+          title: {
+            text: "饼图 成绩",
+            subtext: "Fake Data",
+            left: "center",
+          },
+          tooltip: {
+            trigger: "item",
+          },
+          legend: {
+            orient: "vertical",
+            left: "left",
+          },
+          series: [
+            {
+              name: "Access From",
+              type: "pie",
+              radius: "50%",
+              data: [
+                { value: 62.45, name: "刘佳佳" },
+                { value: 60.85, name: "赵宗福" },
+                { value: 66, name: "刘振洲" },
+                { value: 56.85, name: "杨浩冰" },
+                { value: 54.425, name: "郑哲元" },
+                { value: 53.55, name: "刘超祥" },
+                { value: 53.8, name: "赵帅博" },
+                { value: 45.95, name: "甘天歌" },
+                { value: 50.625, name: "杨宏承" },
+                { value: 62.35, name: "余浩" },
+                { value: 55.9, name: "苏鹏杰" },
+                { value: 59.05, name: "申卓凡" },
+              ],
+              emphasis: {
+                itemStyle: {
+                  shadowBlur: 10,
+                  shadowOffsetX: 0,
+                  shadowColor: "rgba(0, 0, 0, 0.5)",
+                },
+              },
+            },
+          ],
+        };
+
+        option && myChart.setOption(option);
+      }
+      function fun3(mz, js, bx) {
+        let chartDom = document.getElementById("zx");
+        let myChart = echarts.init(chartDom);
+        let option;
+
+        // prettier-ignore
+        let data = [["刘佳佳"], ["赵宗福"], ["刘振洲"], ["杨浩冰"],
+         ["郑哲元"], ["刘超祥"], ["赵帅博"], ["甘天歌"], ["李优美"], 
+         ["杨宏承"], ["余浩"], ["苏鹏杰"], ["申卓凡"], ]
+        let dateList = data.map(function (item) {
+          return item[0];
+        });
+        // const valueList = data.map(function (item) {
+        //   return item[1];
+        // });
+        option = {
+          // Make gradient line here
+          visualMap: [
+            {
+              show: false,
+              type: "continuous",
+              seriesIndex: 0,
+              min: 0,
+              max: 400,
+            },
+            {
+              show: false,
+              type: "continuous",
+              seriesIndex: 1,
+              dimension: 0,
+              min: 0,
+              max: dateList.length - 1,
+            },
+          ],
+          title: [
+            {
+              left: "center",
+              text: mz + "机试成绩",
+            },
+            {
+              top: "55%",
+              left: "center",
+              text: mz + "笔试成绩",
+            },
+          ],
+          tooltip: {
+            trigger: "axis",
+          },
+          xAxis: [
+            {
+              data: dateList,
+            },
+            {
+              data: dateList,
+              gridIndex: 1,
+            },
+          ],
+          yAxis: [
+            {},
+            {
+              gridIndex: 1,
+            },
+          ],
+          grid: [
+            {
+              bottom: "60%",
+            },
+            {
+              top: "60%",
+            },
+          ],
+          series: [
+            {
+              type: "line",
+              showSymbol: false,
+              data: js,
+            },
+            {
+              type: "line",
+              showSymbol: false,
+              data: bx,
+              xAxisIndex: 1,
+              yAxisIndex: 1,
+            },
+          ],
+        };
+
+        option && myChart.setOption(option);
+      }
+      function fun4(mz, js, bx) {
+        let chartDom = document.getElementById("leida");
+        let myChart = echarts.init(chartDom);
+        let option;
+
+        option = {
+          title: {
+            text: mz + "考试雷达图",
+          },
+          legend: {
+            data: ["笔试", "机试"],
+            orient: "vertical", // 根据需要设置图例的排列方向
+            left: "right", // 调整图例的left属性来改变水平位置
+          },
+          radar: {
+            // shape: 'circle',
+            indicator: [
+              { name: "刘佳佳", max: 100 },
+              { name: "赵宗福", max: 100 },
+              { name: "刘振洲", max: 100 },
+              { name: "杨浩冰", max: 100 },
+              { name: "郑哲元", max: 100 },
+              { name: "刘超祥", max: 100 },
+              { name: "赵帅博", max: 100 },
+              { name: "甘天鸽", max: 100 },
+              { name: "李优美", max: 100 },
+              { name: "杨宏承", max: 100 },
+              { name: "余浩", max: 100 },
+              { name: "苏鹏杰", max: 100 },
+              { name: "申卓凡", max: 100 },
+            ],
+          },
+          series: [
+            {
+              name: "Budget vs spending",
+              type: "radar",
+              symbol: "none",
+              data: [
+                {
+                  value: bx,
+                  name: "笔试",
+                  lineStyle: {
+                    color: "#1e9fff ", // 更改雷达线颜色
+                    // width: 2 // 设置雷达线宽度
+                  },
+                  areaStyle: {
+                    color: " rgb(121, 211, 230)", // 设置雷达线阴影颜色和透明度
+                  },
+                },
+                {
+                  value: js,
+                  name: "机试",
+                  lineStyle: {
+                    color: " #16b777", // 更改雷达线颜色
+                    // width: 2 // 设置雷达线宽度
+                  },
+                  areaStyle: {
+                    color: " rgb(241, 223, 223)", // 设置雷达线阴影颜色和透明度
+                  },
+                },
+              ],
+            },
+          ],
+        };
+
+        option && myChart.setOption(option);
+      }
+    </script>
+  </body>
+</html>
