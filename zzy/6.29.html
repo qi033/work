@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="layui.css" rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+
+    <script src="https://unpkg.com/layui@2.7.6/dist/layui.js"></script>
+</head>
+<style>
+    .layui-nav-side {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 700px;
+        overflow-x: hidden;
+        z-index: 999;
+        height: 500px;
+    }
+</style>
+
+<body>
+    <div id="main" style="width: 600px; height: 400px"></div>
+    <div id="app2" style="width: 600px; height: 400px"></div>
+    <div id="main2" style="width: 600px; height: 400px"></div>
+    <div id="barChart" style="width: 600px; height: 400px"></div>
+    <div id="main5" style="width: 600px; height: 400px"></div>
+    <button id="week1">第一周</button>
+    <button id="week2">第二周</button>
+    <button id="week3">第三周</button>
+    <button id="week4">第四周</button>
+    <script src="./echarts.js"></script>
+    <!--  <script>
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById("main"));
+
+        option2 = {
+            dataset: {
+                source: [
+                    ['score', 'amount', 'product'],
+                    [89.3, 58212, 'Matcha Latte'],
+                    [57.1, 78254, 'Milk Tea'],
+                    [74.4, 41032, 'Cheese Cocoa'],
+                    [50.1, 12755, 'Cheese Brownie'],
+                    [89.7, 20145, 'Matcha Cocoa'],
+                    [68.1, 79146, 'Tea'],
+                    [19.6, 91852, 'Orange Juice'],
+                    [10.6, 101852, 'Lemon Juice'],
+                    [32.7, 20112, 'Walnut Brownie']
+                ]
+            },
+            grid: { containLabel: true },
+            xAxis: { name: 'amount' },
+            yAxis: { type: 'category' },
+            visualMap: {
+                orient: 'horizontal',
+                left: 'center',
+                min: 10,
+                max: 100,
+                text: ['High Score', 'Low Score'],
+                // Map the score column to color
+                dimension: 0,
+                inRange: {
+                    color: ['#65B581', '#FFCE34', '#FD665F']
+                }
+            },
+            series: [
+                {
+                    type: 'bar',
+                    encode: {
+                        // Map the "amount" column to X axis.
+                        x: 'amount',
+                        // Map the "product" column to Y axis
+                        y: 'product'
+                    },
+                    label: {
+                        show: true,
+                        position: 'right', // 显示在柱形的右侧
+                        formatter: '{c}', // {b} 表示系列名称，{c} 表示数据值
+                        color: '#333' // 文字颜色
+                    }
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option2);
+
+    </script> -->
+    <ul class="layui-nav layui-nav-tree layui-nav-side">
+        <li class="layui-nav-item layui-nav-itemed">
+            <a href="javascript:;">柱状图</a>
+            <dl class="layui-nav-child">
+                <dd><a href="javascript:;" onclick="changeSource(1)">刘佳佳</a></dd>
+                <dd><a href="javascript:;" onclick="changeSource(2)">赵宗福</a></dd>
+                <dd><a href="javascript:;" onclick="changeSource(3)">刘振洲</a></dd>
+                <dd><a href="javascript:;" onclick="changeSource(4)">杨浩冰</a></dd>
+
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">饼图</a>
+            <dl class="layui-nav-child">
+                <dd><a href="javascript:;" onclick="changeSource2(1)">刘佳佳</a></dd>
+                <dd><a href="javascript:;" onclick="changeSource2(2)">赵宗福</a></dd>
+                <dd><a href="javascript:;" onclick="changeSource2(3)">刘振洲</a></dd>
+                <dd><a href="javascript:;" onclick="changeSource2(4)">杨浩冰</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">折线图</a>
+            <dl class="layui-nav-child">
+                <dd><a href="javascript:;" onclick="changeSource3(1)">刘佳佳</a></dd>
+                <dd><a href="javascript:;" onclick="changeSource3(2)">赵宗福</a></dd>
+                <dd><a href="javascript:;" onclick="changeSource3(3)">刘振洲</a></dd>
+                <dd><a href="javascript:;" onclick="changeSource3(4)">杨浩冰</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">雷达图</a>
+            <dl class="layui-nav-child">
+                <dd><a href="javascript:;" onclick="changeSource4(1)">刘佳佳</a></dd>
+                <dd><a href="javascript:;" onclick="changeSource4(2)">赵宗福</a></dd>
+                <dd><a href="javascript:;" onclick="changeSource4(3)">刘振洲</a></dd>
+                <dd><a href="javascript:;" onclick="changeSource4(4)">杨浩冰</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="javascript:;">动态排序图</a>
+            <dl class="layui-nav-child">
+                <dd><a href="javascript:;" onclick="changeSource5(1)">刘佳佳</a></dd>
+                <dd><a href="javascript:;" onclick="changeSource5(2)">赵宗福</a></dd>
+                <dd><a href="javascript:;" onclick="changeSource5(3)">刘振洲</a></dd>
+                <dd><a href="javascript:;" onclick="changeSource5(4)">杨浩冰</a></dd>
+            </dl>
+        </li>
+    </ul>
+
+    <script>
+        layui.use(function () {
+            var element = layui.element;
+            element.render('nav');
+        });
+    </script>
+    <!-- <script>
+        function changeSource(index) {
+            switch (index) {
+                case 1:
+                    option2.dataset.source = [
+                        ['score', 'amount', 'product'],
+                        [89.3, 10000, 'Matcha Latte'],
+                        [57.1, 28254, 'Milk Tea'],
+                        [74.4, 41032, 'Cheese Cocoa'],
+                        [50.1, 62755, 'Cheese Brownie'],
+                        [89.7, 80145, 'Matcha Cocoa'],
+                        [68.1, 109146, 'Tea'],
+                        [19.6, 125852, 'Orange Juice'],
+                        [10.6, 141852, 'Lemon Juice'],
+                        [32.7, 161112, 'Walnut Brownie']
+                        // 添加或删除其他数据行
+                    ];
+                    break;
+                case 2:
+                    option2.dataset.source = [
+                        ['score', 'amount', 'product'],
+                        [89.3, 22112, 'Matcha Latte'],
+                        [57.1, 42514, 'Milk Tea'],
+                        [74.4, 60132, 'Cheese Cocoa'],
+                        [50.1, 87155, 'Cheese Brownie'],
+                        [89.7, 10045, 'Matcha Cocoa'],
+                        [68.1, 12146, 'Tea'],
+                        [19.6, 14852, 'Orange Juice'],
+                        [10.6, 16185, 'Lemon Juice'],
+                        [32.7, 18411, 'Walnut Brownie']
+                        // 添加或删除其他数据行
+                    ];
+                    break;
+                case 3:
+                    option2.dataset.source = [
+                        ['score', 'amount', 'product'],
+                        [89.3, 21112, 'Matcha Latte'],
+                        [57.1, 45114, 'Milk Tea'],
+                        [74.4, 61132, 'Cheese Cocoa'],
+                        [50.1, 81155, 'Cheese Brownie'],
+                        [89.7, 10014, 'Matcha Cocoa'],
+                        [68.1, 12146, 'Tea'],
+                        [19.6, 11452, 'Orange Juice'],
+                        [10.6, 16512, 'Lemon Juice'],
+                        [32.7, 18112, 'Walnut Brownie']
+                        // 添加或删除其他数据行
+                    ];
+                    break;
+                // 添加其他选项卡的处理逻辑
+                default:
+                    break;
+            }
+            myChart.setOption(option2);
+        }
+    </script> -->
+
+    <!-- 雷达图 -->
+    <script>
+        // 基于准备好的dom，初始化echarts实例
+        var myChart2 = echarts.init(document.getElementById("main2"));
+        option3 = {
+            title: {
+                text: '雷达图'
+            },
+            legend: {
+                data: ['刘佳佳']
+            },
+            radar: {
+                indicator: [
+                    { name: '笔试6.2', max: 100 },
+                    { name: '机试6.2', max: 100 },
+                    { name: '平均分6.2', max: 100 },
+                    { name: '笔试6.9', max: 100 },
+                    { name: '机试6.9', max: 100 },
+                    { name: '平均分6.9', max: 100 },
+                    { name: '笔试6.16', max: 100 },
+                    { name: '机试6.16', max: 100 },
+                    { name: '平均分6.16', max: 100 },
+                    { name: '笔试6.21', max: 100 },
+                    { name: '机试6.21', max: 100 },
+                    { name: '平均分6.21', max: 100 },
+
+                ]
+            },
+            series: [
+                {
+                    label: {
+                        show: true,
+                        position: 'right',
+                        formatter: '{c}',
+                        color: '#333'
+                    },
+                    name: 'Budget vs spending',
+                    type: 'radar',
+                    data: [
+                        {
+                            value: [72.5, 95, 83.75, 47.5, 90, 68.75, 50, 70, 60, 53, 50, 51.5],
+                            name: '刘佳佳'
+                        },
+                        /* {
+                            value: [5000, 14000, 28000, 26000, 42000, 21000],
+                            name: 'Actual Spending'
+                        } */
+                    ]
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart2.setOption(option3);
+    </script>
+    <!--  雷达图fun -->
+    <script>
+        function changeSource4(index) {
+            switch (index) {
+                case 1:
+                    option3.series[0].data = [
+                        { value: [72.5, 95, 83.75, 47.5, 90, 68.75, 50, 70, 60, 53, 50, 51.5], name: '刘佳佳' },
+                        /*     { value: [5000, 4000, 800, 2600, 4200, 2100], name: 'Actual Spending' } */
+                    ];
+                    option3.legend = [
+                        {
+                            data: ['刘佳佳']
+                        }
+
+                    ]
+                    /*  barOption.series[0].data = [1000, 3000, 2000, 3500, 5000, 1800];
+                     barOption.series[1].data = [5000, 4000, 800, 2600, 4200, 2100]; */
+                    break;
+                case 2:
+                    option3.series[0].data = [
+                        { value: [60, 95, 77.5, 53, 90, 71.5, 49, 60, 54.5, 42, 60, 51], name: '赵宗福' },
+                        /* { value: [5000, 800, 800, 2600, 4200, 2100], name: 'Actual Spending' } */
+                    ];
+                    option3.legend = [
+                        {
+                            data: ['赵宗福']
+                        }
+
+                    ]
+
+                    /*  barOption.series[0].data = [2000, 5000, 8000, 4000, 6000, 3000];
+                     barOption.series[1].data = [5000, 800, 800, 2600, 4200, 2100]; */
+                    break;
+                case 3:
+                    option3.series[0].data = [
+                        { value: [55, 95, 75, 41, 90, 65.5, 48, 80, 64, 51, 80, 65.5], name: '刘振洲' },
+                        /*  { value: [5000, 8000, 800, 6000, 4200, 2100], name: 'Actual Spending' } */
+                    ];
+                    option3.legend = [
+                        {
+                            data: ['刘振洲']
+                        }
+
+                    ]
+                    /*  barOption.series[0].data = [3000, 2000, 5000, 6000, 4000, 7000];
+                     barOption.series[1].data = [5000, 8000, 800, 6000, 4200, 2100]; */
+                    break;
+                case 4:
+                    option3.series[0].data = [
+                        { value: [60, 75, 67.5, 46, 70, 58, 46, 60, 53, 52, 60, 56], name: '杨浩冰' },
+                        /*  { value: [5000, 8000, 800, 6000, 4200, 2100], name: 'Actual Spending' } */
+                    ];
+                    option3.legend = [
+                        {
+                            data: ['杨浩冰']
+                        }
+
+                    ]
+                /*  barOption.series[0].data = [3000, 2000, 5000, 6000, 4000, 7000];
+                 barOption.series[1].data = [5000, 8000, 800, 6000, 4200, 2100]; */
+                default:
+                    break;
+            }
+
+            myChart2.setOption(option3);
+
+        }
+    </script>
+    <!--  柱状图  -->
+    <script>
+        var barChart = echarts.init(document.getElementById('barChart'));
+        var barOption = {
+            title: {
+                text: '刘佳佳'
+            },
+            legend: {},
+            xAxis: {
+                type: 'category',
+                data: ['6.2', '6.9', '6.16', '6.21']
+            },
+            yAxis: {},
+            series: [
+
+                {
+                    name: '笔试',
+                    type: 'bar',
+                    label: {
+                        show: true,
+                        position: 'top', // 显示在柱形的右侧
+                        formatter: '{c}', // {b} 表示系列名称，{c} 表示数据值
+                        color: '#333' // 文字颜色
+                    },
+                    data: [72.5, 47.5, 50, 53]
+                },
+                {
+                    name: '机试',
+                    type: 'bar',
+                    label: {
+                        show: true,
+                        position: 'top', // 显示在柱形的右侧
+                        formatter: '{c}', // {b} 表示系列名称，{c} 表示数据值
+                        color: '#333' // 文字颜色
+                    },
+                    data: [95, 90, 70, 50]
+                },
+                {
+                    name: '平均分',
+                    type: 'bar',
+                    label: {
+                        show: true,
+                        position: 'top', // 显示在柱形的右侧
+                        formatter: '{c}', // {b} 表示系列名称，{c} 表示数据值
+                        color: '#333' // 文字颜色
+                    },
+                    data: [83.75, 68.75, 60, 51.5]
+                },
+            ]
+        };
+
+
+        barChart.setOption(barOption);
+    </script>
+    <!-- 柱状图fun -->
+    <script>
+        function changeSource(index) {
+            switch (index) {
+                case 1:
+                    barOption.series[0].data = [72.5, 47.5, 50, 53]
+                    barOption.series[1].data = [95, 90, 70, 50]
+                    barOption.series[2].data = [83.75, 68.75, 60, 51.5]
+                    barOption.title = [
+                        {
+                            text: ['刘佳佳']
+                        }
+
+                    ]
+                    break;
+                case 2:
+                    barOption.series[0].data = [60, 53, 49, 42];
+                    barOption.series[1].data = [95, 90, 60, 60];
+                    barOption.series[2].data = [77.5, 71.5, 54.5, 51];
+                    barOption.title = [
+                        {
+                            text: ['赵宗福']
+                        }
+
+                    ]
+                    break;
+                case 3:
+                    barOption.series[0].data = [55, 41, 48, 51];
+                    barOption.series[1].data = [95, 90, 80, 80];
+                    barOption.series[2].data = [75, 65.5, 64, 65.5];
+                    barOption.title = [
+                        {
+                            text: ['刘振洲']
+                        }
+
+                    ]
+                    break;
+                case 4:
+                    barOption.series[0].data = [60, 46, 46, 52];
+                    barOption.series[1].data = [75, 70, 60, 60];
+                    barOption.series[2].data = [67.5, 58, 53, 56];
+                    barOption.title = [
+                        {
+                            text: ['杨浩冰']
+                        }
+
+                    ]
+                default:
+                    break;
+            }
+            barChart.setOption(barOption);
+        }
+    </script>
+    <!-- 折线图 -->
+    <script>
+        var myChart4 = echarts.init(document.getElementById("main"));
+        option4 = {
+            title: {
+                text: '折线图',
+                subtext: '刘佳佳'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross'
+                }
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['6.2笔试', '6.2机试', '6.2平均分', '6.9笔试', '6.9机试', '6.9平均分', '6.16笔试', '6.16机试', '6.26平均分', '6.21笔试', '6.21机试', '6.21平均分']
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value}分'
+                },
+                axisPointer: {
+                    snap: true
+                }
+            },
+            series: [{
+                name: 'Electricity',
+                type: 'line',
+                smooth: true,
+                data: [72.5, 95, 83.75, 47.5, 90, 68.75, 50, 70, 60, 53, 50, 51.5],
+                markArea: {
+                    itemStyle: {
+                        color: 'rgba(255, 173, 177, 0.4)'
+                    },
+                    data: [
+                        [{
+                            name: 'Morning Peak',
+                            xAxis: '07:30'
+                        }, {
+                            xAxis: '10:00'
+                        }],
+                        [{
+                            name: 'Evening Peak',
+                            xAxis: '17:30'
+                        }, {
+                            xAxis: '21:15'
+                        }]
+                    ]
+                },
+                markLine: {
+                    silent: true,
+                    data: [
+                        {
+                            yAxis: 60,
+                            lineStyle: {
+                                normal: {
+                                    color: 'green' // 大于60的线颜色为绿色
+                                }
+                            }
+                        },
+                        {
+                            yAxis: 60,
+                            lineStyle: {
+                                normal: {
+                                    color: 'red' // 小于60的线颜色为红色
+                                }
+                            }
+                        }
+                    ]
+                }
+            }]
+        };
+        myChart4.setOption(option4);
+    </script>
+    <!-- 折线图fun -->
+    <script>
+        function changeSource3(index) {
+            switch (index) {
+                case 1:
+                    option4.title =
+                    {
+                        subtext: ['刘佳佳']
+                    }
+                    option4.series[0].data = [72.5, 95, 83.75, 47.5, 90, 68.75, 50, 70, 60, 53, 50, 51.5]
+
+
+
+                    break;
+                case 2:
+                    option4.title =
+                    {
+                        subtext: ['赵宗福']
+                    }
+                    option4.series[0].data = [60, 95, 77.5, 53, 90, 71.5, 49, 60, 54.5, 42, 60, 51]
+
+                    break;
+                case 3:
+                    option4.title =
+                    {
+                        subtext: ['刘振洲']
+                    }
+                    option4.series[0].data = [55, 95, 75, 41, 90, 65.5, 48, 80, 64, 51, 80, 65.5]
+
+                    break;
+                case 4:
+                    option4.title =
+                    {
+                        subtext: ['杨浩冰']
+                    }
+                    option4.series[0].data = [60, 75, 67.5, 46, 70, 58, 46, 60, 53, 52, 60, 56]
+
+                default:
+                    break;
+            }
+            myChart4.setOption(option4);
+        }
+    </script>
+    <!-- 动态排序图 -->
+    <script>
+
+
+
+        // 使用ECharts绘制动态排序图
+        var myChart5 = echarts.init(document.getElementById("main5"));
+
+        var option5 = {
+            yAxis: {
+                type: 'category',
+                data: ['刘佳佳', '赵宗福', '刘振洲', '杨浩冰']
+            },
+            xAxis: {
+                type: 'value'
+            },
+            series: [{
+                data: [83.75, 68.75, 60, 51.5],
+                type: 'bar',
+                orient: 'horizontal',
+                label: { // 添加标签配置
+                    show: true,
+                    position: 'right', // 设置标签显示在柱状图的右侧
+                    formatter: '{c}' // 显示具体数值
+                }
+            }]
+        };
+        myChart5.setOption(option5);
+
+        document.getElementById('week1').onclick = function () {
+            option5.series[0].data = [83.75, 77.5, 75, 67.5];
+            myChart5.setOption(option5);
+        };
+        document.getElementById('week2').onclick = function () {
+            option5.series[0].data = [68.75, 71.5, 65.5, 58];
+            myChart5.setOption(option5);
+        };
+        document.getElementById('week3').onclick = function () {
+            option5.series[0].data = [60, 54.5, 64, 53];
+            myChart5.setOption(option5);
+        };
+        document.getElementById('week4').onclick = function () {
+            option5.series[0].data = [51.5, 51, 65.5, 56];
+            myChart5.setOption(option5);
+        };
+    </script>
+    <!-- 饼图 -->
+    <script>
+        var myCharts6 = echarts.init(document.querySelector('#app2'))
+        // 需要设置给饼图的数据
+        var pieData = [
+
+            {
+                name: '刘佳佳',
+                value: '62.55'
+            },
+            {
+                name: '赵宗福',
+                value: '60.75'
+            },
+            {
+                name: '刘振州',
+                value: '66.5'
+            },
+            {
+                name: '杨浩冰',
+                value: '56.45'
+            },
+
+        ]
+        var option6 = {
+
+            series: [
+                {
+                    type: 'pie',
+                    data: pieData,
+                    label: {
+                        show: true,
+                        formatter: function (arg) {
+                            console.log(arg);
+                            return arg.name + ' 笔试/机试/平均分 ' + arg.value + " " + '\n' + arg.percent + "%"
+                        }
+                    },
+
+                    selectedMode: 'multiple',
+                    selectedOffset: 30
+                }
+            ]
+        }
+
+        myCharts6.setOption(option6)
+    </script>
+</body>
+
+</html>
