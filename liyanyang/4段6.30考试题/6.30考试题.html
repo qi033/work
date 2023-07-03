@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 引入 layui.js -->
+    <script src="layui.js"></script>
+    <!-- 引入 layui.css -->
+    <link rel="stylesheet" href="layui.css" />
+    <!-- 引入 jQuery.js -->
+    <script src="jquery.js"></script>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.min.js"></script>
+  </head>
+  <style>
+    #studentBtn {
+      margin: 30px;
+      height: 80px;
+    }
+    #main {
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      width: 1000px;
+      height: 600px;
+    }
+    a {
+      font-size: 20px;
+      position: relative;
+      left: 3%;
+    }
+  </style>
+  <body>
+    <div id="box">
+      <a href="./6.30考试题2.html">考题2</a>
+      <a href="./6.30考试题3.html">考题3</a>
+      <a href="./6.30考试题4.html">考题4</a>
+      <a href="./6.30考试题5.html">考题5</a>
+      <div id="studentBtn"></div>
+      <div id="main"></div>
+    </div>
+  </body>
+  <script>
+    const student = [
+      {
+        name: "刘佳佳",
+        result: [
+          {
+            date: "2023-6-2",
+            subject: [
+              { name: "机试", score: 72.5 },
+              { name: "笔试", score: 95 },
+              { name: "平均分", score: 83.75 },
+            ],
+          },
+          {
+            date: "2023-6-9",
+            subject: [
+              { name: "机试", score: 47.5 },
+              { name: "笔试", score: 90 },
+              { name: "平均分", score: 68.75 },
+            ],
+          },
+          {
+            date: "2023-6-16",
+            subject: [
+              { name: "机试", score: 50 },
+              { name: "笔试", score: 70 },
+              { name: "平均分", score: 60 },
+            ],
+          },
+          {
+            date: "2023-4-21",
+            subject: [
+              { name: "机试", score: 50 },
+              { name: "笔试", score: 53 },
+              { name: "平均分", score: 51.5 },
+            ],
+          },
+        ],
+      },
+      {
+        name: "赵宗福",
+        result: [
+          {
+            date: "2023-6-2",
+            subject: [
+              { name: "机试", score: 60 },
+              { name: "笔试", score: 95 },
+              { name: "平均分", score: 77.5 },
+            ],
+          },
+          {
+            date: "2023-6-9",
+            subject: [
+              { name: "机试", score: 53 },
+              { name: "笔试", score: 90 },
+              { name: "平均分", score: 71.5 },
+            ],
+          },
+          {
+            date: "2023-6-16",
+            subject: [
+              { name: "机试", score: 49 },
+              { name: "笔试", score: 60 },
+              { name: "平均分", score: 54.5 },
+            ],
+          },
+          {
+            date: "2023-4-21",
+            subject: [
+              { name: "机试", score: 60 },
+              { name: "笔试", score: 42 },
+              { name: "平均分", score: 51 },
+            ],
+          },
+        ],
+      },
+
+      {
+        name: "刘振州",
+        result: [
+          {
+            date: "2023-6-2",
+            subject: [
+              { name: "机试", score: 55 },
+              { name: "笔试", score: 95 },
+              { name: "平均分", score: 75 },
+            ],
+          },
+          {
+            date: "2023-6-9",
+            subject: [
+              { name: "机试", score: 41 },
+              { name: "笔试", score: 90 },
+              { name: "平均分", score: 65.5 },
+            ],
+          },
+          {
+            date: "2023-6-16",
+            subject: [
+              { name: "机试", score: 48 },
+              { name: "笔试", score: 80 },
+              { name: "平均分", score: 64 },
+            ],
+          },
+          {
+            date: "2023-4-21",
+            subject: [
+              { name: "机试", score: 80 },
+              { name: "笔试", score: 51 },
+              { name: "平均分", score: 65.5 },
+            ],
+          },
+        ],
+      },
+      {
+        name: "杨浩冰",
+        result: [
+          {
+            date: "2023-6-2",
+            subject: [
+              { name: "机试", score: 60 },
+              { name: "笔试", score: 75 },
+              { name: "平均分", score: 67.5 },
+            ],
+          },
+          {
+            date: "2023-6-9",
+            subject: [
+              { name: "机试", score: 46 },
+              { name: "笔试", score: 70 },
+              { name: "平均分", score: 58 },
+            ],
+          },
+          {
+            date: "2023-6-16",
+            subject: [
+              { name: "机试", score: 46 },
+              { name: "笔试", score: 60 },
+              { name: "平均分", score: 53 },
+            ],
+          },
+          {
+            date: "2023-4-21",
+            subject: [
+              { name: "机试", score: 60 },
+              { name: "笔试", score: 52 },
+              { name: "平均分", score: 65.5 },
+            ],
+          },
+        ],
+      },
+      {
+        name: "郑哲元",
+        result: [
+          {
+            date: "2023-6-2",
+            subject: [
+              { name: "机试", score: 58 },
+              { name: "笔试", score: 90 },
+              { name: "平均分", score: 74 },
+            ],
+          },
+          {
+            date: "2023-6-9",
+            subject: [
+              { name: "机试", score: 41 },
+              { name: "笔试", score: 50 },
+              { name: "平均分", score: 45.5 },
+            ],
+          },
+          {
+            date: "2023-6-16",
+            subject: [
+              { name: "机试", score: 85 },
+              { name: "笔试", score: 60 },
+              { name: "平均分", score: 75.5 },
+            ],
+          },
+          {
+            date: "2023-4-21",
+            subject: [
+              { name: "机试", score: 27.5 },
+              { name: "笔试", score: 50 },
+              { name: "平均分", score: 38.5 },
+            ],
+          },
+        ],
+      },
+      {
+        name: "刘超翔",
+        result: [
+          {
+            date: "2023-6-2",
+            subject: [
+              { name: "机试", score: 44 },
+              { name: "笔试", score: 40 },
+              { name: "平均分", score: 42 },
+            ],
+          },
+          {
+            date: "2023-6-9",
+            subject: [
+              { name: "机试", score: 60 },
+              { name: "笔试", score: 60 },
+              { name: "平均分", score: 60 },
+            ],
+          },
+          {
+            date: "2023-6-16",
+            subject: [
+              { name: "机试", score: 45.5 },
+              { name: "笔试", score: 75 },
+              { name: "平均分", score: 60.25 },
+            ],
+          },
+          {
+            date: "2023-4-21",
+            subject: [
+              { name: "机试", score: 50 },
+              { name: "笔试", score: 38.5 },
+              { name: "平均分", score: 44.25 },
+            ],
+          },
+        ],
+      },
+    ];
+    let dataIndex = 0;
+    var option;
+    layui.use("table", function () {
+      var $ = layui.$;
+      showList();
+      initEcharts(dataIndex);
+      function showList() {
+        let html = "";
+        student.forEach((item, index) => {
+          html += `<button class="layui-btn layui-btn-lg layui-btn-radius layui-btn-normal" dataBtnIndex = ${index}>${item.name}</button>`;
+        });
+        $("#studentBtn").html(html);
+      }
+      $("button").click(function () {
+        dataIndex = $(this).attr("dataBtnIndex");
+        initEcharts(dataIndex);
+      });
+      function initEcharts(dataIndex = 0) {
+        var myChart = echarts.init(document.getElementById("main"));
+        option = {
+          tooltip: {
+            trigger: "axis",
+            axisPointer: {
+              type: "cross",
+              crossStyle: {
+                color: "#999",
+              },
+            },
+          },
+          legend: {
+            data: ["机试", "笔试"],
+            top: "6%",
+          },
+          title: {
+            text: `${student[dataIndex].name}的成绩柱状图`,
+            left: "center",
+          },
+          xAxis: { type: "category", data: xData(dataIndex) },
+          yAxis: [
+            {
+              type: "value",
+              name: "成绩",
+              min: 0,
+              max: 100,
+              interval: 10,
+              axisLabel: {
+                formatter: "{value} 分",
+              },
+            },
+            {
+              type: "value",
+              name: "平均分",
+              min: 0,
+              max: 100,
+              interval: 25,
+              axisLabel: {
+                formatter: "{value} 分",
+              },
+            },
+          ],
+          series: getScore(dataIndex),
+        };
+        option && myChart.setOption(option);
+      }
+      //获取X轴的数据
+      function xData(dataIndex) {
+        let res = student[dataIndex].result.map((item, index) => {
+          return item.date;
+        });
+        return res;
+      }
+      //获取成绩
+      function getScore(dataIndex) {
+        let jishiScore = student[dataIndex].result.map((item) => {
+          return item.subject.filter((item) => {
+            return item.name == "机试";
+          })[0].score;
+        });
+        let bishiScore = student[dataIndex].result.map((item) => {
+          return item.subject.filter((item) => {
+            return item.name == "笔试";
+          })[0].score;
+        });
+        let pingjunScore = student[dataIndex].result.map((item) => {
+          return item.subject.filter((item) => {
+            return item.name == "平均分";
+          })[0].score;
+        });
+        return [
+          {
+            label: {
+              show: true,
+              position: "top",
+            },
+            data: jishiScore,
+            name: "机试",
+            type: "bar",
+            itemStyle: {
+              normal: {
+                color: function (item) {
+                  var indexColor = item.value;
+                  if (indexColor <= 50) {
+                    return "red";
+                  } else {
+                    return "blue";
+                  }
+                },
+              },
+            },
+          },
+          {
+            label: {
+              show: true,
+              position: "top",
+            },
+            data: bishiScore,
+            name: "笔试",
+            type: "bar",
+            itemStyle: {
+              normal: {
+                color: function (item) {
+                  var indexColor = item.value;
+                  if (indexColor <= 50) {
+                    return "red";
+                  } else {
+                    return "green";
+                  }
+                },
+              },
+            },
+          },
+          {
+            name: "平均分",
+            type: "line",
+            yAxisIndex: 1,
+            tooltip: {
+              valueFormatter: function (value) {
+                return value + " 分";
+              },
+            },
+            data: pingjunScore,
+          },
+        ];
+      }
+    });
+  </script>
+</html>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+</style>

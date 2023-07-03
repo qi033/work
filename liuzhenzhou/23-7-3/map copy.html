@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 800px;
+        height: 800px;
+      }
+      .custom-content-marker {
+        position: relative;
+        width: 25px;
+        height: 34px;
+      }
+
+      .custom-content-marker img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .custom-content-marker .close-btn {
+        position: absolute;
+        top: -6px;
+        right: -8px;
+        width: 15px;
+        height: 15px;
+        font-size: 12px;
+        background: #ccc;
+        border-radius: 50%;
+        color: #fff;
+        text-align: center;
+        line-height: 15px;
+        box-shadow: -1px 1px 1px rgba(10, 10, 10, 0.2);
+      }
+
+      .custom-content-marker .close-btn:hover {
+        background: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <button onclick="traffic.hide()">显示</button>
+    <button onclick="traffic.show()">隐藏</button>
+    <script type="text/javascript">
+      window._AMapSecurityConfig = {
+        securityJsCode: "23f3f0cf4dff3ca4392ab168669f4732",
+      };
+    </script>
+    <script src="https://webapi.amap.com/loader.js"></script>
+    <script src="https://webapi.amap.com/maps?v=2.0&key=31a2b1bfb4bf85b1768eb4e25b0721e6&plugin=AMap.ToolBar,AMap.Scale,AMap.Geolocation"></script>
+    <script type="text/javascript">
+      const layer = new AMap.createDefaultLayer({
+        zooms: [3, 20],
+        visible: true,
+        opacity: 1,
+        zIndex: 0,
+      });
+      const map = new AMap.Map("box", {
+        viewMode: "2D",
+        zoom: 11,
+        center: [116.397428, 39.90923],
+        layers: [layer],
+      });
+      const traffic = new AMap.TileLayer.Traffic({
+        autoRefresh: true,
+        interval: 180,
+      });
+      map.add(traffic);
+      let toolbar;
+      let driving;
+      let geolocation;
+      AMap.plugin(
+        ["AMap.ToolBar", "AMap.Scale", "AMap.Geolocation"],
+        function () {
+          // 异步加载插件
+          toolbar = new AMap.ToolBar();
+          map.addControl(toolbar);
+          scale = new AMap.Scale();
+          map.addControl(scale);
+          geolocation = new AMap.Geolocation();
+          map.addControl(geolocation);
+        }
+      );
+      const markerContent =
+        "" +
+        '<div class="custom-content-marker">' +
+        '   <img src="//a.amap.com/jsapi_demos/static/demo-center/icons/dir-via-marker.png">' +
+        '   <div class="close-btn" onclick="clearMarker()">X</div>' +
+        "</div>";
+
+      const position = new AMap.LngLat(116.397428, 39.90923); // Marker经纬度
+      const marker = new AMap.Marker({
+        position: position,
+        content: markerContent, // 将 html 传给 content
+        offset: new AMap.Pixel(-13, -30), // 以 icon 的 [center bottom] 为原点
+      });
+      map.add(marker);
+    </script>
+  </body>
+</html>

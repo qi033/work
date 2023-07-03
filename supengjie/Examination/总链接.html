@@ -1,74 +1,347 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-            list-style: none;
+        * {
             text-decoration: none;
+            list-style: none;
+            padding: 0;
         }
-        .box{
-            width: 1000px;
-            /* height: 1000px; */
-            background-color: rgb(22, 210, 66);
+
+        body {
+            background-color: #111229;
+            /* 桌布颜色 */
+            /* background: url(https://gw.alicdn.com/imgextra/i1/2206596618848/O1CN01Jzb8FJ2FEQz4wf6XZ_!!0-item_pic.jpg_Q75.jpg_.webp)no-repeat 0 0 /100% 100%; */
+        }
+
+        .table {
+            width: 1200px;
+            /* 台球桌宽度 */
+            height: 500px;
+            /* 台球桌高度 */
+            background-color: #198754;
+            /* 台球桌颜色 */
+            border: 10px solid #fff;
+            /* 台球桌边框 */
+            border-radius: 10px;
+            /* 台球桌边框圆角 */
+            position: relative;
+            margin: 180px auto;
+            /* 居中显示 */
+        }
+
+        .cushion {
+            position: absolute;
+            top: 10px;
+            /* 缓冲区距离台桌上边缘的距离 */
+            bottom: 10px;
+            /* 缓冲区距离台桌下边缘的距离 */
+            left: 10px;
+            /* 缓冲区距离台桌左边缘的距离 */
+            right: 10px;
+            /* 缓冲区距离台桌右边缘的距离 */
+            border: 5px solid #FFD700;
+            /* 缓冲区边框 */
+            border-radius: 10px;
+            /* 缓冲区边框圆角 */
+            padding: 0;
+            margin: 0;
+        }
+
+        .ball {
+            width: 20px;
+            /* 球的直径 */
+            height: 20px;
+            /* 球的直径 */
+            position: absolute;
+            top: 50%;
+            /* 球距离台桌上边缘的距离 */
+            left: 50%;
+            /* 球距离台桌左边缘的距离 */
+            transform: translate(-50%, -50%);
+            /* 将球居中显示 */
+            background-color: #fff;
+            /* 球颜色 */
+            border-radius: 50%;
+            /* 球圆角 */
+        }
+
+        .top {
+            width: 400px;
+            height: 100px;
+            background-color: #b72727;
             margin: auto;
+            margin-top: 100px;
+            position: absolute;
+            top: -40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             border-radius: 20px;
+            border: 5px solid #FFD700;
         }
-        ul{
+
+        .subtop {
+            width: 379px;
+            height: 79px;
+            background-color: #b72727;
+            margin: 8px;
+            border: 3px solid #FFD700;
+            border-radius: 10px;
+            line-height: 79px;
+            text-align: center;
+            letter-spacing: 20px;
+        }
+
+        .left {
+            width: 100px;
+            height: 650px;
+            background-color: #b72727;
+            margin: auto;
+            margin-top: 100px;
+            position: absolute;
+            top: 45%;
+            left: -10%;
+            transform: translate(-50%, -50%);
+            border-radius: 20px;
+            border: 5px solid #FFD700;
+        }
+
+        .subleft {
+            height: 629px;
+            width: 79px;
+            background-color: #b72727;
+            margin: 8px;
+            border: 3px solid #FFD700;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .right {
+            width: 100px;
+            height: 650px;
+            background-color: #b72727;
+            margin: auto;
+            margin-top: 100px;
+            position: absolute;
+            top: 45%;
+            right: -20%;
+            transform: translate(-50%, -50%);
+            border-radius: 20px;
+            border: 5px solid #FFD700;
+
+        }
+
+        .subright {
+            height: 629px;
+            width: 79px;
+            background-color: #b72727;
+            margin: 8px;
+            border: 3px solid #FFD700;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        p,
+        span,
+        a {
+            font-family: '楷体';
+            font-size: 40px;
+            font-weight: 900;
+            text-shadow: -1px -1px 0 #FFD700,
+                1px -1px 0 #FFD700,
+                -1px 1px 0 #FFD700,
+                1px 1px 0 #FFD700
+        }
+
+        .dumpling {
+            width: 200px;
+            height: 130px;
+            /* background-color: #b72727; */
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        img {
+            width: 200px;
+            height: 130px;
+        }
+
+        a {
+            font-size: 20px;
+            position: absolute;
+            top: 63%;
+            left: 32%;
+            color: #b72727;
+        }
+
+        ul {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
         }
-        li{
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background-color: brown;
-            margin: 35px 0;
-            line-height: 180px;
-            text-align: center;
+
+        li {
+            float: left;
         }
-        li:hover{
-            background-color: rgb(38, 74, 192);
-        }
-        li:hover a{
-            color: white;
-        }
-        a{
+
+        .fu-character span{
             color: black;
-            cursor: pointer;
-            font-size: 26px;
+            transform: rotate(100deg)!important;
+        }
+        /* 福字容器 */
+        .fu-container {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background-color: #FFD700;
+            animation: rotateFu 4s linear infinite;
+            /* 设置动画属性 */
+            float: left;
+            margin-top: -150px;
+            text-align: center;
+            line-height: 100px;
+            transform: rotate(-45deg);
+            background-color: #b72727;
+            border: 5px solid #FFD700;
+        }
+
+
+        /* 福字 */
+        .fu-character {
+            width: 80px;
+            height: 80px;
+            font-size: 48px;
+            font-weight: bold;
+            position: absolute;
+            top: 8%;
+            left: 8%;
+            border: 3px solid #FFD700;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 78px;
+        }
+       
+        /* 定义旋转动画 */
+        @keyframes rotateFu {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="box">
-        <ul>
-            <li><a href="./6-30考试.html">6-30考试</a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-        </ul>
+   
+    <div class="table">
+        <div class="top">
+            <div class="subtop">
+                <span>学无止境</span>
+            </div>
+        </div>
+        <div class="left">
+            <div class="fu-container">
+                <div class="fu-character"><span>福</span></div>
+            </div>
+            
+            <div class="subleft">
+                <p>学</p>
+                <p>海</p>
+                <p>无</p>
+                <p>涯</p>
+                <p>苦</p>
+                <p>作</p>
+                <p>舟</p>
+            </div>
+        </div>
+        <div class="right">
+            <div class="fu-container">
+                <div class="fu-character"><span>福</span></div>
+            </div>
+            <div class="subright">
+                <p>书</p>
+                <p>山</p>
+                <p>有</p>
+                <p>路</p>
+                <p>勤</p>
+                <p>为</p>
+                <p>径</p>
+            </div>
+        </div>
+
+        <div class="cushion">
+            <ul>
+                <li>
+                    <div class="dumpling">
+                        <a href="./6-30考试.html">6-30考试</a>
+                        <img src="./Img/饺子2.png" alt="">
+                    </div>
+                </li>
+                <li>
+                    <div class="dumpling">
+                        <a href="../../../../Map/map练习题合集.html">Map练习题</a>
+                        <img src="./Img/饺子2.png" alt="">
+                    </div>
+                </li>
+                <li>
+                    <div class="dumpling">
+                        <a href="#">.....</a>
+                        <img src="./Img/饺子2.png" alt="">
+                    </div>
+                </li>
+                <li>
+                    <div class="dumpling">
+                        <a href="#">.....</a>
+                        <img src="./Img/饺子2.png" alt="">
+                    </div>
+                </li>
+                <li>
+                    <div class="dumpling">
+                        <a href="#">.....</a>
+                        <img src="./Img/饺子2.png" alt="">
+                    </div>
+                </li>
+                <li>
+                    <div class="dumpling">
+                        <a href="#">.....</a>
+                        <img src="./Img/饺子2.png" alt="">
+                    </div>
+                </li>
+                <li>
+                    <div class="dumpling">
+                        <a href="#">.....</a>
+                        <img src="./Img/饺子2.png" alt="">
+                    </div>
+                </li>
+                <li>
+                    <div class="dumpling">
+                        <a href="#">.....</a>
+                        <img src="./Img/饺子2.png" alt="">
+                    </div>
+                </li>
+                <li>
+                    <div class="dumpling">
+                        <a href="#">.....</a>
+                        <img src="./Img/饺子2.png" alt="">
+                    </div>
+                </li>
+                <li>
+                    <div class="dumpling">
+                        <a href="#">.....</a>
+                        <img src="./Img/饺子2.png" alt="">
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+
     </div>
+
 </body>
+
 </html>

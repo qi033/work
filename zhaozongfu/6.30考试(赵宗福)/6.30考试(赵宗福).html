@@ -227,6 +227,14 @@
                 title: {
                     text: '刘佳佳个人成绩',
                     subtext: '柱状图',
+                    left: 20,
+                    top: 20
+                },
+                grid: {
+                    left: '20%',
+                    right: '10%',
+                    top: '30%',
+                    bottom: '10%',
                 },
                 tooltip: {
                     trigger: 'axis',
@@ -235,6 +243,7 @@
                     }
                 },
                 legend: {
+                    top: 20,
                     left: "right",
                     data: ['笔试', '机试', '平均分']
                 },
@@ -295,6 +304,14 @@
                 title: {
                     text: '赵宗福个人成绩',
                     subtext: '柱状图',
+                    left: 20,
+                    top: 20
+                },
+                grid: {
+                    left: '20%',
+                    right: '10%',
+                    top: '30%',
+                    bottom: '10%',
                 },
                 tooltip: {
                     trigger: 'axis',
@@ -303,6 +320,7 @@
                     }
                 },
                 legend: {
+                    top: 20,
                     left: "right",
                     data: ['笔试', '机试', '平均分']
                 },
@@ -363,6 +381,14 @@
                 title: {
                     text: '刘振洲个人成绩',
                     subtext: '柱状图',
+                    left: 20,
+                    top: 20
+                },
+                grid: {
+                    left: '20%',
+                    right: '10%',
+                    top: '30%',
+                    bottom: '10%',
                 },
                 tooltip: {
                     trigger: 'axis',
@@ -371,6 +397,7 @@
                     }
                 },
                 legend: {
+                    top: 20,
                     left: "right",
                     data: ['笔试', '机试', '平均分']
                 },
@@ -431,6 +458,14 @@
                 title: {
                     text: '杨浩冰个人成绩',
                     subtext: '柱状图',
+                    left: 20,
+                    top: 20
+                },
+                grid: {
+                    left: '20%',
+                    right: '10%',
+                    top: '30%',
+                    bottom: '10%',
                 },
                 tooltip: {
                     trigger: 'axis',
@@ -439,6 +474,7 @@
                     }
                 },
                 legend: {
+                    top: 20,
                     left: "right",
                     data: ['笔试', '机试', '平均分']
                 },
@@ -640,7 +676,7 @@
                 },
                 series: [
                     {
-                        name: 'Access From',
+
                         type: 'pie',
                         radius: '50%',
                         data: [
@@ -668,7 +704,7 @@
                 },
                 series: [
                     {
-                        name: 'Access From',
+
                         type: 'pie',
                         radius: '50%',
                         data: [
@@ -696,7 +732,7 @@
                 },
                 series: [
                     {
-                        name: 'Access From',
+
                         type: 'pie',
                         radius: '50%',
                         data: [
@@ -724,7 +760,7 @@
                 },
                 series: [
                     {
-                        name: 'Access From',
+
                         type: 'pie',
                         radius: '50%',
                         data: [
@@ -758,7 +794,6 @@
 
                 series: [
                     {
-                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
@@ -787,7 +822,7 @@
 
                 series: [
                     {
-                        name: 'Access From',
+
                         type: 'pie',
                         radius: '50%',
                         data: [
@@ -816,7 +851,6 @@
 
                 series: [
                     {
-                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
@@ -845,7 +879,6 @@
 
                 series: [
                     {
-                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
@@ -878,7 +911,6 @@
 
                 series: [
                     {
-                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
@@ -907,7 +939,6 @@
 
                 series: [
                     {
-                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
@@ -936,7 +967,6 @@
 
                 series: [
                     {
-                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
@@ -965,7 +995,6 @@
 
                 series: [
                     {
-                        name: 'Access From',
                         type: 'pie',
                         radius: '50%',
                         data: [
@@ -1269,92 +1298,25 @@
                 ]
             };
             option24 && myChart6.setOption(option24);
-            /*        var chartDom40 = document.getElementById('bmain');
-                   var myChart40 = echarts.init(chartDom40);
-                   var option40;
-       
-                   const data = [];
-                   for (let i = 0; i < 8; ++i) {
-                       data.push(Math.round(Math.random() * 200));
-                   }
-                   option40 = {
-                       xAxis: {
-                           max: 'dataMax'
-                       },
-                       yAxis: {
-                           type: 'category',
-                           data: ['刘佳佳', '赵宗福', '刘振洲', '杨浩冰', '刘超祥', '甘天鸽', '余浩', '申卓凡'],
-                           inverse: true,
-                           animationDuration: 300,
-                           animationDurationUpdate: 300,
-                           max: 7 // only the largest 3 bars will be displayed
-                       },
-                       series: [
-                           {
-                               realtimeSort: true,
-                               name: '人均平均分',
-                               type: 'bar',
-                               data: data,
-                               label: {
-                                   show: true,
-                                   position: 'right',
-                                   valueAnimation: true
-                               }
-                           }
-                       ],
-                       legend: {
-                           show: true
-                       },
-                       animationDuration: 0,
-                       animationDurationUpdate: 3000,
-                       animationEasing: 'linear',
-                       animationEasingUpdate: 'linear'
-                   };
-                   function run() {
-                       for (var i = 0; i < data.length; ++i) {
-                           if (Math.random() > 0.9) {
-                               data[i] += Math.round(Math.random() * 2000);
-                           } else {
-                               data[i] += Math.round(Math.random() * 200);
-                           }
-                       }
-                       myChart40.setOption({
-                           series: [
-                               {
-                                   type: 'bar',
-                                   data,
-                                   itemStyle: {
-                                       color: "#5193af"
-                                   }
-                               }
-                           ]
-                       });
-                   }
-                   setTimeout(function () {
-                       run();
-                   }, 0);
-                   setInterval(function () {
-                       run();
-                   }, 3000); */
             var year = [6.2, 6.9, 6.16, 4.21]
             var data = [
-                [83.75, 77.5, 75,   67.5, 55, 42, 36.5],
+                [83.75, 77.5, 75, 67.5, 55, 42, 36.5],
                 [68.75, 71.5, 65.5, 58, 65, 60, 35],
-                [60,    54.5, 64,   53, 65, 60.25, 62.5],
-                [51.5,  51,   65.5, 56, 70, 44.5, 43.5],
-                
+                [60, 54.5, 64, 53, 65, 60.25, 62.5],
+                [51.5, 51, 65.5, 56, 70, 44.5, 43.5],
+
             ]
             // 指定图表的配置项和数据
             var chartDom40 = document.getElementById('bmain');
             var myChart40 = echarts.init(chartDom40);
             var option40 = {
-    
+
                 tooltip: {},
                 legend: {
                     data: ['人均平均分']
                 },
                 yAxis: {
-                    data: ["刘佳佳", "赵宗福", "刘振洲", "杨浩冰", "余浩", "刘超祥", "甘天鸽" ],
+                    data: ["刘佳佳", "赵宗福", "刘振洲", "杨浩冰", "余浩", "刘超祥", "甘天鸽"],
                     inverse: true,
                 },
                 xAxis: {},
@@ -1392,7 +1354,7 @@
                     }
                     console.log(option41)
                     myChart40.setOption(option41)
-                }, 1000 * i)
+                }, 3000 * i)
             }
             option40 && myChart40.setOption(option40);
             $("#option").on("click", function () {
