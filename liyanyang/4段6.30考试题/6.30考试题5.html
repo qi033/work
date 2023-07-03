@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./echarts.min.js"></script>
+    <div id="dt" style="width: 80%; height: 600px"></div>
+    <script>
+      let sort = document.getElementById("dt");
+      let myChart = echarts.init(sort);
+      var year = ["第四周", "第三周", "第二周", "第一周"];
+      var data = [
+        [65.5, 51, 638.75, 44.25],
+        [64, 54.5, 72.5, 60.25],
+        [65.5, 71.5, 45.5, 60],
+        [75, 77.5, 74, 42],
+      ];
+      // 指定图表的配置项和数据
+      var option = {
+        title: {
+          text: "ECharts",
+        },
+        tooltip: {},
+        legend: {
+          data: ["平均分对比"],
+        },
+        yAxis: {
+          data: ["刘振州", "赵宗福", "郑哲元", "刘超祥"],
+          inverse: true,
+        },
+        xAxis: {
+          max: 100,
+        },
+        series: [
+          {
+            realtimeSort: true,
+            name: "成绩平均分对比",
+            showBackground: true,
+            label: {
+              show: true,
+              position: "right",
+              valueAnimation: true,
+            },
+            stack: {},
+            type: "bar",
+            data: [120, 206, 392, 150],
+          },
+        ],
+        animationDuration: 0,
+        animationDurationUpdate: 500,
+        animationEasing: "linear",
+        animationEasingUpdate: "linear",
+      };
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+
+      for (let i = 0; i < data.length; i++) {
+        setTimeout(function () {
+          var option1 = {
+            title: {
+              text: year[data.length - i - 1].toString(),
+            },
+            series: [
+              {
+                data: data[data.length - i - 1],
+              },
+            ],
+          };
+          myChart.setOption(option1);
+        }, 1000 * i);
+      }
+      option && myChart.setOption(option);
+    </script>
+  </body>
+</html>
