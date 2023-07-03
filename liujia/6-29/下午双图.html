@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双图</title>
+    <script src="../common/echars/echarts.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            width: 100%;
+            height: 600px;
+            margin-top: 60px;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main"></div>
+    <script>
+        var chartDom = document.getElementById('main');
+        var myChart = echarts.init(chartDom);
+        var option;
+        let data = {
+            agriculture: 5.36,
+            agriculturePercent: 21,
+            bulkSale: 5.73,
+            bulkSalePercent: 22,
+            business: 4.72,
+            businessPercent: 18,
+            industry: 5.67,
+            industryPercent: 22,
+            resident: 4.32,
+            residentPercent: 17,
+        }
+        let everyDepartment = {
+            stages: [
+                { name: '红', max: 100 },
+                { name: '橙', max: 100 },
+                { name: '黄', max: 100 },
+                { name: '绿', max: 100 },
+                { name: '蓝', max: 100 },
+            ],
+            scores: [0, 0, 0, 0, 0]
+        };
+        this.total = data.total
+        everyDepartment.scores = [
+            (data.industry / 10).toFixed(2),
+            (data.resident / 10).toFixed(2),
+            (data.agriculture / 10).toFixed(2),
+            (data.business / 10).toFixed(2),
+            (data.bulkSale / 10).toFixed(2)
+        ]
+        const maxNum = parseInt(Math.max(...everyDepartment.scores))
+        for (let i = 0; i < everyDepartment.stages.length; i++) {
+            everyDepartment.stages[i].max = maxNum <= 0 ? 1 : maxNum * 1.5
+        }
+        function contains(arr, obj) {
+            var i = arr.length;
+            while (i--) {
+                if (arr[i].name === obj) {
+                    return i;
+                }
+            }
+            return false;
+        }
+        option = {
+            backgroundColor: '#031a40',
+            color: ['#000'],
+            tooltip: {
+                show: true,
+                // formatter: '{b0}: {c0}<br />{b1}: {c1}', 
+                formatter(params) {
+                    let stagesdata = everyDepartment.stages, html = ""
+                    for (let i = 0; i < stagesdata.length; i++) {
+                        html += '<div style="display: flex;height: 5px;"><span style="display: block;">' + stagesdata[i].name + '</span>' + "<span class='ml15'>" + everyDepartment.scores[i] + '元/千瓦时' + '</span></div>' + "<br/>"
+                    }
+                    return html
+                },
+                textStyle: {
+                    fontSize: 32,// 字体大小
+                    color: '#000',
+                },
+            },
+            radar: {
+                center: ['50%', '62%'],
+                radius: '45%',
+                name: {
+                    rich: {
+                        a: {
+                            color: '#ffffff',
+                            fontSize: 16,
+                            align: 'center',
+                            lineHeight: 30,
+                        },
+                        b: {
+                            color: '#3ED9AF',
+                            fontSize: 16,
+                            align: 'center',
+                            fontFamily: 'ysbth',
+                            fontWeight: 'bold',
+                            lineHeight: 50,
+                        },
+                        b1: {
+                            color: '#FDF01F',
+                            fontSize: 16,
+                            align: 'center',
+                            fontFamily: 'ysbth',
+                            fontWeight: 'bold',
+                            lineHeight: 50,
+                        },
+                    },
+                    formatter: (a, index) => {
+                        let i = contains(everyDepartment.stages, a); // 处理对应要显示的样式
+                        if (i == 2) {
+                            return `{a|${a} }\n{b1| ${everyDepartment.scores[i]}}`;
+                        } else if (i == 3) {
+                            return `{a|${a} }\n{b| ${everyDepartment.scores[i]}}`;
+                        } else if (i == 4) {
+                            return `{b1|${everyDepartment.scores[i]}}\n{a|${a}}`;
+                        } else {
+                            return `{b| ${everyDepartment.scores[i]}}\n{a| ${a}}`;
+                        }
+
+                    },
+                },
+                nameGap: 30,
+                indicator: everyDepartment.stages,
+                splitArea: {
+                    areaStyle: {
+                        color: [
+                            'rgba(48, 105, 199, .1)',
+                            'rgba(48, 105, 199, .2)',
+                            'rgba(48, 105, 199, .4)',
+                            'rgba(48, 105, 199, .6)',
+                            'rgba(48, 105, 199, .8)',
+                            'rgba(48, 105, 199, 1)',
+                        ].reverse(),
+                    },
+                },
+                // axisLabel:{//展示刻度
+                //     show: true
+                // },
+                axisLine: {
+                    //指向外圈文本的分隔线样式
+                    lineStyle: {
+                        color: 'rgba(37, 100, 214, 1)',
+                        width: 2,
+                    },
+                },
+                splitLine: {
+                    lineStyle: {
+                        width: 2,
+                        color: 'rgba(37, 100, 214, 1)',
+                    },
+                },
+            },
+
+            series: [
+                {
+                    type: 'radar',
+                    symbol: 'circle',
+                    symbolSize: 16,
+                    lineStyle: {
+                        color: "#70EDFC",
+                        width: 2,
+                    },
+                    itemStyle: {
+                        color: '#ffffff',
+                        borderColor: "#70EDFC",
+                        borderWidth: 2,
+                        opacity: 1,
+                    },
+                    data: [
+                        {
+                            value: everyDepartment.scores,
+                            name: '',
+                            itemStyle: {
+                                normal: {
+                                    lineStyle: {
+                                        color: 'rgba(112, 237, 252, .5)',
+                                    },
+                                    shadowColor: 'rgba(112, 237, 252, .5)',
+                                    shadowBlur: 1,
+                                },
+                            },
+                            areaStyle: {
+                                normal: {
+                                    color: 'rgba(112, 237, 252, .5)',
+                                },
+                            },
+                        },
+                    ],
+                },
+            ]
+        };
+
+        option && myChart.setOption(option);
+    </script>
+</body>
+
+</html>
