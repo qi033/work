@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, user-scalable=no, width=device-width"
+    />
+    <title>自定义点标记</title>
+    <link
+      rel="stylesheet"
+      href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"
+    />
+    <style>
+      html,
+      body,
+      #container {
+        height: 100%;
+        width: 100%;
+      }
+
+      .custom-content-marker {
+        position: relative;
+        width: 25px;
+        height: 34px;
+      }
+
+      .custom-content-marker img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .custom-content-marker .close-btn {
+        position: absolute;
+        top: -6px;
+        right: -8px;
+        width: 15px;
+        height: 15px;
+        font-size: 12px;
+        background: #ccc;
+        border-radius: 50%;
+        color: #fff;
+        text-align: center;
+        line-height: 15px;
+        box-shadow: -1px 1px 1px rgba(10, 10, 10, 0.2);
+      }
+
+      .custom-content-marker .close-btn:hover {
+        background: #666;
+      }
+      a {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="./地图2.html">第2题</a>
+    <a href="./地图3.html">第3题</a>
+    <div id="container"></div>
+    <script
+      type="text/javascript"
+      src="https://webapi.amap.com/maps?v=2.0&key=944b4a5b812242d23e69b72af75e3bda"
+    ></script>
+    <script type="text/javascript">
+      var position = new AMap.LngLat(113.428155, 34.774258);
+
+      // 创建地图实例
+      var map = new AMap.Map("container", {
+        zoom: 16,
+        center: position,
+        resizeEnable: true,
+      });
+
+      // 点标记显示内容，HTML要素字符串
+      var markerContent =
+        "" +
+        '<div class="custom-content-marker">' +
+        '   <img src="	https://a.amap.com/jsapi_demos/static/demo-center/icons/dir-via-marker.png">' +
+        '   <div class="close-btn" onclick="clearMarker()">X</div>' +
+        "</div>";
+
+      var marker = new AMap.Marker({
+        position: position,
+        // 将 html 传给 content
+        content: markerContent,
+        // 以 icon 的 [center bottom] 为原点
+        offset: new AMap.Pixel(-13, -30),
+      });
+
+      // 将 markers 添加到地图
+      map.add(marker);
+
+      // 清除 marker
+      function clearMarker() {
+        map.remove(marker);
+      }
+    </script>
+  </body>
+</html>

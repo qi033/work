@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, user-scalable=no, width=device-width"
+    />
+    <style type="text/css">
+      html,
+      body,
+      .map {
+        width: 500px;
+        background: white !important;
+        height: 500px;
+        margin: 0px;
+      }
+    </style>
+    <title>简易行政区地图标注</title>
+  </head>
+  <body>
+    <div id="container" class="map" tabindex="0"></div>
+    <script
+      language="javascript"
+      src="https://webapi.amap.com/maps?v=2.0&key=31a2b1bfb4bf85b1768eb4e25b0721e6&plugin=AMap.Scale,AMap.ToolBar"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://a.amap.com/jsapi_demos/static/demo-center/data/china-pp.js"
+    ></script>
+    <script type="text/javascript">
+      var SOC = "CHN";
+      var colors = {};
+      var GDPSpeed = {
+        110000: 6.5, // 北京
+        130000: 6.5, // 河北
+        120000: 5, // 天津
+      };
+      var getColorByDGP = function (adcode) {
+        if (!colors[adcode]) {
+          var gdp = GDPSpeed[adcode];
+          if (!gdp) {
+            colors[adcode] = "rgb(227,227,227)";
+          } else {
+            var r = 3;
+            var g = 140;
+            var b = 230;
+            var a = gdp / 10;
+            colors[adcode] = "rgba(" + r + "," + g + "," + b + "," + a + ")";
+          }
+        }
+        return colors[adcode];
+      };
+
+      var disCountry = new AMap.DistrictLayer.Country({
+        zIndex: 10,
+        SOC: "CHN",
+        depth: 1,
+        styles: {
+          "nation-stroke": "#ff0000",
+          "coastline-stroke": "#0088ff",
+          "province-stroke": "grey",
+          fill: function (props) {
+            return getColorByDGP(props.adcode_pro);
+          },
+        },
+      });
+
+      var map = new AMap.Map("container", {
+        zooms: [4, 8],
+        center: [116.412427, 39.303573],
+        zoom: 5.8,
+        isHotspot: false,
+        defaultCursor: "pointer",
+        layers: [disCountry],
+        viewMode: "3D",
+      });
+      map.addControl(new AMap.Scale());
+      map.addControl(new AMap.ToolBar({ liteStyle: true }));
+      map.on("complete", function () {
+        var layer = new AMap.LabelsLayer({
+          // 开启标注避让，默认为开启，v1.4.15 新增属性
+          collision: false,
+          // 开启标注淡入动画，默认为开启，v1.4.15 新增属性
+          animation: true,
+        });
+        for (var i = 0; i < LabelsData.length; i++) {
+          var labelsMarker = new AMap.LabelMarker(LabelsData[i]);
+          layer.add(labelsMarker);
+        }
+        map.add(layer);
+      });
+
+      document.getElementsByClassName("amap-mcode")[0].innerHTML =
+        "-GS(2021)648号";
+    </script>
+  </body>
+</html>
