@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/layui.css" />
+    <style>
+      .btn {
+        width: 100px;
+        height: 60px;
+      }
+      #bos,
+      #bos1,
+      #bos2,
+      #bos3 {
+        height: 350px;
+        width: 100%;
+        display: none;
+      }
+      #bos {
+        display: block;
+      }
+      #bos div {
+        float: left;
+      }
+      #bos1 div {
+        float: left;
+      }
+      #bos2 div {
+        float: left;
+      }
+      #bos3 div {
+        float: left;
+      }
+      #main {
+        margin: 0 auto;
+      }
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .div {
+        width: 100%;
+        height: 420px;
+      }
+      .div div {
+        margin: 0 auto;
+      }
+      #mains,
+      #mains1,
+      #mains2,
+      #mains3 {
+        display: none;
+      }
+      #mains {
+        display: block;
+      }
+      .radar {
+        width: 100%;
+        height: 420px;
+      }
+      .radar div {
+        margin: 0 auto;
+      }
+      #myradar,
+      #myradar1,
+      #myradar2,
+      #myradar3 {
+        display: none;
+      }
+      #myradar {
+        display: block;
+      }
+      #dynamic {
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="studentBtn"></div>
+    <div class="con-main">
+      <div id="main" style="width: 600px; height: 400px"></div>
+    </div>
+
+    <h2>柱状图成绩预览</h2>
+    <div id="bos">
+      <div id="main1" style="width: 260px; height: 260px"></div>
+      <div id="main2" style="width: 260px; height: 260px"></div>
+      <div id="main3" style="width: 260px; height: 260px"></div>
+      <div id="main4" style="width: 260px; height: 260px"></div>
+    </div>
+    <div id="bos1">
+      <div id="main5" style="width: 260px; height: 260px"></div>
+      <div id="main6" style="width: 260px; height: 260px"></div>
+      <div id="main7" style="width: 260px; height: 260px"></div>
+      <div id="main8" style="width: 260px; height: 260px"></div>
+    </div>
+    <div id="bos2">
+      <div id="main9" style="width: 260px; height: 260px"></div>
+      <div id="main10" style="width: 260px; height: 260px"></div>
+      <div id="main11" style="width: 260px; height: 260px"></div>
+      <div id="main12" style="width: 260px; height: 260px"></div>
+    </div>
+    <div id="bos3">
+      <div id="main13" style="width: 260px; height: 260px"></div>
+      <div id="main14" style="width: 260px; height: 260px"></div>
+      <div id="main15" style="width: 260px; height: 260px"></div>
+      <div id="main16" style="width: 260px; height: 260px"></div>
+    </div>
+    <div class="div">
+      <h2>折线图显示学生成绩的趋势</h2>
+      <div id="mains" style="width: 600px; height: 400px"></div>
+      <div id="mains1" style="width: 600px; height: 400px"></div>
+      <div id="mains2" style="width: 600px; height: 400px"></div>
+      <div id="mains3" style="width: 600px; height: 400px"></div>
+    </div>
+    <div class="radar">
+      <div id="myradar" style="width: 600px; height: 400px"></div>
+      <div id="myradar1" style="width: 600px; height: 400px"></div>
+      <div id="myradar2" style="width: 600px; height: 400px"></div>
+      <div id="myradar3" style="width: 600px; height: 400px"></div>
+    </div>
+    <div id="dynamic" style="width: 600px; height: 400px"></div>
+  </body>
+  <script src="../../../common/jquery-3.7.0.js"></script>
+  <script src="../script/layui.js"></script>
+  <script src="../../../common/echarts.js"></script>
+  <script src="../script/data.js"></script>
+  <script src="../script/bar.js"></script>
+  <script src="../script/pie.js"></script>
+  <script src="../script/lines.js"></script>
+  <script src="../script/lei.js"></script>
+  <script src="../script/dynam.js"></script>
+  <script>
+    // let stu = students[dataIndex].result[dataIndex].subject;
+    // console.log(stu);
+    // var myChart1 = echarts.init(document.getElementById("main1"));
+    // var myChart2 = echarts.init(document.getElementById("main2"));
+    // var myChart3 = echarts.init(document.getElementById("main3"));
+    // var myChart4 = echarts.init(document.getElementById("main4"));
+    // var myChart5 = echarts.init(document.getElementById("main5"));
+    // var myChart6 = echarts.init(document.getElementById("main6"));
+    // var myChart7 = echarts.init(document.getElementById("main7"));
+    // var myChart8 = echarts.init(document.getElementById("main8"));
+    // var myChart9 = echarts.init(document.getElementById("main9"));
+    // var myChart10 = echarts.init(document.getElementById("main10"));
+    // var myChart11 = echarts.init(document.getElementById("main11"));
+    // var myChart12 = echarts.init(document.getElementById("main12"));
+    // var myChart13 = echarts.init(document.getElementById("main13"));
+    // var myChart14 = echarts.init(document.getElementById("main14"));
+    // var myChart15 = echarts.init(document.getElementById("main15"));
+    // var myChart16 = echarts.init(document.getElementById("main16"));
+    // var myCharts = echarts.init(document.getElementById("mains"));
+    // var myCharts1 = echarts.init(document.getElementById("mains1"));
+    // var myCharts2 = echarts.init(document.getElementById("mains2"));
+    // var myCharts3 = echarts.init(document.getElementById("mains3"));
+    $(function () {
+      showList();
+    });
+    function showList() {
+      $("button[dataBtnIndex = '0']").on("click", function () {
+        $("#bos").css("display", "block");
+        $("#bos1").css("display", "none");
+        $("#bos2").css("display", "none");
+        $("#bos3").css("display", "none");
+        $("#mains").css("display", "block");
+        $("#mains1").css("display", "none");
+        $("#mains2").css("display", "none");
+        $("#mains3").css("display", "none");
+        $("#myradar").css("display", "block");
+        $("#myradar1").css("display", "none");
+        $("#myradar2").css("display", "none");
+        $("#myradar3").css("display", "none");
+      });
+      $("button[dataBtnIndex = '1']").on("click", function () {
+        $("#bos").css("display", "none");
+        $("#bos1").css("display", "block");
+        $("#bos2").css("display", "none");
+        $("#bos3").css("display", "none");
+        $("#mains").css("display", "none");
+        $("#mains1").css("display", "block");
+        $("#mains2").css("display", "none");
+        $("#mains3").css("display", "none");
+        $("#myradar").css("display", "none");
+        $("#myradar1").css("display", "block");
+        $("#myradar2").css("display", "none");
+        $("#myradar3").css("display", "none");
+      });
+      $("button[dataBtnIndex = '2']").on("click", function () {
+        $("#bos").css("display", "none");
+        $("#bos1").css("display", "none");
+        $("#bos2").css("display", "block");
+        $("#bos3").css("display", "none");
+        $("#mains").css("display", "none");
+        $("#mains1").css("display", "none");
+        $("#mains2").css("display", "block");
+        $("#mains3").css("display", "none");
+        $("#myradar").css("display", "none");
+        $("#myradar1").css("display", "none");
+        $("#myradar2").css("display", "block");
+        $("#myradar3").css("display", "none");
+      });
+      $("button[dataBtnIndex = '3']").on("click", function () {
+        $("#bos").css("display", "none");
+        $("#bos1").css("display", "none");
+        $("#bos2").css("display", "none");
+        $("#bos3").css("display", "block");
+        $("#mains").css("display", "none");
+        $("#mains1").css("display", "none");
+        $("#mains2").css("display", "none");
+        $("#mains3").css("display", "block");
+        $("#myradar").css("display", "none");
+        $("#myradar1").css("display", "none");
+        $("#myradar2").css("display", "none");
+        $("#myradar3").css("display", "block");
+      });
+    }
+  </script>
+</html>
