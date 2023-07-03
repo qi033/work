@@ -12,6 +12,7 @@
     <!-- 引入 layui.js -->
     <script src="//unpkg.com/layui@2.8.6/dist/layui.js"></script>
   </head>
+
   <style>
     #box {
       width: 550px;
@@ -61,9 +62,9 @@
              <div class="no">
         <dl>
           <dd>
-            < img src="${item.imgs}" alt="" />
+            <img src="${item.imgs}" alt="" />
           </dd>
-          <dd>${item.name}</dd>
+          <dd><a href="${item.src}">${item.name}</a></dd>
         </dl>
       </div>
              `;
