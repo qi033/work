@@ -263,29 +263,30 @@ option = {
 };
 option && myChart.setOption(option);
 </script>
-<script>
+<!-- <script>
 var chartDom = document.getElementById('dong');
 var myChart = echarts.init(chartDom);
 var option;
-
 const data = [
-         
+    20,30, 40,50
 ];
 for (let i = 0; i < 4; ++i) {
-  data.push(Math.round(Math.random() * 200));
+  data.push(Math.round(Math.random()));
 }
 option = {
   xAxis: {
-    max: 'dataMax'
+    type: 'category',
+    data: ["10", "20", "30", "40", "50", "60", "70","80", "90", "100"]
   },
   yAxis: {
     type: 'category',
-    data: [],
-    inverse: true,
-    animationDuration: 300,
-    animationDurationUpdate: 300,
-    max: 2 // only the largest 3 bars will be displayed
+    data: ["1", "2", "3", "4",],
+    // inverse: true,
+    // animationDuration: 300,
+    // animationDurationUpdate: 300,
+    // max: 2 // only the largest 3 bars will be displayed
   },
+
   series: [
     {
       realtimeSort: true,
@@ -310,6 +311,75 @@ option = {
 function run() {
   for (var i = 0; i < data.length; ++i) {
     if (Math.random() > 0.9) {
+      data[i] += Math.round(Math.random() * 100);
+    } else {
+      data[i] += Math.round(Math.random() * 100);
+    }
+  }
+  myChart.setOption({
+    series: [
+      {
+        type: 'bar',
+        data:[]
+      }
+    ]
+  });
+}
+setTimeout(function () {
+  run();
+}, 0);
+setInterval(function () {
+  run();
+}, 3000);
+option && myChart.setOption(option);
+</script> -->
+<script>
+var chartDom = document.getElementById('dong');
+var myChart = echarts.init(chartDom);
+var option;
+const data = [
+    
+];
+for (let i = 0; i < 4; ++i) {
+  data.push(Math.round(Math.random() * 100));
+}
+option = {
+  xAxis: {
+    max: 'dataMax',
+    data: ["10", "20", "30", "40", "50", "60", "70","80", "90", "100"]
+  },
+  yAxis: {
+    type: 'category',
+    data: ["1", "2", "3", "4",],
+    // inverse: true,
+    // animationDuration: 300,
+    // animationDurationUpdate: 300,
+    // max: 2 // only the largest 3 bars will be displayed
+  },
+  series: [
+    {
+      realtimeSort: true,
+      name: 'X',
+      type: 'bar',
+      data: data,
+      label: {
+        show: true,
+        position: 'right',
+        valueAnimation: true
+      }
+    }
+  ],
+  legend: {
+    show: true
+  },
+  // animationDuration: 0,
+  // animationDurationUpdate: 3000,
+  // animationEasing: 'linear',
+  // animationEasingUpdate: 'linear'
+};
+function run() {
+  for (var i = 0; i < data.length; ++i) {
+    if (Math.random() > 0.9) {
       data[i] += Math.round(Math.random() * 2000);
     } else {
       data[i] += Math.round(Math.random() * 200);
@@ -319,7 +389,7 @@ function run() {
     series: [
       {
         type: 'bar',
-        data
+        data:data,
       }
     ]
   });
@@ -332,8 +402,5 @@ setInterval(function () {
 }, 3000);
 
 option && myChart.setOption(option);
-
-
-
 </script>
 </html>

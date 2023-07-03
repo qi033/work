@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        #box {
+            width: 500px;
+            height: 500px;
+            margin: 20px auto;
+        }
+
+        /* 按钮的基本样式 */
+        .my-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* 按钮悬停时的样式 */
+        .my-button:hover {
+            background-color: #4291c2;
+        }
+
+        /* 按钮按下时的样式 */
+        .my-button:active {
+            background-color: #c53939;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <button onclick="fun()" class="my-button">查看</button>
+    <div id="box"></div>
+    <div id="panel"></div>
+
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode: "23f3f0cf4dff3ca4392ab168669f4732",
+        };
+    </script>
+
+    <script src="https://webapi.amap.com/loader.js"></script>
+
+    <script src="https://webapi.amap.com/maps?v=2.0&key=31a2b1bfb4bf85b1768eb4e25b0721e6&plugin=AMap.Driving"></script>
+
+    <script>
+        const map = new AMap.Map("box", {
+            viewMode: "2D",
+            resizeEnable: true,
+            zoom: 16,
+            center: [113.428749, 34.765308],
+        });
+        function fun() {
+            var driving = new AMap.Driving({
+                map: map,
+                panel: "panel",
+            });
+            driving.search(
+                [113.428749, 34.765308],
+                [113.42857, 34.772388],
+                // function (status, result) {
+                //     if (status === "complete") {
+                //         log.success("绘制步行路线完成");
+                //     } else {
+                //         log.error("步行路线数据查询失败" + result);
+                //     }
+                // }
+            );
+        }
+    </script>
+
+</body>
+
+</html>
