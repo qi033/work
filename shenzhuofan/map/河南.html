@@ -15,7 +15,7 @@
             margin: 0;
         }
     </style>
-    <title>map作业4</title>
+    <title>简易行政区图 - 省份&层级</title>
 </head>
 
 <body>
@@ -33,8 +33,12 @@
             <option selected value="2">2 - 显示区/县级</option>
         </select>
     </div>
-    <script
-        src="https://webapi.amap.com/maps?v=2.0&key=1500403dc3f9b879b5cc66745d1cc4a5&plugin=AMap.Scale,AMap.ToolBar"></script>
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode: "2ba8cf9a070a028d593ce6204751bae3",
+        }
+    </script>
+    <script src="https://webapi.amap.com/maps?v=2.0&key=1500403dc3f9b879b5cc66745d1cc4a5&plugin=AMap.Driving"></script>
     <script src="https://a.amap.com/Loca/static/mock/adcodes.js"></script>
     <script>
         var adCode = 130000;

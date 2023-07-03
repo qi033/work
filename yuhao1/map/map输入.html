@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>map作业1</title>
-    <link rel="stylesheet" href="../引入/layui.css">
+    <title>Document</title>
 </head>
 <style>
     html,
@@ -44,16 +45,20 @@
 </style>
 
 <body>
-
     <div id="container"></div>
     <div id="panel"></div>
+    <input type="text" placeholder="起点" id="asd">
+    <input type="text" placeholder="终点" id="svb">
     <button onclick="show()" class="layui-btn">点击显示路线</button>
+
     <script type="text/javascript">
         window._AMapSecurityConfig = {
-            securityJsCode: "0807b75296a49140921f7d2ae9dd7f17",
+            securityJsCode: "7ee2c3a05fce4c7ec5dab4fd73d46ce9",
         }
     </script>
-    <script src="https://webapi.amap.com/maps?v=2.0&key=aa01d5ace855cddddd810854416edbfe&plugin=AMap.Driving"></script>
+
+    <script src="https://webapi.amap.com/maps?v=2.0&key=609f41990bb7ceb8e634718d49b6ecc2&plugin=AMap.Driving"></script>
+    <script src="../../common/jquery-3.7.0.min.js"></script>
     <script type="text/javascript">
         var map = new AMap.Map('container', {
             resizeEnable: true, // 默认使用 2D 模式
@@ -66,8 +71,10 @@
                 panel: "panel"
             });
             driving.search(
-                new AMap.LngLat(113.427532, 34.765086),
-                new AMap.LngLat(113.428198, 34.774311),
+                [
+                    { keyword: $('#asd').val() },
+                    { keyword: $('#svb').val() },
+                ],
                 function (status, result) {
                     if (status === "complete") {
                         log.success("绘制驾车路线完成");
@@ -75,6 +82,7 @@
                         log.error("获取驾车数据失败：" + result);
                     }
                 })
+
         }
     </script>
 </body>

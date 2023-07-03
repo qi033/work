@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>map作业3</title>
+    <title>Document</title>
     <style>
         html,
         body,
@@ -33,7 +33,7 @@
         // 地图显示
         const map = new AMap.Map('container', {
             viewMode: '2D',  // 默认使用 2D 模式
-            zoom: 5.5,  //初始化地图层级
+            zoom: 7,  //初始化地图层级
             center: [116.40378, 39.91514]  //初始化地图中心点
         });
         const layer = new AMap.createDefaultLayer({ // 提示：参数值并不是API默认使用的值
@@ -122,7 +122,6 @@
                 polygon.setOptions({
                     fillOpacity: 0.5,
                     fillColor: '#ccebc5'
-                    
                 })
             })
             map.add(polygon)
@@ -196,7 +195,7 @@
             polygon.on('mouseout', () => { // 鼠标移出恢复样式
                 polygon.setOptions({
                     fillOpacity: 0.5,
-                    fillColor: 'aqua'
+                    fillColor: 'pink'
                 })
             })
             map.add(polygon)
@@ -264,13 +263,13 @@
             polygon.on('mouseover', () => { // 鼠标移入更改样式
                 polygon.setOptions({
                     fillOpacity: 0.7,
-                    fillColor: 'gray'
+                    fillColor: 'yellow'
                 })
             })
             polygon.on('mouseout', () => { // 鼠标移出恢复样式
                 polygon.setOptions({
                     fillOpacity: 0.5,
-                    fillColor: 'pink'
+                    fillColor: 'aqua'
                 })
             })
             map.add(polygon)
