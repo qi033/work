@@ -88,6 +88,7 @@
       center: [113.428155, 34.774258], //初始化地图中心点
       layers: [layer],
       mapStyle: "amap://styles/macaron",
+      layers: [new AMap.TileLayer.Satellite()],
     });
     const traffic = new AMap.TileLayer.Traffic({
       autoRefresh: true, //是否自动刷新，默认为false
