@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>饼状图的基本实现</title>
+    <script src="./echarts.min.js"></script>
+</head>
+<body>
+    <div id="app" style="width: 600px;height: 400px;"></div>
+    <script>
+
+        var myCharts = echarts.init(document.querySelector('#app'))
+        // 需要设置给饼图的数据
+        var pieData = [
+            
+            {
+                name: '刘佳佳',
+                value: '62.45'
+            },
+            {
+                name: '赵宗福',
+                value: '60.85'
+            },
+            {
+                name: '刘振州',
+                value: '66'
+            },
+            {
+                name: '杨浩冰',
+                value: '56.85'
+            },
+            {
+                name: '郑哲元',
+                value: '54.425'
+            },
+            {
+                name: '刘超祥',
+                value: '53.55'
+            },
+            {
+                name: '赵帅博',
+                value: '53.8'
+            },
+            {
+                name: '甘天鸽',
+                value: '45.95'
+            },
+            {
+                name: '杨宏承',
+                value: '50.625'
+            },
+            {
+                name: '余浩',
+                value: '62.35'
+            },
+            {
+                name: '苏鹏杰',
+                value: '55.9'
+            },
+            {
+                name: '申卓凡',
+                value: '59.05'
+            },
+        ]
+        var option = {
+            // 注意：饼图不是直角坐标系图表，就不用配置x轴和y轴了
+            series: [
+                {
+                    type: 'pie', // 类型： 饼图
+                    data: pieData,//数据
+                    label: {//饼图文字的显示
+                        show: true, //默认  显示文字
+                        formatter: function (arg) {
+                            console.log(arg);
+                            return arg.name + ' 笔试/机试/平均分 ' + arg.value + " " +'\n'+ arg.percent + "%"
+                        }
+                    },
+                    // selectedMode: 'single' //选中的效果，能够将选中的区域偏离圆点一小段距离
+                    selectedMode: 'multiple',
+                    selectedOffset: 30
+                }
+            ]
+        }
+
+        myCharts.setOption(option)
+
+
+    </script>
+</body>
+</html>

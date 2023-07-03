@@ -54,6 +54,7 @@
     $(function () {
       fun();
     });
+    const default_img = './common/imgs/default_img.png'
     function fun() {
       let html = "";
       stu.forEach((item) => {
@@ -61,9 +62,9 @@
              <div class="no">
         <dl>
           <dd>
-            <img src="${item.imgs}" alt="" />
+            <img src="${item.imgs?item.imgs:default_img}" alt="" />
           </dd>
-          <dd><a href="${item.src}">${item.name}</a></dd>
+          <dd><a target="_blank" href="${item.src}">${item.name}</a></dd>
         </dl>
       </div>
              `;
@@ -74,9 +75,9 @@
     const stu = [
       {
         id: n++,
-        imgs: "./liuhao/img/1.jpg",
+        imgs: "https://avatars.githubusercontent.com/u/16456766?v=4",
         name: "刘豪",
-        src: "../liuhao/index.html",
+        src: "./liuhao/index.html",
       },
       {
         id: n++,

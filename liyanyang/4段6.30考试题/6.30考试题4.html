@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+ 
+<body>
+    <div class="radar" style="width: 80%; height: 600px"></div>
+    <script src="./echarts.min.js"></script>
+    <script>
+        // 销售渠道模块 雷达图
+        (function () {
+            // 1. 实例化对象
+            var myChart = echarts.init(document.querySelector(".radar"));
+            // 2.指定配置
+            var option = {
+                backgroundColor: "#161627",
+                tooltip: {
+                    show: true,
+                    // 控制提示框组件的显示位置
+                    position: ["60%", "10%"]
+                },
+                radar: {
+                    indicator: [
+                        { name: "2023-06-02", max: 100 },
+                        { name: "2023-06-09", max: 100 },
+                        { name: "2023-06-16", max: 100 },
+                        { name: "2023-04-21", max: 100 },
+                        { name: "周期平均分", max: 100 },
+                    ],
+                    // 修改雷达图的大小
+                    radius: "65%",
+                    shape: "circle",
+                    // 分割的圆圈个数
+                    splitNumber: 4,
+                    name: {
+                        // 修饰雷达图文字的颜色
+                        textStyle: {
+                            color: "#4c9bfd"
+                        }
+                    },
+                    // 分割的圆圈线条的样式
+                    splitLine: {
+                        lineStyle: {
+                            color: "rgba(255,255,255, 0.5)"
+                        }
+                    },
+                    splitArea: {
+                        show: false
+                    },
+                    // 坐标轴的线修改为白色半透明
+                    axisLine: {
+                        lineStyle: {
+                            color: "rgba(255, 255, 255, 0.5)"
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: "成绩",
+                        type: "radar",
+                        // 填充区域的线条颜色
+                        lineStyle: {
+                            normal: {
+                                color: "#fff",
+                                width: 1,
+                                opacity: 0.5
+                            }
+                        },
+                        data: [[75, 65.5, 64, 65.5, 66]],
+                        // 设置图形标记 （拐点）
+                        symbol: "circle",
+                        // 这个是设置小圆点大小
+                        symbolSize: 5,
+                        // 设置小圆点颜色
+                        itemStyle: {
+                            color: "#fff"
+                        },
+                        // 让小圆点显示数据
+                        label: {
+                            show: true,
+                            fontSize: 10
+                        },
+                        // 修饰我们区域填充的背景颜色
+                        areaStyle: {
+                            color: "rgba(238, 197, 102, 0.6)"
+                        }
+                    }
+                ]
+            };
+            // 3.把配置和数据给对象
+            myChart.setOption(option);
+            // 当我们浏览器缩放的时候，图表也等比例缩放
+            window.addEventListener("resize", function () {
+                // 让我们的图表调用 resize这个方法
+                myChart.resize();
+            });
+        })();
+ 
+    </script>
+</body>
+ 
+</html>
