@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="bing1" style="width: 500px; height: 500px;"></div>
+    <script src="../../common/jquery-3.7.0.min.js"></script>
+    <script src="../../common/echarts.js"></script>
+    <script>
+      var chartDom = document.getElementById("bing1");
+      var myChart = echarts.init(chartDom);
+      var option;
+      var year = [
+        2020, 2019, 2018, 2017,
+      ];
+      var data = [
+        [43, 50, 78, 90],
+      ];
+      // 指定图表的配置项和数据
+      var option = {
+        title: {
+          text: "ECharts 入门示例",
+        },
+        tooltip: {},
+        legend: {
+          data: ["各城市人口"],
+        },
+        yAxis: {
+          data: [
+            "杨宏承",
+            "余浩",
+            "苏鹏杰",
+            "申卓凡",
+          ],
+          inverse: true,
+        },
+        xAxis: {},
+        series: [
+          {
+            realtimeSort: true,
+            name: "最终成绩平均比",
+            showBackground: true,
+            label: {
+              show: true,
+              position: "right",
+              valueAnimation: true,
+            },
+            stack: {},
+            type: "bar",
+            data: [120, 206, 392, 150],
+          },
+        ],
+        animationDuration: 0,
+        animationDurationUpdate: 500,
+        animationEasing: "linear",
+        animationEasingUpdate: "linear",
+      };
+
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+
+      for (let i = 0; i < data.length; i++) {
+        setTimeout(function () {
+          var option1 = {
+            title: {
+              text: year[data.length - i - 1].toString() + "年人口",
+            },
+            series: [
+              {
+                data: data[data.length - i - 1],
+              },
+            ],
+          };
+          console.log(option1);
+          myChart.setOption(option1);
+        }, 500 * i);
+      }
+      myChart.setOption(option);
+    </script>
+  </body>
+</html>
