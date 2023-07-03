@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        #container {
+            width: 1000px;
+            height: 500px;
+        }
+    </style>
+    <title>多边形的绘制和编辑</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <script src="diyu.js"></script>
+    <script src="https://webapi.amap.com/maps?v=2.0&key=12234fb3874d1b83a6084737b5166179"></script>
+    <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/javascript">
+        var map = new AMap.Map("container", {
+            center: [116.397428, 39.90923],
+            zoom: 6
+        });
+
+        function addPolygon(data) {
+            let polygon = new AMap.Polygon({
+                path: data,
+                fillColor: '#ccebc5',
+                strokeOpacity: 1,
+                fillOpacity: 0.5,
+                strokeColor: '#2b8cbe',
+                strokeWeight: 1,
+                strokeStyle: 'dashed',
+                strokeDasharray: [5, 5],
+            });
+            polygon.on('mouseover', () => {
+                polygon.setOptions({
+                    // strokeColor: '#ee3f4d',
+                    fillOpacity: 0.7,
+                    fillColor: '#7bccc4'
+                })
+            })
+            polygon.on('mouseout', () => {
+                polygon.setOptions({
+                    // strokeColor: '#7a7374',
+                    fillOpacity: 0.5,
+                    fillColor: '#ccebc5'
+
+                })
+            })
+            map.add(polygon);
+        }
+
+        addPolygon(hefei);
+        addPolygon(shijiazhuang);
+        addPolygon(tianjing);
+    </script>
+</body>
+
+</html>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -166,4 +167,171 @@
       },
     ];
   </script>
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <!-- 引入 layui.css -->
+  <!-- 引入 layui.css -->
+  <link href="//unpkg.com/layui@2.8.6/dist/css/layui.css" rel="stylesheet" />
+  <!-- 引入 layui.js -->
+  <script src="//unpkg.com/layui@2.8.6/dist/layui.js"></script>
+</head>
+
+<style>
+  #box {
+    width: 550px;
+    background-image: linear-gradient(0deg,
+        #fdcbf1 0%,
+        #fdcbf1 1%,
+        #e6dee9 100%);
+    padding: 20px;
+    margin: 30px auto;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .no {
+    width: 90px;
+    height: 50px;
+    background-color: white;
+    border-radius: 10%;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+  }
+</style>
+
+<body>
+  <div id="box">
+    <p style="margin: auto; width: 400px">自行更改数组相关链接，字段</p>
+  </div>
+  <script>
+    $(function () {
+      fun();
+    });
+    const default_img = './common/imgs/default_img.png'
+    function fun() {
+      let html = "";
+      stu.forEach((item) => {
+        html += `
+             <div class="no">
+        <dl>
+          <dd>
+            <img src="${item.imgs ? item.imgs : default_img}" alt="" />
+          </dd>
+          <dd><a target="_blank" href="${item.src}">${item.name}</a></dd>
+        </dl>
+      </div>
+             `;
+      });
+      $("#box").html(html);
+    }
+    let n = 1;
+    const stu = [
+      {
+        id: n++,
+        imgs: "https://avatars.githubusercontent.com/u/16456766?v=4",
+        name: "刘豪",
+        src: "./liuhao/index.html",
+      },
+      {
+        id: n++,
+        imgs: "./zhaozongfu/img/头像.jpg",
+        name: "赵宗福",
+        src: "./zhaozongfu/index.html",
+      },
+      {
+        id: n++,
+        imgs: "",
+        name: "刘振洲",
+        src: "./liuzhenzhou/index.html",
+      },
+      {
+        id: n++,
+        imgs: "https://img1.baidu.com/it/u=3768804500,181908195&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
+        name: "申卓凡",
+        src: "./shenzhuofan/申卓凡.html",
+      },
+      {
+        id: n++,
+        imgs: "",
+        name: "赵灿龙",
+        src: "./zhaocanlong/index.html",
+      },
+      {
+        id: n++,
+        imgs: "https://img0.baidu.com/it/u=1971438795,4042065949&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
+        name: "余浩",
+        src: "./yuhao1/yuhao.html",
+      },
+      {
+        id: n++,
+        imgs: "./liuchaoxiang/img/1.jpg",
+        name: "刘超祥",
+        src: "./liuchaoxiang/6.30.机试刘超祥.html",
+      },
+      {
+        id: n++,
+        imgs: "./zhaoshuaibo/img/1.jpg",
+        name: "赵帅博",
+        src: "./zhaoshuaibo/1.html",
+      },
+      {
+        id: n++,
+        imgs: "./liujia/img/sa.jpg",
+        name: "刘佳佳",
+        src: "./liujia/aaaaaa.html",
+      },
+      {
+        id: n++,
+        imgs: "../work/yanghaobing/壁纸/image/18.jpg",
+        name: "杨浩冰",
+        src: "./yanghaobing/考试题.html",
+      },
+      {
+        id: n++,
+        imgs: "",
+        name: "郑哲元",
+        src: "./zzy/1.html",
+      },
+      {
+        id: n++,
+        imgs: "",
+        name: "甘天鸽",
+        src: "./gantiange/index.html",
+      },
+      {
+        id: n++,
+
+        imgs: "./yanghongcheng/feijian.jpg",
+        name: "杨宏承",
+        src: "./yanghongcheng/主界面.html",
+      },
+      {
+        id: n++,
+        imgs: "",
+        name: "苏朋杰",
+        src: "./supengjie/Examination/总链接.html",
+      },
+    ];
+  </script>
+
+
+
+>>>>>>> 5f2092b10ea22c115719b2a519856736e9c080c7
 </html>
