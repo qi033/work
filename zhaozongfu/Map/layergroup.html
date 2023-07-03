@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>批量修改图层</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>
+    <script src="https://webapi.amap.com/maps?v=2.0&key=608d75903d29ad471362f8c58c550daf"></script>
+    <script src='https://a.amap.com/jsapi_demos/static/citys.js'></script>
+    <style>
+        html,
+        body,
+        #container {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<div class="input-card" style="width: auto;">
+    <div class="input-item">
+        <button class="btn" onclick="layerGroup.show()">显示图层</button>
+    </div>
+    <div class="input-item">
+        <button class="btn" onclick="layerGroup.hide()">隐藏图层</button>
+    </div>
+    <div class="input-item">
+        <button class="btn" onclick="layerGroup.setOptions({ opacity: Math.random() })">随机修改图层透明度</button>
+    </div>
+    <div class="input-item">
+        <button class="btn" onclick="layerGroup.reload()">重载图层</button>
+    </div>
+</div>
+<script>
+    var map = new AMap.Map('container', {
+        center: [116.40, 39.91],
+        zoom: 13
+    });
+
+    var trafficLayer = new AMap.TileLayer.Traffic({
+        zIndex: 11
+    });
+
+    var roadNetLayer = new AMap.TileLayer.RoadNet({
+        zIndex: 10
+    });
+
+
+    var layerGroup = new AMap.LayerGroup([trafficLayer, roadNetLayer]);
+    layerGroup.setMap(map);
+</script>
+</body>
+</html>
