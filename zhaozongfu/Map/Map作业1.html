@@ -17,7 +17,7 @@
     #container {
         width: 800px;
         height: 500px;
-        
+
     }
 
     #panel {
@@ -41,10 +41,10 @@
         border-bottom-right-radius: 4px;
         overflow: hidden;
     }
-   
 </style>
 
 <body>
+
     <div id="container"></div>
     <div id="panel"></div>
     <button onclick="show()" class="layui-btn">点击显示路线</button>
@@ -61,20 +61,20 @@
             zoom: 16
         });
         function show() {
-        var driving = new AMap.Driving({
-            map: map,
-            panel: "panel"
-        });
-        driving.search(
-            new AMap.LngLat(113.427532, 34.765086),
-            new AMap.LngLat(113.428198, 34.774311),
-            function (status, result) {
-                if (status === "complete") {
-                    log.success("绘制驾车路线完成");
-                } else {
-                    log.error("获取驾车数据失败：" + result);
-                }
-            })
+            var driving = new AMap.Driving({
+                map: map,
+                panel: "panel"
+            });
+            driving.search(
+                new AMap.LngLat(113.427532, 34.765086),
+                new AMap.LngLat(113.428198, 34.774311),
+                function (status, result) {
+                    if (status === "complete") {
+                        log.success("绘制驾车路线完成");
+                    } else {
+                        log.error("获取驾车数据失败：" + result);
+                    }
+                })
         }
     </script>
 </body>

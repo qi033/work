@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>HELLO，AMAP!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body,
+        #container {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode: "fb8a0fe7f98d71bcdcd12fc2f652f75e",
+        }
+    </script>
+    <script src="https://webapi.amap.com/loader.js"></script>
+    <!-- <script src="https://webapi.amap.com/maps?v=2.0&key=12234fb3874d1b83a6084737b5166179"></script> -->
+    <script type="text/javascript">
+        AMapLoader.load({
+            key: "12234fb3874d1b83a6084737b5166179",       // 申请好的Web端开发者Key，首次调用 load 时必填
+            version: "2.0",                 // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
+        }).then((AMap) => {
+            // JS API加载完成后获取AMap对象
+            const map = new AMap.Map('container');
+        }).catch((e) => {
+            console.error(e);  //加载错误提示
+        });
+
+        /* const map = new AMap.Map('container', {
+            viewMode: '2D',  // 默认使用 2D 模式
+            zoom: 11,  //初始化地图层级
+            center: [116.397428, 39.90923]  //初始化地图中心点
+        }); */
+
+        const marker = new AMap.Marker({
+            position: [34.76606, 113.427104] //位置
+        })
+        map.add(marker); //添加到地图
+        // 创建信息窗体
+        const infoWindow = new AMap.InfoWindow({
+            isCustom: true,  // 使用自定义窗体
+            content: '<div>HELLO,AMAP!</div>', // 信息窗体的内容可以是任意 html 片段
+            offset: new AMap.Pixel(16, -45)
+        });
+        const onMarkerClick = function (e) {
+            infoWindow.open(map, e.target.getPosition()); // 打开信息窗体
+            // e.target 就是被点击的 Marker
+        }
+        //[113.428749,34.765308]
+    </script>
+</body>
+
+</html>
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+</head>
+
+<body>
+    <p id="demo">点击按钮获取您当前坐标（可能需要比较长的时间获取）：</p>
+    <button onclick="getLocation()">点我</button>
+    <script>
+        var x = document.getElementById("demo");
+        function getLocation() {
+            if (navigator.geolocation) {
+                console.log(navigator.geolocation);
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+            else {
+                x.innerHTML = "该浏览器不支持获取地理位置。";
+            }
+        }
+        function showPosition(position) {
+            x.innerHTML = "纬度: " + position.coords.latitude +
+                "<br>经度: " + position.coords.longitude;
+        }
+    </script>
+</body>
+
+</html> -->
