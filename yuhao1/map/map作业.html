@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../yuhao/work/zhaozongfu/引入/">
+</head>
+<style>
+    html,
+    body,
+    #container {
+        width: 500px;
+        height: 500px;
+    }
+</style>
+
+<body>
+    <div id="container"></div>
+    <button onclick="show()" class="layui-btn">点击显示路线</button>
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode: "7ee2c3a05fce4c7ec5dab4fd73d46ce9",
+        }
+    </script>
+    <script src="https://webapi.amap.com/maps?v=2.0&key=609f41990bb7ceb8e634718d49b6ecc2&plugin=AMap.Driving"></script>
+    <script type="text/javascript">
+
+        const map = new AMap.Map('container', {
+            viewMode: '2D',  // 默认使用 2D 模式
+            zoom: 17,  //初始化地图层级
+            center: [113.428391, 34.774593]  //初始化地图中心点
+        });
+
+        const markerContent = '' +
+            '<div class="custom-content-marker">' +
+            '   <img src="//a.amap.com/jsapi_demos/static/demo-center/icons/dir-via-marker.png">' +
+            '   <div class="close-btn" onclick="clearMarker()"></div>' +
+            '</div>';
+
+        const position = new AMap.LngLat(113.428391, 34.774593); // Marker经纬度
+        const marker = new AMap.Marker({
+            position: position,
+            content: markerContent, // 将 html 传给 content
+            offset: new AMap.Pixel(-13, -30) // 以 icon 的 [center bottom] 为原点
+        });
+        map.add(marker);
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
