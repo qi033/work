@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        background-color: aliceblue;
+    }
+
+    #container {
+        width: 800px;
+        height: 100%;
+        margin: auto;
+
+    }
+</style>
+
+<body>
+    <div id="container"></div>
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode: "0807b75296a49140921f7d2ae9dd7f17",
+        }
+    </script>
+    <script src="https://webapi.amap.com/maps?v=2.0&key=aa01d5ace855cddddd810854416edbfe"></script>
+    <script>
+        // 创建地图
+        var map = new AMap.Map("container", {
+            center: [117.073225, 39.096204], //设置地图初始化中心点位置
+            viewMode: '2D',  //设置地图模式
+            zoom: 5   //设置当前地图级别
+        });
+    </script>
+</body>
+
+</html>
