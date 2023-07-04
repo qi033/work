@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <script type="text/javascript"></script>
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, user-scalable=no, width=device-width" />
+    <style type="text/css">
+      html,
+      body,
+      .map {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+      }
+      .amap-copyright {
+        color: grey;
+      }
+    </style>
+    <title>高德简易行政区地图</title>
+  </head>
+  <body>
+    <div id="container" class="map" tabindex="0"></div>
+    <script
+      language="javascript"
+      src="https://webapi.amap.com/maps?v=2.0&key=1bc75d3ac912efca8d7e2c558231610e&plugin=AMap.Scale,AMap.ToolBar"></script>
+    <script type="text/javascript">
+      var SOC = "CHN";
+      var colors = {};
+      var GDPSpeed = {
+        410000: 7.5, //河南
+      };
+      var getColorByDGP = function (adcode) {
+        if (!colors[adcode]) {
+          var gdp = GDPSpeed[adcode];
+          if (!gdp) {
+            colors[adcode] = "rgb(227,227,227)";
+          } else {
+            var rg = 255 - Math.floor(((gdp - 5) / 5) * 255);
+            colors[adcode] = "rgb(" + rg + "," + rg + ",255)";
+          }
+        }
+        return colors[adcode];
+      };
+
+      var disCountry = new AMap.DistrictLayer.Country({
+        zIndex: 10,
+        SOC: "CHN",
+        depth: 2,
+        styles: {
+          "nation-stroke": "#f09",
+          "coastline-stroke": [0.85, 0.63, 0.94, 1],
+          "province-stroke": "white",
+          "city-stroke": "rgba(255,255,255,0.15)", //中国特有字段
+          fill: function (props) {
+            //中国特有字段
+            return getColorByDGP(props.adcode_pro);
+          },
+        },
+      });
+
+      var map = new AMap.Map("container", {
+        center: [104.188488, 34.302032],
+        showIndoorMap: true,
+        zoom: 1,
+        isHotspot: true,
+        defaultCursor: "pointer",
+        touchZoomCenter: 1,
+        pitch: 0,
+        layers: [disCountry, new AMap.TileLayer.Satellite()],
+        viewMode: "2D",
+      });
+      map.addControl(new AMap.Scale());
+      map.addControl(new AMap.ToolBar({ liteStyle: true }));
+      document.getElementsByClassName("amap-mcode")[0].innerHTML =
+        "-GS(2022)200号、GS(2021)648号";
+    </script>
+  </body>
+</html>

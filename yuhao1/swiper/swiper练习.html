@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.css">
+    <script src="../../common/swiper/swiper-bundle.js"></script>
+</head>
+<style>
+    .swiper {
+        width: 600px;
+        height: 300px;
+    }
+</style>
+
+<body>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">1<img
+                    src="https://img2.baidu.com/it/u=1362505222,3101115598&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+                    alt="" width="100%" height="100%"></div>
+            <div class="swiper-slide">2<img
+                    src="https://img0.baidu.com/it/u=1594744262,688974376&fm=253&fmt=auto&app=138&f=JPEG?w=440&h=782"
+                    alt="" width="100%" height="100%"></div>
+            <div class="swiper-slide">3<img
+                    src="https://img1.baidu.com/it/u=3549522664,2004387788&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800"
+                    alt="" width="100%" height="100%"></div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- 如果需要滚动条 -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+
+</body>
+<script>
+    var mySwiper = new Swiper('.swiper', {
+        direction: 'horizontal', // 垂直切换选项
+        loop: true, // 循环模式选项
+        initialSlide: 3,//初始化页面
+        speed: 300,//切换时间
+        grabCursor: true, //设置为true 时，鼠标覆盖Swiper 时指针会变成手掌形状，
+        watchSlidesProgress: true,
+        setWrapperSize: true, //
+        virtualTranslate: false, //滑动Swiper，slide没移动，但是swiper切换了
+
+        // 如果需要分页器
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        // 如果需要前进后退按钮
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // 如果需要滚动条
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+    })
+    console.log(mySwiper.virtualSize);
+
+</script>
+
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>HELLO，AMAP!</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>
+    <style>
+        html,
+        body,
+        #container {
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <!-- <button onclick="traffic.show()">显示</button>
+    <button onclick="traffic.hide()">隐藏</button>
+    <button class="btn" onclick="layerGroup.setOptions({ opacity: Math.random() })">随机修改图层透明度</button> -->
+    <div class="input-card" style="width: auto;">
+    <div class="input-item">
+        <button class="btn" onclick="layerGroup.show()">显示图层</button>
+    </div>
+    <div class="input-item">
+        <button class="btn" onclick="layerGroup.hide()">隐藏图层</button>
+    </div>
+    <div class="input-item">
+        <button class="btn" onclick="layerGroup.setOptions({ opacity: Math.random() })">随机修改图层透明度</button>
+    </div>
+    <div class="input-item">
+        <button class="btn" onclick="layerGroup.reload()">重载图层</button>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript">
+    window._AMapSecurityConfig = {
+        securityJsCode: "dd8db4bd6f4735cda824040ac047c353",
+    }
+</script>
+<script src="https://webapi.amap.com/loader.js"></script>
+<script src="https://webapi.amap.com/maps?v=2.0&key=e2a17b2329fa625aa16817d4e600a3e5"></script>
+
+<script type="text/javascript">
+    AMapLoader.load({
+        key: "e2a17b2329fa625aa16817d4e600a3e5",       // 申请好的Web端开发者Key，首次调用 load 时必填
+        version: "2.0",                 // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
+    }).then((AMap) => {
+        // JS API加载完成后获取AMap对象
+    })
+    const map = new AMap.Map('container', {
+        viewMode: '2D',  // 默认使用 2D 模式
+        zoom: 11,  //初始化地图层级
+        center: [113.41060514993228, 34.77136157496614]  //初始化地图中心点
+    });
+    const layer = new AMap.createDefaultLayer({ // 提示：参数值并不是API默认使用的值
+        zooms: [3, 20],    //可见级别
+        visible: true,    //是否可见
+        opacity: 0,       //透明度
+        zIndex: 0         //叠加层级
+    })
+    const traffic = new AMap.TileLayer.Traffic({
+        'autoRefresh': true,     //是否自动刷新，默认为false
+        'interval': 180,         //刷新间隔，默认180s
+    });
+
+    map.add(traffic); //通过add方法添加图层
+
+
+    let toolbar;
+    AMap.plugin('AMap.ToolBar', function () { // 异步加载插件
+        toolbar = new AMap.ToolBar(); // 缩放工具条实例化
+        map.addControl(toolbar);
+    });
+    AMap.plugin(['AMap.ToolBar','AMap.Scale'],function(){});//异步同时加载多个插件
+
+
+   
+
+    var trafficLayer = new AMap.TileLayer.Traffic({
+        zIndex: 11
+    });
+
+    var roadNetLayer = new AMap.TileLayer.RoadNet({
+        zIndex: 10
+    });
+
+
+    var layerGroup = new AMap.LayerGroup([trafficLayer, roadNetLayer]);
+    layerGroup.setMap(map);
+    
+</script>
+
+</html>
+
