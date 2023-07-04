@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.min.css">
+    <script src="../../common/swiper/swiper-bundle.js"></script>
+</head>
+<style>
+    .swiper {
+
+        width: 600px;
+        height: 300px;
+    }
+</style>
+
+<body>
+    <div class="swiper"></div>
+    <script>
+        var mySwiper = new Swiper('.swiper', {
+            
+            pagination: {
+                auto: true,//不可以定义el，并要增加auto属性
+                type: 'fraction',
+            },
+            autoplay: {
+                delay: 2000
+            },
+            
+            navigation: true,//不需要自动创建元素的话定义el就行
+            scrollbar: true,
+            createElements: true,//自动生成元素
+            
+        })
+        mySwiper.addSlide(1, '<div class="swiper-slide">Slide 1</div>');
+        mySwiper.addSlide(2, '<div class="swiper-slide">Slide 2</div>');
+        mySwiper.addSlide(3, '<div class="swiper-slide">Slide 3</div>');
+    </script>
+</body>
+
+</html>
