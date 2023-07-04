@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper-pagination-bullet {
+      width: 100px;
+      height: 60px;
+      color: #000;
+      background-color: white;
+      position: relative;
+      top: 0px;
+      line-height: 60px;
+      border-radius: 0%;
+    }
+
+    img {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="https://w.wallhaven.cc/full/o5/wallhaven-o5l1zp.png" alt=""/></div>
+      <div class="swiper-slide"><img src="https://w.wallhaven.cc/full/gp/wallhaven-gp9dw3.jpg" alt="" />
+      </div>
+      <div class="swiper-slide"><img src="https://w.wallhaven.cc/full/l8/wallhaven-l8w72l.jpg" alt="" />
+      </div>
+      <div class="swiper-slide"><img src="https://w.wallhaven.cc/full/6d/wallhaven-6d5lrx.png" alt="" /></div>
+      <div class="swiper-slide"><img src="https://w.wallhaven.cc/full/qz/wallhaven-qz3r57.png" alt="" />
+      </div>
+      <div class="swiper-slide">
+        <img src="https://w.wallhaven.cc/full/zy/wallhaven-zyq96w.png" alt="" />
+      </div>
+      <div class="swiper-slide">
+        <img src="https://bkimg.cdn.bcebos.com/pic/5d6034a85edf8db1cb13f32fc277ca54564e9258de79" alt="" />
+      </div>
+      <div class="swiper-slide"><img src="https://wsingbssdl.kugou.com/ef8df5154ed5e7a65f502dadd36ff37a.jpg" alt="" />
+      </div>
+      <div class="swiper-slide"><img
+          src="https://img0.baidu.com/it/u=1857692777,4120678152&fm=253&fmt=auto&app=120&f=PNG?w=913&h=500" alt="" />
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <script>
+    var swiper = new Swiper('.mySwiper', {
+      spaceBetween: 30,
+      centeredSlides: true,
+      direction: 'vertical',
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        renderBullet: function (index, className) {
+          console.log(className)
+          let text = ''
+          switch (index) {
+            case 0:
+              text = '赛博朋克'
+              break
+            case 1:
+              text = '国家队 - 02'
+              break
+            case 2:
+              text = '蜘蛛侠'
+              break
+            case 3:
+              text = '死亡搁浅'
+              break
+            case 4:
+              text = '间谍过家家'
+              break
+            case 5:
+              text = '押之高'
+              break
+            case 6:
+              text = '画江湖之不良人'
+              break
+            case 7:
+              text = '星辰变5'
+              break
+            case 8:
+              text = '吞噬星空'
+              break
+          }
+          return '<div class="' + className + '">' + text + '</div>'
+        },
+      },
+    })
+    for (i = 0; i < swiper.pagination.bullets.length; i++) {
+      swiper.pagination.bullets[i].onmouseover = function () {
+        this.click()
+      }
+    }
+  </script>
+</body>
+
+</html>
