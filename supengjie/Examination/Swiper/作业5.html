@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../common/swiper/swiper-bundle.css">
+    <script src="../../../common/swiper/swiper-bundle.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            margin-top: 250px;
+            width: 800px;
+            height: 500px;
+        }
+
+        img {
+            width: 800px;
+            height: 500px;
+        }
+
+        .swiper-button-next {
+            top: 30%;
+            right: 3%;
+            z-index: 999;
+            display: none;
+        }
+
+        .swiper-button-next:hover {
+            top: 17%;
+            width: 70px;
+            height: 180px;
+            background-color: rgba(0, 0, 0, 0.5);
+            right: 0;
+            color: aliceblue;
+            line-height: 180px;
+            text-align: center;
+        }
+
+        .swiper-button-prev {
+            top: 30% !important;
+            /* left: 94%!important; */
+            opacity: 1 !important;
+            display: none;
+        }
+
+        .swiper-button-prev:hover {
+            top: 17% !important;
+            width: 70px;
+            height: 180px;
+            background-color: rgba(0, 0, 0, 0.5);
+            left: 0;
+            color: aliceblue;
+            line-height: 180px;
+            text-align: center;
+        }
+
+        .swiper-pagination {
+            text-align: end !important;
+            float: right !important;
+        }
+
+        .my-bullet-active {
+            width: 50px;
+            height: 10px;
+            border-radius: 25px 25px !important;
+            background-color: red !important;
+        }
+
+        p {
+            color: rgb(233, 25, 25);
+            z-index: 999999 !important;
+            position: absolute;
+            left: 5%;
+            bottom: 5%;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="../Map/jquery-3.7.0.min.js"></script>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <p>扎实做好高校毕业生就业工作</p><img src="../Img/来活了兄弟.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <p>阳光体育运动</p><img src="../Img/传奇.webp" alt="">
+            </div>
+            <div class="swiper-slide">
+                <p>社会让你呼风唤雨，是我杠杠配不上你</p><img src="../Img/尘缘.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <p>小伙气质猛如狼，一腔热血拍胸膛。</p><img src="../Img/暗夜.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <p>做人不要太飘，小心背后挨刀。</p><img src="../Img/南阳女儿情.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <p>昨天是历史，今天是开始，明天谁都不好使。</p><img src="../Img/长风渡.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <p>辉煌时刻人人有，别拿一刻当永久。</p><img src="../Img/权利的游戏.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <p>你是好人我不配，忘了我吧下一位。</p><img src="../Img/北京.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <p>日落西山你不陪，东山再起你是谁。</p><img src="../Img/仙侠神域.webp" alt="">
+            </div>
+            <div class="swiper-slide">
+                <p>刀不锋，马太瘦 ，我还不想跟你斗！</p><img src="../Img/战斧行动.jpg" alt="">
+            </div>
+
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!-- 分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+</body>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        rewind: true,
+        // loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            bulletActiveClass: 'my-bullet-active',
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+    var bullets = document.querySelectorAll('.swiper-pagination-bullet');
+    bullets.forEach(function (bullet, index) {
+        bullet.addEventListener('mouseenter', function () {
+            mySwiper.slideToLoop(index);
+        });
+    });
+
+    var element = document.querySelector('.swiper');
+    element.addEventListener('mouseover', function (event) {
+        $('.swiper-button-prev').css('display', 'block');
+        $('.swiper-button-next').css('display', 'block');
+    });
+
+    element.addEventListener('mouseout', function (event) {
+        $('.swiper-button-next').css('display', 'none');
+        $('.swiper-button-prev').css('display', 'none');
+    });
+
+</script>
+
+</html>
