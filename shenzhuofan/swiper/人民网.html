@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.css">
+    <script src="../../common/swiper/swiper-bundle.min.js"></script>
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            margin: 50px auto;
+            width: 1000px;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        span {
+            display: block;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-pagination {
+            text-align: left;
+            /* 将分页器内部元素向左对齐 */
+            width: 10px;
+            /* 设置分页器宽度 */
+            height: 10px;
+            /* 设置分页器高度 */
+        }
+
+        .swiper-pagination-bullet {
+            position: relative;
+            top: -10px;
+            left: 75%;
+            background-color: #eee;
+            width: 13px;
+            /* 设置分页器小圆点宽度 */
+            height: 13px;
+            /* 设置分页器小圆点高度 */
+            float: left;
+        }
+
+        .swiper-pagination {
+            width: 220px;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #box1 {
+            position: relative;
+        }
+
+        #box1::after {
+            content: "遇事不决可问春风";
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 95%;
+            left: 10%;
+            transform: translate(-50%, -50%);
+        }
+
+        #box2 {
+            position: relative;
+        }
+
+        #box2::after {
+            content: "此地酒水";
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 95%;
+            left: 10%;
+            transform: translate(-50%, -50%);
+        }
+
+        #box3 {
+            position: relative;
+        }
+
+        #box3::after {
+            content: "价廉物美";
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 95%;
+            left: 10%;
+            transform: translate(-50%, -50%);
+        }
+
+        #box4 {
+            position: relative;
+        }
+
+        #box4::after {
+            content: "若能赊账";
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 95%;
+            left: 10%;
+            transform: translate(-50%, -50%);
+        }
+
+        #box5 {
+            position: relative;
+        }
+
+        #box5::after {
+            content: "更好";
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 95%;
+            left: 10%;
+            transform: translate(-50%, -50%);
+        }
+
+        #box6 {
+            position: relative;
+        }
+
+        #box6::after {
+            content: "喝得酒";
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 95%;
+            left: 10%;
+            transform: translate(-50%, -50%);
+        }
+
+        #box7 {
+            position: relative;
+        }
+
+        #box7::after {
+            content: "杀得妖";
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 95%;
+            left: 10%;
+            transform: translate(-50%, -50%);
+        }
+
+        #box8 {
+            position: relative;
+        }
+
+        #box8::after {
+            content: "做得诗";
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 95%;
+            left: 10%;
+            transform: translate(-50%, -50%);
+        }
+
+        #box9 {
+            position: relative;
+        }
+
+        #box9::after {
+            content: "才情不输二掌柜";
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 95%;
+            left: 10%;
+            transform: translate(-50%, -50%);
+        }
+
+        .swiper {
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 2.5%;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            width: 25px;
+            height: 25px;
+            color: white;
+            padding: 13px;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-pagination-bullet-active {
+            width: 50px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" id="box1">
+                <img src="https://img2.baidu.com/it/u=798021062,618034513&fm=253&fmt=auto&app=138&f=JPEG?w=888&h=500"
+                    alt="" srcset="" />
+            </div>
+            <div class="swiper-slide" id="box2">
+                <img src="https://img1.baidu.com/it/u=2205612297,2511175612&fm=253&fmt=auto&app=120&f=JPEG?w=1080&h=607"
+                    alt="" srcset="" />
+            </div>
+            <div class="swiper-slide" id="box3">
+                <img src="https://img1.baidu.com/it/u=3598102394,3937749035&fm=253&fmt=auto&app=120&f=JPEG?w=889&h=500"
+                    alt="" srcset="" />
+            </div>
+            <div class="swiper-slide" id="box4">
+                <img src="https://img1.baidu.com/it/u=1516502671,617500644&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=500"
+                    alt="" srcset="" />
+            </div>
+            <div class="swiper-slide" id="box5">
+                <img src="https://img1.baidu.com/it/u=862847970,2314910841&fm=253&fmt=auto&app=120&f=JPEG?w=640&h=312"
+                    alt="" srcset="" />
+            </div>
+            <div class="swiper-slide" id="box6">
+                <img src="https://img2.baidu.com/it/u=3374742833,2596796222&fm=253&fmt=auto&app=120&f=JPEG?w=882&h=500"
+                    alt="" srcset="" />
+            </div>
+            <div class="swiper-slide" id="box7">
+                <img src="https://img1.baidu.com/it/u=3851239324,3340172961&fm=253&fmt=auto&app=120&f=JPEG?w=889&h=500"
+                    alt="" srcset="" />
+            </div>
+            <div class="swiper-slide" id="box8">
+                <img src="https://img1.baidu.com/it/u=2888467069,2607894265&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500"
+                    alt="" srcset="" />
+            </div>
+            <div class="swiper-slide" id="box9">
+                <img src="https://img0.baidu.com/it/u=3927165450,1293070455&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=225"
+                    alt="" srcset="" />
+            </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Swiper JS -->
+
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            autoplay: {
+                delay: 3000 /* 设置自动翻页间隔时间，单位为毫秒 */,
+            },
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+</body>
+
+</html>
