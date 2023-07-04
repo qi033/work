@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper的切换</title>
+    <link rel="stylesheet" href="./swiper.min.css" />
+    <script src="./swiper.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      #certify {
+        position: relative;
+        width: 1200px;
+        margin: 0 auto;
+      }
+
+      #certify .swiper-container {
+        padding-bottom: 60px;
+      }
+
+      #certify .swiper-slide {
+        width: 520px;
+        height: 408px;
+        background: #fff;
+        box-shadow: 0 8px 30px #ddd;
+      }
+      img {
+        width: 520px;
+        height: 408px;
+      }
+
+      #certify .swiper-slide img {
+        display: block;
+      }
+
+      #certify .swiper-pagination {
+        width: 100%;
+        bottom: -110px;
+      }
+
+      #certify .swiper-pagination-bullets .swiper-pagination-bullet {
+        margin: 0 5px;
+        border: 3px solid #fff;
+        background-color: #d5d5d5;
+        width: 10px;
+        height: 10px;
+        opacity: 1;
+      }
+
+      #certify .swiper-pagination-bullets .swiper-pagination-bullet-active {
+        border: 3px solid #00aadc;
+        background-color: #fff;
+      }
+
+      #certify .swiper-button-prev {
+        left: -30px;
+        width: 45px;
+        height: 45px;
+        background: url(../images/wm_button_icon.png) no-repeat;
+        background-position: 0 0;
+        background-size: 100%;
+        position: relative;
+        bottom: 100px;
+      }
+
+      #certify .swiper-button-prev:hover {
+        background-position: 0 -46px;
+        background-size: 100%;
+      }
+
+      #certify .swiper-button-next {
+        right: -30px;
+        width: 45px;
+        height: 45px;
+        background: url(../images/wm_button_icon.png) no-repeat;
+        background-position: 0 -93px;
+        background-size: 100%;
+        position: relative;
+        bottom: 120px;
+        left: 1200px;
+      }
+
+      #certify .swiper-button-next:hover {
+        background-position: 0 -139px;
+        background-size: 100%;
+      }
+      .swiper-container {
+        position: relative;
+        top: 150px;
+      }
+      .p1 {
+        font-size: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      style="
+        width: 1640px;
+        height: 861px;
+        margin: auto;
+        position: relative;
+        background: url('https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/d674db6e49bbc3398fc1e6cf79a2c183_6988813756339003690.png?x-oss-process=image/format,webp/quality,Q_90');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div id="certify">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img
+                src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/44ce304232ab4ee2a821b9144ee82d1c_1713110891755259775.png?x-oss-process=image/format,webp/quality,Q_90"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/b43fe71f11ef5147c57e287e16592422_6798603925736605711.png?x-oss-process=image/format,webp/quality,Q_90"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/64328ac4ad4baf3f13f6e36dac889703_4068855659663110277.png?x-oss-process=image/format,webp/quality,Q_90"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/7a54dc691e450c32262c3d565234946d_7367504620217885063.png?x-oss-process=image/format,webp/quality,Q_90"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/3a1760449507c96a28c066148f3c8a16_203547796934874932.png?x-oss-process=image/format,webp/quality,Q_90"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev">
+          <svg
+            t="1688470563705"
+            class="icon"
+            viewBox="0 0 1024 1024"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            p-id="5741"
+            width="50"
+            height="45"
+          >
+            <path
+              d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128c-211.744443 0-384 172.255557-384 384s172.255557 384 384 384 384-172.255557 384-384S723.744443 128 512 128z"
+              fill="#17abe3"
+              p-id="5742"
+            ></path>
+            <path
+              d="M290.367854 524.352748c0.032684 0.127295 0.192662 0.25631 0.25631 0.383604 1.536138 3.615858 3.648542 7.071738 6.591802 10.047682 0.032684 0.032684 0.063647 0.032684 0.096331 0.063647s0.032684 0.063647 0.063647 0.096331l158.911974 159.359226c12.480043 12.512727 32.704421 12.576374 45.248112 0.063647 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112l-103.327187-103.616181 305.056632 0c17.664722 0 31.99914-14.336138 31.99914-32.00086s-14.336138-32.00086-31.99914-32.00086L396.576374 481.500874l106.112189-104.959656c12.576374-12.447359 12.672705-32.671738 0.25631-45.248112-6.240882-6.335493-14.496116-9.504099-22.751351-9.504099-8.12794 0-16.25588 3.103239-22.496761 9.247789l-160.25545 158.495686C288.00086 498.912727 285.632146 512.703561 290.367854 524.352748z"
+              fill="#17abe3"
+              p-id="5743"
+            ></path>
+          </svg>
+        </div>
+        <div class="swiper-button-next">
+          <svg
+            t="1688470612204"
+            class="icon"
+            viewBox="0 0 1024 1024"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            p-id="7241"
+            width="50"
+            height="45"
+          >
+            <path
+              d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128c-211.744443 0-384 172.255557-384 384s172.255557 384 384 384 384-172.255557 384-384S723.744443 128 512 128z"
+              fill="#17abe3"
+              p-id="7242"
+            ></path>
+            <path
+              d="M732.959548 501.152426c-0.032684-0.127295-0.192662-0.25631-0.25631-0.383604-1.536138-3.615858-3.648542-7.071738-6.591802-10.047682-0.032684-0.032684-0.063647-0.032684-0.096331-0.063647-0.032684-0.032684-0.032684-0.063647-0.063647-0.096331l-158.911974-159.359226c-12.480043-12.480043-32.704421-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l103.328907 103.616181L320 480.00258c-17.664722 0-31.99914 14.336138-31.99914 32.00086s14.336138 32.00086 31.99914 32.00086l306.752748 0-106.112189 104.959656c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.239161 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l160.25545-158.495686C735.328262 526.592447 737.72794 512.767209 732.959548 501.152426z"
+              fill="#17abe3"
+              p-id="7243"
+            ></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <script>
+      certifySwiper = new Swiper("#certify .swiper-container", {
+        watchSlidesProgress: true,
+        slidesPerView: "auto",
+        centeredSlides: true,
+        loop: true,
+        loopedSlides: 5,
+        autoplay: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+          delay: 2500,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          //clickable :true,
+        },
+        on: {
+          progress: function (progress) {
+            for (i = 0; i < this.slides.length; i++) {
+              var slide = this.slides.eq(i);
+              var slideProgress = this.slides[i].progress;
+              modify = 1;
+              if (Math.abs(slideProgress) > 1) {
+                modify = (Math.abs(slideProgress) - 1) * 0.3 + 1;
+              }
+              translate = slideProgress * modify * 260 + "px";
+              scale = 1 - Math.abs(slideProgress) / 5;
+              zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
+              slide.transform(
+                "translateX(" + translate + ") scale(" + scale + ")"
+              );
+              slide.css("zIndex", zIndex);
+              slide.css("opacity", 1);
+              if (Math.abs(slideProgress) > 3) {
+                slide.css("opacity", 0);
+              }
+            }
+          },
+          setTransition: function (transition) {
+            for (var i = 0; i < this.slides.length; i++) {
+              var slide = this.slides.eq(i);
+              slide.transition(transition);
+            }
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
