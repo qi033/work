@@ -26,8 +26,8 @@
         }
 
         .swiper {
-            width: 100%;
-            height: 100%;
+            width: 900px;
+            height: 500px;
         }
 
         .swiper-slide {
@@ -114,6 +114,124 @@
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
+            // 水平垂直切换
+            direction: 'horizontal',
+            // 切换时间
+            speed: 200,
+            // 光标变抓取动作
+            grabCursor: true,
+            // 切换进度，进程
+            // watchSlidesProgress: true,
+            // 在flexbox布局中使用
+            // setWrapperSize: true,
+            // swiper移动，但slider不移动
+            // virtualTranslate: true,
+            // 如果设置为true，则将slide的宽和高取整(四舍五入)，以防止某些分辨率的屏幕上文字或边界(border)模糊
+            roundLengths: true,
+
+            // 缩小页面并分割页面重新加载
+            // slidesPerView: 1,
+            // spaceBetween: 40,
+            // breakpoints: {
+            //     320: {  //当屏幕宽度大于等于320
+            //         slidesPerView: 2,
+            //         spaceBetween: 10
+            //     },
+            //     768: {  //当屏幕宽度大于等于768 
+            //         slidesPerView: 3,
+            //         spaceBetween: 20
+            //     },
+            //     1280: {  //当屏幕宽度大于等于1280
+            //         slidesPerView: 4,
+            //         spaceBetween: 30
+            //     }
+            // },
+
+            // breakpoints: {
+            //     '@0.75': {  //当屏幕宽高比大于等于0.75
+            //         slidesPerView: 2,
+            //         spaceBetween: 20,
+            //     },
+            //     '@1.00': {  //当屏幕宽高比大于等于1
+            //         slidesPerView: 3,
+            //         spaceBetween: 40,
+            //     },
+            //     '@1.50': {  //当屏幕宽高比大于等于1.5
+            //         slidesPerView: 4,
+            //         spaceBetween: 50,
+            //     }
+            // },
+
+            // //Swiper4.x版本为小于
+            // breakpoints: {
+            //     1280: {  //当屏幕宽度小于等于1280
+            //         slidesPerView: 4,
+            //         spaceBetween: 30
+            //     },
+            //     768: {  //当屏幕宽度小于等于768
+            //         slidesPerView: 3,
+            //         spaceBetween: 20,
+            //     },
+            //     320: {  //当屏幕宽度小于等于320
+            //         slidesPerView: 2,
+            //         spaceBetween: 10,
+            //     }
+            // }
+
+            // 分割排列页面
+            // slidesPerView: 1,
+            // spaceBetween: 40,
+            // breakpointsBase: 'container',
+            // breakpoints: {
+            //     //当swiper宽度大于等于768
+            //     768: {
+            //         slidesPerView: 3,
+            //         spaceBetween: 20
+            //     }
+            // }
+
+            // 跟随内容大小变化
+            // autoHeight: true,
+
+            // 分页器
+            // pagination: {
+            //     el: '.swiper-pagination',
+            // },
+            // uniqueNavElements: false,
+
+            // 用于嵌套相同方向的swiper时，当切换到子swiper时停止父swiper的切换
+            // nested:true,
+
+            // 当只有一个slide时，swiper会自动隐藏并失效，默认不开启这个功能
+            // watchOverflow:true,
+
+            // 当初始化的slide不是第一个，或设置了loop：true，那么初始化时会触发一次[Transition/SlideChange] [Start/End]回调函数
+            // runCallbacksOnInit : true,
+
+            // 默认为true，swiper会强制让所有图片加载后才初始化
+            // preloadImages:false,
+
+            // 当所有的内嵌图像加载完成后swiper会重新初始化，使用此选项需要preloadImages:true，开启
+            // updateOnImagesReady : true,
+
+            // 启用后，它将使用现代CSS Scroll Snap API。
+            // 它不支持Swiper的很多功能，但可能会带来更好的性能
+            // cssMode: true,
+
+            // 默认当窗口(window) 尺寸发生变化时，比如屏幕旋转，Swiper会更新和重新计算(update和breakpoints等)。禁止可设为false。
+            // updateOnWindowResize: true,
+
+            // 禁用swiper
+            // enabled: false,
+
+            // 自动生成元素
+            // createElements: true,
+
+            // 倒带模式，如果到了最后一个slide继续点击的话会倒回第一个
+            // rewind: true,
+
+            // 设置slide容器能够同时显示的slide数量
+            // slidesPerView: 3,
         });
     </script>
 </body>
