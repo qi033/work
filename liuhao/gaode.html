@@ -7,8 +7,8 @@
     <title>Document</title>
     <style>
       #box {
-        width: 500px;
-        height: 500px;
+        width: 800px;
+        height: 800px;
       }
       .custom-content-marker {
         position: relative;
@@ -39,6 +39,18 @@
       .custom-content-marker .close-btn:hover {
         background: #666;
       }
+      .icon {
+        width: 20px;
+        height: 20px;
+      }
+      .icon-p {
+        background-color: greenyellow;
+        width: 70px;
+        display: inline-block;
+      }
+      img {
+        display: inline-block;
+      }
     </style>
   </head>
   <body>
@@ -50,7 +62,69 @@
         securityJsCode: "3d04a4368b9b857e057ef79d9dd66d2a",
       };
     </script>
-    <script src="https://webapi.amap.com/maps?v=2.0&key=e70b8925c128843c722ecd293537ecb3"></script>
+    <script src="https://webapi.amap.com/maps?v=2.0&key=e70b8925c128843c722ecd293537ecb3&plugin=AMap.DistrictSearch,AMap.ElasticMarker"></script>
+    <script language="javascript">
+      var options = {
+        subdistrict: 0,
+        extensions: "all",
+        level: "province",
+      };
+      var district = new AMap.DistrictSearch(options);
+      var resultCity;
+      //查询北京市区域
+      district.search("河南省", function (status, result) {
+        var bounds = result.districtList[0]["boundaries"];
+        var mask = [];
+        for (var i = 0; i < bounds.length; i++) {
+          mask.push([bounds[i]]);
+        }
+        //实例化地图
+        var map = new AMap.Map("box", {
+          mask: mask,
+          zoom: 4, //设置当前显示级别
+          expandZoomRange: true, //开启显示范围设置
+          zooms: [7, 20], //最小显示级别为7，最大显示级别为20
+          center: [113.681688, 34.836075],
+          viewMode: "3D", //这里特别注意，设置为3D则其它地区不显示
+          zoomEnable: true, //是否可以缩放地图
+          resizeEnable: true,
+          mapStyle: "amap://styles/light",
+        });
+        //添加描边
+        for (var i = 0; i < bounds.length; i++) {
+          new AMap.Polyline({
+            path: bounds[i],
+            strokeColor: "#3078AC",
+            strokeWeight: 2,
+            map: map,
+          });
+        }
+        //处理点标记数组信息
+        var city = ["济源市", "洛阳市", "新郑市", "许昌市"];
+        city.forEach((currentItem) => {
+          district.search(currentItem, function (status, result) {
+            // 查询成功时，result即为对应的行政区信息
+            let position = [
+              result.districtList[0].center.getLng(),
+              result.districtList[0].center.getLat(),
+            ];
+            var markerContent = `<p class='icon-p'>
+              ${currentItem}
+              </p><img class="icon" src="./img/2.jpg"> `;
+            var marker = new AMap.Marker({
+              position: position,
+              // 将 html 传给 content
+              content: markerContent,
+              // 以 icon 的 [center bottom] 为原点
+              offset: new AMap.Pixel(-13, -30),
+            });
+            // 将 markers 添加到地图
+            map.add(marker);
+          });
+        });
+      });
+    </script>
+
     <!-- <script src="https://webapi.amap.com/loader.js"></script>
     <script type="text/javascript">
       AMapLoader.load({
@@ -65,7 +139,7 @@
         });
       });
     </script> -->
-    <script>
+    <!-- <script>
       const layer = new AMap.createDefaultLayer({
         // 提示：参数值并不是API默认使用的值
         zooms: [3, 20], //可见级别
@@ -105,6 +179,6 @@
       function show() {
         traffic.show(); //隐藏路况图层
       }
-    </script>
+    </script> -->
   </body>
 </html>
