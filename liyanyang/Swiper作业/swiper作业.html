@@ -1,15 +1,20 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Swiper demo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <style>
-      html, body {
+      html,
+      body {
         position: relative;
         height: 100%;
       }
@@ -66,86 +71,133 @@
         width: 98% !important;
         height: 95% !important;
       }
+      a {
+        font-size: 20px;
+      }
     </style>
   </head>
-
+  <a href="./swiper作业1.html">第2题</a>
+  <a href="./swiper作业2.html">第3题</a>
+  <a href="./swiper作业3.html">第4题</a>
+  <a href="./swiper作业4.html">第5题</a>
+  <a href="./swiper作业5.html">第6题</a>
+  <a href="./swiper作业6.html">第7题</a>
+  <a href="./swiper作业7.html">第8题</a>
   <body>
     <!-- Swiper -->
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://img1.baidu.com/it/u=1096405227,1627248949&fm=253&fmt=auto&app=120&f=JPEG?w=1146&h=720" alt="" class="" /></div>
-        <div class="swiper-slide"><img src="https://img1.baidu.com/it/u=698308753,100337818&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=701" alt="" /></div>
-        <div class="swiper-slide"><img src="https://img0.baidu.com/it/u=2055808748,875051110&fm=253&fmt=auto&app=138&f=JPEG?w=1082&h=500" alt="" /></div>
-        <div class="swiper-slide"><img src="https://bkimg.cdn.bcebos.com/pic/9922720e0cf3d7cadd449a9cf91fbe096a63a9ae" alt="" /></div>
-        <div class="swiper-slide"><img src="https://img2.baidu.com/it/u=99529805,3088776426&fm=253&fmt=auto&app=120&f=JPEG?w=640&h=436" alt="" /></div>
+        <div class="swiper-slide">
+          <img
+            src="https://img1.baidu.com/it/u=1096405227,1627248949&fm=253&fmt=auto&app=120&f=JPEG?w=1146&h=720"
+            alt=""
+            class=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://img1.baidu.com/it/u=698308753,100337818&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=701"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://img0.baidu.com/it/u=2055808748,875051110&fm=253&fmt=auto&app=138&f=JPEG?w=1082&h=500"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://bkimg.cdn.bcebos.com/pic/9922720e0cf3d7cadd449a9cf91fbe096a63a9ae"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://img2.baidu.com/it/u=99529805,3088776426&fm=253&fmt=auto&app=120&f=JPEG?w=640&h=436"
+            alt=""
+          />
+        </div>
         <div class="swiper-slide">
           <img
             src="https://img2.baidu.com/it/u=600665153,2765669675&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
-            alt="" />
+            alt=""
+          />
         </div>
         <div class="swiper-slide">
           <img
             src="https://bkimg.cdn.bcebos.com/pic/5d6034a85edf8db1cb13f32fc277ca54564e9258de79"
-            alt="" />
+            alt=""
+          />
         </div>
-        <div class="swiper-slide"><img src="https://wsingbssdl.kugou.com/ef8df5154ed5e7a65f502dadd36ff37a.jpg" alt="" /></div>
-        <div class="swiper-slide"><img src="https://img0.baidu.com/it/u=1857692777,4120678152&fm=253&fmt=auto&app=120&f=PNG?w=913&h=500" alt="" /></div>
+        <div class="swiper-slide">
+          <img
+            src="https://wsingbssdl.kugou.com/ef8df5154ed5e7a65f502dadd36ff37a.jpg"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://img0.baidu.com/it/u=1857692777,4120678152&fm=253&fmt=auto&app=120&f=PNG?w=913&h=500"
+            alt=""
+          />
+        </div>
       </div>
       <div class="swiper-pagination"></div>
     </div>
     <script>
-      var swiper = new Swiper('.mySwiper', {
+      var swiper = new Swiper(".mySwiper", {
         spaceBetween: 30,
         centeredSlides: true,
-        direction: 'vertical',
+        direction: "vertical",
         autoplay: {
           delay: 2500,
           disableOnInteraction: false,
         },
 
         pagination: {
-          el: '.swiper-pagination',
+          el: ".swiper-pagination",
           clickable: true,
           renderBullet: function (index, className) {
-            console.log(className)
-            let text = ''
+            console.log(className);
+            let text = "";
             switch (index) {
               case 0:
-                text = '秦时明月'
-                break
+                text = "秦时明月";
+                break;
               case 1:
-                text = '完美世界'
-                break
+                text = "完美世界";
+                break;
               case 2:
-                text = '斗破苍穹'
-                break
+                text = "斗破苍穹";
+                break;
               case 3:
-                text = '凡人修仙'
-                break
+                text = "凡人修仙";
+                break;
               case 4:
-                text = '一念永恒'
-                break
+                text = "一念永恒";
+                break;
               case 5:
-                text = '神印王座'
-                break
+                text = "神印王座";
+                break;
               case 6:
-                text = '画江湖之不良人'
-                break
+                text = "画江湖之不良人";
+                break;
               case 7:
-                text = '星辰变5'
-                break
+                text = "星辰变5";
+                break;
               case 8:
-                text = '吞噬星空'
-                break
+                text = "吞噬星空";
+                break;
             }
-            return '<div class="' + className + '">' + text + '</div>'
+            return '<div class="' + className + '">' + text + "</div>";
           },
         },
-      })
+      });
       for (i = 0; i < swiper.pagination.bullets.length; i++) {
         swiper.pagination.bullets[i].onmouseover = function () {
-          this.click()
-        }
+          this.click();
+        };
       }
     </script>
   </body>
