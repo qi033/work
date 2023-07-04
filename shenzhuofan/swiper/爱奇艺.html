@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.css">
+    <script src="../../common/swiper/swiper-bundle.js"></script>
+    <style>
+        .swiper {
+            width: 1000px;
+            height: 600px;
+            margin-top: 50px;
+            background-color: aqua;
+        }
+
+        .swiper-pagination-bullets .swiper-pagination-bullet,
+        .swiper-pagination-vertical.swiper-pagination-bullets .swiper-pagination-bullet {
+            width: 100px;
+            margin-top: 20px;
+            line-height: 30px;
+        }
+
+        .swiper-pagination-bullet {
+            width: 100px;
+            height: 30px;
+            border-radius: 0px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .swiper img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="https://img2.baidu.com/it/u=3987122292,2490938910&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img0.baidu.com/it/u=305577957,2167911130&fm=253&fmt=auto&app=138&f=JPEG?w=1058&h=500"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img2.baidu.com/it/u=3903654268,1480222978&fm=253&fmt=auto&app=138&f=JPEG?w=658&h=282"
+                    alt="">
+            </div>
+        </div>
+        <div class="swiper-pagination"></div><!--分页器。如果放置在swiper外面，需要自定义样式。-->
+    </div>
+    <script language="javascript">
+        var mySwiper = new Swiper('.swiper', {
+            pagination: {
+                el: '.swiper-pagination',
+                // type: "custom",
+                clickable: true,
+                renderBullet: function (index, className) {
+                    return '<span class="' + className + '">' + (index + 1) + '</span>';
+                },
+                renderBullet: function (index, className) {
+                    switch (index) {
+                        case 0: text = '一出好戏'; break;
+                        case 1: text = '绣春刀'; break;
+                        case 2: text = '扫毒'; break;
+                    }
+                    return '<span class="' + className + '">' + text + '</span>';
+                },
+            },
+            direction: "vertical",
+            effect: 'fade',
+            autoplay: true,
+        })
+        // 鼠标滑过显示slide
+        for (i = 0; i < mySwiper.pagination.bullets.length; i++) {
+            mySwiper.pagination.bullets[i].onmouseover = function () {
+                this.click();
+            };
+        } 
+    </script>
+</body>
+
+</html>

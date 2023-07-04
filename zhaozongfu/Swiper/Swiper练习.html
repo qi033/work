@@ -2,26 +2,43 @@
 <html>
 
 <head>
-    ...
-    <link rel="stylesheet" href="dist/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.min.css">
 </head>
 <style>
     .swiper {
         width: 600px;
         height: 300px;
     }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
 </style>
 
 <body>
-    ...
-    <script src="dist/js/swiper-bundle.min.js"></script>
-    ...
+    <script src="../../common/swiper/swiper-bundle.js"></script>
 </body>
 <div class="swiper">
     <div class="swiper-wrapper">
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide"><img
+                src="https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/5g/5g7ew7.jpg?w=400&h=200&fmt=webp"
+                alt=""></div>
+        <div class="swiper-slide"><img
+                src="https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/9d/9d89zw.jpg?w=400&h=200&fmt=webp"
+                alt=""></div>
+        <div class="swiper-slide"><img
+                src="https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/zy/zypzrw.jpg?w=400&h=200&fmt=webp"
+                alt=""></div>
+        <div class="swiper-slide"><img
+                src="https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/vq/vqy2jp.jpg?w=400&h=200&fmt=webp"
+                alt=""></div>
+        <div class="swiper-slide"><img
+                src="https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/85/85o17y.jpg?w=400&h=200&fmt=webp"
+                alt=""></div>
+        <div class="swiper-slide"><img
+                src="https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/d6/d63voj.jpg?w=400&h=200&fmt=webp"
+                alt=""></div>
     </div>
     <!-- 如果需要分页器 -->
     <div class="swiper-pagination"></div>
@@ -33,10 +50,17 @@
     <!-- 如果需要滚动条 -->
     <div class="swiper-scrollbar"></div>
 </div>
-导航等组件可以放在Swiper容器之外
 <script>
     var mySwiper = new Swiper('.swiper', {
-        direction: 'vertical', // 垂直切换选项
+        direction: 'horizontal', // 垂直切换选项
+        speed: 3000,
+        grabCursor: true,
+        roundLengths: true,
+        autoHeight: true, //高度随内容变化
+        updateOnImagesReady : true,
+        autoplay: {
+            delay: 2000
+        },
         loop: true, // 循环模式选项
 
         // 如果需要分页器
@@ -53,6 +77,9 @@
         // 如果需要滚动条
         scrollbar: {
             el: '.swiper-scrollbar',
+            hide: true,
+            draggable: true,
+            snapOnRelease: false,
         },
     })        
 </script>

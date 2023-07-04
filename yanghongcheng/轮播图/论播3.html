@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.css" />
+    <script src="../../common/swiper/swiper-bundle.js"></script>
+  </head>
+  <body>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://www4.bing.com//th?id=OHR.RomeView_ZH-CN5882212305_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp&w=360&h=202" class="img"></div>
+        <div class="swiper-slide"><img src="https://www4.bing.com//th?id=OHR.ClamBears_ZH-CN5686721500_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp&w=360&h=202" class="img"></div>
+        <div class="swiper-slide"><img src="https://www4.bing.com//th?id=OHR.BanyakIslands_ZH-CN6620304821_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp&w=360&h=202" class="img"></div>
+        <div class="swiper-slide"><img src="https://www4.bing.com//th?id=OHR.ItalyCinqueTerre_ZH-CN6495965228_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp&w=360&h=202" class="img"></div>
+        <div class="swiper-slide"><img src="https://www4.bing.com//th?id=OHR.SedonaSunset_ZH-CN6289462383_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp&w=360&h=202" class="img"></div>
+        <div class="swiper-slide"><img src="https://www4.bing.com//th?id=OHR.VillandryGarden_ZH-CN6140359139_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp&w=360&h=202" class="img"></div>
+        <div class="swiper-slide"><img src="https://www4.bing.com//th?id=OHR.PetraTreasury_ZH-CN6007151900_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp&w=360&h=202" class="img"></div>
+        <div class="swiper-slide"><img src="https://www4.bing.com//th?id=OHR.NhaTrang_ZH-CN5834700560_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp&w=360&h=202" class="img"></div>
+        <div class="swiper-slide"><img src="https://www4.bing.com//th?id=OHR.PollinatorMonarch_ZH-CN5556988827_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp&w=360&h=202" class="img"></div>
+      </div>
+      <div class="swiper-pagination" id="myElement"></div>
+    </div>
+    <style>
+      .swiper-slide {
+        background-color: chartreuse;
+      }
+      .swiper-slide size {
+        float: right;
+      }
+      .swiper {
+        width: 800px;
+        height: 500px;
+      }
+      .img{
+        width: 800px;
+        height: 500px;
+      }
+      .swiper-pagination span {
+        /* float: right; */
+        width: 200px;
+        height: 50px;
+        margin: 20px;
+        font-size: 10px;
+        border-radius: 0%;
+        position: relative;
+        color: azure;
+        background: rgba(128, 128, 128, 0.3);
+      }
+    </style>
+    <script>
+      var swiper = new Swiper(".swiper", {
+        direction: "vertical", // 垂直切换选项
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          // renderBullet: function (index, className) {
+          //   return '<span class="' + className + '">' + (index + 1) + '</span>';
+          // },
+          // 如果需要分页器
+          pagination: {
+            el: ".swiper-pagination",
+          },
+          renderBullet: function (index, className) {
+            switch (index) {
+              case 0:
+                text = "县委大院";
+                break;
+              case 1:
+                text = "这么猛的页游你没玩过";
+                break;
+              case 2:
+                text = "卿卿日常";
+                break;
+              case 3:
+                text = "【凡人修仙传】剑平八方<br>攻速拉满！伤害拉满！爆率拉满！真回收";
+                break;
+              case 4:
+                text = "风吹半夏";
+                break;
+              case 5:
+                text = "喜剧大赛2";
+                break;
+              case 6:
+                text = "元音大冒险";
+                break;
+              case 7:
+                text = "上线满攻速大圣";
+                break;
+              case 8:
+                text = "平凡英雄";
+                break;
+            }
+            return '<span class="' + className + '">' + text + "</span>";
+          },
+        },
+      });
+      for (i = 0; i < swiper.pagination.bullets.length; i++) {
+        swiper.pagination.bullets[i].index = i;
+        swiper.pagination.bullets[i].onmouseover = function () {
+          swiper.slideTo(this.index);
+        };
+      }
+      //如果你开启了clickable，还可以这样
+      for (i = 0; i < swiper.pagination.bullets.length; i++) {
+        swiper.pagination.bullets[i].onmouseover = function () {
+          this.click();
+        };
+      }
+    </script>
+  </body>
+</html>
