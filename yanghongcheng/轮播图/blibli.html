@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.css" />
+    <script src="../../common/swiper/swiper-bundle.js"></script>
+  </head>
+  <body>
+    <style>
+      .swiper-slide {
+        background-color: chartreuse;
+      }
+      .swiper {
+        width: 600px;
+        height: 300px;
+      }
+      .cvs {
+        width: 600px;
+        height: 400px;
+        margin: auto;
+        background-color: rgba(126, 126, 126, 0.3);
+      }
+      .blix {
+        width: 55px;
+        height: 25px;
+        position: relative;
+        float: right;
+        margin-top: 30px;
+        margin-right: 20px;
+        /* background-color: rgb(121, 121, 121); */
+      }
+      :root {
+        --swiper-navigation-size: 14px;
+        --swiper-theme-color: #ffffff;
+      }
+      .left {
+        width: 25px;
+        height: 25px;
+        position: relative;
+        float: left;
+        background-color: rgba(191, 191, 191, 0.6);
+        border-radius: 7px;
+      }
+      .right {
+        width: 25px;
+        height: 25px;
+        float: right;
+        position: relative;
+        background-color: rgba(191, 191, 191, 0.5);
+        border-radius: 7px;
+      }
+      .feny{
+        width: 200px;
+        height: 30px;
+        margin-top: 70px;
+        float: left;
+        position: relative;
+        /* background-color: antiquewhite; */
+      }
+    </style>
+    <div class="cvs">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" data-hash="slide1">1</div>
+          <div class="swiper-slide" data-hash="slide2">2</div>
+          <div class="swiper-slide" data-hash="slide3">3</div>
+          <div class="swiper-slide" data-hash="slide1">1</div>
+          <div class="swiper-slide" data-hash="slide2">2</div>
+          <div class="swiper-slide" data-hash="slide3">3</div>
+        </div>
+        
+      </div>
+      <div class="feny">
+          <!-- 如果需要分页器 -->
+          <div class="swiper-pagination"></div>
+        </div>
+      <div class="blix">
+        <!-- 如果需要导航按钮 -->
+        <div class="left"><div class="swiper-button-prev"></div></div>
+        <div class="right"><div class="swiper-button-next"></div></div>
+      </div>
+    </div>
+
+    <script>
+      var swiper = new Swiper(".swiper", {
+        direction: "horizontal", // 垂直切换选项
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          // 如果需要分页器
+          pagination: {
+            el: ".swiper-pagination",
+          },
+        },
+        // 如果需要前进后退按钮
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+  </body>
+</html>
