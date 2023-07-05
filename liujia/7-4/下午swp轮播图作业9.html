@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -190,3 +191,197 @@
 </body>
 
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Swiper的切换</title>
+    <link rel="stylesheet" href="../common/swiper/swiper1.min.css">
+    <script src="../common/swiper/swiper1.min.js"></script>
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            background: url("https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/d674db6e49bbc3398fc1e6cf79a2c183_6988813756339003690.png?x-oss-process=image/format,webp/quality,Q_90") no-repeat 0 0/100% 100%;
+        }
+
+        #certify {
+            position: relative;
+            top: 25%;
+            width: 1100px;
+            margin: 0 auto
+        }
+
+        #certify .swiper-container {
+            padding-bottom: 60px;
+        }
+
+        #certify .swiper-slide {
+            width: 520px;
+            height: 408px;
+            background: #fff;
+            box-shadow: 0 8px 30px #ddd;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #certify .swiper-slide img {
+            display: block;
+        }
+
+
+
+        #certify .swiper-pagination {
+            width: 100%;
+            bottom: 20px;
+        }
+
+        #certify .swiper-pagination-bullets .swiper-pagination-bullet {
+            margin: 0 5px;
+            border: 3px solid #fff;
+            background-color: #d5d5d5;
+            width: 10px;
+            height: 10px;
+            opacity: 1;
+        }
+
+        #certify .swiper-pagination-bullets .swiper-pagination-bullet-active {
+            border: 3px solid #00aadc;
+            background-color: #fff;
+        }
+
+        #certify .swiper-button-prev {
+            left: -30px;
+            width: 45px;
+            height: 45px;
+            background: url(../images/wm_button_icon.png) no-repeat;
+            background-position: 0 0;
+            background-size: 100%;
+        }
+
+        #certify .swiper-button-prev:hover {
+            background-position: 0 -46px;
+            background-size: 100%
+        }
+
+        #certify .swiper-button-next {
+            right: -30px;
+            width: 45px;
+            height: 45px;
+            background: url(../images/wm_button_icon.png) no-repeat;
+            background-position: 0 -93px;
+            background-size: 100%;
+        }
+
+        #certify .swiper-button-next:hover {
+            background-position: 0 -139px;
+            background-size: 100%
+        }
+    </style>
+</head>
+
+<body>
+    <div id="certify">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img
+                        src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/64328ac4ad4baf3f13f6e36dac889703_4068855659663110277.png?x-oss-process=image/format,webp/quality,Q_90" />
+                </div>
+                <div class="swiper-slide"><img
+                        src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/3a1760449507c96a28c066148f3c8a16_203547796934874932.png?x-oss-process=image/format,webp/quality,Q_90" />
+
+                </div>
+                <div class="swiper-slide"><img
+                        src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/7a54dc691e450c32262c3d565234946d_7367504620217885063.png?x-oss-process=image/format,webp/quality,Q_90" />
+
+                </div>
+                <div class="swiper-slide"><img
+                        src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/b43fe71f11ef5147c57e287e16592422_6798603925736605711.png?x-oss-process=image/format,webp/quality,Q_90" />
+
+                </div>
+                <div class="swiper-slide"><img
+                        src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/44ce304232ab4ee2a821b9144ee82d1c_1713110891755259775.png?x-oss-process=image/format,webp/quality,Q_90" />
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"><svg t="1688471148474" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" p-id="3045" width="48" height="48">
+                <path
+                    d="M514 114.3c219.9 0 398.8 178.9 398.8 398.9C912.8 733.1 733.9 912 514 912S115.2 733.1 115.2 513.2 294.1 114.3 514 114.3z m0 701.6c166.9 0 302.7-135.8 302.7-302.7S680.9 210.5 514 210.5 211.3 346.3 211.3 513.2 347.1 815.9 514 815.9z"
+                    fill="#BDD2EF" p-id="3046"></path>
+                <path
+                    d="M281.9 554.7L446 718.8c22.9 22.9 60.2 22.9 83.1 0 22.9-22.9 22.9-60.2 0-83.1L465.3 572H694c32.5 0 58.8-26.3 58.8-58.8s-26.3-58.8-58.8-58.8H465.3l63.8-63.8c11.5-11.5 17.2-26.5 17.2-41.5s-5.7-30.1-17.2-41.5c-22.9-22.9-60.2-22.9-83.1 0l-164.1 164c-22.9 23-22.9 60.2 0 83.1z"
+                    fill="#2867CE" p-id="3047"></path>
+            </svg></div>
+        <div class="swiper-button-next"><svg t="1688471191715" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" p-id="4111" width="48" height="48">
+                <path
+                    d="M514 912c-219.9 0-398.8-178.9-398.8-398.9 0-219.9 178.9-398.8 398.8-398.8s398.8 178.9 398.8 398.8c0 220-178.9 398.9-398.8 398.9z m0-701.5c-166.9 0-302.7 135.8-302.7 302.7S347.1 815.9 514 815.9s302.7-135.8 302.7-302.7S680.9 210.5 514 210.5z"
+                    fill="#BDD2EF" p-id="4112"></path>
+                <path
+                    d="M746.1 471.6L582 307.5c-22.9-22.9-60.2-22.9-83.1 0-22.9 22.9-22.9 60.2 0 83.1l63.8 63.8H334c-32.5 0-58.8 26.3-58.8 58.8S301.5 572 334 572h228.7l-63.8 63.8c-11.5 11.5-17.2 26.5-17.2 41.5s5.7 30.1 17.2 41.5c22.9 22.9 60.2 22.9 83.1 0l164.1-164.1c22.9-22.9 22.9-60.1 0-83.1z"
+                    fill="#2867CE" p-id="4113"></path>
+            </svg></div>
+    </div>
+
+    <script>
+        certifySwiper = new Swiper('#certify .swiper-container', {
+            watchSlidesProgress: true,
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            loop: true,
+            loopedSlides: 5,
+            autoplay: true,
+            autoplay: {
+                delay: 2000
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            on: {
+                progress: function (progress) {
+                    for (i = 0; i < this.slides.length; i++) {
+                        var slide = this.slides.eq(i);
+                        var slideProgress = this.slides[i].progress;
+                        modify = 1;
+                        if (Math.abs(slideProgress) > 1) {
+                            modify = (Math.abs(slideProgress) - 1) * 0.3 + 1;
+                        }
+                        translate = slideProgress * modify * 260 + 'px';
+                        scale = 1 - Math.abs(slideProgress) / 5;
+                        zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
+                        slide.transform('translateX(' + translate + ') scale(' + scale + ')');
+                        slide.css('zIndex', zIndex);
+                        slide.css('opacity', 1);
+                        if (Math.abs(slideProgress) > 3) {
+                            slide.css('opacity', 0);
+                        }
+                    }
+                },
+                setTransition: function (transition) {
+                    for (var i = 0; i < this.slides.length; i++) {
+                        var slide = this.slides.eq(i)
+                        slide.transition(transition);
+                    }
+
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>
+>>>>>>> 8dabbb1253613cb5a014766ce4c43b56e740a12f

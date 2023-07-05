@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="../swiper/3.swiper.com.cn_dist_css_swiper.min.css"
+    />
+
+    <!-- Demo styles -->
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+      body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+      .swiper-container {
+        width: 100%;
+        height: 100%;
+      }
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        transition: 300ms;
+        transform: scale(0.8);
+      }
+      .swiper-slide-active,
+      .swiper-slide-duplicate-active {
+        transform: scale(1);
+      }
+      div p {
+        position: absolute;
+        bottom: 80px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Swiper -->
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="https://puui.qpic.cn/vcover_vt_pic/0/hzgtnf6tbvfekfv1555149409/350?max_age=7776001"
+            alt=""
+          />
+          <p>名侦探柯南</p>
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://puui.qpic.cn/vcover_vt_pic/0/m441e3rjq9kwpsc1685060485281/350?max_age=7776001"
+            alt=""
+          />
+          <p>斗罗大陆</p>
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://puui.qpic.cn/vcover_vt_pic/0/0sdnyl7h86atoyt1687568835315/350?max_age=7776001"
+            alt=""
+          />
+          <p>狐妖小红娘</p>
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://puui.qpic.cn/vcover_vt_pic/0/mcv8hkc8zk8lnov1684841000366/350?max_age=7776001"
+            alt=""
+          />
+          <p>完美世界</p>
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://puui.qpic.cn/vcover_vt_pic/0/mzc00200syigvst1686797660344/350?max_age=7776001"
+            alt=""
+          />
+          <p>全职法师</p>
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://puui.qpic.cn/vcover_vt_pic/0/mzc00200ni38yk31628409211817/350?max_age=7776001"
+            alt=""
+          />
+          <p>一人之下</p>
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://puui.qpic.cn/vcover_vt_pic/0/k4mutekomtrdbux1625798477193/350?max_age=7776001"
+            alt=""
+          />
+          <p>魔道祖师</p>
+        </div>
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="../swiper/3.swiper.com.cn_dist_js_swiper.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".swiper-container", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        centeredSlides: true,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
+  </body>
+</html>

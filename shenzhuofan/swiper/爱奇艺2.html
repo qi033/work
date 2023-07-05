@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.css">
+    <script src="../../common/swiper/swiper-bundle.js"></script>
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 400px;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="https://img1.baidu.com/it/u=2445819847,2818338105&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=737"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img1.baidu.com/it/u=4191466006,3227508269&fm=253&fmt=auto&app=138&f=JPEG?w=340&h=500"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img2.baidu.com/it/u=4069218640,2710794844&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=729"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img1.baidu.com/it/u=1332341378,2284557046&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=747"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img2.baidu.com/it/u=3460633806,4263671258&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=700"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img1.baidu.com/it/u=790858582,3548108412&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=777"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img2.baidu.com/it/u=3655286442,3192925080&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1131"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img0.baidu.com/it/u=4262576193,2290238589&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=710"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img1.baidu.com/it/u=1083491648,2062179743&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=699"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img1.baidu.com/it/u=3137270769,3389774076&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=700"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img2.baidu.com/it/u=671272342,3249804457&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=678"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img2.baidu.com/it/u=3943808027,2296440320&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=736"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img2.baidu.com/it/u=2975833778,1133656748&fm=253&fmt=auto&app=138&f=JPEG?w=333&h=500"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img0.baidu.com/it/u=3953431946,3197125140&fm=253&fmt=auto&app=138&f=JPEG?w=340&h=500"
+                    alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://img2.baidu.com/it/u=4218572478,2157945696&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=707"
+                    alt="">
+            </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            slidesPerView: 1,
+            spaceBetween: 30,
+            breakpoints: {
+                1280: {  //当屏幕宽度大于等于1280
+                    slidesPerView: 6,
+                    spaceBetween: 30
+                }
+            },
+            rewind: true,
+        });
+    </script>
+</body>
+
+</html>

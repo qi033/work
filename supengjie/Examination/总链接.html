@@ -171,21 +171,72 @@
             font-size: 20px;
             position: absolute;
             top: 63%;
-            left: 32%;
+            left: 30%;
             color: #b72727;
         }
-        ul{
+
+        ul {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
         }
-        li{
+
+        li {
             float: left;
+        }
+
+        .fu-character span{
+            color: black;
+            transform: rotate(100deg)!important;
+        }
+        /* 福字容器 */
+        .fu-container {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background-color: #FFD700;
+            animation: rotateFu 4s linear infinite;
+            /* 设置动画属性 */
+            float: left;
+            margin-top: -150px;
+            text-align: center;
+            line-height: 100px;
+            transform: rotate(-45deg);
+            background-color: #b72727;
+            border: 5px solid #FFD700;
+        }
+
+
+        /* 福字 */
+        .fu-character {
+            width: 80px;
+            height: 80px;
+            font-size: 48px;
+            font-weight: bold;
+            position: absolute;
+            top: 8%;
+            left: 8%;
+            border: 3px solid #FFD700;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 78px;
+        }
+       
+        /* 定义旋转动画 */
+        @keyframes rotateFu {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
 
 <body>
+   
     <div class="table">
         <div class="top">
             <div class="subtop">
@@ -193,6 +244,10 @@
             </div>
         </div>
         <div class="left">
+            <div class="fu-container">
+                <div class="fu-character"><span>福</span></div>
+            </div>
+            
             <div class="subleft">
                 <p>学</p>
                 <p>海</p>
@@ -204,6 +259,9 @@
             </div>
         </div>
         <div class="right">
+            <div class="fu-container">
+                <div class="fu-character"><span>福</span></div>
+            </div>
             <div class="subright">
                 <p>书</p>
                 <p>山</p>
@@ -214,70 +272,71 @@
                 <p>径</p>
             </div>
         </div>
+
         <div class="cushion">
             <ul>
                 <li>
                     <div class="dumpling">
                         <a href="./6-30考试.html">6-30考试</a>
-                        <img src="../../../../Img/饺子2.png" alt="">
+                        <img src="./Img/饺子2.png" alt="">
+                    </div>
+                </li>
+                <li>
+                    <div class="dumpling">
+                        <a href="./Map/map练习题合集.html">Map练习题</a>
+                        <img src="./Img/饺子2.png" alt="">
+                    </div>
+                </li>
+                <li>
+                    <div class="dumpling">
+                        <a href="../Examination/Swiper/练习题集合.html">Swiper练习题</a>
+                        <img src="./Img/饺子2.png" alt="">
                     </div>
                 </li>
                 <li>
                     <div class="dumpling">
                         <a href="#">.....</a>
-                        <img src="../../../../Img/饺子2.png" alt="">
+                        <img src="./Img/饺子2.png" alt="">
                     </div>
                 </li>
                 <li>
                     <div class="dumpling">
                         <a href="#">.....</a>
-                        <img src="../../../../Img/饺子2.png" alt="">
+                        <img src="./Img/饺子2.png" alt="">
                     </div>
                 </li>
                 <li>
                     <div class="dumpling">
                         <a href="#">.....</a>
-                        <img src="../../../../Img/饺子2.png" alt="">
+                        <img src="./Img/饺子2.png" alt="">
                     </div>
                 </li>
                 <li>
                     <div class="dumpling">
                         <a href="#">.....</a>
-                        <img src="../../../../Img/饺子2.png" alt="">
+                        <img src="./Img/饺子2.png" alt="">
                     </div>
                 </li>
                 <li>
                     <div class="dumpling">
                         <a href="#">.....</a>
-                        <img src="../../../../Img/饺子2.png" alt="">
+                        <img src="./Img/饺子2.png" alt="">
                     </div>
                 </li>
                 <li>
                     <div class="dumpling">
                         <a href="#">.....</a>
-                        <img src="../../../../Img/饺子2.png" alt="">
+                        <img src="./Img/饺子2.png" alt="">
                     </div>
                 </li>
                 <li>
                     <div class="dumpling">
                         <a href="#">.....</a>
-                        <img src="../../../../Img/饺子2.png" alt="">
-                    </div>
-                </li>
-                <li>
-                    <div class="dumpling">
-                        <a href="#">.....</a>
-                        <img src="../../../../Img/饺子2.png" alt="">
-                    </div>
-                </li>
-                <li>
-                    <div class="dumpling">
-                        <a href="#">.....</a>
-                        <img src="../../../../Img/饺子2.png" alt="">
+                        <img src="./Img/饺子2.png" alt="">
                     </div>
                 </li>
             </ul>
-           
+
         </div>
 
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      #div {
+        width: 500px;
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div"></div>
+    <script>
+      window._AMapSecurityConfig = {
+        securityJsCode: "6127e7d753b4168c5ea630d9ee998602",
+      };
+    </script>
+    <script src="https://webapi.amap.com/loader.js"></script>
+    <script src="https://webapi.amap.com/maps?v=2.0&key=6ec0244b3200be8d0f897660d31c439c&plugin=AMap.ToolBar,AMap.Scale,AMap.Geolocation"></script>
+    <script>
+      const layer = new AMap.createDefaultLayer({
+        zooms: [3, 20],
+        visible: true,
+        opacity: 1,
+        zIndex: 0,
+      });
+      const map = new AMap.Map("div", {
+        viewMode: "2D",
+        zoom: 16,
+        center: [113.42857018606229, 34.77238802023721],
+        layers: [layer],
+      });
+      const markerContent =
+        "" +
+        '<div class="custom-content-marker">' +
+        '   <img src="//a.amap.com/jsapi_demos/static/demo-center/icons/dir-via-marker.png">' +
+        '   <div class="close-btn" onclick="clearMarker()">X</div>' +
+        "</div>";
+      console.log(markerContent);
+      const position = new AMap.LngLat(113.42857018606229, 34.77238802023721); // Marker经纬度
+      const marker = new AMap.Marker({
+        position: position,
+        content: markerContent, // 将 html 传给 content
+        offset: new AMap.Pixel(-30, -90), // 以 icon 的 [center bottom] 为原点
+      });
+      map.add(marker);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.css" />
+    <script src="../../common/swiper/swiper-bundle.js"></script>
+</head>
+
+<body>
+    <style>
+        .swiper-slide {
+            background-color: chartreuse;
+        }
+
+        .swiper {
+            width: 600px;
+            height: 300px;
+        }
+
+        .bnm {
+            width: 200px;
+            height: 30px;
+            float: left;
+            /* position: relative; */
+            background-color: antiquewhite;
+        }
+
+        #my-bullet-active {
+            background: #ff3700;
+            opacity: 1;
+        }
+    </style>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" data-hash="slide1">
+                <img src="https://img.henan.gov.cn/6a69edf66528720b8774bbf34cdf2188?p=0" width="600px" height="300px" />
+            </div>
+            <div class="swiper-slide" id="swiper-slidet" data-hash="slide2">
+                <img src="https://img.henan.gov.cn/b11b9082df936dc8987ae7f4b9d913f8?p=0" width="700px" height="300px" />
+            </div>
+            <div class="swiper-slide" data-hash="slide3">
+                <img src="https://img.henan.gov.cn/040fb7d4d33a1f10d24f61ec05c46093?p=0" width="800px" height="300px" />
+            </div>
+            <div class="swiper-slide" data-hash="slide4">
+                <img src="https://img.henan.gov.cn/65aec2cea708c01294ad45fd4a4dbc9c?p=0" width="800px" height="300px" />
+            </div>
+            <div class="swiper-slide" data-hash="slide5">
+                <img src="https://img.henan.gov.cn/0b3551c611746e7e930cdfa899c2d314?p=0" width="800px" height="300px" />
+            </div>
+        </div>
+        <!-- 如果需要分页器 -->
+            <div class="swiper-pagination" id="my-bullet-active"></div>
+        <!-- 如果需要导航按钮 -->
+
+        <div class="swiper-button-prev"></div>
+
+        <div class="swiper-button-next"></div>
+
+        <!-- 如果需要滚动条 -->
+        <!-- <div class="swiper-scrollbar"></div> -->
+    </div>
+    <script>
+        var mySwiper = new Swiper(".swiper", {
+            rewind: true,
+            bulletActiveClass: 'my-bullet-active',
+            direction: "horizontal", // 垂直切换选项
+            // loop: true, // 循环模式选项
+            // 如果需要分页器
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            // 如果需要前进后退按钮
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+
+        });
+      //自动滚动
+      //   setInterval("mySwiper.slidePrev()", 3000);
+    </script>
+</body>
+
+</html>

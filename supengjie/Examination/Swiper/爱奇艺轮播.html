@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../common/swiper/swiper-bundle.css">
+    <script src="../../../common/swiper/swiper-bundle.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .swiper {
+            width: 100%;
+            height: 800px;
+        }
+
+        img {
+            width: 100%;
+            height: 800px;
+        }
+
+        .swiper-pagination-bullet {
+            width: 200px;
+            height: 50px;
+            border-radius: 0;
+            color: rgb(255, 255, 255);
+            line-height: 50px;
+            background-color: transparent;
+        }
+        .swiper-pagination-bullet:hover {
+            font-size: 25px;
+            color: #fff;
+            font-weight: 900;
+            /* background-color: black; */
+            box-shadow: inset 0px -30px 30px -30px rgba(0, 0, 0, 0.7), inset 0px 30px 30px -30px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="../Img/来活了兄弟.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/传奇.webp" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/尘缘.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/暗夜.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/南阳女儿情.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/长风渡.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/权利的游戏.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/北京.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/仙侠神域.webp" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/战斧行动.jpg" alt=""></div>
+
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+</body>
+<script>
+    var mySwiper = new Swiper('.swiper', {
+        direction: 'vertical',
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        renderBullet: function (index, className) {
+          return '<span class="' + className + '">' + (index + 1) + '</span>';
+        },
+      renderBullet: function (index, className) {
+          switch(index){
+            case 0:text='来活了兄弟';break;
+            case 1:text='传奇';break;
+            case 2:text='尘缘';break;
+            case 3:text='暗夜';break;
+            case 4:text='南阳女儿情';break;
+            case 5:text='长风渡';break;
+            case 6:text='权利的游戏';break;
+            case 7:text='北京';break;
+            case 8:text='仙侠神域';break;
+            case 9:text='战斧行动';break;
+          }
+          return '<span class="' + className + '">' + text + '</span>';
+        }
+  }
+ });
+    var bullets = document.querySelectorAll('.swiper-pagination-bullet');
+    bullets.forEach(function (bullet, index) {
+        bullet.addEventListener('mouseenter', function () {
+            mySwiper.slideToLoop(index);
+        });
+    });
+</script>
+
+</html>

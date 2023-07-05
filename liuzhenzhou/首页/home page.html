@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        text-decoration: none;
+        color: #000;
+      }
+      body {
+        background-image: url("./cool-background.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .bos {
+        width: 120vh;
+        height: 1000px;
+        margin: 0 auto;
+        background-color: rgba(0, 225, 225, 0.5);
+        transition: 0.2s all;
+        box-shadow: 7px 7px 12px rgba(0, 0, 0, 0.4),
+          -7px -7px 12px rgba(255, 255, 255, 0.9),
+          inset 0 0 0x rgba(255, 255, 255, 0.9), inset 0 0 0 rgba(0, 0, 0, 0.4);
+      }
+      .thead-con {
+        text-align: center;
+        font-weight: 100;
+        font-family: "宋体";
+        font-size: 60px;
+      }
+      .footer {
+        width: 100%;
+      }
+      h3 {
+        text-align: center;
+        font-weight: 100;
+        font-family: "宋体";
+      }
+      .content {
+        width: 80%;
+        height: 88%;
+        border-radius: 15px;
+        margin: 0 auto;
+        background-color: rgba(10, 224, 224, 0.2);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        padding-top: 20px;
+        box-shadow: 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.4);
+      }
+      .con-z {
+        width: 18vh;
+        height: 14vh;
+        margin: 1.5vh 3vh;
+        line-height: 14vh;
+        text-align: center;
+        color: #fff;
+        border-radius: 5px;
+        padding: 10px 25px;
+        font-family: "Lato", sans-serif;
+        font-weight: 500;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+          7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+          4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+        outline: none;
+      }
+      .con-z {
+        padding: 0;
+        border: none;
+        background: rgb(255, 27, 0);
+        background: linear-gradient(
+          0deg,
+          rgba(255, 27, 0, 1) 0%,
+          rgba(251, 75, 2, 1) 100%
+        );
+      }
+      .con-z:hover {
+        color: #f0094a;
+        background: transparent;
+        box-shadow: none;
+      }
+      .con-z:before,
+      .con-z:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 2px;
+        width: 0;
+        background: #f0094a;
+        box-shadow: -1px -1px 5px 0px #fff, 7px 7px 20px 0px #0003,
+          4px 4px 5px 0px #0002;
+        transition: 400ms ease all;
+      }
+      .con-z:after {
+        right: inherit;
+        top: inherit;
+        left: 0;
+        bottom: 0;
+      }
+      .con-z:hover:before,
+      .con-z:hover:after {
+        width: 100%;
+        transition: 800ms ease all;
+      }
+      .fade-in-top {
+        -webkit-animation: fade-in-top 0.6s cubic-bezier(0.39, 0.575, 0.565, 1)
+          both;
+        animation: fade-in-top 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+      }
+      @-webkit-keyframes fade-in-top {
+        0% {
+          -webkit-transform: translateY(-50px);
+          transform: translateY(-50px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      @keyframes fade-in-top {
+        0% {
+          -webkit-transform: translateY(-50px);
+          transform: translateY(-50px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bos fade-in-top">
+      <div class="thead">
+        <h1 class="thead-con">四段期间</h1>
+      </div>
+      <div class="footer">
+        <h3>刘振洲</h3>
+      </div>
+      <div class="content"></div>
+    </div>
+  </body>
+  <script>
+    const content = document.querySelector(".content");
+    let Url = [
+      {
+        name: "6-30考试",
+        urls: "../23-6-30/htmls/index.html",
+      },
+      {
+        name: "6-25考试",
+        urls: "../23-6-25/index.html",
+      },
+      {
+        name: "Map地图",
+        urls: "../23-7-3/zong-a.html",
+      },
+      {
+        name: "swiper轮播",
+        urls: "../swiper/swipers.html",
+      },
+      {
+        name: "按钮五",
+        urls: "#",
+      },
+      {
+        name: "按钮六",
+        urls: "#",
+      },
+      {
+        name: "按钮七",
+        urls: "#",
+      },
+      {
+        name: "按钮八",
+        urls: "#",
+      },
+    ];
+    (function () {
+      showList();
+    })();
+    function showList() {
+      let html = "";
+      Url.forEach((item, index) => {
+        html += `<a href="${item.urls}" class="con-z" data-index = ${index}>${item.name}</a>`;
+      });
+      content.innerHTML = html;
+    }
+  </script>
+</html>

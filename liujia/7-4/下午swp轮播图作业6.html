@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -214,4 +215,222 @@
     </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <!-- Demo styles -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        body {
+            background: #000;
+            color: #000;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .swiper-slide {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .mySwiper2 {
+            float: left;
+            height: 100%;
+            width: 80%;
+        }
+
+        .mySwiper {
+            height: 100%;
+            float: right;
+            width: 20%;
+            box-sizing: border-box;
+            padding: 10px 0;
+        }
+
+        .mySwiper .swiper-slide {
+            display: block !important;
+            width: 100%;
+            height: 20%;
+            opacity: 0.4;
+        }
+
+        .mySwiper .swiper-slide-thumb-active {
+            opacity: 1;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .xiamain {
+            position: absolute;
+            background-color: rgb(143, 143, 143);
+            width: 100%;
+            height: 100px;
+            line-height: 100px;
+            opacity: 0.6;
+            bottom: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Swiper -->
+
+    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="../img/s1.jpg" />
+                <div class="xiamain">
+                    今天大地在阳光下向我细语，用一种已被遗忘的语言
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="../img/s2.jpg" />
+                <div class="xiamain">
+                    忧伤在我心中沉静下来，宛如降临在寂静山林中的夜色
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="../img/s3.jpg" />
+                <div class="xiamain">
+                    我就像一只停泊在海滩上的小船，聆听着晚潮奏
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="../img/s4.jpg" />
+                <div class="xiamain">
+                    生命是上天赋予的，我们惟有献出生命，才能真正得到它
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="../img/s5.jpg" />
+                <div class="xiamain">
+                    我就像一只停泊在海滩上的小船，聆听着晚潮奏
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="../img/s6.jpg" />
+                <div class="xiamain">
+                    忧伤在我心中沉静下来，宛如降临在寂静山林中的夜色
+                </div>
+            </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    <div thumbsSlider="" class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="../img/s1.jpg" />
+            </div>
+            <div class="swiper-slide">
+                <img src="../img/s2.jpg" />
+            </div>
+            <div class="swiper-slide">
+                <img src="../img/s3.jpg" />
+            </div>
+            <div class="swiper-slide">
+                <img src="../img/s4.jpg" />
+            </div>
+            <div class="swiper-slide">
+                <img src="../img/s5.jpg" />
+            </div>
+            <div class="swiper-slide">
+                <img src="../img/s6.jpg" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            direction: "vertical",
+            spaceBetween: 10,
+            slidesPerView: 4,
+            freeMode: true,
+            watchSlidesProgress: true,
+        });
+        var swiper2 = new Swiper(".mySwiper2", {
+            loop: true,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            thumbs: {
+                swiper: swiper,
+            },
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+        });
+    </script>
+</body>
+
+>>>>>>> 8dabbb1253613cb5a014766ce4c43b56e740a12f
 </html>
