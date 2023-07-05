@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/work/common/swiper/swiper-bundle.css">
+    <script src="/work/common/swiper/swiper-bundle.js"></script>
+    <style>
+      .swiper{
+                    width:900px;
+                    height:300px;
+                    background-color: aquamarine ;
+      }
+    a{
+       width:100px;
+       height:100px;
+       display: inline-block;
+       background-color: brown;
+       color: black;
+       line-height:100px;
+       text-align: center;
+    }
+    </style>
+</head>
+<body>
+<a href="./Swiper.html">Swiper.html</a>
+<a href="./Swiper1.html">Swiper1.html</a>
+<a href="./Swiper2.html">Swiper2.html</a>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+       
+        </div>
+        <div class="swiper-slide">
+         
+        </div>
+        <div class="swiper-slide">
+         
+        </div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+    
+    <!-- 如果需要导航按钮 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    
+    <!-- 如果需要滚动条 -->
+    <div class="swiper-scrollbar"></div>
+</div>
+  <script>        
+    var mySwiper = new Swiper ('.swiper', {
+      // direction: 'vertical', // 垂直切换选项
+      direction:'horizontal',//默认横向
+    //   loop: true, // 循环模式选项
+    //   grabCursor :true,//抓取光标
+    //  setWrapperSize :true,
+    //  virtualTranslate : true,//虚拟翻译
+    //  width: 800, 
+    // //设置宽度为全屏  
+    // width: window.innerWidth,
+          //端点宽度
+    //   breakpoints: {
+    //     1024: {
+    //       width: 500,
+    //     },
+    //     768: {
+    //       width: undefined,//取消width，恢复自适应
+    // },
+    //窗口缩放时设置width
+    // on: {
+    //    resize: function(){
+    //      this.params.width = window.innerWidth;
+    //      this.update();
+    //    },
+    // } ,
+      // 如果需要分页器
+      pagination: {
+    el: '.swiper-pagination',
+  },
+  uniqueNavElements: false,
+  
+     
+      // 如果需要前进后退按钮
+      // navigation: {
+      //   nextEl: '.swiper-button-next',
+      //   prevEl: '.swiper-button-prev',
+      // },
+      
+      // 如果需要滚动条
+      // scrollbar: {
+      //   el: '.swiper-scrollbar',
+      // },
+
+    })        
+    </script>
+</body>
+</html>

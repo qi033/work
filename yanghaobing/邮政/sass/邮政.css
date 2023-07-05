@@ -1,0 +1,323 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-family: "微软雅黑 Regular", Microsoft YaHei;
+  color: #333;
+}
+
+.top {
+  background: url("https://www.spb.gov.cn/gjyzj/xhtml/images/public/headerbg.png") no-repeat;
+  height: 250px;
+}
+
+.container {
+  width: 1200px;
+  height: 100%;
+  margin: auto;
+}
+
+.wz {
+  font-size: 14px;
+  font-family: "微软雅黑", Microsoft YaHei;
+  font-weight: 400;
+  color: #ffffff;
+  margin-top: 18px;
+}
+
+.fl {
+  float: left;
+}
+
+.wz a {
+  font-size: 14px;
+  font-family: "微软雅黑", Microsoft YaHei;
+  font-weight: 400;
+  color: #ffffff;
+  margin-top: 18px;
+}
+
+.header .top1 {
+  margin-top: 18px;
+}
+
+.top1 {
+  position: relative;
+}
+
+.fr {
+  float: right;
+}
+
+.header .top1 span {
+  padding-left: 20px;
+  font-size: 14px;
+  color: #ffffff;
+  display: inline-block;
+  height: 20px;
+}
+
+.header .top1 span a {
+  color: #ffffff;
+}
+
+.zhuce {
+  font-size: 16px;
+  color: #ffffff;
+  z-index: 999;
+  float: right;
+  width: 100px;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.zhuce ul {
+  position: absolute;
+}
+
+.zhuce ul li {
+  float: left;
+  width: 40px;
+  text-align: center;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.zhuce ul li dl {
+  width: 90px;
+  background: #1f559f;
+  display: none;
+  margin-top: 8px;
+  z-index: 999;
+  margin-left: -23px;
+}
+
+.zhuce ul li:hover {
+  display: block;
+}
+
+.clear {
+  clear: both;
+}
+
+.header .logo {
+  margin-top: 58px;
+  padding-bottom: 29px;
+}
+
+img {
+  border: none;
+  display: inline-block;
+  vertical-align: middle;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+.header .search {
+  position: relative;
+  margin-top: 10px;
+  width: 425px;
+}
+
+.sous {
+  width: 100%;
+  height: 44px;
+}
+
+.header .search .sous input {
+  height: 44px;
+  background-color: #e9f0fa;
+  width: 100%;
+  border-radius: 2px;
+  padding-left: 20px;
+  border: 1px solid #1f559f;
+  line-height: 44px;
+}
+
+.header .search .sous button {
+  width: 95px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 44px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #1f559f;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.header .search .sous button img {
+  margin-left: 4px;
+  margin-top: -2px;
+}
+
+button,
+input {
+  outline: 0;
+  border: none;
+}
+
+.reci {
+  width: 100%;
+  font-size: 10px;
+  font-size: Microsoft YaHei;
+  font-weight: 400;
+  color: #666666;
+  margin-top: 17px;
+}
+
+.reci li {
+  float: left;
+  margin-left: 10px;
+}
+
+.reci li a {
+  font-size: 14px;
+  font-family: Microsoft YaHei;
+  font-family: 400;
+  color: #666666;
+}
+
+.nav {
+  height: 49px;
+  background-color: #1f559f;
+}
+
+.header .nav .navul {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.header .nav .navul > li {
+  float: left;
+  width: 198px;
+  text-align: center;
+  border-left: 1px solid #4077b7;
+}
+
+.header .nav .navul > li a {
+  line-height: 49px;
+  font-size: 18px;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.header .nav .navul > li a :hover {
+  background-color: #1f559f;
+}
+
+.row {
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.slide {
+  position: relative;
+  overflow: hidden;
+  height: 391px;
+  width: 61%;
+}
+
+.mt30 {
+  margin-top: 30px !important;
+}
+
+.slide .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.focus {
+  width: 37%;
+}
+
+.mt10 {
+  margin-top: 10 !important;
+}
+
+.list li {
+  line-height: 28px;
+  padding: 5px 0 5px 15px;
+  background: url("https://www.spb.gov.cn/gjyzj/xhtml/images/public/lidian.png") no-repeat 0px;
+  position: relative;
+}
+
+.list span {
+  position: absolute;
+  right: 0;
+  top: 7px;
+  color: #999;
+  font-size: 16px;
+}
+
+.list li a {
+  font-size: 16px;
+  font-weight: 400px;
+}
+
+.w57 {
+  width: 64%;
+}
+
+.column-name {
+  background: url("https://www.spb.gov.cn/gjyzj/xhtml/images/index/zwgkbj.png") no-repeat left;
+}
+
+.column-name span {
+  display: inline-block;
+  width: 167px;
+  text-align: center;
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 40px;
+}
+
+.mt20 {
+  margin-top: 20px !important;
+}/*# sourceMappingURL=邮政.css.map */
