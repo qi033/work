@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/work/common/swiper/swiper-bundle.css">
+    <script src="/work/common/swiper/swiper-bundle.js"></script>
+    <style>
+        a{
+            width:100px;
+            height:50px;
+           display: inline-block;
+           line-height: 50px;
+           text-align: center;
+           margin: 20px;
+           color:white;
+           text-decoration: none;
+          background-color: aqua;
+    } 
+    .swiper {
+        width: 800px;
+        height: 400px;
+      }
+      .swiper-pagination {
+        position: absolute;
+        top: 90%;
+        left: -40% !important;
+      }
+      .swiper-button-prev,
+      .swiper-button-next {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        border-radius: 10px;
+        border: 1px solid rgb(139, 139, 139);
+        background-color: rgba(247, 243, 243, 0.5);
+      }
+      .swiper-button-prev::after,
+      .swiper-button-next::after {
+        font-family: "<"; /* FontAwesome的字体名称 */
+        font-weight: 900; /* 图标的粗细 */
+        transform: scale(0); /* 放大图标1.5倍 */
+      }
+      .swiper-button-prev {
+        background-image: url("../img/向左箭头.png");
+        background-color: rgba(75, 73, 73, 0.5);
+        background-position: center center;
+        border:none;
+        background-size: cover;
+        position: absolute;
+        top: 90%;
+        left: 80%;
+      }
+      .swiper-button-next {
+        background-image: url("../img/向右箭头.png");
+        background-position: center center;
+        background-color:rgba(75, 73, 73, 0.5);
+        background-size: cover;
+        border:none;
+        position: absolute;
+        top: 90%;
+        left: 90%;
+      }
+      img {
+        width: 100%;
+      }
+      .my-bullet-active {
+        background: #fafaf9;
+        opacity: 1;
+      }
+    </style>
+</head>
+<body>
+   <a href="./作业1.html">作业1</a>
+   <a href="./作业2.html">作业2</a>  
+   <a href="./作业3.html">作业3</a> 
+   <a href="./作业4.html">作业4</a> 
+   <a href="./作业5.html">作业5</a> 
+   <a href="./作业6.html">作业6</a> 
+   <a href="./作业7.html">作业7</a> 
+   <a href="./作业8.html">作业8</a>
+   <div class="swiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/a8773912b31bb051a11a3787367adab44aede067.jpg">
+   
+        </div>
+        <div class="swiper-slide">
+            <img src="https://img.zcool.cn/community/0124405c8b0e3fa801208f8b1f5d43.jpg@3000w_1l_2o_100sh.jpg">
+            
+        </div>
+        <div class="swiper-slide">
+            <img src="https://img.syt5.com/2020/0514/20200514104736831.jpg">
+           
+        </div>
+        <div class="swiper-slide">
+            <img src="https://gss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/48540923dd54564ec2be9d57b4de9c82d0584f80.jpg">
+           
+        </div>
+        <div class="swiper-slide">
+            <img src="https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/bd315c6034a85edf10d8322e4e540923dd547563.jpg">
+         
+        </div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+    <!-- 如果需要导航按钮 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    </div>
+<script>        
+    var mySwiper = new Swiper ('.swiper', {
+      direction:'horizontal', // 垂直切换选项
+      loop: true, // 循环模式选项
+      // 如果需要分页器
+      pagination: {
+        el: '.swiper-pagination',
+        bulletActiveClass: 'my-bullet-active',//添加css样式       
+      },
+      // 如果需要前进后退按钮
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      
+     
+    })        
+    </script> 
+</body>
+</html>

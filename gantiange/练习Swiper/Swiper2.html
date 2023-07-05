@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/work/common/swiper/swiper-bundle.css">
+    <script src="/work/common/swiper/swiper-bundle.js"></script>
+</head>
+<style>
+    a{
+       width:100px;
+       height:100px;
+       display: inline-block;
+       background-color: brown;
+       color: black;
+       line-height:100px;
+       text-align: center;
+    }
+   .swiper{
+             width:200px;
+             height:200px;
+             background-color: aquamarine;
+   }
+</style>
+<body>
+    <a href="./Swiper.html">Swiper.html</a>
+<a href="./Swiper1.html">Swiper1.html</a>
+<a href="./Swiper2.html">Swiper2.html</a> 
+<div class="swiper">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide blue-slide">
+			slider1</div>
+	</div>
+	<div class="swiper-pagination"></div>
+	<div class="swiper-button-prev"></div>
+	<div class="swiper-button-next"></div>
+	<div class="swiper-scrollbar"></div>
+</div>
+<script>
+ 
+var mySwiper = new Swiper('.swiper',{
+//   watchOverflow:false,//因为仅有1个slide，swiper无效
+  navigation: {
+    nextEl: '.swiper-button-next',//自动隐藏
+    prevEl: '.swiper-button-prev',//自动隐藏
+  },
+  pagination: {
+    el: '.swiper-pagination',//自动隐藏
+  },
+  scrollbar: {
+    el: '.swiper-scrollbar',//自动隐藏
+  },
+//  on: {
+//     slideChange: function () {
+//       console.log(this.activeIndex);//活动索引
+//     },
+//   },
+})
+</script>
+</body>
+</html>
