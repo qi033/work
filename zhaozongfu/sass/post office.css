@@ -1,0 +1,378 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 定义变量与值 */
+/* 使用变量 */
+body {
+  background-color: lightblue;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+#box {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+}
+
+#tou {
+  width: 100%;
+  height: 300px;
+  background-image: url("https://www.spb.gov.cn/gjyzj/xhtml/images/public/headerbg.png");
+  margin: auto;
+  color: rgb(255, 255, 255);
+}
+
+#content {
+  width: 100%;
+  height: 100px;
+  margin: auto;
+}
+
+#weibu {
+  width: 100%;
+  height: 500px;
+  background-color: aquamarine;
+  margin: auto;
+}
+
+#tou-con {
+  width: 1160px;
+  height: 80%;
+  margin: auto;
+}
+
+#tou-con-tou {
+  width: 100%;
+  height: 40%;
+}
+
+#tou-con-tou li {
+  float: right;
+  margin-left: 20px;
+}
+
+#tou-con-wei {
+  width: 100%;
+  height: 60%;
+  position: relative;
+}
+
+#tou-con-wei img {
+  float: left;
+}
+
+#tou-con-wei div {
+  float: right;
+  margin-top: 5px;
+  width: 420px;
+  height: 65%;
+}
+
+#tou-con-wei button {
+  width: 95px;
+  position: absolute;
+  right: 0;
+  top: 5px;
+  height: 45px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #1f559f;
+  border-radius: 2px;
+  cursor: pointer;
+  border: none;
+}
+
+#tou-con-wei ul {
+  display: flex;
+}
+
+#tou-con-wei ul li {
+  float: left;
+  margin-left: 10px;
+  font-size: 13px;
+  color: #666666;
+}
+
+#tou-con-wei ul li a {
+  color: #666666;
+}
+
+#tou-con-wei-wei {
+  width: 100%;
+  height: 60px;
+  background-color: #1f559f;
+}
+#tou-con-wei-wei ul {
+  display: flex;
+  width: 1160px;
+  margin: auto;
+}
+#tou-con-wei-wei ul li {
+  width: 200px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 18px;
+  text-align: center;
+  border-left: 1px solid rgb(255, 255, 255);
+}
+#tou-con-wei-wei ul li:first-child {
+  border-left: none;
+}
+
+.right input {
+  padding-left: 20px;
+  width: 400px;
+  height: 44px;
+  background-color: #E9F0FA;
+  border-radius: 2px;
+  border: solid 1px #1F559F;
+  line-height: 44px;
+}
+
+#content-tou {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 22px;
+  width: 1020px;
+  height: 84px;
+}
+
+#content-tou a {
+  width: 500px;
+}
+
+#content-tou #a2 {
+  margin-left: 20px;
+}
+
+.lb {
+  display: flex;
+  width: 1020px;
+  height: 365px;
+  margin: auto;
+}
+
+#content-content1 {
+  width: 650px;
+  height: 370px;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+}
+
+#box1 {
+  position: relative;
+}
+
+#box1::after {
+  margin-left: 35%;
+  margin-top: 11px;
+  content: "技能成才 竞展风采";
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 90%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+}
+
+#box2 {
+  position: relative;
+}
+
+#box2::after {
+  margin-left: 35%;
+  margin-top: 11px;
+  content: "3只熊";
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 90%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+}
+
+#box4 {
+  position: relative;
+}
+
+#box4::after {
+  margin-left: 35%;
+  margin-top: 11px;
+  content: "马里奥";
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 90%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+}
+
+#box5 {
+  position: relative;
+}
+
+#box5::after {
+  margin-left: 35%;
+  margin-top: 11px;
+  content: "极限竞速地平线5";
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 90%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+}
+
+.swiper {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  text-align: right;
+  margin-left: -30px;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  background-color: #fed71a;
+}
+
+.right-daoh {
+  width: 350px;
+  height: 100%;
+  margin-left: 20px;
+  z-index: 1;
+  overflow: hidden;
+  /*超出部分隐藏*/
+  white-space: nowrap;
+  /*不换行*/
+  text-overflow: ellipsis;
+  /*超出部分文字以...显示*/
+}
+
+#open li {
+  width: 350px;
+  line-height: 60px;
+}
+
+#open li:hover {
+  color: red;
+}
+
+#open li span {
+  float: right;
+  color: #666666;
+}
+
+.cont {
+  width: 1020px;
+  height: 435px;
+  margin: auto;
+  margin-top: 22px;
+}
+
+#span {
+  position: relative;
+  left: -585px;
+  top: 2px;
+  font-size: 18px;
+  color: white;
+}
+
+.lay {
+  width: 600px;
+  float: left;
+}
+
+#open1 li {
+  width: 600px;
+  line-height: 60px;
+}
+
+#open1 li:hover {
+  color: red;
+}
+
+#open1 li span {
+  float: right;
+  color: #666666;
+}
+
+.imggg {
+  margin-top: -35px;
+  width: 400px;
+  height: 410px;
+  float: right;
+}
+
+.imggg img {
+  width: 100%;
+  height: 100%;
+}
+
+.zhongbu {
+  display: flex;
+  flex-direction: column;
+  width: 1030px;
+  height: 400px;
+  background-color: brown;
+  margin: auto;
+}
+
+.zhongbu li {
+  width: 60px;
+  height: 200px;
+  line-height: 200px;
+}
+
+.zhongbu li a {
+  display: block;
+}
+
+/*# sourceMappingURL=post%20office.css.map */

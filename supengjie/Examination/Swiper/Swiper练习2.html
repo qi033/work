@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../common/swiper/swiper-bundle.css">
+    <script src="../../../common/swiper/swiper-bundle.js"></script>
+    <style>
+        .swiper {
+            width: 600px;
+            height: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="../Img/1910022110294Z2-0-lp.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/210924233115O14-0-lp.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/u=4162443464,2854908495&fm=253&fmt=auto&app=138&f=JPEG.webp"
+                    alt=""></div>
+            <div class="swiper-slide"><img src="../Img/a.webp" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/b.webp" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/c.webp" alt=""></div>
+
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- 如果需要滚动条 -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+</body>
+<script>
+    var mySwiper = new Swiper('.swiper', {
+        direction: 'horizontal', // 垂直切换选项
+        loop: true, // 循环模式选项
+
+        slidesPerView: 2,   //单次显示页面照片的数量
+        centeredSlides: true,
+
+        // 如果需要分页器
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // 如果需要前进后退按钮
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // 如果需要滚动条
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+    })        
+</script>
+
+</html>
