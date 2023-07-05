@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.css" />
+    <script src="../../common/swiper/swiper-bundle.js"></script>
+</head>
+
+<body>
+    <style>
+        .swiper-slide {
+            background-color: chartreuse;
+        }
+        .swiper {
+            width: 600px;
+            height: 300px;
+        }
+    </style>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" data-hash="slide1">
+                <img src="../feijian.jpg" width="600px" height="500px" />
+            </div>
+            <div class="swiper-slide" id="swiper-slidet" data-hash="slide2">
+                <img src="../wallhaven-yxxm6l.jpg" width="700px" height="500px" />
+            </div>
+            <div class="swiper-slide" data-hash="slide3">
+                <img src="../wallhaven-vqq5g3.jpg" width="800px" height="500px" />
+            </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <!-- 如果需要滚动条 -->
+        <!-- <div class="swiper-scrollbar"></div> -->
+    </div>
+    <script>
+        var mySwiper = new Swiper(".swiper", {
+            direction: "horizontal", // 垂直切换选项
+            loop: true, // 循环模式选项
+            // 切换速度
+            autoplay: 5000,
+            speed: 1000,
+            // 用户操作后是否停止
+            autoplayDisableOnInteraction: false,
+            // 如果设置为true，当切换到最后一个slide时停止自动切换。（loop模式下无效）。
+            autoplayStopOnLast: false,
+            // 设置为true时，鼠标覆盖Swiper时指针会变成手掌形状，拖动时指针会变成抓手形状。（根据浏览器形状有所不同）
+            grabCursor: true,
+            // 虚拟的位移。当你启用这个参数，Slide不会移动，但是Swiper还是在运行
+            // virtualTranslate : true,
+            // 如果设置为true，则将slide的宽和高取整(四舍五入)，以防止某些分辨率的屏幕上文字或边界(border)模糊。
+            // roundLengths : true,
+            // 同一页面分成多少份
+            //   slidesPerView: 1,
+            // 当宽度大于等于768将他分成三份
+            // slidesPerView: 1,
+            // spaceBetween: 40,
+            // breakpointsBase: "container",
+            // breakpoints: {
+            //   //当swiper宽度大于等于768
+            //   768: {
+            //     slidesPerView: 3,
+            //     spaceBetween: 20,
+            //   },
+            // },
+            // autoHeight: true, //高度随内容变化
+
+            
+            // 如果需要分页器
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            // 如果需要前进后退按钮
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            // 如果需要滚动条
+            // scrollbar: {
+            //   el: ".swiper-scrollbar",
+            // },
+        });
+      //自动滚动
+      //   setInterval("mySwiper.slidePrev()", 3000);
+    </script>
+</body>
+
+</html>
