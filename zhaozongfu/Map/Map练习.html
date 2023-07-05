@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://webapi.amap.com/loader.js"></script>
+</head>
+<style>
+    html,
+    body,
+    #container {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<body>
+    <div id="container"></div>
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode: "0807b75296a49140921f7d2ae9dd7f17",
+        }
+    </script>
+    <script src="https://webapi.amap.com/maps?v=2.0&key=aa01d5ace855cddddd810854416edbfe"></script>
+    <script type="text/javascript">
+        var map = new AMap.Map('container', {
+            viewMode: '2D',  // 默认使用 2D 模式
+            center: [113.41062586546039, 34.77136393855176],
+            zoom: 16
+        });
+      /*   map = new AMap.Map('container', {
+            mapStyle: 'amap://styles/whitesmoke', //设置地图的显示样式
+        }); */
+    </script>
+</body>
+
+</html>
