@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <style>
+      .swiper {
+        width: 1000px;
+        height: 500px;
+      }
+      .swiper-slide {
+        text-align: center;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .my-bullet-active {
+        background: #ff6600;
+        opacity: 1;
+      }
+      .swiper-pagination-bullet {
+        width: 100px;
+        height: 30px;
+        color: #000;
+        background-color: rgba(248, 246, 246, 0);
+        position: relative;
+        top: 0px;
+        line-height: 30px;
+        border-radius: 0%;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="https://img2.baidu.com/it/u=450271793,2306317701&fm=253&fmt=auto&app=138&f=JPEG?w=886&h=500"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://t11.baidu.com/it/u=3860301693,160386338&fm=30&app=106&f=PNG?w=640&h=361&s=F8120F9D5143FAE406A88464030050F1"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://img2.baidu.com/it/u=52074741,663093781&fm=253&fmt=auto&app=138&f=JPEG?w=1083&h=500"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://www4.bing.com//th?id=OHR.SedonaSunset_ZH-CN6289462383_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp&w=360&h=202"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://www4.bing.com//th?id=OHR.BanyakIslands_ZH-CN6620304821_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp&w=360&h=202"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://www4.bing.com//th?id=OHR.NhaTrang_ZH-CN5834700560_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp&w=360&h=202"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://www4.bing.com//th?id=OHR.SedonaSunset_ZH-CN6289462383_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp&w=360&h=202"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://www4.bing.com//th?id=OHR.BanyakIslands_ZH-CN6620304821_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp&w=360&h=202"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://www4.bing.com//th?id=OHR.NhaTrang_ZH-CN5834700560_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp&w=360&h=202"
+            alt=""
+          />
+        </div>
+      </div>
+      <!-- 如果需要分页器 -->
+      <div class="swiper-pagination"></div>
+
+      <!-- 如果需要导航按钮
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div> -->
+      <!-- 
+       如果需要滚动条 
+      <div class="swiper-scrollbar"></div> -->
+    </div>
+  </body>
+  <script>
+    var mySwiper = new Swiper(".swiper", {
+      direction: "vertical", // 垂直切换选项
+      loop: true, // 循环模式选项
+      speed: 3000, //播放速度，延迟
+      autoplay: {
+        delay: 1000, //自动播放时间，单位ms, 默认为0 （无限延迟）或无穷大
+        pauseOnMouseEnter: true,
+      },
+      slidesPerView: 1,
+      centeredSlides: true,
+      grabCursor: true, //变爪子
+      updateOnWindowResize: true, //默认当窗口(window) 尺寸发生变化时，比如屏幕旋转，Swiper会更新和重新计算(update和breakpoints等)
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        renderBullet: function (index, className) {
+          console.log(className);
+          let text = "";
+          switch (index) {
+            case 0:
+              text = "凝光";
+              break;
+            case 1:
+              text = "莹妹";
+              break;
+            case 2:
+              text = "胡桃";
+              break;
+            case 3:
+              text = "动漫";
+              break;
+            case 4:
+              text = "芭芭拉";
+              break;
+            case 5:
+              text = "迪奥娜";
+              break;
+            case 6:
+              text = "菲西尔";
+              break;
+            case 7:
+              text = "丽莎";
+              break;
+            case 8:
+              text = "钟离";
+              break;
+          }
+          return '<div class="' + className + '">' + text + "</div>";
+        },
+      },
+    });
+    for (i = 0; i < swiper.pagination.bullets.length; i++) {
+      swiper.pagination.bullets[i].onmouseover = function () {
+        this.click();
+      };
+    }
+  </script>
+</html>
