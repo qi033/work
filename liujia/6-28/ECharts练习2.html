@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -248,4 +249,256 @@
     </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            width: 100%;
+            height: 600px;
+            margin-top: 60px;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<script src="../common/echars/echarts.min.js"></script>
+
+<body>
+    <div id="main"></div>
+    <script>
+        var chartDom = document.getElementById('main');
+        var myChart = echarts.init(chartDom);
+        var option;
+        option = {
+            backgroundColor: '#060d24',
+            polar: {
+                radius: ['44%', '50%'],
+                center: ['50%', '50%']
+            },
+
+            tooltip: {
+                show: true
+            },
+            angleAxis: {
+                max: 100,
+                show: false
+            },
+            radiusAxis: {
+                type: 'category',
+                show: true,
+                axisLabel: {
+                    show: false
+                },
+                axisLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                }
+            },
+            legend: [],
+            color: ['#F94144', '#0051FF', '#90BE6D', '#F9C74F', '#F8961E', '#2D9CDB'],
+            series: [
+                {
+                    type: 'pie',
+                    hoverAnimation: true,
+                    hoverOffset: 25,
+                    startAngle: 180, // 起始角度
+                    clockwise: false, // 是否顺时针
+                    radius: ['40%', '50%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        show: false,
+                        position: 'center',
+                        color: 'rgba(13, 17, 29,0)'
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: [
+                        {
+                            value: 555,
+                            name: '抛洒物'
+                        },
+                        {
+                            value: 544,
+                            name: '车辆滞留'
+                        },
+                        {
+                            value: 1214,
+                            name: '行人'
+                        },
+                        {
+                            value: 781,
+                            name: '变道'
+                        },
+                        {
+                            value: 645,
+                            name: '拥堵'
+                        },
+                        {
+                            value: 520,
+                            name: '违停'
+                        }
+                    ],
+                    zlevel: 30,
+                    tooltip: {
+                        show: true,
+                        trigger: 'item',
+                        formatter: '{b}: {c} ({d}%)',
+                        backgroundColor: 'rgba(3, 9, 24,1)',
+                        textStyle: {
+                            color: 'rgba(255, 255, 255, 1)'
+                        }
+                    }
+                },
+                {
+                    type: 'pie',
+                    radius: ['25%', '29%'],
+                    center: ['50%', '50%'],
+                    hoverAnimation: false,
+                    data: [
+                        {
+                            value: 100
+                        }
+                    ],
+                    label: {
+                        show: false
+                    },
+                    tooltip: {
+                        show: false
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: '#38D2FF'
+                        }
+                    }
+                },
+                {
+                    name: '',
+                    type: 'pie',
+                    startAngle: 90,
+                    radius: '25%',
+                    animation: false,
+                    hoverAnimation: false,
+                    center: ['50%', '50%'],
+                    itemStyle: {
+                        normal: {
+                            labelLine: {
+                                show: false
+                            },
+                            color: new echarts.graphic.RadialGradient(0.5, 0.5, 1, [
+                                {
+                                    offset: 1,
+                                    color: 'rgba(44,252,240, 0)'
+                                },
+                                {
+                                    offset: 0.5,
+                                    color: 'rgba(44,252,240, .4)'
+                                },
+                                {
+                                    offset: 0,
+                                    color: 'rgba(0,0,0, 0)'
+                                }
+                            ]),
+                            shadowBlur: 60
+                        }
+                    },
+                    data: [
+                        {
+                            value: 200
+                        }
+                    ],
+                    tooltip: {
+                        show: false
+                    }
+                }
+            ]
+        };
+        const lefts = ['0%', '0%', '0%', '75%', '75%', '75%'];
+        const tops = ['20%', '40%', '60%', '20%', '40%', '60%'];
+        const legendData = [];
+        let total = 0;
+        const chartData = option.series[0].data;
+        const colorList = option.color;
+        chartData.forEach((item) => {
+            total += item.value;
+        });
+
+        for (let i = 0; i < chartData.length; i++) {
+            //  分散图例
+            const bfb = parseInt((chartData[i].value / total) * 100) + '%';
+            legendData.push({
+                show: true,
+                icon: 'circle', // 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+                left: lefts[i],
+                top: tops[i],
+                itemWidth: 20,
+                itemHeight: 20,
+                itemStyle: {
+                    color: colorList[i]
+                },
+                formatter: (val) => {
+                    let str = '';
+                    if (i < 3) {
+                        str = `{bb|${bfb}}  {ee|${chartData[i].value}}  {cc|${chartData[i].name}}`;
+                    } else {
+                        str = `{aa|${chartData[i].name}} {dd|${chartData[i].value}} {bb|${bfb}}`;
+                    }
+                    return str;
+                },
+                align: i < 3 ? 'right' : 'left',
+                x: 'left',
+                textStyle: {
+                    rich: {
+                        // 左侧图例样式
+                        aa: {
+                            color: '#ffffff',
+                            fontSize: 20
+                        },
+                        bb: {
+                            color: colorList[i],
+                            fontSize: 20
+                        },
+                        cc: {
+                            color: '#ffffff',
+                            fontSize: 20,
+                            width: 80,
+                            marginLeft: 20,
+                            align: 'right'
+                        },
+                        ee: {
+                            color: colorList[i],
+                            fontSize: 20,
+                            width: 40,
+                            align: 'center'
+                        },
+                        dd: {
+                            color: colorList[i],
+                            fontSize: 20,
+                            width: 50,
+                            padding: [0, 10, 0, 10],
+                            align: 'center'
+                        }
+                    }
+                },
+                data: [chartData[i].name]
+            });
+        }
+        option.legend = legendData;
+        option && myChart.setOption(option);
+    </script>
+</body>
+
+>>>>>>> 6c4c93b347e9b99e37c4ef6c2080bb198d1385b0
 </html>
