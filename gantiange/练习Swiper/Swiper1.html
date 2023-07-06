@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/work/common/swiper/swiper-bundle.css">
+    <script src="/work/common/swiper/swiper-bundle.js"></script>
+    <style>
+        .swiper {
+            width: 1200px;
+            height: 900px;
+            background-color: aqua;
+        }
+         .swiper-slide{
+                background-color: aquamarine;
+         }
+         a{
+       width:100px;
+       height:100px;
+       display: inline-block;
+       background-color: brown;
+       color: black;
+       line-height:100px;
+       text-align: center;
+    }   
+    </style>
+</head>
+
+<body>
+  <a href="./Swiper.html">Swiper.html</a>
+  <a href="./Swiper1.html">Swiper1.html</a>
+  <a href="./Swiper2.html">Swiper2.html</a>
+    <div class="swiper" id="swiper1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide blue-slide">
+                slider1</div>
+            <div class="swiper-slide red-slide">
+                slider2</div>
+            <div class="swiper-slide orange-slide">
+                slider3</div>
+            <div class="swiper-slide blue-slide">
+                slider4
+                <p>你好</p>
+            </div>
+            <div class="swiper-slide red-slide">
+                slider5</div>
+            <div class="swiper-slide orange-slide">
+                slider6</div>
+            <div class="swiper-slide blue-slide">
+                slider7</div>
+            <div class="swiper-slide red-slide">
+                slider8</div>
+            <div class="swiper-slide orange-slide">
+                slider9</div>
+        </div>
+    </div>
+</body>
+<script>
+    
+    var mySwiper = new Swiper('.swiper', {
+      slidesPerView: 1,
+      spaceBetween: 40,
+      
+    // autoHeight: true,//随内容改变
+      breakpoints: { 
+        320: {  //当屏幕宽度大于等于320
+          slidesPerView: 2,
+          spaceBetween: 10
+        },
+        768: {  //当屏幕宽度大于等于768 
+          slidesPerView: 3,
+          spaceBetween: 20
+        },
+        1280: {  //当屏幕宽度大于等于1280
+          slidesPerView: 4,
+          spaceBetween: 30
+        }
+      }
+  ,
+      breakpoints: {
+        '@0.75': {  //当屏幕宽高比大于等于0.75
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        '@1.00': {  //当屏幕宽高比大于等于1
+          slidesPerView: 3,
+          spaceBetween: 40,
+        },
+        '@1.50': {  //当屏幕宽高比大于等于1.5
+          slidesPerView: 4,
+          spaceBetween: 50,
+        }
+      },
+  
+      //Swiper4.x版本为小于
+      breakpoints: {
+        1280: {  //当屏幕宽度小于等于1280
+          slidesPerView: 4,
+          spaceBetween: 30
+        },
+        768: {  //当屏幕宽度小于等于768
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        320: {  //当屏幕宽度小于等于320
+          slidesPerView: 2,
+          spaceBetween: 10,
+        }
+      }, 
+     })
+ 
+  </script>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../common/swiper/swiper-bundle.css">
+    <script src="../../../common/swiper/swiper-bundle.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .boxs {
+            padding: 30px;
+            width: 1250px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .swiper {
+            width: 1000px;
+            height: 500px;
+            margin-left: 10px;
+        }
+
+        img {
+            width: 100%;
+            height: 500px;
+        }
+
+        .swiper-pagination {
+            height: 20px;
+            top: 47% !important;;
+            position: absolute;
+            /* background-color: red; */
+        }
+
+        .swiper-pagination-bullet {
+            width: 200px;
+            height: 125px;
+            border-radius: 0;
+            color: rgb(255, 255, 255);
+            line-height: 50px;
+            background-color: transparent;
+        }
+
+        .swiper-pagination-bullet:hover {
+            color: #fff;
+            box-shadow: inset 0px -30px 30px -30px rgba(0, 0, 0, 0.7), inset 0px 30px 30px -30px rgba(0, 0, 0, 0.7);
+        }
+
+        .opc {
+            width: 100%;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.7);
+            bottom: 0;
+            position: absolute;
+            line-height: 50px;
+            color: #fff;
+        }
+
+        p {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="boxs">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="opc">
+                        <p>
+                            忧伤在我心中沉静下来，宛如降临在寂静山林中的夜色
+                        </p>
+                    </div>
+                    <img src="../Img/来活了兄弟.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <div class="opc">
+                        <p>
+                            我就像一只停泊在海滩上的小船，聆听着晚潮奏
+                        </p>
+                    </div><img src="../Img/传奇.webp" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <div class="opc">
+                        <p>
+
+                            生命是上天赋予的，我们惟有献出生命，才能真正得到它
+                        </p>
+                    </div><img src="../Img/尘缘.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <div class="opc">
+                        <p>
+
+                            今天大地在阳光下向我细语，用一种已被遗忘的语言
+                        </p>
+                    </div><img src="../Img/暗夜.jpg" alt="">
+                </div>\
+            </div>
+            <!-- 如果需要分页器 -->
+
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+</body>
+<script>
+    var mySwiper = new Swiper('.swiper', {
+        direction: 'vertical',
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '">' + (index + 1) + '</span>';
+            },
+            renderBullet: function (index, className) {
+                var imagePaths = ['../Img/来活了兄弟.jpg', '../Img/传奇.webp', '../Img/尘缘.jpg', '../Img/暗夜.jpg']; // 你的图片路径数组
+                return '<img class="' + className + '" src="' + imagePaths[index] + '" />';
+            }
+        }
+    });
+    var bullets = document.querySelectorAll('.swiper-pagination-bullet');
+    bullets.forEach(function (bullet, index) {
+        bullet.addEventListener('mouseenter', function () {
+            mySwiper.slideToLoop(index);
+        });
+    });
+</script>
+
+</html>
