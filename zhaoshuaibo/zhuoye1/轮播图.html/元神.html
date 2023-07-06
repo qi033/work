@@ -22,7 +22,7 @@
         width: 30px;
         height: 30px;
         font-size: 20px;
-        border-radius: 10px;
+        /* border-radius: 10px; */
         border: 1px solid  white;
         background-color: rgba(247, 243, 243, 0.5);
       }
@@ -65,17 +65,17 @@
     <div class="swiper">
       <div class="swiper-wrapper">
         <img
-          src="https://img0.baidu.com/it/u=1604010673,2427861166&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889"
+          src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/06/27/c11da43a7ce8c3b6a911bd666467ce93_8943545457598833352.png?x-oss-process=image/format,webp/quality,Q_90"
           alt=""
           class="swiper-slide"
         />
         <img
-          src="https://img0.baidu.com/it/u=903185122,1551767614&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"
+          src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/64328ac4ad4baf3f13f6e36dac889703_4068855659663110277.png?x-oss-process=image/format,webp/quality,Q_90"
           alt=""
           class="swiper-slide"
         />
         <img
-          src="https://img1.baidu.com/it/u=3275625240,2100682725&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=666"
+          src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/3a1760449507c96a28c066148f3c8a16_203547796934874932.png?x-oss-process=image/format,webp/quality,Q_90"
           alt=""
           class="swiper-slide"
         />
@@ -85,11 +85,11 @@
           class="swiper-slide"
         />
         <img
-          src="https://img1.baidu.com/it/u=1374816812,914198687&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889"
+          src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/7a54dc691e450c32262c3d565234946d_7367504620217885063.png?x-oss-process=image/format,webp/quality,Q_90"
           class="swiper-slide"
         />
         <img
-          src="https://img2.baidu.com/it/u=2655975678,398512472&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=533"
+          src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/b43fe71f11ef5147c57e287e16592422_6798603925736605711.png?x-oss-process=image/format,webp/quality,Q_90"
           alt=""
           class="swiper-slide"
         />
@@ -105,10 +105,13 @@
   </body>
   <script>
     var mySwiper = new Swiper(".swiper", {
-      effect: "fade",
+      effect: 'coverflow',
+    slidesPerView: 1.5,
+    centeredSlides: true,
       fadeEffect: {
         crossFade: true,
       },
+       freeMode: true,
       autoplay: true,
       direction: "horizontal", // 垂直切换选项
         loop: true, // 循环模式选项
@@ -118,6 +121,8 @@
       pagination: {
         el: ".swiper-pagination",
         bulletActiveClass: "my-bullet-active", //分页器样式
+          // dynamicBullets: true,
+          clickable :true,
       },
 
       // 如果需要前进后退按钮
@@ -126,5 +131,11 @@
         prevEl: ".swiper-button-prev",
       },
     });
+    //鼠标滑过pagination控制swiper切换
+for(i=0;i<mySwiper.pagination.bullets.length;i++){
+  mySwiper.pagination.bullets[i].onmouseover=function(){
+    this.click();
+  };
+} 
   </script>
 </html>
