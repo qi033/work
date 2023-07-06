@@ -1,0 +1,49 @@
+/* 定义变量与值 */
+$bgcolor: lightblue;
+$textcolor: blue;
+$fontsize: 18px;
+$mysmallsize: 12px;
+$ss:purple!global;
+
+/* 使用变量 */
+body {
+  background-color: $bgcolor;
+  color: $textcolor;
+  font-size: $fontsize;
+}
+p{
+  font-size: $mysmallsize;
+}
+h1{
+  color: $ss;
+}
+
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    display: inline-block;
+  }
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+    font: {
+      family: Helvetica, sans-serif;
+      size: 18px;
+      weight: bold;
+    }
+    
+    text: {
+      align: center;
+      transform: lowercase;
+      overflow: hidden;
+    }
+  }
+
+  
+}
+

@@ -1,0 +1,146 @@
+$width:1000px;
+$bgcolor:#2aae67;
+@mixin box-flex{
+    display: flex;
+    justify-content: space-between;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+.wrap{
+    background-color: #f7f7f7;
+}
+.header{
+    background-color: $bgcolor;
+    padding-bottom: 100px;
+    border-radius: 0 0 50% 50%;
+}
+.header .title{
+    height: 50px;
+}
+.header .title p{
+    line-height: 50px;
+    text-align: right;
+    color: hsla(0,0%,100%,.6);
+    margin-right: 20px;
+}
+.header .content{
+    width: $width;
+    margin: auto
+}
+.header .content .logo{
+    height: 180px;
+    text-align: center;
+    line-height: 200px;
+    margin: auto;
+    margin-top: 30px;
+}
+.header .content .logo img{
+    width:180px;
+    margin-top: 70px;
+}
+.header .content .uplog{
+    width:500px;
+    height: 200px;
+    margin: auto;
+    ul{
+        margin-top: 20px;
+    }
+    li{
+        line-height: 40px;
+        color: hsla(0,0%,100%,.9);
+        font-size: 20px;
+    }
+    li span{
+        float: right;
+    }
+    border-top:1px solid hsla(0,0%,100%,.2);
+}
+.header .content .download{
+    width: 800px;
+    margin:20px auto;
+    @include box-flex();
+}
+.header .content .download div{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color:hsla(0,0%,100%,.1);
+    text-align: center; 
+    color: hsla(0,0%,100%,.9);
+    font-size: 13px;
+}
+.header .content .download div img{
+    width: 50px;
+    margin-top: 20px;
+}
+.header .content .service{
+    width: 800px;
+    margin: 50px auto;
+    @include box-flex();
+}
+.header .content .service div{
+    width: 250px;
+    height: 60px;
+    background-color: hsla(0,0%,100%,.1);
+    border-radius: 10px;
+    color: hsla(0,0%,100%,.9);
+}
+.header .content .service div span{
+    float: left;
+    margin-left: 10px;
+    margin-top: 18px;
+}
+.header .content .service div img{
+    float: left;
+    margin-top: 15px;
+    margin-left: 65px;
+}
+.main .content{
+    width: $width;
+    margin:50px auto;
+    @include box-flex();
+    flex-wrap: wrap;
+}
+.main .content::after{
+    content:'';
+    width: 230px;
+}
+.main .content div{
+    width: 210px;
+    height: 200px;
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+.main .content div img{
+    margin-top: 60px;
+    width: 50px;
+}
+.main .content div p{
+    margin-top: 10px;
+    font-size: 20px;
+    line-height: 50px;
+}
+.footer{
+    background-color: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.footer .content{
+    font-size: 15px;
+    width: $width;
+    margin: auto;
+    color: gray;
+    text-align: center;
+    line-height: 30px;
+}
