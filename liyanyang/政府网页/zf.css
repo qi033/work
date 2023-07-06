@@ -260,7 +260,7 @@ body,
   color: #999;
   font-size: 16px;
   position: relative;
-  left: 20px;
+  left: 10px;
 }
 
 .lifont {
@@ -823,4 +823,11 @@ body,
 
 .footer-main-right ul img {
   margin-left: -5px;
+}
+
+.uls li {
+  line-height: 28px;
+  padding: 5px 0 5px 15px;
+  background: url("https://www.spb.gov.cn/gjyzj/xhtml/images/public/lidian.png") no-repeat 0px;
+  position: relative;
 }
