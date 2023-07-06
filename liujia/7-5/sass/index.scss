@@ -1,0 +1,39 @@
+/* 定义变量与值 */
+$bgcolor: lightblue;
+$textcolor: red;
+$fontsize: 18px;
+$mysmallsize: 12px;
+
+/* 使用变量 */
+body {
+    background-color: $bgcolor;
+    color: $textcolor;
+    font-size: $fontsize;
+}
+
+p {
+    font-size: $mysmallsize;
+}
+
+h1 {
+    color: $textcolor;
+}
+
+nav {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    a {
+        display: block;
+        padding: 6px 12px;
+        text-decoration: none;
+        background-color: black;
+    }
+}

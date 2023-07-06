@@ -1,0 +1,285 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+    body {
+      font-size: 18px;
+      background-color: #f7f7f7;
+    }
+
+.box{
+    width: 100%;
+    font-size: 17px;
+}
+.header{
+    padding: 152px 0 112px;
+    position: relative;
+    color: hsla(0,0%,100%,.9);
+    overflow: hidden;
+    height: 620px;
+}
+.h-main{
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    bottom: 0;
+    width: 150%;
+    min-width: 1440px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2aae67;
+    border-radius: 0 0 50% 50%;
+    z-index: 999!important;
+}
+.h-content{
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+.h-top{
+    max-width: 100%;
+    position: fixed;
+    top: 3%;
+    right: 18%;
+}
+.h-top p{
+    float: right;
+    margin-right: 33px;
+}
+.h-middle{
+    width: 1000px;
+    margin: auto;
+    margin-top: 150px;
+}
+.h-middle .icon{
+    width: 500px;
+    height: 120px;
+    margin: auto;
+    text-align: center;
+    border-bottom: 1px solid hsla(0,0%,100%,.07);
+}
+.h-middle .icon img{
+    width: 180px;
+    height: 60px;
+}
+
+.nav{
+    width: 100%;
+    margin:20px auto;
+}
+.nav ul{
+    width: 500px;
+    height: 200px;
+    margin: auto;
+
+}
+.nav li{
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    transition: letter-spacing 0.3s ease-in-out; /* 添加过渡效果 */
+}
+
+
+.nav li a{
+    color: #fff;
+    
+}
+.nav li span{
+    float: right;
+}
+@media (max-width: 768px) {
+    .nav li.squeeze {
+      letter-spacing: 1px; /* 在屏幕宽度小于等于768px时增加字母间距 */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .nav li.squeeze {
+      letter-spacing: 10px; /* 在屏幕宽度小于等于480px时进一步增加字母间距 */
+    }
+  }
+.banner{
+   width: 100%;
+    margin: auto;
+    margin-top: 50px;
+}
+.banner ul{
+    width: 800px;
+    height: 190px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: auto;
+}
+.banner ul li{
+    width: 145px;
+    height: 145px;
+    background-color: hsla(0,0%,100%,.07);
+    border-radius: 50%;
+    text-align: center;
+}
+.banner ul li img{
+    width: 50px;
+    height: 50px;
+    margin-top: 30px;
+}
+@media (max-width: 850px) {
+    .h-main{
+        height: 140%;
+    }
+    .banner ul{
+        height: 500px;
+        width: 400px;
+    }
+    .subbanner li{
+        width: 30%;
+    }
+  }
+
+  @media (max-width: 650px) {
+   
+    .subbanner li{
+        width: 50%;
+    }
+  }
+.subbanner{
+    width: 100%;
+    margin: auto;
+}
+.subbanner ul{
+    width: 700px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.subbanner li{
+    width: 32%;
+    height: 60px;
+    border-radius: 10px;
+    background-color: hsla(0,0%,100%,.07);
+    line-height: 60px;
+    margin-bottom: 10px;
+}
+.subbanner li img{
+    float: left;
+    margin-top: 13px;
+    margin-left: 40px;
+    margin-right: 10px;
+}
+@media (max-width: 850px) {
+    .subbanner ul{
+        width: 400px;
+        height: 100px;
+    }
+    .subbanner li{
+        width: 49%;
+    }
+  }
+.content {
+    width: 100%;
+    margin: auto;
+    margin-top: 100px;
+  }
+
+  .content ul {
+    width: 1100px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .content li {
+    width: 24%;
+    height: 240px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+
+  .content li p {
+    color: black;
+  }
+  .content li img {
+    width: 40px;
+    height: 40px;
+    margin: 10px 0;
+  }
+  .content li:hover{
+    transform: scale(1.1);
+  }
+/* 默认样式，一行显示4列 */
+
+
+/* 在宽度小于768px时，一行显示3列 */
+@media (max-width: 1200px) {
+    .content ul {
+        width: 800px;
+    }
+    .content li {
+        width: 30%;
+    }
+}
+
+/* 在宽度小于480px时，一行显示2列 */
+@media (max-width: 900px) {
+    .content ul {
+        width: 600px;
+    }
+    .content li {
+        width: 40%;
+    }
+}
+
+ 
+.footer {
+    text-align: center;
+    color: hsla(0, 0%, 100%, 0.7);
+    background-color: #fff;
+    padding: 40px 0 32px;
+    width: 100%;
+    bottom: 0;
+    margin-top: 50px;
+  }
+  
+  .footer .f-main {
+    height: 100px;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .footer .f-main p {
+    margin: 10px 0;
+    color: black;
+  }
+  
+  /* 媒体查询 */
+  @media (max-width: 520px) {
+    .footer .f-main {
+      display: block;
+      text-align: left;
+      max-width: none;
+    }
+  }
+  /* @media (max-width: 520px) {
+    .content {
+      display: block;
+      text-align: left;
+      max-width: none;
+    }
+  } */
