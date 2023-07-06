@@ -6,81 +6,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../../../common/swiper/swiper-bundle.css">
-    <script src="../../../common/swiper/swiper-bundle.js"></script>
     <style>
-        * {
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
             margin: 0;
             padding: 0;
         }
 
-        .swiper {
-            margin: 50px auto;
-            width: 1200px;
-            height: 500px;
+        .swiper-container {
+            /* width: 1200px; */
+            height: 100%;
+            overflow: hidden;
+            margin: auto;
         }
 
-        img {
-            width: 100%;
-            height: 500px;
-        }
-
-        .swiper-button-next {
-            top: 88%;
-            left: 92%;
-            z-index: 999;
-            --swiper-navigation-size: 20px;
-            background-color: rgba(255, 255, 255, 0.5);
-            padding: 10px 12px;
+        .swiper-slide {
             text-align: center;
-            border-radius: 10px;
+            font-size: 18px;
+            /* background: #fff; */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            transition: 300ms;
+            transform: scale(0.8);
         }
 
-        .swiper-button-prev {
-            top: 88% !important;
-            left: 86% !important;
-            opacity: 1 !important;
-            --swiper-navigation-size: 20px;
-            background-color: aliceblue;
-            padding: 10px 12px;
-            border-radius: 10px;
-            background-color: rgba(255, 255, 255, 0.5);
+        .swiper-slide {
+            margin-top: 100px;
+            height: 270px;
         }
-
         .swiper-slide-active,
         .swiper-slide-duplicate-active {
             transform: scale(1);
         }
     </style>
+
 </head>
-<script src="../../../supengjie/Examination/Map/jquery-3.7.0.min.js"></script>
+
 
 <body>
-
-    <div class="swiper">
+    <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="../Img/6-1.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="../Img/6-2.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="../Img/6-3.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="../Img/6-4.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="../Img/6-5.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="../Img/6-6.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="../Img/6-7.jpg" alt=""></div>
+            <div class="swiper-slide">
+                <img src="../Img/6-1.jpg" />
+            </div>
+            <div class="swiper-slide">
+                <img src="../Img/6-2.jpg" />
+            </div>
+            <div class="swiper-slide">
+                <img src="../Img/6-3.jpg" />
+            </div>
+            <div class="swiper-slide">
+                <img src="../Img/6-4.jpg" />
+            </div>
+            <div class="swiper-slide">
+                <img src="../Img/6-5.jpg" />
+            </div>
+            <div class="swiper-slide">
+                <img src="../Img/6-6.jpg" />
+            </div>
+            <div class="swiper-slide">
+                <img src="../Img/6-7.jpg" />
+            </div>
         </div>
     </div>
+
+    <script src="../Map/jquery-3.7.0.min.js"></script>
+    <script src="../../../common/swiper/swiper-bundle.js"></script>
+    <script>
+        var swiper = new Swiper(".swiper-container", {
+            slidesPerView: 5,
+            spaceBetween: -100,
+            slidesPerGroup: 1,
+            centeredSlides: true,
+            loop: true,
+        });
+    </script>
 </body>
-<script>
-    var mySwiper = new Swiper('.swiper', {
-        slidesPerView: 5,
-        centeredSlides: true,
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        }
-    });
-
-
-</script>
-
 
 </html>

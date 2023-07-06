@@ -23,7 +23,7 @@
         height: 30px;
         font-size: 20px;
         border-radius: 10px;
-        border: 1px solid rgb(139, 139, 139);
+        border: 1px solid  white;
         background-color: rgba(247, 243, 243, 0.5);
       }
       .swiper-button-prev::after,
@@ -33,7 +33,7 @@
         transform: scale(0); /* 放大图标1.5倍 */
       }
       .swiper-button-prev {
-        background-image: url("./img/尖括号-左.png");
+        background-image: url("./img/左.png");
         background-color: rgba(75, 73, 73, 0.5);
         background-position: center center;
         background-size: cover;
@@ -42,7 +42,7 @@
         top: 40px;
       }
       .swiper-button-next {
-        background-image: url("./img/尖括号.png");
+        background-image: url("./img/右.png");
         background-position: center center;
         background-color: rgba(255, 0, 0, 0);
         background-size: cover;
@@ -111,8 +111,8 @@
       },
       autoplay: true,
       direction: "horizontal", // 垂直切换选项
-      //   loop: true, // 循环模式选项
-       speed: 3000, //播放速度，延迟
+        loop: true, // 循环模式选项
+       speed: 2000, //播放速度，延迟
 
       // 如果需要分页器
       pagination: {
