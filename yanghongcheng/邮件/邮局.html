@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../scss/index.css" />
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.css" />
+    <link
+      href="https://unpkg.com/layui@2.8.10/dist/css/layui.css"
+      rel="stylesheet"
+    />
+    <script src="../../common/swiper/swiper-bundle.js"></script>
+  </head>
+  <style>
+    /* .swiper-slide {
+      
+    }background-color: rgb(255, 166, 0); */
+    .swiper {
+      width: 731px;
+      height: 360px;
+    }
+    .cvs {
+      width: 731px;
+      height: 423px;
+      float: left;
+      /* margin: auto; */
+      background-color: rgba(63, 63, 63, 0.37);
+    }
+    :root {
+      --swiper-navigation-size: 14px;
+      --swiper-theme-color: #ffffff;
+    }
+    .left {
+      width: 25px;
+      height: 25px;
+      position: relative;
+      float: left;
+      background-color: rgba(191, 191, 191, 0.6);
+      border-radius: 7px;
+    }
+    .right {
+      width: 25px;
+      height: 25px;
+      float: right;
+      position: relative;
+      background-color: rgba(191, 191, 191, 0.5);
+      border-radius: 7px;
+    }
+    .feny {
+      width: 200px;
+      height: 30px;
+      margin-top: 70px;
+      float: left;
+      position: relative;
+      /* background-color: antiquewhite; */
+    }
+    .swiper-pagination-fraction,
+    .swiper-pagination-custom,
+    .swiper-horizontal > .swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+      bottom: 60px;
+      margin-left: 500px;
+      left: 0;
+      width: 100%;
+    }
+  </style>
+  <style>
+    .swiper-slide {
+      width: 400px;
+      height: 84px;
+      /* background-color: chartreuse; */
+    }
+
+    .swipertow {
+        width: 1200px;
+        height: 84px;
+        /* background-color: antiquewhite; */
+        margin-top: 100px;
+        overflow: hidden;
+       margin-top: 20px;
+    }
+
+    .swiper-button-prev {
+        float: left;
+    }
+    .biox{
+        width: 50px;
+        height: 50px;
+        position: relative;
+        float: right;
+        margin-top: -80px;
+        /* background-color: salmon; */
+    }
+    :root{
+        --swiper-navigation-size: 14px;
+    }
+</style>
+  <body>
+    <div class="box">
+        <!-- 固定定位 -->
+      <div class="rightgud">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <!-- 头部 -->
+      <div class="foter">
+        <!-- 标题搜索框 -->
+        <div class="middle">
+          <!-- 标题 -->
+          <div class="title">
+            <img
+              src="https://www.spb.gov.cn/gjyzj/xhtml/images/public/logo.png"
+              alt=""
+            />
+          </div>
+          <!-- 搜索框 -->
+          <div class="search-box">
+            <input
+              type="text"
+              class="search-for"
+              placeholder="&nbsp;请输入关键字"
+            /><button class="button">
+              搜索<img
+                src="https://www.spb.gov.cn/gjyzj/xhtml/images/public/headersousuo.png"
+                class="img"
+              />
+            </button>
+            <!-- 导航 -->
+            <div class="navigation">
+              <ul>
+                <li>热词：</li>
+                <li>疫情防控</li>
+                <li>防汛救灾工作</li>
+                <li>脱贫攻坚</li>
+                <li>改革创新</li>
+                <li>服务零距离</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- 首页导航 -->
+        <div class="Navigation-bar">
+          <!-- 导航居中 -->
+          <div class="Navigation-centered">
+            <ul>
+              <li>首页</li>
+              <li>机构概况</li>
+              <li>政务公开</li>
+              <li>新闻动态</li>
+              <li>政务服务</li>
+              <li>互动交流</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- 身体 -->
+      <div class="content">
+        <div style="width: 1200px; height: 84px">
+          <a href=""
+            ><img
+              src="https://www.spb.gov.cn/gjyzj/xhtml/2022esd/images/ztsyt_01.jpg"
+              alt=""
+          /></a>
+          <a href=""
+            ><img
+              src="https://www.spb.gov.cn/gjyzj/xhtml/2023ztjy/images/ztsyt_01.jpg"
+              style="float: right"
+          /></a>
+        </div>
+        <div class="Carouselbox">
+          <!-- 分类主题 -->
+          <div class="theme">
+            <div class="region">
+              <ul>
+                <b><li>时政新闻</li></b>
+                <b><li>行业要闻</li></b>
+                <b><li>各地动态</li></b>
+              </ul>
+              <div class="more">更多+</div>
+            </div>
+            <div class="meeting">
+              <ul>
+                <li>•&nbsp为世界注入更多确定性和正能量——国际社会高...</li>
+                <span class="date">07-05</span>
+                <li>•&nbsp习近平主席在上海合作组织成员国元首理事会第...</li>
+                <span class="date">07-05</span>
+                <li>•&nbsp习近平对防汛救灾工作作出重要指示 要求加强统...</li>
+                <span class="date">07-05</span>
+                <li>•&nbsp习近平出席上海合作组织成员国元首理事会第二...</li>
+                <span class="date">07-05</span>
+                <li>•&nbsp习近平在上海合作组织成员国元首理事会第二十...</li>
+                <span class="date">07-05</span>
+                <li>•&nbsp习近平：本次会议彰显出“上合大家庭”的生机...</li>
+                <span class="date">07-05</span>
+                <li>•&nbsp习近平：践行多边主义，完善全球治理</li>
+                <span class="date">07-05</span>
+                <li>•&nbsp习近平：加强交流互鉴，促进民心相通</li>
+                <span class="date">07-05</span>
+                <li>•&nbsp习近平：共同把“一带一路”这条造福世界的幸...</li>
+                <span class="date">07-05</span>
+              </ul>
+            </div>
+          </div>
+          <!-- 轮播 -->
+          <div class="Carousel">
+            <div class="cvs">
+              <div class="swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide" data-hash="slide1">
+                    <img
+                      src="https://www.spb.gov.cn/gjyzj//c100015/c100021/202306/bf0c1641c6f24241a4b426705b87050a/images/301f5c82957240bb8f1b24e8adef3f39.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="swiper-slide" data-hash="slide2">
+                    <img
+                      src="https://www.spb.gov.cn/gjyzj//c100015/c100021/202307/530e5e9af036463aab1ddf93b0a7f88d/images/4b04b2490dd74428ad3b3449cf5d6f2a.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="swiper-slide" data-hash="slide3">
+                    <img
+                      src="https://www.spb.gov.cn/gjyzj//c100015/c100021/202306/65a76399fa8547e0bc5aeed3880b8af6/images/18e2826c7b844275b7a2211de731e0e0.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="swiper-slide" data-hash="slide1">
+                    <img
+                      src="https://www.spb.gov.cn/gjyzj//c100015/c100021/202306/8accc17e3e3c41fa8af49d0499686264/images/2e21e533a9b94b21b3edc3cfd2d33e1a.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="swiper-slide" data-hash="slide2">
+                    <img
+                      src="https://www.spb.gov.cn/gjyzj//c100015/c100021/202307/9a235716c24843c09bbe49eafcf6cd67/images/df980da35e104ab38d424637ac2c7e71.jpg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="feny">
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="government">
+            <!-- 统计 -->
+            <div class="statistics">
+                <div class="index"><h2>统计&指数</h2><div class="morewe">更多+</div></div>
+                <div class="imgbox"><img src="https://www.spb.gov.cn/gjyzj//c100015/c100016/202306/b97057883d714dd0bd9bcedce6f791c9/images/834559e983d74ed699394c0b6562cce1.png" style="width: 100%;"></div>
+            </div>
+          <!-- 政务公开 -->
+          <div class="open">
+            <div class="opent"><span>政务公开</span></div>
+            <div class="Notice">
+              <div class="hotnw">
+                <ul>
+                  <b><li>通知公告</li></b>
+                  <b><li>政策法规标准</li></b>
+                  <b><li>政策解读</li></b>
+                  <b><li>政府信息公开</li></b>
+                </ul>
+                <div class="morew">更多+</div>
+              </div>
+              <div class="meetingt">
+                <ul>
+                  <li>•&nbsp《关于电子烟产品、雾化物、电子烟用烟碱等限量寄递的通告》政策解读</li>
+                  <span class="dated">07-05</span>
+                  <li>•&nbsp《邮政业生态环境保护工作信息报告规定（试行）》解读</li>
+                  <span class="dated">07-05</span>
+                  <li>•&nbsp《“十四五”邮政业发展规划》解读</li>
+                  <span class="dated">07-05</span>
+                  <li>•&nbsp《国务院办公厅关于加快农村寄递物流体系建设的意见》解读</li>
+                  <span class="dated">07-05</span>
+                  <li>•&nbsp关于《关于修改〈邮政行政执法监督办法〉的决定》的解读</li>
+                  <span class="dated">07-05</span>
+                  <li>•&nbsp《交通运输部 国家邮政局 国家发展改革委 人力资源社会保障部 商务部 市场监管总局 全国总...</li>
+                  <span class="dated">07-05</span>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 行政许可 -->
+        <div class="administration">
+            <div class="license">
+                <div class="tow">
+                    <div class="servicetp"><p>政务服务</p></div>
+                    <div class="servicebm"><p>政民互动</p></div>
+                </div>
+                <div class="exchange">
+                    <div class="suire"></div><span><h2 class="xes">行政许可</h2></span>
+                    <span ><button class="moandmo">更多+</button></span>
+                </div>
+                <div class="classification">
+                    <p class="letter">我要写信</p>
+                    <p><img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/xiexin.png" class="pimg"></p>
+                    
+                </div>
+                <div class="classification">
+                    <p class="letter">
+                        来信统计
+                    </p>
+                    <p><img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/sendsms.png" class="pimg"></p>
+                </div>
+                <div class="classification">
+                    <p class="letter">
+                        在线视频
+                    </p>
+                    <p><img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/shipinjiance.png" class="pimg"></p>
+                </div>
+                <div class="classification">
+                    <p class="letter">
+                        意见征集
+                    </p>
+                    <p><img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/yijianfankui.png" class="pimg"></p>
+                </div>
+            </div>
+            <div class="rightbox">
+                <div class="urlimg1">
+                    
+                    <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/cxfwicon.png" class="zhnimg">
+                <p class="urlsiz"> 在线服务</p>
+                </div>
+                <div class="urlimg2">
+                    
+                    <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/wsbsicon.png" class="zhnimg">
+                <p class="urlsiz">网上办事</p>
+                </div>
+                <div class="urlimg3">
+                    
+                    <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/wsxfssicon.png" class="zhnimg">
+                <p class="urlsiz"> 消费者申诉</p>
+                </div>
+                <div class="urlimg4">
+                    
+                    <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/zfxxgksicon.png" class="zhnimg">
+               <p  class="urlsiz">执法信息公开</p>
+                </div>
+            </div>
+        </div>
+    <!-- 访谈 -->
+        <div class="postal-service">
+            <div class="leftbix">
+                <div class="on-line">
+                    <ul>
+                        <b><li>在线访谈</li></b>
+                        <b><li>视频</li></b>
+                        <b><li>新闻发布会</li></b>
+                    </ul>
+                </div>
+                <div class="deep"><p>
+                    深入贯彻落实“五个更大”重要要求，推动广...
+                </p></div>
+                <div class="leftimge"><img src="https://www.spb.gov.cn/gjyzj//c100025/c100026/202306/14dd0bc871de44cebc694282957a7cde/images/80914d010d63439dbed82fdea995d602.jpg" alt=""></div>
+            </div>
+            <div class="aotubix">
+                <div class="on-linet">
+                    <ul>
+                        <b><li>环球邮政</li></b>
+                    </ul>
+                </div>
+                <ul class="li">
+                    <li>•&nbsp澳大利亚邮政在新南威尔士州开设新包裹中心</li>
+                  <span class="dated">07-05</span>
+                  <li>•&nbsp美国邮政与ECS公司签署再次竞标合同</li>
+                  <span class="dated">07-05</span>
+                  <li>•&nbspAuctane研究发现物流体验影响消费者购买期望</li>
+                  <span class="dated">07-05</span>
+                  <li>•&nbsp沃尔玛推出库存交付服务</li>
+                  <span class="dated">07-05</span>
+                  <li>•&nbsp亚马逊美国站更新FBA退货仪表板 帮助卖家降低退...</li>
+                  <span class="dated">07-05</span>
+                  <li>•&nbsp香港邮政发售内地、澳门和海外集邮品</li>
+                  <span class="dated">07-05</span>
+                </ul>
+            </div>
+            <div class="rightbix">
+                <div class="on-line">
+                    <ul>
+                        <b><li>在线访谈</li></b>
+                    </ul>
+                </div>
+                <div class="lefti"><img src="https://www.spb.gov.cn/gjyzj//c100040/202306/056ebc65c361449fb6af5b02ee305d1b/images/3aa80d52e07e4e5eb09e8c21864a93a3.jpg" class="fanfks"></div>
+            </div>
+        </div>
+        <div class="toulin">
+            <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/ztzl.png" alt="">
+            <div class="toutuimg">
+                <div class="swipertow mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://www.spb.gov.cn/gjyzj//c100015/c100023/202202/d41ce4ab194640298ea1a2bd9065b944/images/916207e5dc2142f883e7d89371a42328.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="https://www.spb.gov.cn/gjyzj//c100015/c100023/202111/511311c4f3964a9ca572c52875588298/images/e85af09919ad488e9391af31ade89d46.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="https://www.spb.gov.cn/gjyzj//c100015/c100023/202111/294a403d3c874a2fbb734d21e57b57ad/images/d2575ec2ed3a4418a8073de60d3377d3.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="https://www.spb.gov.cn/gjyzj//c100015/c100023/202306/39884bafc918482caf32b15fbd74c9d6/images/9d055b2c1db5411fa6f787098914d54b.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="https://www.spb.gov.cn/gjyzj//c100015/c100023/202306/8298d870d9b342bc93ec3fdf8b0a9cc3/images/3850b94d07d84265a4d17908c60eb929.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="https://www.spb.gov.cn/gjyzj//c100015/c100023/202303/8fb6164afda44d03a0e9741c14333a32/images/8e305ac7952541aa81f346fd29393c2c.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="https://www.spb.gov.cn/gjyzj//c100015/c100023/202211/cfa75510a2c04a239ca5441deaa21a77/images/0ca781e85c6a439caeb1a8adc9099501.jpg" alt=""></div>
+                        <div class="swiper-slide"><img src="https://www.spb.gov.cn/gjyzj//c100015/c100023/202210/f918c1eb9f454fc388794c05f27c317d/images/5baf7e64879f4ce7a9455a21dd8e3dc4.jpg" style="width: 580px;height: 85px;"></div>
+                        <div class="swiper-slide"><img src="https://www.spb.gov.cn/gjyzj//c100015/c100023/202303/702b5278123d47958669d01207a538b4/images/0fadec8081a644a5bdeb0e7dcbeb7ec0.jpg" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+      </div>
+      <!-- 底部 -->
+      <div class="footr">
+        <div class="footrs">
+            <div class="department">
+                <ul>
+                    <li>国务院部门&nbsp▾</li>
+                    <li>地方子站&nbsp▾</li>
+                    <li>快递协会&nbsp▾</li>
+                    <li>相关链接&nbsp▾</li>
+                </ul>
+            </div>
+             <div class="website">
+                <div class="leftorgan">
+                    <div class="divimg"><img src="https://dcs.conac.cn/image/red.png" style="margin: 8px 23px;"></div>
+                    <div class="bq">
+                         <p>版权所有：中华人民共和国国家邮政局 主办单位：中华人民共和国国家邮政局</p>
+                    <p>京ICP备案08008301号-1  政府网站标识码：BM71000001</p>
+                    <p>地址: 北京市西城区北礼士路甲8号 <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/public/gabatb.png" alt=""> 京公网安备 11010202008355号</p>
+                    </div>
+                   
+                </div>
+                <div class="rightorgan">
+                    <div class="error">
+                        <ul>
+                            <li>免责声明&nbsp|</li>
+                            <li>&nbsp网站地图&nbsp|</li>
+                            <li>&nbsp联系我们</li>
+                        </ul>
+                        <img src="https://zfwzgl.www.gov.cn/exposure/images/jiucuo.png?v=bm71000001" style="float: left; margin: 23px 27px;">
+                    </div>
+                </div>
+             </div>
+        </div>
+      </div>
+     
+    </div>
+
+    <script>
+      var swiper = new Swiper(".swiper", {
+        direction: "horizontal", // 垂直切换选项
+        loop: true, // 循环模式选项
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          // 如果需要分页器
+          pagination: {
+            el: ".swiper-pagination",
+          },
+        },
+      });
+      //自动滚动
+      setInterval("swiper.slidePrev()", 2000);
+    </script>
+    <script>
+        var mySwiper = new Swiper(".swipertow", {
+            
+            slidesPerView: 2,
+            spaceBetween: 30,
+            slidesPerGroup: 3,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            
+            // 如果需要前进后退按钮
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+      //自动滚动
+      setInterval("mySwiper.slidePrev()", 3000);
+    </script>
+  </body>
+</html>
