@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .container {
+            perspective: 1000px;
+        }
+
+        .inner {
+            --x-deg: -45deg;
+            --y-deg: 3deg;
+            transform-style: preserve-3d;
+            position: relative;
+            display: grid;
+            place-items: center;
+            transform: rotateX(var(--x-deg)) rotateY(var(--y-deg));
+        }
+
+        .element {
+            width: 200px;
+            height: 150px;
+            background-color: hsl(40, 80%, 50%);
+            position: absolute;
+            box-shadow: inset 0 0 50px hsl(0, 0%, 0%);
+            transform-origin: center;
+            transition: 350ms ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="inner">
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+        </div>
+    </div>
+
+    <script>
+        console.clear();
+        const elements = document.querySelectorAll(".element");
+        const inner = document.querySelector(".inner");
+
+
+
+
+        let deg = 0;
+        let col = 0;
+        elements.forEach((element, index) => {
+
+
+            element.style.transform = `rotateY(${deg}deg) translateX(220px)`;
+
+
+
+            element.style.backgroundColor = `hsl(${deg}, 70%, 50%)`;
+            deg += 5;
+
+        });
+
+
+        onmousemove = (e) => {
+
+            let midPoint = window.innerWidth / 2;
+            let midTopPoint = window.innerHeight / 2;
+
+            inner.style.transform = `rotateY(${(e.clientX / midPoint - 1) * 50}deg) rotateX(${(e.clientY / midTopPoint - 1) * 50}deg)`;
+        };
+
+
+        console.log(deg);
+    </script>
+</body>
+
+</html>
