@@ -1,0 +1,37 @@
+@charset "UTF-8";
+/* 使用变量 */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: lightblue;
+  color: red;
+  font-size: 18px;
+}
+
+p {
+  font-size: 12px;
+}
+
+h1 {
+  color: red;
+  background-color: rgb(177, 118, 118);
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav li {
+  display: inline-block;
+}
+nav a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=shangwu.css.map */
