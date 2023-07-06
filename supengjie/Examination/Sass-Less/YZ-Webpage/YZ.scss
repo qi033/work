@@ -1,0 +1,733 @@
+$themeColor: #1f559f; //主题颜色
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.box {
+    width: 100%;
+}
+
+.header {
+    width: 100%;
+    height: 300px;
+    background: url(https://www.spb.gov.cn/gjyzj/xhtml/images/public/headerbg.png)no-repeat 0 0/100% 300px;
+    position: relative;
+    
+}
+
+.header-main {
+    width: 1200px;
+    height: 250px;
+    // background-color: aqua;
+    margin: auto;
+}
+
+.h-top {
+    width: 200px;
+    height: 50px;
+    /* background-color: brown; */
+    float: right;
+    line-height: 50px;
+    text-align: center;
+    letter-spacing: 3px;
+    color: white;
+}
+
+.Chinese {
+    float: left;
+    margin-top: 75px;
+}
+
+.search {
+    width: 450px;
+    height: 81px;
+    // background-color: blue;
+    float: right;
+    margin-top: 25px;
+    position: relative;
+}
+
+.search input {
+    width: 365px;
+    height: 35px;
+    text-indent: 2em;
+    float: left;
+    margin-bottom: 18px;
+}
+
+.search button {
+    width: 80px;
+    height: 37px;
+    border: none;
+    margin-bottom: 20px;
+    background-color: $themeColor ;
+    color: white;
+}
+.search button img {
+    width: 12px;
+}
+.search p{
+    font-size: 15px;
+    position: absolute;
+    bottom: 0;
+
+}
+.header .nav{
+    width: 100%;
+    height: 50px;
+    background-color:$themeColor ;
+}
+.header .nav-box{
+    width: 1200px;
+    height: 50px;
+    // background-color:red ;
+    margin: auto;
+}
+.header .nav-box li{
+    list-style: none;
+    float: left;
+    width: 198px;
+    line-height: 50px;
+    text-align: center;
+    position: relative;
+    border-right: 1px solid white;
+}
+.header .nav-box li a{
+    color: white;
+}
+.header .nav-box li img{
+    position: absolute;
+    top: 14px;
+    left: 40px;
+}
+.header .nav-box li:last-child{
+    border: none;
+}
+.OnlineBtn{
+    width: 60px;
+    height: 220px;
+    background-color: $themeColor;
+    position: fixed;
+    top: 0;
+    left: 0;
+    line-height: 20px;
+}
+.OnlineBtn p{
+    color: white;
+    font-weight: 900;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 55px;
+    padding: 3px;
+}
+.content{
+    width: 1200px;
+    margin: auto;
+    margin-top: 20px;
+}
+.dblimg{
+    width: 100%;
+    height: 84px;
+    // background-color: red;
+}
+
+.dblimg img:first-child{
+    width: 594px;
+    height: 84px;
+    float: left;
+}
+.dblimg img:last-child{
+    width: 594px;
+    height: 84px;
+    float: right;
+}
+.banner-list{
+    width: 1200px;
+    height: 422px;
+    // background-color: red;
+    margin-top: 20px;
+}
+.banner{
+    width: 732px;
+    height: 422px;
+    // background-color: green;
+    float: left;
+}
+.list{
+    width: 445px;
+    height: 422px;
+    // background-color: purple;
+    float: right;
+}
+.list .title{
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #999999;
+    line-height: 50px;
+}
+.list .title a{
+    color: black;
+    font-size: 20px;
+    font-weight: 900;
+    margin-right: 30px;
+    height: 49px;
+    display: inline-block;
+}
+.list .title a:first-child{
+    color: $themeColor;
+    border-bottom: 1px solid $themeColor;
+}
+.list .title a:hover{
+    color: $themeColor;
+    border-bottom: 1px solid $themeColor;
+}
+.list .title span{
+    float: right;
+    color: #a7a6a6;
+    font-size: 13px;
+}
+.banner-list .nav{
+    height: 372px;
+    width: 100%;
+    // background-color: orange;
+}
+.banner-list .nav li{
+    height: 41.3px;
+    width: 100%;
+    // background-color: #e2a90d;
+    list-style: none;
+    line-height: 41.3px;
+}
+.banner-list .nav li span{
+    color: $themeColor;
+    margin: 0 10px;
+}
+.banner-list .nav li span:nth-child(2){
+    float: right;
+    color: #999999;
+}
+
+
+// ----------------
+
+.content
+.swiper {
+    width: 732px;
+    height: 422px;
+    margin-left: 10px;
+    color: white;
+}
+.content
+.swiper-pagination {
+    height: 50px;
+    bottom: 0% !important;;
+    position: absolute;
+    // background-color: red; 
+    // left: 80%!important;
+}
+.content
+.swiper-pagination-bullet{
+    float: right!important;
+    margin-top: 20px !important;
+}
+.content
+.swiper img{
+    height: 422px;
+}
+
+
+.opc {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.7);
+    bottom: 0;
+    position: absolute;
+    line-height: 50px;
+    color: #fff;
+}
+.opc p {
+    margin-left: 20px;
+}
+
+// 2
+.footer .mySwiper {
+    width: 600px;
+    height: 100px;
+    color: white;
+}
+.footer .mySwiper img{
+    width: 580px;
+    height: 100px;
+    object-fit: cover;
+}
+.footer .swiper-slide {
+    width: 600px!important;
+    float: left;
+}
+// -----------------------
+.government{
+    width: 100%;
+    height: 370px;
+    // background-color: #3f9f1f;
+    margin-top: 20px;
+}
+.government .left{
+    width: 768px;
+    height: 370px;
+    // background-color: red;
+    float: left;
+}
+.government .left .title{
+    width: 768px;
+    height: 50px;
+    // background-color: purple;
+    background: url(https://www.spb.gov.cn/gjyzj/xhtml/images/index/zwgkbj.png)no-repeat 0 0/100% 50px;
+    line-height: 50px;
+}
+.government .left .title span{
+    display: inline-block;
+    width: 167px;
+    text-align: center;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+}
+.government .left .t-nav{
+    width: 768px;
+    height: 50px;
+    border-bottom: 1px solid #999999;
+    line-height: 50px;
+}
+.government .left .t-nav a{
+    color: black;
+    font-size: 20px;
+    font-weight: 900;
+    margin-right: 30px;
+    height: 49px;
+    display: inline-block;
+}
+.government .left .t-nav a:hover{
+    color: $themeColor;
+    border-bottom: 1px solid $themeColor;
+}
+.government .left .t-nav a:first-child{
+    color: $themeColor;
+    border-bottom: 1px solid $themeColor;
+}
+.government .left .t-nav span{
+    float: right;
+    color: #999999;
+    font-size: 15px;
+}
+
+.government .left .nav{
+    height: 272px;
+    width: 100%;
+    // background-color: orange;
+}
+.government .left .nav li{
+    height: 45.3px;
+    width: 100%;
+    // background-color: #e2a90d;
+    list-style: none;
+    line-height: 41.3px;
+}
+.government .left .nav li span{
+    color: $themeColor;
+    margin: 0 10px;
+}
+.government .left .nav li span:nth-child(2){
+    float: right;
+    color: #999999;
+}
+.government .right{
+    width: 400px;
+    height: 370px;
+    // background-color: red;
+    float: right;
+    background: url(https://www.spb.gov.cn/gjyzj/xhtml/images/index/tjzsbj.png)no-repeat 0 0/400px 370px;
+}
+.government .right .title{
+    width: 400px;
+    height: 50px;
+    // background-color: rgb(235, 198, 198);
+    line-height: 50px;
+    border-bottom: 1px solid #999999;
+}
+.government .right .title h2{
+    float: left;
+    height: 50px;
+    // width: 200px;
+    margin-left: 19px;
+    font-size: 20px;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+    color: $themeColor;
+    border-bottom: 2px solid $themeColor;
+}
+.government .right .title span{
+    float: right;
+    color: #999999;
+    font-size: 15px;
+}
+.government .right .img{
+    width: 400px;
+    height: 320px;
+    position: relative;
+}
+.government .right .img img{
+    width: 400px;
+    height: 250px;
+    position: absolute;
+    margin-top: 40px;
+}
+.license{
+    width: 1200px;
+    height: 460px;
+    // background-color: red;
+}
+.license .left{
+    width: 844px;
+    height: 460px;
+    // background-color: rgb(49, 227, 43);
+    float: left;
+}
+.license .left ul{
+    float: left;
+}
+.license .left ul:first-child li{
+    width: 54px;
+    height: 230px;
+    // background-color: red;
+}
+.license .left  li:first-child{
+    width: 50px;
+    height: 230px;
+    background-color: $themeColor;
+    color: white;
+    position: relative;
+}
+.license .left li:first-child a{
+    color: white;
+}
+.license .left li a{
+    width: 22px;
+    margin: 0 auto;
+    font-size: 22px;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+    color: #333333;
+    display: block;
+    padding-top: 57px;
+}
+.license .left li:last-child{
+    width: 50px;
+    height: 230px;
+    background-color: #E5EAF5;
+}
+.license .left li:first-child span{
+    width: 20px;
+    height: 20px;
+    background-color: $themeColor;
+    display: inline-block;
+    position: absolute;
+    right: -19%;
+    top: 48%;
+    transform: rotate(45deg);
+}
+.contents{
+    width: 765px;
+    height: 410px;
+    // background-color: orange;
+    float: right;
+    margin-top: 50px;
+}
+.contents .title{
+    width: 765px;
+    height: 71px;
+    background-color: $themeColor;
+    line-height: 71px;
+}
+.contents .title img{
+   float: left;
+   margin: 15px;
+}
+.contents .title h2{
+    color: white;
+    margin-left: 10px;
+    display: inline-block;
+ }
+ .contents .title span{
+    color: #ffffff;
+    // float: right;
+    font-size: 15px;
+    border: 1px solid #ffffff;
+    margin-left: 66%;
+ }
+ .information{
+    width: 765px;
+    height: 339px;
+    // background-color: #29d626;
+ }
+ .information ul{
+    display: flex!important;
+    justify-content: space-between!important;
+    flex-wrap: wrap!important;
+    gap: 9px;
+ }
+ .information ul li{
+    width: 180px!important;
+    height: 165px!important;
+    background-color: transparent!important;
+    text-align: center;
+    color: black!important;
+ }
+ .information ul li img{
+   margin-top: 30px;
+   margin-bottom: 20px;
+ }
+ .license .right{
+    width: 315px;
+    height: 410px;
+    // background-color: rgb(36, 218, 60);
+    float: right;
+    margin-top: 50px;
+ }
+ .license .right li{
+    width: 315px;
+    height: 95px;
+    background: url(https://www.spb.gov.cn/gjyzj/xhtml/images/index/cxfw.png)no-repeat 0 0/315px 95px;
+    margin-bottom: 10px;
+}
+ .license .right li img{
+    margin: 25px 20px;
+    float: left;
+ }
+ .license .right li span{
+    float: left;
+    margin-top: 36px;
+ }
+ .Online{
+    width: 1200px;
+    height: 300px;
+    // background-color: red;
+    margin: auto;
+    margin-top: 20px;
+ }
+ .Online .left{
+    width: 338px;
+    height: 300px;
+    // background-color: rgb(30, 255, 0);
+    float: left;
+ }
+ .Online .left .title{
+    width: 338px;
+    height: 50px;
+    border-bottom: 1px solid #999999;
+    line-height: 50px;
+ }
+ .Online .left .title a{
+    color: black;
+    font-size: 20px;
+    font-weight: 900;
+    margin-right: 30px;
+    height: 49px;
+    display: inline-block;
+ }
+ .Online .left .title a:first-child{
+    color: $themeColor ;
+    border-bottom: 1px solid $themeColor;
+    margin-left: 5px;
+ }
+ .Online .left .news{
+    width: 338px;
+    height: 250px;
+    // background-color: rgb(56, 25, 197);
+    text-align: center;
+ }
+ .Online .left .news span{
+    width: 320px;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    background-color: $themeColor;
+    margin-top: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+    margin-bottom: 10px;
+ }
+ .Online .middle{
+    width: 476px;
+    height: 300px;
+    // background-color: rgb(10, 209, 13);
+    margin-left: 25px;
+    float: left;
+ }
+ .Online .right{
+    width: 338px;
+    height: 300px;
+    // background-color: rgb(10, 209, 13);
+    margin-left: 20px;
+    float: right;
+ }
+ .Online .middle .title{
+    width: 476px;
+    height: 50px;
+    // background-color: rgb(42, 61, 232);
+    line-height: 50px;
+    border-bottom: 1px solid #999999;
+ }
+ .Online .middle .title a{
+    color: $themeColor;
+    font-size: 20px;
+    font-weight: 900;
+    margin-right: 30px;
+    height: 49px;
+    display: inline-block;
+    border-bottom: 1px solid $themeColor;
+ }
+ .Online .middle .title span{
+   float: right;
+   color: #999999;
+ }
+ .Online .middle .mains{
+    width: 476px;
+    height: 250px;
+    // background-color: #1f559f;
+ }
+
+
+ .Online .middle .mains li{
+    height: 41.6px;
+    width: 476px;
+    // background-color: #e2a90d;
+    list-style: none;
+    line-height: 41.3px;
+}
+.Online .middle .mains li span{
+    color: $themeColor;
+    margin: 0 10px;
+}
+.Online .middle li span:nth-child(2){
+    float: right;
+    color: #999999;
+}
+.Online .right .title{
+    // width: 476px;
+    height: 50px;
+    // background-color: rgb(42, 61, 232);
+    line-height: 50px;
+    border-bottom: 1px solid #999999;
+
+}
+.Online .right .title a{
+    color: $themeColor;
+    font-size: 20px;
+    font-weight: 900;
+    margin-right: 30px;
+    height: 49px;
+    display: inline-block;
+    border-bottom: 1px solid $themeColor;
+    margin-left: 10px;
+}
+.Online .right img{
+    width: 300px;
+    float: left;
+    margin: 20px;
+}
+.footer{
+    width: 100%;
+    height: 261px;
+    background-color: #E5E8EE;
+    margin-top: 20px;
+}
+.footer .title{
+    width: 1200px;
+    height: 261px;
+    // background-color: red;
+    margin: auto;
+}
+.footer .title .top{
+    width: 1200px;
+    height: 75px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    float: left;
+    background: url(https://www.spb.gov.cn/gjyzj/xhtml/images/index/ztzl.png)no-repeat 0 0 /1200px 75px;
+}
+.footer .title .banner{
+    width: 1200px;
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+}
+.footer .bottom{
+    width: 100%;
+    height: 208px;
+    background-color: $themeColor;
+}
+.footer .bottom .mains{
+    width: 1200px;
+    height: 208px;
+    // background-color: red;
+    margin: auto;
+}
+.footer .bottom .mains .title{
+    width: 1200px;
+    height: 50px;
+    // background-color: purple;
+    border-bottom: 1px solid #999999;
+}
+.footer .bottom .mains .title li{
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    margin: 0 20px;
+    color: white;
+}
+.copyright{
+    width: 1200px;
+    height: 95px;
+    // background-color: pink;
+    margin-top: 40px;
+}
+.copyright .imgs{
+    height: 95px;
+    width: 100px;
+    // background-color: black;
+    margin-left: 20px;
+    float: left;
+}
+.copyright .imgs img{
+    float: left;
+    margin-top: 15px;
+}
+ .text{
+    width: 600px;
+    height: 95px;
+    // background-color: green;
+    float: left;
+}
+.text p{
+    line-height: 30px;
+    color: white;
+    font-size: 12px;
+}
+.copyright .right{
+    height: 95px;
+    width: 400px;
+    // background-color: orange;
+    float: right;
+    line-height: 95px;
+    color: white;
+}
+.copyright .right img{
+    float: right;
+   margin-top: 0;
+   margin-right: 30px;
+}
