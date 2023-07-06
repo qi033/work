@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./邮政局.css">
+    <link rel="stylesheet" href="../壁纸库/layui/css/layui.css">
+    <script src="../壁纸库/layui/layui.js"></script>
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.css">
+    <script src="../../common/swiper/swiper-bundle.min.js"></script>
+
+</head>
+
+<body>
+    <button class="theme1">主题1</button>
+    <button class="theme2">主题2</button>
+    <button class="theme3">主题3</button>
+    <div class="wrap">
+        <!-- 网页头部 -->
+        <div class="header">
+            <div class="content">
+                <div class="title">
+                    <div class="icon">
+                        <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/public/logo.png" alt="">
+                    </div>
+                    <div class="search">
+                        <p>
+                            <span>
+                                <a href="#">简体</a>|<a href="#">繁体</a>
+                            </span>
+                            <span>
+                                <a href="#">登录</a>|<a href="#">注册</a>
+                            </span>
+                        </p>
+                        <input type="text" placeholder="请输入关键字">
+                        <button>搜索🔍︎</button>
+                        <ul>
+                            <li>热词:</li>
+                            <li><a href="#">疫情防控</a></li>
+                            <li><a href="#">防汛救灾工作</a></li>
+                            <li><a href="#">脱贫攻坚</a></li>
+                            <li><a href="#">创新改革</a></li>
+                            <li><a href="#">服务零距离</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nav">
+                    <div class="list">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/public/syicon.png" alt="">
+                                    首页</a>
+                            </li>
+                            <li><a href="#">机构情况</a></li>
+                            <li><a href="#">政务公开</a></li>
+                            <li><a href="#">新闻动态</a></li>
+                            <li><a href="#">政务服务</a></li>
+                            <li><a href="#">互动交流</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 网页主体 -->
+        <div class="main">
+            <!-- 时政要闻 -->
+            <div class="overview">
+                <div class="content">
+                    <div class="top">
+                        <img src="https://www.spb.gov.cn/gjyzj/xhtml/2022esd/images/ztsyt_01.jpg" alt="">
+                        <img src="https://www.spb.gov.cn/gjyzj/xhtml/2023ztjy/images/ztsyt_01.jpg" alt="">
+                    </div>
+                    <div class="down">
+                        <!-- 轮播图 -->
+                        <div class="banner">
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="https://www.spb.gov.cn/gjyzj//c100015/c100021/202307/530e5e9af036463aab1ddf93b0a7f88d/images/4b04b2490dd74428ad3b3449cf5d6f2a.jpg"
+                                            alt="">
+                                        <div id="box1"></div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="https://www.spb.gov.cn/gjyzj//c100015/c100021/202307/9a235716c24843c09bbe49eafcf6cd67/images/df980da35e104ab38d424637ac2c7e71.jpg"
+                                            alt="">
+                                        <div id="box2"></div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="https://www.spb.gov.cn/gjyzj//c100015/c100021/202306/8accc17e3e3c41fa8af49d0499686264/images/2e21e533a9b94b21b3edc3cfd2d33e1a.jpg"
+                                            alt="">
+                                        <div id="box3"></div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="https://www.spb.gov.cn/gjyzj//c100015/c100021/202306/bf0c1641c6f24241a4b426705b87050a/images/301f5c82957240bb8f1b24e8adef3f39.jpg"
+                                            alt="">
+                                        <div id="box4"></div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="https://www.spb.gov.cn/gjyzj//c100015/c100021/202306/65a76399fa8547e0bc5aeed3880b8af6/images/18e2826c7b844275b7a2211de731e0e0.jpg"
+                                            alt="">
+                                        <div id="box5"></div>
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                        <!-- 导航列表 -->
+                        <div class="list">
+                            <div class="layui-tab layui-tab-brief">
+                                <ul class="layui-tab-title">
+                                    <li class="layui-this">时政要闻</li>
+                                    <li>行业要闻</li>
+                                    <li>各地动态</li>
+                                    <span class="more">更多+</span>
+                                </ul>
+                                <div class="layui-tab-content">
+                                    <div class="layui-tab-item layui-show">
+                                        <ul>
+                                            <li>•&nbsp;<a href="#">为世界注入更多确定性和正能量——国际社会高...</a><span>07-05</span></li>
+                                            <li>•&nbsp;<a href="#">习近平主席在上海合作组织成员国元首理事会第...</a><span>07-05</span></li>
+                                            <li>•&nbsp;<a href="#">习近平对防汛救灾工作作出重要指示 要求加强统...</a><span>07-05</span></li>
+                                            <li>•&nbsp;<a href="#">习近平出席上海合作组织成员国元首理事会第二...</a><span>07-04</span></li>
+                                            <li>•&nbsp;<a href="#">习近平在上海合作组织成员国元首理事会第二十...</a><span>07-04</span></li>
+                                            <li>•&nbsp;<a href="#">习近平：本次会议彰显出“上合大家庭”的生机...</a><span>07-04</span></li>
+                                            <li>•&nbsp;<a href="#">习近平：践行多边主义，完善全球治理</a><span>07-04</span></li>
+                                            <li>•&nbsp;<a href="#">习近平：加强交流互鉴，促进民心相通</a><span>07-04</span></li>
+                                            <li>•&nbsp;<a href="#">习近平：共同把“一带一路”这条造福世界的幸...</a><span>07-04</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="layui-tab-item">
+                                        <ul>
+                                            <li>•&nbsp;<a href="#">北京局召开“两优一先”表彰大会暨“光荣在党...</a><span>07-05</span></li>
+                                            <li>•&nbsp;<a href="#">上海局调研“快递进厂”工作</a><span>07-05</span></li>
+                                            <li>•&nbsp;<a href="#">江苏局联合16部门开展全省平安寄递专项行动</a><span>07-05</span></li>
+                                            <li>•&nbsp;<a href="#">河北局举行全省系统党员干部主题教育专题党课</a><span>07-04</span></li>
+                                            <li>•&nbsp;<a href="#">宁夏局组织开展邮政业安全生产隐患大排查大整...</a><span>07-04</span></li>
+                                            <li>•&nbsp;<a href="#">广西局举办全区邮政业安全生产培训班</a><span>07-04</span></li>
+                                            <li>•&nbsp;<a href="#">山西局调研督导快递市场服务专项治理行动</a><span>07-04</span></li>
+                                            <li>•&nbsp;<a href="#">湖南局联合17部门部署推进全省平安寄递专项行...</a><span>07-04</span></li>
+                                            <li>•&nbsp;<a href="#">江苏局实施全省快递服务质量提升工程</a><span>07-04</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="layui-tab-item">
+                                        <ul>
+                                            <li>•&nbsp;<a href="#">福州局荣获全市绩效考评优秀等次</a><span>07-05</span></li>
+                                            <li>•&nbsp;<a href="#">淮安打造“四最”营商环境 农村寄递物流体系建...</a><span>07-05</span></li>
+                                            <li>•&nbsp;<a href="#">新乡局联合10部门印发加强邮件快件寄递安全管...</a><span>07-05</span></li>
+                                            <li>•&nbsp;<a href="#">黄石8部门联合印发打通农村寄递物流“最后一公...</a><span>07-04</span></li>
+                                            <li>•&nbsp;<a href="#">揭阳深入推进创建“中国快递示范城市”宣传工...</a><span>07-04</span></li>
+                                            <li>•&nbsp;<a href="#">丽水市副市长调研市邮政管理工作</a><span>07-04</span></li>
+                                            <li>•&nbsp;<a href="#">齐齐哈尔局荣获“市级文明单位标兵”称号</a><span>07-04</span></li>
+                                            <li>•&nbsp;<a href="#">新余局荣获“全面依法治市综合考核优秀单位”...</a><span>07-04</span></li>
+                                            <li>•&nbsp;<a href="#">泸州局联合9部门印发工会户外劳动者服务站点建...</a><span>07-04</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 政务公开 -->
+            <div class="open">
+                <div class="content">
+                    <div class="left">
+                        <div class="title">
+                            <h1>政务公开</h1>
+                        </div>
+                        <div class="list">
+                            <div class="layui-tab layui-tab-brief">
+                                <ul class="layui-tab-title">
+                                    <li class="layui-this">通知公告</li>
+                                    <li>政策法规标准</li>
+                                    <li>政策解读</li>
+                                    <li>政府信息公开</li>
+                                </ul>
+                                <div class="layui-tab-content">
+                                    <div class="layui-tab-item layui-show">
+                                        <ul>
+                                            <li>•&nbsp;<a
+                                                    href="#">国家邮政局关于公布《现代桥梁建设》特种邮票计划发行数量及仿印审批目录的通告</a><span>07-05</span>
+                                            </li>
+                                            <li>•&nbsp;<a
+                                                    href="#">国家邮政局关于公布《货郎图》特种邮票计划发行数量及仿印审批目录的通告</a><span>07-05</span>
+                                            </li>
+                                            <li>•&nbsp;<a
+                                                    href="#">国家邮政局发展研究中心下属北京国邮科讯科技发展有限公司2023年度第二批公开招聘应届毕业...</a><span>07-05</span>
+                                            </li>
+                                            <li>•&nbsp;<a
+                                                    href="#">国家邮政局关于公布《动画—九色鹿》特种邮票计划发行数量及仿印审批目录的通告</a><span>07-04</span>
+                                            </li>
+                                            <li>•&nbsp;<a
+                                                    href="#">国家邮政局关于2023年第一季度快递服务满意度调查和时限准时率测试结果的通告</a><span>07-04</span>
+                                            </li>
+                                            <li>•&nbsp;<a href="#">邮政业用品用具检验检测机构名录 （试点第二批）</a><span>07-04</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="layui-tab-item">
+                                        <ul>
+                                            <li>•&nbsp;<a href="#">邮政业用品用具检验检测机构名录 （试点第二批）</a><span>07-05</span></li>
+                                            <li>•&nbsp;<a href="#">一部三局发文：加快建设国家综合立体交通网主骨架！</a><span>07-05</span></li>
+                                            <li>•&nbsp;<a href="#">这些政策你享受到了吗？来这里，说说你的情况和建议</a><span>07-05</span></li>
+                                            <li>•&nbsp;<a href="#">操作指南：如何享受快递收派服务收入免征增值税政策</a><span>07-04</span></li>
+                                            <li>•&nbsp;<a
+                                                    href="#">商务部、国家邮政局等八部门关于加快贯通县乡村电子商务体系和快递物流配送体系有关工作的...</a><span>07-04</span>
+                                            </li>
+                                            <li>•&nbsp;<a href="#">住房和城乡建设部办公厅
+                                                    国家邮政局办公室关于做好疫情防控期间寄递服务保障工作的通知</a><span>07-04</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="layui-tab-item">
+                                        <ul>
+                                            <li>•&nbsp;<a
+                                                    href="#">《关于电子烟产品、雾化物、电子烟用烟碱等限量寄递的通告》政策解读</a><span>07-05</span></li>
+                                            <li>•&nbsp;<a href="#">《邮政业生态环境保护工作信息报告规定（试行）》解读</a><span>07-05</span></li>
+                                            <li>•&nbsp;<a href="#">《“十四五”邮政业发展规划》解读</a><span>07-05</span></li>
+                                            <li>•&nbsp;<a href="#">《国务院办公厅关于加快农村寄递物流体系建设的意见》解读</a><span>07-04</span>
+                                            </li>
+                                            <li>•&nbsp;<a href="#">关于《关于修改〈邮政行政执法监督办法〉的决定》的解读</a><span>07-04</span></li>
+                                            <li>•&nbsp;<a href="#">《交通运输部 国家邮政局 国家发展改革委 人力资源社会保障部 商务部 市场监管总局
+                                                    全国总...</a><span>07-04</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="layui-tab-item">
+                                        <ul>
+                                            <li>•&nbsp;<a
+                                                    href="#">《关于电子烟产品、雾化物、电子烟用烟碱等限量寄递的通告》政策解读</a><span>07-05</span></li>
+                                            <li>•&nbsp;<a href="#">《邮政业生态环境保护工作信息报告规定（试行）》解读</a><span>07-05</span></li>
+                                            <li>•&nbsp;<a href="#">《“十四五”邮政业发展规划》解读</a><span>07-05</span></li>
+                                            <li>•&nbsp;<a href="#">《国务院办公厅关于加快农村寄递物流体系建设的意见》解读</a><span>07-04</span>
+                                            </li>
+                                            <li>•&nbsp;<a href="#">关于《关于修改〈邮政行政执法监督办法〉的决定》的解读</a><span>07-04</span></li>
+                                            <li>•&nbsp;<a href="#">《交通运输部 国家邮政局 国家发展改革委 人力资源社会保障部 商务部 市场监管总局
+                                                    全国总...</a><span>07-04</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="title">
+                            <h1>统计&指数</h1>
+                            <span>更多+</span>
+                        </div>
+                        <div class="image">
+                            <img src="https://www.spb.gov.cn/gjyzj//c100015/c100016/202306/b97057883d714dd0bd9bcedce6f791c9/images/834559e983d74ed699394c0b6562cce1.png"
+                                alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 政务服务 -->
+            <div class="service">
+                <div class="content">
+                    <div class="nav">
+                        <ul>
+                            <li id="first">
+                                <h1>政务服务</h1>
+                            </li>
+                            <li id="last">
+                                <h1>政民互动</h1>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cont">
+                        <div class="first" id="first-box">
+                            <div class="title">
+                                <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/zxbs.png" alt="">
+                                <h1>行政许可</h1>
+                                <span>更多+</span>
+                            </div>
+                            <div class="list">
+                                <div>
+                                    <img src="https://www.spb.gov.cn/gjyzj/c100163/202111/de580ff81a964600b6a59183ff6b0d76/images/2d3336f10d5f486495a9081149166e3b.png"
+                                        alt="">
+                                    <p>快递业务经营许可</p>
+                                </div>
+                                <div>
+                                    <img src="https://www.spb.gov.cn/gjyzj/c100163/202111/121be507a0314e62b78d1a70c7b7d82e/images/047ae8fc49bf42ea8116004c6880294e.png"
+                                        alt="">
+                                    <p>停止办理或者限制<br>
+                                        办理邮政普遍服务特殊<br>
+                                        服务业务审批</p>
+                                </div>
+                                <div>
+                                    <img src="https://www.spb.gov.cn/gjyzj/c100163/202111/d2f2db976e864a6aadf55a89e2b03fcd/images/bceea6f58aef43ac95fd45a044e46ba8.png"
+                                        alt="">
+                                    <p>撤销提供邮政普遍<br>
+                                        服务的邮政营业场所审批
+                                    </p>
+                                </div>
+                                <div>
+                                    <img src="https://www.spb.gov.cn/gjyzj/c100163/202111/829aaf0a5d704c51baf2e9968dc87d69/images/a737c32815cd4ab5809f1420023c7c98.png"
+                                        alt="">
+                                    <p>经营进出境邮政通信<br>
+                                        业务审批
+                                    </p>
+                                </div>
+                                <div>
+                                    <img src="https://www.spb.gov.cn/gjyzj/c100163/202111/38265f60ba204c5b9aea5a4438dadce4/images/fcb22b5c477a4e7e866395a5aff56d54.png"
+                                        alt="">
+                                    <p>纪念邮票和特种邮票发<br>
+                                        行计划审批
+                                    </p>
+                                </div>
+                                <div>
+                                    <img src="https://www.spb.gov.cn/gjyzj/c100163/202111/bcc4ecd4e1e244ad936f25e4eb2ec6f7/images/9086d375b5634cd195406621ee16cd33.png"
+                                        alt="">
+                                    <p>纪念邮票图案审查</p>
+                                </div>
+                                <div>
+                                    <img src="https://www.spb.gov.cn/gjyzj/c100163/202111/97fbac6f66f342419b6c507badb0ad83/images/ebb8c7b6cf534579afa0d72397530271.png"
+                                        alt="">
+                                    <p>仿印邮票图案审批</p>
+                                </div>
+                                <div>
+                                    <img src="https://www.spb.gov.cn/gjyzj/c100163/202111/d90bb31f752e490fb053dbf53f73e94a/images/fb7d1cb298dc4135ab32f582214e1777.png"
+                                        alt="">
+                                    <p>停止使用邮资<br>
+                                        凭证审批
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="last" id="last-box">
+                            <div class="title">
+                                <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/zxbs.png" alt="">
+                                <h1>互动交流</h1>
+                                <span>更多+</span>
+                            </div>
+                            <div class="list">
+                                <div>
+                                    <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/xiexin.png" alt="">
+                                    <span>我要写信</span>
+                                </div>
+                                <div>
+                                    <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/sendsms.png" alt="">
+                                    <span>来信统计</span>
+                                </div>
+                                <div>
+                                    <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/shipinjiance.png" alt="">
+                                    <span>在线视频</span>
+                                </div>
+                                <div>
+                                    <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/yijianfankui.png" alt="">
+                                    <span>意见征集</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <div>
+                            <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/cxfwicon.png" alt="">
+                            <span>在线服务</span>
+                        </div>
+                        <div>
+                            <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/wsbsicon.png" alt="">
+                            <span>网上办事</span>
+                        </div>
+                        <div>
+                            <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/wsxfssicon.png" alt="">
+                            <span>消费者申诉</span>
+                        </div>
+                        <div>
+                            <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/zfxxgksicon.png" alt="">
+                            <span>执法信息公开</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 在线访谈 -->
+            <div class="interview">
+                <div class="content">
+                    <div class="left">
+                        <div class="layui-tab layui-tab-brief">
+                            <ul class="layui-tab-title">
+                                <li class="layui-this">在线访谈</li>
+                                <li>视频</li>
+                                <li>新闻发布会</li>
+                            </ul>
+                            <div class="layui-tab-content">
+                                <div class="layui-tab-item layui-show">
+                                    <p>
+                                        深入贯彻落实“五个更大”重要要求，推动广...
+                                    </p>
+                                    <img src="https://www.spb.gov.cn/gjyzj//c100025/c100026/202306/14dd0bc871de44cebc694282957a7cde/images/80914d010d63439dbed82fdea995d602.jpg"
+                                        alt="">
+                                </div>
+                                <div class="layui-tab-item">
+                                    <p>
+                                        《新闻联播》关注快递业务量破600亿件
+                                    </p>
+                                    <img src="https://www.spb.gov.cn/gjyzj/c100027/202306/bcfb7b4fb77a4036a00084cbac0fe54a/images/9bdf44dba415455db0ac151a16fcbb73.png"
+                                        alt="">
+                                </div>
+                                <div class="layui-tab-item">
+                                    <p>
+                                        国家邮政局2023年第二季度例行新闻发布会实录
+                                    </p>
+                                    <img src="https://www.spb.gov.cn/gjyzj/c106927/202304/e681c07e15fd459c9a02c252f7f152e6/images/132709070c6b473d968cb62097fbf808.png"
+                                        alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center">
+                        <div class="title">
+                            <h2>环球邮证</h2>
+                            <span>更多+</span>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li>•&nbsp;<a href="#">澳大利亚邮政在新南威尔士州开设新包裹中心</a><span>07-05</span></li>
+                                <li>•&nbsp;<a href="#">美国邮政与ECS公司签署再次竞标合同</a><span>07-05</span></li>
+                                <li>•&nbsp;<a href="#">Auctane研究发现物流体验影响消费者购买期望</a><span>07-05</span></li>
+                                <li>•&nbsp;<a href="#">沃尔玛推出库存交付服务</a><span>07-04</span></li>
+                                <li>•&nbsp;<a href="#">亚马逊美国站更新FBA退货仪表板 帮助卖家降低退...</a><span>07-04</span></li>
+                                <li>•&nbsp;<a href="#">香港邮政发售内地、澳门和海外集邮品</a><span>07-04</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="title">
+                            <h2>新邮赏析</h2>
+                        </div>
+                        <div class="icon">
+                            <img src="https://www.spb.gov.cn/gjyzj//c100040/202306/056ebc65c361449fb6af5b02ee305d1b/images/3aa80d52e07e4e5eb09e8c21864a93a3.jpg"
+                                alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 专栏 -->
+            <div class="column">
+                <div class="content">
+                    <div class="icon">
+                        <img src="https://www.spb.gov.cn/gjyzj/xhtml/images/index/ztzl.png" alt="">
+                    </div>
+                    <div class="banner">
+                        <div class="swiper mySwiper" id="mySwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="https://www.spb.gov.cn/gjyzj//c100015/c100023/202111/511311c4f3964a9ca572c52875588298/images/e85af09919ad488e9391af31ade89d46.jpg"
+                                        alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="https://www.spb.gov.cn/gjyzj//c100015/c100023/202111/294a403d3c874a2fbb734d21e57b57ad/images/d2575ec2ed3a4418a8073de60d3377d3.jpg"
+                                        alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="https://www.spb.gov.cn/gjyzj//c100015/c100023/202306/39884bafc918482caf32b15fbd74c9d6/images/9d055b2c1db5411fa6f787098914d54b.jpg"
+                                        alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="https://www.spb.gov.cn/gjyzj//c100015/c100023/202306/8298d870d9b342bc93ec3fdf8b0a9cc3/images/3850b94d07d84265a4d17908c60eb929.jpg"
+                                        alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="https://www.spb.gov.cn/gjyzj//c100015/c100023/202303/8fb6164afda44d03a0e9741c14333a32/images/8e305ac7952541aa81f346fd29393c2c.jpg"
+                                        alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="https://www.spb.gov.cn/gjyzj//c100015/c100023/202211/cfa75510a2c04a239ca5441deaa21a77/images/0ca781e85c6a439caeb1a8adc9099501.jpg"
+                                        alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="https://www.spb.gov.cn/gjyzj//c100015/c100023/202210/f918c1eb9f454fc388794c05f27c317d/images/5baf7e64879f4ce7a9455a21dd8e3dc4.jpg"
+                                        alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="https://www.spb.gov.cn/gjyzj//c100015/c100023/202303/702b5278123d47958669d01207a538b4/images/0fadec8081a644a5bdeb0e7dcbeb7ec0.jpg"
+                                        alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 网页底部 -->
+        <div class="footer">
+            <div class="content">
+                <div class="list">
+                    <ul>
+                        <li>国务院部门&nbsp;▼</li>
+                        <li>地方子站&nbsp;▼</li>
+                        <li>快递协会&nbsp;▼</li>
+                        <li>相关链接&nbsp;▼</li>
+                    </ul>
+                </div>
+                <div class="statement">
+                    <div class="left">
+                        <img src="https://dcs.conac.cn/image/red.png" alt="">
+                        <p>版权所有：中华人民共和国国家邮政局 主办单位：中华人民共和国国家邮政局<br>
+                            京ICP备案08008301号-1 政府网站标识码：BM71000001<br>
+                            地址: 北京市西城区北礼士路甲8号 京公网安备 11010202008355号</p>
+                    </div>
+                    <div class="right">
+                        <p>免责声明 |网站地图 |联系我们</p>
+                        <img src="https://zfwzgl.www.gov.cn/exposure/images/jiucuo.png?v=bm71000001" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../壁纸库/jquery-3.7.0.min.js"></script>
+    <script src="./邮政局.js"></script>
+</body>
+
+</html>
