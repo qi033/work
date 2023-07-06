@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.min.css" />
+    <script src="../../common/swiper/swiper-bundle.min.js"></script>
+    <title>swiper作业6</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            position: relative;
+        }
+
+        .swiper {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width:55vw;
+            height: 50vh;
+        }
+        #boxxx {
+            position: absolute;
+            top: 600px;
+            left: 320px;
+            width: 600px;
+            height: 42px;
+            --swiper-theme-color: aqua;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="
+        width: 100%;
+        height: 55.5vw;
+        margin: auto;
+        position: relative;
+        background: url('https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/04/04/2a3fc05e12e57f38d8428a5c71667d0a_5537919882126701753.png?x-oss-process=image/format,webp/quality,Q_90');
+        background-size: cover;
+        background-position: center;
+      ">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" data-v-24224816>
+                    <img src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/07/05/e9a39149fa2037a292f59d60f288c6a3_4429626251147532613.jpg?x-oss-process=image/format,webp/quality,Q_90" />
+                </div>
+                <div class="swiper-slide" data-v-24224816>
+                    <img src="https://w.wallhaven.cc/full/x6/wallhaven-x6773o.jpg" />
+                </div>
+                <div class="swiper-slide" data-v-24224816>
+                    <img src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/06/30/59d1afa23550d3b7669d6d922045a586_8929691166709294784.png?x-oss-process=image/format,webp/quality,Q_90" />
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination" style="position: relative;top: 609px;"></div>
+        <div id="boxxx">
+           
+            <div class="swiper-button-prev" id="ss"></div>
+            <div class="swiper-button-next" id="ss"></div>
+        </div>
+    </div>
+    <script>
+        var mySwiper = new Swiper(".swiper", {
+            direction: "horizontal", // 垂直切换选项
+            autoplay: {
+                delay: 3000,
+            },
+            loop: true,
+            // 如果需要分页器
+            pagination: {
+                el: ".swiper-pagination",
+            },
+
+            // 如果需要前进后退按钮
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+</body>
+
+</html>
+
+</html>

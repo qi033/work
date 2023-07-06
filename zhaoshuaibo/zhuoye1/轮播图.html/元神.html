@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <style>
+      .swiper {
+        width: 800px;
+        height: 400px;
+      }
+      .swiper-pagination {
+        position: absolute;
+        top: 45% !important;
+        left: 0% !important;
+      }
+      .swiper-button-prev,
+      .swiper-button-next {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        /* border-radius: 10px; */
+        border: 1px solid  white;
+        background-color: rgba(247, 243, 243, 0.5);
+      }
+      .swiper-button-prev::after,
+      .swiper-button-next::after {
+        font-family: "<"; /* FontAwesome的字体名称 */
+        font-weight: 900; /* 图标的粗细 */
+        transform: scale(0); /* 放大图标1.5倍 */
+      }
+      .swiper-button-prev {
+        background-image: url("./img/左.png");
+        background-color: rgba(75, 73, 73, 0.5);
+        background-position: center center;
+        background-size: cover;
+        position: relative;
+        left: 43%;
+        top: 40px;
+      }
+      .swiper-button-next {
+        background-image: url("./img/右.png");
+        background-position: center center;
+        background-color: rgba(255, 0, 0, 0);
+        background-size: cover;
+            position: relative;
+        left: 56%;
+        top: 30px;
+      }
+      img {
+        width: 100%;
+      }
+      .my-bullet-active {
+        background: #c0c012;
+        width: 20px;
+        height: 10px;
+        opacity: 1;
+      }
+    </style>
+  </head>
+    <div id="box"></div>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <img
+          src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/06/27/c11da43a7ce8c3b6a911bd666467ce93_8943545457598833352.png?x-oss-process=image/format,webp/quality,Q_90"
+          alt=""
+          class="swiper-slide"
+        />
+        <img
+          src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/64328ac4ad4baf3f13f6e36dac889703_4068855659663110277.png?x-oss-process=image/format,webp/quality,Q_90"
+          alt=""
+          class="swiper-slide"
+        />
+        <img
+          src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/3a1760449507c96a28c066148f3c8a16_203547796934874932.png?x-oss-process=image/format,webp/quality,Q_90"
+          alt=""
+          class="swiper-slide"
+        />
+        <img
+          src="https://img1.baidu.com/it/u=421018092,1535888078&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=655"
+          alt=""
+          class="swiper-slide"
+        />
+        <img
+          src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/7a54dc691e450c32262c3d565234946d_7367504620217885063.png?x-oss-process=image/format,webp/quality,Q_90"
+          class="swiper-slide"
+        />
+        <img
+          src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/b43fe71f11ef5147c57e287e16592422_6798603925736605711.png?x-oss-process=image/format,webp/quality,Q_90"
+          alt=""
+          class="swiper-slide"
+        />
+      </div>
+
+    </div>
+          <!-- 如果需要分页器 -->
+      <div class="swiper-pagination"></div>
+
+      <!-- 如果需要导航按钮 -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+  </body>
+  <script>
+    var mySwiper = new Swiper(".swiper", {
+      effect: 'coverflow',
+    slidesPerView: 1.5,
+    centeredSlides: true,
+      fadeEffect: {
+        crossFade: true,
+      },
+       freeMode: true,
+      autoplay: true,
+      direction: "horizontal", // 垂直切换选项
+        loop: true, // 循环模式选项
+       speed: 2000, //播放速度，延迟
+
+      // 如果需要分页器
+      pagination: {
+        el: ".swiper-pagination",
+        bulletActiveClass: "my-bullet-active", //分页器样式
+          // dynamicBullets: true,
+          clickable :true,
+      },
+
+      // 如果需要前进后退按钮
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+    //鼠标滑过pagination控制swiper切换
+for(i=0;i<mySwiper.pagination.bullets.length;i++){
+  mySwiper.pagination.bullets[i].onmouseover=function(){
+    this.click();
+  };
+} 
+  </script>
+</html>

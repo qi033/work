@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../common/swiper/swiper-bundle.css">
+    <script src="../../../common/swiper/swiper-bundle.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            margin-top: 250px;
+            width: 100%;
+            height: 300px;
+        }
+
+        img {
+            width: 100%;
+            height: 300px;
+        }
+
+        .swiper-button-next {
+            top: 20%;
+            z-index: 999;
+        }
+
+        .swiper-button-prev {
+            top: 20%!important;
+            left: 94%!important;
+            opacity: 1!important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="../Img/来活了兄弟.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/传奇.webp" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/尘缘.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/暗夜.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/南阳女儿情.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/长风渡.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/权利的游戏.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/北京.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/仙侠神域.webp" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/战斧行动.jpg" alt=""></div>
+
+        </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</body>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 5,
+        spaceBetween: 30,
+        slidesPerGroup: 3,
+        // loop: true,
+        // loopFillGroupWithBlank: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+    var bullets = document.querySelectorAll('.swiper-pagination-bullet');
+    bullets.forEach(function (bullet, index) {
+        bullet.addEventListener('mouseenter', function () {
+            mySwiper.slideToLoop(index);
+        });
+    });
+</script>
+
+</html>
