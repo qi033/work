@@ -1,0 +1,232 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    outline-style: none;
+    color: #1C1B1B;
+}
+body{
+    width: 100%;
+    height: 120vh;
+    background-color:rgba(13, 35, 94);
+}
+.title-animate{
+    width: 100%;
+    height:100px;
+    text-align: center;
+    position: relative;
+}
+.ti{
+    font-size: 44px;
+    font-weight: normal;
+    font-family: "宋体";
+}
+.swiper{
+width: 100%;
+height: 400px;
+}
+.slide-inner{
+    width: 100%;
+    height: 400px;
+}
+.echarts{
+    margin-top: 40px;
+    width: 100%;
+    height: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.echarts-left{
+    width:45%;
+    height: 100%;
+}
+.echarts-right{
+    width:45%;
+    height: 100%;
+}
+.media{
+    width: 100%;
+    height: 400px;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.media-left{
+    width: 40%;
+    height: 100%;
+}
+.media-right{
+    width: 55%;
+    height: 100%;
+}
+.sc{
+    width: 98%;
+    height: 64px;
+    text-align: left;
+    line-height: 80px;
+    font-size: 24px;
+    color: #fff;
+    margin-left: 10px;
+    border-bottom:0.5px solid #fff;
+}
+.vi{
+    width:100%;
+    height:300px
+}
+.sc p{
+    width: 100px;
+    height: 60px;
+    cursor: pointer;
+    color: rgba(87, 118, 205, 0.6);
+    border-bottom: 3px solid rgba(100, 133, 225, 0.6);
+}
+.column_r{
+    padding: 5% 0;
+    width: 65%;
+    height:75%;
+    margin: 0 auto;
+    background-color: rgba(55, 55, 159, 0.1);
+    border-radius: 8px;
+}
+.bigtit a{
+    color: #DF2F30!important;
+    font-size: 18px;
+    font-weight: 600;
+}
+.bigtit{
+    width: 100%;
+    height: 42px;
+    line-height: 42px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+.ul05 {
+    width: 90%;
+    margin-left: 10%;
+    height: 100%;
+}
+.ul05 li {
+    width: 100%;
+    height: 34px;
+    line-height: 34px;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+}
+.ul05 li a{
+    color: #fff;
+}
+.ul05 li a:hover{
+    border-bottom: 1px solid #DF2F30;
+    color: #DF2F30;
+}
+.maps{
+    width: 100%;
+    height: 500px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.maps-div{
+    width: 800px;
+    height: 100%;
+}
+#l {
+    width: 800px;
+    height: 500px;
+  }
+
+  @import url(https://fonts.googleapis.com/css?family=Montserrat);
+html,
+body {
+  height: 100%;
+  font-weight: 800;
+}
+
+body {
+  background: #030321;
+  font-family: Arial;
+}
+
+svg {
+  display: block;
+  font: 10.5em 'Montserrat';
+  width: 100%;
+  height:100%;
+  margin: 0 auto;
+}
+
+.text-copy {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 6% 29%;
+  stroke-width: 5px;
+  stroke-dashoffset: 0%;
+  animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1) {
+  stroke: #4D163D;
+  animation-delay: -1;
+}
+
+.text-copy:nth-child(2) {
+  stroke: #840037;
+  animation-delay: -2s;
+}
+
+.text-copy:nth-child(3) {
+  stroke: #BD0034;
+  animation-delay: -3s;
+}
+
+.text-copy:nth-child(4) {
+  stroke: #BD0034;
+  animation-delay: -4s;
+}
+
+.text-copy:nth-child(5) {
+  stroke: #FDB731;
+  animation-delay: -5s;
+}
+
+@keyframes stroke-offset {
+  100% {
+    stroke-dashoffset: -35%;
+  }
+}
+@media only screen and (max-width: 1000px) {//下面body的样式屏幕宽度最大值不能超过500px才会触发
+    .echarts {
+        margin-top: 40px;
+        width: 100%;
+        height: 700px;
+        margin: 0 auto;
+       display: block;
+    }
+    .echarts-left {
+        width: 45%;
+        height: 50%;
+        margin:5% 10%;
+    }
+    .echarts-right {
+        width: 45%;
+        height: 50%;
+        margin: 5% 10%;
+    }
+}
+#audioPlayer {
+    display: none;
+  }
