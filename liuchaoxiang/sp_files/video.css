@@ -1,0 +1,99 @@
+.pagination{ height: 30px; padding: 40px 0; text-align: center;}
+.pagination a{ width: 28px; height: 28px; margin: 0 5px; display: inline-block; font-size: 12px; line-height: 27px; text-align: center; color: #d93024; border: 1px solid #dfdede; border-radius: 2px;}
+.pagination span{ display: inline-block; line-height: 25px; color: #d93024;}
+.pagination a.prev, .pagination a.next{ width: 58px;}
+.pagination a.on, .pagination a:hover{ font-weight: bold; color: #ffffff; background: #d93024; border-color: #d93024;}
+
+.mainft .comment {width: 645px;}
+.mainft .comment h4, .sidebar h4, .videoprofile h4{ padding-bottom: 10px; font-family: "Hiragino Sans GB","Microsoft YaHei"; font-size: 28px; font-weight: normal; line-height: 40px; background: url(../images/yc_ex_01.gif) 0 20px repeat-x;}
+.mainft .comment h4 .t, .sidebar h4 .t, .videoprofile h4 .t{ padding-right: 12px; background: #ffffff; font-weight: bold;}
+.say-box{ padding-bottom: 20px; border-bottom: 1px solid #dddddd;}
+.say-box textarea{ width: 623px; height: 124px; padding: 10px; margin-bottom: 20px; font-size: 14px; color: #616161; background: #fafafa; border: 1px solid #e7e7e7;}
+.say-box .focus{ border: 1px solid #f66640; background: #ffffff;}
+.say-box .text{ font-family: "Hiragino Sans GB","Microsoft YaHei"; font-size: 14px; color: #b8b8b8;}
+.say-box .submit{ width: 70px; height: 30px; font-family: "Hiragino Sans GB","Microsoft YaHei"; font-size: 14px; text-align: center; color: #ffffff; cursor: pointer; background: #d93024; border-radius: 5%;}
+.say-list{ height: 420px; overflow: hidden; font-size: 14px; line-height: 28px; color: #616161;}
+.say-list li{ padding: 15px 0; background: url(../images/yc_ex_02.gif) 0 bottom repeat-x;}
+.say-list li .info{ padding-bottom: 5px; font-size: 14px; line-height: 24px; color: #b8b8b8;}
+.say-list li .info span{ padding-left: 16px; background: url(../images/yc_sprite_01.png) 6px -86px no-repeat;}
+.say-more{ margin-top: -1px; padding-top: 15px; background: #ffffff;}
+.say-more p{ width: 123px; height: 40px; padding:0 261px; border-top: 1px solid #dddddd;}
+.say-more a{ width: 123px; height: 39px; display: block; font-size: 14px; text-align: center; line-height: 40px; background: #f4f4f4;}
+
+.sidebar {width: 315px;}
+.sidebar .con{ padding-bottom: 20px;}
+.pic-list{ margin-left: -15px; overflow: hidden;}
+.pic-list li{ width: 150px; height: 155px; overflow: hidden; margin-left: 15px; margin-bottom: 15px; font-size: 12px; line-height: 24px;}
+.pic-list li img{ width: 150px; height: 100px;}
+
+
+.sidebar h4.v-unifiedtitle { background: url(../images/more.png) no-repeat center right; margin-bottom: 10px;}
+.pic-list li .img { position: relative;  display: block; width: 150px; height: 100px;margin-bottom: 10px;}
+.pic-list li .img .videolist {position: absolute; bottom: 0;left:10px; right: 10px; height: 20px; color: #fff; padding-bottom: 8px;}
+.pic-list li .img .duration {width: 50px; overflow: hidden; height: 24px; line-height: 24px;}
+.pic-list li .img .clickrate {width: 80px; overflow: hidden; height: 24px; line-height: 24px;white-space: nowrap;text-overflow: ellipsis;}
+.pic-list li .img .clickrate .num { max-width: 40px; overflow: hidden;}
+
+.videoprofile_c { background: #fafafa; padding: 20px; border:1px solid #e7e7e7; font-size: 14px; line-height: 28px; position: relative; color: #616161;}
+.videoprofile_c .video_t { border-left: 2px solid #d93024; padding-left: 10px; font-size: 20px; font-weight: bold; line-height: 20px; height: 20px; overflow: hidden; font-family: "Hiragino Sans GB","Microsoft YaHei"; margin-bottom: 20px;}
+.S_arrow {position: absolute;margin: -28px 0px;width: 12px;}
+.S_arrow span {margin: -11px 0px 0px;}
+.S_arrow * {overflow: hidden;font-size: 12px;line-height: 1.231;display: block;height: 12px;}
+.S_line1_c {color: #e7e7e7;}
+.S_bg1_c {color: #fafafa;}
+
+.mainhd {margin-bottom: 40px;margin-top: -8px;}
+.mainhd .mainhd_l { width: 660px;}
+.mainhd .videotitle { font-family: "Hiragino Sans GB","Microsoft YaHei"; font-size: 22px; font-weight:bold;line-height:31px; overflow: hidden; width: 550px; margin-top:5px;}
+.mainhd .share-box { width: 100px;padding-top: 8px;position: relative;}
+.mainhd .share-bar{line-height: 24px;display: inline-block;}
+.mainhd .share-bar:hover{color: #333;}
+.mainhd .share-bar span{margin:0 8px 0 7px;}
+.mainhd .share-bar .ico-share{width: 15px;height: 17px;background-position: -292px -202px;}
+.mainhd .share-bar .ico-arr{width: 10px;height: 6px;background-position: -196px -202px;}
+.mainhd .share-layer{position: absolute;top: 32px;right: 0;}
+.mainhd .share-layer a{display: block;width: 40px;height: 40px;background: url(../images/share_item.png);}
+.mainhd .share-layer a.weibo{background-position: 0 0;}
+.mainhd .share-layer a.renren{background-position: 0 -40px;}
+.mainhd .share-layer a.qzone{background-position: 0 -80px;}
+.mainhd .share-layer a.weibo:hover{background-position: -58px 0;}
+.mainhd .share-layer a.renren:hover{background-position: -58px -40px;}
+.mainhd .share-layer a.qzone:hover{background-position: -58px -80px;}
+/*.mainhd .share-box .on .ico-arr{background-position:  -224px -202px;}*/
+.mainhd .video-assist {height: 28px; line-height: 22px; margin:12px 0 15px; }
+.mainhd .video-assist-l {width: 460px; overflow: hidden; height: 22px; line-height: 22px;}
+.mainhd .video-assist-r { width: 200px; overflow: hidden; height: 22px; line-height: 22px;text-align: right;}
+.mainhd .video-assist a{padding: 0 3px;}
+.mainhd .video-assist .fR { color: #616161;}
+.mainhd .video-assist i{color: #b7b7b7;}
+.mainhd .video-assist .time { padding-right: 20px;}
+.mainhd .video-assist .readtotal {display: inline-block;max-width: 66px;overflow: hidden;height: 22px;line-height: 22px;vertical-align: top}
+#videoxg { width: 660px; height: 557px; background: #000000; color: #fff;}
+.xgplayer-skin-default.xgplayer-inactive .xgplayer-controls{display: flex !important;}
+.xgplayer-skin-default .xgplayer-poster{background-size: contain !important;
+    background-position: 50% 50% !important;
+    background-repeat: no-repeat;}
+#videoPlay { width: 660px; background: #000000; color: #fff;}
+#videoPlay video{ width: 660px; height: 557px; background-color: #000000;}
+
+.mainhd .mainhd-r { width: 320px; height: 625px; padding-top: 8px;}
+.mainhd .mainhd-r .ads-hd,.mainhd .mainhd-r .ads-hd img { width: 315px; height: 60px; display: block;}
+.mainhd .mainhd-r .videoslist_c {  height: 557px; margin-top: 20px; }
+.videoslisttitle {border-top: 2px solid #e0e0e0; height: 50px;}
+.videoslisttitle li {float: left; padding: 0 12px; font-family: "Hiragino Sans GB","Microsoft YaHei"; font-size: 20px; height: 50px; line-height: 50px; cursor: pointer; margin-right: 30px; font-weight: bold;}
+.videoslisttitle li.on {color:#d93024;  border-top: 2px solid #d93024; margin-top: -2px;}
+.videoslistbd {height: 505px; position: relative; overflow: hidden; display: none;}
+.videoslistbd li {margin-bottom: 20px;}
+.videoslistbd .img_c {width: 150px; height: 100px; position: relative;}
+.videoslistbd .img_c img{width: 150px; height: 100px;}
+.videoslistbd .img_c .videolist {position: absolute;color: #fff; left: 10px; bottom: 0; right: 10px; padding-bottom: 8px;}
+.videoslistbd .videodesc {margin-left: 170px; font-size: 14px; line-height: 26px; height: 100px; overflow: hidden;}
+
+
+.mainft .bd {margin: 40px 0;}
+.mainft .bd h4{ padding-bottom: 10px; font-family: "Hiragino Sans GB","Microsoft YaHei"; font-size: 28px; font-weight: normal; line-height: 40px; background: url(../images/yc_ex_01.gif) 0 20px repeat-x;}
+.mainft .bd h4 .t{ padding-right: 12px; background: #ffffff; font-weight: bold;}
+.mainft .bd h4 .change{ margin: 11px 0; font-size: 12px; line-height: 17px; color: #d93024; background: #ffffff;}
+.mainft .bd h4 .change i{ width: 17px; height: 17px; display: block; text-indent: -100px; overflow: hidden; margin: 0 5px; background: url(../images/yc_sprite_01.png) 0 2px no-repeat;}
+
+

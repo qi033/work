@@ -277,3 +277,402 @@ input {
 .mt20 {
   margin-top: 20px !important;
 }
+.tjzs {
+  width: 400px;
+  height: 336px;
+  background: url("https://www.spb.gov.cn/gjyzj/xhtml/images/index/tjzsbj.png")
+    no-repeat;
+}
+.tjzstitle {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #c2d7f3;
+}
+.tjzstitle h2 {
+  height: 50px;
+  margin-left: 19px;
+  font-size: 20px;
+  font-family: Microsoft Yahei;
+  font-weight: bold;
+  color: #1f559f;
+  border-bottom: 3px solid #1f559f;
+}
+.tjzstitle a {
+  margin-right: 10px;
+  font-size: 14px;
+  font-family: Microsoft Yahei;
+  font-weight: 400;
+  color: #969696;
+}
+.tjt {
+  width: 84%;
+  height: 198px;
+  margin: 45px 31px;
+}
+.tjt img {
+  width: 100%;
+}
+.zwfw {
+  width: 100%;
+  height: 460px;
+  background-color: #f4f5ff;
+}
+.zwfwtab {
+  width: 844px;
+}
+.zwfwhd {
+  border-bottom: none;
+  font-size: 20px;
+}
+.zwfwul li {
+  width: 100%;
+  height: 229px;
+  background: #e5eaf5;
+  text-align: center;
+}
+.zwfwul {
+  width: 54px;
+}
+.zwfwul li a {
+  width: 22px;
+  margin: 0 auto;
+  font-size: 22px;
+  font-family: Microsoft Yahei;
+  font-weight: bold;
+  color: #333333;
+  display: block;
+  padding-top: 57px;
+}
+i {
+  font-style: italic;
+}
+.zwfwtabdiv {
+  width: 765px;
+  height: 401px;
+  margin-left: 25px;
+  background: #ffffff;
+  margin-top: 32px;
+}
+.zwfwtabdiv h2 {
+  width: 100%;
+  height: 71px;
+  background: #1f559f;
+  line-height: 71px;
+  position: relative;
+}
+.zwfwtabdiv h2 span {
+  display: inline-block;
+  height: 25px;
+  font-size: 24px;
+  font-family: Microsoft Yahei;
+  font-weight: bold;
+  color: #ffffff;
+}
+.zwfwtabdiv h2 span img {
+  margin-left: 18px;
+  margin-right: 19px;
+}
+.zwfwtabdiv h2 a {
+  position: absolute;
+  width: 53px;
+  height: 20px;
+  background: rgba(31, 86, 159, 0);
+  border: 1px solid #c8e1f8;
+  border-radius: 2px;
+  font-size: 14px;
+  font-family: Microsoft, Yahei;
+  font-weight: 400;
+  color: #c9e1f8;
+  top: 27px;
+  right: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+.zmhdul {
+  width: 100%;
+}
+.zwfwtabdiv ul li {
+  width: 25%;
+  float: left;
+  text-align: center;
+  margin-top: 33px;
+}
+
+.zwfwtabdiv ul li a {
+  width: 100%;
+  display: block;
+}
+.xzxking {
+  height: 47px;
+  line-height: 47px;
+}
+.zwfwtabdiv ul li a p {
+  margin-top: 27px;
+  height: 40px;
+  font-size: 16px;
+  font-family: "微软雅黑";
+  font-weight: 400;
+  color: #333333;
+  line-height: 20px;
+}
+.zwfwul li:hover {
+  background: #1f56a8;
+  position: relative;
+}
+.zwfwright {
+  width: 315px;
+  margin-right: 20px;
+  // background: red;
+}
+.zwfwrightul {
+  width: 100%;
+}
+.zwfwrightul li {
+  width: 100%;
+  height: 78px;
+  line-height: 78px;
+}
+.cxfw {
+  background: url("https://www.spb.gov.cn/gjyzj/xhtml/images/index/cxfw.png")
+    no-repeat;
+  margin-top: 32px;
+}
+.wsbs {
+  background: url("https://www.spb.gov.cn/gjyzj/xhtml/images/index/wsbs.png")
+    no-repeat;
+  margin-top: 30px;
+}
+.xfzts {
+  background: url("https://www.spb.gov.cn/gjyzj/xhtml/images/index/xfzss.png")
+    no-repeat;
+  margin-top: 30px;
+}
+.zfxxgk {
+  background: url("https://www.spb.gov.cn/gjyzj/xhtml/images/index/zfxxgk.png")
+    no-repeat;
+  margin-top: 30px;
+}
+.zwfwrightul li a {
+  width: 100%;
+  display: block;
+}
+.zwfwrightul li a img {
+  margin-left: 16px;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+.fangtan {
+  width: 338px;
+  height: 296px;
+  background: #f4f8ff;
+}
+.ftlist {
+  background: #ffffff;
+  width: 90%;
+  margin: 16px auto;
+}
+
+.ftlist a {
+  width: 100%;
+  display: block;
+}
+.ftp {
+  width: 100%;
+  margin: 0 auto;
+  height: 44px;
+  background: #1f559f;
+  border-radius: 4px 4px 0px 0px;
+  padding: 0 2%;
+}
+.ftlist .ftp a {
+  font-size: 13px;
+  font-family: Microsoft YaHei;
+  color: #ffffff;
+  line-height: 44px;
+}
+.ftlist a img {
+  width: 272px;
+  margin: 9px 16px;
+}
+.w517 {
+  width: 476px;
+  margin-left: 23px;
+  // border: 3px solid red;
+}
+.mt7 {
+  margin-top: 3px;
+}
+.hd {
+  border-bottom: 1px solid #b0b0b0b0;
+  font-size: 20px;
+}
+.hd .t a {
+  color: #015293;
+  font-weight: bold;
+  border-bottom: 2px solid #015293;
+}
+.hd .more {
+  float: right;
+  line-height: 28px;
+}
+.more a {
+  font-size: 14px;
+  color: #999;
+}
+.xysx {
+  width: 338px;
+  height: 296px;
+  background: #f4f8ff;
+}
+.xysxtitle {
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  border-bottom: 1px solid #c2d7f3;
+}
+.xysxtitle h2 {
+  height: 45px;
+  margin-left: 19px;
+  font-size: 20px;
+  font-family: Microsoft YaHei;
+  font-weight: bold;
+  color: #1f559f;
+  border-bottom: 2px solid #1f559f;
+}
+.xysximg {
+  padding: 20px 12px;
+}
+.xysximg img {
+  width: 100%;
+  height: 216px;
+}
+.ztzl {
+  width: 100%;
+  height: 261px;
+  background: #e5e8ee;
+  margin-top: 37px;
+}
+.ztzlcont {
+  width: 1200px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+.ztzltitle {
+  width: 100%;
+  height: 75px;
+  background: url("https://www.spb.gov.cn/gjyzj/xhtml/images/index/ztzl.png")
+    no-repeat;
+}
+.ztzltitle a {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.ztzlswiper {
+  position: relative;
+  overflow: hidden;
+  height: 110px;
+  width: 100%;
+}
+.ztzlswiper img {
+  width: 100%;
+  height: auto;
+}
+.rightnav {
+  width: 77px;
+  height: 390px;
+  background: #3b6cae;
+  border-radius: 3px;
+  position: fixed;
+  top: 35%;
+  right: 0;
+  z-index: 999;
+}
+.rightnav li {
+  width: 100%;
+  height: 78px;
+  border-bottom: 2px solid #648fc4;
+  text-align: center;
+  position: relative;
+}
+.rightnav li a {
+  width: 100%;
+  display: block;
+}
+.rightnav li a img {
+  vertical-align: middle;
+  margin-top: 13px;
+}
+.rightnav li a p {
+  height: 14px;
+  font-size: 14px;
+  font-family: Microsoft Yahei;
+  font-weight: 400;
+  color: #ffffff;
+  margin-top: 6px;
+}
+.fndb {
+  height: 78px !important;
+  border-bottom: none !important;
+}
+.footer {
+  height: 220px;
+  background-color: #20569f;
+  color: #fff;
+}
+.footer .yqlj ul li {
+  float: left;
+  padding: 20px 20px;
+  background: url("https://www.spb.gov.cn/gjyzj/xhtml/images/public/xia.png")
+    no-repeat right;
+  position: relative;
+}
+.footer .yqlj ul li > span {
+  line-height: 21px;
+}
+.yqlj {
+  border-bottom: 1px solid #346cd2;
+}
+.footl {
+  width: 100%;
+  margin-top: 36px;
+  line-height: 27px;
+}
+.footl img {
+  margin-top: 15px;
+}
+.footerzjg img {
+  margin-left: 21px;
+  margin-right: 24px;
+}
+.footl .footer2 p {
+  font-size: 14px;
+}
+.footl .footer2 p a {
+  color: #fff;
+  font-size: 14px;
+}
+.footl .footer2 p img {
+  margin-top: 0;
+}
+.footright {
+  width: 32%;
+}
+.footerul {
+  width: 232px;
+  float: left;
+}
+.footerul li {
+  float: left;
+  margin-right: 5px;
+  line-height: 80px;
+}
+.footerul li a {
+  font-size: 14px;
+  font-weight: Microsoft YaHei;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 26px;
+  margin-right: 5px;
+}
