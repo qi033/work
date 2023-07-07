@@ -1,0 +1,199 @@
+@charset "UTF-8";
+
+/* 定义变量与值 */
+/* 使用变量 */
+body {
+  background-color: lightblue;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+}
+
+p {
+  font-size: 12px;
+}
+
+
+.fade-in-top {
+  width: 400px;
+  height: 100px;
+  margin: auto;
+  text-align: center;
+  line-height: 160px;
+}
+
+.bix {
+  width: 820px;
+  height: 400px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+#quanbu {
+  width: 400px;
+  height: 400px;
+  float: left;
+  background-color: #031d33;
+}
+
+#bing1 {
+  width: 400px;
+  height: 400px;
+  float: right;
+}
+
+.bvs {
+  width: 300px;
+  height: 60px;
+  margin: auto;
+  margin-top: 50px;
+  /* background-color: antiquewhite; */
+}
+
+.fade-in-top {
+  -webkit-animation: fade-in-top 1.2s infinite;
+  animation: fade-in-top 1.2s infinite;
+}
+
+#l {
+  width: 800px;
+  height: 500px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+#panel {
+  display: none;
+}
+
+.swiper-slide {
+  background-color: chartreuse;
+}
+
+.swiper {
+  width: 820px;
+  height: 340px;
+  margin-top: 20px;
+}
+
+/* .cvs {
+    width: 600px;
+    height: 400px;
+    margin: auto;
+    background-color: rgba(126, 126, 126, 0.3);
+  } */
+.blix {
+  width: 55px;
+  height: 25px;
+  position: relative;
+  float: right;
+  margin-top: 30px;
+  margin-right: 20px;
+  /* background-color: rgb(121, 121, 121); */
+}
+
+:root {
+  --swiper-navigation-size: 14px;
+  --swiper-theme-color: #ffffff;
+}
+
+.left {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  float: left;
+  background-color: rgba(191, 191, 191, 0.6);
+  border-radius: 7px;
+}
+
+.right {
+  width: 25px;
+  height: 25px;
+  float: right;
+  position: relative;
+  background-color: rgba(191, 191, 191, 0.5);
+  border-radius: 7px;
+}
+
+.feny {
+  width: 200px;
+  height: 30px;
+  margin-top: 70px;
+  float: left;
+  position: relative;
+  /* background-color: antiquewhite; */
+}
+
+@-webkit-keyframes fade-in-top {
+  0% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-top {
+  0% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .bix {
+    width: 620px;
+    height: 400px;
+    margin: auto;
+    margin-top: 50px;
+    /* background-color: rgb(255, 209, 156); */
+  }
+
+  #quanbu {
+    width: 300px;
+    height: 400px;
+    margin: auto;
+    background-color: #031d33;
+  }
+
+  #bing1 {
+    width: 300px;
+    height: 400px;
+    margin: auto;
+  }
+
+  #l {
+    width: 400px;
+    height: 300px;
+    margin: auto;
+    margin-top: 30px;
+  }
+
+  .swiper {
+    width: 666px;
+    height: 340px;
+    margin-top: 20px;
+  }
+
+  .swiper img {
+    width: 666px;
+    height: 340px;
+    /* margin-top: 20px; */
+  }
+  body {
+    background-color: rgb(232, 218, 93);
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,121 @@
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>swiper.js叠加轮播图</title>
+    <link rel="stylesheet" href="../../../common/swiper/swiper-bundle.css">
+    <script src="../../../common/swiper/swiper-bundle.js"></script>
+</head>
+
+<body>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 外层容器 */
+        .swiper {
+            width: 1200px;
+            height: 600px;
+        }
+        img{
+            width: 1200px;
+            height: 600px;
+        }
+
+        /* 轮播项 */
+        .swiper .swiper-slide {
+            width: 80%;
+            height: 100%;
+
+            font-size: 32px;
+            font-weight: 500;
+            color: #ffffff;
+
+            /* 文字垂直居中 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .swiper-button-next img{
+            width: 70px;
+            height: 70px;
+        }
+        .swiper-button-prev img{
+            width: 70px;
+            height: 70px;
+            margin-left: 50px;
+        }
+       
+    </style>
+
+
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide swiper-slide-1"><img src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/06/27/c11da43a7ce8c3b6a911bd666467ce93_8943545457598833352.png?x-oss-process=image/format,webp/quality,Q_90" alt=""></div>
+            <div class="swiper-slide swiper-slide-2"><img src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/64328ac4ad4baf3f13f6e36dac889703_4068855659663110277.png?x-oss-process=image/format,webp/quality,Q_90" alt=""></div>
+            <div class="swiper-slide swiper-slide-3"><img src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/3a1760449507c96a28c066148f3c8a16_203547796934874932.png?x-oss-process=image/format,webp/quality,Q_90" alt=""></div>
+            <div class="swiper-slide swiper-slide-4"><img src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/7a54dc691e450c32262c3d565234946d_7367504620217885063.png?x-oss-process=image/format,webp/quality,Q_90" alt=""></div>
+            <div class="swiper-slide swiper-slide-5"><img src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/b43fe71f11ef5147c57e287e16592422_6798603925736605711.png?x-oss-process=image/format,webp/quality,Q_90" alt=""></div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"><img src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/06/29/5054187cc8d15960e2bea80ab5691c83_6835185420326557533.png?x-oss-process=image/format,webp/quality,Q_90" alt=""></div>
+        <div class="swiper-button-next"><img src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/06/29/e88fcd54082efee57f231360d020abae_5620233782922247570.png?x-oss-process=image/format,webp/quality,Q_90" alt=""></div>
+
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+
+
+    <!-- <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script> -->
+
+    <script>
+        // 参考： 
+        // 1、swiper叠加轮播效果 （含源码） - 案例篇https://blog.csdn.net/qq_35393869/article/details/105713272
+        // 2、https://swiperjs.com/get-started#initialize-swiper
+        const swiper = new Swiper('.swiper', {
+            effect: 'coverflow',
+            loop: true,
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            bulletActiveClass: 'my-bullet-active',
+            autoplay: {
+                delay: 3000,
+            },
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 500,
+                modifier: 1,
+                slideShadows: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            navigation: {
+                nextEl: '.swiper-button-prev',
+                prevEl: '.swiper-button-next',
+            },
+        });
+
+        // 监听改变事件
+        swiper.on('slideChange', (e) => {
+            console.log(e.realIndex);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./echarts.min.js"></script>
+  </head>
+
+  <body>
+    <div id="app" style="width:100%; height: 700px"></div>
+  </body>
+  <script>
+    var myCharts = echarts.init(document.querySelector("#app"));
+    option = {
+      color: ["#32E5FF"],
+      tooltip: {
+        trigger: "axis",
+      },
+      grid: {
+        top: "30%",
+        left: "10%",
+        right: "10%",
+        bottom: "20%",
+        containLabel: true,
+      },
+      xAxis: {
+        type: "category",
+        data: [
+          "2023-06-2",
+          "2023-06-9",
+          "2023-06-16",
+          "2021-04-21", 
+        ],
+        axisLine: {
+          show: true,
+          lineStyle: {
+            color: "rgba(20, 35, 87, 1)",
+          },
+        },
+        boundaryGap: true, // 坐标两侧是否留白
+        axisTick: {
+          show: false, // 是否显示刻度线
+        },
+      },
+      yAxis: [
+        {
+          type: "value",
+          axisLabel: {
+            color: "#FF44AA", // y 轴文字颜色
+          },
+          axisLine: {
+            show: true,
+            lineStyle: {
+              color: "#E6E6FA", // y 轴轴线颜色
+            },
+          },
+          splitLine: {
+            lineStyle: {
+              color: "#FFDEAD", //grid 区域中的分隔线颜色
+              width: 1,
+              type: "solid",
+            },
+          },
+        },
+        {
+          type: "value",
+          name: "成绩（平均分）",
+          position: "left",
+          alignTicks: true,
+          nameGap: 8,
+          axisLine: {
+            show: false, // 是否显示 y 轴轴线
+          },
+          axisLabel: {
+            formatter: "{value}",
+          },
+          nameTextStyle: {
+            padding: [0, 10, 8, 0], // 单位位置
+          },
+        },
+      ],
+      series: [
+        {
+          type: "line",
+          name: "平均分成绩",
+          data: ["75", "65.5", "64", "65.5"],
+          label: {
+            show: true,
+            position: "top",
+            color: "#00DDAA",
+            fontSize: "10px",
+            fontFamily: "ArialMT",
+          },
+          itemStyle: {
+            color: "#FFE4E1", // 数据颜色
+            gradientColorNum: 1,
+          },
+          areaStyle: {
+            color: {
+              x: 0,
+              y: 0,
+              x2: 0,
+              y2: 1,
+              colorStops: [
+                {
+                  offset: 0.1,
+                  color: "rgba(6, 252, 254, 0.1) ", // 0% 处的颜色
+                },
+                {
+                  offset: 0.5,
+                  color: "rgba(6, 252, 254, 0.5)", // 0% 处的颜色
+                },
+                {
+                  offset: 0.7,
+                  color: "rgba(6, 252, 254, 0.3)", // 0% 处的颜色
+                },
+                {
+                  offset: 0.9,
+                  color: "rgba(0,0,0, 0.1)", // 100% 处的颜色
+                },
+              ],
+            },
+          },
+        },
+      ],
+    };
+    myCharts.setOption(option);
+  </script>
+</html>

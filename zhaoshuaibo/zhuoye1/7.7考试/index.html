@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- 引入 layui.css -->
+    <!-- 引入 layui.css -->
+    <link href="//unpkg.com/layui@2.8.6/dist/css/layui.css" rel="stylesheet" />
+    <!-- 引入 layui.js -->
+    <script src="//unpkg.com/layui@2.8.6/dist/layui.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.common.js"></script>
+         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="./cdn.Echarts.min.js"></script>
+    <link rel="stylesheet" href="./1.css" />
+    <style>
+             
+           @media screen and (max-width:1500px) {
+        .box {
+          background: black!important;
+        
+        }
+        .no1{
+            flex-wrap: wrap;
+        }
+         #nies, #main{
+            width: 100%!important;
+         margin-left: -10%;
+          }
+          #mains{
+        width: 100%!important;
+      }
+      .noe{
+   flex-wrap: wrap!important;
+      }
+      .no3,.noe4{
+         width: 100%!important;
+      }
+      .noe4{
+        /* margin-left: 21%!important; */
+        text-align: center!important;
+      }
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h2><marquee behavior="scroll" direction="left">图表部分</marquee></h2>
+
+      <div class="no1">
+        <div
+          id="main"
+          style="
+            width: 49%;
+            height: 400px;
+            background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+            margin: 10px 20px;
+          "
+        ></div>
+        <script type="text/javascript">
+          // var echarts = require("echarts");
+
+          var chartDom = document.getElementById("main");
+          var myChart = echarts.init(chartDom);
+          var option;
+          option = {
+            tooltip: {
+              trigger: "axis",
+              axisPointer: {
+                type: "cross",
+                crossStyle: {
+                  color: "#999",
+                },
+              },
+            },
+            toolbox: {
+              feature: {
+                dataView: { show: true, readOnly: false },
+                magicType: { show: true, type: ["line", "bar"] },
+                restore: { show: true },
+                saveAsImage: { show: true },
+              },
+            },
+            //标题显示
+            legend: {
+              data: ["蒸发", "降水", "温度"],
+            },
+            //底部显示器
+            xAxis: [
+              {
+                type: "category",
+                data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+                axisPointer: {
+                  type: "shadow",
+                },
+              },
+            ],
+            //左边显示范围
+            yAxis: [
+              {
+                type: "value",
+                name: "降水",
+                min: 0,
+                max: 250,
+                interval: 50,
+                axisLabel: {
+                  formatter: "{value} ml",
+                },
+              },
+              //右边显示范围
+              {
+                type: "value",
+                name: "温度",
+                min: 0,
+                max: 25,
+                interval: 5,
+                axisLabel: {
+                  formatter: "{value} °C",
+                },
+              },
+            ],
+            series: [
+              {
+                name: "蒸发 ",
+                type: "bar",
+                tooltip: {
+                  valueFormatter: function (value) {
+                    return value + " ml";
+                  },
+                },
+                data: [
+                  2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0,
+                  6.4, 3.3,
+                ],
+              },
+              {
+                name: "降水",
+                type: "bar",
+                tooltip: {
+                  valueFormatter: function (value) {
+                    return value + " ml";
+                  },
+                },
+                data: [
+                  2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8,
+                  6.0, 2.3,
+                ],
+              },
+              {
+                name: "温度",
+                type: "line",
+                yAxisIndex: 1,
+                tooltip: {
+                  valueFormatter: function (value) {
+                    return value + " °C";
+                  },
+                },
+                data: [
+                  2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0,
+                  6.2,
+                ],
+              },
+            ],
+          };
+
+          option && myChart.setOption(option);
+        </script>
+        <!-- 第二 -->
+        <div id="nies">
+          <div
+            id="mains"
+            style="
+              width: 800px;
+              height: 400px;
+              background-image: linear-gradient(
+                135deg,
+                #fdfcfb 0%,
+                #e2d1c3 100%
+              );
+            "
+          ></div>
+        </div>
+        <script>
+          var chartDom = document.getElementById("mains");
+          var myChart = echarts.init(chartDom);
+          var option;
+
+          option = {
+            // title: {
+            //   text: "Basic Radar Chart",
+            // },
+            legend: {
+              orient: "vertical", // 根据需要设置图例的排列方向
+              left: "right", // 调整图例的left属性来改变水平位置
+              // top: "center", // 调整图例的top属性来改变垂直位置
+              data: ["我方", "敌方"],
+            },
+            radar: {
+              // shape: 'circle',
+              indicator: [
+                { name: "对英雄总伤害", max: 6500 },
+                { name: "参团率", max: 16000 },
+                { name: "金钱", max: 30000 },
+                // { name: "Customer Support", max: 38000 },
+                { name: "评价", max: 52000 },
+                { name: "承伤", max: 25000 },
+              ],
+            },
+            series: [
+              {
+                // name: "Budget vs spending",
+                type: "radar",
+                symbol: "none",
+                // color: "red",
+
+                data: [
+                  {
+                    value: [1500, 7000, 12000, 14000, 18000],
+                    name: "我方",
+                    lineStyle: {
+                      color: "rgb(121, 211, 61)", // 更改雷达线颜色
+                      // width: 2 // 设置雷达线宽度
+                    },
+                    areaStyle: {
+                      color: " rgb(121, 211, 230)", // 设置雷达线阴影颜色和透明度
+                    },
+                  },
+                  {
+                    value: [3000, 10000, 15000, 25000, 8000],
+                    name: "敌方",
+                    lineStyle: {
+                      color: " rgb(173, 61, 61)", // 更改雷达线颜色
+                      // width: 2 // 设置雷达线宽度
+                    },
+                    areaStyle: {
+                      color: " rgb(241, 223, 223)", // 设置雷达线阴影颜色和透明度
+                    },
+                  },
+                ],
+              },
+            ],
+          };
+
+          option && myChart.setOption(option);
+        </script>
+      </div>
+      <h2><marquee behavior="scroll" direction="left">地图部分</marquee></h2>
+      <div class="no2">
+        <div id="container"></div>
+        <div id="panel"></div>
+
+        <script type="text/javascript">
+          window._AMapSecurityConfig = {
+            securityJsCode: "f7bbde15053f1ab329eb355325d7fe04",
+          };
+        </script>
+        <script
+          type="text/javascript"
+          src="https://webapi.amap.com/maps?v=2.0&key=059f9e052d24b1e27768d4f70fa1b666&plugin=AMap.Driving"
+        ></script>
+        <link
+          rel="stylesheet"
+          href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"
+        />
+        <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+        <script
+          type="text/javascript"
+          src="https://cache.amap.com/lbs/static/addToolbar.js"
+        ></script>
+        <script type="text/javascript">
+          //基本地图加载
+          var map = new AMap.Map("container", {
+            resizeEnable: true,
+            center: [113.427738, 34.774703], //地图中心点
+            zoom: 10, //地图显示的缩放级别
+          });
+          //构造路线导航类
+          var driving = new AMap.Driving({
+            map: map,
+            panel: "panel",
+          });
+          // 根据起终点经纬度规划驾车导航路线
+          driving.search(
+            new AMap.LngLat(113.425968, 34.762951),
+            new AMap.LngLat(113.427738, 34.774703),
+            function (status, result) {
+              // result 即是对应的驾车导航信息，相关数据结构文档请参考  https://lbs.amap.com/api/javascript-api/reference/route-search#m_DrivingResult
+              if (status === "complete") {
+                log.success("绘制驾车路线完成");
+              } else {
+                log.error("获取驾车数据失败：" + result);
+              }
+            }
+          );
+
+          //dianbiaoji
+          var marker = new AMap.Marker({
+            position: map.getCenter(),
+            icon: "//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png",
+            anchor: "bottom-center",
+            offset: new AMap.Pixel(0, 0),
+          });
+
+          marker.setMap(map);
+
+          // 设置鼠标划过点标记显示的文字提示
+          marker.setTitle("吾悦广场");
+
+          // 设置label标签
+          // label默认蓝框白底左上角显示，样式className为：amap-marker-label
+          marker.setLabel({
+            direction: "right",
+            offset: new AMap.Pixel(0, 0), //设置文本标注偏移量
+            content: "<div class='info'>吾悦广场</div>", //设置文本标注内容
+          });
+        </script>
+      </div>
+      <div id="noe">
+      <div class="no3">
+    <h2><marquee behavior="scroll" direction="left">轮番图部分</marquee></h2>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <img
+          src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/06/27/c11da43a7ce8c3b6a911bd666467ce93_8943545457598833352.png?x-oss-process=image/format,webp/quality,Q_90"
+          alt=""
+          class="swiper-slide"
+        />
+        <img
+          src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/64328ac4ad4baf3f13f6e36dac889703_4068855659663110277.png?x-oss-process=image/format,webp/quality,Q_90"
+          alt=""
+          class="swiper-slide"
+        />
+        <img
+          src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/3a1760449507c96a28c066148f3c8a16_203547796934874932.png?x-oss-process=image/format,webp/quality,Q_90"
+          alt=""
+          class="swiper-slide"
+        />
+        <img
+          src="https://img1.baidu.com/it/u=421018092,1535888078&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=655"
+          alt=""
+          class="swiper-slide"
+        />
+        <img
+          src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/7a54dc691e450c32262c3d565234946d_7367504620217885063.png?x-oss-process=image/format,webp/quality,Q_90"
+          class="swiper-slide"
+        />
+        <img
+          src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/b43fe71f11ef5147c57e287e16592422_6798603925736605711.png?x-oss-process=image/format,webp/quality,Q_90"
+          alt=""
+          class="swiper-slide"
+        />
+      </div>
+     
+    
+      </div>
+           <!-- 如果需要分页器 -->
+      <div class="swiper-pagination"></div>
+
+      <!-- 如果需要导航按钮 -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+         <script>
+    var mySwiper = new Swiper(".swiper", {
+      effect: 'coverflow',
+    slidesPerView: 1.5,
+    centeredSlides: true,
+      fadeEffect: {
+        crossFade: true,
+      },
+       freeMode: true,
+      autoplay: true,
+      direction: "horizontal", // 垂直切换选项
+        loop: true, // 循环模式选项
+       speed: 1000, //播放速度，延迟
+
+      // 如果需要分页器
+      pagination: {
+        el: ".swiper-pagination",
+        bulletActiveClass: "my-bullet-active", //分页器样式
+          // dynamicBullets: true,
+          clickable :true,
+      },
+
+      // 如果需要前进后退按钮
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+    //鼠标滑过pagination控制swiper切换
+for(i=0;i<mySwiper.pagination.bullets.length;i++){
+  mySwiper.pagination.bullets[i].onmouseover=function(){
+    this.click();
+  };
+} 
+  </script>
+    </div>
+    <div class="noe4">
+        <h2><marquee behavior="scroll" direction="left">视频部分</marquee></h2>
+       <div id="btn-box">
+        <button class="layui-btn layui-btn-primary layui-border-blue" onclick="playVid()">开始播放</button>
+        <button class="layui-btn layui-btn-primary layui-border-blue" onclick="pauseVid()">暂停播放</button>
+       
+       </div>
+         <video id="sp" width="520" height="240" style="margin-top:150px;margin-left: 200px;" controls loop>
+      <source src="https://www.runoob.com/try/demo_source/mov_bbb.mp4" />
+    </video><br>
+
+    </div>
+  </body>
+  <script>
+var myVideo=document.getElementById("sp"); 
+    function playVid(){
+    myVideo.play()
+      
+    }
+    function pauseVid()
+{ 
+myVideo.pause(); 
+  
+} 
+  </script>
+</html>

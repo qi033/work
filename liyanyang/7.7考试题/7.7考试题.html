@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./ks.css" />
+    <link rel="stylesheet" href="./swiper-bundle.min.css" />
+    <script src="./swiper-bundle.min.js"></script>
+    <script src="./echarts.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"
+    />
+    <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+
+    <script type="text/javascript">
+      window._AMapSecurityConfig = {
+        securityJsCode: "7aaaba2b178aeaa2b1385c12f3433e91",
+      };
+    </script>
+
+    <script
+      type="text/javascript"
+      src="https://webapi.amap.com/maps?v=2.0&key=944b4a5b812242d23e69b72af75e3bda&plugin=AMap.Driving,AMap.Geocoder"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cache.amap.com/lbs/static/addToolbar.js"
+    ></script>
+  </head>
+
+  <body>
+    <div id="box">
+      <div id="top">
+        <a href="">
+          <img src="https://i.i8tq.com/index/logo2.png" alt="" class="img" />
+        </a>
+        <div class="qm"></div>
+        <div class="nav_li_left">
+          <span>
+            <li>English</li>
+            <li>手机查天气</li>
+            <li>星期五</li>
+            <li>2023年07月07日</li>
+          </span>
+        </div>
+      </div>
+      <div id="top1">
+        <div class="dao">
+          <div class="lis">预报</div>
+          <div class="lis">预警</div>
+          <div class="lis">天气地图</div>
+          <div class="lis">台风路径</div>
+          <div class="lis">气象科普</div>
+          <div>产创平台</div>
+        </div>
+      </div>
+      <div id="comment">
+        <div class="cons">
+          <div class="lbt">
+            <div class="swipers">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img
+                      src="http://pic.weather.com.cn/images/cn/photo/2023/07/06/20230706114452E2B006A1B07249E7EF02F209718756EA.jpg"
+                    /><span>航拍丰收美如画 广西早稻陆续进入收割期</span>
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="http://pic.weather.com.cn/images/cn/photo/2023/07/05/20230705164104544C9C95CD2386E64003F18F604D8261.jpg"
+                    /><span>重庆万州遇强降雨 驻地武警官兵紧急驰援</span>
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="http://pic.weather.com.cn/images/cn/photo/2023/07/07/2023070709470598F10FF1380BA73C2AF562E05D4C90E1.jpg"
+                    /><span>浙江金华街头民众防晒避暑各有妙招</span>
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="https://pi.weather.com.cn/i//product/pic/l/sevp_nsmc_wxbl_fy4a_etcc_achn_lno_py_20230707080000000.jpg"
+                    /><span>FY-4A中国及周边区域真彩云图</span>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+          </div>
+          <div class="wen">
+            <h2>南北方大范围高温持续 东北等地多降雨</h2>
+            <div class="mainContentList">
+              <p>
+                高温 启动四级应急响应 史上最热一年要来了?
+                <br />暴雨对地质灾害预警山洪预
+              </p>
+            </div>
+            <div class="wen1">
+              <h2>小暑节气雨热俱盛 全国桑拿天地图出炉</h2>
+              <div class="mainContentList">
+                <p>
+                  这些防暑要点请牢记 一图了解热射病为何会致命 <br />小暑至迎三伏
+                  养生有讲究 防晒指南请记得收好
+                </p>
+              </div>
+            </div>
+            <div class="wen2">
+              <h2>玩转暑假！全国清凉游地图出炉</h2>
+              <p class="p1">
+                这些防暑要点请牢记 一图了解热射病为何会致命 <br />小暑至迎三伏
+                养生有讲究 防晒指南请记得收好
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="es">
+          <div class="js">
+            <h2>我的天气(降水量)</h2>
+          </div>
+          <div class="js1"></div>
+        </div>
+        <div class="com">
+          <div class="h5s">
+            <div class="re">
+              <span>视频</span>
+            </div>
+            <video width="100%" height="90%" controls>
+              <source src="./天气预报.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="es1">
+            <div class="re">
+              <a>中国天气热力图</a>
+            </div>
+            <div class="re1"></div>
+          </div>
+        </div>
+        <div id="map">
+          <div id="bt">
+            <div id="inp">
+              起点<input type="text" id="qi" /> 终点<input
+                type="text"
+                id="zhong"
+              />
+              <button id="btn">确定</button>
+              <button id="btne">固定路线</button>
+            </div>
+            <div id="container"></div>
+            <div id="panel"></div>
+          </div>
+        </div>
+      </div>
+      <div id="footer">
+        <div class="out">
+          <p class="animate">
+            镜中已觉星星误。人不负春春自负。梦回人远许多愁，只在梨花风雨处。
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    //轮播图
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        bulletClass: "my-bullet",
+        bulletActiveClass: "my-bullet-active",
+      },
+      autoplay: true,
+      delay: 2500,
+    });
+    //图标
+    var myCharts = echarts.init(document.querySelector(".js1"));
+    option = {
+      color: ["#32E5FF"],
+      tooltip: {
+        trigger: "axis",
+      },
+      grid: {
+        top: "30%",
+        left: "10%",
+        right: "10%",
+        bottom: "20%",
+        containLabel: true,
+      },
+      xAxis: {
+        type: "category",
+        data: [],
+        axisLine: {
+          show: true,
+          lineStyle: {
+            color: "rgba(20, 35, 87, 1)",
+          },
+        },
+        boundaryGap: true, // 坐标两侧是否留白
+        axisTick: {
+          show: false, // 是否显示刻度线
+        },
+      },
+      yAxis: [
+        {
+          type: "value",
+          axisLabel: {
+            color: "#FF44AA", // y 轴文字颜色
+          },
+          axisLine: {
+            show: true,
+            lineStyle: {
+              color: "#E6E6FA", // y 轴轴线颜色
+            },
+          },
+          splitLine: {
+            lineStyle: {
+              color: "#FFDEAD", //grid 区域中的分隔线颜色
+              width: 1,
+              type: "solid",
+            },
+          },
+        },
+        {
+          type: "value",
+          name: "降水量",
+          position: "left",
+          alignTicks: true,
+          nameGap: 8,
+          axisLine: {
+            show: false, // 是否显示 y 轴轴线
+          },
+          axisLabel: {
+            formatter: "{value}",
+          },
+          nameTextStyle: {
+            padding: [0, 10, 8, 0], // 单位位置
+          },
+        },
+      ],
+      series: [
+        {
+          type: "line",
+          name: "平均分成绩",
+          data: ["75", "65", "60", "58"],
+          label: {
+            show: true,
+            position: "top",
+            color: "#00DDAA",
+            fontSize: "10px",
+            fontFamily: "ArialMT",
+          },
+          itemStyle: {
+            color: "#FFE4E1", // 数据颜色
+            gradientColorNum: 1,
+          },
+          areaStyle: {
+            color: {
+              x: 0,
+              y: 0,
+              x2: 0,
+              y2: 1,
+              colorStops: [
+                {
+                  offset: 0.1,
+                  color: "rgba(6, 252, 254, 0.1) ", // 0% 处的颜色
+                },
+                {
+                  offset: 0.5,
+                  color: "rgba(6, 252, 254, 0.5)", // 0% 处的颜色
+                },
+                {
+                  offset: 0.7,
+                  color: "rgba(6, 252, 254, 0.3)", // 0% 处的颜色
+                },
+                {
+                  offset: 0.9,
+                  color: "rgba(0,0,0, 0.1)", // 100% 处的颜色
+                },
+              ],
+            },
+          },
+        },
+      ],
+    };
+    myCharts.setOption(option);
+  </script>
+  <script
+    crossorigin="anonymous"
+    integrity="sha512-weWXHm0Ws2cZKjjwugRMnnOAx9uCP/wUVf84W7/fXQimwYUK28zPDGPprDozomQLpKv6U99xN9PI9+yLI9qxNw=="
+    src="https://lib.baomitu.com/echarts/5.3.2/echarts.min.js"
+  ></script>
+  <script src="./china.js"></script>
+  <script>
+    (function () {
+      const data_list = [
+        {
+          name: "江苏",
+          value: 0,
+        },
+        {
+          name: "安徽",
+          value: 1,
+        },
+        {
+          name: "湖北",
+          value: 1,
+        },
+        {
+          name: "湖南",
+          value: 0,
+        },
+        {
+          name: "广东",
+          value: 1,
+        },
+        {
+          name: "浙江",
+          value: 1,
+        },
+        {
+          name: "福建",
+          value: 1,
+        },
+        {
+          name: "山东",
+          value: 1,
+        },
+        {
+          name: "河南",
+          value: 4,
+        },
+        {
+          name: "四川",
+          value: 0,
+        },
+        {
+          name: "河北",
+          value: 1,
+        },
+        {
+          name: "江西",
+          value: 0,
+        },
+        {
+          name: "黑龙江",
+          value: 1,
+        },
+        {
+          name: "陕西",
+          value: 0,
+        },
+        {
+          name: "贵州",
+          value: 0,
+        },
+        {
+          name: "吉林",
+          value: 0,
+        },
+        {
+          name: "广西",
+          value: 1,
+        },
+        {
+          name: "山西",
+          value: 0,
+        },
+        {
+          name: "云南",
+          value: 0,
+        },
+        {
+          name: "辽宁",
+          value: 0,
+        },
+        {
+          name: "甘肃",
+          value: 0,
+        },
+        {
+          name: "重庆",
+          value: 0,
+        },
+        {
+          name: "内蒙古",
+          value: 2,
+        },
+        {
+          name: "海南",
+          value: 0,
+        },
+        {
+          name: "天津",
+          value: 0,
+        },
+        {
+          name: "新疆",
+          value: 4,
+        },
+        {
+          name: "上海",
+          value: 2,
+        },
+        {
+          name: "宁夏",
+          value: 0,
+        },
+        {
+          name: "青海",
+          value: 3,
+        },
+        {
+          name: "北京",
+          value: 0,
+        },
+        {
+          name: "西藏",
+          value: 2,
+        },
+      ];
+      let new_data_list = data_list.map((item, index) => {
+        return item.value;
+      });
+      let data_list_max = Math.max(...new_data_list);
+      var map_Chart = echarts.init(document.querySelector(".re1"));
+      option2 = {
+        title: {
+          x: "center",
+        },
+        tooltip: {
+          trigger: "item",
+          formatter: (params) => {
+            let num;
+            let showHtml = "";
+            if (isNaN(params.value)) {
+              num = "0";
+            } else {
+              num = params.value;
+            }
+            showHtml += `
+                          <span style="display: flex;">
+                              ${"省份"}：${params.name}</br>
+                              ${"鼠窝"}：${num}
+                          </span>
+                      `;
+            return showHtml;
+          },
+        },
+
+        dataRange: {
+          x: "left",
+          y: "bottom",
+          min: 0,
+          max: data_list_max,
+          text: ["高", "低"], // 文本，默认为数值文本
+          calculable: true,
+          inRange: {
+            color: ["#d1e7fe", "#1989fa"],
+          },
+        },
+        series: [
+          {
+            name: "数据",
+            type: "map",
+            mapType: "china",
+            roam: false,
+            selectedMode: false,
+            itemStyle: {
+              normal: {
+                label: {
+                  show: true,
+                  textStyle: {
+                    color: "black",
+                  },
+                },
+              },
+              emphasis: {
+                areaColor: "#95ec69",
+                label: {
+                  show: true,
+                },
+              },
+            },
+            data: data_list,
+          },
+        ],
+      };
+
+      map_Chart.setOption(option2);
+    })();
+    function shanFun() {
+      $("#guangg").hide();
+    }
+    //gituu
+    document.addEventListener("DOMContentLoaded", function () {
+      var imgList = document.querySelectorAll("img");
+      for (var i = 0; i < imgList.length; i++) {
+        imgList[i].addEventListener(
+          "load",
+          function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", this.src, true);
+            xhr.setRequestHeader(
+              "Referer",
+              "http://www.chinapost.com.cn/html1/folder/181312/8171-1.htm"
+            );
+            xhr.send(null);
+          },
+          false
+        );
+      }
+    });
+  </script>
+  <script type="text/javascript">
+    var q = null;
+    var q1 = null;
+    var z = null;
+    var z1 = null;
+    //基本地图加载
+    var map = new AMap.Map("container", {
+      resizeEnable: true,
+      center: [113.427781, 34.765599], //地图中心点
+      zoom: 15, //地图显示的缩放级别
+    });
+
+    btne.onclick = function () {
+      qing();
+      q = 115.41;
+      q1 = 35.23;
+      z = 113.428155;
+      z1 = 34.774258;
+      fun();
+    };
+
+    var geocoder = new AMap.Geocoder({
+      //city: '010', //城市设为北京，默认：“全国”
+    });
+    qi.onblur = function () {
+      qing();
+      var address = document.getElementById("qi").value;
+      geocoder.getLocation(address, function (status, result) {
+        if (status === "complete" && result.geocodes.length) {
+          var lnglat = result.geocodes[0].location;
+          q = lnglat.lng;
+          q1 = lnglat.lat;
+        }
+      });
+    };
+    zhong.onblur = function () {
+      var address1 = document.getElementById("zhong").value;
+      geocoder.getLocation(address1, function (status, result) {
+        if (status === "complete" && result.geocodes.length) {
+          var lnglat = result.geocodes[0].location;
+          z = lnglat.lng;
+          z1 = lnglat.lat;
+        }
+      });
+    };
+
+    function qing() {
+      q = "";
+      q1 = "";
+      z = "";
+      z1 = "";
+    }
+    btn.onclick = function () {
+      fun();
+    };
+    function fun() {
+      var driving = new AMap.Driving({
+        map: map,
+        panel: "panel",
+      });
+      // 根据起终点经纬度规划驾车导航路线
+      driving.search(
+        new AMap.LngLat(q, q1),
+        new AMap.LngLat(z, z1),
+        function (status, result) {
+          // result 即是对应的驾车导航信息，相关数据结构文档请参考  https://lbs.amap.com/api/javascript-api/reference/route-search#m_DrivingResult
+          if (status === "complete") {
+            log.success("绘制驾车路线完成");
+          } else {
+            log.error("获取驾车数据失败：" + result);
+          }
+        }
+      );
+    }
+  </script>
+</html>

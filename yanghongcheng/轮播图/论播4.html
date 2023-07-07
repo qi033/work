@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.css" />
+    <script src="../../common/swiper/swiper-bundle.js"></script>
+
+</head>
+
+<body>
+    <!-- 如果需要导航按钮 -->
+    <div class="biox"><div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div></div>
+    
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">Slide 6</div>
+            <div class="swiper-slide">Slide 7</div>
+            <div class="swiper-slide">Slide 8</div>
+            <div class="swiper-slide">Slide 9</div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+    </div>
+    <style>
+        .swiper-slide {
+            background-color: chartreuse;
+        }
+
+        .swiper {
+            width: 1000px;
+            height: 300px;
+            margin-top: 100px;
+        }
+
+        .swiper-button-prev {
+            float: left;
+        }
+        .biox{
+            width: 50px;
+            height: 50px;
+            position: relative;
+            float: right;
+            margin-top: -80px;
+            /* background-color: salmon; */
+        }
+        :root{
+            --swiper-navigation-size: 14px;
+        }
+    </style>
+    <script>
+        var mySwiper = new Swiper(".swiper", {
+            
+            slidesPerView: 3,
+            spaceBetween: 30,
+            slidesPerGroup: 3,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            
+            // 如果需要前进后退按钮
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+      //自动滚动
+        // setInterval("mySwiper.slidePrev()", 3000);
+    </script>
+</body>
+
+</html>

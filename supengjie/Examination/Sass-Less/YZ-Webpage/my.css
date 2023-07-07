@@ -1,0 +1,864 @@
+:root {
+  --themeColor: #1f559f;
+  --borderColor: #999998;
+  --borderColor2: white;
+  --fontColor: black;
+  --fontColor2: white;
+  --fontColor3: #999999;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.box {
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+  height: 300px;
+  background: url(https://www.spb.gov.cn/gjyzj/xhtml/images/public/headerbg.png) no-repeat 0 0/100% 300px;
+  position: relative;
+}
+
+.header-main {
+  width: 1200px;
+  height: 250px;
+  margin: auto;
+}
+
+.h-top {
+  width: 200px;
+  height: 50px;
+  /* background-color: brown; */
+  float: right;
+  line-height: 50px;
+  text-align: center;
+  letter-spacing: 3px;
+  color: var(--fontColor2);
+}
+
+.Chinese {
+  float: left;
+  margin-top: 75px;
+}
+
+.search {
+  width: 450px;
+  height: 81px;
+  float: right;
+  margin-top: 25px;
+  position: relative;
+}
+
+.search input {
+  width: 365px;
+  height: 35px;
+  text-indent: 2em;
+  float: left;
+  margin-bottom: 18px;
+  border-right: none;
+}
+
+.search button {
+  width: 80px;
+  height: 38.5px;
+  border: none;
+  margin-bottom: 20px;
+  background-color: var(--themeColor);
+  color: var(--fontColor2);
+}
+
+.search button img {
+  width: 12px;
+}
+
+.search p {
+  font-size: 15px;
+  position: absolute;
+  bottom: 0;
+  color: var(--fontColor);
+}
+
+.header .nav {
+  width: 100%;
+  height: 50px;
+  background-color: var(--themeColor);
+}
+
+.header .nav-box {
+  width: 1200px;
+  height: 50px;
+  margin: auto;
+}
+
+.header .nav-box li {
+  list-style: none;
+  float: left;
+  width: 198px;
+  line-height: 50px;
+  text-align: center;
+  position: relative;
+  border-right: 1px solid var(--borderColor);
+}
+
+.header .nav-box li a {
+  color: white;
+}
+
+.header .nav-box li img {
+  position: absolute;
+  top: 14px;
+  left: 40px;
+}
+
+.header .nav-box li:last-child {
+  border: none;
+}
+
+.OnlineBtn {
+  width: 60px;
+  height: 220px;
+  background-color: var(--themeColor);
+  position: fixed;
+  top: 0;
+  left: 0;
+  line-height: 20px;
+}
+
+.OnlineBtn p {
+  color: var(--fontColor2);
+  font-weight: 900;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 55px;
+  padding: 3px;
+}
+
+.content {
+  width: 1200px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.dblimg {
+  width: 100%;
+  height: 84px;
+}
+
+.dblimg img:first-child {
+  width: 594px;
+  height: 84px;
+  float: left;
+}
+
+.dblimg img:last-child {
+  width: 594px;
+  height: 84px;
+  float: right;
+}
+
+.banner-list {
+  width: 1200px;
+  height: 422px;
+  margin-top: 20px;
+}
+
+.banner {
+  width: 732px;
+  height: 422px;
+  float: left;
+}
+
+.list {
+  width: 445px;
+  height: 422px;
+  float: right;
+}
+
+.list .title {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid var(--borderColor);
+  line-height: 50px;
+}
+
+.list .title a {
+  color: black;
+  font-size: 20px;
+  font-weight: 900;
+  margin-right: 30px;
+  height: 49px;
+  display: inline-block;
+}
+
+.list .title a:first-child {
+  color: var(--themeColor);
+  border-bottom: 1px solid var(--themeColor);
+}
+
+.list .title a:hover {
+  color: var(--themeColor);
+  border-bottom: 1px solid var(--themeColor);
+}
+
+.list .title span {
+  float: right;
+  color: var(--fontColor3);
+  font-size: 13px;
+}
+
+.banner-list .nav {
+  height: 372px;
+  width: 100%;
+}
+
+.banner-list .nav li {
+  height: 41.3px;
+  width: 100%;
+  list-style: none;
+  line-height: 41.3px;
+  color: var(--fontColor);
+}
+
+.banner-list .nav li span {
+  color: var(--themeColor);
+  margin: 0 10px;
+}
+
+.banner-list .nav li span:nth-child(2) {
+  float: right;
+  color: var(--fontColor3);
+}
+
+.content .swiper {
+  width: 732px;
+  height: 422px;
+  margin-left: 10px;
+  color: var(--fontColor2);
+}
+
+.content .swiper-pagination {
+  height: 50px;
+  bottom: 0% !important;
+  position: absolute;
+}
+
+.content .swiper-pagination-bullet {
+  float: right !important;
+  margin-top: 20px !important;
+}
+
+.image {
+  width: 400px;
+  height: 250px;
+  margin-top: 30px;
+}
+
+.image img {
+  height: 250px;
+  margin-top: 0 !important;
+}
+
+.opc {
+  width: 100%;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.7);
+  bottom: 0;
+  position: absolute;
+  line-height: 50px;
+  color: var(--fontColor2);
+}
+
+.opc p {
+  margin-left: 20px;
+}
+
+.government {
+  width: 100%;
+  height: 370px;
+  margin-top: 20px;
+}
+
+.government .left {
+  width: 768px;
+  height: 370px;
+  float: left;
+}
+
+.government .left .title {
+  width: 768px;
+  height: 50px;
+  background: url(https://www.spb.gov.cn/gjyzj/xhtml/images/index/zwgkbj.png) no-repeat 0 0/100% 50px;
+  line-height: 50px;
+}
+
+.government .left .title span {
+  display: inline-block;
+  width: 167px;
+  text-align: center;
+  color: var(--fontColor2);
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.government .left .t-nav {
+  width: 768px;
+  height: 50px;
+  border-bottom: 1px solid var(--borderColor);
+  line-height: 50px;
+}
+
+.government .left .t-nav a {
+  color: var(--fontColor);
+  font-size: 20px;
+  font-weight: 900;
+  margin-right: 30px;
+  height: 50px;
+  display: inline-block;
+}
+
+.government .left .t-nav a:hover {
+  color: var(--themeColor);
+  border-bottom: 1px solid var(--themeColor);
+}
+
+.government .left .t-nav a:first-child {
+  color: var(--themeColor);
+  border-bottom: 1px solid var(--themeColor);
+}
+
+.government .left .t-nav span {
+  float: right;
+  color: var(--fontColor3);
+  font-size: 15px;
+}
+
+.government .left .nav {
+  height: 272px;
+  width: 100%;
+}
+
+.government .left .nav li {
+  height: 45.3px;
+  width: 100%;
+  list-style: none;
+  line-height: 41.3px;
+  color: var(--fontColor);
+}
+
+.government .left .nav li span {
+  color: var(--themeColor);
+  margin: 0 10px;
+}
+
+.government .left .nav li span:nth-child(2) {
+  float: right;
+  color: var(--fontColor3);
+}
+
+.government .right {
+  width: 400px;
+  height: 370px;
+  float: right;
+  background: url(https://www.spb.gov.cn/gjyzj/xhtml/images/index/tjzsbj.png) no-repeat 0 0/400px 370px;
+}
+
+.government .right .title {
+  width: 400px;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid var(--borderColor);
+}
+
+.government .right .title h2 {
+  float: left;
+  height: 50px;
+  margin-left: 19px;
+  font-size: 20px;
+  font-family: Microsoft YaHei;
+  font-weight: bold;
+  color: var(--themeColor);
+  border-bottom: 2px solid var(--themeColor);
+}
+
+.government .right .title span {
+  float: right;
+  color: var(--fontColor3);
+  font-size: 15px;
+}
+
+.government .right .img {
+  width: 400px;
+  height: 320px;
+  position: relative;
+}
+
+.government .right .img img {
+  width: 400px;
+  height: 250px;
+  position: absolute;
+  margin-top: 40px;
+}
+
+.license {
+  width: 1200px;
+  height: 460px;
+}
+
+.license .left {
+  width: 844px;
+  height: 460px;
+  float: left;
+}
+
+.license .left ul {
+  float: left;
+}
+
+.license .left ul:first-child li {
+  width: 54px;
+  height: 230px;
+}
+
+.license .left li:first-child {
+  width: 50px;
+  height: 230px;
+  background-color: var(--themeColor);
+  color: var(--fontColor2);
+  position: relative;
+}
+
+.license .left li:first-child a {
+  color: var(--fontColor2);
+}
+
+.license .left li a {
+  width: 22px;
+  margin: 0 auto;
+  font-size: 22px;
+  font-family: Microsoft YaHei;
+  font-weight: bold;
+  color: #333333;
+  display: block;
+  padding-top: 57px;
+}
+
+.license .left li:last-child {
+  width: 50px;
+  height: 230px;
+  background-color: #E5EAF5;
+}
+
+.license .left li:first-child span {
+  width: 20px;
+  height: 20px;
+  background-color: var(--themeColor);
+  display: inline-block;
+  position: absolute;
+  right: -19%;
+  top: 48%;
+  transform: rotate(45deg);
+}
+
+.contents {
+  width: 765px;
+  height: 410px;
+  float: right;
+  margin-top: 50px;
+}
+
+.contents .title {
+  width: 765px;
+  height: 71px;
+  background-color: var(--themeColor);
+  line-height: 71px;
+}
+
+.contents .title img {
+  float: left;
+  margin: 15px;
+}
+
+.contents .title h2 {
+  color: var(--fontColor2);
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.contents .title span {
+  color: var(--fontColor2);
+  font-size: 15px;
+  border: 1px solid #ffffff;
+  margin-left: 66%;
+}
+
+.information {
+  width: 765px;
+  height: 339px;
+}
+
+.information ul {
+  display: flex !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+  gap: 9px;
+}
+
+.information ul li {
+  width: 180px !important;
+  height: 165px !important;
+  background-color: transparent !important;
+  text-align: center;
+  color: black !important;
+}
+
+.information ul li img {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.license .right {
+  width: 315px;
+  height: 410px;
+  float: right;
+  margin-top: 50px;
+}
+
+.license .right li {
+  width: 315px;
+  height: 95px;
+  background: url(https://www.spb.gov.cn/gjyzj/xhtml/images/index/cxfw.png) no-repeat 0 0/315px 95px;
+  margin-bottom: 10px;
+}
+
+.license .right li img {
+  margin: 25px 20px;
+  float: left;
+}
+
+.license .right li span {
+  float: left;
+  margin-top: 36px;
+}
+
+.Online {
+  width: 1200px;
+  height: 300px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.Online .left {
+  width: 338px;
+  height: 300px;
+  float: left;
+}
+
+.Online .left .title {
+  width: 338px;
+  height: 50px;
+  border-bottom: 1px solid var(--borderColor);
+  line-height: 50px;
+}
+
+.Online .left .title a {
+  color: black;
+  font-size: 20px;
+  font-weight: 900;
+  margin-right: 30px;
+  height: 50px;
+  display: inline-block;
+}
+
+.Online .left .title a:first-child {
+  color: var(--themeColor);
+  border-bottom: 1px solid var(--themeColor);
+  margin-left: 5px;
+}
+
+.Online .left .news {
+  width: 338px;
+  height: 250px;
+  text-align: center;
+}
+
+.Online .left .news span {
+  width: 320px;
+  height: 40px;
+  display: inline-block;
+  text-align: center;
+  line-height: 40px;
+  background-color: var(--themeColor);
+  margin-top: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: var(--fontColor2);
+  margin-bottom: 10px;
+}
+
+.Online .middle {
+  width: 476px;
+  height: 300px;
+  margin-left: 25px;
+  float: left;
+}
+
+.Online .right {
+  width: 338px;
+  height: 300px;
+  margin-left: 20px;
+  float: right;
+}
+
+.Online .middle .title {
+  width: 476px;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid var(--borderColor);
+}
+
+.Online .middle .title a {
+  color: var(--themeColor);
+  font-size: 20px;
+  font-weight: 900;
+  margin-right: 30px;
+  height: 50px;
+  display: inline-block;
+  border-bottom: 1px solid var(--themeColor);
+}
+
+.Online .middle .title span {
+  float: right;
+  color: #999999;
+}
+
+.Online .middle .mains {
+  width: 476px;
+  height: 250px;
+}
+
+.Online .middle .mains li {
+  height: 41.6px;
+  width: 476px;
+  list-style: none;
+  line-height: 41.3px;
+}
+
+.Online .middle .mains li span {
+  color: var(--themeColor);
+  margin: 0 10px;
+}
+
+.Online .middle li span:nth-child(2) {
+  float: right;
+  color: var(--fontColor3);
+}
+
+.Online .right .title {
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid var(--borderColor);
+}
+
+.Online .right .title a {
+  color: var(--themeColor);
+  font-size: 20px;
+  font-weight: 900;
+  margin-right: 30px;
+  height: 50px;
+  display: inline-block;
+  border-bottom: 1px solid var(--themeColor);
+  margin-left: 10px;
+}
+
+.Online .right img {
+  width: 300px;
+  float: left;
+  margin: 20px;
+}
+
+.footer {
+  width: 100%;
+  height: 261px;
+  background-color: #E5E8EE;
+  margin-top: 20px;
+}
+
+.footer .title {
+  width: 1200px;
+  height: 261px;
+  margin: auto;
+}
+
+.footer .title .top {
+  width: 1200px;
+  height: 75px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  float: left;
+  background: url(https://www.spb.gov.cn/gjyzj/xhtml/images/index/ztzl.png) no-repeat 0 0/1200px 75px;
+}
+
+.footer .title .banner {
+  width: 1200px;
+  height: 100px;
+}
+
+.footer .bottom {
+  width: 100%;
+  height: 208px;
+  background-color: var(--themeColor);
+}
+
+.footer .bottom .mains {
+  width: 1200px;
+  height: 208px;
+  margin: auto;
+}
+
+.footer .bottom .mains .title {
+  width: 1200px;
+  height: 50px;
+  border-bottom: 1px solid var(--borderColor);
+}
+
+.footer .bottom .mains .title li {
+  float: left;
+  height: 50px;
+  line-height: 50px;
+  margin: 0 20px;
+  color: var(--fontColor2);
+}
+
+.copyright {
+  width: 1200px;
+  height: 95px;
+  margin-top: 40px;
+}
+
+.copyright .imgs {
+  height: 95px;
+  width: 100px;
+  margin-left: 20px;
+  float: left;
+}
+
+.copyright .imgs img {
+  float: left;
+  margin-top: 15px;
+}
+
+.text {
+  width: 600px;
+  height: 95px;
+  float: left;
+}
+
+.text p {
+  line-height: 30px;
+  color: var(--fontColor2);
+  font-size: 12px;
+}
+
+.copyright .right {
+  height: 95px;
+  width: 400px;
+  float: right;
+  line-height: 95px;
+  color: var(--fontColor2);
+}
+
+.copyright .right img {
+  float: right;
+  margin-top: 0;
+  margin-right: 30px;
+}
+
+.swiper2 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.swiper2 .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper2 .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#toggleButton1, #toggleButton2, #toggleButton3 {
+  background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%);
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: inline;
+  position: absolute;
+  float: left;
+  cursor: pointer;
+}
+
+#toggleButton3:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+#toggleButton2:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+#toggleButton1:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+#toggleButton1 {
+  left: 0;
+  top: 100%;
+}
+
+#toggleButton2 {
+  left: 0;
+  top: 120%;
+}
+
+#toggleButton3 {
+  left: 0;
+  top: 140%;
+}
+
+/*# sourceMappingURL=my.css.map */

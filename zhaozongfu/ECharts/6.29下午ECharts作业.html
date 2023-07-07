@@ -88,27 +88,59 @@
             width: 240px;
             height: 516px;
         }
-        .open3 ul{
+
+        .open3 ul {
             position: relative;
             left: -18px;
             width: 240px;
         }
+
         .open3 ul li {
             width: 100%;
             list-style: none;
         }
-        .open3 ul li button{
+
+        .open3 ul li button {
             width: 100%;
             height: 40px;
             border: none;
             margin-top: 10px;
             border-radius: 10px;
         }
-        button:active{
+
+        button:active {
             background-color: gray;
+        }
+        .box1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 100px;
+            background-color: #f7f7f7;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+        }
+
+        .box1 a {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .box1 a:active {
+            color: #ff9900;
         }
     </style>
 </head>
+<div class="box1">
+<a href="./6.29下午ECharts作业1.html">6.29下午ECharts作业1</a>
+<a href="./6.29下午ECharts作业2.html">6.29下午ECharts作业2</a>
+</div>
 
 <body>
     <div class="box">
@@ -155,7 +187,9 @@
                 <li><button id="option">对英雄的总伤害</button></li>
                 <li><button id="option1">对英雄的物理伤害</button></li>
                 <li><button id="option2">对英雄的魔法伤害</button></li>
+                
             </ul>
+
         </div>
     </div>
 </body>
@@ -169,8 +203,8 @@
         Sunny: 'https://files.codelife.cc/itab/defaultWallpaper/videos/33.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp',
         Summer: 'https://files.codelife.cc/itab/defaultWallpaper/videos/44.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp',
         jaion: 'https://files.codelife.cc/itab/defaultWallpaper/videos/v-29.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp',
-        China:"https://files.codelife.cc/itab/defaultWallpaper/videos/45.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp",
-        helan:"https://files.codelife.cc/itab/defaultWallpaper/videos/26.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp",
+        China: "https://files.codelife.cc/itab/defaultWallpaper/videos/45.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp",
+        helan: "https://files.codelife.cc/itab/defaultWallpaper/videos/26.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp",
     };
     option = {
         title: {
@@ -431,8 +465,8 @@
         Sunny: 'https://files.codelife.cc/itab/defaultWallpaper/videos/v-13.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp',
         Summer: 'https://files.codelife.cc/itab/defaultWallpaper/videos/v-11.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp',
         jaion: 'https://files.codelife.cc/itab/defaultWallpaper/videos/21.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp',
-        China:"https://files.codelife.cc/itab/defaultWallpaper/videos/13.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp",
-        helan:"https://files.codelife.cc/itab/defaultWallpaper/videos/19.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp",
+        China: "https://files.codelife.cc/itab/defaultWallpaper/videos/13.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp",
+        helan: "https://files.codelife.cc/itab/defaultWallpaper/videos/19.jpg?x-oss-process=image/resize,limit_0,m_fill,w_400,h_200/quality,q_92/format,webp",
     };
     option1 = {
         title: {
@@ -684,15 +718,15 @@
     $("#option").on("click", function () {
         myChart.setOption(option);//蓝色
         myChart1.setOption(option1);//红色
-      });
-      $("#option1").on("click", function () {
+    });
+    $("#option1").on("click", function () {
         myChart.setOption(option2);
         myChart1.setOption(option3);
-      });
-      $("#option2").on("click", function () {
+    });
+    $("#option2").on("click", function () {
         myChart.setOption(option4);
         myChart1.setOption(option5);
-      });
+    });
 </script>
-   
+
 </html>

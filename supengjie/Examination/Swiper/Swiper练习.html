@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../common/swiper/swiper-bundle.css">
+    <script src="../../../common/swiper/swiper-bundle.js"></script>
+    <style>
+        .swiper {
+            width: 600px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="../Img/1910022110294Z2-0-lp.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/210924233115O14-0-lp.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../Img/u=4162443464,2854908495&fm=253&fmt=auto&app=138&f=JPEG.webp"
+                    alt=""></div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- 如果需要滚动条 -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+    <script>
+        var mySwiper = new Swiper('.swiper', {
+            initialSlide: 2,
+            direction: 'horizontal', // 垂直切换选项
+            loop: true, // 循环模式选项
+            speed: 300,
+            watchSlidesProgress: true,
+            setWrapperSize: true,
+            // virtualTranslate : true,
+            autoHeight: true,
+            // watchOverflow: true,
+            runCallbacksOnInit: true,
+            preloadImages: false, //默认为true，Swiper会强制加载所有图片后才初始化。
+            updateOnImagesReady: true, //当所有的内嵌图像（img标签）加载完成后Swiper会重新初始化。使用此选项需要先开启preloadImages: true
+            // cssMode:true,   //启用后，它将使用现代CSS Scroll Snap API。它不支持Swiper的很多功能，但可能会带来更好的性能。
+            // updateOnWindowResize: true,
+
+            rewind: true,
+
+            maxBackfaceHiddenSlides: 2,
+            
+            pagination: {
+                el: '.swiper-pagination',
+
+                // auto: true,//不可以定义el，并要增加auto属性
+                // type: 'fraction',
+            },
+
+            // 如果需要前进后退按钮
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // 如果需要滚动条
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+            // on: {
+            //     slideChangeTransitionStart: function () {
+            //         alert('触发了回调');
+            //     },
+            // },
+            // enabled: false,  //通过函数 enable() 和 disable() 动态启用或禁用Swiper。 默认：true
+
+
+            navigation: true,//不需要自动创建元素的话定义el就行
+            scrollbar: true,
+            createElements: true,//自动生成元素
+
+        })
+        console.log(mySwiper.$wrapperEl.css('width'));
+
+        // mySwiper.addSlide(1, '<div class="swiper-slide">Slide 1</div>');
+        // mySwiper.addSlide(2, '<div class="swiper-slide">Slide 2</div>');
+        // mySwiper.addSlide(3, '<div class="swiper-slide">Slide 3</div>');
+    </script>
+</body>
+
+</html>

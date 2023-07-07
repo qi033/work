@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        #container {
+            width: 1000px;
+            height: 500px;
+        }
+    </style>
+    <title>多边形的绘制和编辑</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <script src="diyu.js"></script>
+    <script src="https://webapi.amap.com/maps?v=2.0&key=12234fb3874d1b83a6084737b5166179"></script>
+    <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/javascript">
+        var map = new AMap.Map("container", {
+            center: [116.397428, 39.90923],
+            zoom: 6
+        });
+
+        function addPolygon(data) {
+            let polygon = new AMap.Polygon({
+                path: data,
+                fillColor: '#ccebc5',
+                strokeOpacity: 1,
+                fillOpacity: 0.5,
+                strokeColor: '#2b8cbe',
+                strokeWeight: 1,
+                strokeStyle: 'dashed',
+                strokeDasharray: [5, 5],
+            });
+            polygon.on('mouseover', () => {
+                polygon.setOptions({
+                    // strokeColor: '#ee3f4d',
+                    fillOpacity: 0.7,
+                    fillColor: '#7bccc4'
+                })
+            })
+            polygon.on('mouseout', () => {
+                polygon.setOptions({
+                    // strokeColor: '#7a7374',
+                    fillOpacity: 0.5,
+                    fillColor: '#ccebc5'
+
+                })
+            })
+            map.add(polygon);
+        }
+
+        addPolygon(hefei);
+        addPolygon(shijiazhuang);
+        addPolygon(tianjing);
+        // const arr1 = ['a', 'b', [1, 2]];
+        // const arr2 = ['c'];
+        // const arr3 = [...arr1, ...arr2]
+        // arr1[2][1] = 9999 // 修改arr1里面数组成员值
+        // console.log(arr3)
+
+
+        // const keyA = { a: 1 };
+        // const keyB = { b: 2 };
+
+        // const myObject = {
+        //     [keyA]: 'valueA',
+        //     [keyB]: 'valueB'
+        // };
+
+        // console.log(myObject);
+
+        // const obj = {
+        //     foo: 123,
+        //     get bar() { return 'abc' }
+        // };
+
+        // Object.getOwnPropertyDescriptors(obj)
+        // // {
+        // //     foo:
+        // //     {
+        // //         value: 123,
+        // //             writable: true,
+        // //                 enumerable: true,
+        // //                     configurable: true
+        // //     },
+        // //     bar:
+        // //     {
+        // //         get: [Function: get bar],
+        // //             set: undefined,
+        // //                 enumerable: true,
+        // //                     configurable: true
+        // //     }
+        // // }
+        // console.log(obj);
+
+        // const obj = {
+        //     foo: 123,
+        //     get bar() { return 'abc' }
+        // };
+
+        // Object.getOwnPropertyDescriptors(obj)
+        // console.log(b);
+// { foo:
+//    { value: 123,
+//      writable: true,
+//      enumerable: true,
+//      configurable: true },
+//   bar:
+//    { get: [Function: get bar],
+//      set: undefined,
+//      enumerable: true,
+//      configurable: true } }
+
+
+
+let text = "cat, bat, sat, fat";
+let result = text.replace("at", "ond");
+console.log(result); // "cond, bat, sat, fat"
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="./sw.min1.css" />
+
+    <!-- Demo styles -->
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .swiper-pagination-bullet {
+        border-radius: 0%;
+        width: 140px;
+        height: 40px;
+        background-color: #000;
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="./image/1315961.jpg" /></div>
+        <div class="swiper-slide"><img src="./image/1317768.jpg" /></div>
+        <div class="swiper-slide"><img src="./image/422909.jpg" /></div>
+        <div class="swiper-slide"><img src="./image/447808.jpg" /></div>
+        <div class="swiper-slide"><img src="./image/1315961.jpg" /></div>
+        <div class="swiper-slide"><img src="./image/1317768.jpg" /></div>
+        <div class="swiper-slide"><img src="./image/422909.jpg" /></div>
+        <div class="swiper-slide"><img src="./image/447808.jpg" /></div>
+        <div class="swiper-slide"><img src="./image/1317768.jpg" /></div>
+        <div class="swiper-slide"><img src="./image/1317768.jpg" /></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <script src="./swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        direction: "vertical",
+        pagination: {
+          el: ".swiper-pagination",
+          type: "bullets",
+          bulletClass: "swiper-pagination-bullet",
+          bulletActiveClass: "swiper-pagination-bullet-active",
+          clickable: true,
+          renderBullet: function (index, className) {
+            switch (index) {
+              case 0:
+                text = "来活了兄弟";
+                break;
+              case 1:
+                text = "尘缘";
+                break;
+              case 2:
+                text = "南洋女儿情";
+                break;
+              case 3:
+                text = "长风渡";
+                break;
+              case 4:
+                text = "登场了！北京中轴线";
+                break;
+              case 5:
+                text = "人生路不熟";
+                break;
+              case 6:
+                text = "水立方杯";
+                break;
+              case 7:
+                text = "我是学校唯一的人类";
+                break;
+              case 8:
+                text = "3D唯美仙侠巨作";
+                break;
+              case 9:
+                text = "中国说唱2023";
+                break;
+            }
+            return '<span class="' + className + '">' + text + "</span>";
+          },
+        },
+      });
+      for (i = 0; i < swiper.pagination.bullets.length; i++) {
+        swiper.pagination.bullets[i].index = i;
+        swiper.pagination.bullets[i].onmouseover = function () {
+          swiper.slideTo(this.index);
+        };
+      }
+      //如果你开启了clickable，还可以这样
+      for (i = 0; i < swiper.pagination.bullets.length; i++) {
+        swiper.pagination.bullets[i].onmouseover = function () {
+          this.click();
+        };
+      }
+    </script>
+  </body>
+</html>

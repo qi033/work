@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="./swiper-bundle.min.css" />
+
+    <!-- Demo styles -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 75%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        body {
+            background: #000;
+            color: #000;
+        }
+
+        .swiper {
+            width: 75%;
+            height: 80%;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+        .swiper-slide {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .mySwiper2 {
+            /* height: 80%; */
+            width: 65%;
+            position: relative;
+           top: 1px;
+           left: -250px;
+        }
+
+        .mySwiper {
+            height: 75%;
+            box-sizing: border-box;
+            padding: 10px 0;
+            position: relative;
+            top: -550px;
+            left: 850px;
+        }
+
+        .mySwiper .swiper-slide {
+            width: 25%;
+            height: 200px;
+            opacity: 0.4;
+        }
+
+        .mySwiper .swiper-slide-thumb-active {
+            opacity: 1;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #box {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Swiper -->
+    <div id="box">
+        <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://img1.baidu.com/it/u=1096405227,1627248949&fm=253&fmt=auto&app=120&f=JPEG?w=1146&h=720" alt="" class="" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://bkimg.cdn.bcebos.com/pic/5d6034a85edf8db1cb13f32fc277ca54564e9258de79" alt="" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://img0.baidu.com/it/u=2055808748,875051110&fm=253&fmt=auto&app=138&f=JPEG?w=1082&h=500" alt="" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://bkimg.cdn.bcebos.com/pic/9922720e0cf3d7cadd449a9cf91fbe096a63a9ae" alt="" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://img0.baidu.com/it/u=1857692777,4120678152&fm=253&fmt=auto&app=120&f=PNG?w=913&h=500" alt="" />
+                </div>
+                <div class="swiper-slide">
+                    <img
+                    src="https://img2.baidu.com/it/u=600665153,2765669675&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+                    alt="" />
+                </div>
+            </div>
+
+        </div>
+        <div thumbsSlider="" class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://img1.baidu.com/it/u=1096405227,1627248949&fm=253&fmt=auto&app=120&f=JPEG?w=1146&h=720" alt="" class="" />
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="https://bkimg.cdn.bcebos.com/pic/5d6034a85edf8db1cb13f32fc277ca54564e9258de79" alt="" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://img0.baidu.com/it/u=2055808748,875051110&fm=253&fmt=auto&app=138&f=JPEG?w=1082&h=500" alt="" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://bkimg.cdn.bcebos.com/pic/9922720e0cf3d7cadd449a9cf91fbe096a63a9ae" alt="" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://img0.baidu.com/it/u=1857692777,4120678152&fm=253&fmt=auto&app=120&f=PNG?w=913&h=500" alt="" />
+                </div>
+                <div class="swiper-slide">
+                    <img
+                    src="https://img2.baidu.com/it/u=600665153,2765669675&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+                    alt="" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="./swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            direction: "vertical",
+            spaceBetween: 30,
+            slidesPerView: 4,
+            mousewheel: true,
+            loop: true,
+            freeMode: true,
+            watchSlidesProgress: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+        });
+        var swiper2 = new Swiper(".mySwiper2", {
+            spaceBetween: 30,
+            slidesPerView: 1,
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            thumbs: {
+                swiper: swiper,
+            },
+        });
+    </script>
+</body>
+
+</html>

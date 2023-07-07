@@ -11,6 +11,7 @@
             padding: 0;
         }
 
+        /* 
         li {
             list-style: none;
             height: 50px;
@@ -28,6 +29,63 @@
 
         a {
             text-decoration: none;
+        } */
+
+        @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: 'Mochiy Pop One', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #252839;
+        }
+
+        ul {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        ul li {
+            position: relative;
+            list-style: none;
+        }
+
+        ul li a {
+            font-size: 2em;
+            text-decoration: none;
+            letter-spacing: 2px;
+            line-height: 1em;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+        }
+
+        ul li a::before {
+            content: attr(data-text);
+            position: absolute;
+            color: var(--clr);
+            width: 0;
+            height: 35px;
+            line-height: 35px;
+            overflow: hidden;
+            transition: 1s;
+            border-right: 8px solid var(--clr);
+            -webkit-text-stroke: 1px var(--clr);
+        }
+
+        ul li a:hover::before {
+            width: 100%;
+            filter: drop-shadow(0 0 25px var(--clr))
         }
     </style>
 </head>
@@ -35,21 +93,93 @@
 <body>
     <div id="box">
         <ul id="son1">
-            <li>
-                <a href="6-27">6-27的作业</a>
-                <a style="margin-left: 50px;" href="6-27/作业.html">作业</a>
-
+            <li style="--clr:#00ade1">
+                <a href="6-27" data-text="6-27的作业">6-27的作业</a>
             </li>
             <li>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="6-27/作业.html">作业</a>
+            </li>
+            <li style="--clr:#ff6492">
                 <a href="6-28">6-28的作业</a>
-                <a style="margin-left: 50px;" href="6-28/作业.html">作业</a>
             </li>
             <li>
-                <a href="6-30">6-30的考试题</a>
-                <a style="margin-left: 50px;" href="6-30考试题/主页面.html">考试题</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="6-28/作业.html">作业</a>
+            </li>
+            <li style="--clr:#ffdd1c">
+                <a href="6-29">6-29的作业</a>
+            </li>
+            <li>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="6-29/全国地图.html">全国地图</a>
+            </li>
+            <li style="--clr:#00dc82">
+                <a href="6-30考试题">6-30的考试题</a>
+            </li>
+            <li>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="6-30考试题/主页面.html">考试题</a>
+            </li>
+            <li style="--clr:#dc00d4">
+                <a href="7-3">7-3的作业</a>
+            </li>
+            <li>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-3/下午map作业1.html">作业1</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-3/下午map作业2.html">作业2</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-3/下午map作业2不要按钮版.html">作业3不要按钮版</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-3/下午map作业3.html">作业3</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-3/下午map作业4.html">作业4</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-3/下午map作业5.html">作业5</a>
+            </li>
+            <li style="--clr:#dc00d4">
+                <a href="7-4">7-4的作业</a>
+            </li>
+            <li>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业.html">作业1</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业2.html">作业2</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业3.html">作业3</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业4.html">作业4</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业5.html">作业5</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业6.html">作业6</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业8.html">作业7</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业9.html">作业8</a>
+            </li>
+            <li style="--clr:#00ade1">
+                <a href="7-5">7-5的作业</a>
+            </li>
+            <li>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-5/下午邮政局作业.html">邮政局作业</a>
+            </li>
+            <li style="--clr:#00ade1">
+                <a href="7-6">7-6的作业</a>
+            </li>
+            <li>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-6/下午下载微信界面.html">下载微信界面</a>
+            </li>
+            <li style="--clr:#00ade1">
+                <a href="7-7考试题">7-7的作业</a>
+            </li>
+            <li>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-7考试题/考试题.html">考试题</a>
+            </li>
+            <li style="--clr:#00ade1">
+                <a href="#" data-text="Home">Home</a>
+            </li>
+            <li style="--clr:#ff6492">
+                <a href="#" data-text="About">About</a>
+            </li>
+            <li style="--clr:#ffdd1c">
+                <a href="#" data-text="Services">Services</a>
+            </li>
+            <li style="--clr:#00dc82">
+                <a href="#" data-text="Blog">Blog</a>
+            </li>
+            <li style="--clr:#dc00d4">
+                <a href="#" data-text="Contact">Contact</a>
             </li>
         </ul>
     </div>
 </body>
 
 </html>
+<!-- 日报
+今日学习: media H5音频视频标签
+今日任务: 已完成
+今日问题: 无 -->

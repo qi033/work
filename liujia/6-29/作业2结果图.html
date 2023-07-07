@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../common/echars/echarts.min.js"></script>
+    <script src="../common/jQuery/jquery-3.7.0.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* #main {
+            width: 100%;
+            height: 600px;
+            margin-top: 60px;
+            background-color: aliceblue;
+        } */
+
+        #box {
+            width: 90%;
+            height: 80vh;
+            background-color: aqua;
+            margin: auto;
+            margin-top: 40px;
+        }
+
+        #top {
+            position: relative;
+            width: 100%;
+            height: 40%;
+            background-color: rgb(77, 140, 119);
+        }
+
+        #bott {
+            width: 100%;
+            height: 60%;
+            background-color: cadetblue;
+        }
+
+        #bottom {
+            width: 100%;
+            height: 100%;
+        }
+
+        #top-left {
+            width: 35%;
+            float: left;
+            height: 100%;
+            background-color: antiquewhite;
+
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            /* background-image: linear-gradient(to bottom, blue, transparent); */
+        }
+
+        #top-right {
+            width: 35%;
+            height: 100%;
+            float: right;
+            background-color: blue;
+        }
+
+        #top-zhong {
+            position: absolute;
+            width: 30%;
+            height: 100%;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background-color: rgb(97, 136, 136);
+            border-top: 1px solid gray;
+        }
+
+        #top-left-top {
+            position: absolute;
+            width: 35%;
+            height: 50px;
+            opacity: 0.5;
+            background-color: antiquewhite;
+            line-height: 50px;
+            font-size: 20px;
+            color: rgb(31, 149, 149);
+        }
+
+        #top-left-bottom {
+            position: absolute;
+            width: 35%;
+            height: 50px;
+            bottom: 0;
+            line-height: 50px;
+            font-size: 20px;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: rgb(28, 117, 195);
+        }
+
+        #top-left-bottom span {
+            position: absolute;
+        }
+
+        #top-right-top {
+            position: absolute;
+            width: 35%;
+            height: 50px;
+            opacity: 0.5;
+            background-color: antiquewhite;
+            line-height: 50px;
+            font-size: 20px;
+            color: rgb(145, 19, 19);
+        }
+
+        #top-right-bottom {
+            position: absolute;
+            width: 35%;
+            height: 50px;
+            bottom: 0;
+            line-height: 50px;
+            font-size: 20px;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: rgba(138, 31, 13, 0.94);
+        }
+
+        #top-right-bottom img {
+            float: right;
+        }
+
+        #top-right-bottom span {
+            position: absolute;
+            right: 50px;
+        }
+
+        .bott-left {
+            width: 200px;
+            height: 300px;
+            float: left;
+            background-color: aqua;
+            display: none;
+        }
+
+        .bott-right {
+            width: 200px;
+            height: 300px;
+            float: right;
+            background-color: brown;
+            display: none;
+        }
+
+        .fff {
+            display: block;
+        }
+
+        ul {
+            width: 100%;
+            height: 100%;
+        }
+
+        li {
+            list-style: none;
+            height: 60px;
+            width: 100%;
+            line-height: 60px;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="top">
+            <div id="top-zhong"></div>
+            <div id="top-left">
+                <div id="top-left-top"><span style="margin-left: 20px;">胜方</span></div>
+                <img src="https://w.wallhaven.cc/full/we/wallhaven-wel6wq.png">
+                <div id="top-left-bottom">
+                    <b><img src="1.png" style="width: 30px;height: 30px;margin: 10px;"><span>郁金香妹你浴巾香</span></b>
+                </div>
+            </div>
+            <div id="top-right">
+                <div id="top-right-top"><span style="float: right; margin-right: 20px;">败方</span></div>
+                <img src="https://w.wallhaven.cc/full/jx/wallhaven-jxkojw.jpg">
+                <div id="top-right-bottom">
+                    <b><img src="1.png" style="width: 30px;height: 30px;margin: 10px;"><span>魔女丨伊芙琳</span></b>
+                </div>
+            </div>
+        </div>
+        <div id="bott">
+            <div class="bott-left">
+                <ul>
+                    <li>郁金香妹你浴巾香</li>
+                    <li>郁金香妹你浴巾香1</li>
+                    <li>郁金香妹你浴巾香2</li>
+                    <li>郁金香妹你浴巾香3</li>
+                    <li>郁金香妹你浴巾香4</li>
+                </ul>
+            </div>
+            <div class="bott-right">
+                <ul>
+                    <li>魔女丨伊芙琳</li>
+                    <li>魔女丨伊芙琳1</li>
+                    <li>魔女丨伊芙琳2</li>
+                    <li>魔女丨伊芙琳3</li>
+                    <li>魔女丨伊芙琳4</li>
+                </ul>
+            </div>
+            <div id="bottom"></div>
+        </div>
+    </div>
+
+    <script>
+        var chartDom = document.getElementById('bottom');
+        var myChart = echarts.init(chartDom);
+        var option;
+        let xData = ['对英雄总伤害', '参团率', '金钱', '评价', '承伤']
+        let eventWarning = [3, 20, 122, 134, 55]
+        let eventHandling = [11, 38, 23, 139, 66]
+        // let legend = ['事件预警', '事件处置']
+        option = {
+            // backgroundColor: '#000',
+            color: ['#2CF1FF', '#3456FF'],
+            timeline: {
+                show: false,
+            },
+            tooltip: {
+                trigger: "axis",
+                axisPointer: {
+                    type: "shadow",
+                },
+                backgroundColor: "rgba(255,255,255,0.75)",
+                extraCssText: "box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.3);",
+                textStyle: {
+                    fontSize: 14,
+                    color: "#000",
+                },
+                formatter: "{a}<br/>{b} :\n\n{c} 个",
+            },
+            // legend: {
+            //     top: 0,
+            //     right: "center",
+            //     itemWidth: 16,
+            //     itemHeight: 6,
+            //     itemGap: 20,
+            //     icon: "horizontal",
+            //     textStyle: {
+            //         color: "#ffffff",
+            //         fontSize: 16,
+            //     },
+            //     data: legend,
+            // },
+            grid: [
+                // 左边
+                {
+                    show: false,
+                    left: "5%",
+                    top: "15%",
+                    bottom: "2%",
+                    containLabel: true,
+                    width: "40%",
+                },
+                // 中间
+                {
+                    show: false,
+                    left: "51%",
+                    top: "15%",
+                    bottom: "4%",
+                    width: "0%",
+                },
+                // 右边
+                {
+                    show: false,
+                    right: "5%",
+                    top: "15%",
+                    bottom: "2%",
+                    containLabel: true,
+                    width: "40%",
+                },
+            ],
+            xAxis: [
+                {
+                    type: "value",
+                    inverse: true,
+                    axisTick: {
+                        show: false,
+                    },
+                    axisLabel: {
+                        show: false,
+                    },
+                    axisLabel: {
+                        show: true,
+                        verticalAlign: 'middle',
+                        textStyle: {
+                            color: 'rgba(255, 255, 255, 0.7)',
+                            fontSize: 12,
+                        },
+                    },
+                    splitLine: {
+                        show: false,
+                    },
+                },
+                {
+                    gridIndex: 1,
+                    show: false,
+                },
+                {
+                    gridIndex: 2,
+                    axisLine: {
+                        show: false,
+                    },
+                    axisTick: {
+                        show: false,
+                    },
+                    axisLabel: {
+                        show: true,
+                        verticalAlign: 'middle',
+                        textStyle: {
+                            color: 'rgba(255, 255, 255, 0.7)',
+                            fontSize: 12,
+                        },
+                    },
+                    splitLine: {
+                        show: false,
+                    },
+                },
+            ],
+            yAxis: [
+                {
+                    type: "category",
+                    inverse: true,
+                    position: "right",
+                    axisLine: {
+                        show: false
+                    },
+                    axisTick: {
+                        show: false,
+                    },
+                    axisLabel: {
+                        show: false,
+                    },
+                    data: xData,
+                },
+                {
+                    gridIndex: 1,
+                    type: "category",
+                    inverse: true,
+                    position: "left",
+                    axisLine: {
+                        show: false,
+                    },
+                    axisTick: {
+                        show: false,
+                    },
+                    axisLabel: {
+                        show: true,
+                        color: "rgba(255, 255, 255, 0.7)",
+                        fontSize: 16,
+                        align: "center",
+                    },
+                    data: xData.map(function (value) {
+                        return {
+                            value: value,
+                            textStyle: {
+                                align: "center",
+                            },
+                        };
+                    }),
+                },
+                {
+                    gridIndex: 2,
+                    type: "category",
+                    inverse: true,
+                    position: "left",
+                    axisLine: {
+                        show: false
+                    },
+                    axisTick: {
+                        show: false,
+                    },
+                    axisLabel: {
+                        show: false,
+                    },
+                    data: xData,
+                },
+            ],
+            series: [
+                {
+                    // name: legend[0],
+                    type: "bar",
+                    barWidth: 10,
+                    stack: "1",
+                    itemStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                            {
+                                offset: 0,
+                                color: "#2CF1FF",
+                            },
+                            {
+                                offset: 1,
+                                color: "#3456FF",
+                            },
+                        ]),
+                    },
+                    label: {
+                        show: false,
+                        position: "left",
+                        color: "rgba(255, 255, 255, 0.7)",
+                    },
+                    data: eventWarning,
+                    animationEasing: "elasticOut",
+                    showBackground: true,
+                    backgroundStyle: {
+                        color: 'rgba(180, 180, 180, 0.2)'
+                    }
+                },
+                {
+                    // name: legend[1],
+                    type: "bar",
+                    stack: "2",
+                    barWidth: 10,
+                    xAxisIndex: 2,
+                    yAxisIndex: 2,
+                    itemStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                            {
+                                offset: 0,
+                                color: "#FF2E62",
+                            },
+                            {
+                                offset: 1,
+                                color: "#FF5FAC",
+                            },
+                        ]),
+                    },
+                    label: {
+                        show: false,
+                        position: "right",
+                        color: "rgba(255, 255, 255, 0.7)",
+                    },
+                    data: eventHandling,
+                    animationEasing: "elasticOut",
+                    showBackground: true,
+                    backgroundStyle: {
+                        color: 'rgba(180, 180, 180, 0.2)'
+                    }
+                },
+            ],
+        };
+        option && myChart.setOption(option);
+    </script>
+    <script>
+        var chartDom = document.getElementById('top-zhong');
+        var myChart = echarts.init(chartDom);
+        var option;
+        let data = {
+            agriculture: 5.36,
+            agriculturePercent: 21,
+            bulkSale: 5.73,
+            bulkSalePercent: 22,
+            business: 4.72,
+            businessPercent: 18,
+            industry: 5.67,
+            industryPercent: 22,
+            resident: 4.32,
+            residentPercent: 17,
+        }
+        let everyDepartment = {
+            stages: [
+                { name: '对英雄总伤害', max: 100 },
+                { name: '参团率', max: 100 },
+                { name: '金钱', max: 100 },
+                { name: '评价', max: 100 },
+                { name: '承伤', max: 100 },
+            ],
+            scores: [0, 0, 0, 0, 0]
+        };
+        this.total = data.total
+        everyDepartment.scores = [
+            (data.industry / 10).toFixed(2),
+            (data.resident / 10).toFixed(2),
+            (data.agriculture / 10).toFixed(2),
+            (data.business / 10).toFixed(2),
+            (data.bulkSale / 10).toFixed(2)
+        ]
+        const maxNum = parseInt(Math.max(...everyDepartment.scores))
+        for (let i = 0; i < everyDepartment.stages.length; i++) {
+            everyDepartment.stages[i].max = maxNum <= 0 ? 1 : maxNum * 1.5
+        }
+        function contains(arr, obj) {
+            var i = arr.length;
+            while (i--) {
+                if (arr[i].name === obj) {
+                    return i;
+                }
+            }
+            return false;
+        }
+        option = {
+            backgroundColor: 'rgb(97, 136, 136)',
+            color: ['#000'],
+            tooltip: {
+                show: true,
+                // formatter: '{b0}: {c0}<br />{b1}: {c1}', 
+                formatter(params) {
+                    let stagesdata = everyDepartment.stages, html = ""
+                    for (let i = 0; i < stagesdata.length; i++) {
+                        html += '<div style="display: flex;height: 5px;"><span style="display: block;">' + stagesdata[i].name + '</span>' + "<span class='ml15'>" + everyDepartment.scores[i] + '元/千瓦时' + '</span></div>' + "<br/>"
+                    }
+                    return html
+                },
+                textStyle: {
+                    fontSize: 32,// 字体大小
+                    color: '#000',
+                },
+            },
+            radar: {
+                center: ['50%', '62%'],
+                radius: '40%',
+                name: {
+                    rich: {
+                        a: {
+                            color: '#ffffff',
+                            fontSize: 16,
+                            align: 'center',
+                            // lineHeight: 30,
+                        },
+                        b: {
+                            color: '#3ED9AF',
+                            fontSize: 16,
+                            align: 'center',
+                            fontFamily: 'ysbth',
+                            fontWeight: 'bold',
+                            // lineHeight: 50,
+                        },
+                        b1: {
+                            color: '#FDF01F',
+                            fontSize: 16,
+                            align: 'center',
+                            fontFamily: 'ysbth',
+                            fontWeight: 'bold',
+                            // lineHeight: 50,
+                        },
+                    },
+                    formatter: (a, index) => {
+                        let i = contains(everyDepartment.stages, a); // 处理对应要显示的样式
+                        if (i == 2) {
+                            return `{a|${a} }\n{b1| ${everyDepartment.scores[i]}}`;
+                        } else if (i == 3) {
+                            return `{a|${a} }\n{b| ${everyDepartment.scores[i]}}`;
+                        } else if (i == 4) {
+                            return `{b1|${everyDepartment.scores[i]}}\n{a|${a}}`;
+                        } else {
+                            return `{b| ${everyDepartment.scores[i]}}\n{a| ${a}}`;
+                        }
+
+                    },
+                },
+                nameGap: 30,
+                indicator: everyDepartment.stages,
+                splitArea: {
+                    areaStyle: {
+                        color: [
+                            'rgba(48, 105, 199, .1)',
+                            'rgba(48, 105, 199, .2)',
+                            'rgba(48, 105, 199, .4)',
+                            'rgba(48, 105, 199, .6)',
+                            'rgba(48, 105, 199, .8)',
+                            'rgba(48, 105, 199, 1)',
+                        ].reverse(),
+                    },
+                },
+                // axisLabel:{//展示刻度
+                //     show: true
+                // },
+                axisLine: {
+                    //指向外圈文本的分隔线样式
+                    lineStyle: {
+                        color: 'rgba(37, 100, 214, 1)',
+                        width: 2,
+                    },
+                },
+                splitLine: {
+                    lineStyle: {
+                        width: 2,
+                        color: 'rgba(37, 100, 214, 1)',
+                    },
+                },
+            },
+
+            series: [
+                {
+                    type: 'radar',
+                    symbol: 'circle',
+                    symbolSize: 16,
+                    lineStyle: {
+                        color: "#70EDFC",
+                        width: 2,
+                    },
+                    itemStyle: {
+                        color: '#ffffff',
+                        borderColor: "#70EDFC",
+                        borderWidth: 2,
+                        opacity: 1,
+                    },
+                    data: [
+                        {
+                            value: everyDepartment.scores,
+                            name: '',
+                            itemStyle: {
+                                normal: {
+                                    lineStyle: {
+                                        color: 'rgba(112, 237, 252, .5)',
+                                    },
+                                    shadowColor: 'rgba(112, 237, 252, .5)',
+                                    shadowBlur: 1,
+                                },
+                            },
+                            areaStyle: {
+                                normal: {
+                                    color: 'rgba(112, 237, 252, .5)',
+                                },
+                            },
+                        },
+                    ],
+                },
+            ]
+        };
+
+        option && myChart.setOption(option);
+    </script>
+    <script>
+        $("#top-left-bottom img").on('click', function () {
+            $(".bott-left").toggleClass('fff');
+        })
+        $("#top-right-bottom img").on('click', function () {
+            $(".bott-right").toggleClass('fff');
+        })
+    </script>
+</body>
+
+</html>
+<!-- 这下面的数据不好改，它是单点一个 -->
+<!-- 日报
+今日学习： ECharts样式
+今日问题： 无
+今日作业： 完成(50%); -->

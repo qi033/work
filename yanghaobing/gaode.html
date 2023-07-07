@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="" />
+    <script src=""></script>
+  </head>
+  <style>
+    #box {
+      width: 1200px;
+      height: 80vh;
+      background-color: pink !important;
+    }
+    .custom-content-marker {
+      position: relative;
+      width: 25px;
+      height: 34px;
+    }
+
+    .custom-content-marker img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .custom-content-marker .close-btn {
+      position: absolute;
+      top: -6px;
+      right: -8px;
+      width: 15px;
+      height: 15px;
+      font-size: 12px;
+      background: #ccc;
+      border-radius: 50%;
+      color: #fff;
+      text-align: center;
+      line-height: 15px;
+      box-shadow: -1px 1px 1px rgba(10, 10, 10, 0.2);
+    }
+
+    .custom-content-marker .close-btn:hover {
+      background: #666;
+    }
+  </style>
+  <body>
+    <div id="box"></div>
+
+    <button id="hide">隐藏</button>
+    <button id="show">显示</button>
+  </body>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+  <script type="text/javascript">
+    window._AMapSecurityConfig = {
+      securityJsCode: "0587ed38a263525b6ceb2a2bcc62926a",
+    };
+  </script>
+  <!-- <script src="./js/高德.js"></script> -->
+  <script
+    type="text/javascript"
+    src="https://webapi.amap.com/maps?v=2.0&key=1bc75d3ac912efca8d7e2c558231610e&plugin=AMap.ToolBar,AMap.HawkEye"></script>
+  <script>
+    $(function () {
+      $("#hide").click(function () {
+        traffic.hide(); //隐藏路况图层
+      });
+      $("#show").click(function () {
+        traffic.show(); //隐藏路况图层
+      });
+    });
+    const markerContent =
+      "" +
+      '<div class="custom-content-marker">' +
+      '   <img src="https://img1.baidu.com/it/u=4049022245,514596079&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1688490000&t=39754827df5839802b744a99108ef632">' +
+      '   <div class="close-btn" onclick="clearMarker()">X</div>' +
+      "</div>";
+    const layer = new AMap.createDefaultLayer({
+      // 提示：参数值并不是API默认使用的值
+      zooms: [3, 20], //可见级别
+      visible: true, //是否可见
+      opacity: 1, //透明度
+      zIndex: 0, //叠加层级
+    });
+    const map = new AMap.Map("box", {
+      viewMode: "3D", // 默认使用 2D 模式
+      zoom: 18, //初始化地图层级
+      center: [113.428155, 34.774258], //初始化地图中心点
+      layers: [layer],
+      mapStyle: "amap://styles/macaron",
+      layers: [new AMap.TileLayer.Satellite()],
+    });
+    const traffic = new AMap.TileLayer.Traffic({
+      autoRefresh: true, //是否自动刷新，默认为false
+      interval: 180, //刷新间隔，默认180s
+    });
+
+    map.add(traffic); //通过add方法添加图层
+    let toolbar, HawkEye;
+    AMap.plugin(
+      ["AMap.ToolBar", "AMap.HawkEye", "AMap.PlaceSearch"],
+      function () {
+        toolbar = new AMap.ToolBar();
+        map.addControl(toolbar);
+        HawkEye = new AMap.HawkEye();
+        map.addControl(HawkEye);
+      }
+    ); //异步同时加载多个插件
+    const placeSearch = new AMap.PlaceSearch({
+      pageSize: 5, // 单页显示结果条数
+      pageIndex: 1, // 页码
+      city: "全国", // 兴趣点城市
+      citylimit: true, //是否强制限制在设置的城市内搜索
+      map: map, // 展现结果的地图实例
+      panel: "panel", // 结果列表将在此容器中进行展示。
+      autoFitView: true, // 是否自动调整地图视野使绘制的 Marker点都处于视口的可见范围
+    });
+    var keyword = "荥阳吾悦广场";
+    placeSearch.search(keyword, function (status, result) {
+      if (status === "complete") {
+        // 查询成功时，result即对应匹配的POI信息
+        console.log(result);
+      } else if (status === "no_data") {
+        console.log("无查询结果");
+      } else {
+        console.log("查询失败");
+      }
+    });
+    const position = new AMap.LngLat(113.428155, 34.774258); // Marker经纬度
+    const marker = new AMap.Marker({
+      position: position,
+      content: markerContent, // 将 html 传给 content
+      offset: new AMap.Pixel(-13, -30), // 以 icon 的 [center bottom] 为原点
+    });
+    map.add(marker);
+  </script>
+</html>
