@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background: #f7f7f7;
+  font-size: 17px;
+  width: 100%;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.9);
+  height: 100%;
+  font: 14px/1.6 -apple-system-font, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei UI, Microsoft YaHei, Arial, sans-serif;
+}
+
+.wrap {
+  position: relative;
+  min-height: 100px;
+  overflow: hidden;
+}
+
+.content {
+  background: none;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  position: relative;
+}
+
+.upgrde_notice {
+  line-height: 48px;
+  background-color: #ededed;
+  font-size: 15px;
+  display: none;
+  color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+.banner_inner {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  bottom: 0;
+  width: 150%;
+  min-width: 1440px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2aae67;
+  border-radius: 0 0 50% 50%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.banner {
+  padding: 152px 0 112px;
+  position: relative;
+  color: hsla(0, 0%, 100%, 0.9);
+  overflow: hidden;
+}/*# sourceMappingURL=微信.css.map */
