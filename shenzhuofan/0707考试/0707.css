@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.wrap {
+  padding-bottom: 50px;
+}
+
+.header .content {
+  width: 1300px;
+  margin: auto;
+  text-align: center;
+}
+
+.header .content p {
+  font-size: 70px;
+  font-weight: bolder;
+  line-height: 100px;
+}
+
+.btn-shine {
+  transform: translate(-50%, -50%);
+  padding: 12px 48px;
+  color: orange;
+  background: linear-gradient(to right, #4d4d4d 0, orange 10%, #4d4d4d 20%);
+  background-position: 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s infinite linear;
+  animation-fill-mode: forwards;
+  -webkit-text-size-adjust: none;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 250px;
+  }
+  100% {
+    background-position: 550px;
+  }
+}
+.main {
+  margin-top: 30px;
+}
+
+.main .report .content {
+  width: 1300px;
+  margin: auto;
+  position: relative;
+}
+
+.main .report .content .title {
+  height: 50px;
+  width: 500px;
+  margin: auto;
+  background-color: orange;
+  text-align: center;
+  animation: box 1s;
+  border-radius: 30px;
+}
+
+@keyframes box {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 50px;
+  }
+  100% {
+    width: 500px;
+  }
+}
+.main .report .content .title h1 {
+  position: absolute;
+  color: white;
+  left: 45%;
+}
+
+.main .report .content .chart {
+  width: 1300px;
+  height: 450px;
+  margin: auto;
+  margin-top: 50px;
+  animation: repo 1s;
+  display: flex;
+}
+
+.main .report .content .chart .KDA {
+  width: 650px;
+  height: 450px;
+}
+
+.main .report .content .chart .data {
+  width: 650px;
+  height: 450px;
+}
+
+.main .banner .content {
+  width: 1300px;
+  margin: auto;
+}
+
+.main .banner .content .title {
+  height: 50px;
+  width: 500px;
+  margin: auto;
+  background-color: orange;
+  text-align: center;
+  animation: box 1s;
+  border-radius: 30px;
+  margin-top: 20px;
+  color: white;
+}
+
+.main .banner .content .cont {
+  width: 900px;
+  height: 400px;
+  margin: 30px auto;
+}
+
+.main .map {
+  margin-top: 40px;
+}
+
+.main .map .content {
+  width: 1300px;
+  margin: auto;
+  position: relative;
+}
+
+.main .map .content .title {
+  height: 50px;
+  width: 500px;
+  margin: auto;
+  background-color: orange;
+  text-align: center;
+  animation: box 1s;
+  border-radius: 30px;
+  margin-top: 20px;
+  color: white;
+}
+
+.main .map .content .nav {
+  width: 700px;
+  height: 500px;
+  margin-left: 100px;
+  margin-top: 20px;
+}
+
+.main .map .content .panel {
+  margin-top: 60px;
+}
+
+.main .vlog {
+  margin-top: 40px;
+}
+
+.main .vlog .content {
+  width: 1300px;
+  margin: auto;
+}
+
+.main .vlog .content .title {
+  height: 50px;
+  width: 500px;
+  margin: auto;
+  background-color: orange;
+  text-align: center;
+  animation: box 1s;
+  border-radius: 30px;
+  margin-top: 20px;
+  color: white;
+}
+
+.main .vlog .content .vudio {
+  width: 1200px;
+  height: 500px;
+  margin: 30px auto;
+}
+
+/*# sourceMappingURL=0707.css.map */
