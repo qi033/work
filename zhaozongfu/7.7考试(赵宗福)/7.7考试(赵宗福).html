@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../引入/layui.css">
+    <link rel="stylesheet" href="./sass/7.7考试.css">
+    <link rel="stylesheet" href="../引入/swiper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+</head>
+<div class="out">
+    <p class="animate" data-splitting="chars">
+
+        原神是我见过的世界第二美的地方没有之一，如果你也喜欢它请继续爱下去吧。
+    </p>
+</div>
+<div class="box">
+    <div class="logo"><img src="https://ys.mihoyo.com/main/_nuxt/img/f78aabc.png" alt="" width="100%" height="100%">
+    </div>
+    <div class="layui-tab" lay-filter="test-hash">
+        <ul class="layui-tab-title">
+            <li class="layui-this" lay-id="11" data-splitting="chars">数据图表</li>
+            <li lay-id="22" data-splitting="chars">地图</li>
+            <li lay-id="33" data-splitting="chars">轮播花絮图</li>
+            <li lay-id="44" data-splitting="chars">PV展示</li>
+            <li lay-id="55" data-splitting="chars">角色介绍</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <div id="main"></div>
+                <div id="main1"></div>
+            </div>
+            <div class="layui-tab-item">
+                <div id="container"></div>
+                <div id="panel"></div>
+            </div>
+            <div class="layui-tab-item">
+                <div id="certify">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img
+                                    src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/64328ac4ad4baf3f13f6e36dac889703_4068855659663110277.png?x-oss-process=image/format,webp/quality,Q_90" />
+                            </div>
+                            <div class="swiper-slide"><img
+                                    src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/3a1760449507c96a28c066148f3c8a16_203547796934874932.png?x-oss-process=image/format,webp/quality,Q_90" />
+
+                            </div>
+                            <div class="swiper-slide"><img
+                                    src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/7a54dc691e450c32262c3d565234946d_7367504620217885063.png?x-oss-process=image/format,webp/quality,Q_90" />
+
+                            </div>
+                            <div class="swiper-slide"><img
+                                    src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/b43fe71f11ef5147c57e287e16592422_6798603925736605711.png?x-oss-process=image/format,webp/quality,Q_90" />
+
+                            </div>
+                            <div class="swiper-slide"><img
+                                    src="https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/05/16/44ce304232ab4ee2a821b9144ee82d1c_1713110891755259775.png?x-oss-process=image/format,webp/quality,Q_90" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev"><svg t="1688471148474" class="icon" viewBox="0 0 1024 1024"
+                            version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3045" width="48" height="48">
+                            <path
+                                d="M514 114.3c219.9 0 398.8 178.9 398.8 398.9C912.8 733.1 733.9 912 514 912S115.2 733.1 115.2 513.2 294.1 114.3 514 114.3z m0 701.6c166.9 0 302.7-135.8 302.7-302.7S680.9 210.5 514 210.5 211.3 346.3 211.3 513.2 347.1 815.9 514 815.9z"
+                                fill="#BDD2EF" p-id="3046"></path>
+                            <path
+                                d="M281.9 554.7L446 718.8c22.9 22.9 60.2 22.9 83.1 0 22.9-22.9 22.9-60.2 0-83.1L465.3 572H694c32.5 0 58.8-26.3 58.8-58.8s-26.3-58.8-58.8-58.8H465.3l63.8-63.8c11.5-11.5 17.2-26.5 17.2-41.5s-5.7-30.1-17.2-41.5c-22.9-22.9-60.2-22.9-83.1 0l-164.1 164c-22.9 23-22.9 60.2 0 83.1z"
+                                fill="#2867CE" p-id="3047"></path>
+                        </svg></div>
+                    <div class="swiper-button-next"><svg t="1688471191715" class="icon" viewBox="0 0 1024 1024"
+                            version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4111" width="48" height="48">
+                            <path
+                                d="M514 912c-219.9 0-398.8-178.9-398.8-398.9 0-219.9 178.9-398.8 398.8-398.8s398.8 178.9 398.8 398.8c0 220-178.9 398.9-398.8 398.9z m0-701.5c-166.9 0-302.7 135.8-302.7 302.7S347.1 815.9 514 815.9s302.7-135.8 302.7-302.7S680.9 210.5 514 210.5z"
+                                fill="#BDD2EF" p-id="4112"></path>
+                            <path
+                                d="M746.1 471.6L582 307.5c-22.9-22.9-60.2-22.9-83.1 0-22.9 22.9-22.9 60.2 0 83.1l63.8 63.8H334c-32.5 0-58.8 26.3-58.8 58.8S301.5 572 334 572h228.7l-63.8 63.8c-11.5 11.5-17.2 26.5-17.2 41.5s5.7 30.1 17.2 41.5c22.9 22.9 60.2 22.9 83.1 0l164.1-164.1c22.9-22.9 22.9-60.1 0-83.1z"
+                                fill="#2867CE" p-id="4113"></path>
+                        </svg></div>
+                </div>
+            </div>
+            <div class="layui-tab-item">
+                <div class="open">
+                    <video width="100%" height="100%" controls>
+                        <source src="./PV.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+            <div class="layui-tab-item">
+                <h2 data-splitting="chars">5星UP角色简介</h2>
+                <div class="container">
+                    <div class="card">
+                        <div class="face face1">
+                            <div class="content">
+                                <img
+                                    src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2021%2F0827%2F2d9e3cf8j00qyhq0c0016c000hs007kg.jpg&thumbnail=660x2147483647&quality=80&type=jpg">
+                                <h3 data-splitting="chars">雷电将军</h3>
+                            </div>
+                        </div>
+                        <div class="face face2">
+                            <div class="content">
+                                <p>巴尔泽布，《原神》及其衍生作品中的角色，又名“雷电影”，“尘世七执政”中的雷神，尊号“雷电将军”，是初代雷神巴尔的妹妹兼影武者。此世最殊胜威怖的雷霆化身，稻妻幕府的最高主宰。挟威权之鸣雷，逐永恒之孤道的寂灭者。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="face face1">
+                            <div class="content">
+                                <img
+                                    src="https://img2.runjiapp.com/duoteimg/dtnew_techup_img/20210304/20210304150153_50270.png">
+                                <h3 data-splitting="chars">胡桃</h3>
+                            </div>
+                        </div>
+                        <div class="face face2">
+                            <div class="content">
+                                <p>胡桃，米哈游出品的游戏《原神》及其衍生作品中的角色，是璃月港“往生堂”第七十七代堂主，掌控着璃月葬仪事务的重要人物。尽心尽力地为人们完成送别之仪，维护着世间阴阳平衡之道。除此以外还是个神奇打油诗人，诸多“杰作”被璃月人口口相传
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="face face1">
+                            <div class="content">
+                                <img
+                                    src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fsafe-img.xhscdn.com%2Fbw1%2Fbef9622b-ca04-4912-bdda-47ce9e61b38c%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&refer=http%3A%2F%2Fsafe-img.xhscdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1691325201&t=7195306806d6abfc09988b92cecccff1">
+                                <h3 data-splitting="chars">夜兰</h3>
+                            </div>
+                        </div>
+                        <div class="face face2">
+                            <div class="content">
+                                <p>夜兰是原神游戏中璃月人物，是一名长途弓箭手，自称供职于总务司的奥秘人士，却又是总务司名录里的「不存在之人」。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<body>
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode: "0807b75296a49140921f7d2ae9dd7f17",
+        }
+    </script>
+    <script src="https://webapi.amap.com/maps?v=2.0&key=aa01d5ace855cddddd810854416edbfe&plugin=AMap.Driving"></script>
+    <script src="../引入/layui.js"></script>
+    <script src="../引入/echarts.min.js"></script>
+    <script src="./7.7考试.js"></script>
+    <script src="../引入/swiper.min.js"></script>
+    <script>
+            (function () {
+                certifySwiper = new Swiper('#certify .swiper-container', {
+                    watchSlidesProgress: true,
+                    slidesPerView: 'auto',
+                    centeredSlides: true,
+                    loop: true,
+                    loopedSlides: 5,
+                    autoplay: true,
+                    autoplay: {
+                        delay: 2000
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    on: {
+                        progress: function (progress) {
+                            for (i = 0; i < this.slides.length; i++) {
+                                var slide = this.slides.eq(i);
+                                var slideProgress = this.slides[i].progress;
+                                modify = 1;
+                                if (Math.abs(slideProgress) > 1) {
+                                    modify = (Math.abs(slideProgress) - 1) * 0.3 + 1;
+                                }
+                                translate = slideProgress * modify * 260 + 'px';
+                                scale = 1 - Math.abs(slideProgress) / 5;
+                                zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
+                                slide.transform('translateX(' + translate + ') scale(' + scale + ')');
+                                slide.css('zIndex', zIndex);
+                                slide.css('opacity', 1);
+                                if (Math.abs(slideProgress) > 3) {
+                                    slide.css('opacity', 0);
+                                }
+                            }
+                        },
+                        setTransition: function (transition) {
+                            for (var i = 0; i < this.slides.length; i++) {
+                                var slide = this.slides.eq(i)
+                                slide.transition(transition);
+                            }
+
+                        }
+                    }
+
+                })
+
+            })()
+
+
+    </script>
+</body>
+
+</html>
