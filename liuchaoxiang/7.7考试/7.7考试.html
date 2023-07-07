@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"
+    />
+    <link rel="stylesheet" href="第二个.css" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="../../../../6月/layui-v2.8.6/css/layui.css" />
+  </head>
+  <body>
+    <button type="button" class="layui-btn layui-btn-radius" onclick="yans()">
+      点击换每日一言
+    </button>
+    <div class="box">
+      <div class="yi" id="yan"></div>
+      <div class="nei">
+        <div class="shu" id="three"></div>
+        <div class="ba" id="four"></div>
+        <div class="luen">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img
+                  src="https://www.3wka.com/img2/202209/05/1662354777459_1704028878.png"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="https://tse2-mm.cn.bing.net/th/id/OIP-C.KoHrdRek1hhKb40y37aw4wHaHa?pid=ImgDet&rs=1"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="https://game.mhcdkey.com/image/ask/200309/0guu1qbb4up.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fblog%2F202008%2F11%2F20200811214150_pkjxc.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1691311742&t=7a427335981e4ad7e84b17e481dd360a"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+        <div class="di">
+          <div id="bt">
+            <div id="inp">
+              起点<input type="text" id="qi" /> 终点<input
+                type="text"
+                id="zhong"
+              />
+              <button id="btn">确定</button>
+              <button id="btne">固定路线</button>
+            </div>
+            <div id="container"></div>
+            <div id="panel"></div>
+          </div>
+        </div>
+        <div class="shi">
+          <video width="100%" height="90%" controls>
+            <source src="../1.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+    <script src="../../common/echarts.js"></script>
+    <script src="../../common/swiper/swiper-bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"
+    />
+    <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+    <script type="text/javascript">
+      window._AMapSecurityConfig = {
+        securityJsCode: "6127e7d753b4168c5ea630d9ee998602",
+      };
+    </script>
+
+    <script src="https://webapi.amap.com/maps?v=2.0&key=6ec0244b3200be8d0f897660d31c439c&plugin=AMap.Driving,AMap.Geocoder"></script>
+    <script src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <script>
+      let yan = document.getElementById("yan");
+      window.onload = function () {
+        yans();
+      };
+      function yans() {
+        fetch("https://v.api.aa1.cn/api/yiyan/index.php")
+          .then((res) => {
+            return res.text();
+          })
+          .then((rese) => {
+            yan.innerHTML = rese;
+          });
+      }
+      var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+      var three = echarts.init(document.getElementById("three"));
+      var option = {
+        xAxis: {
+          data: ["第一周", "第二周", "第三周", "第四周"],
+        },
+        yAxis: {},
+        series: [
+          {
+            data: [75, 65.5, 64, 65.5],
+            type: "line",
+            label: {
+              show: true,
+              position: "bottom",
+              textStyle: {
+                fontSize: 15,
+              },
+            },
+          },
+        ],
+      };
+      three.setOption(option);
+      var four = echarts.init(document.getElementById("four"));
+      var lengData = [];
+      var indicators = [
+        // 上
+        {
+          text: "第一周",
+          max: 100,
+          min: 0,
+          color: "#515151",
+          index: 0,
+        },
+        // 左
+        {
+          text: "第二周",
+          max: 100,
+          min: 0,
+          color: "#515151",
+          index: 1,
+        },
+        // 下
+        {
+          text: "第三周",
+          max: 100,
+          min: 0,
+          color: "#515151",
+          index: 2,
+        },
+        // 右
+        {
+          text: "第四周",
+          max: 100,
+          min: 0,
+          color: "#515151",
+          index: 3,
+        },
+      ];
+      option = {
+        legend: {
+          data: lengData,
+          itemGap: 15,
+          itemWidth: 5, // 设置宽度
+          itemHeight: 5,
+          bottom: 80,
+          textStyle: {
+            color: "#595959",
+          },
+        },
+        radar: [
+          {
+            name: {
+              formatter: function (value, indicator) {
+                return "{title|" + value + "}";
+              },
+              color: "#fff",
+              rich: {
+                title: {
+                  fontSize: 15,
+                  borderRadius: 3,
+                  padding: [3, 7],
+                },
+              },
+            },
+            // 坐标轴线
+            axisLine: {
+              lineStyle: {
+                color: "#b3ddfb",
+              },
+            },
+            // 刻度
+            axisTick: {
+              show: false,
+              length: 6,
+            },
+            // 刻度标签
+            axisLabel: {
+              show: true,
+              formatter: function (param) {
+                return param;
+              },
+              color: "#c8c8c8",
+            },
+            // 分割线
+            splitLine: {
+              lineStyle: {
+                color: "#c8c8c8",
+              },
+            },
+            // 分割区域
+            splitArea: {
+              areaStyle: {
+                color: ["#fefefe", "#f6f8fc"],
+              },
+            },
+            indicator: indicators,
+            center: ["50%", "50%"],
+            radius: 150,
+          },
+        ],
+        series: [],
+        backgroundColor: "#fff",
+      };
+      // 上左下右
+      var data = [[75, 65.5, 64, 65.5]];
+      var areaStyle = ["#fff3da", "#d6cdcd", "#bdb9c6", "#c6c8ba"];
+      var lineStyle = ["#ffc93c", "#373b9a", "#6876b2", "#8bb572"];
+      var itemStyle = ["#ffc63a", "#383b96", "#4d70cc", "#7ecf69"];
+      var datas = [];
+      for (var i = 0; i < data.length; i++) {
+        datas.push({
+          value: data[i],
+          name: lengData[i],
+          areaStyle: {
+            color: areaStyle[i],
+          },
+          lineStyle: {
+            color: lineStyle[i],
+          },
+          itemStyle: {
+            color: itemStyle[i],
+            borderType: "solid",
+          },
+        });
+      }
+      option.series.push({
+        type: "radar",
+        label: {
+          normal: {
+            show: true,
+            position: "top",
+            formatter: function (params) {
+              return params.value;
+            },
+          },
+        },
+        areaStyle: {},
+        data: datas,
+      });
+      four.setOption(option);
+      var q = null;
+      var q1 = null;
+      var z = null;
+      var z1 = null;
+      //基本地图加载
+      var map = new AMap.Map("container", {
+        resizeEnable: true,
+        center: [113.427781, 34.765599], //地图中心点
+        zoom: 15, //地图显示的缩放级别
+      });
+      btne.onclick = function () {
+        qing();
+        q = 112.429;
+        q1 = 34.4221;
+        z = 113.428155;
+        z1 = 34.774258;
+        fun();
+      };
+      var geocoder = new AMap.Geocoder({
+        //city: '010', //城市设为北京，默认：“全国”
+      });
+      qi.onblur = function () {
+        qing();
+        var address = document.getElementById("qi").value;
+        geocoder.getLocation(address, function (status, result) {
+          if (status === "complete" && result.geocodes.length) {
+            var lnglat = result.geocodes[0].location;
+            q = lnglat.lng;
+            q1 = lnglat.lat;
+          }
+        });
+      };
+      zhong.onblur = function () {
+        var address1 = document.getElementById("zhong").value;
+        geocoder.getLocation(address1, function (status, result) {
+          if (status === "complete" && result.geocodes.length) {
+            var lnglat = result.geocodes[0].location;
+            z = lnglat.lng;
+            z1 = lnglat.lat;
+          }
+        });
+      };
+      function qing() {
+        q = "";
+        q1 = "";
+        z = "";
+        z1 = "";
+      }
+      btn.onclick = function () {
+        fun();
+      };
+      function fun() {
+        var driving = new AMap.Driving({
+          map: map,
+          panel: "panel",
+        });
+        // 根据起终点经纬度规划驾车导航路线
+        driving.search(
+          new AMap.LngLat(q, q1),
+          new AMap.LngLat(z, z1),
+          function (status, result) {
+            // result 即是对应的驾车导航信息，相关数据结构文档请参考  https://lbs.amap.com/api/javascript-api/reference/route-search#m_DrivingResult
+            if (status === "complete") {
+              log.success("绘制驾车路线完成");
+            } else {
+              log.error("获取驾车数据失败：" + result);
+            }
+          }
+        );
+      }
+    </script>
+  </body>
+</html>

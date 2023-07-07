@@ -1,0 +1,70 @@
+handle($('.videoslisttitle li'));
+
+$('.videoslistbd_l').perfectScrollbar();
+$('.videoslistbd_r').perfectScrollbar();
+
+
+function deassign (option) {
+	$('#videoPlay').html(option['data-videourl']).attr('data-id', option['data-id']);
+	$('.mainhd .videotitle,.videoprofile .video_t').html(option['data-title']);
+	$('.videoprofile_c p').html(option['data-content']);
+	$('.video-assist .keywords').html(option['data-keyword']);
+	$('.video-assist .time').html(option['data-createDate']);	
+
+	$('.J-video-share').attr({'data-id': option['data-id'], 'data-videourl': option['data-videourl'], 'data-url': option['data-url'], 'data-title': option['data-title'], 'data-summary': option['data-content'], 'data-pic': option['data-img']})
+}
+/*
+$('#videolistbox li').click(function() {
+	deassign({
+		'data-videourl':$(this).attr('data-videourl'),
+		'data-url':$(this).attr('data-url'),
+		'data-id':$(this).attr('data-id'),
+		'data-title':$(this).attr('data-title'),
+		'data-content':$(this).attr('data-content'),
+		'data-keyword':$(this).attr('data-keyword'),
+		'data-createDate':$(this).attr('data-createDate'),
+		'data-img':$(this).attr('data-img')
+	});
+});
+*/
+// about video share
+var videoShareBox = $('.J-video-share');
+var videoShareBar = videoShareBox.find('.share-bar');
+var videoShareLayer = videoShareBox.find('.share-layer');
+videoShareBox.hover(function(){
+	videoShareBar.addClass('on');
+	if(!videoShareLayer.is(":animated")){
+		videoShareLayer.slideDown(100);
+	}
+	
+},function(){
+	videoShareBar.removeClass('on');
+	videoShareLayer.slideUp(100);
+	
+})
+
+function videoShareFuc(node,ask,hide){
+    var infoNode=ask?$(node):$(node).parents('.J-video-share');
+    var bshare_url = infoNode.attr("data-url") || window.location.href,
+    bshare_title = infoNode.attr("data-title") || "",
+    bshare_summary = infoNode.attr("data-summary") || "",
+    type=$(node).attr('data-name'),
+    bshare_pic = infoNode.attr('data-pic') || "";
+    
+    var share_url='http://api.bshare.cn/share/'+type+'?url=' + bshare_url + '&title=' + encodeURIComponent(bshare_title) + '&summary=' + encodeURIComponent(bshare_summary) +'&pic=' + bshare_pic ;
+    window.open(share_url,'_blank');
+};
+function videoShareBind(nodelist){
+    nodelist.each(function(idx,node){
+        var type = $(node).attr('data-name');
+        var ev = type=='weixin'?'hover':'click';
+        $(node).click(function(){
+            videoShareFuc(this);
+        })
+        
+    })
+
+}
+videoShareBind(videoShareLayer.find('a'));
+
+
