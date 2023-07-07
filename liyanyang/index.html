@@ -1,98 +1,606 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Sura:wght@400;700&display=swap");
+
+      :root {
+        --color-primary: lightgreen;
+        --color-primary-accent: green;
+        --color-secondary: red;
+
+        --space-sm: 0.5rem;
+        --space: 1rem;
+        --space-md: 3rem;
+        --space-lg: 6rem;
+
+        --ball-size: 1.25rem;
+        --ball-start-x: calc((var(--space-lg) * -1) - (var(--ball-size) / 2));
+        --border-width: 0.15rem;
+        --club-offset: max(10vw, 6rem);
+        --hole-height: calc(var(--hole-width) / 1.75);
+        --hole-width: 3rem;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        display: grid;
+        place-items: center;
+        padding: 0 var(--space);
+        font-size: 1.2rem;
+        font-family: "Sura", serif;
+        overflow: hidden;
+        background-color: #1f1f1f;
+      }
+
+      .putting-green {
+        position: relative;
+        padding: var(--space) var(--space-md) var(--space-lg) var(--space-lg);
+        background-color: var(--color-primary);
+        border-radius: 59% 41% 64% 36% / 36% 51% 49% 64%;
+        box-shadow: inset rgba(0, 0, 0, 0.05) -230px -10px 0,
+          inset rgba(0, 0, 0, 0.025) -50px -20px 0;
+      }
+
+      .putting-green > * + * {
+        margin-top: 2rem;
+      }
+
+      legend {
+        position: relative;
+        top: -2rem;
+        margin-left: -1.75rem;
+        z-index: 0;
+      }
+
+      legend::before {
+        --width: 0.25rem;
+        --height: 7rem;
+        --offset: 14px;
+        content: "";
+        position: absolute;
+        top: -6px;
+        left: 1px;
+        width: var(--width);
+        height: var(--height);
+        background: repeating-linear-gradient(
+          to bottom,
+          red,
+          red var(--offset),
+          whitesmoke var(--offset),
+          whitesmoke calc(var(--offset) * 2)
+        );
+        border-radius: 360px 360px 0 0;
+        box-shadow: inset rgba(0, 0, 0, 0.075) -2px 0 0,
+          rgba(0, 0, 0, 0.05) 0 2px 0;
+        z-index: -1;
+      }
+
+      legend .string {
+        position: relative;
+        display: block;
+        padding: var(--space-sm) var(--space);
+        font-weight: 700;
+        font-size: 0.8em;
+        text-shadow: rgba(0, 0, 0, 0.25) 1px 1px 0;
+        color: white;
+        background-color: red;
+        box-shadow: inset rgba(0, 0, 0, 0.05) -12px -2px 12px;
+      }
+
+      legend .string::after {
+        --offset: 8px;
+        content: "";
+        position: absolute;
+        top: calc(var(--offset) / -2);
+        left: calc(100% - var(--offset));
+        width: 2rem;
+        height: 100%;
+        background-color: red;
+        clip-path: polygon(0 0, 100% 0, 70% 50%, 100% 100%, 0 100%);
+        box-shadow: inset rgba(0, 0, 0, 0.2) 6px 0 12px;
+        z-index: -1;
+      }
+
+      label {
+        position: relative;
+        display: flex;
+        align-items: center;
+        font-size: clamp(1.125rem, 4vw, 1.4rem);
+        line-height: 1.2;
+        cursor: pointer;
+      }
+
+      label input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .hole {
+        position: relative;
+        flex: 0 0 var(--hole-width);
+        margin-right: var(--space);
+        width: var(--hole-width);
+        height: var(--hole-height);
+        background-color: black;
+        border: var(--border-width) solid black;
+        border-radius: 50%;
+        box-shadow: inset var(--color-primary-accent) 0
+          calc(var(--border-width) * 1.25) 0;
+        transform: translateY(calc(var(--border-width) * -1));
+      }
+
+      .ball {
+        position: absolute;
+        top: calc(var(--border-width) * -2);
+        right: calc(var(--border-width) * -2);
+        width: calc(var(--space-lg) + var(--hole-width));
+        height: var(--hole-height);
+        border-radius: 0 0 360px 0;
+        z-index: 100;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .ball::before {
+        content: "";
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        right: calc(var(--ball-size) - var(--border-width) * 1.5);
+        width: var(--ball-size);
+        height: var(--ball-size);
+        background-color: white;
+        border-radius: 50%;
+        border: var(--border-width) solid black;
+        box-shadow: inset rgba(0, 0, 0, 0.1) -3px -2px 0;
+      }
+
+      .club {
+        position: absolute;
+        visibility: hidden;
+        top: -7.5rem;
+        right: calc(100% + var(--space-lg));
+        width: 0.25rem;
+        height: 8rem;
+        background-color: silver;
+        transform-origin: 50% 0;
+        box-shadow: inset rgba(0, 0, 0, 0.2) -2px 0 0,
+          black 0 0 0 var(--border-width);
+      }
+
+      .club::before,
+      .club::after {
+        content: "";
+        position: absolute;
+        box-shadow: inset rgba(0, 0, 0, 0.2) -5px -1px 0,
+          black 0 0 0 var(--border-width);
+      }
+
+      .club::before {
+        left: -2px;
+        width: calc(100% + 4px);
+        height: 50%;
+        border-radius: 360px;
+        background: repeating-linear-gradient(
+          to bottom,
+          gray,
+          gray 2px,
+          black 2px,
+          black 3px
+        );
+        transform: translateY(-50%);
+      }
+
+      .club:after {
+        left: -6px;
+        bottom: 0;
+        width: calc(100% + 12px);
+        height: 0.6rem;
+        border-radius: 4px 4px 50% 50%;
+        transform: translateY(50%);
+        background-color: inherit;
+      }
+
+      label .string {
+        position: relative;
+        top: -0.125rem;
+        padding-right: var(--space);
+      }
+
+      /* Checked states */
+      input:checked ~ .hole .club {
+        visibility: visible;
+        animation: take-a-stroke 1s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+      }
+
+      input:checked ~ .hole .ball::before {
+        visibility: visible;
+        animation: roll 1.5s linear forwards;
+      }
+
+      input:checked ~ .string {
+        color: var(--color-primary-accent);
+      }
+
+      /* Animation keyframes */
+      @keyframes take-a-stroke {
+        0% {
+          opacity: 0;
+          transform: rotate(5deg) scale(1.001);
+        }
+        40% {
+          opacity: 1;
+          transform: rotate(10deg) scale(1.001);
+        }
+        70% {
+          transform: rotate(-15deg) scale(1.001);
+          animation-timing-function: ease-in;
+        }
+        80% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: translateX(-200%) scale(1.001);
+        }
+      }
+
+      @keyframes roll {
+        0% {
+          opacity: 0;
+          transform: translateX(var(--ball-start-x));
+          animation-timing-function: ease-out;
+        }
+        10% {
+          opacity: 1;
+        }
+        30% {
+          transform: translateX(var(--ball-start-x));
+          animation-timing-function: ease-out;
+        }
+        50% {
+          transform: translateX(calc(var(--ball-size) * -1.5));
+          animation-timing-function: ease-out;
+        }
+        80% {
+          background-color: white;
+          transform: translateX(calc(var(--ball-size) * -0.75)) translateY(3px);
+          animation-timing-function: ease-in;
+        }
+        90% {
+          background-color: lightgray;
+          transform: translateX(0) translateY(100%);
+        }
+        93% {
+          transform: translateX(0) translateY(60%);
+        }
+        96% {
+          transform: translateX(0) translateY(90%);
+        }
+        98% {
+          transform: translateX(0) translateY(70%);
+        }
+        99% {
+          transform: translateX(0) translateY(80%);
+        }
+        100% {
+          background-color: lightgray;
+          transform: translateX(0) translateY(85%);
+        }
+      }
+      a{
+        text-decoration: none;
+        color: black;
+      }
+    </style>
+    <fieldset class="putting-green">
+      <legend><span class="string">Select a hole</span></legend>
+      <label>
+        <input type="radio" name="holes" />
+        <div class="hole">
+          <div class="ball"></div>
+          <div class="club"></div>
+        </div>
+        <span class="string"
+          ><a href="./4段6.30考试题/6.30考试题.html">6.30的考试题</a></span
+        >
+      </label>
+      <label>
+        <input type="radio" name="holes" />
+        <div class="hole">
+          <div class="ball"></div>
+          <div class="club"></div>
+        </div>
+        <span class="string"><a href="./map作业/地图1.html">map作业</a></span>
+      </label>
+      <label>
+        <input type="radio" name="holes" />
+        <div class="hole">
+          <div class="ball"></div>
+          <div class="club"></div>
+        </div>
+        <span class="string"
+          ><a href="./Swiper作业/swiper作业.html">Swiper作业</a></span
+        >
+      </label>
+      <label>
+        <input type="radio" name="holes" />
+        <div class="hole">
+          <div class="ball"></div>
+          <div class="club"></div>
+        </div>
+        <span class="string"
+          ><a href="./政府网页/zhengfu.html">政府网页</a></span
+        >
+      </label>
+      <label>
+        <input type="radio" name="holes" />
+        <div class="hole">
+          <div class="ball"></div>
+          <div class="club"></div>
+        </div>
+        <span class="string"><a href="./微信作业/weixin.html">微信</a></span>
+      </label>
+    </fieldset>
+  </body>
+</html> -->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-    }
+  </head>
+  <body>
+    <style>
+      .btn {
+        position: relative;
+        padding: 1.4rem 4.2rem;
+        padding-right: 3.1rem;
+        font-size: 1.4rem;
+        color: var(--inv);
+        letter-spacing: 1.1rem;
+        text-transform: uppercase;
+        -webkit-transition: all 600ms cubic-bezier(0.77, 0, 0.175, 1);
+        transition: all 600ms cubic-bezier(0.77, 0, 0.175, 1);
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
 
-    body {
-        background-color: aliceblue;
-    }
+      .btn:before,
+      .btn:after {
+        content: "";
+        position: absolute;
+        -webkit-transition: inherit;
+        transition: inherit;
+        z-index: -1;
+      }
 
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        width: 90%;
-        height: 75%;
-        margin: 3% auto;
-    }
+      .btn:hover {
+        color: var(--def);
+        -webkit-transition-delay: 0.6s;
+        transition-delay: 0.6s;
+      }
 
-    .container>div {
-        width: 20vw;
-        height: 23vh;
-        border-radius: 5%;
-        margin: 1%;
-        box-shadow: 5px 5px 10px #5c5858;
-        transition: transform 0.5s ease;
-    }
+      .btn:hover:before {
+        -webkit-transition-delay: 0s;
+        transition-delay: 0s;
+      }
 
-    .container>div:hover {
-        transform: translateY(-10px);
-    }
+      .btn:hover:after {
+        background: var(--inv);
+        -webkit-transition-delay: 0.4s;
+        transition-delay: 0.4s;
+      }
 
-    img {
+      /* From Top */
+
+      .from-top:before,
+      .from-top:after {
+        left: 0;
+        height: 0;
         width: 100%;
+      }
+
+      .from-top:before {
+        bottom: 0;
+        border: 1px solid var(--inv);
+        border-top: 0;
+        border-bottom: 0;
+      }
+
+      .from-top:after {
+        top: 0;
+        height: 0;
+      }
+
+      .from-top:hover:before,
+      .from-top:hover:after {
         height: 100%;
-    }
+      }
 
-    a {
-        display: block;
+      /* From Left */
+
+      .from-left:before,
+      .from-left:after {
+        top: 0;
+        width: 0;
+        height: 100%;
+      }
+
+      .from-left:before {
+        right: 0;
+        border: 1px solid var(--inv);
+        border-left: 0;
+        border-right: 0;
+      }
+
+      .from-left:after {
+        left: 0;
+      }
+
+      .from-left:hover:before,
+      .from-left:hover:after {
+        width: 100%;
+      }
+
+      /* From Right */
+
+      .from-right:before,
+      .from-right:after {
+        top: 0;
+        width: 0;
+        height: 100%;
+      }
+
+      .from-right:before {
+        left: 0;
+        border: 1px solid var(--inv);
+        border-left: 0;
+        border-right: 0;
+      }
+
+      .from-right:after {
+        right: 0;
+      }
+
+      .from-right:hover:before,
+      .from-right:hover:after {
+        width: 100%;
+      }
+
+      /* From Middle */
+
+      .from-middle:before {
+        top: 0;
+        left: 50%;
+        height: 100%;
+        width: 0;
+        border: 1px solid var(--inv);
+        border-left: 0;
+        border-right: 0;
+      }
+
+      .from-middle:after {
+        bottom: 0;
+        left: 0;
+        height: 0;
+        width: 100%;
+        background: var(--inv);
+      }
+
+      .from-middle:hover:before {
+        left: 0;
+        width: 100%;
+      }
+
+      .from-middle:hover:after {
+        top: 0;
+        height: 100%;
+      }
+
+      /* From Bottom */
+
+      .from-bottom:before,
+      .from-bottom:after {
+        left: 0;
+        height: 0;
+        width: 100%;
+      }
+
+      .from-bottom:before {
+        top: 0;
+        border: 1px solid var(--inv);
+        border-top: 0;
+        border-bottom: 0;
+      }
+
+      .from-bottom:after {
+        bottom: 0;
+        height: 0;
+      }
+
+      .from-bottom:hover:before,
+      .from-bottom:hover:after {
+        height: 100%;
+      }
+
+      /* ~~~~~~~~~~~~ GLOBAL SETTINGS ~~~~~~~~~~~~ */
+
+      *,
+      *:before,
+      *:after {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
+      body {
+        --def: #96b7c4;
+        --inv: #fff;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        background-image: linear-gradient(-25deg, #616161 0%, #96b7c4 100%);
+      }
+
+      html {
+        font-size: 12px;
+        font-family: "Playfair Display", serif;
+      }
+
+      div {
+        margin-bottom: 3rem;
+      }
+      div:last-child {
+        margin-bottom: 0;
+      }
+      a {
         text-decoration: none;
-        text-align: center;
-        line-height: 23vh;
-        color: blueviolet;
-    }
-</style>
-</head>
-
-<body>
-
-    <div class="container">
-        <div style="background: linear-gradient(0deg, rgb(161, 140, 209) 0%, rgb(251, 194, 235) 100%);"><a
-                href="./4段6.30考试题/6.30考试题.html">6.30的考试题</a></div>
-        <div
-            style="background: linear-gradient(0deg, rgb(255, 154, 158) 0%, rgb(254, 207, 239) 99%, rgb(254, 207, 239) 100%);">
-            <a href="./map作业/地图1.html">7.3作业</a>
-        </div>
-        <div style="background: linear-gradient(0deg, rgb(251, 194, 235) 0%, rgb(166, 193, 238) 100%);"><a
-                href="./Swiper作业/swiper作业.html">7.4作业</a></div>
-        <div
-            style="background: linear-gradient(0deg, rgb(253, 203, 241) 0%, rgb(253, 203, 241) 1%, rgb(230, 222, 233) 100%);">
-            <a href="./政府网页/zhengfu.html">政府网页</a>
-        </div>
-        <div style="background: linear-gradient(120deg, rgb(161, 196, 253) 0%, rgb(194, 233, 251) 100%);"><a
-                href="./微信作业/weixin.html">微信作业</a></div>
-        <div style="background: linear-gradient(120deg, rgb(212, 252, 121) 0%, rgb(150, 230, 161) 100%);"><a></a></div>
-        <div style="background: linear-gradient(120deg, rgb(132, 250, 176) 0%, rgb(143, 211, 244) 100%);"><a></a></div>
-        <div style="background: linear-gradient(0deg, rgb(207, 217, 223) 0%, rgb(226, 235, 240) 100%);"><a></a></div>
-        <div style="background: linear-gradient(120deg, rgb(166, 192, 254) 0%, rgb(246, 128, 132) 100%);"><a></a></div>
-        <div style="background: linear-gradient(120deg, rgb(224, 195, 252) 0%, rgb(142, 197, 252) 100%);"><a></a></div>
-        <div style="background: linear-gradient(120deg, rgb(253, 251, 251) 0%, rgb(235, 237, 238) 100%);"><a></a></div>
-        <div style="background: linear-gradient(0deg, rgb(79, 172, 254) 0%, rgb(0, 242, 254) 100%);"><a></a></div>
-        <div style="background: linear-gradient(0deg, rgb(67, 233, 123) 0%, rgb(56, 249, 215) 100%);"><a></a></div>
-        <div style="background: linear-gradient(120deg, rgb(240, 147, 251) 0%, rgb(245, 87, 108) 100%);"><a></a></div>
-        <div
-            style="background: linear-gradient(0deg, rgb(238, 162, 162) 0%, rgb(187, 193, 191) 19%, rgb(87, 198, 225) 42%);">
-            <a></a>
-        </div>
-        <div style="background: linear-gradient(0deg, rgb(106, 17, 203) 0%, rgb(37, 117, 252) 100%);"><a></a></div>
-        <div
-            style="background: linear-gradient(0deg, rgb(219, 220, 215) 0%, rgb(221, 220, 215) 24%, rgb(226, 201, 204) 30%, rgb(231, 98, 125) 46%, rgb(184, 35, 90) 59%, rgb(128, 19, 87) 71%, rgb(61, 22, 53) 84%, rgb(28, 26, 39) 100%);">
-            <a></a>
-        </div>
-        <div style="background: linear-gradient(0deg, rgb(2, 80, 197) 0%, rgb(212, 63, 141) 100%);"><a></a></div>
-        <div style="background: linear-gradient(0deg, rgb(217, 175, 217) 0%, rgb(151, 217, 225) 100%);"><a></a></div>
-        <div style="background: linear-gradient(0deg, rgb(199, 29, 111) 0%, rgb(208, 150, 147) 100%);"><a></a></div>
+        color: black;
+      }
+    </style>
+    <div class="btn from-top">
+      <a href="./4段6.30考试题/6.30考试题.html">6.30的考试题</a>
     </div>
-</body>
-
+    <div class="btn from-left"><a href="./map作业/地图1.html">map作业</a></div>
+    <div class="btn from-right">
+      <a href="./Swiper作业/swiper作业.html">Swiper作业</a>
+    </div>
+    <div class="btn from-middle">
+      <a href="./政府网页/zhengfu.html">政府网页</a>
+    </div>
+    <div class="btn from-bottom"><a href="./微信作业/weixin.html">微信</a></div>
+    <div class="btn from-bottom"><a href="./7.7考试题/7.7考试题.html">7.7考试题</a></div>
+  </body>
 </html>

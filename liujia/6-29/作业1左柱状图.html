@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../common/echars/echarts.min.js"></script>
+    <script src="../common/jQuery/jquery-3.7.0.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 90%;
+            height: 90vh;
+            background-color: rgb(255, 255, 255);
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        #left {
+            width: 65%;
+            height: 100%;
+            float: left;
+            background-color: rgb(255, 255, 255);
+            border-top-left-radius: 25px;
+        }
+
+        #right {
+            width: 35%;
+            height: 100%;
+            float: right;
+            background-color: rgb(204, 203, 203);
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+
+        #left-top,
+        #left-top2,
+        #left-top3,
+        #left-top4,
+        #left-top5,
+        #left-top6,
+        #left-top7 {
+            width: 100%;
+            height: 335px;
+            background-color: rgb(226, 246, 246);
+            border-top-left-radius: 25px;
+        }
+
+        #left-buttom,
+        #left-buttom2,
+        #left-buttom3,
+        #left-buttom4,
+        #left-buttom5,
+        #left-buttom6,
+        #left-buttom7 {
+            width: 100%;
+            height: 336px;
+            background-color: rgb(242, 231, 236);
+            border-bottom-left-radius: 25px;
+        }
+
+        #left-buttom2,
+        #left-buttom3,
+        #left-buttom4,
+        #left-buttom5,
+        #left-buttom6,
+        #left-buttom7,
+        #left-top2,
+        #left-top3,
+        #left-top4,
+        #left-top5,
+        #left-top6,
+        #left-top7 {
+            display: none;
+        }
+
+        li {
+            list-style: none;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        #right ul:first-child {
+            width: 80%;
+            border-top: 1px solid rgb(143, 134, 134);
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        #right ul {
+            width: 80%;
+            border-top: 1px solid rgb(143, 134, 134);
+            margin: auto;
+            margin-top: 20px;
+
+        }
+
+        ul li {
+            background-color: rgb(210, 236, 228);
+            margin-top: 15px;
+            padding: 5px;
+            border-radius: 15px;
+        }
+
+        ul li:first-child {
+            color: gray;
+            background-color: rgb(204, 203, 203);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="left">
+            <div id="left-top"></div>
+            <div id="left-top2"></div>
+            <div id="left-top3"></div>
+            <div id="left-top4"></div>
+            <div id="left-top5"></div>
+            <div id="left-top6"></div>
+            <div id="left-top7"></div>
+            <div id="left-buttom"></div>
+            <div id="left-buttom2"></div>
+            <div id="left-buttom3"></div>
+            <div id="left-buttom4"></div>
+            <div id="left-buttom5"></div>
+            <div id="left-buttom6"></div>
+            <div id="left-buttom7"></div>
+        </div>
+        <div id="right">
+            <ul>
+                <!-- onclick="" -->
+                <li>总造成伤害</li>
+                <li id="option">造成物理伤害</li><a href="#"></a>
+                <li id="option1">造成魔法伤害</li>
+            </ul>
+            <ul style=" border-bottom: 1px solid rgb(143, 134, 134);">
+                <li id="option2">承受伤害和治疗</li>
+                <li id="option3">输出治疗效果</li>
+                <li id="option4">承受伤害</li>
+                <li id="option5">承受物理伤害</li>
+                <li id="option6" style="margin-bottom: 20px;">承受魔法伤害</li>
+            </ul>
+        </div>
+    </div>
+    <script> //left-top的echarts图
+        var chartDom = document.getElementById('left-top');
+        var myChart = echarts.init(chartDom);
+        var option;
+        const weatherIcons = {
+            Sunny: 'https://w.wallhaven.cc/full/zy/wallhaven-zyopqj.jpg',
+            Cloudy: 'https://w.wallhaven.cc/full/we/wallhaven-wel6wq.png',
+            Showers: 'https://w.wallhaven.cc/full/3l/wallhaven-3l3p8v.jpg',
+            Cloudy1: 'https://w.wallhaven.cc/full/we/wallhaven-wel6wq.png',
+            Showers1: 'https://w.wallhaven.cc/full/3l/wallhaven-3l3p8v.jpg',
+        };
+        const seriesLabel = {
+            show: true
+        };
+        option = {
+            title: {
+                text: '蓝方',
+                left: 30,
+                top: 20
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                data: ['造成物理伤害'],
+                top: 20,
+            },
+            grid: {
+                left: 100
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'value',
+                name: 'Days',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisLabel: { show: false },
+            },
+            yAxis: {
+                type: 'category',
+                inverse: true,
+                data: ['Sunny', 'Cloudy', 'Showers', 'Cloudy1', 'Showers1'],
+                axisLabel: {
+                    formatter: function (value) {
+                        return '{' + value + '| }\n{value|' + value + '}';
+                    },
+                    margin: 20,
+                    rich: {
+                        Sunny: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Sunny
+                            }
+                        },
+                        Cloudy: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Cloudy
+                            },
+                        },
+                        Showers: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Showers
+                            }
+                        },
+                        Cloudy1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Cloudy1
+                            }
+                        },
+                        Showers1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Showers1
+                            }
+                        }
+                    }
+                },
+            },
+            series: [
+                {
+                    name: '造成物理伤害',
+                    type: 'bar',
+                    data: [165, 170, 40, 70, 90],
+                    label: seriesLabel,
+                    markPoint: {
+                        symbolSize: 1,
+                        symbolOffset: [0, '50%'],
+                        data: [
+                            { type: 'max', name: 'max days: ' },
+                            { type: 'min', name: 'min days: ' }
+                        ]
+                    }
+                },
+            ]
+
+        };
+        option && myChart.setOption(option);
+
+        var chartDom12 = document.getElementById('left-top2');
+        var myChart12 = echarts.init(chartDom12);
+        var option12;
+        option12 = {
+            title: {
+                text: '蓝方',
+                left: 30,
+                top: 20,
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                data: ['造成魔法伤害'],
+                top: 20,
+            },
+            grid: {
+                left: 100
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'value',
+                name: 'Days',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisLabel: { show: false },
+            },
+            yAxis: {
+                type: 'category',
+                inverse: true,
+                data: ['Sunny', 'Cloudy', 'Showers', 'Cloudy1', 'Showers1'],
+                axisLabel: {
+                    formatter: function (value) {
+                        return '{' + value + '| }\n{value|' + value + '}';
+                    },
+                    margin: 20,
+                    rich: {
+                        Sunny: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Sunny
+                            }
+                        },
+                        Cloudy: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Cloudy
+                            },
+                        },
+                        Showers: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Showers
+                            }
+                        },
+                        Cloudy1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Cloudy1
+                            }
+                        },
+                        Showers1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Showers1
+                            }
+                        }
+                    }
+                }
+            },
+            series: [
+                {
+                    name: '造成魔法伤害',
+                    type: 'bar',
+                    data: [162, 10, 50, 170, 80],
+                    label: seriesLabel,
+                    markPoint: {
+                        symbolSize: 1,
+                        symbolOffset: [0, '50%'],
+                        data: [
+                            { type: 'max', name: 'max days: ' },
+                            { type: 'min', name: 'min days: ' }
+                        ]
+                    }
+                },
+            ]
+        };
+        // option12 && myChart12.setOption(option12);
+
+        var chartDom13 = document.getElementById('left-top3');
+        var myChart13 = echarts.init(chartDom13);
+        var option13;
+        option13 = {
+            title: {
+                text: '蓝方',
+                left: 30,
+                top: 20,
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                data: ['承受伤害和治疗'],
+                top: 20,
+            },
+            grid: {
+                left: 100
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'value',
+                name: 'Days',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisLabel: { show: false },
+            },
+            yAxis: {
+                type: 'category',
+                inverse: true,
+                data: ['Sunny', 'Cloudy', 'Showers', 'Cloudy1', 'Showers1'],
+                axisLabel: {
+                    formatter: function (value) {
+                        return '{' + value + '| }\n{value|' + value + '}';
+                    },
+                    margin: 20,
+                    rich: {
+                        Sunny: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Sunny
+                            }
+                        },
+                        Cloudy: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Cloudy
+                            },
+                        },
+                        Showers: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Showers
+                            }
+                        },
+                        Cloudy1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Cloudy1
+                            }
+                        },
+                        Showers1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Showers1
+                            }
+                        }
+                    }
+                }
+            },
+            series: [
+                {
+                    name: '承受伤害和治疗',
+                    type: 'bar',
+                    data: [13, 100, 150, 210, 80],
+                    label: seriesLabel,
+                    markPoint: {
+                        symbolSize: 1,
+                        symbolOffset: [0, '50%'],
+                        data: [
+                            { type: 'max', name: 'max days: ' },
+                            { type: 'min', name: 'min days: ' }
+                        ]
+                    }
+                },
+            ]
+        };
+        // option13 && myChart13.setOption(option13);
+
+        var chartDom14 = document.getElementById('left-top4');
+        var myChart14 = echarts.init(chartDom14);
+        var option14;
+        option14 = {
+            title: {
+                text: '蓝方',
+                left: 30,
+                top: 20,
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                data: ['输出治疗效果'],
+                top: 20,
+            },
+            grid: {
+                left: 100
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'value',
+                name: 'Days',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisLabel: { show: false },
+            },
+            yAxis: {
+                type: 'category',
+                inverse: true,
+                data: ['Sunny', 'Cloudy', 'Showers', 'Cloudy1', 'Showers1'],
+                axisLabel: {
+                    formatter: function (value) {
+                        return '{' + value + '| }\n{value|' + value + '}';
+                    },
+                    margin: 20,
+                    rich: {
+                        Sunny: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Sunny
+                            }
+                        },
+                        Cloudy: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Cloudy
+                            },
+                        },
+                        Showers: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Showers
+                            }
+                        },
+                        Cloudy1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Cloudy1
+                            }
+                        },
+                        Showers1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Showers1
+                            }
+                        }
+                    }
+                }
+            },
+            series: [
+                {
+                    name: '输出治疗效果',
+                    type: 'bar',
+                    data: [50, 100, 150, 70, 180],
+                    label: seriesLabel,
+                    markPoint: {
+                        symbolSize: 1,
+                        symbolOffset: [0, '50%'],
+                        data: [
+                            { type: 'max', name: 'max days: ' },
+                            { type: 'min', name: 'min days: ' }
+                        ]
+                    }
+                },
+            ]
+        };
+        // option14 && myChart14.setOption(option14);
+
+        var chartDom15 = document.getElementById('left-top5');
+        var myChart15 = echarts.init(chartDom15);
+        var option15;
+        option15 = {
+            title: {
+                text: '蓝方',
+                left: 30,
+                top: 20,
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                data: ['承受伤害'],
+                top: 20,
+            },
+            grid: {
+                left: 100
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'value',
+                name: 'Days',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisLabel: { show: false },
+            },
+            yAxis: {
+                type: 'category',
+                inverse: true,
+                data: ['Sunny', 'Cloudy', 'Showers', 'Cloudy1', 'Showers1'],
+                axisLabel: {
+                    formatter: function (value) {
+                        return '{' + value + '| }\n{value|' + value + '}';
+                    },
+                    margin: 20,
+                    rich: {
+                        Sunny: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Sunny
+                            }
+                        },
+                        Cloudy: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Cloudy
+                            },
+                        },
+                        Showers: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Showers
+                            }
+                        },
+                        Cloudy1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Cloudy1
+                            }
+                        },
+                        Showers1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Showers1
+                            }
+                        }
+                    }
+                }
+            },
+            series: [
+                {
+                    name: '承受伤害',
+                    type: 'bar',
+                    data: [65, 100, 40, 220, 50],
+                    label: seriesLabel,
+                    markPoint: {
+                        symbolSize: 1,
+                        symbolOffset: [0, '50%'],
+                        data: [
+                            { type: 'max', name: 'max days: ' },
+                            { type: 'min', name: 'min days: ' }
+                        ]
+                    }
+                },
+            ]
+        };
+        // option15 && myChart15.setOption(option15);
+
+        var chartDom16 = document.getElementById('left-top6');
+        var myChart16 = echarts.init(chartDom16);
+        var option16;
+        option16 = {
+            title: {
+                text: '蓝方',
+                left: 30,
+                top: 20,
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                data: ['承受物理伤害'],
+                top: 20,
+            },
+            grid: {
+                left: 100
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'value',
+                name: 'Days',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisLabel: { show: false },
+            },
+            yAxis: {
+                type: 'category',
+                inverse: true,
+                data: ['Sunny', 'Cloudy', 'Showers', 'Cloudy1', 'Showers1'],
+                axisLabel: {
+                    formatter: function (value) {
+                        return '{' + value + '| }\n{value|' + value + '}';
+                    },
+                    margin: 20,
+                    rich: {
+                        Sunny: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Sunny
+                            }
+                        },
+                        Cloudy: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Cloudy
+                            },
+                        },
+                        Showers: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Showers
+                            }
+                        },
+                        Cloudy1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Cloudy1
+                            }
+                        },
+                        Showers1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Showers1
+                            }
+                        }
+                    }
+                }
+            },
+            series: [
+                {
+                    name: '承受物理伤害',
+                    type: 'bar',
+                    data: [50, 109, 80, 20, 180],
+                    label: seriesLabel,
+                    markPoint: {
+                        symbolSize: 1,
+                        symbolOffset: [0, '50%'],
+                        data: [
+                            { type: 'max', name: 'max days: ' },
+                            { type: 'min', name: 'min days: ' }
+                        ]
+                    }
+                },
+            ]
+        };
+        // option16 && myChart16.setOption(option16);
+
+        var chartDom17 = document.getElementById('left-top7');
+        var myChart17 = echarts.init(chartDom17);
+        var option17;
+        option17 = {
+            title: {
+                text: '蓝方',
+                left: 30,
+                top: 20,
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                data: ['承受魔法伤害'],
+                top: 20,
+            },
+            grid: {
+                left: 100
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'value',
+                name: 'Days',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisLabel: { show: false },
+            },
+            yAxis: {
+                type: 'category',
+                inverse: true,
+                data: ['Sunny', 'Cloudy', 'Showers', 'Cloudy1', 'Showers1'],
+                axisLabel: {
+                    formatter: function (value) {
+                        return '{' + value + '| }\n{value|' + value + '}';
+                    },
+                    margin: 20,
+                    rich: {
+                        Sunny: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Sunny
+                            }
+                        },
+                        Cloudy: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Cloudy
+                            },
+                        },
+                        Showers: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Showers
+                            }
+                        },
+                        Cloudy1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Cloudy1
+                            }
+                        },
+                        Showers1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons.Showers1
+                            }
+                        }
+                    }
+                }
+            },
+            series: [
+                {
+                    name: '承受魔法伤害',
+                    type: 'bar',
+                    data: [110, 20, 40, 300, 40],
+                    label: seriesLabel,
+                    markPoint: {
+                        symbolSize: 1,
+                        symbolOffset: [0, '50%'],
+                        data: [
+                            { type: 'max', name: 'max days: ' },
+                            { type: 'min', name: 'min days: ' }
+                        ]
+                    }
+                },
+            ]
+        };
+        // option17 && myChart17.setOption(option17);
+
+    </script>
+    <script> //left-buttom的echarts图
+        var chartDom1 = document.getElementById('left-buttom');
+        var myChart1 = echarts.init(chartDom1);
+        var option1;
+        const weatherIcons1 = {
+            Sunny: 'https://w.wallhaven.cc/full/zy/wallhaven-zyopqj.jpg',
+            Cloudy: 'https://w.wallhaven.cc/full/we/wallhaven-wel6wq.png',
+            Showers: 'https://w.wallhaven.cc/full/3l/wallhaven-3l3p8v.jpg',
+            Cloudy1: 'https://w.wallhaven.cc/full/we/wallhaven-wel6wq.png',
+            Showers1: 'https://w.wallhaven.cc/full/3l/wallhaven-3l3p8v.jpg',
+        };
+        const seriesLabel1 = {
+            show: true
+        };
+        option1 = {
+            title: {
+                text: '红方',
+                left: 30,
+                top: 20,
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                },
+
+            },
+            legend: {
+                data: ['造成物理伤害'],
+                top: 20,
+            },
+            grid: {
+                left: 100
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                inverse: true,
+                type: 'value',
+                name: 'Days',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisLabel: { show: false },
+            },
+            yAxis: {
+                type: 'category',
+                // inverse: true,
+                data: ['Sunny', 'Cloudy', 'Showers', 'Cloudy1', 'Showers1'],
+                axisLabel: {
+                    formatter: function (value) {
+                        return '{' + value + '| }\n{value|' + value + '}';
+                    },
+                    margin: 20,
+                    rich: {
+                        // value: {
+                        //     lineHeight: 35,
+                        //     align: 'center',
+                        // },
+                        Sunny: {
+                            height: 22,
+                            // inverse: true,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Sunny
+                            },
+                        },
+                        Cloudy: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Cloudy
+                            },
+                        },
+                        Showers: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Showers
+                            },
+                        },
+                        Cloudy1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Cloudy1
+                            },
+                        },
+                        Showers1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Showers1
+                            },
+                        },
+                    },
+                },
+            },
+            series: [
+                {
+                    name: '造成物理伤害',
+                    type: 'bar',
+                    color: 'red',
+                    data: [165, 170, 40, 70, 90],
+                    label: seriesLabel1,
+                    markPoint: {
+                        symbolSize: 1,
+                        symbolOffset: [0, '50%'],
+                        data: [
+                            { type: 'max', name: 'max days: ' },
+                            { type: 'min', name: 'min days: ' }
+                        ]
+                    }
+                },
+            ]
+        };
+        option1 && myChart1.setOption(option1);
+
+        var chartDom2 = document.getElementById('left-buttom2');
+        var myChart2 = echarts.init(chartDom2);
+        var option2;
+        option2 = {
+            title: {
+                text: '红方',
+                left: 30,
+                top: 20,
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                },
+            },
+            legend: {
+                data: ['造成魔法伤害'],
+                top: 20,
+            },
+            grid: {
+                left: 100
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                inverse: true,
+                type: 'value',
+                name: 'Days',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisLabel: { show: false },
+            },
+            yAxis: {
+                type: 'category',
+                // inverse: true,
+                data: ['Sunny', 'Cloudy', 'Showers', 'Cloudy1', 'Showers1'],
+                axisLabel: {
+                    formatter: function (value) {
+                        return '{' + value + '| }\n{value|' + value + '}';
+                    },
+                    margin: 20,
+                    rich: {
+                        // value: {
+                        //     lineHeight: 35,
+                        //     align: 'center',
+                        // },
+                        Sunny: {
+                            height: 22,
+                            // inverse: true,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Sunny
+                            },
+                        },
+                        Cloudy: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Cloudy
+                            },
+                        },
+                        Showers: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Showers
+                            },
+                        },
+                        Cloudy1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Cloudy1
+                            },
+                        },
+                        Showers1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Showers1
+                            },
+                        },
+                    },
+                },
+            },
+            series: [
+                {
+                    name: '造成魔法伤害',
+                    type: 'bar',
+                    color: 'red',
+                    data: [100, 20, 60, 200, 90],
+                    label: seriesLabel1,
+                    markPoint: {
+                        symbolSize: 1,
+                        symbolOffset: [0, '50%'],
+                        data: [
+                            { type: 'max', name: 'max days: ' },
+                            { type: 'min', name: 'min days: ' }
+                        ]
+                    }
+                },
+            ]
+        };
+        // option2 && myChart2.setOption(option2);
+
+        var chartDom3 = document.getElementById('left-buttom3');
+        var myChart3 = echarts.init(chartDom3);
+        var option3;
+        option3 = {
+            title: {
+                text: '红方',
+                left: 30,
+                top: 20,
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                },
+            },
+            legend: {
+                data: ['承受伤害和治疗'],
+                top: 20,
+            },
+            grid: {
+                left: 100
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                inverse: true,
+                type: 'value',
+                name: 'Days',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisLabel: { show: false },
+            },
+            yAxis: {
+                type: 'category',
+                // inverse: true,
+                data: ['Sunny', 'Cloudy', 'Showers', 'Cloudy1', 'Showers1'],
+                axisLabel: {
+                    formatter: function (value) {
+                        return '{' + value + '| }\n{value|' + value + '}';
+                    },
+                    margin: 20,
+                    rich: {
+                        // value: {
+                        //     lineHeight: 35,
+                        //     align: 'center',
+                        // },
+                        Sunny: {
+                            height: 22,
+                            // inverse: true,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Sunny
+                            },
+                        },
+                        Cloudy: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Cloudy
+                            },
+                        },
+                        Showers: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Showers
+                            },
+                        },
+                        Cloudy1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Cloudy1
+                            },
+                        },
+                        Showers1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Showers1
+                            },
+                        },
+                    },
+                },
+            },
+            series: [
+                {
+                    name: '承受伤害和治疗',
+                    type: 'bar',
+                    color: 'red',
+                    data: [20, 120, 60, 20, 190],
+                    label: seriesLabel1,
+                    markPoint: {
+                        symbolSize: 1,
+                        symbolOffset: [0, '50%'],
+                        data: [
+                            { type: 'max', name: 'max days: ' },
+                            { type: 'min', name: 'min days: ' }
+                        ]
+                    }
+                },
+            ]
+        };
+
+        // option3 && myChart3.setOption(option3);
+
+        var chartDom4 = document.getElementById('left-buttom4');
+        var myChart4 = echarts.init(chartDom4);
+        var option4;
+        option4 = {
+            title: {
+                text: '红方',
+                left: 30,
+                top: 20,
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                },
+
+            },
+            legend: {
+                data: ['输出治疗效果'],
+                top: 20,
+            },
+            grid: {
+                left: 100
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                inverse: true,
+                type: 'value',
+                name: 'Days',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisLabel: { show: false },
+            },
+            yAxis: {
+                type: 'category',
+                // inverse: true,
+                data: ['Sunny', 'Cloudy', 'Showers', 'Cloudy1', 'Showers1'],
+                axisLabel: {
+                    formatter: function (value) {
+                        return '{' + value + '| }\n{value|' + value + '}';
+                    },
+                    margin: 20,
+                    rich: {
+                        // value: {
+                        //     lineHeight: 35,
+                        //     align: 'center',
+                        // },
+                        Sunny: {
+                            height: 22,
+                            // inverse: true,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Sunny
+                            },
+                        },
+                        Cloudy: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Cloudy
+                            },
+                        },
+                        Showers: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Showers
+                            },
+                        },
+                        Cloudy1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Cloudy1
+                            },
+                        },
+                        Showers1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Showers1
+                            },
+                        },
+                    },
+                },
+            },
+            series: [
+                {
+                    name: '输出治疗效果',
+                    type: 'bar',
+                    color: 'red',
+                    data: [200, 60, 160, 50, 70],
+                    label: seriesLabel1,
+                    markPoint: {
+                        symbolSize: 1,
+                        symbolOffset: [0, '50%'],
+                        data: [
+                            { type: 'max', name: 'max days: ' },
+                            { type: 'min', name: 'min days: ' }
+                        ]
+                    }
+                },
+            ]
+        };
+        // option4 && myChart4.setOption(option4);
+
+        var chartDom5 = document.getElementById('left-buttom5');
+        var myChart5 = echarts.init(chartDom5);
+        var option5;
+        option5 = {
+            title: {
+                text: '红方',
+                left: 30,
+                top: 20,
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                },
+
+            },
+            legend: {
+                data: ['承受伤害'],
+                top: 20,
+            },
+            grid: {
+                left: 100
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                inverse: true,
+                type: 'value',
+                name: 'Days',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisLabel: { show: false },
+            },
+            yAxis: {
+                type: 'category',
+                // inverse: true,
+                data: ['Sunny', 'Cloudy', 'Showers', 'Cloudy1', 'Showers1'],
+                axisLabel: {
+                    formatter: function (value) {
+                        return '{' + value + '| }\n{value|' + value + '}';
+                    },
+                    margin: 20,
+                    rich: {
+                        // value: {
+                        //     lineHeight: 35,
+                        //     align: 'center',
+                        // },
+                        Sunny: {
+                            height: 22,
+                            // inverse: true,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Sunny
+                            },
+                        },
+                        Cloudy: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Cloudy
+                            },
+                        },
+                        Showers: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Showers
+                            },
+                        },
+                        Cloudy1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Cloudy1
+                            },
+                        },
+                        Showers1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Showers1
+                            },
+                        },
+                    },
+                },
+            },
+            series: [
+                {
+                    name: '承受伤害',
+                    type: 'bar',
+                    color: 'red',
+                    data: [160, 40, 12, 150, 70],
+                    label: seriesLabel1,
+                    markPoint: {
+                        symbolSize: 1,
+                        symbolOffset: [0, '50%'],
+                        data: [
+                            { type: 'max', name: 'max days: ' },
+                            { type: 'min', name: 'min days: ' }
+                        ]
+                    }
+                },
+            ]
+        };
+        // option5 && myChart5.setOption(option5);
+
+        var chartDom6 = document.getElementById('left-buttom6');
+        var myChart6 = echarts.init(chartDom6);
+        var option6;
+        option6 = {
+            title: {
+                text: '红方',
+                left: 30,
+                top: 20,
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                },
+
+            },
+            legend: {
+                data: ['承受物理伤害'],
+                top: 20,
+            },
+            grid: {
+                left: 100
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                inverse: true,
+                type: 'value',
+                name: 'Days',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisLabel: { show: false },
+            },
+            yAxis: {
+                type: 'category',
+                // inverse: true,
+                data: ['Sunny', 'Cloudy', 'Showers', 'Cloudy1', 'Showers1'],
+                axisLabel: {
+                    formatter: function (value) {
+                        return '{' + value + '| }\n{value|' + value + '}';
+                    },
+                    margin: 20,
+                    rich: {
+                        // value: {
+                        //     lineHeight: 35,
+                        //     align: 'center',
+                        // },
+                        Sunny: {
+                            height: 22,
+                            // inverse: true,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Sunny
+                            },
+                        },
+                        Cloudy: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Cloudy
+                            },
+                        },
+                        Showers: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Showers
+                            },
+                        },
+                        Cloudy1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Cloudy1
+                            },
+                        },
+                        Showers1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Showers1
+                            },
+                        },
+                    },
+                },
+            },
+            series: [
+                {
+                    name: '承受物理伤害',
+                    type: 'bar',
+                    color: 'red',
+                    data: [220, 160, 30, 22, 60],
+                    label: seriesLabel1,
+                    markPoint: {
+                        symbolSize: 1,
+                        symbolOffset: [0, '50%'],
+                        data: [
+                            { type: 'max', name: 'max days: ' },
+                            { type: 'min', name: 'min days: ' }
+                        ]
+                    }
+                },
+            ]
+        };
+        // option6 && myChart6.setOption(option6);
+
+        var chartDom7 = document.getElementById('left-buttom7');
+        var myChart7 = echarts.init(chartDom7);
+        var option7;
+        option7 = {
+            title: {
+                text: '红方',
+                left: 30,
+                top: 20,
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                },
+
+            },
+            legend: {
+                data: ['承受魔法伤害'],
+                top: 20,
+            },
+            grid: {
+                left: 100
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                inverse: true,
+                type: 'value',
+                name: 'Days',
+                axisLabel: {
+                    formatter: '{value}'
+                },
+                axisLabel: { show: false },
+            },
+            yAxis: {
+                type: 'category',
+                // inverse: true,
+                data: ['Sunny', 'Cloudy', 'Showers', 'Cloudy1', 'Showers1'],
+                axisLabel: {
+                    formatter: function (value) {
+                        return '{' + value + '| }\n{value|' + value + '}';
+                    },
+                    margin: 20,
+                    rich: {
+                        // value: {
+                        //     lineHeight: 35,
+                        //     align: 'center',
+                        // },
+                        Sunny: {
+                            height: 22,
+                            // inverse: true,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Sunny
+                            },
+                        },
+                        Cloudy: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Cloudy
+                            },
+                        },
+                        Showers: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Showers
+                            },
+                        },
+                        Cloudy1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Cloudy1
+                            },
+                        },
+                        Showers1: {
+                            height: 22,
+                            align: 'center',
+                            backgroundColor: {
+                                image: weatherIcons1.Showers1
+                            },
+                        },
+                    },
+                },
+            },
+            series: [
+                {
+                    name: '承受魔法伤害',
+                    type: 'bar',
+                    color: 'red',
+                    data: [210, 40, 120, 30, 170],
+                    label: seriesLabel1,
+                    markPoint: {
+                        symbolSize: 1,
+                        symbolOffset: [0, '50%'],
+                        data: [
+                            { type: 'max', name: 'max days: ' },
+                            { type: 'min', name: 'min days: ' }
+                        ]
+                    }
+                },
+            ]
+        };
+        // option7 && myChart7.setOption(option7);
+    </script>
+    <script> // li控制
+        $("#option").on("click", function () {
+            option && myChart.setOption(option);
+            option1 && myChart1.setOption(option1);
+        });
+        $("#option1").on("click", function () {
+            option12 && myChart.setOption(option12);
+            option2 && myChart1.setOption(option2);
+        });
+        $("#option2").on("click", function () {
+            option13 && myChart.setOption(option13);
+            option3 && myChart1.setOption(option3);
+        });
+        $("#option3").on("click", function () {
+            option14 && myChart.setOption(option14);
+            option4 && myChart1.setOption(option4);
+        });
+        $("#option4").on("click", function () {
+            option15 && myChart.setOption(option15);
+            option5 && myChart1.setOption(option5);
+        });
+        $("#option5").on("click", function () {
+            option16 && myChart.setOption(option16);
+            option6 && myChart1.setOption(option6);
+        });
+        $("#option6").on("click", function () {
+            option17 && myChart.setOption(option17);
+            option7 && myChart1.setOption(option7);
+        });
+    </script>
+</body>
+
+</html>
