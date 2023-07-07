@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./my.css">
+    <link rel="stylesheet" href="../../../common/swiper/swiper-bundle.css">
+</head>
+
+<body>
+    <div class="box">
+        <div class="main">
+            <div id="main0">
+                <h1>欢迎来到我的车库</h1>
+            </div>
+            <div id="main1"></div>
+            <div id="main2"></div>
+            <div id="main3">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img
+                                src="https://img2.autotimes.com.cn/news/2021/10/1018_101439867967.jpg" alt=""></div>
+                        <div class="swiper-slide"><img
+                                src="https://n.sinaimg.cn/autosina/autotopic/600/w1800h1200/20200509/3732-itmiwry1552428.jpg"
+                                alt=""></div>
+                        <div class="swiper-slide"><img
+                                src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fsafe-img.xhscdn.com%2Fbw1%2F347c89b1-6c73-4a5d-b6b9-2bccf3ea7ccd%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&refer=http%3A%2F%2Fsafe-img.xhscdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1691318452&t=f55a6977652a0619c8df8eb7153f1f76"
+                                alt=""></div>
+                        <div class="swiper-slide"><img
+                                src="https://img1.baidu.com/it/u=1892520062,3764162591&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+                                alt=""></div>
+                        <div class="swiper-slide"><img
+                                src="https://nimg.ws.126.net/?url=http%3A%2F%2Fautodealer.ws.126.net%2Fupload%2Fdealer%2Fimg%2F202206%2Fc3b17784d869896f09b55fb22e4a9545.jpg&thumbnail=660x2147483647&quality=80&type=jpg"
+                                alt=""></div>
+                        <div class="swiper-slide"><img
+                                src="https://img2.baidu.com/it/u=1898650101,4108387267&fm=253&fmt=auto&app=120&f=JPEG?w=1067&h=800"
+                                alt=""></div>
+                        <div class="swiper-slide"><img
+                                src="https://img2.baidu.com/it/u=2666705922,683545477&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500"
+                                alt=""></div>
+                        <div class="swiper-slide"><img
+                                src="https://img1.baidu.com/it/u=2487339654,1129896&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800"
+                                alt=""></div>
+                        <div class="swiper-slide"><img
+                                src="https://n.sinaimg.cn/sinakd20200807ac/352/w1600h1152/20200807/9d21-ixkvvuc8180689.jpg"
+                                alt=""></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+            <div id="main4">
+                <video width="580" height="100%" controls loop>
+                    <source src="../Img/汽车.mp4">
+                </video>
+            </div>
+            <div id="main5">
+
+            </div>
+            <div id="main6">
+                <div class="bg"></div>
+                <audio controls autoplay loop id="audio" src="../Img/奇迹在现.mp3">
+                    <!-- <source src="../Img/奇迹在现.mp3"> -->
+                </audio>
+                <p id="lyrics">
+            
+                </p>
+            </div>
+
+
+        </div>
+
+    </div>
+</body>
+<script src="../../../common/swiper/swiper-bundle.js"></script>
+<script src="../../../common/echarts.min.js"></script>
+<script src="../Map/jquery-3.7.0.min.js"></script>
+<script src="./数据图2.js"></script>
+<script src="./天气.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        autoplay: {
+            delay: 1000, // 设置自动播放的延迟时间为1秒
+        },
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+
+</script>
+<script type="text/javascript">
+    window._AMapSecurityConfig = {
+        securityJsCode: "23f3f0cf4dff3ca4392ab168669f4732",
+    };
+</script>
+
+<script src="https://webapi.amap.com/loader.js"></script>
+
+<script src="https://webapi.amap.com/maps?v=2.0&key=31a2b1bfb4bf85b1768eb4e25b0721e6&plugin=AMap.Driving"></script>
+<script src="../Img/奇迹再现-毛华锋.lrc"></script>
+
+
+<script>
+    const map = new AMap.Map("main5", {
+        viewMode: "2D",
+        resizeEnable: true,
+        zoom: 13,
+        center: [113.428749, 34.765308],
+    });
+    var driving = new AMap.Driving({
+        map: map,
+    });
+    driving.search(
+        [113.428749, 34.765308],
+        [113.78429, 34.76322],
+    );
+    map.setMapStyle("amap://styles/blue");
+
+
+    
+</script>
+
+</html>
