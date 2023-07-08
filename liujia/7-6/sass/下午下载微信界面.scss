@@ -1,0 +1,352 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* 定义变量与值 */
+$bgcolor: lightblue;
+$textcolor: red;
+$fontsize: 18px;
+$mysmallsize: 12px;
+$white: white;
+$auto: auto;
+
+a {
+    text-decoration: none;
+    color: $white;
+}
+
+li {
+    list-style: none;
+    color: $white;
+}
+
+/* 使用变量 */
+body {
+    background-color: rgb(237, 237, 237);
+    font-size: $fontsize;
+
+}
+
+#box {
+    width: 100%;
+    height: 100%;
+
+    #top {
+        width: 100%;
+        height: 885px;
+
+        #top-top {
+            width: 100%;
+            height: 745px;
+            background-color: #2aae67;
+
+            #top-top-top {
+                width: 100%;
+                height: 125px;
+
+                ul {
+                    float: right;
+                    margin-right: 30px;
+                    margin-top: 20px;
+                }
+            }
+
+            #top-top-content {
+                width: 100%;
+                height: 310px;
+                background-color: #2aae67;
+
+                #top-top-content-top {
+                    width: 200px;
+                    height: 100px;
+                    background-color: azure;
+                    margin: $auto;
+
+                }
+
+                #top-top-content-bottom {
+                    width: 500px;
+                    height: 210px;
+                    background-color: #2aae67;
+                    margin: $auto;
+                    border-top: 1px solid white;
+
+                    #ul11 li {
+                        height: 50px;
+                        line-height: 50px;
+                    }
+                }
+            }
+
+            #top-top-bottom {
+                width: 100%;
+                height: 310px;
+                margin-top: 40px;
+
+                #top-top-bottom-top {
+                    width: 740px;
+                    height: 120px;
+                    margin: $auto;
+
+                    img {
+                        width: 120px;
+                        height: 120px;
+                        margin-left: 20px;
+                        border-radius: 60px;
+                    }
+                }
+
+                #top-top-bottom-bottom {
+                    width: 740px;
+                    height: 128px;
+                    background-color: #2aae67;
+                    margin: $auto;
+                    margin-top: 40px;
+
+                    img {
+                        width: 217px;
+                        height: 56px;
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+
+        #top-bottom {
+            width: 100%;
+            height: 140px;
+            background-color: #2aae67;
+            border-radius: 0 0 400% 400%;
+        }
+    }
+
+    #content {
+        width: 100%;
+        height: 1285px;
+        background-color: rgb(237, 237, 237);
+
+        #ul21 {
+            animation: a 1s both;
+            padding: 72px 0;
+            width: 1100px;
+            margin: $auto;
+            justify-content: center;
+            display: flex;
+            overflow: hidden;
+            flex-wrap: wrap;
+
+            #ul21 li {
+                margin: 20px !important;
+
+            }
+        }
+
+        #ul11 div {
+            height: 50px;
+            line-height: 50px;
+            font-size: 18px;
+        }
+
+        #ul21 div {
+            width: 214px;
+            height: 180px;
+            padding: 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        #ul21 div a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 8px;
+            transition: transform .3s;
+            line-height: 24px
+        }
+
+        #ul21 div a:hover {
+            transform: scale(1.1)
+        }
+    }
+
+    #bottom {
+        width: 100%;
+        height: 120px;
+        background-color: rgb(255, 255, 255);
+        padding-top: 20px;
+
+        #bottom-content {
+            width: 1000px;
+            height: 120px;
+            margin: $auto;
+            text-align: center;
+            font-size: 13px;
+        }
+    }
+}
+
+
+@media (max-width: 1100px) {
+    #box {
+        width: 100%;
+        height: 100%;
+
+        #top {
+            width: 100%;
+            height: 885px;
+        }
+
+        #content {
+            width: 100%;
+            height: 1685px;
+            background-color: rgb(237, 237, 237);
+
+            #ul21 {
+                animation: a 1s both;
+                padding: 40px 0;
+                width: 800px;
+                margin: $auto;
+                justify-content: center;
+                display: flex;
+                overflow: hidden;
+                flex-wrap: wrap;
+
+                #ul21 li {
+                    margin: 20px !important;
+
+                }
+            }
+
+        }
+
+        #bottom {
+            width: 100%;
+            height: 120px;
+            background-color: rgb(255, 255, 255);
+            padding-top: 20px;
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    #box {
+        width: 100%;
+        height: 100%;
+
+        #top {
+            width: 100%;
+            height: 985px;
+
+            #top-top {
+                width: 100%;
+                height: 845px;
+                background-color: #2aae67;
+
+                #top-top-content {
+                    width: 100%;
+                    height: 310px;
+                    background-color: #2aae67;
+
+                    #top-top-content-top {
+                        width: 200px;
+                        height: 100px;
+                        background-color: azure;
+                        margin: $auto;
+
+                    }
+
+                    #top-top-content-bottom {
+                        width: 500px;
+                        height: 210px;
+                        background-color: #2aae67;
+                        margin: $auto;
+                        border-top: 1px solid white;
+
+                        #ul11 li {
+                            height: 50px;
+                            line-height: 50px;
+                        }
+                    }
+                }
+
+                #top-top-bottom {
+                    width: 100%;
+                    height: 310px;
+                    margin-top: 40px;
+
+                    #top-top-bottom-top {
+                        width: 480px;
+                        height: 240px;
+                        margin: $auto;
+
+                        img {
+                            width: 120px;
+                            height: 120px;
+                            margin-left: 35px;
+                            border-radius: 60px;
+                        }
+                    }
+
+                    #top-top-bottom-bottom {
+                        width: 480px;
+                        height: 162px;
+                        // background-color: #3b4a42;
+                        margin: $auto;
+                        margin-top: 40px;
+                    }
+                }
+            }
+
+            #top-bottom {
+                width: 100%;
+                height: 140px;
+                background-color: #2aae67;
+                border-radius: 0 0 400% 400%;
+            }
+        }
+
+        #content {
+            width: 100%;
+            height: 2385px;
+            background-color: rgb(237, 237, 237);
+
+            #ul21 {
+                animation: a 1s both;
+                padding: 40px 0;
+                width: 600px;
+                margin: $auto;
+                justify-content: center;
+                display: flex;
+                overflow: hidden;
+                flex-wrap: wrap;
+
+                #ul21 li {
+                    margin: 20px !important;
+
+                }
+            }
+        }
+
+        #bottom {
+            width: 100%;
+            height: 120px;
+            background-color: rgb(255, 255, 255);
+            padding-top: 20px;
+
+            #bottom-content {
+                width: 400px;
+                height: 120px;
+                margin: $auto;
+                text-align: center;
+                font-size: 13px;
+            }
+        }
+    }
+}

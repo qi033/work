@@ -1,0 +1,363 @@
+$(function(){
+    //about share begin
+    function shareFuc(node,ask,hide){
+        var infoNode=ask?$(node):$(node).parents('.J-share');
+        var bshare_url = infoNode.attr("data-url") || window.location.href,
+            bshare_title = infoNode.attr("data-title") || "",
+            bshare_summary = infoNode.attr("data-summary") || "",
+            type=$(node).attr('data-name'),
+            bshare_pic = infoNode.attr('data-pic') || "";
+        var share_url='http://api.bshare.cn/share/'+type+'?url=' + bshare_url + '&title=' + encodeURIComponent(bshare_title) + '&summary=' + encodeURIComponent(bshare_summary) +'&pic=' + bshare_pic ;
+        if(type=='weixin'){
+            var weixin=$(node).parents('.J-share').find('.weixin-layer');
+            var left=$(node).position().left-40;
+            if(hide){
+                weixin.hide();
+                return;
+            }
+            weixin.find('img').attr({'src':share_url,});
+            weixin.css('left',left);
+            weixin.show();
+        } else if(type == 'like') {
+            if($(node).hasClass('haslike')){
+                alert('您已经喜欢过了！');
+            } else {
+                var likeNum = parseInt($(node).find('span').text());
+                $(node).addClass('haslike').find('span').text(likeNum+1);
+                $('.share-layer').find('.like-share').addClass('haslike').find('span').text(likeNum+1);
+            }
+        } else {
+         window.open(share_url,'_blank');
+        }
+    };
+    function shareBind(nodelist){
+        nodelist.each(function(idx,node){
+            var type = $(node).attr('data-name');
+            var ev = type=='weixin'?'hover':'click';
+            if(type=='weixin'){
+                $(node).hover(function(){
+                    shareFuc(this);
+                },function(){
+                    shareFuc(this,null,true);
+                })
+            }
+            else{
+                $(node).on('click',function(){
+                    shareFuc(this);
+                })
+            }
+
+        })
+
+    }
+    shareBind( $('.J-share li'));
+    var curScroll = 0;
+    $('.share-btn').on('click',function(){
+        curScroll = $(window).scrollTop();
+        $('.mask-body').height($(document).height()).fadeIn();
+        $('.share-layer').show().stop(true,true).animate({"top": "50%", "opacity": "1"}, 500);
+    });
+    $('body').on('click',function(e){
+        $('.weixin-layer').hide();
+    });
+    $('.share-layer').find('.close').on('click',function(){
+        $('.share-layer').stop(true,true).animate({"top": "20%", "opacity": "0"}, 300);
+        setTimeout(function(){
+            $('.share-layer').hide();
+        },300);
+        $('.mask-body').fadeOut();
+    });
+    //about share end
+
+    //右侧工具条
+    $('#J_toolbar li').hover(function(){
+        $(this).addClass('on');
+        $(this).find('p > i').animate({'width':'80px', 'left':'-80px'},300);
+    },function(){
+        $(this).find('p > i').animate({'width':'0', 'left':'4px'},100);
+        $(this).removeClass('on');
+    });
+    $('#J_toolbar .comment-btn').click(function(){
+        var targetTop = $('#J_sayBox').offset().top - 50;
+        $('body,html').animate({"scrollTop": targetTop},800);
+    });
+    $('#J_toolbar .gotop-btn').click(function(){
+        $('body,html').animate({"scrollTop": 0},800);
+    });
+
+    //文字放大缩小
+    $('#J_adjustFontsize a').click(function(){ 
+        var thisEle = $(".content").css('font-size');
+        var thisHei = $(".content").css('line-height');
+        var textFontSize = parseFloat(thisEle , 10);
+        var textLineHeight = parseFloat(thisHei , 10);
+        var unit = thisEle.slice(-2); //获取单位
+        if($(this).hasClass('bigger')){ 
+            if(textFontSize < 20){
+                textFontSize += 2;
+                textLineHeight +=2;
+                $(this).children().addClass('enable');
+            } else if(textFontSize == 20) {
+                textFontSize += 2;
+                textLineHeight +=2;
+                $(this).children().removeClass('enable');
+            }
+        }else if($(this).hasClass('smaller')){ 
+            if(textFontSize > 16){ 
+                textFontSize -= 2;
+                textLineHeight -=2;
+                $(this).children().addClass('enable');
+            } else if(textFontSize == 16){
+                textFontSize -= 2;
+                textLineHeight -=2;
+                $(this).children().removeClass('enable');
+            }
+        } 
+        $('.content').css({'font-size': textFontSize + unit, 'line-height': textLineHeight + unit}); 
+    }); 
+
+    //评论框效果
+    $('#J_sayBox').find('textarea').focus(function(){
+        $(this).addClass('focus').val('');
+    });
+    $('#J_sayBox').find('textarea').blur(function(){
+        $(this).removeClass('focus').val('请输入评论内容');
+    });
+
+    var J_sayListHeight = $('#J_sayList').height();
+    $('#J_sayMore').toggle(function() {
+        $('#J_sayList').height('auto');
+        $(this).find('a').html('收起评论');
+    }, function() {
+        $('#J_sayList').height(J_sayListHeight);
+        $(this).find('a').html('显示更多评论');
+    });
+
+
+
+    var windowScroll = function(){
+        var topHeight = 251;
+        var prevBtn = $('#J_prevBtn');
+        var nextBtn = $('#J_nextBtn');
+        var toobarBox = $('#J_toolbar');
+        var prevBtnPos = $('#J_bodyBd').offset() ? $('#J_bodyBd').offset().left - 61 : 0;
+        var nextBtnPos = $('#J_bodyBd').offset() ? $('#J_bodyBd').offset().left + 1010 : 0;
+        var toobarPos = $('#J_bodyBd').offset() ? $('#J_bodyBd').offset().left + 1006 : 0;
+        var navScroll = $(document).scrollTop();
+
+        // if (navScroll > topHeight) {
+            if ($.browser.msie && ($.browser.version == "6.0") && !$.support.style) {
+                prevBtn.css({
+                    'position': 'absolute',
+                    'top': navScroll + 299,
+                    'left': '-61px'
+                });
+                nextBtn.css({
+                    'position': 'absolute',
+                    'top': navScroll + 299,
+                    'left': '1010px'
+                });
+                toobarBox.css({
+                    'position': 'absolute',
+                    'top': navScroll + 538,
+                    'left': '1006px'
+                });
+            } 
+            else {
+                if (navScroll > topHeight) {
+                    prevBtn.css({
+                        'top': topHeight
+                    });
+                    nextBtn.css({
+                        'top': topHeight
+                    });
+                }
+                else{
+                    prevBtn.css({
+                        'top': 400
+                    });
+                    nextBtn.css({
+                        'top': 400
+                    });
+                }
+                prevBtn.css({
+                        'position': 'fixed'
+                });
+                nextBtn.css({
+                        'position': 'fixed'
+                });
+                toobarBox.css({
+                        'position': 'fixed'
+                });
+                if ($(window).width() < 1100) {
+                    prevBtn.css({'left': '20px'});
+                    nextBtn.css({'right': '20px', 'left': 'auto'});
+                    toobarBox.css({'right': '20px', 'left': 'auto'});            
+                }
+                else{
+                    prevBtn.css({
+                        // 'position': 'fixed',
+                        'left': prevBtnPos
+                    });
+                    nextBtn.css({
+                        // 'position': 'fixed',
+                        'left': nextBtnPos
+                    });
+                    toobarBox.css({
+                        // 'position': 'fixed',
+                        'left': toobarPos
+                    });
+                 }
+     
+            }
+                
+        // }
+        // else {
+        //     console.log(1)
+        //     prevBtn.css({
+        //                 'position': 'fixed',
+        //                 'left': prevBtnPos
+        //             });
+        //             nextBtn.css({
+        //                 'position': 'fixed',
+        //                 'left': nextBtnPos
+        //             });
+        //             toobarBox.css({
+        //                 'position': 'fixed',
+        //                 'left': toobarPos
+        //             });
+        // }
+
+        if($('.share-layer').is(':visible')){
+            $(this).scrollTop(curScroll);
+        }
+    }
+    $(window).on('scroll resize load', function(){
+        windowScroll();   
+    });
+    // $(window).resize(function(){
+    //     // topSider = ($(window).height() - rightMenu.height() - 67)/2;
+    //     topSider = 50;
+    //     sharePos = scrollContent.offset().left - 125;
+    //     guidePos = scrollContent.offset().left + 750 + 33;
+    //     windowScroll();
+    //     if($(window).width() < 1120){
+    //         $("#J_prevReview").stop(true,true).animate({"right": 0},500);
+    //         $("#J_nextReview").stop(true,true).animate({"left": 0},500);
+    //     } else {
+    //         $("#J_prevReview").stop(true,true).animate({"right": "-60"},500);
+    //         $("#J_nextReview").stop(true,true).animate({"left": "-60"},500);
+    //     }
+    // });
+
+
+    $('.related .change').on('click', function() {
+        var shtml = "",
+            json = [[{
+            "href": "http://auto.sina.com.cn",
+            "title": "广州欲跳桥男子已在桥上待111",
+            "imgsrc": "http://d5.sina.com.cn/201506/25/1056236.jpg",
+            "content": "111事件起于昨天中午，大量俄罗斯游客疯狂细节了南京夫子庙的小卖部，造成人腿部严重骨折，小卖部房梁被压断。“到中央工作以后，没多久我去过一次吉林，记忆犹新使吉林代表团全体代表如沐春风撤离的救援车辆再次返回一辆消防云梯车搭乘2名救援人员上升...",
+            "time": "2015-01-11"
+        },{
+            "href": "http://auto.sina.com.cn",
+            "title": "广州欲跳桥男子已在桥上待111",
+            "content": "222事件起于昨天中午，大量俄罗斯游客疯狂细节了南京夫子庙的小卖部，造成人腿部严重骨折，小卖部房梁被压断。“到中央工作以后，没多久我去过一次吉林，记忆犹新使吉林代表团全体代表如沐春风撤离的救援车辆再次返回一辆消防云梯车搭乘2名救援人员上升...",
+            "time": "2015-01-11"
+        },{
+            "href": "http://auto.sina.com.cn",
+            "title": "广州欲跳桥男子已在桥上待111",
+            "content": "333事件起于昨天中午，大量俄罗斯游客疯狂细节了南京夫子庙的小卖部，造成人腿部严重骨折，小卖部房梁被压断。“到中央工作以后，没多久我去过一次吉林，记忆犹新使吉林代表团全体代表如沐春风撤离的救援车辆再次返回一辆消防云梯车搭乘2名救援人员上升...",
+            "time": "2015-01-11"
+        }],[{
+            "href": "http://auto.sina.com.cn",
+            "title": "广州欲跳桥男子已在桥上待222",
+            "content": "111事件起于昨天中午，大量俄罗斯游客疯狂细节了南京夫子庙的小卖部，造成人腿部严重骨折，小卖部房梁被压断。“到中央工作以后，没多久我去过一次吉林，记忆犹新使吉林代表团全体代表如沐春风撤离的救援车辆再次返回一辆消防云梯车搭乘2名救援人员上升...",
+            "time": "2015-01-11"
+        },{
+            "href": "http://auto.sina.com.cn",
+            "title": "广州欲跳桥男子已在桥上待222",
+            "imgsrc": "http://d5.sina.com.cn/201506/25/1056236.jpg",
+            "content": "222事件起于昨天中午，大量俄罗斯游客疯狂细节了南京夫子庙的小卖部，造成人腿部严重骨折，小卖部房梁被压断。“到中央工作以后，没多久我去过一次吉林，记忆犹新使吉林代表团全体代表如沐春风撤离的救援车辆再次返回一辆消防云梯车搭乘2名救援人员上升...",
+            "time": "2015-01-11"
+        },{
+            "href": "http://auto.sina.com.cn",
+            "title": "广州欲跳桥男子已在桥上待222",
+            "content": "333事件起于昨天中午，大量俄罗斯游客疯狂细节了南京夫子庙的小卖部，造成人腿部严重骨折，小卖部房梁被压断。“到中央工作以后，没多久我去过一次吉林，记忆犹新使吉林代表团全体代表如沐春风撤离的救援车辆再次返回一辆消防云梯车搭乘2名救援人员上升...",
+            "time": "2015-01-11"
+        }],[{
+            "href": "http://auto.sina.com.cn",
+            "title": "广州欲跳桥男子已在桥上待333",
+            "content": "111事件起于昨天中午，大量俄罗斯游客疯狂细节了南京夫子庙的小卖部，造成人腿部严重骨折，小卖部房梁被压断。“到中央工作以后，没多久我去过一次吉林，记忆犹新使吉林代表团全体代表如沐春风撤离的救援车辆再次返回一辆消防云梯车搭乘2名救援人员上升...",
+            "time": "2015-01-11"
+        },{
+            "href": "http://auto.sina.com.cn",
+            "title": "广州欲跳桥男子已在桥上待333",
+            "content": "222事件起于昨天中午，大量俄罗斯游客疯狂细节了南京夫子庙的小卖部，造成人腿部严重骨折，小卖部房梁被压断。“到中央工作以后，没多久我去过一次吉林，记忆犹新使吉林代表团全体代表如沐春风撤离的救援车辆再次返回一辆消防云梯车搭乘2名救援人员上升...",
+            "time": "2015-01-11"
+        },{
+            "href": "http://auto.sina.com.cn",
+            "title": "广州欲跳桥男子已在桥上待333",
+            "imgsrc": "http://d5.sina.com.cn/201506/25/1056236.jpg",
+            "content": "333事件起于昨天中午，大量俄罗斯游客疯狂细节了南京夫子庙的小卖部，造成人腿部严重骨折，小卖部房梁被压断。“到中央工作以后，没多久我去过一次吉林，记忆犹新使吉林代表团全体代表如沐春风撤离的救援车辆再次返回一辆消防云梯车搭乘2名救援人员上升...",
+            "time": "2015-01-11"
+        }],[{
+            "href": "http://auto.sina.com.cn",
+            "title": "广州欲跳桥男子已在桥上待444",
+            "content": "111事件起于昨天中午，大量俄罗斯游客疯狂细节了南京夫子庙的小卖部，造成人腿部严重骨折，小卖部房梁被压断。“到中央工作以后，没多久我去过一次吉林，记忆犹新使吉林代表团全体代表如沐春风撤离的救援车辆再次返回一辆消防云梯车搭乘2名救援人员上升...",
+            "time": "2015-01-11"
+        },{
+            "href": "http://auto.sina.com.cn",
+            "title": "广州欲跳桥男子已在桥上待444",
+            "content": "222事件起于昨天中午，大量俄罗斯游客疯狂细节了南京夫子庙的小卖部，造成人腿部严重骨折，小卖部房梁被压断。“到中央工作以后，没多久我去过一次吉林，记忆犹新使吉林代表团全体代表如沐春风撤离的救援车辆再次返回一辆消防云梯车搭乘2名救援人员上升...",
+            "time": "2015-01-11"
+        },{
+            "href": "http://auto.sina.com.cn",
+            "title": "广州欲跳桥男子已在桥上待444",
+            "imgsrc": "http://d5.sina.com.cn/201506/25/1056236.jpg",
+            "content": "333事件起于昨天中午，大量俄罗斯游客疯狂细节了南京夫子庙的小卖部，造成人腿部严重骨折，小卖部房梁被压断。“到中央工作以后，没多久我去过一次吉林，记忆犹新使吉林代表团全体代表如沐春风撤离的救援车辆再次返回一辆消防云梯车搭乘2名救援人员上升...",
+            "time": "2015-01-11"
+        }],[{
+            "href": "http://auto.sina.com.cn",
+            "title": "广州欲跳桥男子已在桥上待555",
+            "content": "111事件起于昨天中午，大量俄罗斯游客疯狂细节了南京夫子庙的小卖部，造成人腿部严重骨折，小卖部房梁被压断。“到中央工作以后，没多久我去过一次吉林，记忆犹新使吉林代表团全体代表如沐春风撤离的救援车辆再次返回一辆消防云梯车搭乘2名救援人员上升...",
+            "time": "2015-01-11"
+        },{
+            "href": "http://auto.sina.com.cn",
+            "title": "广州欲跳桥男子已在桥上待555",
+            "content": "222事件起于昨天中午，大量俄罗斯游客疯狂细节了南京夫子庙的小卖部，造成人腿部严重骨折，小卖部房梁被压断。“到中央工作以后，没多久我去过一次吉林，记忆犹新使吉林代表团全体代表如沐春风撤离的救援车辆再次返回一辆消防云梯车搭乘2名救援人员上升...",
+            "time": "2015-01-11"
+        },{
+            "href": "http://auto.sina.com.cn",
+            "title": "广州欲跳桥男子已在桥上待555",
+            "imgsrc": "http://d5.sina.com.cn/201506/25/1056236.jpg",
+            "content": "333事件起于昨天中午，大量俄罗斯游客疯狂细节了南京夫子庙的小卖部，造成人腿部严重骨折，小卖部房梁被压断。“到中央工作以后，没多久我去过一次吉林，记忆犹新使吉林代表团全体代表如沐春风撤离的救援车辆再次返回一辆消防云梯车搭乘2名救援人员上升...",
+            "time": "2015-01-11"
+        }]];
+
+        function randomNum (n,m) {
+            var c = m-n+1;  
+            return Math.floor(Math.random() * c + n);
+        }
+
+        var nindex = randomNum(0, json.length - 1);
+
+        for (var i = 0; i < json[nindex].length; i++) {
+            if (json[nindex][i].imgsrc) {
+                shtml += '<li>' +
+                    '<p class="tit"><a href="' + json[nindex][i].href + '" target="_blank">' + json[nindex][i].title + '</a></p>' +
+                        '<div class="clearfix">' +
+                            '<a class="img fL" href="' + json[nindex][i].href + '" target="_blank"><img src="' + json[nindex][i].imgsrc + '" alt=""/></a>' +
+                            '<p class="word fR">' + json[nindex][i].content + '<a class="more" href="' + json[nindex][i].href + '" target="_blank">[详细]</a><span class="time fR">' + json[nindex][i].time + '</span></p>' +
+                        '</div>' +
+                    '</li>';
+            } else {
+                shtml += '<li>' +
+                    '<p class="tit"><a href="' + json[nindex][i].href + '" target="_blank">' + json[nindex][i].title + '</a></p>' +
+                        '<p>' + json[nindex][i].content + '<a class="more" href="'  + json[nindex][i].href + '" target="_blank">[详细]</a><span class="time fR">' + json[nindex][i].time + '</span></p>' +
+                    '</li>';
+            }
+        }
+        $('.mix-list').html(shtml);
+    });
+});

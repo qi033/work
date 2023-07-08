@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.css" />
+    <script src="../../common/swiper/swiper-bundle.js"></script>
+  </head>
+  <body>
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 800px;
+      }
+      body {
+        /* background: #eee; */
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        margin: 210px;
+        padding: 0;
+      }
+      .swiper-container {
+        width: 100%;
+        height: 800px;
+        overflow: hidden;
+      }
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        /* width: 400px; */
+        height: 378px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        transition: 300ms;
+        transform: scale(0.8);
+      }
+      .swiper-slide-active,
+      .swiper-slide-duplicate-active {
+        transform: scale(1);
+      }
+      .img {
+        width: 232px;
+        height: 378px;
+      }
+    </style>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="1.jpg"
+            class="img"
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="2.jpg"
+            class="img"
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="3.jpg"
+            class="img"
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="4.jpg"
+            class="img"
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="5.jpg"
+            class="img"
+          />
+        </div>
+        <div class="swiper-slide">
+            <img
+              src="6.jpg"
+              class="img"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="7.jpg"
+              class="img"
+            />
+          </div>
+      </div>
+      <!-- Add Pagination -->
+      <!-- <div class="swiper-pagination"></div> -->
+    </div>
+    <script>
+      var swiper = new Swiper(".swiper-container", {
+        autoplay:true,//等同于以下设置
+  /*autoplay: {
+    delay: 3000,
+    stopOnLastSlide: false,
+    disableOnInteraction: true,
+    },*/
+        slidesPerView: 5,
+        spaceBetween: 30,
+        centeredSlides: true,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    //   setInterval("swiper.slidePrev()", 4000);
+    
+    </script>
+  </body>
+</html>
