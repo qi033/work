@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lol</title>
+    <link rel="stylesheet" href="../../yanghongcheng/scss/index.css" />
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.css" />
+    <script src="../../common/swiper/swiper-bundle.js"></script>
+  </head>
+  <body>
+    <div class="box">
+      <div class="body">
+        <h1 class="fade-in-top">英雄联盟</h1>
+      </div>
+      <div class="content">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" data-hash="slide1">
+              <img
+                src="https://ossweb-img.qq.com/upload/adw/image/977/20230621/52d30a520105bcfad35cf5de9d1c93c7.jpeg"
+                alt=""
+              />
+            </div>
+            <div class="swiper-slide" data-hash="slide2">
+              <img
+                src="https://ossweb-img.qq.com/upload/adw/image/977/20230630/6dc4a9ca9b89e41de1ea267b143e7970.jpeg"
+                alt=""
+              />
+            </div>
+            <div class="swiper-slide" data-hash="slide3">
+              <img
+                src="https://ossweb-img.qq.com/upload/adw/image/977/20230630/a0c5ebe141c66e998a11dd8fd18a0e73.jpeg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+        <div class="bix">
+          <div id="quanbu"></div>
+          <div id="bing1"></div>
+        </div>
+        <div class="bvs">
+          <audio controls class="mpsui">
+            <source src="./策神霄 - KBShinya.mp3" />
+          </audio>
+        </div>
+        <div id="l"></div>
+        <div id="panel"></div>
+      </div>
+      <div class="footer"></div>
+    </div>
+    <script src="../../common/jquery-3.7.0.min.js"></script>
+    <script src="../../common/echarts.js"></script>
+    <script src="./排序.js"></script>
+    <script src="./饼图.js"></script>
+    <script>
+      var swiper = new Swiper(".swiper", {
+        direction: "horizontal", // 垂直切换选项
+        autoplay: true,
+        pagination: {
+          el: ".swiper-pagination",
+          loop: true,
+          clickable: true,
+        },
+      });
+      //自动滚动
+      // setInterval("swiper.slidePrev()", 3000);
+    </script>
+    <script type="text/javascript">
+      window._AMapSecurityConfig = {
+        securityJsCode: "23f3f0cf4dff3ca4392ab168669f4732",
+      };
+    </script>
+    <script src="https://webapi.amap.com/loader.js"></script>
+    <script src="https://webapi.amap.com/maps?v=2.0&key=31a2b1bfb4bf85b1768eb4e25b0721e6&plugin=AMap.Driving"></script>
+    <script>
+      const map = new AMap.Map("l", {
+        viewMode: "2D",
+        resizeEnable: true,
+        zoom: 16,
+        center: [113.428749, 34.765308],
+      });
+
+      var driving = new AMap.Driving({
+        map: map,
+        panel: "panel",
+      });
+      driving.search([113.428749, 34.765308], [113.42857, 34.772388]);
+    </script>
+  </body>
+</html>

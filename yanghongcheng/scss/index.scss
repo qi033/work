@@ -1,0 +1,16 @@
+/* 定义变量与值 */
+$bgcolor: lightblue;
+$textcolor: red;
+$fontsize: 18px;
+$mysmallsize: 12px;
+$hei:#93cdff;
+$gao:100%;
+$bai:#f7f7f7;
+/* 使用变量 */
+.box {
+    width:$gao;
+    background-color:$bai;
+}
+#quanbu{
+    background-color:$hei;
+  }

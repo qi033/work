@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <!-- 引入jquery -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <!-- 引入 layui.css -->
+  <link href="//unpkg.com/layui@2.8.6/dist/css/layui.css" rel="stylesheet" />
+  <!-- 引入 layui.js -->
+  <script src="//unpkg.com/layui@2.8.6/dist/layui.js"></script>
+  <!-- 引入 echarts.common.js -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.common.js"></script>
+  <!-- 引入 swiper-bundle.css -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+  <!-- 引入 swiper-bundle.js -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+  <!-- 引入 Echarts.min.js -->
+  <script src="./cdn.Echarts.min.js"></script>
+  <!-- 引入 css文件 -->
+  <link rel="stylesheet" href="./style.css" />
+  <style>
+    @media screen and (max-width:1500px) {
+      .box {
+        background: black !important;
+
+      }
+
+      .no1 {
+        flex-wrap: wrap;
+      }
+
+      #nies,
+      #main {
+        width: 100% !important;
+        margin-left: -10%;
+      }
+
+      #mains {
+        width: 100% !important;
+      }
+
+      .noe {
+        flex-wrap: wrap !important;
+      }
+
+      .no3,
+      .noe4 {
+        width: 100% !important;
+      }
+
+      .noe4 {
+        /* margin-left: 21%!important; */
+        text-align: center !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <h2>
+      <marquee behavior="scroll" direction="left">图表部分</marquee>
+    </h2>
+
+    <div class="no1">
+      <div id="main" style="
+            width: 49%;
+            height: 400px;
+            background-color: #fffff8;
+            margin: 10px 20px;
+          "></div>
+      <script type="text/javascript">
+        // var echarts = require("echarts");
+
+        var chartDom = document.getElementById("main");
+        var myChart = echarts.init(chartDom);
+        var option;
+        option = {
+          tooltip: {
+            trigger: "axis",
+            axisPointer: {
+              type: "cross",
+              crossStyle: {
+                color: "#999",
+              },
+            },
+          },
+          toolbox: {
+            feature: {
+              dataView: { show: true, readOnly: false },
+              magicType: { show: true, type: ["line", "bar"] },
+              restore: { show: true },
+              saveAsImage: { show: true },
+            },
+          },
+          //标题显示
+          legend: {
+            data: ["下雨", "晴天", "温度"],
+          },
+          //底部显示器
+          xAxis: [
+            {
+              type: "category",
+              data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+              axisPointer: {
+                type: "shadow",
+              },
+            },
+          ],
+          //左边显示范围
+          yAxis: [
+            {
+              type: "value",
+              name: "晴天",
+              min: 0,
+              max: 250,
+              interval: 50,
+              axisLabel: {
+                formatter: "{value}",
+              },
+            },
+            //右边显示范围
+            {
+              type: "value",
+              name: "温度",
+              min: 0,
+              max: 25,
+              interval: 5,
+              axisLabel: {
+                formatter: "{value} °C",
+              },
+            },
+          ],
+          series: [
+            {
+              name: "下雨 ",
+              type: "bar",
+              tooltip: {
+                valueFormatter: function (value) {
+                  return value + "";
+                },
+              },
+              data: [
+                2.0, 4.9, 7.0, 23.2, 25.6, 56.7, 27.6, 38.2, 32.6, 20.0,
+                6.4, 3.3,
+              ],
+            },
+            {
+              name: "晴天",
+              type: "bar",
+              tooltip: {
+                valueFormatter: function (value) {
+                  return value + " ml";
+                },
+              },
+              data: [
+                2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 89.6, 66.2, 48.7, 18.8,
+                6.0, 2.3,
+              ],
+            },
+            {
+              name: "温度",
+              type: "line",
+              yAxisIndex: 1,
+              tooltip: {
+                valueFormatter: function (value) {
+                  return value + " °C";
+                },
+              },
+              data: [
+                2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0,
+                6.2,
+              ],
+            },
+          ],
+        };
+
+        option && myChart.setOption(option);
+      </script>
+      <!-- 第二 -->
+      <div id="nies">
+        <div id="mains" style="
+              width: 800px;
+              height: 400px;
+              background-color: #fdfcfb;
+            "></div>
+      </div>
+      <script>
+        var chartDom = document.getElementById('mains');
+        var myChart = echarts.init(chartDom);
+        var option;
+        let splitColor = '#167374';
+        option = {
+          backgroundColor: '#111b29',
+          color: ['#3D91F7', '#61BE67'],
+          tooltip: {
+            show: false // 弹层数据去掉
+          },
+          legend: {
+            show: false,
+          },
+          radar: {
+            center: ['50%', '50%'], // 外圆的位置
+            radius: '55%',
+            name: {
+              textStyle: {
+                color: '#fff',
+                fontSize: 16,
+                fontWeight: 400,
+                fontFamily: 'PingFangSC-Regular,PingFang SC',
+                fontStyle: 'normal',
+              }
+            },
+            // TODO:
+            indicator: [
+              {
+                name: '人脉',
+                max: 100
+              },
+              {
+                name: '资产证明',
+                max: 100
+              },
+              {
+                name: '守约记录',
+                max: 100
+              },
+              {
+                name: '身份证明',
+                max: 100
+              },
+              {
+                name: '行为积累',
+                max: 100
+              }
+            ],
+            splitArea: {
+              // 坐标轴在 grid 区域中的分隔区域，默认不显示。
+              show: true,
+              areaStyle: {
+                // 分隔区域的样式设置。
+                color: ['#1c2330'] // 分隔区域颜色。分隔区域会按数组中颜色的顺序依次循环设置颜色。默认是一个深浅的间隔色。
+              }
+            },
+            axisLine: {
+              // 指向外圈文本的分隔线样式
+              lineStyle: {
+                color: splitColor
+              }
+            },
+            splitLine: {
+              lineStyle: {
+                type: 'solid',
+                color: splitColor, // 分隔线颜色
+                width: 1 // 分隔线线宽
+              }
+            }
+          },
+          series: [
+            {
+              type: 'radar',
+              symbolSize: 10,
+              itemStyle: {
+                borderColor: 'rgba(66, 242, 185, 1)',
+                color: '#fff',
+                borderWidth: 0.2
+              },
+              lineStyle: {
+                normal: {
+                  width: 1,
+                  color: 'rgba(66, 242, 185, 1)',
+                }
+              },
+              data: [
+                {
+                  // TODO:
+                  value: [80, 80, 80, 70, 60, 50],
+                  name: '男',
+                  areaStyle: {
+                    normal: {
+                      color: {
+                        type: 'radial',
+                        x: 0.5,
+                        y: 0.5,
+                        r: 0.5,
+                        colorStops: [{
+                          offset: 0, color: 'rgba(46,203,255, 0.14)' // 0% 处的颜色
+                        },
+                        {
+                          offset: 0.15, color: 'rgba(46,203,255, 0.14)' // 100% 处的颜色
+                        },
+                        {
+                          offset: 0.75, color: 'rgba(46,203,255, 0.4)' // 100% 处的颜色
+                        },
+                        {
+                          offset: 1, color: 'rgba(46,203,255, 0.5)' // 100% 处的颜色
+                        }],
+                        global: false // 缺省为 false
+                      }
+                    }
+                  },
+                },
+                {
+                  // TODO:
+                  value: [40, 70, 50, 60, 30, 80],
+                  name: '女',
+                  itemStyle: {
+                    borderColor: 'rgba(245, 196, 85, 1)',
+                    color: '#fff',
+                    borderWidth: 0.2
+                  },
+                  lineStyle: {
+                    normal: {
+                      width: 1,
+                      color: 'rgba(245, 196, 85, 1)',
+                    }
+                  },
+                  areaStyle: {
+                    normal: {
+                      color: {
+                        type: 'radial',
+                        x: 0.5,
+                        y: 0.5,
+                        r: 0.5,
+                        colorStops: [{
+                          offset: 0, color: 'rgba(255, 127,0, 0.14)' // 0% 处的颜色
+                        },
+                        {
+                          offset: 0.15, color: 'rgba(255, 127,0, 0.14)' // 100% 处的颜色
+                        },
+                        {
+                          offset: 0.75, color: 'rgba(2255, 127,0, 0.4)' // 100% 处的颜色
+                        },
+                        {
+                          offset: 1, color: 'rgba(255, 127,0, 0.5)' // 100% 处的颜色
+                        }],
+                        global: false // 缺省为 false
+                      }
+                    }
+                  },
+                }
+              ]
+            }
+          ]
+        }
+        option && myChart.setOption(option);
+      </script>
+    </div>
+    <h2>
+      <marquee behavior="scroll" direction="left">地图部分</marquee>
+    </h2>
+    <div class="no2">
+      <div id="container"></div>
+      <div id="panel"></div>
+      <script
+        type="text/javascript"> window._AMapSecurityConfig = { securityJsCode: "7a3e56a85128151148fe6b01a4d7f466", };</script>
+      <!-- 密钥值 -->
+      </script>
+      <script type="text/javascript"
+        src="https://webapi.amap.com/maps?v=2.0&key=fece8266c6cab577fe6e89652a765421&plugin=AMap.Driving"></script>
+      <!-- key值 -->
+      <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+      <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+      <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+      <script type="text/javascript">
+        //基本地图加载
+        var map = new AMap.Map("container", {
+          resizeEnable: true,
+          center: [113.427738, 34.774703], //地图中心点
+          zoom: 10, //地图显示的缩放级别
+        });
+        //构造路线导航类
+        var driving = new AMap.Driving({
+          map: map,
+          panel: "panel",
+        });
+        // 根据起终点经纬度规划驾车导航路线
+        driving.search(
+          new AMap.LngLat(112.397819, 34.36271),
+          new AMap.LngLat(113.427781, 34.765599),
+          function (status, result) {
+            // result 即是对应的驾车导航信息，相关数据结构文档请参考  https://lbs.amap.com/api/javascript-api/reference/route-search#m_DrivingResult
+            if (status === "complete") {
+              log.success("绘制驾车路线完成");
+            } else {
+              log.error("获取驾车数据失败：" + result);
+            }
+          }
+        );
+
+        //dianbiaoji
+        var marker = new AMap.Marker({
+          position: map.getCenter(),
+          icon: "//a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png",
+          anchor: "bottom-center",
+          offset: new AMap.Pixel(0, 0),
+        });
+
+        marker.setMap(map);
+
+        // 设置鼠标划过点标记显示的文字提示
+        marker.setTitle("奥特科创");
+
+        // 设置label标签
+        // label默认蓝框白底左上角显示，样式className为：amap-marker-label
+        marker.setLabel({
+          direction: "right",
+          offset: new AMap.Pixel(0, 0), //设置文本标注偏移量
+          content: "<div class='info'>奥特科创</div>", //设置文本标注内容
+        });
+      </script>
+    </div>
+    <div id="noe">
+      <div class="no3" style="
+      margin: auto;
+      position: relative;
+      background: url('https://uploadstatic.mihoyo.com/puzzle/upload/puzzle/2023/04/04/2a3fc05e12e57f38d8428a5c71667d0a_5537919882126701753.png?x-oss-process=image/format,webp/quality,Q_90');
+      background-size: cover;
+      background-position: center;
+    ">
+        <h2>
+          <marquee behavior="scroll" direction="left">轮番图部分</marquee>
+        </h2>
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <img src="https://img1.baidu.com/it/u=675599095,2876179303&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+              alt="" class="swiper-slide" />
+            <img src="https://img1.baidu.com/it/u=675599095,2876179303&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+              alt="" class="swiper-slide" />
+            <img src="https://img0.baidu.com/it/u=3649627512,3976377055&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800"
+              alt="" class="swiper-slide" />
+            <img src="https://img1.baidu.com/it/u=658660006,493450343&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800"
+              alt="" class="swiper-slide" />
+            <img src="https://img1.baidu.com/it/u=658660006,493450343&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800"
+              class="swiper-slide" />
+          </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <script>
+          var mySwiper = new Swiper(".swiper", {
+            direction: "horizontal", // 垂直切换选项
+            autoplay: {
+              delay: 1000,
+            },
+            loop: true,
+            // 如果需要分页器
+            pagination: {
+              el: ".swiper-pagination",
+              bulletActiveClass: "my-bullet-active", //分页器样式
+              // dynamicBullets: true,
+              clickable: true,
+            },
+
+            // 如果需要前进后退按钮
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+          });
+          //鼠标滑过pagination控制swiper切换
+          for (i = 0; i < mySwiper.pagination.bullets.length; i++) {
+            mySwiper.pagination.bullets[i].onmouseover = function () {
+              this.click();
+            };
+          } 
+        </script>
+      </div>
+      <div class="noe4">
+        <h2>
+          <marquee behavior="scroll" direction="left">视频部分</marquee>
+        </h2>
+        <video width="520" height="240" style="margin-top:150px;margin-left: 200px;" controls loop>
+          <source src="https://www.runoob.com/try/demo_source/mov_bbb.mp4" />
+        </video>
+      </div>
+    </div>
+</body>
+
+</html>
