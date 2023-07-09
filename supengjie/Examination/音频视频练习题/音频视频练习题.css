@@ -6,7 +6,7 @@
 }
 .box{
     width: 100%;
-    height: 961px;
+    -height: 961px;
     background: url(https://y.qq.com/music/photo_new/T002R300x300M0000031KtUw1d23hg_2.jpg?max_age=2592000)no-repeat 0 0/100% 961px;
     min-width: 961px;
 }
@@ -18,7 +18,7 @@
     min-width: 1100px;
     position: absolute;
 }
-.main img:first-child{
+.main #one{
     position: absolute;
     top: 20px;
     left: 20px;
@@ -66,10 +66,10 @@
 }
 .m-box{
     width: 85%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin: auto;
     min-width: 1100px;
-    min-height: 328px;
+    min-height: 300px;
     position: absolute;
     top: 11%;
     left: 150px;
@@ -96,7 +96,7 @@
     width: 16px;
     height: 16px;
     position: absolute;
-    background-color: red;
+    /* background-color: red; */
 }
 .m-box .btn button:first-child div{
     left: 28px;
@@ -126,7 +126,7 @@
     min-height: 328px;
     width: 60%;
     cursor: default;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
     margin-top: 40px;
     color: #ccc;
 }
@@ -153,7 +153,9 @@
 .nav ul li:nth-child(4){
     width: 50%;
 }
-
+.nav ol{
+    cursor: pointer;
+}
 .nav ol  li{
     float: left;
 }
@@ -181,12 +183,26 @@
 }
 .photo{
     height: 50%;
-    background-color: red;
+    /* background-color: red; */
+    text-align: center;
+    color: #ccc;
     position: relative;
 }
-.photo img{
+.photo img:first-child{
     width: 186px;
     height: 186px;
-    position: absolute;
-    top: 0;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+.photo img:nth-child(2){
+    margin-top: -200px;
+    margin-left: 70px;
+    float: left;
+    z-index: 999999!important;
+}
+.l-boxs{
+    width: 100%;
+    height: 100%;
+    max-height: 350px;
+    background-color: green;
 }
