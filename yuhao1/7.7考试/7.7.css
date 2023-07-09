@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css?family=Yesteryear");
+* {
+  -webkit-transition: 0.35s ease;
+  transition: 0.35s ease;
+  box-sizing: border-box;
+}
+
+.center {
+  text-align: center;
+}
+
+.back-text {
+  font-family: "Yesteryear", cursive;
+  font-size: 70px;
+  line-height: 100px;
+  background: url("https://i.giphy.com/26ufo4EIIEdB8tX3y.gif") no-repeat center;
+  background-size: cover;
+  -webkit-background-clip: text;
+  -ms-background-clip: text;
+  background-clip: text;
+  color: #000;
+  -webkit-text-fill-color: transparent;
+}
+
+:root {
+  --card-height: 300px;
+  --card-width: calc(var(--card-height) / 1.5);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.card {
+  width: var(--card-width);
+  height: var(--card-height);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 36px;
+  perspective: 2500px;
+  margin: 0 50px;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wrapper {
+  width: 100%;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+.card:hover .wrapper {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.wrapper::before,
+.wrapper::after {
+  content: "";
+  opacity: 0;
+  width: 100%;
+  height: 80px;
+  transition: all 0.5s;
+  position: absolute;
+  left: 0;
+}
+
+.wrapper::before {
+  top: 0;
+  height: 100%;
+  background-image: linear-gradient(to top, transparent 46%, rgba(12, 13, 19, 0.5) 68%, rgb(12, 13, 19) 97%);
+}
+
+.wrapper::after {
+  bottom: 0;
+  opacity: 1;
+  background-image: linear-gradient(to bottom, transparent 46%, rgba(12, 13, 19, 0.5) 68%, rgb(12, 13, 19) 97%);
+}
+
+.card:hover .wrapper::before,
+.wrapper::after {
+  opacity: 1;
+}
+
+.card:hover .wrapper::after {
+  height: 120px;
+}
+
+.title {
+  width: 100%;
+  transition: transform 0.5s;
+}
+
+.card:hover .title {
+  transform: translate3d(0%, -50px, 100px);
+}
+
+.character {
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+.card:hover .character {
+  opacity: 1;
+  transform: translate3d(0%, -30%, 100px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.header {
+  width: 100%;
+  height: 750px;
+  background: url(https://m-78.jp/wp-content/themes/m-78-2022/assets/img/common/bg-gradient.webp?rev=50fae9c5) no-repeat 0 0/100% 750px;
+}
+
+.haeder-main {
+  width: 1200px;
+  height: 750px;
+  margin: auto;
+}
+
+.header-main-title {
+  width: 1200px;
+  height: 100px;
+  margin: auto;
+}
+
+.banner {
+  width: 1200px;
+  height: 600px;
+  margin: auto;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
+.banner img {
+  width: 100%;
+  height: 600px;
+}
+
+.main {
+  width: 1200px;
+  margin: auto;
+}
+
+.shuju {
+  width: 1220px;
+  height: 400px;
+  margin-top: 50px;
+}
+
+.tubiao {
+  width: 1200px;
+  height: 500px;
+  margin-top: 50px;
+}
+
+.tubiao-left {
+  width: 600px;
+  height: 100%;
+  float: left;
+}
+
+.tubiao-right {
+  width: 600px;
+  height: 100%;
+  float: right;
+}
+
+.ditu {
+  width: 1200px;
+  height: 400px;
+  margin-top: 50px;
+  position: relative;
+}
+
+#container {
+  width: 900px;
+  height: 400px;
+}
+
+#panel {
+  position: absolute;
+  background-color: white;
+  max-height: 90%;
+  overflow-y: auto;
+  top: 10px;
+  right: 10px;
+  width: 280px;
+}
+
+#panel .amap-call {
+  background-color: #009cf9;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+#panel .amap-lib-driving {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  overflow: hidden;
+}
+
+.shipin {
+  width: 700px;
+  margin: 60px auto;
+}
+
+@media screen and (max-width: 100%) and (min-width: 700px) {
+  .header-main {
+    width: 1400px;
+  }
+}
+@media screen and (max-width: 699px) and (min-width: 0px) {
+  .header-main {
+    width: 400px;
+  }
+}
+
+/*# sourceMappingURL=7.7.css.map */
