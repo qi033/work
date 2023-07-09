@@ -1,608 +1,199 @@
 @charset "UTF-8";
-li{
-  list-style-type: none;
-}
-*{
-  margin: 0;
-  padding: 0;
-}
+
 /* 定义变量与值 */
 /* 使用变量 */
-.box {
-  width: 100%;
-  /* height: 3000px; */
-  background-color: #f3f3f3;
-}
-
-.foter {
-  width: 100%;
-  height: 300px;
-  background-color: rgb(158, 207, 255);
-  background: url("https://www.spb.gov.cn/gjyzj/xhtml/images/public/headerbg.png");
-}
-
-.middle {
-  width: 1200px;
-  height: 215px;
-  /* background-color: rgb(207, 207, 207); */
-  margin: auto;
-}
-
-.title {
-  float: left;
-  width: 614px;
-  height: 81px;
-  margin-top: 85px;
-  /* background-color: antiquewhite; */
-}
-
-.search-box {
-  width: 432px;
-  height: 80px;
-  float: right;
-  margin-right: 10px;
-  margin-top: 98px;
-  /* background-color: antiquewhite; */
-}
-
-.search-for {
-  width: 336px;
-  height: 39px;
-  float: left;
-}
-
-.button {
-  width: 95px;
-  height: 44px;
-  float: right;
-  margin-left: -2px;
-  color: aliceblue;
-  position: absolute;
-  border-radius: 2px;
-  cursor: pointer;
-  border: none;
-  box-sizing: border-box;
-  background-color: #1f559f;
-}
-
-.img {
-  margin-left: 4px;
-  margin-top: -2px;
-  border: none;
-  display: inline-block;
-  vertical-align: middle;
-}
-.navigation{
-  width: 432px;
-  height: 36px;
- float: left;
- /* background-color: aqua; */
-}
-.navigation ul{
-  width: 432px;
-  height: 36px;
-}
-.navigation li{
- color: gray;
- font-size: 10px;
- float: left;
- margin-top: 10px;
- margin-right: 10px;
-}
-.Navigation-bar{
-  width: 100%;
-  height: 50px;
-  margin-top: 35px;
-  background-color: #1f559f;
-}
-.Navigation-centered{
-  width: 1200px;
-  height: 50px;
-  margin: auto;
-  /* background-color: aquamarine; */
-}
-.Navigation-centered li{
-  float: left;
-  width: 198px;
-  height: 50px;
-  line-height: 50px;
+body {
+  background-color: lightblue;
+  color: rgb(255, 255, 255);
   font-size: 18px;
-  color: white;
-  text-align: center;
-  border-left: 1px solid #4077B7;
-}
-.content{
-  width: 1200px;
-  margin: auto;
-  margin-top: 20px;
-  background-color: #f3f3f3;
-}
-.Carouselbox{
-width: 1200px;
-height: 423px;
-margin-top: 20px;
-/* background-color: rgb(255, 255, 255); */
-}
-.Carousel{
-  width: 732px;
-  height: 423px;
-  /* background-color: aqua; */
-}
-.theme{
-  float: right;
-  width: 455px;
-  height: 423px;
-  margin-right: 0px;
-  /* background-color: chocolate; */
-}
-.region{
-  width: 455px;
-  height: 41px;
-  /* background-color: #1f559f; */
-  border-bottom:2px black solid ;
-}
-.region li{
-  float: left;
-  font-size: 20px;
-  margin: -8px 10px -10px 37px;
-  line-height: 40px;
-}
-.more{
-  width: 38px;
-  height: 28px;
-  float: right;
-  color: gray;
-  font-size: 13px;
-  line-height: 30px;
-  margin-top: -3px;
-  /* background-color: rgba(63, 63, 63, 0.37); */
-}
-#new-box {
-  display: none;
-  width: 200px;
-  height: 200px;
-  background-color: #d85151;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.meeting{
-  width: 455px;
-  height: 380px;
-  /* background-color: #d85151; */
-}
-.meeting li{
-  padding: 18px 0 5px 15px;
-}
-.date{
-  /* position: absolute; */
-  float: right;
-  margin-top: -23px;
-  right: 0;
-  top: 7px;
-  color: #999;
-  font-size: 16px;
-}
-.government{
-  width: 1200px;
-  height: 423px;
-  margin-top: 20px;
-  background-color: #ffffff;
-}
-.open{
-  width: 778px;
-  height: 423px;
-  /* background-color: antiquewhite; */
-}
-.opent{
-  width: 778px;
-  height: 40px;
-  background:url(https://www.spb.gov.cn/gjyzj/xhtml/images/index/zwgkbj.png) ;
-  /* background-color: rgb(255, 145, 0); */
-}
-.opent span {
-  color: antiquewhite;
-  font-size: 22px;
-  font-weight: bold;
-  line-height: 40px;
-  margin-left: 30px;
-}
-.Notice{
-  width: 778px;
-  height: 384px;
-  /* background-color: #ffffff; */
 }
 
-.hotnw{
-  width: 778px;
-  height: 41px;
-  /* background-color: #1f559f; */
-  border-bottom:2px black solid ;
+p {
+  font-size: 12px;
 }
-.hotnw li{
-  float: left;
-  font-size: 20px;
-  margin: 4px 10px -10px 37px;
-  line-height: 40px;
-}
-.morew{
-  width: 38px;
-  height: 28px;
-  float: right;
-  color: gray;
-  font-size: 13px;
-  line-height: 30px;
-  margin-top: 7px;
-  /* background-color: rgba(63, 63, 63, 0.37); */
-}
-.meetingt{
-  width: 778px;
-  height: 384px;
-  /* background-color: #d85151; */
-}
-.meetingt li{
-  padding: 33px 0 5px 15px;
-}
-.dated{
-  /* position: absolute; */
-  float: right;
-  margin-top: -23px;
-  right: 0;
-  top: 7px;
-  color: #999;
-  font-size: 16px;
-}
-.statistics{
+
+
+.fade-in-top {
   width: 400px;
-  height: 423px;
-  float: right;
-  background:url(https://www.spb.gov.cn/gjyzj/xhtml/images/index/tjzsbj.png) ;
-  background-color: #4077B7;
-}
-.index{
-  width: 400px;
-  height: 50px;
-  /* background-color: #eeeeee; */
-  border-bottom: 1px black solid;
-}
-.index h2{
-  height: 50px;
-  margin-left: 19px;
-  font-size: 20px;
-  font-family: Microsoft YaHei;
-  font-weight: bold;
-  color: #1F559F;
-  line-height: 53px;
-}
-.morewe{
-  width: 38px;
-  height: 28px;
-  float: right;
-  color: gray;
-  font-size: 13px;
-  line-height: 30px;
-  margin-top: -37px;
-}
-.imgbox{
-  width: 336px;
-  height: 199px;
-  margin: auto;
-  margin-top: 80px;
-  /* background-color: #999; */
-}
-.administration{
-  width: 1200px;
-  height: 458px;
-  margin-top: 20px;
-  background-color: rgb(255, 255, 255);
-}
-.license{
-  width: 844px;
-  height: 458px;
-  float: left;
-  /* background-color: #1f9f6e; */
-}
-.servicetp{
-  float: left;
-  width: 54px;
-  height: 229px;
-  background-color: #c7deff;
-}
-.servicebm{
-  float: left;
-  width: 54px;
-  height: 229px;
-  background-color: #1f559f;
-}
-.tow{
-  width: 54px;
-  float: left;
-  background-color: #1f1f1f;
-}
-.servicebm p{
-  width: 22px;
-  margin: 0 auto;
-  font-size: 22px;
-  font-family: Microsoft YaHei;
-  font-weight: bold;
-  color: #333333;
-  display: block;
-  padding-top: 57px;
-}
-.servicetp p{
-  width: 22px;
-  margin: 0 auto;
-  font-size: 22px;
-  font-family: Microsoft YaHei;
-  font-weight: bold;
-  color: #333333;
-  display: block;
-  padding-top: 57px;
-}
-.exchange{
-  width: 765px;
-  height: 71px;
-  margin:10px 65px;
-  background: #1F559F;
-  line-height: 71px;
-  position: relative;
-}
-.suire{
-  width: 49px;
-  height: 41px;
-  float: left;
-  margin: 16px 10px ;
-  background-color: #999;
-  background:url(https://www.spb.gov.cn/gjyzj/xhtml/images/index/zxbs.png) ;
-}
-.xes{
-  color: antiquewhite;
-  font-size: 24px;
-}
-.moandmo{
-  width: 54px;
-  height: 21px;
-  float: right;
-  color: white;
-  border: 1px white solid;
-  border-radius: 3px;
-  margin-top: -45px;
-  margin-right: 10px;
-  background-color: #1F559F;
-}
-.classification{
-  width: 209px;
-  height: 120px;
-  background-color: #ecf2f8;
-  float: left;
-  margin: 40px 24px 15px 29px ;
-}
-.pimg{
-  margin: 40px 0px 34px 25px ;
-}
-.letter{
-  float: right;
-font-size: 20px;
-margin: 46px 30px 27px 17px;
-}
-.rightbox{
-  width: 325px;
-  height: 458px;
-  float: right;
-  /* background-color: #bebebe; */
-}
-.urlimg1{
-  width: 315px;
-  height: 78px;
-  margin-top: 25px;
-  background:url(https://www.spb.gov.cn/gjyzj/xhtml/images/index/cxfw.png);
-  background-color: #d85151;
-}
-.urlimg2{
-  width: 315px;
-  height: 78px;
-  margin-top: 25px;
-  background:url(https://www.spb.gov.cn/gjyzj/xhtml/images/index/wsbs.png);
-  background-color: #d85151;
-}
-.urlimg3{
-  width: 315px;
-  height: 78px;
-  margin-top:25px;
-  background:url(https://www.spb.gov.cn/gjyzj/xhtml/images/index/xfzss.png);
-  background-color: #d85151;
-}
-.urlimg4{
-  width: 315px;
-  height: 78px;
-  margin-top: 25px;
-  background:url(https://www.spb.gov.cn/gjyzj/xhtml/images/index/zfxxgk.png);
-  background-color: #d85151;
-}
-
-.zhnimg{
-  float: left;
-  margin: 15px 0px 10px 25px;
-}
-.urlsiz{
-  float: left;
-  font-size:16px;
-  margin: 30px 10px 10px 10px ;
-}
-.postal-service{
-width: 1200px;
-height: 325px;
-margin-top: 20px;
-background-color: #ffffff;
-}
-.leftbix{
-  width: 338px;
-  height: 325px;
-  float: left;
-  background-color: #eff5ff;
-}
-.aotubix{
-  width: 476px;
-  height: 325px;
-  float: left;
-  margin: 0px 24px ;
-  background-color: #eff5ff;
-}
-.rightbix{
-  width: 338px;
-  height: 325px;
-  float: left;
-  background-color: #eff5ff;
-}
-.on-line{
-  width: 338px;
-  height: 39px;
-  border-bottom: 2px grey solid;
-  /* background-color: #1f559f; */
-}
-.on-line li{
-  float: left;
-  margin: 0 23px;
-  font-size: 18px;
-  line-height: 38px;
-}
-.deep{
-  width: 338px;
-  height: 44px;
-  color: #ffe7e7;
-  font-size: 16px;
-  line-height: 43px;
-  text-align: center;
-  background-color: #1F559F;
-  border-radius:5px 5px 0px 0px ;
-}
-.leftimge{
-  width: 272px;
-  height: 169px;
-  background-color: #4077B7;
-  margin:20px auto;
-}
-.lefti{
-  width: 272px;
-  height: 169px;
-  background-color: #4077B7;
-  margin:20px auto;
-}
-.on-linet{
-  width: 476px;
-  height: 39px;
-  border-bottom: 2px grey solid;
-  /* background-color: #1f559f; */
-}
-.on-linet li{
-  float: left;
-  margin: 0 23px;
-  font-size: 18px;
-  line-height: 38px;
-}
-.aotubix .li li{
-  margin: 25px 0;
-}
-.aotubix .dated{
-  float: right;
-  margin-top: -42px;
-  right: 0;
-  top: 7px;
-  color: #999;
-  font-size: 16px;
-}
-.fanfks{
-  width: 270px;
-  height:188px;
-}
-.toulin{
-  width: 100%;
-  height: 240px;
-  margin-top: 20px;
-  background-color: #e5e8ee;
-}
-.toutuimg{
-  width: 1200px;
-  height: 110px;
-  /* background-color: #d85151; */
-}
-.footr{
-  width: 100%;
-  height: 243px;
-  background-color: #1e569c;
-}
-.footrs{
-  width: 1200px;
-  height: 243px;
-  margin: auto;
-  background-color: #1F559F;
-}
-.department{
-  width: 1200px;
-  height: 60px;
-  background-color: #1F559F;
-  border-bottom:1px rgb(55, 147, 253) solid;
-}
-.department li{
-  float: left;
-  color: white;
-  font-size: 16px ;
-  margin: 24px 30px 10px 25px;
-}
-.website{
-  width: 1200px;
-  height: 180px;
-  /* background-color: #333333; */
-}
-.leftorgan{
-  width: 666px;
-  height: 182px;
-  float: left;
-  /* background-color: white; */
-}
-.rightorgan{
-  width: 534px;
-  height: 182px;
-  float: right;
-  /* background-color: wheat; */
-}
-.divimg{
-  width: 125px;
-  height: 95px;
-  float: left;
-  margin: 44px 22px;
-  /* background-color: #1F559F; */
-}
-.website p{
-margin: 10px 10px 10px 10px;
-font-size: 14px;
-}
-.bq{
-  width: 700px;
-  margin-top: 53px;
-  color: white;
-  /* background-color: #1f559f; */
-}
-.error{
-  width: 384px;
   height: 100px;
   margin: auto;
-  margin-top: 55px;
-  /* background-color: #1F559F; */
+  text-align: center;
+  line-height: 160px;
 }
-.error li{
-  color: whitesmoke;
-  font-size: 16px;
+
+.bix {
+  width: 820px;
+  height: 400px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+#quanbu {
+  width: 400px;
+  height: 400px;
   float: left;
-  margin: 40px 0px ;
+  background-color: #031d33;
 }
-.rightgud{
-  width: 77px;
-  height: 390px;
+
+#bing1 {
+  width: 400px;
+  height: 400px;
   float: right;
-  position: fixed;
-  top: 400px;
-  right: 0;
-  background-color: #1F559F;
 }
+
+.bvs {
+  width: 300px;
+  height: 60px;
+  margin: auto;
+  margin-top: 50px;
+  /* background-color: antiquewhite; */
+}
+
+.fade-in-top {
+  -webkit-animation: fade-in-top 1.2s infinite;
+  animation: fade-in-top 1.2s infinite;
+}
+
+#l {
+  width: 800px;
+  height: 500px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+#panel {
+  display: none;
+}
+
+.swiper-slide {
+  background-color: chartreuse;
+}
+
+.swiper {
+  width: 820px;
+  height: 340px;
+  margin-top: 20px;
+}
+
+/* .cvs {
+    width: 600px;
+    height: 400px;
+    margin: auto;
+    background-color: rgba(126, 126, 126, 0.3);
+  } */
+.blix {
+  width: 55px;
+  height: 25px;
+  position: relative;
+  float: right;
+  margin-top: 30px;
+  margin-right: 20px;
+  /* background-color: rgb(121, 121, 121); */
+}
+
+:root {
+  --swiper-navigation-size: 14px;
+  --swiper-theme-color: #ffffff;
+}
+
+.left {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  float: left;
+  background-color: rgba(191, 191, 191, 0.6);
+  border-radius: 7px;
+}
+
+.right {
+  width: 25px;
+  height: 25px;
+  float: right;
+  position: relative;
+  background-color: rgba(191, 191, 191, 0.5);
+  border-radius: 7px;
+}
+
+.feny {
+  width: 200px;
+  height: 30px;
+  margin-top: 70px;
+  float: left;
+  position: relative;
+  /* background-color: antiquewhite; */
+}
+
+@-webkit-keyframes fade-in-top {
+  0% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-top {
+  0% {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .bix {
+    width: 620px;
+    height: 400px;
+    margin: auto;
+    margin-top: 50px;
+    /* background-color: rgb(255, 209, 156); */
+  }
+
+  #quanbu {
+    width: 300px;
+    height: 400px;
+    margin: auto;
+    background-color: #031d33;
+  }
+
+  #bing1 {
+    width: 300px;
+    height: 400px;
+    margin: auto;
+  }
+
+  #l {
+    width: 400px;
+    height: 300px;
+    margin: auto;
+    margin-top: 30px;
+  }
+
+  .swiper {
+    width: 666px;
+    height: 340px;
+    margin-top: 20px;
+  }
+
+  .swiper img {
+    width: 666px;
+    height: 340px;
+    /* margin-top: 20px; */
+  }
+  body {
+    background-color: rgb(232, 218, 93);
+  }
+}
+
 /*# sourceMappingURL=index.css.map */
