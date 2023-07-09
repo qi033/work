@@ -1,28 +1,16 @@
 /* 定义变量与值 */
-$width:100%;
-$height:3000px;
-$bgcolor:rgb(207, 207, 207);
-$foter-height:300px;
-$foter-color:rgb(158, 207, 255);
-$foter-url:"https://www.spb.gov.cn/gjyzj/xhtml/images/public/headerbg.png";
-$middle:1200px;
-$middle-height:215px;
-$middle-auto:auto;
+$bgcolor: lightblue;
+$textcolor: red;
+$fontsize: 18px;
+$mysmallsize: 12px;
+$hei:#93cdff;
+$gao:100%;
+$bai:#f7f7f7;
 /* 使用变量 */
-.box{
-  width:$width;
-  height:$height;
-  background-color:$bgcolor;
+.box {
+    width:$gao;
+    background-color:$bai;
 }
-.foter{
-  width:$width;
-  height:$foter-height;
-  background-color:$foter-color;
-  background:url($foter-url);
-}
-.middle{
-  width:$middle;
-  height:$middle-height;
-  background-color:$bgcolor;
-  margin: $middle-auto;
-}
+#quanbu{
+    background-color:$hei;
+  }

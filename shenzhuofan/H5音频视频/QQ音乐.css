@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+li {
+  list-style: none;
+}
+
+.back{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 940px;
+  filter: blur(50px);
+  z-index: 1;
+}
+.back img{
+  width: 120%;
+  height: 120%;
+}
+.bgcolor{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 940px;
+  z-index: 2;
+  background-color: rgba(0,0,0,.5);
+}
+.wrap{
+  z-index: 99;
+}
+.wrap .content{
+  width: 1200px;
+  margin: auto;
+}
+.wrap .content .list .left{
+  /* width: ; */
+}

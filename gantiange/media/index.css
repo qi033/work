@@ -1,0 +1,272 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.box {
+  overflow: hidden;
+  background-color: antiquewhite;
+}
+
+.header {
+  height: 807px;
+  border-radius: 0px 0px 1000px 1000px;
+  background-color: #2aae67;
+  overflow: hidden;
+}
+
+.ul {
+  width: 450px;
+  height: 50px;
+  float: right;
+}
+.ul li {
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  list-style: none;
+  float: left;
+  color: aliceblue;
+}
+.ul .li1 {
+  border-right: 1px solid white;
+}
+
+.logs {
+  display: flex;
+  width: 639px;
+  height: 300px;
+  margin: auto;
+  margin-top: 100px;
+}
+.logs .ico-m {
+  height: 90px;
+  width: 639px;
+  border-bottom: 1px solid gainsboro;
+}
+.logs .ico-m h1 {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 20px;
+  color: aliceblue;
+}
+
+.icon {
+  margin-left: 189px;
+  display: inline-block;
+}
+
+.pre {
+  width: 639px;
+  height: 50px;
+  color: aliceblue;
+  font-size: 20px;
+  line-height: 50px;
+}
+
+.icm-v {
+  width: 854px;
+  height: 155px;
+  margin: auto;
+  display: flex;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.icm-v .lve {
+  width: 143px;
+  height: 147px;
+  border-radius: 100px;
+  margin-left: 9px;
+  margin-right: 7px;
+}
+.icm-v .lve .icont {
+  margin-left: 45px;
+  margin-top: 30px;
+}
+.icm-v .lve h5 {
+  text-align: center;
+  font-size: 21px;
+  color: aliceblue;
+}
+
+.lve:hover {
+  background-color: darkgray;
+}
+
+.icm-t {
+  width: 716px;
+  height: 149px;
+  margin: auto;
+  display: flex;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+.icm-t .v {
+  height: 100px;
+  width: 217px;
+  margin: 10px;
+}
+.icm-t .v .ico {
+  margin-left: 45px;
+  margin-top: 30px;
+}
+.icm-t .v h3 {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 42px;
+}
+
+.v:hover {
+  background-color: darkgray;
+}
+
+@media only screen and (max-width: 500px) {
+  .box {
+    width: 900px;
+    height: 1200px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .icm-t {
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 300px;
+  }
+  .header {
+    height: 1200px;
+  }
+  .icm-v {
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 391px;
+  }
+}
+.center {
+  width: 1000px;
+  height: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.center .vet {
+  width: 226px;
+  height: 210px;
+  margin: 10px;
+  background-color: aliceblue;
+}
+.center .icon {
+  margin-left: 65px;
+  margin-top: 70px;
+}
+.center h5 {
+  font-size: 20px;
+  margin-left: 57px;
+  margin-top: 10px;
+}
+.center h4 {
+  font-size: 20px;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+.center h3 {
+  text-align: center;
+  margin-top: 98px;
+  font-size: 20px;
+}
+
+.vet:hover {
+  transform: scale(1.1);
+}
+
+@media only screen and (max-width: 800px) {
+  .center {
+    display: flex;
+    flex-wrap: wrap;
+    width: 900px;
+    height: 1650px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .center {
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 2400px;
+  }
+}
+.foot {
+  width: 1000px;
+  height: 153px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.foot .footer {
+  width: 541px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  margin-left: 207px;
+}
+.foot .footer a {
+  color: black;
+  text-decoration: none;
+}
+.foot .record {
+  width: 250px;
+  height: 50px;
+  display: inline-block;
+  text-align: center;
+  line-height: 50px;
+  margin-top: 10px;
+  margin-left: 347px;
+}
+.foot .record span {
+  color: rgb(86, 91, 91);
+}
+
+a:hover {
+  border-bottom: 1px solid black;
+}
+
+span:hover {
+  color: rgb(86, 91, 91);
+  border-bottom: 1px solid black;
+}
+
+.copyright {
+  width: 1000px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+}
+
+@media only screen and (max-width: 700px) {
+  .foot {
+    display: flex;
+    flex-wrap: wrap;
+    height: 400px;
+  }
+  .foot .footer {
+    width: 404px;
+    height: 93px;
+    text-align: center;
+    line-height: 50px;
+    margin-left: 75px;
+  }
+  .foot .record {
+    width: 250px;
+    height: 50px;
+    display: inline-block;
+    text-align: center;
+    line-height: 50px;
+    margin-top: 109px;
+    margin-left: -323px;
+  }
+  .copyright {
+    width: 619px;
+  }
+}/*# sourceMappingURL=index.css.map */

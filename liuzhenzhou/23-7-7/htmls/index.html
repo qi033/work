@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/sw.min1.css" />
+    <link rel="stylesheet" href="../scss/my.css" />
+  </head>
+  <body>
+    <div class="box">
+      <div class="title-animate">
+            <svg viewBox="0 0 960 300">
+                <symbol id="s-text">
+                    <text text-anchor="middle" x="50%" y="80%">房年销量</text>
+                </symbol>
+            
+                <g class = "g-ants">
+                    <use xlink:href="#s-text" class="text-copy"></use>
+                    <use xlink:href="#s-text" class="text-copy"></use>
+                    <use xlink:href="#s-text" class="text-copy"></use>
+                    <use xlink:href="#s-text" class="text-copy"></use>
+                    <use xlink:href="#s-text" class="text-copy"></use>
+                </g>
+            </svg>
+            <audio id="audioPlayer" controls autoplay loop>
+                <source src="../MP3/太阳照常升起 - 久石让.mp3" type="audio/mpeg">
+            </audio>
+      </div>
+      <div class="swiper">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="slide-inner" style="background-image:url(../image/VCG211185552405.webp)"></div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slide-inner" style="background-image:url(../image/VCG211281879857.webp)"></div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slide-inner" style="background-image:url(../image/VCG211392232599.webp)"></div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slide-inner" style="background-image:url(../image/VCG211281879857.webp)"></div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slide-inner" style="background-image:url(../image/VCG211185552405.webp)"></div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slide-inner" style="background-image:url(../image/VCG211392232599.webp)"></div>
+              </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination swiper-pagination-white"></div>
+            <!-- Navigation -->
+            <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+          </div>
+    </div>
+      </div>
+      <div class="echarts">
+        <div class="echarts-left">
+            <div id="main" style="width:100%;height:100%"></div>
+        </div>
+        <div class="echarts-right">
+            <div id="mains" style="width:100%;height:100%"></div>
+        </div>
+      </div>
+      <div class="media">
+        <div class="media-left">
+            <div class="sc"><p>相关视频</p></div>
+            <video class="vi" controls>
+                <source src="../css/VCG2218082341.mp4">
+            </video>
+        </div>
+        <div class="media-right">
+            <div class="column_r">
+                <div class="bigtit red" id="dsy_D04_34">
+                    <a href="#" id="dsy_D04_124" style="font-size:18px;" target="_blank">高温炙烤,温度高达60度!15年前的顶层真不能买,屋顶保温很重要</a>
+                </div>
+                <ul class="ul05">
+                    <li class="f14">
+                        <a href="#" target="_blank">选择新房时,卫生间与厕所紧挨着应该如何化解?</a>
+                    </li>
+                    <li class="f14">
+                        <a href="#" target="_blank">海南最美的沙滩,最适合旅居度假养老过冬的区域——清水湾</a>
+                    </li>
+                    <li class="f14">
+                        <a href="#" target="_blank">房地产将迎来三个巨大挑战,老百姓买房要看清事实,专家全面分析</a>
+                    </li>
+                    <li class="f14">
+                        <a href="#" target="_blank">佛山二手房挂牌量创历史记录</a>
+                    </li>
+                    <li class="f14">
+                        <a href="#" target="_blank">专门针对女生的房产骗局,注意了</a>
+                    </li>
+                <li class="f14">
+                    <a href="#" id="dsy_D04_127" title="多地优化住房公积金贷款政策时，买房者需要注意什么？" target="_blank">多地优化住房公积金贷款政策时，买房者需要</a>
+                </li>
+                <li class="f14">
+                    <a href="#" id="dsy_D04_127" title="小区公共收益是如何分配的？业主有权查明其具体细节？" target="_blank">小区公共收益是如何分配的？业主有权查明其</a>
+                </li>
+                <li class="f14">
+                    <a href="#" id="dsy_D04_127" title="胖东来老板给网友提出了怎样的建议来缓解房贷压力？" target="_blank">胖东来老板给网友提出了怎样的建议来缓解房</a>
+                </li>
+        </ul>
+    </div>
+        </div>
+      </div>
+      <div class="maps">
+        <div class="maps-div">
+            <div id="l"></div>
+        </div>
+      </div>
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/echarts.js"></script>
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+          securityJsCode: "23f3f0cf4dff3ca4392ab168669f4732",
+        };
+      </script>
+      <script src="../js/swiper-bundle.min.js"></script>
+      <script src="https://webapi.amap.com/maps?v=2.0&key=31a2b1bfb4bf85b1768eb4e25b0721e6&plugin=AMap.Driving"></script>
+    <script src="../js/index.js"></script>
+</body>
+</html>
