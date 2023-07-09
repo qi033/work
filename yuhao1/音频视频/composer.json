@@ -1,0 +1,10 @@
+
+"require": {
+
+    "happyworm/jPlayer": "2.*"
+
+}
+
+"config": {
+    "component-dir": "your/desired/asset/path"
+},
