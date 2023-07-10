@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  #fas{
+    width: 800px;
+    height: 800px;
+    margin: auto;
+    /* background-color: aqua; */
+    border-radius: 400px;
+    border: 1px black solid;
+}  
+#box{
+    margin: 150px;
+    /* background-color: aqua; */
+    border-radius: 400px;
+}
+
+</style>
+
+<body>
+        <div id="fas">
+      <canvas id="box" width="500" height="500" ></canvas>  
+    </div>
+    
+    <script>
+        const el = document.querySelector("canvas");
+        const ctx = el.getContext("2d");
+        //填充画布颜色
+        ctx.beginPath();
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 6;
+        ctx.arc(250, 250, 240, 0, 2 * Math.PI);
+        ctx.stroke();
+      </script>
+    <script>
+        const els = document.querySelector("canvas");
+        const ctxv = els.getContext("2d");
+        //填充画布颜色
+        ctxv.beginPath();
+        ctxv.fillStyle = "black";
+        ctxv.lineWidth = 20;
+        ctxv.arc(250, 250, 240, 1.5, 1.5 * Math.PI);
+        ctxv.fill();
+      </script>
+       <script>
+        const elt = document.querySelector("canvas");
+        const ctxn = elt.getContext("2d");
+        //填充画布颜色
+        ctxn.beginPath();
+        ctxn.fillStyle = "black";
+        ctxn.lineWidth = 20;
+        ctxn.arc(250, 129, 120, 0, 2 * Math.PI);
+        ctxn.fill();
+      </script>
+       <script>
+        const elto = document.querySelector("canvas");
+        const ctxnd = elto.getContext("2d");
+        //填充画布颜色
+        ctxnd.beginPath();
+        ctxnd.fillStyle = "white";
+        ctxnd.lineWidth = 20;
+        ctxnd.arc(250, 368, 120, 0, 2 * Math.PI);
+        ctxnd.fill();
+      </script>
+      <script>
+        const eltu = document.querySelector("canvas");
+        const txnd = eltu.getContext("2d");
+        //填充画布颜色
+        txnd.beginPath();
+        txnd.fillStyle = "black";
+        txnd.lineWidth = 20;
+        txnd.arc(250, 370, 30, 0, 2 * Math.PI);
+        txnd.fill();
+      </script>
+      <script>
+        const eltus = document.querySelector("canvas");
+        const txndd = eltus.getContext("2d");
+        //填充画布颜色
+        txndd.beginPath();
+        txndd.fillStyle = "white";
+        txndd.lineWidth = 20;
+        txndd.arc(250, 130, 30, 0, 2 * Math.PI);
+        txndd.fill();
+      </script>
+      <script>
+        const ele = document.getElementById("canvas")
+        const ctxe = ele.getContext('2d')
+        //填充画布颜色
+        ctxe.fillStyle = 'black'
+        //开始画线
+        ctxe.beginPath()
+        ctxe.moveTo(450,600)
+        ctxe.lineTo(500, 80)
+        ctxe.lineWidth = 40
+        ctxe.strokeStyle = 'black'
+        ctxe.stroke()
+    </script>
+</body>
+</html>

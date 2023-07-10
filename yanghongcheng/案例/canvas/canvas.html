@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="app">
+      <canvas id="box" width="300" height="300"></canvas>
+    </div>
+
+    <script>
+      var canvas = document.getElementById('box');
+      //获得 2d 上下文对象
+      var app = canvas.getContext('2d');
+      //定义填充颜色
+      app.fillStyle = "#16a085";
+      //绘制矩形
+      app.fillRect(0, 0, 500, 500);
+
+      // 空心方块
+      // const el = document.getElementById("box");
+      // //画布对象
+      // const ctx = el.getContext("2d");
+      // //定义填充颜色
+      // ctx.strokeStyle = "#16a085";
+      // //线条宽度
+      // ctx.lineWidth = 30;
+      // //边角类型：bevel斜角 ,round圆角，miter尖角
+      // ctx.lineJoin = "round";
+      // //绘制矩形边框
+      // ctx.strokeRect(50, 50, 200, 200);
+
+      // 空心圆
+      //   const el = document.querySelector("#box");
+      //   const ctx = el.getContext("2d");
+      //   //填充画布颜色
+      //   ctx.beginPath();
+      //   ctx.strokeStyle = "red";
+      //   ctx.lineWidth = 20;
+      //   ctx.arc(100, 100, 60, 0, 2 * Math.PI);
+      //   ctx.stroke();
+
+      // 实心圆
+      //   const el = document.querySelector("#box");
+      //   const ctx = el.getContext("2d");
+      //   //填充画布颜色
+      //   ctx.beginPath();
+      //   ctx.fillStyle = "#f1c40f";
+      //   ctx.lineWidth = 20;
+      //   ctx.arc(100, 100, 60, 0, 2 * Math.PI);
+      //   ctx.fill();
+
+      // 渐变边框
+      //   const el = document.getElementById("box");
+      //   //画布对象
+      //   const ctx = el.getContext("2d");
+      //   //定义渐变的开始与结束坐标
+      //   const gradient = ctx.createLinearGradient(0, 0, 500, 500);
+      //   // 定义渐变位置与颜色，参数一为位置是从 0～1 之间，参数二为激变颜色
+      //   gradient.addColorStop(0, "#1abc9c");
+      //   gradient.addColorStop(0.5, "#9b59b6");
+      //   gradient.addColorStop(1, "#f1c40f");
+      //   //渐变填充
+      //   ctx.strokeStyle = gradient;
+      //   //设置线的宽度
+      //   ctx.lineWidth = 20;
+      //   //绘制线条矩形
+      //   ctx.strokeRect(50, 50, 200, 200);
+
+      // 实心渐变
+      //   const el = document.getElementById("box");
+      //   //画布对象
+      //   const ctx = el.getContext("2d");
+
+      //   const gradient = ctx.createLinearGradient(0, 0, 500, 500);
+      //   // 定义渐变位置与颜色，参数一为位置是从 0～1 之间，参数二为激变颜色
+      //   gradient.addColorStop(0, "#1abc9c");
+      //   gradient.addColorStop(0.5, "#9b59b6");
+      //   gradient.addColorStop(1, "#f1c40f");
+      //   //定义填充颜色
+      //   ctx.fillStyle = gradient;
+      //   //绘制矩形
+      //   ctx.fillRect(0, 0, 500, 500);
+
+      // 清空区域
+      //   const canvas = document.getElementById("box").getContext("2d");
+
+      //   canvas.fillStyle = "red";
+      //   canvas.fillRect(0, 0, 500, 500);
+      //   //清除矩形区域
+      //   canvas.clearRect(50, 50, 100, 100);
+
+      // 文字填充
+      //   const el = document.getElementById("box");
+      //   //画布对象
+      //   const ctx = el.getContext("2d");
+      //   //填充样式
+      //   ctx.fillStyle = "red";
+      //   //文字大小与字体设置
+      //   ctx.font = "30px CascadiaMono";
+      //   //定义文字基线
+      //   ctx.textBaseline = "top";
+      //   //文字居中
+      //   ctx.textAlign = "center";
+      //   ctx.fillText("鸡你太美~！beibeibei", 170, 250);
+
+      // 渐变文字
+    //   const el = document.getElementById("box");
+    //   //画布对象
+    //   const ctx = el.getContext("2d");
+    //   //定义渐变的开始与结束坐标
+    //   const gradient = ctx.createLinearGradient(0, 0, 500, 500);
+    //   // 定义渐变位置与颜色，参数一为位置是从 0～1 之间，参数二为激变颜色
+    //   gradient.addColorStop(0, "#1abc9c");
+    //   gradient.addColorStop(0.5, "#9b59b6");
+    //   gradient.addColorStop(1, "#f1c40f");
+    //   //渐变填充
+    //   ctx.strokeStyle = gradient;
+    //   //文字大小与字体设置
+    //   ctx.font = "30px CascadiaMono";
+    //   ctx.strokeText("姬霓太美~！", 10, 250);
+    </script>
+  </body>
+</html>
