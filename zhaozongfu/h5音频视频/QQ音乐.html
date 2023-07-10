@@ -9,6 +9,8 @@
         * {
             margin: 0;
             padding: 0;
+            list-style: none;
+            text-decoration: none;
         }
 
         .box {
@@ -16,11 +18,6 @@
             height: 100vh;
             background-color: #5B402C;
         }
-
-        a {
-            text-decoration: none;
-        }
-
         h1 {
             position: absolute;
             top: 20px;
@@ -86,22 +83,19 @@
         }
 
         input[type=checkbox] {
-            --webkit-appearance: none;
+            -webkit-appearance: none;
             width: 30px;
             height: 30px;
-            background-color: #fff;
-            border: 1px solid #ccc;
+            background-color: #5B402C;
+            border: 1px solid gray;
             outline: none;
             cursor: pointer;
+            margin-left: 10px;
         }
-
-        input[type=checkbox]:checked {
-            background-color: #54AFAF;
-        }
-
         input[type=checkbox]:checked:after {
             content: "\2714";
-            font-size: 24px;
+            font-size: 35px;
+            line-height: 30px;
             color: #fff;
         }
     </style>
