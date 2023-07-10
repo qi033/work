@@ -6,23 +6,427 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body {
+            background-color: gray;
+        }
+
         #tutorial {
             border: 1px solid black;
+        }
+
+        #flag {
+            border: 1px solid red;
         }
     </style>
 </head>
 
 <body>
-    <canvas id="tutorial" width="600" height="600"></canvas>
-
+    <canvas id="tutorial" width="1500" height="1000"></canvas>
+    <canvas id="myCanvas" width="1500" height="1000"></canvas>
+    <canvas id="flag" width="1000" height="600"></canvas>
     <script>
-        var canvas = document.getElementById('tutorial');
-        //获得 2d 上下文对象
-        var app = canvas.getContext('2d');
-        //定义填充颜色
-        app.fillStyle = "#16a085";
-        //绘制矩形
-        app.fillRect(0, 0, 500, 500);
+        window, onload = function () {
+            // 八卦图
+            ctxfun()
+            ctx2fun()
+            ctx3fun()
+            ctx4fun()
+            ctx5fun()
+            ctx6fun()
+            text1()
+
+            // 五角星
+            fivefun()
+            five2fun()
+
+            // 五星红旗
+            flagfun()
+            flag1fun()
+            flag2fun()
+            flag3fun()
+            flag4fun()
+        }
+        // 八卦图
+        function text1() {
+            let canvas = document.getElementById('myCanvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            canvas.style.backgroundColor = "#fff";
+            ctx = canvas.getContext('2d');
+
+            let taijiNum = 0, recNum = 0, lineNum = 0
+
+            // 八边形框
+            function drawOutline() {
+                lineNum += 1
+                let lineDeg = lineNum * Math.PI / 360
+
+                ctx.beginPath()
+                ctx.lineJoin = 'round'
+
+                for (let i = 0; i < 8; i++) {
+                    ctx.lineTo(400 + 320 * Math.cos(lineDeg + Math.PI / 8 + Math.PI / 4 * i), 400 - 320 * Math.sin(lineDeg + Math.PI / 8 + Math.PI / 4 * i))
+                }
+
+                ctx.closePath()
+                ctx.lineWidth = 10
+                ctx.strokeStyle = "#333"
+                ctx.stroke()
+            }
+
+            // 画太极
+            function drawTaiji() {
+                taijiNum -= Math.PI / 360
+
+                // 大圆描边
+                ctx.beginPath()
+                ctx.arc(400, 400, 160, 0, Math.PI * 2);
+                ctx.lineWidth = 1
+                ctx.strokeStyle = "#333"
+                ctx.stroke()
+
+                // 左边半圆
+                ctx.fillStyle = '#333'
+                ctx.beginPath()
+                ctx.arc(400, 400, 160, taijiNum + Math.PI * 0.5, taijiNum + Math.PI * 1.5);
+                ctx.fill()
+
+                // 右边半圆
+                ctx.fillStyle = '#fff'
+                ctx.beginPath()
+                ctx.arc(400, 400, 160, taijiNum + Math.PI * 0.5, taijiNum + Math.PI * 1.5, true)
+                ctx.fill()
+
+                // 上半边
+                ctx.fillStyle = '#fff'
+                ctx.beginPath()
+                ctx.arc(400 - 80 * Math.sin(taijiNum), 400 + 80 * Math.cos(taijiNum), 80, taijiNum + Math.PI * 0.5, taijiNum + Math.PI * 1.5)
+                ctx.fill()
+                // 清除间隔线条
+                ctx.beginPath()
+                ctx.moveTo(400 - 160 * Math.sin(taijiNum), 400 + 160 * Math.cos(taijiNum))
+                ctx.lineTo(400, 400)
+                ctx.lineWidth = 2
+                ctx.strokeStyle = '#fff'
+                ctx.stroke()
+
+                // 下半边
+                ctx.fillStyle = '#333'
+                ctx.beginPath()
+                ctx.arc(400 + 80 * Math.sin(taijiNum), 400 - 80 * Math.cos(taijiNum), 80, taijiNum + Math.PI * 0.5, taijiNum + Math.PI * 1.5, true)
+                ctx.fill()
+
+                // 清除间隔线条
+                ctx.beginPath()
+                ctx.moveTo(400 + 160 * Math.sin(taijiNum), 400 - 160 * Math.cos(taijiNum))
+                ctx.lineTo(400, 400)
+                ctx.strokeStyle = '#333'
+                ctx.stroke()
+
+                // 上边小圆
+                ctx.fillStyle = '#333'
+                ctx.beginPath()
+                ctx.arc(400 - 80 * Math.sin(taijiNum), 400 + 80 * Math.cos(taijiNum), 16, 0, Math.PI * 2)
+                ctx.fill()
+
+                // 下边小圆
+                ctx.fillStyle = '#fff'
+                ctx.beginPath()
+                ctx.arc(400 + 80 * Math.sin(taijiNum), 400 - 80 * Math.cos(taijiNum), 16, 0, Math.PI * 2)
+                ctx.fill()
+            }
+
+            // 画方格
+            function drawRec() {
+                let arcNum = Math.PI * 2 / 8
+                let colors = ['red', 'blue', 'green', 'pink', 'gray', 'orange', 'yellow', 'violet']
+                recNum += Math.PI / 360
+
+                for (let i = 0; i < 8; i++) {
+                    let arc = recNum + arcNum / 2 + i * arcNum
+                    ctx.save()
+
+                    ctx.translate(400 + 260 * Math.cos(arc + arcNum / 2), 400 + 260 * Math.sin(arc + arcNum / 2));
+                    // rotate方法旋转当前的绘图
+                    ctx.rotate(arc + arcNum / 2 + Math.PI / 2);
+
+                    // ctx.fillStyle = colors[i]
+                    ctx.fillStyle = '#333'
+                    ctx.fillRect(-50, 0, 100, 10)
+                    ctx.fillRect(-50, 20, 100, 10)
+                    ctx.fillRect(-50, 40, 100, 10)
+
+                    ctx.fillStyle = '#fff'
+
+                    if (i === 0) {
+                        ctx.fillRect(-15, 39, 30, 12)
+                    } else if (i === 1) {
+                        ctx.fillRect(-15, -1, 30, 12)
+                        ctx.fillRect(-15, 39, 30, 12)
+                    } else if (i === 2) {
+                        ctx.fillRect(-15, 19, 30, 12)
+                        ctx.fillRect(-15, 39, 30, 12)
+                    } else if (i === 3) {
+                        ctx.fillRect(-15, -1, 30, 12)
+                        ctx.fillRect(-15, 19, 30, 12)
+                        ctx.fillRect(-15, 39, 30, 12)
+                    } else if (i === 4) {
+                        ctx.fillRect(-15, -1, 30, 12)
+                        ctx.fillRect(-15, 19, 30, 12)
+                    } else if (i === 5) {
+                        ctx.fillRect(-15, 19, 30, 12)
+                    } else if (i === 6) {
+                        ctx.fillRect(-15, -1, 30, 12)
+                    } else {
+
+                    }
+
+                    ctx.restore()
+                }
+            }
+
+            function draw() {
+                ctx.globalCompositeOperation = 'source-over'
+                ctx.clearRect(0, 0, 800, 800)
+                drawOutline()
+                drawTaiji()
+                drawRec()
+
+                window.requestAnimationFrame(draw)
+            }
+
+            draw()
+        }
+
+        function ctxfun() {
+            var canvas = document.getElementById('tutorial');
+            var ctx = canvas.getContext('2d');
+            ctx.beginPath()
+            ctx.fillStyle = 'black'
+            ctx.lineWidth = 20
+            ctx.arc(1000, 500, 200, -Math.PI / 2, Math.PI / 2, true)
+            ctx.fill()
+        }
+        function ctx2fun() {
+            var canvas = document.getElementById('tutorial');
+            var ctx2 = canvas.getContext('2d');
+            ctx2.beginPath()
+            ctx2.fillStyle = 'white'
+            ctx2.lineWidth = 20
+            ctx2.arc(1000, 500, 200, -Math.PI / 2, Math.PI / 2, false)
+            ctx2.fill()
+        }
+        function ctx3fun() {
+            var canvas = document.getElementById('tutorial');
+            var ctx3 = canvas.getContext('2d');
+            ctx3.beginPath()
+            ctx3.fillStyle = 'white'
+            ctx3.lineWidth = 20
+            ctx3.arc(1005, 400, 100, 0, 2 * Math.PI)
+            ctx3.fill()
+        }
+        function ctx4fun() {
+            var canvas = document.getElementById('tutorial');
+            var ctx4 = canvas.getContext('2d');
+            ctx4.beginPath()
+            ctx4.fillStyle = 'black'
+            ctx4.lineWidth = 20
+            ctx4.arc(990, 600, 100, 0, 2 * Math.PI)
+            ctx4.fill()
+        }
+        function ctx5fun() {
+            var canvas = document.getElementById('tutorial');
+            var ctx4 = canvas.getContext('2d');
+            ctx4.beginPath()
+            ctx4.fillStyle = 'black'
+            ctx4.lineWidth = 20
+            ctx4.arc(1005, 400, 30, 0, 2 * Math.PI)
+            ctx4.fill()
+        }
+        function ctx6fun() {
+            var canvas = document.getElementById('tutorial');
+            var ctx4 = canvas.getContext('2d');
+            ctx4.beginPath()
+            ctx4.fillStyle = 'white'
+            ctx4.lineWidth = 20
+            ctx4.arc(990, 600, 30, 0, 2 * Math.PI)
+            ctx4.fill()
+        }
+
+        // 五角星
+        function fivefun() {
+            var canvas = document.getElementById('tutorial');
+            var ctx = canvas.getContext('2d');
+            //开始画线
+            ctx.beginPath()
+            //移动起始点
+            ctx.moveTo(100, 200)
+            //下一个节点
+            ctx.lineTo(500, 200)
+            //下一个节点
+            ctx.lineTo(300, 400)
+            //闭合节点
+            ctx.closePath()
+            //线宽
+            ctx.lineWidth = 10
+            //线颜色
+            ctx.strokeStyle = 'black'
+            //画线
+            ctx.stroke()
+        }
+        function five2fun() {
+            var canvas = document.getElementById('tutorial');
+            var ctx = canvas.getContext('2d');
+            //开始画线
+            ctx.beginPath()
+            //移动起始点
+            ctx.moveTo(300, 50)
+            //下一个节点
+            ctx.lineTo(440, 500)
+            //下一个节点
+            ctx.lineTo(300, 400)
+            //下一个节点
+            ctx.lineTo(160, 500)
+            //闭合节点
+            ctx.closePath()
+            //线宽
+            ctx.lineWidth = 10
+            //线颜色
+            ctx.strokeStyle = 'black'
+            //画线
+            ctx.stroke()
+        }
+
+        // 五星红旗
+        function flagfun() {
+            var canvas = document.getElementById('flag');
+            canvas.style.backgroundColor = "red";
+            var ctx = canvas.getContext('2d');
+            ctx.beginPath()
+            //移动起始点
+            ctx.moveTo(40, 100)
+            //下一个节点
+            ctx.lineTo(160, 100)
+            // //下一个节点
+            ctx.lineTo(60, 170)
+            // //下一个节点
+            ctx.lineTo(100, 55)
+            // //下一个节点
+            ctx.lineTo(140, 170)
+            // //下一个节点
+            ctx.lineTo(40, 100)
+            //闭合节点
+            ctx.closePath()
+            //线宽
+            ctx.lineWidth = 5
+            //线颜色
+            ctx.strokeStyle = 'yellow'
+            //画线
+            ctx.fillStyle = 'yellow'
+            ctx.fill();
+            ctx.stroke()
+        }
+        function flag1fun() {
+            var canvas = document.getElementById('flag');
+            var ctx1 = canvas.getContext('2d');
+            ctx1.beginPath()
+            //移动起始点
+            ctx1.moveTo(250, 30)
+            //下一个节点
+            ctx1.lineTo(290, 30)
+            // //下一个节点
+            ctx1.lineTo(255, 55)
+            // //下一个节点
+            ctx1.lineTo(270, 15)
+            // //下一个节点
+            ctx1.lineTo(285, 55)
+            // //下一个节点
+            ctx1.closePath()
+            //线宽
+            ctx1.lineWidth = 5
+            //线颜色
+            ctx1.strokeStyle = 'yellow'
+            //画线
+            ctx1.fillStyle = 'yellow'
+            ctx1.fill();
+            ctx1.stroke()
+        }
+        function flag2fun() {
+            var canvas = document.getElementById('flag');
+            var ctx1 = canvas.getContext('2d');
+            ctx1.beginPath()
+            //移动起始点
+            ctx1.moveTo(300, 90)
+            //下一个节点
+            ctx1.lineTo(340, 90)
+            // //下一个节点
+            ctx1.lineTo(305, 115)
+            // //下一个节点
+            ctx1.lineTo(320, 75)
+            // //下一个节点
+            ctx1.lineTo(335, 115)
+            //闭合节点
+            ctx1.closePath()
+            //线宽
+            ctx1.lineWidth = 5
+            //线颜色
+            ctx1.strokeStyle = 'yellow'
+            //画线
+            ctx1.fillStyle = 'yellow'
+            ctx1.fill();
+            ctx1.stroke()
+        }
+        function flag3fun() {
+            var canvas = document.getElementById('flag');
+            var ctx1 = canvas.getContext('2d');
+            ctx1.beginPath()
+            //移动起始点
+            ctx1.moveTo(300, 170)
+            //下一个节点
+            ctx1.lineTo(340, 170)
+            // //下一个节点
+            ctx1.lineTo(305, 195)
+            // //下一个节点
+            ctx1.lineTo(320, 155)
+            // //下一个节点
+            ctx1.lineTo(335, 195)
+            //闭合节点
+            ctx1.closePath()
+            //线宽
+            ctx1.lineWidth = 5
+            //线颜色
+            ctx1.strokeStyle = 'yellow'
+            //画线
+            ctx1.fillStyle = 'yellow'
+            ctx1.fill();
+            ctx1.stroke()
+        }
+        function flag4fun() {
+            var canvas = document.getElementById('flag');
+            var ctx1 = canvas.getContext('2d');
+            ctx1.beginPath()
+            //移动起始点
+            ctx1.moveTo(230, 220)
+            //下一个节点
+            ctx1.lineTo(270, 220)
+            // //下一个节点
+            ctx1.lineTo(235, 245)
+            // //下一个节点
+            ctx1.lineTo(250, 205)
+            // //下一个节点
+            ctx1.lineTo(265, 245)
+            //闭合节点
+            ctx1.closePath()
+            //线宽
+            ctx1.lineWidth = 5
+            //线颜色
+            ctx1.strokeStyle = 'yellow'
+            //画线
+            ctx1.fillStyle = 'yellow'
+            ctx1.fill();
+            ctx1.stroke()
+        }
+
     </script>
 </body>
 
