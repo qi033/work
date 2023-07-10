@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #box {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="box">你的浏览器不支持 canvas，请升级你的浏览器。</canvas>
+    <script>
+      const canvas = document.getElementById("box");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const ctx = canvas.getContext("2d");
+
+      // 设置画布大小
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      // 创建雪花数组
+      const snowflakes = [];
+      const numSnowflakes = 100;
+
+      // 加载雪花图片
+      const snowflakeImg = new Image();
+      snowflakeImg.src = "./img/xh.png"; // 替换为你自己的图片路径
+
+      // 雪花对象
+      function Snowflake(x, y, radius, speed) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.speed = speed;
+      }
+
+      // 初始化雪花数组
+      for (let i = 0; i < numSnowflakes; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const radius = Math.random() * 10 + 5;
+        const speed = Math.random() * 2 + 1;
+        snowflakes.push(new Snowflake(x, y, radius, speed));
+      }
+
+      // 绘制雪花
+      function drawSnowflakes() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < numSnowflakes; i++) {
+          const snowflake = snowflakes[i];
+
+          // 绘制雪花图片
+          ctx.drawImage(
+            snowflakeImg,
+            snowflake.x,
+            snowflake.y,
+            snowflake.radius,
+            snowflake.radius
+          );
+        }
+      }
+
+      // 更新雪花位置
+      function updateSnowflakes() {
+        for (let i = 0; i < numSnowflakes; i++) {
+          const snowflake = snowflakes[i];
+
+          snowflake.y += snowflake.speed;
+
+          if (snowflake.y > canvas.height) {
+            snowflake.y = 0;
+          }
+        }
+      }
+
+      // 动画循环
+      function animate() {
+        drawSnowflakes();
+        updateSnowflakes();
+
+        requestAnimationFrame(animate);
+      }
+
+      // 图片加载完成后开始动画
+      snowflakeImg.onload = function () {
+        animate();
+      };
+    </script>
+  </body>
+</html>

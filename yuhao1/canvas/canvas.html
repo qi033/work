@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五角星</title>
+    <link rel="shortcut icon"
+        href="https://img0.baidu.com/it/u=131732446,3211360282&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1689094800&t=f3a6f25aa2fd9ac99552633f04db20f7">
+</head>
+<style>
+</style>
+
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+</body>
+
+<script type="text/javascript">
+
+    function a1() {
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        //开始画线
+        ctx.beginPath()
+        //移动起始点
+        ctx.moveTo(100, 200)
+        //下一个节点
+        ctx.lineTo(500, 200)
+        //下一个节点
+        ctx.lineTo(300, 400)
+        //闭合节点
+        ctx.closePath()
+        //线宽
+        ctx.lineWidth = 10
+        //线颜色
+        ctx.strokeStyle = 'black'
+        //画线
+        ctx.stroke()
+    }
+
+    function a2() {
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        //开始画线
+        ctx.beginPath()
+        //移动起始点
+        ctx.moveTo(300, 50)
+        //下一个节点
+        ctx.lineTo(440, 500)
+        //下一个节点
+        ctx.lineTo(300, 400)
+        //下一个节点
+        ctx.lineTo(160, 500)
+        //闭合节点
+        ctx.closePath()
+        //线宽
+        ctx.lineWidth = 10
+        //线颜色
+        ctx.strokeStyle = 'black'
+        //画线
+        ctx.stroke()
+    }
+
+    window.onload = function () {
+        a1()
+        a2()
+    }
+
+
+
+</script>
+
+</html>
