@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tutorial {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="tutorial" width="600" height="600"></canvas>
+
+    <script>
+        var canvas = document.getElementById('tutorial');
+        //获得 2d 上下文对象
+        var app = canvas.getContext('2d');
+        //定义填充颜色
+        app.fillStyle = "#16a085";
+        //绘制矩形
+        app.fillRect(0, 0, 500, 500);
+    </script>
+</body>
+
+</html>
