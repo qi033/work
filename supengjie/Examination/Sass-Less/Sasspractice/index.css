@@ -3,7 +3,7 @@
 /* 使用变量 */
 body {
   background-color: lightblue;
-  color: red;
+  color: blue;
   font-size: 18px;
 }
 
@@ -12,7 +12,25 @@ p {
 }
 
 h1 {
-  color: red;
+  color: purple;
 }
 
-/*# sourceMappingURL=index.css.map */
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav li {
+  display: inline-block;
+}
+nav a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: lowercase;
+  text-overflow: hidden;
+}/*# sourceMappingURL=index.css.map */
