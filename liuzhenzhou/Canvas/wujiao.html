@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+      }
+      app {
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <canvas id="canvas" width="400" height="400"></canvas>
+    </div>
+
+    <script>
+      const el = document.querySelector("canvas");
+      const ctx = el.getContext("2d");
+      //填充画布颜色
+      ctx.fillStyle = "#8e44ad";
+      ctx.fillRect(0, 0, el.width, el.height);
+      //开始画线
+      ctx.beginPath();
+      //移动起始点
+      ctx.moveTo(200, 20);
+      //下一个节点
+      ctx.lineTo(320, 380);
+      //下一个节点
+      ctx.lineTo(20, 160);
+      ctx.lineTo(380, 160);
+      ctx.lineTo(80, 380);
+      //闭合节点
+      ctx.closePath();
+      //线宽
+      ctx.lineWidth = 10;
+      //线颜色
+      ctx.strokeStyle = "#f1c40f";
+      //画线
+      ctx.stroke();
+    </script>
+  </body>
+</html>
