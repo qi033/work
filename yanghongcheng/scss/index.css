@@ -1,0 +1,11 @@
+@charset "UTF-8";
+/* 定义变量与值 */
+/* 使用变量 */
+.box {
+  width: 100%;
+  background-color: #f7f7f7;
+}
+
+#quanbu {
+  background-color: #93cdff;
+}/*# sourceMappingURL=index.css.map */

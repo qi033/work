@@ -1,0 +1,209 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+body {
+    height: 959px;
+    width: 1865px;
+    background-image: url(../Img/背景.png); /* 替换为您的背景图像URL */
+    background-size:1865px 961px ;
+    background-repeat: no-repeat;
+  }
+.box{
+    width: 100%;
+    height: 100%;
+}
+.main{
+    height: 940px;
+    width: 1830px;
+    // border: 1px solid red;
+    margin: auto;
+    position: relative!important;
+}
+#main1{
+    width: 579px!important;
+    height: 362px!important;
+    // border:1px solid #ff0505;
+    position: absolute;
+    top: 129px;
+    left: 626px;
+}
+canvas{
+    width: 577px!important;
+    height: 360px!important;
+}
+#main2{
+    width: 579px!important;
+    height: 362px!important;
+    position: absolute;
+    top: 541px;
+    left: 626px;
+}
+#main3{
+    width: 575px;
+    height: 314px;
+    // border: 1px solid red;
+    position: absolute;
+    top: 172px;
+    left: 15px;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    color: #000;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .swiper-pagination-bullet-active {
+    color: #fff;
+    background: #007aff;
+  }
+
+  #main4{
+    width: 575px;
+    height: 312px;
+    // border: 1px solid red;
+    position: absolute;
+    top: 543px;
+    left: 15px;
+}
+#main5{
+    width: 575px;
+    height: 312px;
+    // border: 1px solid red;
+    position: absolute;
+    top: 543px;
+    right: 15px;
+}
+#main6{
+    width: 575px;
+    height: 314px;
+    // border: 1px solid red;
+    background-color: rgb(17, 21, 52);
+    background: url("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fblog%2F202109%2F04%2F20210904175406_78faa.png&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1691325249&t=4c6cca2418605585b72ce6c5c3407732")no-repeat 0 0/575px 314px;
+    position: absolute;
+    top: 174px;
+    right: 15px;
+    z-index: 999!important;
+}
+.bg{
+    width: 575px;
+    height: 314px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+audio{
+    float: left;
+    margin: 130px;
+    margin-top: 250px;
+}
+
+#main0{
+    width: 538px;
+    height: 61px;
+    // border: 1px solid red ;
+    position: absolute;
+    left: 35%;
+    line-height: 61px;
+
+    white-space: nowrap; /* 防止换行 */
+    overflow: hidden; /* 隐藏超出的内容 */
+    text-overflow: ellipsis; /* 超出部分用省略号表示 */
+}
+
+
+h1{
+    color: #fff;
+    font-size: 40px;
+    /* 字间距 */
+    letter-spacing: 15px;
+    /* 转大写 */
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 76px;
+    outline: none;
+    /* 自定义属性 --c,可通过 var 函数对其调用 */
+    --c:lightseagreen;
+    /* 调用自定义属性--c，设置文字阴影（发光效果） */
+    text-shadow: 0 0 10px var(--c),
+    0 0 20px var(--c),
+    0 0 40px var(--c),
+    0 0 80px var(--c),
+    0 0 160px var(--c);
+    /* 执行动画：动画名 时长 线性的 无限次播放 */
+    animation: animate 5s linear infinite;
+
+
+   
+
+}
+
+
+
+@keyframes animate {
+    0% {
+        filter: hue-rotate(360deg);
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
+.lyrics-container {
+    height: 300px;
+    overflow-y: scroll;
+}
+
+
+#lyrics{
+    height: 314px!important;
+    position: relative;
+}
+p{
+    color: #fff;
+    position: absolute;
+
+}

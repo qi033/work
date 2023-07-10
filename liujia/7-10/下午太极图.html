@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            border: 1px solid #eee;
+            background: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="600"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        ctx.translate(canvas.width / 2, canvas.height / 2);
+        // 半径
+        const radius = 150;
+        // 绘制右边的半圆
+        ctx.beginPath();
+        ctx.fillStyle = '#fff';
+        // 顺时针旋转
+        ctx.arc(0, 0, radius, -90 * Math.PI / 180, 90 * Math.PI / 180, false)
+        ctx.fill();
+        // 绘制左边的半圆
+        ctx.beginPath();
+        ctx.fillStyle = '#000';
+        // 顺时针旋转
+        ctx.arc(0, 0, radius, -90 * Math.PI / 180, 90 * Math.PI / 180, true)
+        ctx.fill();
+        // 绘制下面的黑色圆
+        ctx.beginPath();
+        ctx.fillStyle = '#000';
+        ctx.arc(0, radius / 2, radius / 2, 0, 360 * Math.PI / 180);
+        ctx.fill();
+        // 绘制白色小点
+        ctx.beginPath();
+        ctx.fillStyle = '#fff';
+        ctx.arc(0, radius / 2, 15, 0, 360 * Math.PI / 180);
+        ctx.fill();
+        // 绘制上面的白色圆
+        ctx.beginPath();
+        ctx.fillStyle = '#fff';
+        ctx.arc(0, -radius / 2, radius / 2, 0, 360 * Math.PI / 180);
+        ctx.fill();
+        // 绘制黑色小点
+        ctx.beginPath();
+        ctx.fillStyle = '#000';
+        ctx.arc(0, -radius / 2, 15, 0, 360 * Math.PI / 180);
+        ctx.fill();
+    </script>
+</body>
+
+</html>

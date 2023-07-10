@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #l {
+        width: 500px;
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="fun()">查看</button>
+    <div id="l"></div>
+    <div id="panel"></div>
+    <script type="text/javascript">
+      window._AMapSecurityConfig = {
+        securityJsCode: "23f3f0cf4dff3ca4392ab168669f4732",
+      };
+    </script>
+    <script src="https://webapi.amap.com/loader.js"></script>
+    <script src="https://webapi.amap.com/maps?v=2.0&key=31a2b1bfb4bf85b1768eb4e25b0721e6&plugin=AMap.Driving"></script>
+    <script>
+      const map = new AMap.Map("l", {
+        viewMode: "2D",
+        resizeEnable: true,
+        zoom: 16,
+        center: [113.428749, 34.765308],
+      });
+      function fun() {
+        var driving = new AMap.Driving({
+          map: map,
+          panel: "panel",
+        });
+        driving.search(
+          [113.428749, 34.765308],
+          [113.42857, 34.772388],
+          function (status, result) {
+            if (status === "complete") {
+              log.success("绘制步行路线完成");
+            } else {
+              log.error("步行路线数据查询失败" + result);
+            }
+          }
+        );
+      }
+    </script>
+  </body>
+</html>
