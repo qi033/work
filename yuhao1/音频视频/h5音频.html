@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="//y.qq.com/favicon.ico?max_age=2592000" />
+    <title>QQ音乐-千万正版音乐海量无损曲</title>
 
-    <title>Document</title>
-
-    <script src="./composer.json"></script>
 </head>
 <style>
     * {
@@ -92,6 +91,23 @@
         overflow-y: scroll;
     }
 
+    .left-main ul::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .left-main ul::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        opacity: 0.2;
+        background: fade(green, 60%);
+    }
+
+    .left-main ul::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        border-radius: 0;
+        background: fade(green, 30%);
+    }
+
     .left-main li {
         width: 100%;
         height: 50px;
@@ -133,6 +149,12 @@
 
     audio {
         width: 1000px;
+    }
+
+    .geci {
+        width: 100%;
+        height: 200px;
+        margin-top: 20px;
     }
 </style>
 
@@ -216,18 +238,24 @@
         <div class="box">
             <img src="https://y.qq.com/music/photo_new/T002R300x300M000000pVkCf3KsUQ9_1.jpg?max_age=2592000" alt=""
                 width="186px" height='186px'>
+            <div class="geci">
+            </div>
         </div>
         <div class="music">
-            <audio controls>
+            <audio id="aud" autoplay="autoplay" controls="controls" preload="auto">
                 <source src="../../../../mp3/裹着心的光 - 林俊杰.mp3">
+                <track default kind="captions" srclang="en" src="./yin.vtt">
             </audio>
+
         </div>
 
     </div>
 
-
 </body>
+<script src="../../common/jquery-3.7.0.min.js"></script>
 <script>
+
+
 
 </script>
 
