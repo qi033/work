@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./7.7.css">
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.css">
+    <script src="../../common/jquery-3.7.0.min.js"></script>
+    <script src="../../common/swiper/swiper-bundle.js"></script>
+    <script src="../../common/echarts.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="box">
+        <div class="header">
+            <div class="header-main">
+                <div class="header-main-title">
+                    <h1 class="center back-text">迪ウルトラマン迦</h1>
+                </div>
+                <div class="banner">
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img
+                                    src="https://m-78.jp/wp-content/uploads/2022/09/MAL3_ep01_%E3%82%B5%E3%83%96%E3%82%BF%E3%82%A4%E5%85%A5%E3%82%8A.jpg"
+                                    alt=""></div>
+                            <div class="swiper-slide"><img
+                                    src="https://m-78.jp/wp-content/uploads/2023/05/%E3%83%AC%E3%82%B0%E3%83%AD%E3%82%B9_%E6%97%A9%E6%9C%9F%E8%A6%96%E8%81%B4CP.jpg"
+                                    alt=""></div>
+                            <div class="swiper-slide"><img
+                                    src="https://m-78.jp/wp-content/uploads/2023/04/SF23_wide-1.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="https://m-78.jp/wp-content/uploads/2023/05/hu-final.jpg"
+                                    alt=""></div>
+                            <div class="swiper-slide"><img
+                                    src="https://m-78.jp/wp-content/uploads/2023/04/blazar-banner-1.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="shuju">
+                <h2 class="center back-text">鼠标划</h2>
+                <a href="#" style="display: inline-block;">
+                    <div class="card">
+                        <div class="wrapper" style="height: 300px;">
+                            <img src="./图片/QQ图片20230707183204.jpg" class="cover-image" height="200px" width="200px" />
+                        </div>
+                        <img src="./图片/QQ图片20230707183204.jpg" class="character" style="height: 300px;" />
+                    </div>
+                </a>
+                <a href="#" style="display: inline-block;">
+                    <div class="card">
+                        <div class="wrapper" style="height: 300px;">
+                            <img src="./图片/QQ图片20230707183241.jpg" class="cover-image" />
+                        </div>
+                        <img src="./图片/QQ图片20230707183241.jpg" class="character" style="height: 300px;" />
+                    </div>
+                </a>
+                <a href="#" style="display: inline-block;">
+                    <div class="card">
+                        <div class="wrapper" style="height: 300px;">
+                            <img src="./图片/QQ图片20230707183244.jpg" class="cover-image" />
+                        </div>
+                        <img src="./图片/QQ图片20230707183244.jpg" class="character" style="height: 300px;" />
+                    </div>
+                </a>
+                <a href="#" style="display: inline-block;">
+                    <div class="card">
+                        <div class="wrapper" style="height: 300px;">
+                            <img src="./图片/QQ图片20230707183248.jpg" class="cover-image" />
+                        </div>
+                        <img src="./图片/QQ图片20230707183248.jpg" class="character" style="height: 300px;" />
+                    </div>
+                </a>
+            </div>
+            <div class="shipin">
+                <video id="video1" controls="controls" style="width:700px;height: 300px;">
+                    <source src="./视频/QQ视频20230707183350.mp4" type="video/mp4" style="width: 700px;height: 300px;">
+                    <source src="./视频/QQ视频20230707183350.mp4" type="video/ogg" style="width: 700px;height: 300px;">
+                </video>
+            </div>
+            <div class="tubiao" id="tubiao">
+                <div class="tubiao-left" id="tubiao-left">
+
+                </div>
+                <div class="tubiao-right" id="tubiao-right">
+
+                </div>
+            </div>
+            <div class="ditu">
+                <div id="container"></div>
+                <div id="panel"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+<script type="text/javascript">
+    window._AMapSecurityConfig = {
+        securityJsCode: "7ee2c3a05fce4c7ec5dab4fd73d46ce9",
+    }
+</script>
+
+<script src="https://webapi.amap.com/maps?v=2.0&key=609f41990bb7ceb8e634718d49b6ecc2&plugin=AMap.Driving"></script>
+<script>
+
+    // myVid = document.getElementById("video1");
+    // function addNewTextTrack() {
+    //     text1 = myVid.addTextTrack("caption");
+    //     text1.addCue(new TextTrackCue("Test text", 01.000, 04.000, "", "", "", true));
+    // }
+
+
+    var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        autoplay: {
+            delay: 2500 /* 设置自动翻页间隔时间，单位为毫秒 */,
+        },
+    });
+
+
+    var chartDom = document.getElementById('tubiao-left');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    option = {
+        //实现颜色映射
+        visualMap: {
+            show: true,
+            inRange: {
+                color: ['#0DFFD6', '#0D68FF']
+            }
+        },
+        series: [{
+            type: 'pie',
+            radius: '75%',
+            center: ['50%', '50%'],
+            roseType: 'radius',
+            labelLine: {
+                show: true,
+                length: 15,
+                length2: 110
+            },
+            label: {
+                formatter: '{b|{b} {d}%}\n{c|●}',
+                rich: {
+                    c: {//小圆点
+                        padding: [0, -10, 0, -10]
+                    },
+                    b: {
+                        padding: [0, -110, -15, -110],
+                        color: '#8ebef2',
+                        fontSize: 14
+                    }
+                }
+            },
+            data: [{
+                value: 100,
+                name: '迪迦'
+            },
+            {
+                value: 120,
+                name: '赛罗'
+            },
+            {
+                value: 100,
+                name: '高斯'
+            },
+            {
+                value: 140,
+                name: '盖亚'
+            }
+            ]
+        }]
+    };
+
+    option && myChart.setOption(option);
+
+    var chartDom1 = document.getElementById('tubiao-right');
+    var myChart1 = echarts.init(chartDom1);
+    var option1;
+    let nameList = ["伤害", "速度", "抗伤", "经济", "参团"]; // 名字
+    let valueList = [85, 80, 60, 76, 85]; // 分数,最大值为100
+
+    let indicatorList = [];
+    nameList.map((item, index) => {
+        indicatorList.push({
+            name: item,
+            value: valueList[index],
+            max: 100
+        })
+    })
+
+    option1 = {
+        radar: {
+            // shape: 'circle',
+            indicator: indicatorList,
+            axisName: {
+                formatter: function (value, indicator) {
+                    return `{a|${value}}`;
+                },
+                rich: {
+                    a: {
+                        fontSize: "14px",
+                        fontFamily: " Source Han Sans CN-Regular",
+                        fontWeight: 400,
+                        color: "#333333",
+                        padding: [0, 8, 0, 0],
+                    },
+                    b: {
+                        padding: [4, 8, 4, 8],
+                        backgroundColor: "rgba(229, 243, 255, 0.6500)",
+                        borderRadius: 50,
+                        fontFamily: "Source Han Sans CN-Medium",
+                        fontWeight: 500,
+                        color: "#397EF0",
+                    }
+                }
+            }
+        },
+        series: [
+            {
+                name: '雷达图',
+                type: 'radar',
+                color: "rgba(57, 126, 240, 1)",
+                label: {
+                    show: false
+                },
+                areaStyle: {
+                    color: "rgba(170, 217, 255, 0.35)"
+                },
+                data: [
+                    {
+                        value: valueList,
+                        name: 'Allocated Budget'
+                    }
+                ]
+            }
+        ]
+    };
+
+
+    option1 && myChart1.setOption(option1);
+
+    var map = new AMap.Map('container', {
+        resizeEnable: true, // 默认使用 2D 模式
+        center: [113.427532, 34.765086],
+        zoom: 16
+    });
+
+    var driving = new AMap.Driving({
+        map: map,
+        panel: "panel"
+    });
+    driving.search(
+        new AMap.LngLat(113.427532, 34.765086),
+        new AMap.LngLat(113.428198, 34.774311),
+        function (status, result) {
+            if (status === "complete") {
+                log.success("绘制驾车路线完成");
+            } else {
+                log.error("获取驾车数据失败：" + result);
+            }
+        })
+
+</script>
+
+</html>

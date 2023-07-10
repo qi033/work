@@ -1,0 +1,322 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* 定义变量与值 */
+$bgcolor: white;
+$textcolor: rgb(22, 98, 69);
+$fontsize: 18px;
+$mysmallsize: 12px;
+$auto: auto;
+
+/* 使用变量 */
+body {
+    // background-color: $bgcolor;
+    color: $textcolor;
+    font-size: $fontsize;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    background-image: linear-gradient(0deg, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
+}
+
+#box {
+
+    width: 100%;
+    height: 93vh;
+    margin: auto;
+
+}
+
+#content {
+    width: 80%;
+    height: 600px;
+    margin: auto;
+    border-radius: 20px;
+    margin-top: 50px;
+    background-image: url('https://w.wallhaven.cc/full/qz/wallhaven-qzgq6d.png');
+    // backdrop-filter: blur(5px)
+}
+
+
+#content-top {
+    width: 100%;
+    height: 20%;
+    border-radius: 20px 20px 0px 0px;
+    background-image: url('https://w.wallhaven.cc/full/qz/wallhaven-qzgq6d.png');
+    // background-color: #3a1919;
+}
+
+.swiper {
+    width: 100%;
+    position: relative;
+    height: 80%;
+    border-radius: 0px 0px 20px 20px;
+    background: #000;
+}
+
+.mySwiper2 {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    font-size: 18px;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 40px 60px;
+}
+
+.parallax-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 130%;
+    height: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.swiper-slide .text {
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    line-height: 1.3;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    div {
+        display: inline-block !important;
+    }
+
+    .text-left {
+        width: 50% !important;
+        height: 100% !important;
+        float: left;
+        border-radius: 10px 0px 0px 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+
+        div {
+            width: 100%;
+            height: 100%;
+            color: white;
+        }
+
+
+    }
+
+    .text-con {
+        width: 70%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        display: flex;
+
+        #container {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px 0 0 10px;
+        }
+
+        #panel {
+            height: 100%;
+            width: 300px;
+            float: right;
+        }
+
+    }
+
+
+    .text-right {
+        width: 50% !important;
+        height: 100% !important;
+        float: right;
+        border-radius: 0px 10px 10px 0px;
+        background-color: rgba(0, 0, 0, 0.7);
+
+        div {
+            width: 100%;
+            height: 100%;
+            color: white !important;
+        }
+    }
+
+
+}
+
+
+.sign {
+    min-height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.sign__word {
+    font-size: 5.6rem;
+    text-align: center;
+    line-height: 1;
+    color: #c6e2ff;
+    -webkit-animation: neon .08s ease-in-out infinite alternate;
+    animation: neon .08s ease-in-out infinite alternate;
+}
+
+/*-- Animation Keyframes --*/
+@-webkit-keyframes neon {
+    from {
+        text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(30, 132, 242, 0.92), 0 0 34px rgba(30, 132, 242, 0.78), 0 0 54px rgba(30, 132, 242, 0.92);
+    }
+
+    to {
+        text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px rgba(30, 132, 242, 0.84), 0 0 38px rgba(30, 132, 242, 0.88), 0 0 60px #1e84f2;
+    }
+}
+
+@keyframes neon {
+    from {
+        text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(30, 132, 242, 0.92), 0 0 34px rgba(30, 132, 242, 0.78), 0 0 54px rgba(30, 132, 242, 0.92);
+    }
+
+    to {
+        text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px rgba(30, 132, 242, 0.84), 0 0 38px rgba(30, 132, 242, 0.88), 0 0 60px #1e84f2;
+    }
+}
+
+.open {
+    width: 70%;
+    height: 100%;
+    margin: $auto;
+}
+
+.out {
+    width: 1200px;
+    height: 40px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: white;
+
+}
+
+.animate {
+    padding-left: 20px;
+    font-size: 15px;
+    line-height: 40px;
+    color: #000;
+    display: inline-block;
+    white-space: nowrap;
+    animation: 5s wordsLoop linear infinite normal;
+}
+
+@keyframes wordsLoop {
+    0% {
+        transform: translateX(1200px);
+        -webkit-transform: translateX(1200px);
+    }
+
+    100% {
+        transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+    }
+}
+
+@media (max-width: 750px) {
+    #box {
+
+        width: 100%;
+        height: 1200px;
+        margin: auto;
+
+    }
+
+    #content {
+        width: 80%;
+        height: 1000px;
+        margin: auto;
+        border-radius: 20px;
+        margin-top: 50px;
+        background-image: url('https://w.wallhaven.cc/full/qz/wallhaven-qzgq6d.png');
+        // backdrop-filter: blur(5px)
+    }
+
+    .swiper-slide .text {
+        font-size: 14px;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        line-height: 1.3;
+        background-color: rgba(0, 0, 0, 0.7);
+
+        div {
+            display: inline-block !important;
+        }
+
+        .text-left {
+            width: 100% !important;
+            height: 50% !important;
+            border-radius: 10px 0px 0px 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+
+            div {
+                width: 100%;
+                height: 100%;
+                color: white;
+            }
+
+
+        }
+
+        .text-con {
+            width: 70%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            display: flex;
+
+            #container {
+                width: 100%;
+                height: 100%;
+                border-radius: 10px 0 0 10px;
+            }
+
+            #panel {
+                height: 100%;
+                width: 300px;
+                float: right;
+            }
+
+        }
+
+
+        .text-right {
+            width: 100% !important;
+            height: 50% !important;
+            border-radius: 0px 10px 10px 0px;
+            background-color: rgba(0, 0, 0, 0.7);
+
+            div {
+                width: 100%;
+                height: 100%;
+                color: white !important;
+            }
+        }
+
+
+    }
+
+}
