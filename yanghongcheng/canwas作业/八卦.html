@@ -6,26 +6,18 @@
     <title>Document</title>
 </head>
 <style>
-  #fas{
-    width: 800px;
-    height: 800px;
-    margin: auto;
-    /* background-color: aqua; */
-    border-radius: 400px;
-    border: 1px black solid;
-}  
 #box{
-    margin: 150px;
+    /* margin: 150px; */
+    border: 1px black solid;
+    padding: 200px 200px 200px 200px;
     /* background-color: aqua; */
-    border-radius: 400px;
+    border-radius: 1000px;
 }
 
 </style>
 
 <body>
-        <div id="fas">
-      <canvas id="box" width="500" height="500" ></canvas>  
-    </div>
+      <canvas id="box" width="800" height="800" ></canvas>  
     
     <script>
         const el = document.querySelector("canvas");
@@ -88,17 +80,18 @@
         txndd.fill();
       </script>
       <script>
-        const ele = document.getElementById("canvas")
-        const ctxe = ele.getContext('2d')
-        //填充画布颜色
-        ctxe.fillStyle = 'black'
-        //开始画线
-        ctxe.beginPath()
-        ctxe.moveTo(450,600)
-        ctxe.lineTo(500, 80)
-        ctxe.lineWidth = 40
-        ctxe.strokeStyle = 'black'
-        ctxe.stroke()
-    </script>
+        const el1 = document.getElementById("box");
+      //画布对象
+      const ctx1 = el1.getContext("2d");
+      //定义填充颜色
+      ctx1.strokeStyle = "black";
+      //线条宽度
+      ctx1.lineWidth = 30;
+      //边角类型：bevel斜角 ,round圆角，miter尖角
+      ctx1.lineJoin = "miter";
+      //绘制矩形边框
+      ctx1.strokeRect(100, 0, 100, 25);
+      </script>
+      
 </body>
 </html>
