@@ -44,17 +44,14 @@ li {
 .wrap .content{
   width: 1400px;
   margin: auto;
-  background-color: aqua
 }
 .wrap .content .list .left{
   width:1000px;
   height:700px;
   margin-top: 100px;
-  background-color: yellow;
 }
 .wrap .content .list .left .fun{
   height: 100px;
-  background-color: gray;
 }
 .wrap .content .list .left .fun li{
   float: left;
@@ -68,12 +65,12 @@ li {
 }
 .wrap .content .list .left .directory{
   height:600px;
-  background-color: pink;
 }
 .wrap .content .list .left .directory li{
   font-size: 17px;
   line-height: 40px;
   position: relative;
+  color: white;
 }
 .wrap .content .list .left .directory li .song{
   position: absolute;
