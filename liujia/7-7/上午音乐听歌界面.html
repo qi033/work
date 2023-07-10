@@ -26,14 +26,14 @@
                         <a class="a" href="#">清空列表</a>
                     </div>
                     <div id="content-content-left-bottom">
-                        <ul>
+                        <ul id="ul">
                             <li class="li1" style="margin-top: 20px;">
                                 <input class="check1" type="checkbox">
                                 <span class="span1">歌曲</span>
                                 <span class="span2">歌手</span>
                                 <span class="span3">时长</span>
                             </li>
-                            <li class="li1">
+                            <!-- <li class="li1">
                                 <input class="check1" type="checkbox">
                                 <span class="span1">耗尽-薛之谦,郭聪明.320</span>
                                 <span class="span2">薛之谦</span>
@@ -62,7 +62,7 @@
                                 <span class="span1">纸船-薛之谦郁可唯.320</span>
                                 <span class="span2">薛之谦</span>
                                 <span class="span3">4.30</span>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -85,15 +85,59 @@
     <script>
         const rand = [
             {
-          
+                id: 1,
+                img: "https://y.qq.com/music/photo_new/T002R300x300M000002uvwNg1RB6vc_1.jpg?max_age=2592000",
+                quming: "耗尽-薛之谦,郭聪明.320",
+                geshou: "薛之谦",
+                shichang: "4.30"
             },
-        ]
-            (function () {
-                xuanranyuequ();
-            })();
-        function xuanranyuequ() {
-            let html = "";
+            {
+                id: 2,
+                img: "https://y.qq.com/music/photo_new/T002R300x300M000003K3H2v3PDrZy_1.jpg?max_age=2592000",
+                quming: "你还要我怎样(电视剧《妈妈像花儿一样》尾曲)-薛之谦.128",
+                geshou: "薛之谦",
+                shichang: "4.30"
+            },
+            {
+                id: 3,
+                img: "https://y.qq.com/music/photo_new/T002R300x300M000004LNOKj2HKSPA_1.jpg?max_age=2592000",
+                quming: "天份-薛之谦",
+                geshou: "薛之谦",
+                shichang: "4.30"
+            },
+            {
+                id: 4,
+                img: "https://y.qq.com/music/photo_new/T002R300x300M0000016xXjb2psSBz_2.jpg?max_age=2592000",
+                quming: "哑巴",
+                geshou: "薛之谦",
+                shichang: "4.30"
+            },
+            {
+                id: 5,
+                img: "https://y.qq.com/music/photo_new/T002R300x300M000003eep2a0tgCWe_1.jpg?max_age=2592000",
+                quming: "纸船-薛之谦郁可唯.320",
+                geshou: "薛之谦",
+                shichang: "4.30"
+            },
+        ];
 
+        (function () {
+            xuanranyuequ(rand);
+        })();
+        function xuanranyuequ(rand) {
+            console.log(rand);
+            let html = "";
+            rand.forEach((item, index) => {
+                html += `
+                <li class="li1">
+                    <input class="check1" type="checkbox">
+                    <span class="span1">${item.quming}</span>
+                    <span class="span2">${item.geshou}</span>
+                    <span class="span3">${item.shichang}</span>
+                </li>
+                `;
+            });
+            $('#ul').append(html);
         };
     </script>
 </body>
