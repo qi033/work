@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>八卦</title>
+    <link rel="shortcut icon"
+        href="https://img2.baidu.com/it/u=103439671,452616462&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1689094800&t=f8a2200e16a2772ec7f5ea681f8a46ba">
+</head>
+
+<body>
+    <div class="app">
+        <canvas id="canvas" width="500" height="500"></canvas>
+    </div>
+</body>
+<script>
+    const el = document.querySelector('canvas')
+    const ctx = el.getContext('2d')
+    //填充画布颜色
+    ctx.beginPath()
+    ctx.closePath();
+    ctx.arc(200, 200, 100, 0, (360 * Math.PI) / 180)
+    ctx.stroke()
+
+    ctx.beginPath();
+    ctx.arc(200, 200, 100, (-90 * Math.PI) / 180, (90 * Math.PI) / 180, true);
+
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(200, 250, 50, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(200, 150, 50, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fillStyle = "#fff";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(200, 250, 20, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = "#000";
+    ctx.beginPath();
+    ctx.arc(200, 150, 20, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
+
+    rotation += 0.01;
+    ctx.translate(x, y);
+    ctx.rotate(rotation);
+    ctx.translate(-x, -y);
+    requestAnimationFrame(draw);
+</script>
+
+</html>

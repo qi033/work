@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="../引入/jquery.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -18,6 +19,7 @@
             height: 100vh;
             background-color: #5B402C;
         }
+
         h1 {
             position: absolute;
             top: 20px;
@@ -75,28 +77,79 @@
             color: white;
         }
 
+        .box2 {
+            width: 100%;
+            height: 300px;
+             float: left;
+            margin-top: 20px;
+        }
+
         .box2 .ul2 li {
             width: 100%;
             height: 30px;
             line-height: 30px;
-            background-color: aqua;
+            margin-top: 10px;
+
         }
 
         input[type=checkbox] {
-            -webkit-appearance: none;
             width: 30px;
             height: 30px;
-            background-color: #5B402C;
-            border: 1px solid gray;
-            outline: none;
-            cursor: pointer;
             margin-left: 10px;
+            line-height: 30px
         }
-        input[type=checkbox]:checked:after {
-            content: "\2714";
-            font-size: 35px;
-            line-height: 30px;
-            color: #fff;
+
+        .ul2 li span {
+            position: relative;
+            top: -9px;
+            color: #AFA7A1;
+            display: inline-block;
+            line-height: 30px
+        }
+
+        .aaa {
+
+            width: 390px;
+            height: 100%;
+        }
+        .aaa .icon{
+            float: right;
+            width: 40px;
+            height: 90%;
+            display: none;
+        }
+        .aaa .icon :hover{
+        color: aliceblue;
+        }
+        .bbb {
+
+            width: 120px;
+            height: 100%;
+        }
+
+        .ppp {
+            text-align: right;
+            width: 135px;
+            height: 100%;
+
+        }
+        .box3{
+            position: relative;
+            left: 340px;
+            float: right;
+            width: 300px;
+            height: 485px;
+            background-color: aqua;
+            margin-top: -370px;
+
+           
+        }
+        .box3 .imgsss{
+            width: 80%;
+            height: 180px;
+            margin: auto;
+            background: url("https://y.qq.com/ryqq/static/media/album_cover_player.8dfd80d6.png?max_age=2592000") no-repeat 0 0/100% 100%;
+            text-align: center;
         }
     </style>
 </head>
@@ -145,14 +198,102 @@
         </ul>
         <div class="box2">
             <ul class="ul2">
-                <li><input class="input" type="checkbox"></li>
-                <li><input type="checkbox"></li>
-                <li><input type="checkbox"></li>
-                <li><input type="checkbox"></li>
-                <li><input type="checkbox"></li>
+                <li><input type="checkbox">
+                    <span class="aaa">歌曲</span>
+                    <span class="bbb">歌手</span>
+                    <span class="ppp">时长</span>
+                </li>
             </ul>
+        </div>
+        <div class="box3">
+           <div class="imgsss">
+            <img src="" alt="">
+           </div>
         </div>
     </div>
 </body>
+<script>
+    const rand = [
+        {
+            id: 1,
+            quming: "耗尽-薛之谦,郭聪明.320",
+            geshou: "薛之谦",
+            shichang: "4.30"
+        },
+        {
+            id: 2,
+            quming: "你还要我怎样",
+            geshou: "薛之谦",
+            shichang: "4.30"
+        },
+        {
+            id: 3,
+            quming: "天份-薛之谦",
+            geshou: "薛之谦",
+            shichang: "4.30"
+        },
+        {
+            id: 4,
+            quming: "哑巴",
+            geshou: "薛之谦",
+            shichang: "4.30"
+        },
+        {
+            id: 5,
+            quming: "纸船-薛之谦郁可唯.320",
+            geshou: "薛之谦",
+            shichang: "4.30"
+        },
+    ];
+
+    (function () {
+        xuanranyuequ(rand);
+    })();
+    function xuanranyuequ(rand) {
+        console.log(rand);
+        let html = "";
+        rand.forEach((item, index) => {
+            html += `
+                <li>
+                    <input type="checkbox">
+                    <span class="aaa">${item.quming}<svg t="1688956598998" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2235" width="16" height="16"><path d="M512 42.666667C252.793333 42.666667 42.666667 252.793333 42.666667 512s210.126667 469.333333 469.333333 469.333333 469.333333-210.126667 469.333333-469.333333S771.206667 42.666667 512 42.666667z m196.546667 500.493333l-266.666667 176A37.333333 37.333333 0 0 1 384 688V336.033333a37.333333 37.333333 0 0 1 57.893333-31.16l266.666667 176a37.333333 37.333333 0 0 1 0 62.32z" fill="#8a8a8a" p-id="2236"></path></svg></span>
+                    <span class="bbb">${item.geshou}</span>
+                    <span class="ppp">${item.shichang}</span>
+                </li>
+                `;
+        });
+        $('.ul2').append(html);
+    };
+    $('.ul2 li .aaa').eq(1).mouseover(function(){
+        $(".aaa .icon").eq(0).css("display","block")
+    })
+    $('.ul2 li .aaa').eq(1).mouseout(function(){
+        $(".aaa .icon").eq(0).css("display","none")
+    })
+    $('.ul2 li .aaa').eq(2).mouseover(function(){
+        $(".aaa .icon").eq(1).css("display","block")
+    })
+    $('.ul2 li .aaa').eq(2).mouseout(function(){
+        $(".aaa .icon").eq(1).css("display","none")
+    })
+    $('.ul2 li .aaa').eq(3).mouseover(function(){
+        $(".aaa .icon").eq(2).css("display","block")
+    })
+    $('.ul2 li .aaa').eq(3).mouseout(function(){
+        $(".aaa .icon").eq(2).css("display","none")
+    })
+    $('.ul2 li .aaa').eq(4).mouseover(function(){
+        $(".aaa .icon").eq(3).css("display","block")
+    })
+    $('.ul2 li .aaa').eq(4).mouseout(function(){
+        $(".aaa .icon").eq(3).css("display","none")
+    })
+    $('.ul2 li .aaa').eq(5).mouseover(function(){
+        $(".aaa .icon").eq(4).css("display","block")
+    })
+    $('.ul2 li .aaa').eq(5).mouseout(function(){
+        $(".aaa .icon").eq(4).css("display","none")
+    })
+</script>
 
 </html>
