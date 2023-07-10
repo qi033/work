@@ -1,0 +1,48 @@
+@import "demo";
+/* 定义变量与值 */
+$bgcolor: lightblue;
+$textcolor: red;
+$fontsize: 189px;
+$mysmallsize: 12px;
+$mm:88px;
+
+/* 使用变量 */
+body {
+  $mm:99px !global;
+  background-color: $bgcolor;
+  color: $textcolor;
+  font-size: $mm;
+}
+p{
+  font-size: $mysmallsize;
+}
+h1{
+  color: $demoColor;
+}
+
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    display: inline-block;
+  }
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+    font: {
+      family: Helvetica, sans-serif;
+      size: 18px;
+      weight: bold;
+    }
+    
+    text: {
+      align: center;
+      transform: lowercase;
+      overflow: hidden;
+    }
+  }
+}
