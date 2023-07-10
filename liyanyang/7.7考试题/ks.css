@@ -371,7 +371,6 @@ li {
     -webkit-transform: translateX(-100%);
   }
 }
-
 @-webkit-keyframes wordsLoop {
   0% {
     transform: translateX(1200px);
@@ -381,4 +380,4 @@ li {
     transform: translateX(-100%);
     -webkit-transform: translateX(-100%);
   }
-}
+}/*# sourceMappingURL=ks.css.map */
