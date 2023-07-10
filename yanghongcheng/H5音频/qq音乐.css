@@ -23,7 +23,7 @@ body {
 .bix {
     width: 100%;
     height: 100vh;
-    background-color: hsla(0, 0%, 34%, 0.9);
+    background-color: hsla(0, 0%, 32%, 0.8);
     backdrop-filter: blur(30px);
 }
 
@@ -70,7 +70,7 @@ body {
     position: relative;
     z-index: 3;
     margin-top: -50px;
-    background-color: hsla(0, 0%, 34%, 0.9);
+    /* background-color: hsla(0, 0%, 34%, 0.9); */
 }
 
 .leightlib {
@@ -85,6 +85,7 @@ body {
     width: 1248px;
     height: 38px;
     float: left;
+    margin-top: 40px;
     /* background-color: rgb(21, 255, 0); */
 }
 
@@ -107,7 +108,7 @@ body {
     height: 544px;
     float: left;
     margin-top: 20px;
-    background-color: #a3a3a3;
+    /* background-color: #a3a3a3; */
 }
 
 .song li{
@@ -135,25 +136,26 @@ body {
     margin-left: 303px;
     line-height: 50px;
 }
-.gqs{
-    float: left;
-    margin-left: 40px;
-    line-height: 50px;
+.csx{
+    width: 777px;
+
 }
-.gss{
-    float: left;
-    margin-left: 697px;
-    line-height: 50px;
+.ges{
+    width: 340px;
 }
-.scs{
-    float: left;
-    /* margin-left: 280px; */
-    margin: 0 70px 0 280px;
-    line-height: 50px;
+.mast{
+    width: 108px;
 }
-.gqs,.gss,.scs{
-    color: #fff;
-    font-size: 10px;
+.csx,.ges,.mast{
+    font-size: 14px;
+    float: left;
+    line-height: 50px;
+    height: 50px;
+    color: hsla(0,0%,88.2%,.8);
+    /* background-color: aqua; */
+}
+.fux input{
+    border: 1px solid #ccc;
 }
 .gq,.gs,.sc{
     color: #fff;
@@ -162,4 +164,49 @@ body {
 .fux li input{
     float: left;
     margin: 20px 0 0 10px ;
+}
+.rightbox{
+    width: 304px;
+    height: 499px;
+    float: right;
+    margin-top: 90px;
+    background-color: #99b491;
+}
+.chanpimg{
+    width: 304px;
+    height: 285px;
+    /* background-color: aquamarine; */
+}
+.chapimg{
+    width: 201px;
+    height: 183px;
+    margin: auto;
+    background-color: #6f97ad;
+    background: url(https://y.qq.com/ryqq/static/media/album_cover_player.8dfd80d6.png?max_age=2592000);
+}
+.jiny{
+    width: 180px;
+    height: 180px;
+}
+.xiaq{
+    width: 304px;
+    height: 30px;
+    color: #e1e1e1; 
+    text-align: center;
+    font-size: 14px;
+    line-height: 41px;
+    /* background-color: #ccc; */
+}
+.footer{
+    width: 100%;
+    height: 80px;
+    background-color: aqua;
+    
+}
+.gqha{
+    width: 1688px;
+    height: 77px;
+    background-color: #99b491;
+    margin: auto;
+    
 }
