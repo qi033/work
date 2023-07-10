@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./QQ音乐.css">
+    <link rel="stylesheet" href="./歌词.css">
 </head>
 
 <body>
@@ -102,15 +103,35 @@
                         </ul>
                     </div>
                 </div>
-                <div class="right"></div>
+                <div class="right">
+                    <div class="icon">
+                        <img src="https://y.qq.com/ryqq/static/media/album_cover_player.8dfd80d6.png?max_age=2592000"
+                            class="backicon" width="200px" height="180px">
+                        <img src="https://y.qq.com/music/photo_new/T002R300x300M000000dcZ9I1nzO62_1.jpg?max_age=2592000"
+                            class="sculpture" width="180px" height="180px">
+                        <p>歌曲名：我好像在哪见过你</p>
+                        <p>歌手：薛之谦</p>
+                        <p>专辑：初学者</p>
+                    </div>
+                    <div class="mp3">
+                        <div class="container">
+                            <ul class="lrc-list">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="control"></div>
+            <div class="control">
+                <audio controls>
+                    <source src="D/下载/qq音乐/qq音乐/下载音乐/VipSongsDownload/薛之谦 - 我好像在哪见过你.mgg">
+                </audio>
+            </div>
         </div>
     </div>
 
-    <script>
-
-    </script>
+    <script src="../../common/jquery-3.7.0.min.js"></script>
+    <script src="./歌词2.js"></script>
+    <script src="./歌词.js"></script>
 </body>
 
 </html>

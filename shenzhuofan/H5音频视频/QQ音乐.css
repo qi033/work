@@ -5,7 +5,7 @@
 
 a {
   text-decoration: none;
-  color: white;
+  color: #bdbdbe;
 }
 
 li {
@@ -45,6 +45,10 @@ li {
   width: 1400px;
   margin: auto;
 }
+.wrap .content .list{
+  display: flex;
+  justify-content: space-between;
+}
 .wrap .content .list .left{
   width:1000px;
   height:700px;
@@ -57,8 +61,8 @@ li {
   float: left;
   width: 130px;
   text-align: center;
-  font-size: 20px;
-  border: 1px solid white;
+  font-size: 15px;
+  border: 1px solid #bdbdbe;
   margin-top: 25px;
   padding: 10px;
   margin-right: 10px;
@@ -67,10 +71,10 @@ li {
   height:600px;
 }
 .wrap .content .list .left .directory li{
-  font-size: 17px;
+  font-size: 15px;
   line-height: 40px;
   position: relative;
-  color: white;
+  color: #bdbdbe;
 }
 .wrap .content .list .left .directory li .song{
   position: absolute;
@@ -78,9 +82,39 @@ li {
 }
 .wrap .content .list .left .directory li .singer{
   position: absolute;
-  left: 550px;
+  left: 750px;
 }
 .wrap .content .list .left .directory li .duration{
   position: absolute;
-  left: 750px;
+  left: 900px;
+}
+.wrap .content .list .right{
+  width: 400px;
+  height: 700px;
+  margin-top: 100px;
+}
+.wrap .content .list .right .icon{
+  width: 200px;
+  height: 180px;
+  margin: auto;
+  position: relative;
+}
+.wrap .content .list .right .icon .backicon{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.wrap .content .list .right .icon p{
+  text-align: center;
+  line-height: 30px;
+  color: #bdbdbe;
+}
+.wrap .content .list .right .mp3{
+  width:400px;
+  height: 400px;
+  margin-top: 120px;
+}
+.wrap .content .list .right .mp3 .container{
+   width:400px;
+  height: 450px;
 }
