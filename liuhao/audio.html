@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="box">
+      <audio id="myAudio">
+        <source src="./MP3/123.mp3" />
+      </audio>
+    </div>
+    <button onclick="getCurTime()" type="button">获取当前时间位置</button>
+    <button onclick="setCurTime()" type="button">设置时间点为 1 秒</button>
+    <div id="demo"></div>
+    <script>
+      var x = document.getElementById("myAudio");
+      function getCurTime() {
+        document.getElementById("myAudio").pause();
+      }
+      function setCurTime() {
+        document.getElementById("myAudio").play();
+      }
+    </script>
+  </body>
+</html>
