@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        margin: 0 0 0 700px;
+        background-color: rgb(156, 151, 151);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="box" width="600" height="800"></canvas>
+  </body>
+  <script>
+    const el = document.getElementById("box");
+    //画布对象
+    const ctx = el.getContext("2d");
+    // //定义填充颜色
+    // ctx.strokeStyle = "#16a085";
+    // //线条宽度
+    // ctx.lineWidth = 30;
+    // //边角类型：bevel斜角 ,round圆角，miter尖角
+    // ctx.lineJoin = "round";
+    // //绘制矩形边框
+    // ctx.strokeRect(50, 50, 300, 300);
+
+    //填充画布颜色
+    ctx.beginPath();
+    ctx.strokeStyle = "red"; //空心圆颜色
+    ctx.fillStyle = "#f1c40f"; //实心圆颜色
+    ctx.lineWidth = 20;
+    ctx.arc(300, 100, 60, 0, 2 * Math.PI);
+    // ctx.stroke(); //空心圆
+    ctx.fill(); //实心圆
+
+    //扇形
+    //填充画布颜色
+    ctx.beginPath();
+    ctx.strokeStyle = "red"; //空心圆颜色
+    ctx.fillStyle = "#f1c40f"; //实心圆颜色
+    ctx.lineWidth = 1;
+    ctx.arc(100, 100, 60, 0, 1 * Math.PI, true);
+    // ctx.stroke(); //空心圆
+    ctx.fill(); //实心圆
+    //五角星
+
+    ctx.beginPath();
+    ctx.moveTo(100, 210);
+    ctx.lineTo(50, 450);
+    ctx.lineTo(180, 300);
+    ctx.lineTo(20, 300);
+    ctx.lineTo(150, 450);
+    ctx.lineTo(100, 210);
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 5;
+    ctx.stroke();
+    // function drawStar(ctx, x, y, radius, spikes, innerRadius) {
+    //   var rot = (Math.PI / 2) * 3;
+    //   var x = x || 100;
+    //   var y = y || 100;
+    //   var radius = radius || 50;
+    //   var spikes = spikes || 5;
+    //   var innerRadius = innerRadius || radius / 2;
+
+    //   ctx.beginPath();
+    //   ctx.moveTo(x, y - radius);
+    //   for (var i = 0; i < spikes; i++) {
+    //     var outerX = x + Math.cos(rot) * radius;
+    //     var outerY = y + Math.sin(rot) * radius;
+    //     ctx.lineTo(outerX, outerY);
+    //     rot += Math.PI / spikes;
+
+    //     var innerX = x + Math.cos(rot) * innerRadius;
+    //     var innerY = y + Math.sin(rot) * innerRadius;
+    //     ctx.lineTo(innerX, innerY);
+    //     rot += Math.PI / spikes;
+    //   }
+    //   ctx.lineTo(x, y - radius);
+    //   ctx.closePath();
+    //   ctx.lineWidth = 5;
+    //   ctx.strokeStyle = "white";
+    //   ctx.stroke();
+    //   //   ctx.fillStyle = "yellow";
+    //   //   ctx.fill();
+    // }
+    // drawStar(ctx, 100, 230, 50, 5, 20);
+
+    //太极
+    let taijiNum = 0;
+    drawTaiji();
+    function drawTaiji() {
+      taijiNum -= Math.PI / 360;
+
+      // 大圆描边
+      ctx.beginPath();
+      ctx.arc(400, 400, 160, 0, Math.PI * 2);
+      ctx.lineWidth = 15;
+      ctx.strokeStyle = "black";
+      ctx.stroke();
+
+      // 左边半圆
+      ctx.fillStyle = "#333";
+      ctx.beginPath();
+      ctx.arc(
+        400,
+        400,
+        160,
+        taijiNum + Math.PI * 0.5,
+        taijiNum + Math.PI * 1.5
+      );
+      ctx.fill();
+
+      // 右边半圆
+      ctx.fillStyle = "#fff";
+      ctx.beginPath();
+      ctx.arc(
+        400,
+        400,
+        160,
+        taijiNum + Math.PI * 0.5,
+        taijiNum + Math.PI * 1.5,
+        true
+      );
+      ctx.fill();
+
+      // 上半边
+      ctx.fillStyle = "#fff";
+      ctx.beginPath();
+      ctx.arc(
+        400 - 80 * Math.sin(taijiNum),
+        400 + 80 * Math.cos(taijiNum),
+        80,
+        taijiNum + Math.PI * 0.5,
+        taijiNum + Math.PI * 1.5
+      );
+      ctx.fill();
+      // 清除间隔线条
+      ctx.beginPath();
+      ctx.moveTo(
+        400 - 160 * Math.sin(taijiNum),
+        400 + 160 * Math.cos(taijiNum)
+      );
+      ctx.lineTo(400, 400);
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "#fff";
+      ctx.stroke();
+
+      // 下半边
+      ctx.fillStyle = "#333";
+      ctx.beginPath();
+      ctx.arc(
+        400 + 80 * Math.sin(taijiNum),
+        400 - 80 * Math.cos(taijiNum),
+        80,
+        taijiNum + Math.PI * 0.5,
+        taijiNum + Math.PI * 1.5,
+        true
+      );
+      ctx.fill();
+
+      // 清除间隔线条
+      ctx.beginPath();
+      ctx.moveTo(
+        400 + 160 * Math.sin(taijiNum),
+        400 - 160 * Math.cos(taijiNum)
+      );
+      ctx.lineTo(400, 400);
+      ctx.strokeStyle = "#333";
+      ctx.stroke();
+
+      // 上边小圆
+      ctx.fillStyle = "#333";
+      ctx.beginPath();
+      ctx.arc(
+        400 - 80 * Math.sin(taijiNum),
+        400 + 80 * Math.cos(taijiNum),
+        16,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
+
+      // 下边小圆
+      ctx.fillStyle = "white";
+      ctx.beginPath();
+      ctx.arc(
+        400 + 80 * Math.sin(taijiNum),
+        400 - 80 * Math.cos(taijiNum),
+        16,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
+    }
+    drawTaiji();
+  </script>
+</html>

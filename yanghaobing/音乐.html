@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="" />
+    <script src=""></script>
+  </head>
+  <style></style>
+  <body>
+    <div id="box">
+      <audio controls>
+        <source src="./QQ音乐/MP3/雅俗共赏 - 许嵩.mp3" />
+      </audio>
+    </div>
+    <div id="lyicer"></div>
+  </body>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+  <script>
+    let lyic = [];
+    const pattern = /\[(.+)\](.+)/;
+    $(function () {
+      $.get("./QQ音乐/MP3/雅俗共赏 - 许嵩.lrc", function (data) {
+        lyic = data.split("\n");
+        lyic = lyic.forEach((currentItem) => {
+          return {};
+        });
+      });
+      renderlyric();
+    });
+
+    function renderlyric() {
+      let html = "";
+      lyic.forEach((currentItem) => {
+        html += `<p>${currentItem.lyric}</p>`;
+      });
+      $("#lyicer").html(html);
+    }
+  </script>
+</html>

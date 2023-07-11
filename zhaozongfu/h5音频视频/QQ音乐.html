@@ -80,7 +80,7 @@
         .box2 {
             width: 100%;
             height: 300px;
-
+             float: left;
             margin-top: 20px;
         }
 
@@ -118,6 +118,9 @@
             height: 90%;
             display: none;
         }
+        .aaa .icon :hover{
+        color: aliceblue;
+        }
         .bbb {
 
             width: 120px;
@@ -129,6 +132,24 @@
             width: 135px;
             height: 100%;
 
+        }
+        .box3{
+            position: relative;
+            left: 340px;
+            float: right;
+            width: 300px;
+            height: 485px;
+            background-color: aqua;
+            margin-top: -370px;
+
+           
+        }
+        .box3 .imgsss{
+            width: 80%;
+            height: 180px;
+            margin: auto;
+            background: url("https://y.qq.com/ryqq/static/media/album_cover_player.8dfd80d6.png?max_age=2592000") no-repeat 0 0/100% 100%;
+            text-align: center;
         }
     </style>
 </head>
@@ -184,6 +205,11 @@
                 </li>
             </ul>
         </div>
+        <div class="box3">
+           <div class="imgsss">
+            <img src="" alt="">
+           </div>
+        </div>
     </div>
 </body>
 <script>
@@ -238,8 +264,35 @@
         });
         $('.ul2').append(html);
     };
-    $('.ul2 li').mouseover(function(){
-        $(".aaa .icon").css("display","block")
+    $('.ul2 li .aaa').eq(1).mouseover(function(){
+        $(".aaa .icon").eq(0).css("display","block")
+    })
+    $('.ul2 li .aaa').eq(1).mouseout(function(){
+        $(".aaa .icon").eq(0).css("display","none")
+    })
+    $('.ul2 li .aaa').eq(2).mouseover(function(){
+        $(".aaa .icon").eq(1).css("display","block")
+    })
+    $('.ul2 li .aaa').eq(2).mouseout(function(){
+        $(".aaa .icon").eq(1).css("display","none")
+    })
+    $('.ul2 li .aaa').eq(3).mouseover(function(){
+        $(".aaa .icon").eq(2).css("display","block")
+    })
+    $('.ul2 li .aaa').eq(3).mouseout(function(){
+        $(".aaa .icon").eq(2).css("display","none")
+    })
+    $('.ul2 li .aaa').eq(4).mouseover(function(){
+        $(".aaa .icon").eq(3).css("display","block")
+    })
+    $('.ul2 li .aaa').eq(4).mouseout(function(){
+        $(".aaa .icon").eq(3).css("display","none")
+    })
+    $('.ul2 li .aaa').eq(5).mouseover(function(){
+        $(".aaa .icon").eq(4).css("display","block")
+    })
+    $('.ul2 li .aaa').eq(5).mouseout(function(){
+        $(".aaa .icon").eq(4).css("display","none")
     })
 </script>
 

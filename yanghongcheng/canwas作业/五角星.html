@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+    .app {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+<div class="app">
+    <canvas id="canvas" width="500" height="500"></canvas>
+</div>
+
+<script>
+    const el = document.querySelector('canvas')
+    const ctx = el.getContext('2d')
+    //填充画布颜色
+    ctx.fillStyle = '#8e44ad'
+    ctx.fillRect(0, 0, el.width, el.height)
+    //开始画线
+    ctx.beginPath()
+    //移动起始点
+    ctx.moveTo(250, 8)
+    //下一个节点
+    ctx.lineTo(80, 490)
+    //下一个节点
+    ctx.lineTo(500, 200)
+    //下一个节点
+    ctx.lineTo(0,200)
+    //下一个节点
+    ctx.lineTo(400,490)
+    //下一个节点
+    ctx.lineTo(250,12)
+    //闭合节点
+    // ctx.closePath()
+    //线宽
+    ctx.lineWidth = 10
+    //线颜色
+    ctx.strokeStyle = '#f1c40f'
+    //画线
+    ctx.stroke()
+</script>
+<body>
+    
+</body>
+</html>
