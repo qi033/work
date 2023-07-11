@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <canvas id="canvas" width="1000" height="1000"></canvas>
+    </div>
+</body>
+<!-- 太极 -->
+<script>
+    const el = document.querySelector('canvas')
+    const ctx = el.getContext('2d')
+    //填充画布颜色
+    ctx.beginPath()
+    ctx.strokeStyle = 'black'
+    ctx.lineWidth = 5
+    ctx.arc(400, 400, 305, 0, 2 * Math.PI)
+    ctx.stroke()
+
+    const els = document.querySelector('canvas')
+    const ctxs = els.getContext('2d')
+    //填充画布颜色
+    ctxs.beginPath()
+    ctxs.fillStyle = ''
+    ctxs.lineWidth = 20
+    ctxs.arc(400, 400, 300, 0, 2 * Math.PI)
+    ctxs.fill()
+
+    const els5 = document.querySelector('canvas')
+    const ctxs5 = els5.getContext('2d')
+    //填充画布颜色
+    ctxs5.beginPath()
+    ctxs5.fillStyle = 'white'
+    ctxs5.lineWidth = 20
+    ctxs5.arc(400, 400, 300, 0, 1 * Math.PI)
+    ctxs5.fill()
+
+    const els3 = document.querySelector('canvas')
+    const ctxs3 = els3.getContext('2d')
+    //填充画布颜色
+    ctxs3.beginPath()
+    ctxs3.fillStyle = 'black'
+    ctxs3.lineWidth = 20
+    ctxs3.arc(250, 400, 150, 0, 2 * Math.PI)
+    ctxs3.fill()
+
+    const els4 = document.querySelector('canvas')
+    const ctxs4 = els4.getContext('2d')
+    //填充画布颜色
+    ctxs4.beginPath()
+    ctxs4.fillStyle = 'white'
+    ctxs4.lineWidth = 20
+    ctxs4.arc(550, 400, 150, 0, 2 * Math.PI)
+    ctxs4.fill()
+
+    const els6 = document.querySelector('canvas')
+    const ctxs6 = els6.getContext('2d')
+    //填充画布颜色
+    ctxs6.beginPath()
+    ctxs6.fillStyle = 'white'
+    ctxs6.lineWidth = 20
+    ctxs6.arc(250, 400, 50, 0, 2 * Math.PI)
+    ctxs6.fill()
+
+    const els7 = document.querySelector('canvas')
+    const ctxs7 = els7.getContext('2d')
+    //填充画布颜色
+    ctxs7.beginPath()
+    ctxs7.fillStyle = 'black'
+    ctxs7.lineWidth = 20
+    ctxs7.arc(550, 400, 50, 0, 2 * Math.PI)
+    ctxs7.fill()
+</script>
+
+
+
+</html>

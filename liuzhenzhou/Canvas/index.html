@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="800" height="800">
+        您的浏览器不支持Canvas绘图
+    </canvas>
+
+    <script type="text/javascript">
+ 
+        //只画边框线，无填充
+         function bigCircle(ctx,x, y, r, st, end, w,oc) {
+             ctx.lineWidth = w;
+             ctx.beginPath();
+             ctx.arc(x, y, r, st, end, oc);
+             ctx.closePath();
+             ctx.stroke();
+         }
+         //有填充，画小圆，x，y表示大圆的圆心,r表示大圆的半径，w表示线宽，oc表示方向,l表示上下，d表示度数
+         function smallCircle(ctx, x, y, r, st, end, w, oc, l,d) {
+             var Angle = d * Math.PI / 180; //偏移角用弧度表示
+             ctx.lineWidth = w;
+             ctx.beginPath();
+             if (l) {
+                 ctx.fillStyle = "black";
+                 ctx.arc(x + (r / 2) * Math.sin(Angle), y - (r / 2) * Math.cos(Angle), r/10, st, end, oc);
+             } else {
+                 ctx.fillStyle = "white";
+                 ctx.arc(x - (r / 2) * Math.sin(Angle), y + (r / 2) * Math.cos(Angle), r/10, st, end, oc);
+             }
+             ctx.closePath();
+             ctx.stroke();
+             ctx.fill();
+         }
+  
+         //此函数是画带S形曲线的圆，l表示左右，true表示左，顺时针，false表示右，逆时针
+         //d表示度数
+         function halfCircle(ctx, x, y, r, w, l,d) {
+             ctx.lineWidth = w;
+             if (l) {
+                 ctx.fillStyle = "black";
+             } else {
+                 ctx.fillStyle = "white";
+             }
+             ctx.beginPath();
+             var Angle = d * Math.PI / 180;//偏移角用弧度表示
+  
+             ctx.arc(x + (r / 2) * Math.sin(Angle), y - (r / 2) * Math.cos(Angle), r / 2, Math.PI / 2 + Angle, Math.PI * 3 / 2 + Angle, true);
+             ctx.arc(x - (r / 2) * Math.sin(Angle), y + (r / 2) * Math.cos(Angle), r / 2, Math.PI*3 / 2 + Angle, Math.PI / 2 + Angle, true);
+             ctx.arc(x, y, r, Math.PI / 2 + Angle, Math.PI * 3 / 2 + Angle, l); //顺时针，逆时针通过参数判断
+             ctx.closePath();
+             ctx.stroke();
+             ctx.fill();
+         }
+  
+         var num = 0;//表示旋转的度数
+         function drawTaichi() {
+             var c = document.getElementById("myCanvas");
+             var ctx = c.getContext("2d");
+             var cX = 200;
+             var cY = 200;
+             var radius = 150;
+             ctx.clearRect(0,0,c.width,c.height);
+             //绘制s线 左
+             halfCircle(ctx, cX, cY, radius, 1, true, num);
+             //右
+             halfCircle(ctx, cX, cY, radius, 1, false, num);
+             //绘制小圆，上
+             smallCircle(ctx, cX, cY, radius, 0, Math.PI * 2, 1, true, true, num);
+             //绘制小圆，下
+             smallCircle(ctx, cX, cY, radius, 0, Math.PI * 2, 1, true, false, num);
+             //绘制外圆
+             bigCircle(ctx, cX, cY, radius, 0, Math.PI * 2, 2, true);
+             ctx.save();
+            //  num++;
+            //  num = num % 360;//只有360°,所以大于360，就重新开始
+         }
+  
+         window.onload = function () {
+             setInterval(drawTaichi, 200);
+         }
+  
+</script> 
+</body>
+</html>

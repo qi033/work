@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 画布元素 -->
+    <!-- <canvas id="canvas" width="500" height="500" style="overflow: hidden; border: solid 20px #000"></canvas> -->
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+      let canvas = document.getElementById("myCanvas");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      canvas.style.backgroundColor = "#fff";
+      ctx = canvas.getContext("2d");
+
+      let taijiNum = 0,
+        recNum = 0,
+        lineNum = 0;
+
+      // 八边形框
+      function drawOutline() {
+        lineNum += 1;
+        let lineDeg = (lineNum * Math.PI) / 360;
+
+        ctx.beginPath();
+        ctx.lineJoin = "round";
+
+        ctx.closePath();
+        ctx.lineWidth = 10;
+        ctx.strokeStyle = "#333";
+        ctx.stroke();
+      }
+
+      // 画太极
+      function drawTaiji() {
+        taijiNum -= Math.PI / 360;
+
+        // 大圆描边
+        ctx.beginPath();
+        ctx.arc(400, 400, 160, 0, Math.PI * 2);
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = "#333";
+        ctx.stroke();
+
+        // 左边半圆
+        ctx.fillStyle = "#333";
+        ctx.beginPath();
+        ctx.arc(
+          400,
+          400,
+          160,
+          taijiNum + Math.PI * 0.5,
+          taijiNum + Math.PI * 1.5
+        );
+        ctx.fill();
+
+        // 右边半圆
+        ctx.fillStyle = "#fff";
+        ctx.beginPath();
+        ctx.arc(
+          400,
+          400,
+          160,
+          taijiNum + Math.PI * 0.5,
+          taijiNum + Math.PI * 1.5,
+          true
+        );
+        ctx.fill();
+
+        // 上半边
+        ctx.fillStyle = "#fff";
+        ctx.beginPath();
+        ctx.arc(
+          400 - 80 * Math.sin(taijiNum),
+          400 + 80 * Math.cos(taijiNum),
+          80,
+          taijiNum + Math.PI * 0.5,
+          taijiNum + Math.PI * 1.5
+        );
+        ctx.fill();
+        // 清除间隔线条
+        ctx.beginPath();
+        ctx.moveTo(
+          400 - 160 * Math.sin(taijiNum),
+          400 + 160 * Math.cos(taijiNum)
+        );
+        ctx.lineTo(400, 400);
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = "#fff";
+        ctx.stroke();
+
+        // 下半边
+        ctx.fillStyle = "#333";
+        ctx.beginPath();
+        ctx.arc(
+          400 + 80 * Math.sin(taijiNum),
+          400 - 80 * Math.cos(taijiNum),
+          80,
+          taijiNum + Math.PI * 0.5,
+          taijiNum + Math.PI * 1.5,
+          true
+        );
+        ctx.fill();
+
+        // 清除间隔线条
+        ctx.beginPath();
+        ctx.moveTo(
+          400 + 160 * Math.sin(taijiNum),
+          400 - 160 * Math.cos(taijiNum)
+        );
+        ctx.lineTo(400, 400);
+        ctx.strokeStyle = "#333";
+        ctx.stroke();
+
+        // 上边小圆
+        ctx.fillStyle = "#333";
+        ctx.beginPath();
+        ctx.arc(
+          400 - 80 * Math.sin(taijiNum),
+          400 + 80 * Math.cos(taijiNum),
+          16,
+          0,
+          Math.PI * 2
+        );
+        ctx.fill();
+
+        // 下边小圆
+        ctx.fillStyle = "#fff";
+        ctx.beginPath();
+        ctx.arc(
+          400 + 80 * Math.sin(taijiNum),
+          400 - 80 * Math.cos(taijiNum),
+          16,
+          0,
+          Math.PI * 2
+        );
+        ctx.fill();
+      }
+
+      // 画方格
+      function drawRec() {
+        let arcNum = (Math.PI * 2) / 8;
+        let colors = [
+          "red",
+          "blue",
+          "green",
+          "pink",
+          "gray",
+          "orange",
+          "yellow",
+          "violet",
+        ];
+        recNum += Math.PI / 360;
+
+        for (let i = 0; i < 8; i++) {
+          let arc = recNum + arcNum / 2 + i * arcNum;
+          ctx.save();
+
+          ctx.translate(
+            400 + 260 * Math.cos(arc + arcNum / 2),
+            400 + 260 * Math.sin(arc + arcNum / 2)
+          );
+          // rotate方法旋转当前的绘图
+          ctx.rotate(arc + arcNum / 2 + Math.PI / 2);
+
+          // ctx.fillStyle = colors[i]
+          ctx.fillStyle = "#333";
+          ctx.fillRect(-50, 0, 100, 10);
+          ctx.fillRect(-50, 20, 100, 10);
+          ctx.fillRect(-50, 40, 100, 10);
+
+          ctx.fillStyle = "#fff";
+
+          if (i === 0) {
+            ctx.fillRect(-15, 39, 30, 12);
+          } else if (i === 1) {
+            ctx.fillRect(-15, -1, 30, 12);
+            ctx.fillRect(-15, 39, 30, 12);
+          } else if (i === 2) {
+            ctx.fillRect(-15, 19, 30, 12);
+            ctx.fillRect(-15, 39, 30, 12);
+          } else if (i === 3) {
+            ctx.fillRect(-15, -1, 30, 12);
+            ctx.fillRect(-15, 19, 30, 12);
+            ctx.fillRect(-15, 39, 30, 12);
+          } else if (i === 4) {
+            ctx.fillRect(-15, -1, 30, 12);
+            ctx.fillRect(-15, 19, 30, 12);
+          } else if (i === 5) {
+            ctx.fillRect(-15, 19, 30, 12);
+          } else if (i === 6) {
+            ctx.fillRect(-15, -1, 30, 12);
+          } else {
+          }
+
+          ctx.restore();
+        }
+      }
+
+      function draw() {
+        ctx.globalCompositeOperation = "source-over";
+        ctx.clearRect(0, 0, 800, 800);
+        drawOutline();
+        drawTaiji();
+        drawRec();
+      }
+
+      draw();
+    </script>
+  </body>
+</html>

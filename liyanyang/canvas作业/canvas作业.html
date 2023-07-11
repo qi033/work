@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style type="text/css">
+    body {
+      text-align: center;
+      margin: 50px auto;
+    }
+    canvas {
+      background: #fff;
+      border: 1px solid black;
+    }
+  </style>
+
+  <body>
+    <canvas id="c0" width="500" height="500"></canvas>
+    <script type="text/javascript">
+      var ctx = c0.getContext("2d");
+      //1.绘制最外边的大圆
+      ctx.beginPath();
+      ctx.arc(200, 200, 100, 0, (360 * Math.PI) / 180);
+      ctx.closePath();
+      ctx.stroke();
+
+      //2.绘制左边的实心半圆
+      ctx.beginPath();
+      ctx.arc(200, 200, 100, (-90 * Math.PI) / 180, (90 * Math.PI) / 180, true);
+      //true是逆时针，false默认值---顺时针
+      ctx.closePath();
+      ctx.fill();
+
+      //3.绘制黑色圆
+      ctx.beginPath();
+      ctx.arc(200, 250, 50, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.fill();
+
+      //4.上面的白色圆
+      ctx.beginPath();
+      ctx.arc(200, 150, 50, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.fillStyle = "#fff";
+      ctx.fill();
+
+      //5.绘制一黑一白圆形
+      ctx.beginPath();
+      ctx.arc(200, 250, 20, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.fill();
+
+      //黑色圆
+      ctx.fillStyle = "#000";
+      ctx.beginPath();
+      ctx.arc(200, 150, 20, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.fill();
+    </script>
+    <br />
+
+    <div class="app">
+      <canvas id="canvas1" width="500" height="500"></canvas>
+    </div>
+    <script>
+      const el = document.querySelector("#canvas1");
+      const ctx1s = el.getContext("2d");
+      //填充画布颜色
+      ctx1s.fillStyle = "white";
+      ctx1s.fillRect(0, 0, el.width, el.height);
+      ctx1s.beginPath(); //开始画线
+      ctx1s.moveTo(200, 0); //移动起始点
+      ctx1s.lineTo(60, 400); //下一个节点
+      ctx1s.lineTo(400, 150); //下一个节点
+      ctx1s.lineTo(0, 150); //下一个节点
+      ctx1s.lineTo(350, 400); //下一个节点
+      ctx1s.closePath(); //连接节点
+      ctx1s.lineWidth = 8; //线宽
+      ctx1s.strokeStyle = "black"; //线宽
+      ctx1s.stroke();
+    </script>
+    <!-- 五星红旗 -->
+    <canvas
+      id="flag"
+      width="500"
+      height="400"
+      style="background-color: red"
+    ></canvas>
+    <script>
+      var flag = document.getElementById("flag");
+      var ctxss = flag.getContext("2d");
+
+      function drawStar(x, y, r, deg) {
+        //xy中心坐标，r半径，deg旋转角度
+        ctxss.beginPath();
+        ctxss.translate(x, y);
+        ctxss.rotate((deg * Math.PI) / 180);
+        var dit = (Math.PI * 4) / 5;
+        var sin = Math.sin(0) * r;
+        var cos = Math.cos(0) * r;
+        ctxss.moveTo(cos, sin);
+        for (var i = 0; i < 5; i++) {
+          var tempDit = dit * i;
+          sin = Math.sin(tempDit) * r;
+          cos = Math.cos(tempDit) * r;
+          ctxss.lineTo(cos, sin);
+        }
+        ctxss.closePath();
+        ctxss.fillStyle = "#ffde00";
+        ctxss.fill();
+        ctxss.rotate((-deg * Math.PI) / 180);
+        ctxss.translate(-x, -y);
+      }
+
+      drawStar(100, 100, 60, -18);
+      drawStar(200, 40, 20, 0);
+      drawStar(240, 80, 20, 27);
+      drawStar(240, 140, 20, -18);
+      drawStar(200, 180, 20, 0);
+    </script>
+    <script></script>
+  </body>
+</html>
