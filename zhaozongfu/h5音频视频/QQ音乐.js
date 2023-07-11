@@ -30,7 +30,6 @@ const rand = [
         shichang: "04:21"
     },
 ];
-
 (function () {
     xuanranyuequ(rand);
 })();
