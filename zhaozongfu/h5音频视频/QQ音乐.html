@@ -180,7 +180,7 @@
 
         #lyric {
             margin-top: 15px;
-            color: hsla(0,0%,88.2%,.8);
+            color: hsla(0, 0%, 88.2%, .8);
             font-size: 15px;
             width: 100%;
             height: 290px;
@@ -190,6 +190,10 @@
 
         ::-webkit-scrollbar {
             display: none;
+        }
+
+        #lyric p {
+            margin: 10px 0;
         }
     </style>
 </head>
@@ -449,18 +453,23 @@
     let lrc = [];
     const pattern = /\[(.+)\](.+)/;
     $(function () {
-        $.get("../../liuhao/MP3/棉花糖 - 至上励合.lrc", function (data) {
+        $.get("./音频、歌词/在你的身边 - 盛哲.lrc", function (data) {
             lrc = data.split("\n");
             console.log(lrc);
             lrc = lrc.map((currentItem) => {
+
                 let tmp = currentItem.match(pattern);
                 console.log(currentItem);
-                console.log(tmp);
 
-                return {
-                    time: s(tmp[1]),
-                    lyric: tmp[2],
+                if (tmp) {
+                    return {
+                        time: s(tmp[1]),
+                        lyric: tmp[2],
+                    }
+                } else {
+                    return null
                 }
+                console.log(tmp);
             });
             //渲染歌词
             renderLyric();
@@ -474,12 +483,12 @@
         });
         $("#lyric").html(html1);
     }
-    $("#audio").on("audio", function () {
+    $("#audio").on("play", function () {
         setInterval(() => {
             ctime = Math.floor(this.currentTime);
             lrc.forEach((currentItem, index) => {
                 if (ctime >= currentItem.time && ctime < lrc[index + 1].time) {
-                    $("p").eq(index).css("color", "red");
+                    $("p").eq(index).css("color", "yellowgreen");
                 }
             });
         }, 500);
@@ -489,6 +498,74 @@
         const [minutes, seconds] = timeString.split(":");
         return parseInt(minutes) * 60 + parseInt(seconds);
     }
+    function highlightLyric(lyricIndex) {
+        var container = document.getElementById('lyric');
+        var lyrics = container.getElementsByTagName('p');
+
+        for (var i = 0; i < lyrics.length; i++) {
+            if (i === lyricIndex) {
+                lyrics[i].classList.add('highlight');
+                var containerHeight = container.clientHeight;
+                console.log(containerHeight);
+                var containerScrollTop = container.scrollTop;
+                console.log(containerScrollTop);
+                var lyricOffsetTop = lyrics[i].offsetTop;
+                console.log(lyricOffsetTop);
+                var lyricHeight = lyrics[i].clientHeight;
+                console.log(lyricHeight);
+
+                if (lyricOffsetTop < containerScrollTop || lyricOffsetTop + lyricHeight > containerScrollTop + containerHeight) {
+                    container.scrollTop = lyricOffsetTop - containerHeight / 2;
+                }
+            } else {
+                lyrics[i].classList.remove('highlight');
+            }
+        }
+    }
+    function getCurrentLyricIndex(currentTime, lyrics) {
+        for (var i = 0; i < lyrics.length - 1; i++) {
+            if (currentTime >= lyrics[i].time && currentTime < lyrics[i + 1].time) {
+                return i;
+            }
+        }
+        return lyrics.length - 1;
+    }
+
+    // 监听音频时间更新事件
+    function handleTimeUpdate() {
+        var audio = document.getElementById('audio');
+        var currentTime = audio.currentTime;
+        var lyricIndex = getCurrentLyricIndex(currentTime, parsedLyrics);
+        highlightLyric(lyricIndex);
+    }
+
+    // 监听滚动条事件
+    function handleScroll() {
+        var container = document.getElementById('lyric');
+        var audio = document.getElementById('audio');
+        var lyrics = container.getElementsByTagName('p');
+        var scrollTop = container.scrollTop;
+
+        for (var i = 0; i < lyrics.length; i++) {
+            if (scrollTop >= lyrics[i].offsetTop - container.clientHeight / 2 &&
+                scrollTop < lyrics[i].offsetTop + lyrics[i].clientHeight - container.clientHeight / 2) {
+                audio.currentTime = parsedLyrics[i].time;
+                return;
+            }
+        }
+    }
+
+    // 调用函数进行解析和显示
+    var parsedLyrics = parseLrc(lrcContent);
+    displayLyrics(parsedLyrics);
+
+    // 监听音频时间更新事件
+    var audio = document.getElementById('audio');
+    audio.addEventListener('timeupdate', handleTimeUpdate);
+
+    // 监听滚动条事件
+    var container = document.getElementById('lyric');
+    container.addEventListener('scroll', handleScroll);
 
 </script>
 
