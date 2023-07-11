@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // class User {
+        //     constructor(name) {
+        //         this.name = name;
+        //         this.show = function () { };
+        //     }
+        //     getName() {
+        //         return this.name;
+        //     }
+        // }
+        // const zs = new User("张三");
+        // console.log(zs);
+
+        // class User {
+        //     constructor(name) {
+        //         this.name = name;
+        //         this.show = function () { }
+        //     }
+        //     getName() {
+        //         return this.name;
+        //     }
+        // }
+        // const zs = new User("张三");
+        // console.log(zs);
+
+        // class User {
+        //     constructor(name) {
+        //         this.name = name;
+        //     }
+        //     getname() { }
+        // }
+        // console.log(User == User.prototype.constructor); //true
+        // function User2(name) {
+        //     this.name = name;
+        // }
+        // console.log(User2 == User2.prototype.constructor); //true
+        // console.dir(User);
+        // console.dir(User2);
+
+        // class User {
+        //     site = "好前程";
+        //     constructor(name) {
+        //         this.name = name;
+        //     }
+        //     show() {
+        //         console.log(this.site + ":" + this.name);
+        //     }
+        // }
+        // let zs = new User("张三");
+        // zs.show();
+
+
+
+        // class User {
+        //     constructor(name) {
+        //         this.name = name;
+        //     }
+        //     show() {
+        //         console.log(this.name);
+        //     }
+        // }
+        // let zs = new User("张三");
+        // // console.log(zs.name);
+        // //不会枚举出show属性
+        // for (const key in zs) {
+        //     console.log(key);
+        // }
+
+        // function User2(name) {
+        //     this.name = name;
+        // }
+        // User2.prototype.show = function () {
+        //     console.log(this.name);
+        // };
+        // let obj = new User2("李四");
+        // for (const key in obj) {
+        //     console.log(key);
+        // }
+
+        // function User() { }
+        // User.site = "好前程";
+        // console.dir(User);
+
+        // const hqc = new User();
+        // console.log(hqc.site); //undefiend
+        // console.log(User.site); //后盾人
+
+        // class Request {
+        //     static HOST = "https://liu.zzgoodqc.cn";
+
+        //     query(api) {
+        //         return Request.HOST + "/" + api;
+        //     }
+        // }
+        // let request = new Request();
+
+
+        // function User() {
+        //     this.show = function () {
+        //         return "this is a object function";
+        //     };
+        // }
+        // User.show = function () {
+        //     return "welcome to haoqiancheng";
+        // };
+        // const u = new User();
+        // console.dir(u.show()); //this is a object function
+        // console.dir(User.show()); //welcome to houdunren
+
+
+        // class User {
+        //     constructor(name) {
+        //         this.name = name;
+        //     }
+        //     static create(name) {
+        //         return new User(name);
+        //     }
+        // }
+        // const xjj = User.create("小姐姐");
+        // console.log(xjj);
+
+        // const data = [
+        //     { name: "js", price: 100 },
+        //     { name: "mysql", price: 212 },
+        //     { name: "vue.js", price: 98 }
+        // ];
+        // class Lesson {
+        //     constructor(data) {
+        //         this.model = data;
+        //     }
+        //     get price() {
+        //         return this.model.price;
+        //     }
+        //     get name() {
+        //         return this.model.name;
+        //     }
+        //     //批量生成对象
+        //     static createBatch(data) {
+        //         return data.map(item => new Lesson(item));
+        //     }
+        //     //最贵的课程
+        //     static MaxPrice(collection) {
+        //         return collection.sort((a, b) => b.price - a.price)[0];
+        //     }
+        // }
+        // const lessons = Lesson.createBatch(data);
+        // console.log(lessons);
+        // console.log(Lesson.MaxPrice(lessons).name);
+
+
+        // class User {
+        //     constructor(name) {
+        //         this.data = { name };
+        //     }
+        //     get name() {
+        //         return this.data.name;
+        //     }
+        //     set name(value) {
+        //         if (value.trim() == "") throw new Error("invalid params");
+        //         this.data.name = value;
+        //     }
+        // }
+        // let uname = new User("张三");
+        // uname.name = "李四";
+        // console.log(uname.name);
+
+        function User(name) {
+            this.name = name;
+        }
+        function Admin(name) {
+            User.call(this, name);
+        }
+        let obj = new Admin("好前程");
+        console.log(obj);
+    </script>
+</body>
+
+</html>
