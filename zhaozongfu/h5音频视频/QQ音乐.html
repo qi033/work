@@ -14,10 +14,17 @@
             text-decoration: none;
         }
 
+        body,
+        html {
+            height: 100%;
+
+        }
+
         .box {
             width: 100%;
-            height: 100vh;
+            height: 681px;
             background-color: #5B402C;
+            margin: auto;
         }
 
         h1 {
@@ -33,6 +40,7 @@
             left: 150px;
             width: 700px;
             height: 38px;
+            margin: auto;
 
         }
 
@@ -80,7 +88,7 @@
         .box2 {
             width: 100%;
             height: 300px;
-             float: left;
+            float: left;
             margin-top: 20px;
         }
 
@@ -112,15 +120,18 @@
             width: 390px;
             height: 100%;
         }
-        .aaa .icon{
+
+        .aaa .icon {
             float: right;
             width: 40px;
             height: 90%;
             display: none;
         }
-        .aaa .icon :hover{
-        color: aliceblue;
+
+        .aaa .icon :hover {
+            color: aliceblue;
         }
+
         .bbb {
 
             width: 120px;
@@ -133,23 +144,52 @@
             height: 100%;
 
         }
-        .box3{
+
+        .box3 {
             position: relative;
             left: 340px;
             float: right;
             width: 300px;
             height: 485px;
-            background-color: aqua;
+
             margin-top: -370px;
 
-           
+
         }
-        .box3 .imgsss{
+
+        .box3 .imgsss {
             width: 80%;
             height: 180px;
             margin: auto;
             background: url("https://y.qq.com/ryqq/static/media/album_cover_player.8dfd80d6.png?max_age=2592000") no-repeat 0 0/100% 100%;
             text-align: center;
+        }
+
+        .box4 {
+            margin-top: -100px;
+            width: 100%;
+            height: 55px;
+
+        }
+
+        audio {
+            width: 1100px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #lyric {
+            margin-top: 15px;
+            color: hsla(0,0%,88.2%,.8);
+            font-size: 15px;
+            width: 100%;
+            height: 290px;
+            text-align: center;
+            overflow-y: scroll;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>
@@ -206,43 +246,65 @@
             </ul>
         </div>
         <div class="box3">
-           <div class="imgsss">
-            <img src="" alt="">
-           </div>
+            <div class="imgsss">
+                <img src="https://y.qq.com/music/photo_new/T002R300x300M000004FKCj71O4Hhz_1.jpg?max_age=2592000" alt=""
+                    width="184px" height="184px">
+            </div>
+            <div id="lyric">
+
+            </div>
         </div>
+
+    </div>
+    <div class="box4">
+        <audio controls id="audio">
+            <source src="./音频、歌词/在你的身边 - 盛哲.mp3" type="audio/mpeg">
+        </audio>
+        <audio controls id="audio1" style="display: none;">
+            <source src="./音频、歌词/谁 - 曲肖冰.mp3" type="audio/mpeg">
+        </audio>
+        <audio controls id="audio2" style="display: none;">
+            <source src="./音频、歌词/交换余生 - 林俊杰.mp3" type="audio/mpeg">
+        </audio>
+        <audio controls id="audio3" style="display: none;">
+            <source src="./音频、歌词/天外来物 - 薛之谦.mp3" type="audio/mpeg">
+        </audio>
+        <audio controls id="audio4" style="display: none;">
+            <source src="./音频、歌词/演员 - 薛之谦.mp3" type="audio/mpeg">
+        </audio>
     </div>
 </body>
 <script>
     const rand = [
         {
             id: 1,
-            quming: "耗尽-薛之谦,郭聪明.320",
-            geshou: "薛之谦",
-            shichang: "4.30"
+            quming: "在你的身边",
+            geshou: "盛哲",
+            shichang: "04:22"
         },
         {
             id: 2,
-            quming: "你还要我怎样",
-            geshou: "薛之谦",
-            shichang: "4.30"
+            quming: "谁",
+            geshou: "曲肖冰",
+            shichang: "04:37"
         },
         {
             id: 3,
-            quming: "天份-薛之谦",
-            geshou: "薛之谦",
-            shichang: "4.30"
+            quming: "交换余生",
+            geshou: "林俊杰",
+            shichang: "04:36"
         },
         {
             id: 4,
-            quming: "哑巴",
+            quming: "天外来物",
             geshou: "薛之谦",
-            shichang: "4.30"
+            shichang: "04.17"
         },
         {
             id: 5,
-            quming: "纸船-薛之谦郁可唯.320",
+            quming: "演员",
             geshou: "薛之谦",
-            shichang: "4.30"
+            shichang: "04:21"
         },
     ];
 
@@ -256,7 +318,10 @@
             html += `
                 <li>
                     <input type="checkbox">
-                    <span class="aaa">${item.quming}<svg t="1688956598998" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2235" width="16" height="16"><path d="M512 42.666667C252.793333 42.666667 42.666667 252.793333 42.666667 512s210.126667 469.333333 469.333333 469.333333 469.333333-210.126667 469.333333-469.333333S771.206667 42.666667 512 42.666667z m196.546667 500.493333l-266.666667 176A37.333333 37.333333 0 0 1 384 688V336.033333a37.333333 37.333333 0 0 1 57.893333-31.16l266.666667 176a37.333333 37.333333 0 0 1 0 62.32z" fill="#8a8a8a" p-id="2236"></path></svg></span>
+                    <span class="aaa">
+                        ${item.quming}
+                        <svg t="1688956598998" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2235" width="16" height="16"><path d="M512 42.666667C252.793333 42.666667 42.666667 252.793333 42.666667 512s210.126667 469.333333 469.333333 469.333333 469.333333-210.126667 469.333333-469.333333S771.206667 42.666667 512 42.666667z m196.546667 500.493333l-266.666667 176A37.333333 37.333333 0 0 1 384 688V336.033333a37.333333 37.333333 0 0 1 57.893333-31.16l266.666667 176a37.333333 37.333333 0 0 1 0 62.32z" fill="#8a8a8a" p-id="2236"></path></svg>
+                        </span>
                     <span class="bbb">${item.geshou}</span>
                     <span class="ppp">${item.shichang}</span>
                 </li>
@@ -264,36 +329,167 @@
         });
         $('.ul2').append(html);
     };
-    $('.ul2 li .aaa').eq(1).mouseover(function(){
-        $(".aaa .icon").eq(0).css("display","block")
+    $('.ul2 li .aaa').eq(1).mouseover(function () {
+        $(".aaa .icon").eq(0).css("display", "block")
     })
-    $('.ul2 li .aaa').eq(1).mouseout(function(){
-        $(".aaa .icon").eq(0).css("display","none")
+    $('.ul2 li .aaa').eq(1).mouseout(function () {
+        $(".aaa .icon").eq(0).css("display", "none")
     })
-    $('.ul2 li .aaa').eq(2).mouseover(function(){
-        $(".aaa .icon").eq(1).css("display","block")
+    $('.ul2 li .aaa').eq(2).mouseover(function () {
+        $(".aaa .icon").eq(1).css("display", "block")
     })
-    $('.ul2 li .aaa').eq(2).mouseout(function(){
-        $(".aaa .icon").eq(1).css("display","none")
+    $('.ul2 li .aaa').eq(2).mouseout(function () {
+        $(".aaa .icon").eq(1).css("display", "none")
     })
-    $('.ul2 li .aaa').eq(3).mouseover(function(){
-        $(".aaa .icon").eq(2).css("display","block")
+    $('.ul2 li .aaa').eq(3).mouseover(function () {
+        $(".aaa .icon").eq(2).css("display", "block")
     })
-    $('.ul2 li .aaa').eq(3).mouseout(function(){
-        $(".aaa .icon").eq(2).css("display","none")
+    $('.ul2 li .aaa').eq(3).mouseout(function () {
+        $(".aaa .icon").eq(2).css("display", "none")
     })
-    $('.ul2 li .aaa').eq(4).mouseover(function(){
-        $(".aaa .icon").eq(3).css("display","block")
+    $('.ul2 li .aaa').eq(4).mouseover(function () {
+        $(".aaa .icon").eq(3).css("display", "block")
     })
-    $('.ul2 li .aaa').eq(4).mouseout(function(){
-        $(".aaa .icon").eq(3).css("display","none")
+    $('.ul2 li .aaa').eq(4).mouseout(function () {
+        $(".aaa .icon").eq(3).css("display", "none")
     })
-    $('.ul2 li .aaa').eq(5).mouseover(function(){
-        $(".aaa .icon").eq(4).css("display","block")
+    $('.ul2 li .aaa').eq(5).mouseover(function () {
+        $(".aaa .icon").eq(4).css("display", "block")
     })
-    $('.ul2 li .aaa').eq(5).mouseout(function(){
-        $(".aaa .icon").eq(4).css("display","none")
+    $('.ul2 li .aaa').eq(5).mouseout(function () {
+        $(".aaa .icon").eq(4).css("display", "none")
     })
+    $('.ul2 li .aaa').eq(1).click(function () {
+        $("#audio1").css("display", "none")
+        $("#audio2").css("display", "none")
+        $("#audio3").css("display", "none")
+        $("#audio4").css("display", "none")
+        $("#audio").css("display", "block")
+        var audio = document.getElementById("audio")
+        audio1.pause();
+        audio2.pause();
+        audio3.pause();
+        audio4.pause();
+        audio1.currentTime = 0
+        audio2.currentTime = 0
+        audio3.currentTime = 0
+        audio4.currentTime = 0
+
+        audio.play();
+    })
+    $('.ul2 li .aaa').eq(2).click(function () {
+        $("#audio").css("display", "none")
+        $("#audio2").css("display", "none")
+        $("#audio3").css("display", "none")
+        $("#audio4").css("display", "none")
+        $("#audio1").css("display", "block")
+        var audio1 = document.getElementById("audio1")
+        audio.pause();
+        audio2.pause();
+        audio3.pause();
+        audio4.pause();
+        audio.currentTime = 0
+        audio2.currentTime = 0
+        audio3.currentTime = 0
+        audio4.currentTime = 0
+        audio1.play();
+
+    })
+    $('.ul2 li .aaa').eq(3).click(function () {
+        $("#audio").css("display", "none")
+        $("#audio1").css("display", "none")
+        $("#audio3").css("display", "none")
+        $("#audio4").css("display", "none")
+        $("#audio2").css("display", "block")
+        var audio2 = document.getElementById("audio2")
+        audio.pause();
+        audio1.pause();
+        audio3.pause();
+        audio4.pause();
+        audio.currentTime = 0
+        audio1.currentTime = 0
+        audio3.currentTime = 0
+        audio4.currentTime = 0
+        audio2.play();
+    })
+    $('.ul2 li .aaa').eq(4).click(function () {
+        $("#audio").css("display", "none")
+        $("#audio1").css("display", "none")
+        $("#audio2").css("display", "none")
+        $("#audio4").css("display", "none")
+        $("#audio3").css("display", "block")
+        var audio3 = document.getElementById("audio3")
+        audio.pause();
+        audio1.pause();
+        audio2.pause();
+        audio4.pause();
+        audio.currentTime = 0
+        audio1.currentTime = 0
+        audio2.currentTime = 0
+        audio4.currentTime = 0
+        audio3.play();
+    })
+    $('.ul2 li .aaa').eq(5).click(function () {
+        $("#audio").css("display", "none")
+        $("#audio1").css("display", "none")
+        $("#audio2").css("display", "none")
+        $("#audio3").css("display", "none")
+        $("#audio4").css("display", "block")
+        var audio4 = document.getElementById("audio4")
+        audio.pause();
+        audio1.pause();
+        audio2.pause();
+        audio3.pause();
+        audio.currentTime = 0
+        audio1.currentTime = 0
+        audio2.currentTime = 0
+        audio3.currentTime = 0
+        audio4.play();
+    })
+    let lrc = [];
+    const pattern = /\[(.+)\](.+)/;
+    $(function () {
+        $.get("../../liuhao/MP3/棉花糖 - 至上励合.lrc", function (data) {
+            lrc = data.split("\n");
+            console.log(lrc);
+            lrc = lrc.map((currentItem) => {
+                let tmp = currentItem.match(pattern);
+                console.log(currentItem);
+                console.log(tmp);
+
+                return {
+                    time: s(tmp[1]),
+                    lyric: tmp[2],
+                }
+            });
+            //渲染歌词
+            renderLyric();
+        });
+
+    });
+    function renderLyric() {
+        let html1 = "";
+        lrc.forEach((currentItem) => {
+            html1 += `<p>${currentItem.lyric}</p>`;
+        });
+        $("#lyric").html(html1);
+    }
+    $("#audio").on("audio", function () {
+        setInterval(() => {
+            ctime = Math.floor(this.currentTime);
+            lrc.forEach((currentItem, index) => {
+                if (ctime >= currentItem.time && ctime < lrc[index + 1].time) {
+                    $("p").eq(index).css("color", "red");
+                }
+            });
+        }, 500);
+    });
+
+    function s(timeString) {
+        const [minutes, seconds] = timeString.split(":");
+        return parseInt(minutes) * 60 + parseInt(seconds);
+    }
+
 </script>
 
 </html>
