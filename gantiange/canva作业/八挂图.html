@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:500px;
+            height:200px;
+            background-color: aqua;
+        }
+        a{
+            width:100px;
+            height:100px;
+           text-align: center;
+           font-size: 25px;
+           display: inline-block;
+           line-height: 100px;
+           text-decoration:none ;
+           background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <a href="./五角星.html">五角星</a>
+        <a href="./八挂图.html">八卦图</a>
+        <a href="./红旗.html">红旗</a>
+        <a href="./2.html">八卦阵</a>
+    </div>
+        <canvas id="myCanvas" width="800" height="800"></canvas>
+
+      
+
+</body>
+<script>
+    let canvas = document.getElementById("myCanvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    canvas.style.backgroundColor = "#fff";
+    ctx = canvas.getContext("2d");
+
+    let taijiNum = 0,
+      recNum = 0,
+      lineNum = 0;
+  
+  function drawTaiji() {
+      taijiNum -= Math.PI / 360;
+
+      // 大圆描边
+      ctx.beginPath();
+      ctx.arc(400, 400, 160, 0, Math.PI * 2);
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = "#333";
+      ctx.stroke();
+
+      // 左边半圆
+      ctx.fillStyle = "#333";
+      ctx.beginPath();
+      ctx.arc(
+        400,
+        400,
+        160,
+        taijiNum + Math.PI * 0.5,
+        taijiNum + Math.PI * 1.5
+      );
+      ctx.fill();
+
+      // 右边半圆
+      ctx.fillStyle = "#fff";
+      ctx.beginPath();
+      ctx.arc(
+        400,
+        400,
+        160,
+        taijiNum + Math.PI * 0.5,
+        taijiNum + Math.PI * 1.5,
+        true
+      );
+      ctx.fill();
+
+      // 上半边
+      ctx.fillStyle = "#fff";
+      ctx.beginPath();
+      ctx.arc(
+        400 - 80 * Math.sin(taijiNum),
+        400 + 80 * Math.cos(taijiNum),
+        80,
+        taijiNum + Math.PI * 0.5,
+        taijiNum + Math.PI * 1.5
+      );
+      ctx.fill();
+      // 清除间隔线条
+      ctx.beginPath();
+      ctx.moveTo(
+        400 - 160 * Math.sin(taijiNum),
+        400 + 160 * Math.cos(taijiNum)
+      );
+      ctx.lineTo(400, 400);
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "#fff";
+      ctx.stroke();
+
+      // 下半边
+      ctx.fillStyle = "#333";
+      ctx.beginPath();
+      ctx.arc(
+        400 + 80 * Math.sin(taijiNum),
+        400 - 80 * Math.cos(taijiNum),
+        80,
+        taijiNum + Math.PI * 0.5,
+        taijiNum + Math.PI * 1.5,
+        true
+      );
+      ctx.fill();
+      // 清除间隔线条
+      ctx.beginPath();
+      ctx.moveTo(
+        400 + 160 * Math.sin(taijiNum),
+        400 - 160 * Math.cos(taijiNum)
+      );
+      ctx.lineTo(400, 400);
+      ctx.strokeStyle = "#333";
+      ctx.stroke();
+
+      // 上边小圆
+      ctx.fillStyle = "#333";
+      ctx.beginPath();
+      ctx.arc(
+        400 - 80 * Math.sin(taijiNum),
+        400 + 80 * Math.cos(taijiNum),
+        16,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
+
+      // 下边小圆
+      ctx.fillStyle = "#fff";
+      ctx.beginPath();
+      ctx.arc(
+        400 + 80 * Math.sin(taijiNum),
+        400 - 80 * Math.cos(taijiNum),
+        16,
+        0,
+        Math.PI * 2
+      );
+      ctx.fill();
+    }
+    drawTaiji()
+    //会动
+   
+// var c = document.querySelector('#myCanvas') //先获取canvas元素
+// var ctx = c.getContext('2d')  //创建 context 对象
+// ctx.translate(500, 500)
+// setInterval(function () {
+//     //黑色半圆
+//     ctx.rotate(Math.PI / 180)
+//     ctx.beginPath()
+//     ctx.arc(0, 0, 250, 0, Math.PI, false)
+//     ctx.closePath()
+//     ctx.fill()
+//     //四分之一处黑色整圆
+//     ctx.beginPath()
+//     ctx.arc(-125, 0, 125, 0, Math.PI * 2, true)
+//     ctx.closePath()
+//     ctx.fillStyle = "black"
+//     ctx.fill()
+//     // 四分之三处白色整圆
+//     ctx.beginPath()
+//     ctx.arc(125, 0, 125, 0, Math.PI * 2, false)
+//     ctx.closePath()
+//     ctx.fillStyle = "#fff"
+//     ctx.fill()
+//     //在绘制整圆
+//     ctx.beginPath()
+//     ctx.arc(-125, 0, 50, 0, Math.PI * 2, true)
+//     ctx.closePath()
+//     ctx.fillStyle = "#fff"
+//     ctx.fill()
+//     //在绘制整圆
+//     ctx.beginPath()
+//     ctx.arc(125, 0, 50, 0, Math.PI * 2, false)
+//     ctx.closePath()
+//     ctx.fillStyle = "black"
+//     ctx.fill()
+// }, 10)
+ </script>
+
+</html>
