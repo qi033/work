@@ -16,16 +16,29 @@
 <body>
     <script>
 
-        function Parent(name) {
-            this.name = name;
+        class User {
+            constructor(name) {
+                this.name = name;
+            }
         }
-        function User(...args) {
-            Parent.apply(this, args);
+        class Admin extends User {
+            constructor(name) {
+                super(name);
+            }
         }
-        User.prototype = Object.create(User.prototype)
-        User.prototype.constructor = User;
-        const hd = new User("好前程");
-        console.log(hd.name);
+        let obj = new Admin("好前程");
+        console.log(obj);
+
+        // function Parent(name) {
+        //     this.name = name;
+        // }
+        // function User(...args) {
+        //     Parent.apply(this, args);
+        // }
+        // User.prototype = Object.create(User.prototype)
+        // User.prototype.constructor = User;
+        // const hd = new User("好前程");
+        // console.log(hd.name);
 
         // class User {
         //     constructor(name) {
