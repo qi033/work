@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class Person {
+        constructor(name) {
+            this.name = name;
+        }
+
+        show() {
+            return `姓名: ${this.name}`;
+        }
+    }
+    class User extends Person {
+        constructor(name) {
+            super(name);
+        }
+        run() {
+            return super.show();
+        }
+    }
+    const ren = new User("张三");
+    console.dir(ren.run());
+    // class User {
+    //     #data = {
+    //         pwd: 123,
+    //         id: 2132222,
+    //     };
+    //     constructor(name) {
+    //         this.#data.name = { name }
+    //     }
+    //     get name() {
+    //         this.#data.name;
+    //     }
+    //     set name(value) {
+    //         if (value.trim == '') throw new Error("invalid name")
+    //         this.#data.name = value;
+    //     }
+    // }
+    // let uname = new User('John'); // throws an error because name is empty string
+    // console.log(uname);
+
+</script>
+
+</html>
