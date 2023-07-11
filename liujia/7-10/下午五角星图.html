@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>canvas绘制五角星</title>
+    <style type="text/css">
+        #canvas {
+            border: 1px solid #ccc;
+            width: 500px;
+            height: 500px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        //五角星
+        let canvas = document.querySelector("#canvas");
+        let ctxs = canvas.getContext("2d");
+        canvas.width = 500;
+        canvas.height = 500;
+        ctxs.save();
+        ctxs.beginPath();
+        // 将坐标移动到画布中央
+        ctxs.translate(canvas.width / 2, canvas.height / 2);
+        // 设置大圆、小圆半径
+        let R = 200;
+        let r = 100;
+        let x;
+        let y;
+        // 逆时针计算五角星外围10个点的坐标
+        for (let i = 0; i < 5; i++) {
+            // 外围凸出的每个点坐标
+            x = Math.cos(((18 + 72 * i) / 180) * Math.PI) * R;
+            y = -Math.sin(((18 + 72 * i) / 180) * Math.PI) * R; // canvas中y轴的正向方向与直角坐标系相反
+            ctxs.lineTo(x, y);
+            // 外围凹下去的每个点坐标
+            x = Math.cos(((54 + 72 * i) / 180) * Math.PI) * r;
+            y = -Math.sin(((54 + 72 * i) / 180) * Math.PI) * r; // canvas中y轴的正向方向与直角坐标系相反
+            ctxs.lineTo(x, y);
+        }
+        ctxs.closePath();
+        ctxs.stroke();
+        ctxs.restore();
+    </script>
+
+</body>
+
+</html>
