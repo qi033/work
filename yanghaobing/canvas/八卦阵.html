@@ -40,7 +40,7 @@
 
     // 画太极
     function drawTaiji() {
-      taijiNum -= Math.PI / 360;
+      taijiNum -= Math.PI / 60;
 
       // 大圆描边
       ctx.beginPath();
@@ -132,7 +132,7 @@
       ctx.fill();
 
       // 下边小圆
-      ctx.fillStyle = "";
+      ctx.fillStyle = "red";
       ctx.beginPath();
       ctx.arc(
         400 + 80 * Math.sin(taijiNum),
