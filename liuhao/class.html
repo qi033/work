@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="box"></div>
+    <script>
+      let common = {
+        show() {
+          console.log("common.init");
+        },
+      };
+      let user = {
+        __proto__: common,
+        name: "user",
+        show() {
+          return this.__proto__.show.call(this);
+        },
+      };
+      let admin = {
+        __proto__: user,
+        name: "admin",
+        get() {
+          return this.__proto__.show.call(this);
+        },
+      };
+      console.log(admin.get());
+      // let user = {
+      //   name: "user",
+      //   show() {
+      //     return this.name;
+      //   },
+      // };
+      // let admin = {
+      //   __proto__: user,
+      //   name: "admin",
+      //   show() {
+      //     return this.__proto__.show.call(this);
+      //   },
+      // };
+      // console.log(admin.show());
+      // const _host = new WeakMap();
+      // class Common {
+      //   constructor() {
+      //     _host.set(this, "https://api.com");
+      //     console.log(_host);
+      //   }
+      //   set host(url) {
+      //     if (!/^https:\/\//i.test(url)) {
+      //       throw new Error("网址错误");
+      //     }
+      //     _host.set(this, url);
+      //   }
+      // }
+      // class Article extends Common {
+      //   constructor() {
+      //     super();
+      //   }
+      //   lists() {
+      //     return `${_host.get(this)}/article`;
+      //   }
+      // }
+      // let article = new Article();
+      // console.log(article.lists()); //https://api.com/article
+      // article.host = "https://hqc.com";
+      // console.log(article.lists()); //https://hqc.com/article
+      // const protecteds = Symbol();
+      // class Common {
+      //   constructor() {
+      //     this[protecteds] = {};
+      //     this[protecteds].host = "https://api.com";
+      //   }
+      //   set host(url) {
+      //     if (!/^https?:/i.test(url)) {
+      //       throw new Error("非常网址");
+      //     }
+      //     this[protecteds].host = url;
+      //   }
+      //   get host() {
+      //     return this[protecteds].host;
+      //   }
+      //   check() {}
+      // }
+      // class User extends Common {
+      //   constructor(name) {
+      //     super();
+      //     this[protecteds].name = name;
+      //   }
+      //   get name() {
+      //     return this[protecteds].name;
+      //   }
+      // }
+      // let user = new User("张三");
+      // user.host = "https://www.hqc.com";
+      // // console.log(user[Symbol()]);
+      // console.log(user.name);
+      // class User {
+      //   #data = {
+      //     pwd: 11123,
+      //     idcard: 12312312312321,
+      //   };
+      //   constructor(name) {
+      //     this.#data.name = { name };
+      //   }
+      //   get name() {
+      //     this.#data.name;
+      //   }
+      //   set name(value) {
+      //     if (value.trim() == "") throw new Error("invalid params");
+      //     this.#data.name = value;
+      //   }
+      //   check(pwd) {
+      //     if (this.#data.pwd == pwd) {
+      //       return true;
+      //     }
+      //     return false;
+      //   }
+      // }
+      // let uname = new User("张三");
+      // console.log(uname.check(11123));
+      // uname.name = "李四";
+
+      // const data = [
+      //   { name: "js", price: 100 },
+      //   { name: "mysql", price: 212 },
+      //   { name: "vue.js", price: 98 },
+      // ];
+      // class Lesson {
+      //   constructor(data) {
+      //     this.model = data;
+      //   }
+      //   get price() {
+      //     return this.model.price * 0.8;
+      //   }
+      //   get name() {
+      //     return this.model.name + "▲";
+      //   }
+      //   set name(value) {
+      //     this.model.name = value * 1000;
+      //   }
+      //   //批量生成对象
+      //   static createBatch(data) {
+      //     return data.map((item) => new Lesson(item));
+      //   }
+      //   //最贵的课程
+      //   static MaxPrice(collection) {
+      //     return collection.sort((a, b) => b.price - a.price)[0];
+      //   }
+      // }
+      // const lessons = Lesson.createBatch(data);
+      // console.log(lessons);
+      // lessons[0].name = 99;
+      // console.log(lessons[0].name);
+      // console.log(Lesson.MaxPrice(lessons).name);
+      //   function User() {
+      //     this.show = function () {
+      //       return "this is a object function";
+      //     };
+      //   }
+      //   User.show = function () {
+      //     return "welcome to haoqiancheng";
+      //   };
+      //   const u = new User();
+      //   console.dir(u); //this is a object function
+      //   console.dir(User); //welcome to houdunren
+      //   function User() {}
+      //   User.site = "好前程"; //静态属性 不需要new 去调用可以直接使用函数名调用
+      //   console.dir(User);
+
+      //   const hqc = new User();
+      //   console.log(hqc.site);
+      //   console.log(User.site);
+      //   console.log(hqc.site); //undefiend
+      //   console.log(User.site);
+      //   "use strict";
+      //   function User2(name) {
+
+      //     this.name = name;
+      //   }
+      //   User2.prototype.show = function () {
+      //     console.log(this.name);
+      //   };
+      //   let obj = new User2("李四");
+      //   console.log(obj);
+      //   for (const key in obj) {
+      //     console.log(key);
+      //   }
+      //   class User {
+      //     constructor(name) {
+      //       this.name = name;
+      //     }
+      //     show() {
+      //       console.log(this.name);
+      //     }
+      //   }
+      //   let zs = new User("张三");
+      //   //不会枚举出show属性
+      //   console.log(zs);
+      //   for (const key in zs) {
+      //     console.log(key);
+      //   }
+      //   class User {
+      //     constructor(name) {
+      //       this.name = name;
+      //     }
+      //     getname() {}
+      //   }
+      //   console.log(User == User.prototype.constructor); //true
+      //   function User2(name) {
+      //     this.name = name;
+      //   }
+      //   console.log(User2 == User2.prototype.constructor); //true
+      //   console.dir(User);
+      //   console.dir(User2);
+
+      //   class User {
+      //     constructor(name, age) {
+      //       this.name = name;
+      //       this.age = age;
+      //     }
+      //     getName() {
+      //       return this.name + "是个女生";
+      //     }
+      //   }
+      //   let user = new User("李四", 20);
+
+      //   console.log(user.getName());
+    </script>
+  </body>
+</html>
