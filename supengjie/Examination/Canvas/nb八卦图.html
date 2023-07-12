@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .app{
+            width: 900px;
+            height: 900px;
+            position: relative;
+        }
+        canvas {
+            transform: rotate(90deg);
+            margin-left: 100px;
+            /* background-color: blueviolet; */
+            
+        }
+        li{
+            z-index: 999999!important;
+        }
+        .li1{
+            width: 100px;
+            height: 25px;
+            background-color: black;
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 23%;
+            left: 41%;
+        }
+        .li2{
+            width: 100px;
+            height: 25px;
+            background-color: black;
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 184px;
+            left: 345px;
+        }
+        .li3{
+            width: 100px;
+            height: 25px;
+            background-color: black;
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 158px;
+            left: 320px;
+        }
+
+        .li4{
+            width: 100px;
+            height: 25px;
+            background-color: black;
+            transform: rotate(45deg);
+            position: absolute;
+            top: 563px;
+            left: 377px;
+        }
+        .li5{
+            width: 100px;
+            height: 25px;
+            background-color: black;
+            transform: rotate(45deg);
+            position: absolute;
+            top: 586px;
+            left: 355px;
+        }
+
+        .li6{
+            width: 100px;
+            height: 25px;
+            background-color: black;
+            transform: rotate(45deg);
+            position: absolute;
+            top: 609px;
+            left: 332px;
+        }
+
+        .li7{
+            width: 100px;
+            height: 25px;
+            background-color: black;
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 554px;
+            left: 721px;
+        }
+
+        .li8{
+            width: 100px;
+            height: 25px;
+            background-color: black;
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 576px;
+            left: 743px;
+        }
+
+        .li9{
+            width: 100px;
+            height: 25px;
+            background-color: black;
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 599px;
+            left: 765px;
+        }
+
+        .li10{
+            width: 30px;
+            height: 15px;
+            background-color: rgb(255, 255, 255);
+            transform: rotate(45deg);
+            position: absolute;
+            top: 558px;
+            left: 756px;
+        }
+
+        .li11{
+            width: 80px;
+            height: 15px;
+            background-color: rgb(255, 255, 255);
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 606px;
+            left: 349px;
+        }
+        .li12{
+            width: 30px;
+            height: 15px;
+            background-color: rgb(255, 255, 255);
+            transform: rotate(45deg);
+            position: absolute;
+            top: 161px;
+            left: 354px;
+        }
+        .li13{
+            width: 30px;
+            height: 15px;
+            background-color: rgb(255, 255, 255);
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 206px;
+            left: 754px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <ul>
+            <li class="li1"></li>
+            <li class="li2"></li>
+            <li class="li3"></li>
+            <li class="li4"></li>
+            <li class="li5"></li>
+            <li class="li6"></li>
+            <li class="li7"></li>
+            <li class="li8"></li>
+            <li class="li9"></li>
+            <li class="li10"></li>
+            <li class="li11"></li>
+            <li class="li12"></li>
+            <li class="li13"></li>
+        </ul>
+        <canvas id="canvas" width="900" height="900">
+           
+
+        </canvas>
+       
+    </div>
+</body>
+<!-- 太极 -->
+<script>
+
+
+
+
+    const els8 = document.querySelector('canvas')
+    const ctxs8 = els8.getContext('2d')
+    //填充画布颜色
+    ctxs8.beginPath()
+    ctxs8.fillStyle = 'white'
+    ctxs8.lineWidth = 1
+    ctxs8.arc(400, 400, 400, 0, 2 * Math.PI)
+    ctxs8.fill()
+    // -------------------------
+    var canvas9 = document.getElementById('box');
+    //获得 2d 上下文对象
+    var app = canvas.getContext('2d');
+    //定义填充颜色
+    app.fillStyle = "black";
+    //绘制矩形
+    // 北方
+    app.fillRect(70, 350, 25, 100);
+    app.fillRect(100, 350, 25, 100);
+    app.fillRect(130, 350, 25, 100);
+    //    南方
+    app.fillRect(700, 350, 25, 100);
+    app.fillRect(670, 350, 25, 100);
+    app.fillRect(640, 350, 25, 100);
+    // 西方
+    app.fillRect(350, 640, 100, 25);
+    app.fillRect(350, 670, 100, 25);
+    app.fillRect(350, 700, 100, 25);
+    // 东方
+    app.fillRect(350, 70, 100, 25);
+    app.fillRect(350, 100, 100, 25);
+    app.fillRect(350, 130, 100, 25);
+
+
+
+
+    // --------------------------
+    const el = document.querySelector('canvas')
+    const ctx = el.getContext('2d')
+    //填充画布颜色
+    ctx.beginPath()
+    ctx.strokeStyle = 'black'
+    ctx.lineWidth = 5
+    ctx.arc(400, 400, 205, 0, 2 * Math.PI)
+    ctx.stroke()
+
+    const els = document.querySelector('canvas')
+    const ctxs = els.getContext('2d')
+    //填充画布颜色
+    ctxs.beginPath()
+    ctxs.fillStyle = ''
+    ctxs.lineWidth = 20
+    ctxs.arc(400, 400, 200, 0, 2 * Math.PI)
+    ctxs.fill()
+
+    const els5 = document.querySelector('canvas')
+    const ctxs5 = els5.getContext('2d')
+    //填充画布颜色
+    ctxs5.beginPath()
+    ctxs5.fillStyle = 'white'
+    ctxs5.lineWidth = 20
+    ctxs5.arc(400, 400, 200, 0, 1 * Math.PI)
+    ctxs5.fill()
+
+    const els3 = document.querySelector('canvas')
+    const ctxs3 = els3.getContext('2d')
+    //填充画布颜色
+    ctxs3.beginPath()
+    ctxs3.fillStyle = 'black'
+    ctxs3.lineWidth = 20
+    ctxs3.arc(300, 400, 100, 0, 2 * Math.PI)
+    ctxs3.fill()
+
+    const els4 = document.querySelector('canvas')
+    const ctxs4 = els4.getContext('2d')
+    //填充画布颜色
+    ctxs4.beginPath()
+    ctxs4.fillStyle = 'white'
+    ctxs4.lineWidth = 20
+    ctxs4.arc(500, 400, 100, 0, 2 * Math.PI)
+    ctxs4.fill()
+
+    const els6 = document.querySelector('canvas')
+    const ctxs6 = els6.getContext('2d')
+    //填充画布颜色
+    ctxs6.beginPath()
+    ctxs6.fillStyle = 'white'
+    ctxs6.lineWidth = 20
+    ctxs6.arc(300, 400, 20, 0, 2 * Math.PI)
+    ctxs6.fill()
+
+    const els7 = document.querySelector('canvas')
+    const ctxs7 = els7.getContext('2d')
+    //填充画布颜色
+    ctxs7.beginPath()
+    ctxs7.fillStyle = 'black'
+    ctxs7.lineWidth = 20
+    ctxs7.arc(500, 400, 20, 0, 2 * Math.PI)
+    ctxs7.fill()
+
+
+
+    var canvas10 = document.getElementById('box');
+    var app = canvas.getContext('2d');
+    app.fillStyle = "white";
+    app.fillRect(630, 392, 100, 15);
+    app.fillRect(392, 669, 15, 30);
+    app.fillRect(392, 69, 15, 30);
+    app.fillRect(392, 130, 15, 30);
+
+    const el11 = document.querySelector('canvas')
+    const ctx11 = el11.getContext('2d')
+    ctx11.beginPath()
+    ctx11.moveTo(177, 273)
+    ctx11.lineTo(251, 187)
+    ctx11.lineWidth = 25
+    ctx11.strokeStyle = 'black'
+    ctx11.stroke()
+
+    const el12 = document.querySelector('canvas')
+    const ctx12 = el12.getContext('2d')
+    ctx12.beginPath()
+    ctx12.moveTo(152, 250)
+    ctx12.lineTo(224, 166)
+    ctx12.lineWidth = 25
+    ctx12.strokeStyle = 'black'
+    ctx12.stroke()
+
+    const el13 = document.querySelector('canvas')
+    const ctx13 = el13.getContext('2d')
+    ctx13.beginPath()
+    ctx13.moveTo(125, 225)
+    ctx13.lineTo(198, 142)
+    ctx13.lineWidth = 25
+    ctx13.strokeStyle = 'black'
+    ctx13.stroke()
+</script>
+<script>
+    const box = document.getElementById('canvas');
+    box.addEventListener('click', (event) => {
+        const x = event.clientX - box.getBoundingClientRect().left;
+        const y = event.clientY - box.getBoundingClientRect().top;
+        console.log(`坐标：(x: ${x}, y: ${y})`);
+    });
+</script>
+
+
+</html>
