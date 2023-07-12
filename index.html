@@ -23,7 +23,7 @@
   }
 
   #box {
-    width: 80%;
+    width: 72.8%;
     padding: 20px;
     margin: 0px auto;
     border-radius: 10px;
@@ -32,8 +32,10 @@
   }
 
   .no:hover {
+   
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+    background-image:linear-gradient(120deg,#e0c3fc 0%, #8ec5fc 100%);
+    transform: scale(1.04);
   }
 
   .no {
@@ -44,6 +46,7 @@
     text-align: center;
     padding: 10px;
     margin: 10px 25px;
+    transition: transform 0.4s ease;
   }
 
   img {
@@ -71,13 +74,12 @@
       stu.forEach((item) => {
         html += `
              <div class="no">
-              <a target="_blank" href="${item.src}"> <dl>
+        <dl>
           <dd>
             <img src="${item.imgs ? item.imgs : default_img}" alt="" />
           </dd>
-          <dd>${item.name}</dd>
+          <dd><a target="_blank" href="${item.src}">${item.name}</a></dd>
         </dl>
-      </a>
       </div>
              `;
       });
@@ -159,7 +161,7 @@
       },
       {
         id: n++,
-        imgs: "./yanghongcheng/feijian.jpg",
+        imgs: "https://pic1.zhimg.com/50/v2-6f7a901f128820af1dcc38a6baca30d8_720w.webp?source=1940ef5c",
         name: "杨宏承",
         src: "./yanghongcheng/主界面.html",
       },
