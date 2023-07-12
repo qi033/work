@@ -174,14 +174,81 @@
         // uname.name = "李四";
         // console.log(uname.name);
 
-        function User(name) {
-            this.name = name;
-        }
-        function Admin(name) {
-            User.call(this, name);
-        }
-        let obj = new Admin("好前程");
-        console.log(obj);
+        // function User(name) {
+        //     this.name = name;
+        // }
+        // function Admin(name) {
+        //     User.call(this, name);
+        // }
+        // let obj = new Admin("好前程");
+        // console.log(obj);
+
+
+        // class Controller {
+        //     sum() {
+        //         return this.data.reduce((t, c) => t + c.price, 0);
+        //     }
+        // }
+        // class Lesson extends Controller {
+        //     constructor(lessons) {
+        //         super();
+        //         this.data = lessons;
+        //     }
+        //     info() {
+        //         return {
+        //             totalPrice: super.sum(),
+        //             data: this.data
+        //         };
+        //     }
+        // }
+        // let data = [
+        //     { name: "js", price: 100 },
+        //     { name: "mysql", price: 212 },
+        //     { name: "vue.js", price: 98 }
+        // ];
+        // const hd = new Lesson(data);
+        // console.log(hd.info());
+
+
+        // function User() { }
+        // User.site = "好前程";
+        // User.url = function () {
+        //     return "zzgoodqc.cn";
+        // };
+        // function Admin() { }
+        // Admin.__proto__ = User;
+        // console.dir(Admin);
+        // console.log(Admin.url());
+
+
+        // class User {
+        //     static site = "好前程";
+        //     static host() {
+        //         return "zzgoodqc.cn";
+        //     }
+        // }
+        // class Admin extends User { }
+        // console.dir(Admin);
+
+        // function checkPrototype(obj, constructor) {
+        //     if (!obj.__proto__) return false;
+        //     if (obj.__proto__ == constructor.prototype) return true;
+        //     return checkPrototype(obj.__proto__, constructor);
+        // }
+
+        // function Arr(...args) {
+        //     args.forEach(item => this.push(item));
+        //     this.first = function () {
+        //         return this[0];
+        //     };
+        //     this.max = function () {
+        //         return this.data.sort((a, b) => b - a)[0];
+        //     };
+        // }
+        // let a = [1, 23];
+        // Arr.prototype = Object.create(Array.prototype);
+        // let arr = new Arr("好前程", 2, 3);
+        // console.log(arr.first());
     </script>
 </body>
 
