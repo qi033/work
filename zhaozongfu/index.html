@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>作业提交</title>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
 
@@ -132,6 +133,30 @@
             text-decoration: none;
             color: #fff;
         }
+
+        #vcomments {
+            position: relative;
+            top: -40px;
+            left: 60px;
+        }
+
+        .vpanel {
+            width: 100%;
+        }
+
+        .vemojis {
+            width: 450px;
+            height: 600px;
+        }
+
+        .vcards {
+            height: 220px;
+            overflow-y: scroll;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
     </style>
 </head>
 
@@ -210,6 +235,16 @@
                 </div>
             </div>
         </div>
+        <div id="vcomments"></div>
+        <script>
+            new Valine({
+                el: '#vcomments',
+                appId: 'sqCv0XU1xFy8uBUVnlbRcmmu-gzGzoHsz',
+                appKey: 'xzW5IayTTvsOVPXtjJmPtqlW'
+            })
+        </script>
     </div>
+
 </body>
+
 </html>

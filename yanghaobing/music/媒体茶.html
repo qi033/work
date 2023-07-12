@@ -6,29 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="" />
+
     <script src=""></script>
   </head>
   <style>
-    #box {
-      width: 500px;
-      height: 500px;
-      background: #0f0c29; /* fallback for old browsers */
-      background: -webkit-linear-gradient(
-        to right,
-        #24243e,
-        #302b63,
-        #0f0c29
-      ); /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(
-        to right,
-        #24243e,
-        #302b63,
-        #0f0c29
-      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    @media screen and (min-width: 768px) and (max-width: 900px) {
+      body {
+        background-color: red;
+      }
     }
   </style>
   <body>
     <div id="box"></div>
+    <video src="" width="500" height="500" controls>
+      <source src="../音频/video/1.mp4" type="video/mp4" />
+    </video>
   </body>
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
   <script></script>
