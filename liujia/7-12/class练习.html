@@ -1,0 +1,227 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: content-box;
+        }
+
+        body {
+            padding: 30px;
+        }
+
+        .slide {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); */
+        }
+
+        .slide dt {
+            height: 30px;
+            background: #34495e;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            cursor: pointer;
+        }
+
+        .slide dt:first-of-type {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .slide dd {
+            height: 100px;
+            background: #f1c40f;
+            overflow: hidden;
+        }
+
+        .slide dd div {
+            padding: 10px;
+        }
+
+        .slide dd:last-of-type {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+    </style>
+
+    <body>
+        <div class="slide s1">
+            <dt>好前程</dt>
+            <dd>
+                <div>zzgoodqc.cn</div>
+            </dd>
+            <dt>百度</dt>
+            <dd>
+                <div>baidu.com</div>
+            </dd>
+            <dt>谷歌</dt>
+            <dd>
+                <div>google.com</div>
+            </dd>
+        </div>
+    </body>
+
+    <script>
+        class Animation {
+            constructor(el) {
+                this.el = el;
+                this.timeout = 5;
+                this.isShow = true;
+                this.defaultHeight = this.height;
+            }
+            hide(callback) {
+                this.isShow = false;
+                let id = setInterval(() => {
+                    if (this.height <= 0) {
+                        clearInterval(id);
+                        callback && callback();
+                        return;
+                    }
+                    this.height = this.height - 1;
+                }, this.timeout);
+            }
+            show(callback) {
+                this.isShow = false;
+                let id = setInterval(() => {
+                    if (this.height >= this.defaultHeight) {
+                        clearInterval(id);
+                        callback && callback();
+                        return;
+                    }
+                    this.height = this.height + 1;
+                }, this.timeout);
+            }
+            get height() {
+                return window.getComputedStyle(this.el).height.slice(0, -2) * 1;
+            }
+            set height(height) {
+                this.el.style.height = height + "px";
+            }
+        }
+        class Slide {
+            constructor(el) {
+                this.el = document.querySelector(el);
+                this.links = this.el.querySelectorAll("dt");
+                this.panels = [...this.el.querySelectorAll("dd")].map(
+                    (item) => new Panel(item)
+                );
+                this.bind();
+            }
+            bind() {
+                this.links.forEach((item, i) => {
+                    item.addEventListener("click", () => {
+                        this.action(i);
+                    });
+                });
+            }
+            action(i) {
+                Panel.hideAll(Panel.filter(this.panels, i), () => {
+                    this.panels[i].show();
+                });
+            }
+        }
+        class Panel extends Animation {
+            static num = 0;
+            static hideAll(items, callback) {
+                if (Panel.num > 0) return;
+                items.forEach((item) => {
+                    Panel.num++;
+                    item.hide(() => {
+                        Panel.num--;
+                    });
+                });
+                callback && callback();
+            }
+            static filter(items, i) {
+                return items.filter((item, index) => index != i);
+            }
+        }
+        let hqc = new Slide(".s1");
+    </script>
+</body>
+
+</html>
+ -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        class NewArr extends Array {
+            constructor(...args) {
+                super(...args);
+            }
+            first() {
+                return this[0];
+            }
+            add(value) {
+                this.push(value);
+            }
+            remove(value) {
+                let pos = this.findIndex(curValue => {
+                    return curValue == value;
+                });
+                this.splice(pos, 1);
+            }
+        }
+        let hd = new NewArr(5, 3, 2, 1);
+        console.log(hd.length); //4
+        console.log(hd.first()); //5
+
+        hd.add("hqc");
+        console.log(hd.join(",")); //5,3,2,1,houdunren
+
+        hd.remove("3");
+        console.log(hd.join(",")); //5,2,1,houdunren
+
+        // const Tool = {
+        //     max(key) {
+        //         return this.data.sort((a, b) => b[key] - a[key])[0];
+        //     }
+        // };
+
+        // class Lesson {
+        //     constructor(lessons) {
+        //         this.lessons = lessons;
+        //     }
+        //     get data() {
+        //         return this.lessons;
+        //     }
+        // }
+
+        // Object.assign(Lesson.prototype, Tool);
+        // const data = [
+        //     { name: "js", price: 100 },
+        //     { name: "mysql", price: 212 },
+        //     { name: "vue.js", price: 98 }
+        // ];
+        // let hd = new Lesson(data);
+        // console.log(hd.max("price"));
+    </script>
+</body>
+
+</html>
