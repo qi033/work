@@ -21,27 +21,28 @@
 <script>
     var flag = document.getElementById("flag");
     var ctxss = flag.getContext('2d');
-    function drawStar(x, y, r, deg) {//xy中心坐标，r半径，deg旋转角度
+    function drawStar(x, y, r, deg) {// xy中心坐标，r半径，deg旋转角度
         ctxss.beginPath();
         ctxss.translate(x, y);
         ctxss.rotate(deg * Math.PI / 180);
         var dit = Math.PI * 4 / 5;
         var sin = Math.sin(0) * r;
         var cos = Math.cos(0) * r;
-        ctxss.moveTo(cos, sin);
+        // ctxss.moveTo(cos, sin);
         for (var i = 0; i < 5; i++) {
             var tempDit = dit * i;
             sin = Math.sin(tempDit) * r;
             cos = Math.cos(tempDit) * r;
             ctxss.lineTo(cos, sin);
         }
-        ctxss.closePath();
+        // ctxss.closePath();
         ctxss.fillStyle = "#ffde00";
         ctxss.fill();
         ctxss.rotate(-deg * Math.PI / 180);
         ctxss.translate(-x, -y);
     }
 
+    // 位置
     drawStar(100, 100, 60, -18);
     drawStar(200, 40, 20, 0);
     drawStar(240, 80, 20, 27);
