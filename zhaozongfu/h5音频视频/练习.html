@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>H5音频播放器</title>
+    <style>
+        #lyrics-container {
+            height: 300px;
+            overflow-y: scroll;
+            text-align: center;
+        }
+
+        .highlight {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="audio" src="./音频、歌词/交换余生 - 林俊杰.mp3" controls></audio>
+    <div id="lyrics-container"></div>
+
+    <script>
+        // 定义 lrc 文件内容
+        var lrcContent = `[ti:歌曲标题]
+[ar:歌手]
+[al:专辑]
+[by:编辑者]
+[offset:0]
+
+[00:00.00]歌词第一行
+[00:04.50]歌词第二行
+[00:08.20]歌词第三行`;
+
+        // 解析 lrc 文件内容
+        function parseLrc(lrc) {
+            var lines = lrc.split('\n');
+            var lyrics = [];
+
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i].trim();
+                var match = line.match(/\[(\d{2}):(\d{2}\.\d{2})\](.*)/);
+
+                if (match) {
+                    var minutes = parseInt(match[1]);
+                    var seconds = parseFloat(match[2]);
+                    var text = match[3];
+                    var time = minutes * 60 + seconds;
+
+                    lyrics.push({ time: time, text: text });
+                }
+            }
+
+            return lyrics;
+        }
+
+        // 显示歌词
+        function displayLyrics(lyrics) {
+            var container = document.getElementById('lyrics-container');
+
+            for (var i = 0; i < lyrics.length; i++) {
+                var lyric = lyrics[i];
+                var paragraph = document.createElement('p');
+                paragraph.textContent = lyric.text;
+                container.appendChild(paragraph);
+            }
+        }
+
+        // 高亮当前播放的歌词行
+        function highlightLyric(lyricIndex) {
+            var container = document.getElementById('lyrics-container');
+            var lyrics = container.getElementsByTagName('p');
+
+            for (var i = 0; i < lyrics.length; i++) {
+                if (i === lyricIndex) {
+                    lyrics[i].classList.add('highlight');
+                    container.scrollTop = lyrics[i].offsetTop - container.clientHeight / 2;
+                } else {
+                    lyrics[i].classList.remove('highlight');
+                }
+            }
+        }
+
+        // 获取当前播放的歌词行索引
+        function getCurrentLyricIndex(currentTime, lyrics) {
+            for (var i = 0; i < lyrics.length - 1; i++) {
+                if (currentTime >= lyrics[i].time && currentTime < lyrics[i + 1].time) {
+                    return i;
+                }
+            }
+            return lyrics.length - 1;
+        }
+
+        // 监听音频时间更新事件
+        function handleTimeUpdate() {
+            var audio = document.getElementById('audio');
+            var currentTime = audio.currentTime;
+            var lyricIndex = getCurrentLyricIndex(currentTime, parsedLyrics);
+            highlightLyric(lyricIndex);
+        }
+
+        // 监听滚动条事件
+        function handleScroll() {
+            var container = document.getElementById('lyrics-container');
+            var audio = document.getElementById('audio');
+            var lyrics = container.getElementsByTagName('p');
+            var scrollTop = container.scrollTop;
+
+            for (var i = 0; i < lyrics.length; i++) {
+                if (scrollTop >= lyrics[i].offsetTop - container.clientHeight / 2 &&
+                    scrollTop < lyrics[i].offsetTop + lyrics[i].clientHeight - container.clientHeight / 2) {
+                    audio.currentTime = parsedLyrics[i].time;
+                    return;
+                }
+            }
+        }
+
+        // 调用函数进行解析和显示
+        var parsedLyrics = parseLrc(lrcContent);
+        displayLyrics(parsedLyrics);
+
+        // 监听音频时间更新事件
+        var audio = document.getElementById('audio');
+        audio.addEventListener('timeupdate', handleTimeUpdate);
+
+        // 监听滚动条事件
+        var container = document.getElementById('lyrics-container');
+        container.addEventListener('scroll', handleScroll);
+    </script>
+</body>
+
+</html>
