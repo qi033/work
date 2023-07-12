@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <body>
+      <canvas id="flagCanvas" width="600" height="400"></canvas>
+
+      <script>
+        // 获取canvas元素
+        const canvas = document.getElementById("flagCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // 绘制红色背景
+        ctx.fillStyle = "#FF0000";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // 五星的位置和尺寸参数
+        const starX = 100;
+        const starY = 100;
+        const starSize = 80;
+
+        // 绘制五角星
+        ctx.fillStyle = "#FFCC00"; // 五星红旗的黄色
+        drawStar(starX, starY, starSize, ctx);
+        // drawStar(300, 100, 20, ctx);
+        // 绘制倾斜的五角星
+        ctx.fillStyle = "#FFCC00"; // 五星红旗的黄色
+        ctx.translate(-50, -120); // 平移画布原点到五角星中心位置
+        ctx.rotate((Math.PI / 180) * 30); // 旋转画布30度
+        drawStar(300, 0, 15, ctx);
+        //第二个
+        ctx.translate(300, -100); // 平移画布原点到五角星中心位置
+        ctx.rotate((Math.PI / 180) * 30); // 旋转画布30度
+        drawStar(100, 90, 15, ctx);
+        //第3个
+        ctx.translate(170, 0); // 平移画布原点到五角星中心位置
+        ctx.rotate((Math.PI / 180) * 10); // 旋转画布30度
+        drawStar(0, 120, 15, ctx);
+        //第4个
+        ctx.translate(50, 0); // 平移画布原点到五角星中心位置
+        ctx.rotate((Math.PI / 180) * 10); // 旋转画布30度
+        drawStar(0, 170, 15, ctx);
+
+        // 绘制五角星的函数
+        function drawStar(x, y, size, ctx) {
+          ctx.beginPath();
+          for (var i = 0; i < 5; i++) {
+            ctx.lineTo(
+              x + Math.cos(((18 + i * 72) / 180) * Math.PI) * size,
+              y - Math.sin(((18 + i * 72) / 180) * Math.PI) * size
+            );
+            ctx.lineTo(
+              x + Math.cos(((54 + i * 72) / 180) * Math.PI) * (size / 2),
+              y - Math.sin(((54 + i * 72) / 180) * Math.PI) * (size / 2)
+            );
+          }
+          ctx.closePath();
+          ctx.fill();
+        }
+      </script>
+    </body>
+  </body>
+</html>

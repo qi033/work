@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+  <title>公子向北走</title>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<style>
+  body {
+    background-image: url("../img/00.jpeg");
+    background-size: 100% auto;
+  }
+
+  /*.gzxbz{
+    background-image: url("../img/gzxbz.jpg");
+    background-size: 100% auto;
+}*/
+  .box {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #lyric {
+    text-align: center;
+    font-size: 20px;
+    height: 30px;
+    color: #686868;
+
+  }
+
+  #mp {
+    width: 300px;
+    height: 100px;
+    margin-bottom: 60px;
+  }
+
+  h1 {
+    color: #797979;
+  }
+
+  .name {
+    font-size: 20px;
+    color: #fff;
+  }
+
+  .text {
+    text-indent: 30px;
+    color: #fff;
+    margin-top: -100px;
+    padding: 0 20px;
+    text-align: justify;
+    text-justify: distribute-all-lines;
+    text-align-last: left;
+    line-height: 20px;
+    font-size: 16px;
+  }
+</style>
+
+<body class="gzxbz">
+  <div class="box">
+    <div class="info"></div>
+    <audio src="./策神霄 - KBShinya.mp3" autoplay loop controls id="mp">
+      抱歉你的浏览器版本out了，去升级吧
+    </audio>
+    <div id="lyric"></div>
+  </div>
+  <!-- <script src="./策神霄 - KBShinya.lrc"></script> -->
+  <script src="./gec.js"></script>
+  <script>
+    let arr = str.split("\n");
+    $(document).ready(function () {
+      let lrc = []; //创建歌词数组;
+      lrc = arr;
+      let myAudio = $("audio")[0];
+      let result = [];
+      getLrc();
+      let flagN = 0;
+      function getLrc() {
+        let timeReg = /\[\d{2}:\d{2}\.\d{2}\]/g; //匹配时间的正则表达式
+        for (let i = 0; i < lrc.length; i++) {
+          let time = lrc[i].match(timeReg); //获取歌词里的时间
+          let value = lrc[i].replace(timeReg, ""); //获取纯歌词文本
+          for (let j = 0; j < time.length; j++) {
+            let t = time[j].slice(1, -1).split(":"); //t[0]分钟，t[1]秒
+            let timeArr = parseInt(t[0], 10) * 60 + parseFloat(t[1]);
+            result.push([timeArr, value]); //以[时间(秒)，歌词]的形式存进result
+          }
+        }
+        setInterval(showLrc, 100); //设置定时，每200毫秒更新一下
+      }
+      function showLrc() {
+        let curTime = myAudio.currentTime; //获取当前的播放时间
+
+        if (curTime > result[flagN + 1][0] || curTime < result[flagN][0]) {
+          for (let i = 0; i < result.length; i++) {
+            if (curTime > result[i][0] && curTime < result[i + 1][0])
+              flagN = i;
+          }
+        }
+
+        if (
+          curTime > result[flagN][0] &&
+          curTime < result[flagN + 1][0] &&
+          document.getElementById("lyric").innerHTML !== result[flagN][1]
+        ) {
+          document.getElementById("lyric").innerHTML = result[flagN][1];
+          flagN = flagN === result.length - 2 ? 0 : flagN + 1;
+        }
+      }
+    });
+
+    let oInfo = document.querySelector(".info");
+    let h1 = document.createElement("h1");
+    h1.innerHTML = data.song;
+    let p = document.createElement("p");
+    p.className = "name";
+    p.innerHTML = data.name;
+    oInfo.appendChild(h1);
+    oInfo.appendChild(p);
+  </script>
+</body>
+
+</html>
