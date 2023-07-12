@@ -262,6 +262,11 @@
       ::-webkit-scrollbar {
         display: none;
       }
+      .v[data-class="v"] .vcards {
+        width: 100%;
+        height: 400px;
+        overflow-y: scroll;
+      }
     </style>
     <div id="box">
       <div class="btn from-top">
@@ -292,7 +297,7 @@
         <a href="./qq音乐/QQ.html">QQ音乐</a>
       </div>
     </div>
-    <div id="vcomments" style="width: 95%;" ></div>
+    <div id="vcomments" style="width: 95%"></div>
     <script>
       new Valine({
         el: "#vcomments",
