@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
     <style>
         @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
@@ -400,6 +401,14 @@
     <h2><a class="effect-2" href="./media/media.html">作业10：media页面</a></h2>
     <h2><a class="effect-2" href="./0707考试/0707.html">作业11：0707考试页面</a></h2>
     <h2><a class="effect-6" href="./Canvas/Canvas.html"><span>作业12：canvas作业</span></a></h2>
+    <div id="vcomments"></div>
 </body>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'hM58gLJLQ62thClsE6k5vx12-gzGzoHsz',
+        appKey: 'DfN9oGqxqxaEr76h5imuM5ch'
+    })
+</script>
 
 </html>
