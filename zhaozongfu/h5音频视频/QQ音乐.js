@@ -1,3 +1,4 @@
+
 const rand = [
     {
         id: 1,
@@ -691,7 +692,7 @@ $('.ul2 li .aaa').eq(4).click(function () {
 
 })
 $('.ul2 li .aaa').eq(5).click(function () {
-    var audio4 = document.getElementById("audio4") 
+    var audio4 = document.getElementById("audio4")
     audio4.play();
     audio.pause();
     audio1.pause();
@@ -700,20 +701,20 @@ $('.ul2 li .aaa').eq(5).click(function () {
     audio.currentTime = 0
     audio1.currentTime = 0
     audio2.currentTime = 0
-    audio3.currentTime = 0 
+    audio3.currentTime = 0
     //歌词切换
     $("#lyric").css("display", "none")
     $("#lyric1").css("display", "none")
     $("#lyric2").css("display", "none")
     $("#lyric3").css("display", "none")
     $("#lyric4").css("display", "block")
-     //歌图切换
-     $("#img4").css("display", "block")
-     $("#img4").css("marginLeft", "28px")
-     $("#img").css("display", "none")
-     $("#img1").css("display", "none")
-     $("#img2").css("display", "none")
-     $("#img3").css("display", "none")
+    //歌图切换
+    $("#img4").css("display", "block")
+    $("#img4").css("marginLeft", "28px")
+    $("#img").css("display", "none")
+    $("#img1").css("display", "none")
+    $("#img2").css("display", "none")
+    $("#img3").css("display", "none")
     //音频切换
     $("#audio").css("display", "none")
     $("#audio1").css("display", "none")
@@ -840,9 +841,11 @@ $('.ul2 li .aaa').eq(5).click(function () {
 
     }
     yinpin4()
-   
-   
+
+
 })
-$('#select-all').on('change', function() {
+
+$('#select-all').on('change', function () {
+    
     $('.user-checkbox').prop('checked', $(this).prop('checked'));
 });
