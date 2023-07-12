@@ -188,7 +188,11 @@
             margin: 0 auto;
         }
 
-        #lyric {
+        #lyric,
+        #lyric1,
+        #lyric2,
+        #lyric3,
+        #lyric4 {
             margin-top: 15px;
             color: hsla(0, 0%, 88.2%, .8);
             font-size: 15px;
@@ -202,7 +206,11 @@
             display: none;
         }
 
-        #lyric p {
+        #lyric p,
+        #lyric1 p,
+        #lyric2 p,
+        #lyric3 p,
+        #lyric4 p {
             margin: 10px 0;
         }
     </style>
@@ -263,9 +271,29 @@
                 <div class="box3">
                     <div class="imgsss">
                         <img src="https://y.qq.com/music/photo_new/T002R300x300M000004FKCj71O4Hhz_1.jpg?max_age=2592000"
-                            alt="" width="184px" height="184px">
+                            alt="" width="184px" height="184px" id="img" style="display: none;">
+                        <img src="https://y.qq.com/music/photo_new/T002R300x300M000000WDNPt4XUrXs_2.jpg?max_age=2592000"
+                            alt="" width="184px" height="184px" id="img1" style="display: none;">
+                        <img src="https://y.qq.com/music/photo_new/T002R300x300M000004TvSd03uUezv_1.jpg?max_age=2592000"
+                            alt="" width="184px" height="184px" id="img2" style="display: none;">
+                        <img src="https://y.qq.com/music/photo_new/T002R300x300M000000K9Zp13TZp5s_1.jpg?max_age=2592000"
+                            alt="" width="184px" height="184px" id="img3" style="display: none;">
+                        <img src="https://y.qq.com/music/photo_new/T002R300x300M000003y8dsH2wBHlo_1.jpg?max_age=2592000"
+                            alt="" width="184px" height="184px" id="img4" style="display: none;">
                     </div>
-                    <div id="lyric">
+                    <div id="lyric" style="display: none;">
+
+                    </div>
+                    <div id="lyric1" style="display: none;">
+
+                    </div>
+                    <div id="lyric2" style="display: none;">
+
+                    </div>
+                    <div id="lyric3" style="display: none;">
+
+                    </div>
+                    <div id="lyric4" style="display: none;">
 
                     </div>
                 </div>
@@ -276,7 +304,7 @@
 
 
     <div class="box4">
-        <audio controls id="audio">
+        <audio controls id="audio" style="display: none;">
             <source src="./音频、歌词/在你的身边 - 盛哲.mp3" type="audio/mpeg">
         </audio>
         <audio controls id="audio1" style="display: none;">
@@ -296,13 +324,3 @@
 <script src="./QQ音乐.js"></script>
 
 </html>
-日报
-今日学习:js进阶(Class);
-今日问题:无;
-今日笔记:
-1.构造函数
-constructor 会在 new 时自动执行
-子构造器中调用完super 后才可以使用 this
-2.严格模式
-constructor 用于定义函数代码
-class 默认使用strict 严格模式执行
