@@ -7,6 +7,7 @@
     <title>Document</title>
     <script src="../引入/jquery.min.js"></script>
     <style>
+        
         * {
             margin: 0;
             padding: 0;
@@ -211,6 +212,7 @@
         #lyric2 p,
         #lyric3 p,
         #lyric4 p {
+            font-size: 14px;
             margin: 10px 0;
         }
     </style>
@@ -246,7 +248,7 @@
                                     d="M880.64 747.57632v61.44c0 39.58784-32.09216 71.68-71.68 71.68H215.04c-39.58784 0-71.68-32.09216-71.68-71.68v-61.44a35.84 35.84 0 1 0-71.68 0v61.44c0 79.17568 64.18432 143.36 143.36 143.36h593.92c79.17568 0 143.36-64.18432 143.36-143.36v-61.44a35.84 35.84 0 1 0-71.68 0z"
                                     fill="#8a8a8a" p-id="6203"></path>
                             </svg>下载</a></li>
-                    <li><a href=""><svg t="1688902423404" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                    <li id="delete-selected-btn"><a href=""><svg t="1688902423404" class="icon" viewBox="0 0 1024 1024" version="1.1"
                                 xmlns="http://www.w3.org/2000/svg" p-id="7364" width="20" height="20">
                                 <path
                                     d="M256 298.666667h512v554.666666H256V298.666667z m85.333333 85.333333v384h341.333334V384H341.333333z m42.666667 85.333333h85.333333v213.333334H384v-213.333334z m170.666667 0h85.333333v213.333334h-85.333333v-213.333334zM213.333333 298.666667h597.333334v85.333333H213.333333V298.666667z m170.666667-128h256v85.333333H384V170.666667z"
@@ -261,7 +263,7 @@
                 </ul>
                 <div class="box2">
                     <ul class="ul2">
-                        <li><input type="checkbox">
+                        <li><input type="checkbox" id="select-all">
                             <span class="aaa">歌曲</span>
                             <span class="bbb">歌手</span>
                             <span class="ppp">时长</span>
@@ -271,7 +273,7 @@
                 <div class="box3">
                     <div class="imgsss">
                         <img src="https://y.qq.com/music/photo_new/T002R300x300M000004FKCj71O4Hhz_1.jpg?max_age=2592000"
-                            alt="" width="184px" height="184px" id="img" style="display: none;">
+                            alt="" width="184px" height="184px" id="img">
                         <img src="https://y.qq.com/music/photo_new/T002R300x300M000000WDNPt4XUrXs_2.jpg?max_age=2592000"
                             alt="" width="184px" height="184px" id="img1" style="display: none;">
                         <img src="https://y.qq.com/music/photo_new/T002R300x300M000004TvSd03uUezv_1.jpg?max_age=2592000"
