@@ -5,7 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/valine/1.5.1/Valine.min.js"
+    integrity="sha512-FxPzcGnQGjqsUr1ofvicx9Y7T53thxBSvYCBdKeW/Sfr5dQVEkh70r7sl1TMsEVheXsoOTqXZ9z2t75JNeak/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../../../Valine-1.5.1/Valine-1.5.1/dist/Valine.min.js"></script>
 <style>
     html {
         background: #eee;
@@ -15,7 +20,7 @@
         filter: drop-shadow(0 1em 1em rgba(0, 0, 0, 0.2));
     }
 
-    p {
+    i {
         box-sizing: border-box;
         display: flex;
         align-items: center;
@@ -36,7 +41,7 @@
         counter-increment: c;
     }
 
-    p:before {
+    i:before {
         position: absolute;
         right: -0.5em;
         width: 5em;
@@ -48,7 +53,7 @@
         content: "";
     }
 
-    p:after {
+    i:after {
         box-sizing: inherit;
         display: grid;
         place-content: center;
@@ -89,28 +94,139 @@
         transition: 0.35s ease;
         box-sizing: border-box;
     }
+
+
+
+
+
+
+
+
+    .container {
+        width: 80%;
+        margin: auto;
+    }
+
+    .placeholder {
+        height: 56px;
+    }
+
+    @media screen and (max-width:720px) {
+        header {
+            text-align: center;
+        }
+
+        .sub {
+            display: block;
+            padding-bottom: 10px;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .placeholder,
+        .market {
+            display: none;
+        }
+    }
+
+    .content {
+        background: #fff;
+        padding: 10px;
+        margin: auto;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    .prolist {
+        padding: 10px 20px 20px 20px;
+        font-weight: 400;
+        font-size: 16px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Mirages Custom', 'Merriweather', 'Open Sans', "Segoe UI", Roboto, "PingFang SC", "Microsoft Yahei", "WenQuanYi Micro Hei", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", Helvetica, Arial, sans-serif;
+        line-height: 1.5;
+    }
+
+    .v[data-class=v] .vwrap {
+        height: 200px;
+
+    }
+
+    blockquote {
+        margin: 10px 0;
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+    }
+
+    #github {
+        padding: 20px 0;
+    }
+
+    .copy {
+        line-height: 60px;
+        text-align: center;
+        font-size: 14px;
+        color: #9c9c9c;
+    }
 </style>
 
 <body>
-    <p style="--slist: aqua,#8418d6;"><a href="./canvas/ccc.html"
+    <i style="--slist: aqua,#8418d6;"><a href="./canvas/ccc.html"
             class="center back-text">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;canvas</a>
-    </p>
-    <p style="--slist: #ff00ff,#009fcc;"><a href="./7.7考试/7.7考试.html"
+    </i>
+    <i style="--slist: #ff00ff,#009fcc;"><a href="./7.7考试/7.7考试.html"
             class="center back-text">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;7.7考试</a>
-    </p>
-    <p style="--slist: #ebac79,#d65b56;"><a href="./6.25考试/6.25考试.html"
-            class="center back-text">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;壁纸</a></p>
-    <p style="--slist: #90cbb7,#2fb1a9;"><a href="./6.30考试/6.30考试.html"
+    </i>
+    <i style="--slist: #ebac79,#d65b56;"><a href="./6.25考试/6.25考试.html"
+            class="center back-text">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;壁纸</a></i>
+    <i style="--slist: #90cbb7,#2fb1a9;"><a href="./6.30考试/6.30考试.html"
             class="center back-text">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;6.30考试</a>
-    </p>
-    <p style="--slist: #d28eff,#ffb3ff;"><a href="./sass/政府.html"
+    </i>
+    <i style="--slist: #d28eff,#ffb3ff;"><a href="./sass/政府.html"
             class="center back-text">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sass</a>
-    </p>
-    <p style="--slist: #ff00ff,#009fcc;"><a href="./media/media.html"
+    </i>
+    <i style="--slist: #ff00ff,#009fcc;"><a href="./media/media.html"
             class="center back-text">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;media</a>
-    </p>
+    </i>
+
+
+    <div class="market"></div>
+    <div class="container">
+        <div class="placeholder"></div>
+        <div class="content">
+            <div class="comment"></div>
+        </div>
+    </div>
 </body>
 <script>
+    var valine = new Valine();
+    valine.init({
+        el: '.comment',
+        app_id: '3GiiCyXCrGbOIH3EelCfJ6yw-gzGzoHsz',
+        app_key: 'iuneD4hXPQImdHQSRE0aOcRF',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        path: window.location.pathname,
+        avatar: 'mm', // 1.1.7 新增(mm/identicon/monsterid/wavatar/retro)
+        // guest_info: ['nick'] // 默认 ['nick', 'mail', 'link']
+    })
+
+    if (!/^http:\/\/localhost/.test(location.href)) {
+        var _hmt = _hmt || [];
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?fc2301b16d1a46c7899ef2b5afb651cc";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    }
+
+    window.onload = function () {
+        var iframes = document.querySelectorAll('iframe');
+        iframes[0].setAttribute('src', 'https://ghbtns.com/github-btn.html?user=xCss&repo=valine&type=watch&count=true');
+        iframes[1].setAttribute('src', 'https://ghbtns.com/github-btn.html?user=xCss&type=follow&count=true');
+    }
 </script>
 
 </html>
