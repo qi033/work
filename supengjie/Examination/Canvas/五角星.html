@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="app">
+        <canvas id="canvas" width="800" height="800"></canvas>
+    </div>
+
+    <script>
+        const el = document.querySelector('canvas')
+        const ctx = el.getContext('2d')
+        ctx.fillStyle = '#8e44ad'
+        ctx.fillRect(0, 0, el.width, el.height)
+        ctx.beginPath()
+        ctx.moveTo(400, 200)
+        ctx.lineTo(200, 700)
+        ctx.lineTo(700, 400)
+        ctx.lineTo(100, 400)
+        ctx.lineTo(600, 700)
+        ctx.closePath()
+        ctx.lineWidth = 10
+        ctx.strokeStyle = '#f1c40f'
+        ctx.stroke()
+    </script>
+</body>
+</html>
