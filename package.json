@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "gatsby-plugin-valine": "^1.0.2"
+  }
+}

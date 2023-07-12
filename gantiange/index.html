@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
     <style>
         * {
         margin: 0;
@@ -51,33 +52,56 @@
         line-height: 150px;
         color: blueviolet;
     }
+    .bok{
+           width:1000px;
+          height: 800px;
+           margin: auto;
+    }
+    #vco{
+           width:45%;
+           height:300px;
+           margin: auto;
+           border:1px solid black;
+    }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div style="background: linear-gradient(0deg, rgb(174, 170, 185) 0%, rgb(228, 129, 200) 100%);">
-            <a href="./考试1.html/1.html">考试题</a></div>
-        <div style="background: linear-gradient(0deg, rgb(159, 200, 217) 0%, rgb(99, 140, 210) 100%);">
-            <a href="./7月4号作业/作业1.html">7月4号作业</a>
+    <div class="bok">
+        <div class="container">
+            <div style="background: linear-gradient(0deg, rgb(174, 170, 185) 0%, rgb(228, 129, 200) 100%);">
+                <a href="./考试1.html/1.html">考试题</a>
+            </div>
+            <div style="background: linear-gradient(0deg, rgb(159, 200, 217) 0%, rgb(99, 140, 210) 100%);">
+                <a href="./7月4号作业/作业1.html">7月4号作业</a>
+            </div>
+             
+            <div style="background: linear-gradient(120deg, rgb(161, 196, 253) 0%, rgb(17, 212, 62) 100%);">
+                <a href="./练习Swiper/Swiper.html">练习Swiper</a>
+            </div>
+            <div style="background: linear-gradient(120deg, rgb(182, 205, 130) 0%, rgb(39, 60, 2) 100%);">
+                <a href="./media/weixin.html">微信</a>
+            </div>
+            <div style="background: linear-gradient(120deg, rgb(126, 193, 151) 0%, rgb(63, 180, 238) 100%);">
+                <a href="./Sass作业/1.html">邮政</a>
+            </div>
+            <div style="background: linear-gradient(0deg, rgb(112, 180, 116) 0%, rgb(23, 112, 160) 100%);">
+                <a href="./考试2/主页.html">考试2</a>
+            </div>
+            <div style="background: linear-gradient(0deg, rgb(112, 180, 116) 0%, rgb(23, 112, 160) 100%);">
+                <a href="./canva作业/2.html">canva作业</a>
+            </div>
+            
         </div>
-         
-        <div style="background: linear-gradient(120deg, rgb(161, 196, 253) 0%, rgb(17, 212, 62) 100%);">
-            <a href="./练习Swiper/Swiper.html">练习Swiper</a>
-        </div>
-        <div style="background: linear-gradient(120deg, rgb(182, 205, 130) 0%, rgb(39, 60, 2) 100%);">
-            <a href="./media/weixin.html">微信</a>
-        </div>
-        <div style="background: linear-gradient(120deg, rgb(126, 193, 151) 0%, rgb(63, 180, 238) 100%);">
-            <a href="./Sass作业/1.html">邮政</a>
-        </div>
-        <div style="background: linear-gradient(0deg, rgb(112, 180, 116) 0%, rgb(23, 112, 160) 100%);">
-            <a href="./考试2/主页.html">考试2</a>
-        </div>
-        <div style="background: linear-gradient(0deg, rgb(112, 180, 116) 0%, rgb(23, 112, 160) 100%);">
-            <a href="./canva作业/2.html">canva作业</a>
-        </div>
-        
     </div>
-    </div>  
+    
+    <div id="vco" style="width: 95%"></div>
+ 
 </body>
+<script>
+    new Valine({
+      el: "#vco",
+      appId: "yyRDBfxtOPeePYQVdbZ4nYUu-gzGzoHsz",
+      appKey: "i6pcxv2HWfAWHvZDslhnGBzD",
+    });
+  </script>
 </html>
