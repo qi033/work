@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper的切换</title>
+    <link rel="stylesheet" href="./swiper.min.css" />
+    <link rel="stylesheet" href="./certify.css" />
+    <script src="./swiper.min.js"></script>
+  </head>
+  <style>
+    #box {
+      margin: 80px auto;
+      position: relative;
+      width: 1200px;
+      height: 700px;
+    }
+    #certify {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-button-next {
+      position: absolute;
+      left: 1120px;
+    }
+    .swiper-button-prev {
+      position: absolute;
+      left: 50px;
+    }
+    .swiper-pagination {
+      position: absolute;
+      left: 580px;
+      top: 630px;
+    }
+  </style>
+  <body>
+    <div id="box">
+      <div id="certify">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="https://w.wallhaven.cc/full/7p/wallhaven-7p1kjy.png" />
+              <p>非常难得又值钱的认证证书</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="https://w.wallhaven.cc/full/rr/wallhaven-rrrx8m.jpg" />
+              <p>深圳市优秀互联网企业认定证书</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="https://w.wallhaven.cc/full/jx/wallhaven-jx1395.jpg" />
+              <p>质量管理体系认证荣誉证书</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="https://w.wallhaven.cc/full/gp/wallhaven-gpqy2e.jpg" />
+              <p>计算机软件著作权登记证书</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="https://w.wallhaven.cc/full/9d/wallhaven-9d21wk.jpg" />
+              <p>增值电信业务经营许可证</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <script>
+      certifySwiper = new Swiper("#certify .swiper-container", {
+        // 其他 Swiper 配置选项
+        watchSlidesProgress: true,
+        slidesPerView: "auto",
+        centeredSlides: true,
+        loop: true,
+        loopedSlides: 5,
+        autoplay: true,
+        autoplay: {
+          delay: 1000,
+        },
+        spaceBetween: 10,
+        pagination: {
+          el: ".swiper-pagination",
+          
+          sclickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        on: {
+          progress: function (progress) {
+            for (i = 0; i < this.slides.length; i++) {
+              var slide = this.slides.eq(i);
+              var slideProgress = this.slides[i].progress;
+              modify = 1;
+              if (Math.abs(slideProgress) > 1) {
+                modify = (Math.abs(slideProgress) - 1) * 0.5 + 1;
+              }
+              translate = slideProgress * modify * 260 + "px";
+              scale = 1 - Math.abs(slideProgress) / 5;
+              zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
+              slide.transform(
+                "translateX(" + translate + ") scale(" + scale + ")"
+              );
+              slide.css("zIndex", zIndex);
+              slide.css("opacity", 1);
+              if (Math.abs(slideProgress) > 3) {
+                slide.css("opacity", 0);
+              }
+            }
+          },
+          setTransition: function (transition) {
+            for (var i = 0; i < this.slides.length; i++) {
+              var slide = this.slides.eq(i);
+              slide.transition(transition);
+            }
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
