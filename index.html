@@ -1,170 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <!-- 引入 layui.css -->
-    <!-- 引入 layui.css -->
-    <link href="//unpkg.com/layui@2.8.6/dist/css/layui.css" rel="stylesheet" />
-    <!-- 引入 layui.js -->
-    <script src="//unpkg.com/layui@2.8.6/dist/layui.js"></script>
-  </head>
 
-  <style>
-    #box {
-      width: 550px;
-      background-image: linear-gradient(
-        0deg,
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <!-- 引入 layui.css -->
+  <!-- 引入 layui.css -->
+  <link href="//unpkg.com/layui@2.8.6/dist/css/layui.css" rel="stylesheet" />
+  <!-- 引入 layui.js -->
+  <script src="//unpkg.com/layui@2.8.6/dist/layui.js"></script>
+</head>
+
+<style>
+  #box {
+    width: 550px;
+    background-image: linear-gradient(0deg,
         #fdcbf1 0%,
         #fdcbf1 1%,
-        #e6dee9 100%
-      );
-      padding: 20px;
-      margin: 30px auto;
-      border-radius: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      text-align: center;
-    }
+        #e6dee9 100%);
+    padding: 20px;
+    margin: 30px auto;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+  }
 
-    .no {
-      width: 90px;
-      height: 50px;
-      background-color: white;
-      border-radius: 10%;
-      text-align: center;
-      padding: 10px;
-      margin: 10px;
-    }
+  .no {
+    width: 90px;
+    height: 50px;
+    background-color: white;
+    border-radius: 10%;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+  }
 
-    img {
-      width: 30px;
-      height: 30px;
-      border-radius: 30px;
-    }
-  </style>
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+  }
+</style>
 
-  <body>
-    <div id="box">
-      <p style="margin: auto; width: 400px">自行更改数组相关链接，字段</p>
-    </div>
-    <script>
-      $(function () {
-        fun();
-      });
-      const default_img = "./common/imgs/default_img.png";
-      function fun() {
-        let html = "";
-        stu.forEach((item) => {
-          html += `
+<body>
+  <div id="box">
+    <p style="margin: auto; width: 400px">自行更改数组相关链接，字段</p>
+  </div>
+  <script>
+    $(function () {
+      fun();
+    });
+    const default_img = "./common/imgs/default_img.png";
+    function fun() {
+      let html = "";
+      stu.forEach((item) => {
+        html += `
              <div class="no">
-        <dl>
+              <a target="_blank" href="${item.src}"> <dl>
           <dd>
             <img src="${item.imgs ? item.imgs : default_img}" alt="" />
           </dd>
-          <dd><a target="_blank" href="${item.src}">${item.name}</a></dd>
+          <dd>${item.name}</dd>
         </dl>
+      </a>
       </div>
              `;
-        });
-        $("#box").html(html);
-      }
-      let n = 1;
-      const stu = [
-        {
-          id: n++,
-          imgs: "https://avatars.githubusercontent.com/u/16456766?v=4",
-          name: "刘豪",
-          src: "./liuhao/index.html",
-        },
-        {
-          id: n++,
-          imgs: "./zhaozongfu/img/logo.jpeg",
-          name: "赵宗福",
-          src: "./zhaozongfu/index.html",
-        },
-        {
-          id: n++,
-          imgs: "./liuzhenzhou/首页/c4ee8e59e969574bc8d1dd3f663fc279~180x180.awebp",
-          name: "刘振洲",
-          src: "./liuzhenzhou/首页/home page.html",
-        },
-        {
-          id: n++,
-          imgs: "https://img1.baidu.com/it/u=3768804500,181908195&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
-          name: "申卓凡",
-          src: "./shenzhuofan/申卓凡.html",
-        },
-        {
-          id: n++,
-          imgs: "",
-          name: "赵灿龙",
-          src: "./zhaocanlong/index.html",
-        },
-        {
-          id: n++,
-          imgs: "./yuhao1/图片/a881555cd49106df4e6e536955303232~180x180.awebp",
-          name: "余浩",
-          src: "./yuhao1/yuhao.html",
-        },
-        {
-          id: n++,
-          imgs: "./liuchaoxiang/img/1.jpg",
-          name: "刘超祥",
-          src: "./liuchaoxiang/7.7考试/7.7考试.html",
-        },
-        {
-          id: n++,
-          imgs: "./zhaoshuaibo/img/1.jpg",
-          name: "赵帅博",
-          src: "./zhaoshuaibo/1.html",
-        },
-        {
-          id: n++,
-          imgs: "./liujia/img/s4.jpg",
-          name: "刘佳佳",
-          src: "./liujia/aaaaaa.html",
-        },
-        {
-          id: n++,
-          imgs: "../work/yanghaobing/壁纸/image/18.jpg",
-          name: "杨浩冰",
-          src: "./yanghaobing/考试题.html",
-        },
-        {
-          id: n++,
-          imgs: "",
-          name: "郑哲元",
-          src: "./zzy/1.html",
-        },
-        {
-          id: n++,
-          imgs: "",
-          name: "甘天鸽",
-          src: "./gantiange/index.html",
-        },
-        {
-          id: n++,
-          imgs: "https://pic1.zhimg.com/50/v2-6f7a901f128820af1dcc38a6baca30d8_720w.webp?source=1940ef5c",
-          name: "杨宏承",
-          src: "./yanghongcheng/主界面.html",
-        },
-        {
-          id: n++,
-          imgs: "https://img1.baidu.com/it/u=323777627,1339816383&fm=253&fmt=auto&app=138&f=JPEG?w=440&h=439",
-          name: "苏朋杰",
-          src: "./supengjie/Examination/总链接.html",
-        },
-        {
-          id: n++,
-          imgs: "./liyanyang/img/头像.jpg",
-          name: "李彦洋",
-          src: "./liyanyang/index.html",
-        },
-      ];
-    </script>
-  </body>
+      });
+      $("#box").html(html);
+    }
+    let n = 1;
+    const stu = [
+      {
+        id: n++,
+        imgs: "https://avatars.githubusercontent.com/u/16456766?v=4",
+        name: "刘豪",
+        src: "./liuhao/index.html",
+      },
+      {
+        id: n++,
+        imgs: "./zhaozongfu/img/logo.jpeg",
+        name: "赵宗福",
+        src: "./zhaozongfu/index.html",
+      },
+      {
+        id: n++,
+        imgs: "./liuzhenzhou/首页/c4ee8e59e969574bc8d1dd3f663fc279~180x180.awebp",
+        name: "刘振洲",
+        src: "./liuzhenzhou/首页/home page.html",
+      },
+      {
+        id: n++,
+        imgs: "https://img1.baidu.com/it/u=3768804500,181908195&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
+        name: "申卓凡",
+        src: "./shenzhuofan/申卓凡.html",
+      },
+      {
+        id: n++,
+        imgs: "",
+        name: "赵灿龙",
+        src: "./zhaocanlong/index.html",
+      },
+      {
+        id: n++,
+        imgs: "./yuhao1/图片/a881555cd49106df4e6e536955303232~180x180.awebp",
+        name: "余浩",
+        src: "./yuhao1/yuhao.html",
+      },
+      {
+        id: n++,
+        imgs: "./liuchaoxiang/img/1.jpg",
+        name: "刘超祥",
+        src: "./liuchaoxiang/7.7考试/7.7考试.html",
+      },
+      {
+        id: n++,
+        imgs: "./zhaoshuaibo/img/1.jpg",
+        name: "赵帅博",
+        src: "./zhaoshuaibo/1.html",
+      },
+      {
+        id: n++,
+        imgs: "./liujia/img/s4.jpg",
+        name: "刘佳佳",
+        src: "./liujia/aaaaaa.html",
+      },
+      {
+        id: n++,
+        imgs: "../work/yanghaobing/壁纸/image/18.jpg",
+        name: "杨浩冰",
+        src: "./yanghaobing/考试题.html",
+      },
+      {
+        id: n++,
+        imgs: "",
+        name: "郑哲元",
+        src: "./zzy/1.html",
+      },
+      {
+        id: n++,
+        imgs: "",
+        name: "甘天鸽",
+        src: "./gantiange/index.html",
+      },
+      {
+        id: n++,
+        imgs: "./yanghongcheng/feijian.jpg",
+        name: "杨宏承",
+        src: "./yanghongcheng/主界面.html",
+      },
+      {
+        id: n++,
+        imgs: "https://img1.baidu.com/it/u=323777627,1339816383&fm=253&fmt=auto&app=138&f=JPEG?w=440&h=439",
+        name: "苏朋杰",
+        src: "./supengjie/Examination/总链接.html",
+      },
+      {
+        id: n++,
+        imgs: "./liyanyang/img/头像.jpg",
+        name: "李彦洋",
+        src: "./liyanyang/index.html",
+      },
+    ];
+  </script>
+</body>
+
 </html>
