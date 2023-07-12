@@ -152,7 +152,7 @@ $('.ul2 li .aaa').eq(1).click(function () {
                 ctime = Math.floor(this.currentTime);
                 lrc.forEach((currentItem, index) => {
                     if (ctime >= currentItem.time && ctime < lrc[index + 1].time) {
-                        $(".p").eq(index).css("color", "yellowgreen");
+                        $(".p").eq(index).css("color", "#31C37C");
                     }
                 });
             }, 500);
@@ -305,7 +305,7 @@ $('.ul2 li .aaa').eq(2).click(function () {
                 ctime = Math.floor(this.currentTime);
                 lrc1.forEach((currentItem, index) => {
                     if (ctime >= currentItem.time && ctime < lrc1[index + 1].time) {
-                        $(".p1").eq(index).css("color", "yellowgreen");
+                        $(".p1").eq(index).css("color", "#31C37C");
                     }
                 });
             }, 500);
@@ -456,7 +456,7 @@ $('.ul2 li .aaa').eq(3).click(function () {
                 ctime = Math.floor(this.currentTime);
                 lrc2.forEach((currentItem, index) => {
                     if (ctime >= currentItem.time && ctime < lrc2[index + 1].time) {
-                        $(".p2").eq(index).css("color", "yellowgreen");
+                        $(".p2").eq(index).css("color", "#31C37C");
                     }
                 });
             }, 500);
@@ -608,7 +608,7 @@ $('.ul2 li .aaa').eq(4).click(function () {
                 ctime = Math.floor(this.currentTime);
                 lrc3.forEach((currentItem, index) => {
                     if (ctime >= currentItem.time && ctime < lrc3[index + 1].time) {
-                        $(".p3").eq(index).css("color", "yellowgreen");
+                        $(".p3").eq(index).css("color", "#31C37C");
                     }
                 });
             }, 500);
@@ -760,7 +760,7 @@ $('.ul2 li .aaa').eq(5).click(function () {
                 ctime = Math.floor(this.currentTime);
                 lrc4.forEach((currentItem, index) => {
                     if (ctime >= currentItem.time && ctime < lrc4[index + 1].time) {
-                        $(".p4").eq(index).css("color", "yellowgreen");
+                        $(".p4").eq(index).css("color", "#31C37C");
                     }
                 });
             }, 500);
