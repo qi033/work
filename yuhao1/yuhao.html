@@ -95,82 +95,10 @@
         box-sizing: border-box;
     }
 
-
-
-
-
-
-
-
-    .container {
-        width: 80%;
+    #vcomments {
+        width: 1200px;
         margin: auto;
-    }
-
-    .placeholder {
-        height: 56px;
-    }
-
-    @media screen and (max-width:720px) {
-        header {
-            text-align: center;
-        }
-
-        .sub {
-            display: block;
-            padding-bottom: 10px;
-        }
-
-        .container {
-            width: 100%;
-        }
-
-        .placeholder,
-        .market {
-            display: none;
-        }
-    }
-
-    .content {
-        background: #fff;
-        padding: 10px;
-        margin: auto;
-    }
-
-    ul,
-    li {
-        list-style: none;
-    }
-
-    .prolist {
-        padding: 10px 20px 20px 20px;
-        font-weight: 400;
-        font-size: 16px;
-        font-family: -apple-system, BlinkMacSystemFont, 'Mirages Custom', 'Merriweather', 'Open Sans', "Segoe UI", Roboto, "PingFang SC", "Microsoft Yahei", "WenQuanYi Micro Hei", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", Helvetica, Arial, sans-serif;
-        line-height: 1.5;
-    }
-
-    .v[data-class=v] .vwrap {
-        height: 200px;
-
-    }
-
-    blockquote {
-        margin: 10px 0;
-        padding: 0 1em;
-        color: #6a737d;
-        border-left: 0.25em solid #dfe2e5;
-    }
-
-    #github {
-        padding: 20px 0;
-    }
-
-    .copy {
-        line-height: 60px;
-        text-align: center;
-        font-size: 14px;
-        color: #9c9c9c;
+        border: 10px solid rgb(238, 238, 238);
     }
 </style>
 
@@ -194,39 +122,32 @@
     </i>
 
 
-    <div class="market"></div>
-    <div class="container">
-        <div class="placeholder"></div>
-        <div class="content">
-            <div class="comment"></div>
-        </div>
-    </div>
+    <div id="vcomments"></div>
 </body>
 <script>
-    var valine = new Valine();
-    valine.init({
-        el: '.comment',
-        app_id: '3GiiCyXCrGbOIH3EelCfJ6yw-gzGzoHsz',
-        app_key: 'iuneD4hXPQImdHQSRE0aOcRF',
-        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
-        path: window.location.pathname,
-        avatar: 'mm', // 1.1.7 新增(mm/identicon/monsterid/wavatar/retro)
+    new Valine({
+        el: '#vcomments',
+        app_id: 'WZJnr1PHsIaq3zZv7K5N6kbS-gzGzoHsz',
+        app_key: 'ypbmE9ZOcne0n7FtMXLL0URL',
+        placeholder: '发表评论dm',
+        // path: window.location.pathname,
+        // avatar: 'mm', // 1.1.7 新增(mm/identicon/monsterid/wavatar/retro)
         // guest_info: ['nick'] // 默认 ['nick', 'mail', 'link']
     })
 
-    if (!/^http:\/\/localhost/.test(location.href)) {
-        var _hmt = _hmt || [];
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?fc2301b16d1a46c7899ef2b5afb651cc";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    }
+    // if (!/^http:\/\/localhost/.test(location.href)) {
+    //     var _hmt = _hmt || [];
+    //     var hm = document.createElement("script");
+    //     hm.src = "https://hm.baidu.com/hm.js?fc2301b16d1a46c7899ef2b5afb651cc";
+    //     var s = document.getElementsByTagName("script")[0];
+    //     s.parentNode.insertBefore(hm, s);
+    // }
 
-    window.onload = function () {
-        var iframes = document.querySelectorAll('iframe');
-        iframes[0].setAttribute('src', 'https://ghbtns.com/github-btn.html?user=xCss&repo=valine&type=watch&count=true');
-        iframes[1].setAttribute('src', 'https://ghbtns.com/github-btn.html?user=xCss&type=follow&count=true');
-    }
+    // window.onload = function () {
+    //     var iframes = document.querySelectorAll('iframe');
+    //     iframes[0].setAttribute('src', 'https://ghbtns.com/github-btn.html?user=xCss&repo=valine&type=watch&count=true');
+    //     iframes[1].setAttribute('src', 'https://ghbtns.com/github-btn.html?user=xCss&type=follow&count=true');
+    // }
 </script>
 
 </html>
