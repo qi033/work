@@ -11,25 +11,76 @@
 
 </body>
 <script>
-    class Person {
+
+
+
+
+    class User {
         constructor(name) {
             this.name = name;
         }
 
-        show() {
-            return `姓名: ${this.name}`;
+        say() {
+            return this.name;
         }
     }
-    class User extends Person {
+    class Admin extends User {
         constructor(name) {
             super(name);
         }
-        run() {
-            return super.show();
+
+        say() {
+            return "好前程：" + super.say();
         }
     }
-    const ren = new User("张三");
-    console.dir(ren.run());
+    const hqc = new Admin("张三");
+    console.log(hqc.say());
+
+    // class Controller {
+    //     sum() {
+    //         return this.data.reduce((t, c) => t + c.price, 0);
+    //     }
+    // }
+    // class Lesson extends Controller {
+    //     constructor(lessons) {
+    //         super();
+    //         this.data = lessons;
+    //     }
+    //     info() {
+    //         return {
+    //             totalPrice: super.sum(),
+    //             data: this.data
+    //         };
+    //     }
+    // }
+    // let data = [
+    //     { name: "js", price: 100 },
+    //     { name: "mysql", price: 212 },
+    //     { name: "vue.js", price: 98 }
+    // ];
+    // const hd = new Lesson(data);
+    // console.log(hd.info());
+
+    // class Person {
+    //     constructor(name) {
+    //         this.name = name;
+    //     }
+    //     show() {
+    //         return `姓名: ${this.name}`;
+    //     }
+    // }
+
+    // class User extends Person {
+    //     constructor(name) {
+    //         super(name);
+    //     }
+    //     run() {
+    //         return super.show();
+    //     }
+    // }
+    // const ren = new User("张三");
+    // console.dir(ren.run());
+
     // class User {
     //     #data = {
     //         pwd: 123,
