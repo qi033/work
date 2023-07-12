@@ -143,7 +143,7 @@ $('.ul2 li .aaa').eq(1).click(function () {
         function renderLyric() {
             let html1 = "";
             lrc.forEach((currentItem) => {
-                html1 += `<p>${currentItem.lyric}</p>`;
+                html1 += `<p class="p">${currentItem.lyric}</p>`;
             });
             $("#lyric").html(html1);
         }
@@ -152,7 +152,7 @@ $('.ul2 li .aaa').eq(1).click(function () {
                 ctime = Math.floor(this.currentTime);
                 lrc.forEach((currentItem, index) => {
                     if (ctime >= currentItem.time && ctime < lrc[index + 1].time) {
-                        $("p").eq(index).css("color", "yellowgreen");
+                        $(".p").eq(index).css("color", "#31C37C");
                     }
                 });
             }, 500);
@@ -164,7 +164,7 @@ $('.ul2 li .aaa').eq(1).click(function () {
         }
         function highlightLyric(lyricIndex) {
             var container = document.getElementById('lyric');
-            var lyrics = container.getElementsByTagName('p');
+            var lyrics = container.querySelector('.p');
 
             for (var i = 0; i < lyrics.length; i++) {
                 if (i === lyricIndex) {
@@ -207,7 +207,7 @@ $('.ul2 li .aaa').eq(1).click(function () {
         function handleScroll() {
             var container = document.getElementById('lyric');
             var audio = document.getElementById('audio');
-            var lyrics = container.getElementsByTagName('p');
+            var lyrics = container.querySelector('.p');
             var scrollTop = container.scrollTop;
 
             for (var i = 0; i < lyrics.length; i++) {
@@ -296,7 +296,7 @@ $('.ul2 li .aaa').eq(2).click(function () {
         function renderLyric() {
             let html1 = "";
             lrc1.forEach((currentItem) => {
-                html1 += `<p>${currentItem.lyric1}</p>`;
+                html1 += `<p class="p1">${currentItem.lyric1}</p>`;
             });
             $("#lyric1").html(html1);
         }
@@ -305,7 +305,7 @@ $('.ul2 li .aaa').eq(2).click(function () {
                 ctime = Math.floor(this.currentTime);
                 lrc1.forEach((currentItem, index) => {
                     if (ctime >= currentItem.time && ctime < lrc1[index + 1].time) {
-                        $("p").eq(index).css("color", "yellowgreen");
+                        $(".p1").eq(index).css("color", "#31C37C");
                     }
                 });
             }, 500);
@@ -317,7 +317,7 @@ $('.ul2 li .aaa').eq(2).click(function () {
         }
         function highlightLyric(lyricIndex) {
             var container = document.getElementById('lyric1');
-            var lyrics = container.getElementsByTagName('p');
+            var lyrics = container.querySelector('.p1');
 
             for (var i = 0; i < lyrics.length; i++) {
                 if (i === lyricIndex) {
@@ -360,7 +360,7 @@ $('.ul2 li .aaa').eq(2).click(function () {
         function handleScroll() {
             var container = document.getElementById('lyric1');
             var audio = document.getElementById('audio1');
-            var lyrics = container.getElementsByTagName('p');
+            var lyrics = container.querySelector('.p1');
             var scrollTop = container.scrollTop;
 
             for (var i = 0; i < lyrics.length; i++) {
@@ -447,7 +447,7 @@ $('.ul2 li .aaa').eq(3).click(function () {
         function renderLyric() {
             let html1 = "";
             lrc2.forEach((currentItem) => {
-                html1 += `<p>${currentItem.lyric2}</p>`;
+                html1 += `<p class="p2">${currentItem.lyric2}</p>`;
             });
             $("#lyric2").html(html1);
         }
@@ -456,7 +456,7 @@ $('.ul2 li .aaa').eq(3).click(function () {
                 ctime = Math.floor(this.currentTime);
                 lrc2.forEach((currentItem, index) => {
                     if (ctime >= currentItem.time && ctime < lrc2[index + 1].time) {
-                        $("p").eq(index).css("color", "yellowgreen");
+                        $(".p2").eq(index).css("color", "#31C37C");
                     }
                 });
             }, 500);
@@ -468,7 +468,7 @@ $('.ul2 li .aaa').eq(3).click(function () {
         }
         function highlightLyric(lyricIndex) {
             var container = document.getElementById('lyric2');
-            var lyrics = container.getElementsByTagName('p');
+            var lyrics = container.querySelector('.p2');
 
             for (var i = 0; i < lyrics.length; i++) {
                 if (i === lyricIndex) {
@@ -511,7 +511,7 @@ $('.ul2 li .aaa').eq(3).click(function () {
         function handleScroll() {
             var container = document.getElementById('lyric2');
             var audio = document.getElementById('audio2');
-            var lyrics = container.getElementsByTagName('p');
+            var lyrics = container.querySelector('.p2');
             var scrollTop = container.scrollTop;
 
             for (var i = 0; i < lyrics.length; i++) {
@@ -599,7 +599,7 @@ $('.ul2 li .aaa').eq(4).click(function () {
         function renderLyric() {
             let html1 = "";
             lrc3.forEach((currentItem) => {
-                html1 += `<p>${currentItem.lyric3}</p>`;
+                html1 += `<p class="p3">${currentItem.lyric3}</p>`;
             });
             $("#lyric3").html(html1);
         }
@@ -608,7 +608,7 @@ $('.ul2 li .aaa').eq(4).click(function () {
                 ctime = Math.floor(this.currentTime);
                 lrc3.forEach((currentItem, index) => {
                     if (ctime >= currentItem.time && ctime < lrc3[index + 1].time) {
-                        $("p").eq(index).css("color", "yellowgreen");
+                        $(".p3").eq(index).css("color", "#31C37C");
                     }
                 });
             }, 500);
@@ -620,7 +620,7 @@ $('.ul2 li .aaa').eq(4).click(function () {
         }
         function highlightLyric(lyricIndex) {
             var container = document.getElementById('lyric3');
-            var lyrics = container.getElementsByTagName('p');
+            var lyrics = container.querySelector('.p3');
 
             for (var i = 0; i < lyrics.length; i++) {
                 if (i === lyricIndex) {
@@ -663,7 +663,7 @@ $('.ul2 li .aaa').eq(4).click(function () {
         function handleScroll() {
             var container = document.getElementById('lyric3');
             var audio = document.getElementById('audio3');
-            var lyrics = container.getElementsByTagName('p');
+            var lyrics = container.querySelector('.p3');
             var scrollTop = container.scrollTop;
 
             for (var i = 0; i < lyrics.length; i++) {
@@ -751,7 +751,7 @@ $('.ul2 li .aaa').eq(5).click(function () {
         function renderLyric() {
             let html1 = "";
             lrc4.forEach((currentItem) => {
-                html1 += `<p>${currentItem.lyric4}</p>`;
+                html1 += `<p class="p4">${currentItem.lyric4}</p>`;
             });
             $("#lyric4").html(html1);
         }
@@ -760,7 +760,7 @@ $('.ul2 li .aaa').eq(5).click(function () {
                 ctime = Math.floor(this.currentTime);
                 lrc4.forEach((currentItem, index) => {
                     if (ctime >= currentItem.time && ctime < lrc4[index + 1].time) {
-                        $("p").eq(index).css("color", "yellowgreen");
+                        $(".p4").eq(index).css("color", "#31C37C");
                     }
                 });
             }, 500);
@@ -772,7 +772,7 @@ $('.ul2 li .aaa').eq(5).click(function () {
         }
         function highlightLyric(lyricIndex) {
             var container = document.getElementById('lyric4');
-            var lyrics = container.getElementsByTagName('p');
+            var lyrics = container.querySelector('p4');
 
             for (var i = 0; i < lyrics.length; i++) {
                 if (i === lyricIndex) {
@@ -815,7 +815,7 @@ $('.ul2 li .aaa').eq(5).click(function () {
         function handleScroll() {
             var container = document.getElementById('lyric4');
             var audio = document.getElementById('audio4');
-            var lyrics = container.getElementsByTagName('p');
+            var lyrics = container.querySelector('.p4');
             var scrollTop = container.scrollTop;
 
             for (var i = 0; i < lyrics.length; i++) {
