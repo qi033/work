@@ -2,7 +2,10 @@
 <html>
 
 <head>
+    <link rel="Shortcut icon" href="//www.jq22.com/favicon.ico" />
+    <link href="css/demo.css?v4" rel="stylesheet" media="all" />
     <style>
+
         * {
             text-decoration: none;
             list-style: none;
@@ -232,7 +235,9 @@
                 transform: rotate(360deg);
             }
         }
+
     </style>
+    
 </head>
 
 <body>
@@ -338,10 +343,21 @@
             </ul>
 
         </div>
-
-
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <div id="vcomments"></div>
+        <style>
+            #vcomments{
+                margin-top: 700px;
+            }
+        </style>
+        <script>
+            new Valine({
+                el: '#vcomments',
+                appId: 'IwQB3xqFT6a4q0ZCvqlxBY15-gzGzoHsz',
+                appKey: 'TzuaPnv3LOns3rgtMxsSxgfP'
+            })
+        </script>
     </div>
-
 </body>
 
 </html>
