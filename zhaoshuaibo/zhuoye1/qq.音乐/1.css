@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.colors {
+  color: red;
+}
+
+.box {
+  width: 80%;
+  min-height: 500px;
+  background-color: rgb(78, 71, 71);
+  padding: 10px;
+  margin: auto;
+  color: white !important;
+  cursor: pointer;
+}
+
+.nev {
+  margin-top: 50px;
+  padding-left: 50px;
+}
+.nev button {
+  width: 122px;
+  height: 38px;
+  border: none;
+  color: white !important;
+}
+.nev button:hover {
+  border: 1px solid white;
+  
+}
+
+.raw {
+  width: 50%;
+  display: inline-block;
+  margin: 50px;
+}
+.raw li span {
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  line-height: 10px;
+  font-size: 20px;
+  margin-top: 30px;
+}
+.raw li span input {
+  float: left;
+}
+.raw li .w {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.raw #noe {
+  min-height: 600px;
+}
+.raw .bottom {
+  width: 100%;
+}
+
+#audio {
+  width: 100%;
+  height: 50px;
+  border-radius: 1px;
+}
+
+.right {
+  float: right;
+  width: 43%;
+  height: 800px;
+  text-align: center;
+}
+
+.content {
+  color: white;
+}
+
+#geci {
+  overflow: hidden;
+  height: 450px;
+}/*# sourceMappingURL=1.css.map */
