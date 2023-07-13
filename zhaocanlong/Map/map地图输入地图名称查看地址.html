@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, user-scalable=no, width=device-width"
+    />
+    <title>地点关键字 + 驾车路线规划</title>
+    <style type="text/css">
+      html,
+      body,
+      #container {
+        width: 100%;
+        height: 100%;
+      }
+      #container {
+        margin: 80px auto;
+        width: 800px;
+        height: 500px;
+      }
+    </style>
+    <style type="text/css">
+      #panel {
+        position: fixed;
+        background-color: white;
+        max-height: 90%;
+        overflow-y: auto;
+        top: 10px;
+        right: 10px;
+        width: 280px;
+      }
+      #panel .amap-call {
+        background-color: #009cf9;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+      }
+      #panel .amap-lib-driving {
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        overflow: hidden;
+      }
+      #box{
+        position: relative;
+        top:10px;
+        left: 280px;
+      }
+    </style>
+    <script type="text/javascript">
+      window._AMapSecurityConfig = {
+        securityJsCode: "7a3e56a85128151148fe6b01a4d7f466",
+      };
+    </script>
+    <link rel="stylesheet" href="./layui文件夹/layui.css" />
+    <link rel="stylesheet" href="./layui文件夹/layui.js" />  
+    <!-- 密钥值 -->
+    <link
+      rel="stylesheet"
+      href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"
+    />
+    <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+    <script
+      type="text/javascript"
+      src="https://webapi.amap.com/maps?v=2.0&key=fece8266c6cab577fe6e89652a765421&plugin=AMap.Driving"
+    ></script>
+    <!-- key值 -->
+    <script
+      type="text/javascript"
+      src="https://cache.amap.com/lbs/static/addToolbar.js"
+    ></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  </head>
+  <body>
+    初始点:<input type="text" name="" id="chushi"  style="width: 300px;"/><br><br>
+    目的地:<input type="text" name="" id="zhongdian" style="width: 300px;"/><br>
+    <button id="box" class="layui-btn" onclick="fun()">确定</button>
+    <div id="container"></div>
+    <div id="panel"></div>
+    <script type="text/javascript">
+      //基本地图加载
+      var map = new AMap.Map("container", {
+        resizeEnable: true,
+        center: [116.397428, 39.90923], //地图中心点
+        zoom: 13, //地图显示的缩放级别
+      });
+      //构造路线导航类
+      var driving = new AMap.Driving({
+        map: map,
+        panel: "panel",
+      });
+      // 根据起终点名称规划驾车导航路线
+      function fun() {
+        var wocao = $("#chushi").val(),
+          wocao1 = $("#zhongdian").val();
+        driving.search(
+          [
+            {
+              keyword: wocao,
+            },
+            {
+              keyword: wocao1,
+            },
+          ],
+          function (status, result) {
+            if (status === "complete") {
+              log.success("绘制驾车路线完成");
+            } else {
+              log.error("获取驾车数据失败：" + result);
+            }
+          }
+        );
+      }
+    </script>
+  </body>
+</html>

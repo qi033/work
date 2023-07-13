@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+        type="text/javascript"> window._AMapSecurityConfig = { securityJsCode: "7a3e56a85128151148fe6b01a4d7f466", };</script>
+    <!-- 密钥值 -->
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+    <script type="text/javascript"
+        src="https://webapi.amap.com/maps?v=2.0&key=fece8266c6cab577fe6e89652a765421&plugin=AMap.Driving"></script>
+    <!-- key值 -->
+    <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <link rel="stylesheet" href="./layui文件夹/layui.css" />
+    <link rel="stylesheet" href="./layui文件夹/layui.js" />
+</head>
+<style>
+    #container {
+        margin:auto;
+        width: 1000px;
+        height: 700px;
+    }
+
+    #panel {
+        position: fixed;
+        background-color: white;
+        max-height: 90%;
+        overflow-y: auto;
+        top: 10px;
+        right: 10px;
+        width: 280px;
+    }
+
+    #panel .amap-call {
+        background-color: #009cf9;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+
+    #panel .amap-lib-driving {
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        overflow: hidden;
+    }
+</style>
+
+<body>
+    <button id="box" class="layui-btn" onclick="dianji()">点击运行路线</button>
+    <div id="container"></div>
+    <div id="panel"></div>
+</body>
+<script>
+    //基本地图加载
+    var map = new AMap.Map("container", {
+        resizeEnable: true,
+        center: [113.427589, 34.764916], //地图中心点
+        zoom: 16, //地图显示的缩放级别
+    });
+    function dianji() {
+        //构造路线导航类
+        var driving = new AMap.Driving({
+            map: map,
+            panel: "panel",
+        });
+        // 根据起终点经纬度规划驾车导航路线
+        driving.search(
+            new AMap.LngLat(113.427589, 34.764916),
+            new AMap.LngLat(113.428155, 34.774258),
+            function (status, result) {
+                if (status === "complete") {
+                    log.success("绘制驾车路线完成");
+                } else {
+                    log.error("获取驾车数据失败：" + result);
+                }
+            }
+        );
+    }
+</script>
+
+</html>

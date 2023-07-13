@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.css" />
+    <script src="../../common/swiper/swiper-bundle.js"></script>
+  </head>
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -150px;
+      margin-top: -150px;
+    }
+
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+    }
+  </style>
+  <body>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="https://iknow-pic.cdn.bcebos.com/562c11dfa9ec8a135c41bf53f903918fa0ecc02e?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_600%2Ch_800%2Climit_1%2Fquality%2Cq_85%2Fformat%2Cf_auto"
+            width="300"
+            height="300" />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://img0.baidu.com/it/u=3249371920,2675463339&fm=253&fmt=auto&app=138&f=JPEG?w=670&h=500"
+            width="300"
+            height="300" />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://img0.baidu.com/it/u=2182695024,2328493070&fm=253&fmt=auto&app=138&f=JPEG?w=1023&h=358"
+            width="300"
+            height="300" />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://img2.baidu.com/it/u=4065390554,2671291909&fm=253&fmt=auto&app=138&f=JPEG?w=757&h=500"
+            width="300"
+            height="300" />
+        </div>
+      </div>
+      <!-- <div class="swiper-pagination"></div> -->
+    </div>
+  </body>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "cube",
+      loop: true,
+      grabCursor: true,
+      cubeEffect: {
+        slideShadows: true,
+        shadow: true,
+        shadowOffset: 100,
+        shadowScale: 0.6,
+      },
+      //   pagination: {
+      //     el: ".swiper-pagination",
+      //   },
+    });
+  </script>
+</html>

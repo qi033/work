@@ -18,42 +18,10 @@
     <canvas width="500px" height="500" id="canv"></canvas>
     <canvas width="500px" height="500px" id="cp"></canvas>
     <canvas width="500px" height="500px" id="ca"></canvas>
-    <canvas width="600px" height="600px" id="can"></canvas>
   </body>
   <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
   <!-- 八卦图 -->
-  <script>
-    var box = document.getElementById("can");
-    var cv = box.getContext("2d");
-    cv.beginPath();
-    cv.lineWidth = 20;
-    cv.arc(250, 280, 200, 0, 2 * Math.PI);
-    cv.stroke();
-    cv.beginPath();
-    cv.arc(250, 280, 150, 0.5 * Math.PI, 1.5 * Math.PI, false);
-    cv.fillStyle = "blue";
-    cv.fill();
-    cv.beginPath();
-    cv.arc(250, 280, 150, 0.5 * Math.PI, 1.5 * Math.PI, true);
-    cv.fillStyle = "red";
-    cv.fill();
-    cv.beginPath();
-    cv.arc(250, 205, 75, 0.5 * Math.PI, 1.5 * Math.PI, false);
-    cv.fillStyle = "red";
-    cv.fill();
-    cv.beginPath();
-    cv.arc(250, 355, 75, 0.5 * Math.PI, 1.5 * Math.PI, true);
-    cv.fillStyle = "blue";
-    cv.fill();
-    cv.beginPath();
-    cv.arc(250, 225, 20, 0, 2 * Math.PI, 1.5 * Math.PI, false);
-    cv.fillStyle = "blue";
-    cv.fill();
-    cv.beginPath();
-    cv.arc(250, 375, 20, 0, 2 * Math.PI, 1.5 * Math.PI, false);
-    cv.fillStyle = "red";
-    cv.fill();
-  </script>
+
   <script>
     var canvas = document.getElementById("ca");
     var context = canvas.getContext("2d");
