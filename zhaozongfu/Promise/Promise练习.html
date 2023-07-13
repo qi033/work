@@ -8,36 +8,23 @@
 </head>
 
 <body>
-    <style>
-        div {
-            width: 100px;
-            height: 100px;
-            background: yellowgreen;
-            position: absolute;
-        }
-    </style>
-
-    <body>
-        <div></div>
-    </body>
-
     <script>
-        function interval(callback, delay = 100) {
-            let id = setInterval(() => callback(id), delay);
-        }
-        const div = document.querySelector("div");
-        interval((timeId) => {
-            const left = parseInt(window.getComputedStyle(div).left);
-            div.style.left = left + 10 + "px";
-            if (left > 500) {
-                clearInterval(timeId);
-                interval((timeId) => {
-                    const width = parseInt(window.getComputedStyle(div).width);
-                    div.style.width = width - 1 + "px";
-                    if (width <= 0) clearInterval(timeId);
-                }, 10);
-            }
-        }, 100);
+        let kfc = new Promise((resolve, reject) => {
+            resolve("1");
+            console.log(1);
+        });
+        let dad = kfc.then(msg => {
+            return {
+                then(resolve) {
+                    setTimeout(() => {
+                        console.log(`await delay ${msg}`)
+                    }, 3000);
+                },
+                
+            };
+            console.log("2");
+        });
+       
     </script>
 </body>
 
