@@ -4,6 +4,7 @@
 <head>
     <link rel="Shortcut icon" href="//www.jq22.com/favicon.ico" />
     <link href="css/demo.css?v4" rel="stylesheet" media="all" />
+    <link rel="stylesheet" href="./jqueryQPlayer/css/player.css">
     <style>
 
         * {
@@ -120,7 +121,7 @@
             text-align: center;
         }
 
-        .right {
+        .rights {
             width: 100px;
             height: 650px;
             background-color: #b72727;
@@ -145,9 +146,29 @@
             text-align: center;
         }
 
-        p,
-        span,
+       #text
         a {
+            font-family: '楷体';
+            /* font-size: 40px; */
+            font-weight: 900;
+            text-shadow: -1px -1px 0 #FFD700,
+                1px -1px 0 #FFD700,
+                -1px 1px 0 #FFD700,
+                1px 1px 0 #FFD700
+        }
+        #text
+        p {
+            font-family: '楷体';
+            font-size: 40px;
+            font-weight: 900;
+            text-shadow: -1px -1px 0 #FFD700,
+                1px -1px 0 #FFD700,
+                -1px 1px 0 #FFD700,
+                1px 1px 0 #FFD700
+        }
+        #text
+        span
+        {
             font-family: '楷体';
             font-size: 40px;
             font-weight: 900;
@@ -163,9 +184,10 @@
             /* background-color: #b72727; */
             position: relative;
             margin-bottom: 10px;
+            text-align: center;
         }
 
-        img {
+       .cushion img {
             width: 200px;
             height: 130px;
         }
@@ -243,6 +265,9 @@
 <body>
    
     <div class="table">
+        <div id="text">
+
+        
         <div class="top">
             <div class="subtop">
                 <span>学无止境</span>
@@ -263,7 +288,7 @@
                 <p>舟</p>
             </div>
         </div>
-        <div class="right">
+        <div class="rights">
             <div class="fu-container">
                 <div class="fu-character"><span>福</span></div>
             </div>
@@ -288,37 +313,67 @@
                 </li>
                 <li>
                     <div class="dumpling">
-                        <a href="./Map/map练习题合集.html">Map练习题</a>
+                        <a href="./Map/map练习题合集.html" style="left: 28%;">Map练习题</a>
                         <img src="./Img/饺子2.png" alt="">
                     </div>
                 </li>
                 <li>
                     <div class="dumpling">
-                        <a href="../Examination/Swiper/练习题集合.html">Swiper练习题</a>
+                        <a href="../Examination/Swiper/练习题集合.html" style="left: 20%;">Swiper练习题</a>
                         <img src="./Img/饺子2.png" alt="">
                     </div>
                 </li>
                 <li>
                     <div class="dumpling">
-                        <a href="../Examination/Sass-Less/YZ-Webpage/YZ.html">邮政</a>
+                        <a href="../Examination/Sass-Less/YZ-Webpage/YZ.html" style="left: 38%;">邮政</a>
                         <img src="./Img/饺子2.png" alt="">
                     </div>
                 </li>
                 <li>
                     <div class="dumpling">
-                        <a href="../Examination/Media@/WeChart/WeChat.html">微信</a>
+                        <a href="../Examination/Media@/WeChart/WeChat.html"  style="left: 38%;">微信</a>
                         <img src="./Img/饺子2.png" alt="">
                     </div>
                 </li>
                 <li>
                     <div class="dumpling">
-                        <a href="../Examination/7-7考试/7-7考试主页面.html">7-7考试</a>
+                        <a href="../Examination/7-7考试/7-7考试主页面.html"  style="left: 32%;">7-7考试</a>
                         <img src="./Img/饺子2.png" alt="">
                     </div>
                 </li>
                 <li>
                     <div class="dumpling">
-                        <a href="./Canvas/总链接.html">Canvas练习题</a>
+                        <a href="./Canvas/总链接.html"  style="left: 20%;">Canvas练习题</a>
+                        <img src="./Img/饺子2.png" alt="">
+                    </div>
+                </li>
+                <li>
+                    <div class="dumpling">
+                        <a href="#">.....</a>
+                        <img src="./Img/饺子2.png" alt="">
+                    </div>
+                </li>
+                <li>
+                    <div class="dumpling">
+                        <a href="#">.....</a>
+                        <img src="./Img/饺子2.png" alt="">
+                    </div>
+                </li>
+                <li>
+                    <div class="dumpling">
+                        <a href="#">.....</a>
+                        <img src="./Img/饺子2.png" alt="">
+                    </div>
+                </li>
+                <li>
+                    <div class="dumpling">
+                        <a href="#">.....</a>
+                        <img src="./Img/饺子2.png" alt="">
+                    </div>
+                </li>
+                <li>
+                    <div class="dumpling">
+                        <a href="#">.....</a>
                         <img src="./Img/饺子2.png" alt="">
                     </div>
                 </li>
@@ -343,6 +398,8 @@
             </ul>
 
         </div>
+    </div>
+        <!-- 评论功能 -->
         <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
         <div id="vcomments"></div>
         <style>
@@ -358,6 +415,50 @@
                 avatar:'https://img.guguzhu.com/d/file/android/ico/2020/11/28/zhuzhuxiaggbondzhutiqu.jpg'
             })
         </script>
+        <!-- 音乐功能 -->
+        <div id="QPlayer">
+            <div id="pContent">
+            
+                <div id="player">
+                    <span class="cover"></span>
+                    <div class="ctrl">
+                        <div class="musicTag marquee">
+                            <strong>Title</strong>
+                             <span> - </span>
+                            <!-- <span class="artist">Artist</span> -->
+                        </div>
+                        <div class="progress">
+                            <!-- <div class="timer left">0:00</div> -->
+                            <div class="contr">
+                                <div class="rewind icon"></div>
+                                <div class="playback icon"></div>
+                                <div class="fastforward icon"></div>
+                            </div>
+                            <div class="right">
+                                <div class="liebiao icon"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ssBtn" style="background:#000 none repeat scroll 0% 0%">
+                        <div class="adf"></div>
+                </div>
+            </div>
+            <ol id="playlist"></ol>
+            </div>
+            
+            <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+            <script src="./jqueryQPlayer/js/jquery.marquee.min.js"></script>
+            <link rel="stylesheet" href="./jqueryQPlayer/jq22.mp3">
+            <script>
+                var	playlist = [
+            {title:"Carlo",artist:"祖海",mp3:"./jqueryQPlayer/好运来.mp3",cover:"./jqueryQPlayer/祖海.jpg",},
+            {title:"Uptown Funk",artist:"Mark Ronson",mp3:"./jqueryQPlayer/jq22.mp3",cover:"./jqueryQPlayer/t2.png",},
+            ];
+              var isRotate = true;
+              var autoplay = true;
+            </script>
+            <script src="./jqueryQPlayer/js/player.js"></script>
     </div>
 </body>
 
