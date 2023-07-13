@@ -1,57 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2302 作业目录</title>
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <!-- 引入 layui.css -->
-    <!-- 引入 layui.css -->
-    <link href="//unpkg.com/layui@2.8.6/dist/css/layui.css" rel="stylesheet" />
-    <!-- 引入 layui.js -->
-    <script src="//unpkg.com/layui@2.8.6/dist/layui.js"></script>
-  </head>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="https://img.sj33.cn/uploads/allimg/201304/1323323T6-3.png">
+  <title>组织</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <!-- 引入 layui.css -->
+  <!-- 引入 layui.css -->
+  <link href="//unpkg.com/layui@2.8.6/dist/css/layui.css" rel="stylesheet" />
+  <!-- 引入 layui.js -->
+  <script src="//unpkg.com/layui@2.8.6/dist/layui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
+  <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+</head>
 
 <style>
   body {
-    background-image: linear-gradient(0deg,
-        #f3e7e9 0%,
-        #e3eeff 99%,
-        #e3eeff 100%
-      );
-    }
-    #box {
-      width: 80%;
-      padding: 20px;
-      margin: 0px auto;
-      border-radius: 10px;
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .no:hover {
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
-    }
-    .no {
-      width: 150px;
-      height: 150px;
-      background-color: white;
-      border-radius: 10%;
-      text-align: center;
-      padding: 10px;
-      margin: 10px 25px;
-    }
+    width: 100%;
+    height: 100vh;
+    background: url("https://w.wallhaven.cc/full/7p/wallhaven-7p1x93.png") no-repeat 0 0 /100% 100vh
+  }
 
-    img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50px;
-    }
-    dd {
-      margin: 10px;
-    }
-  </style>
+  @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&display=swap");
+
+  .char {
+    font-variation-settings: "wght" var(--weight, 100);
+    color: hsl(var(--hue), calc(var(--saturation) * 1%), 65%);
+  }
+
+  #box {
+
+    width: 90.95%;
+    padding: 20px;
+    margin: 0px auto;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .no:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
+    transform: scale(1.04);
+  }
+
+  .no {
+    width: 150px;
+    height: 150px;
+    background-color: rgba(128, 128, 128, 0.3);
+    border-radius: 10%;
+    text-align: center;
+    padding: 10px;
+    margin: 10px 25px;
+    transition: transform 0.4s ease;
+  }
+
+  img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+  }
+
+  dd {
+    margin: 10px;
+  }
+</style>
 
 <body>
   <div id="box">
@@ -60,6 +76,26 @@
   <script>
     $(function () {
       fun();
+      Splitting();
+      gsap.set(".char", {
+        "--hue": gsap.utils.distribute({
+          base: 0,
+          amount: 330,
+        }),
+      });
+      gsap
+        .to(".char", {
+          "--weight": 700,
+          "--saturation": 80,
+          ease: "sine.inOut",
+          duration: 0.5,
+          stagger: {
+            yoyo: true,
+            repeat: -1,
+            each: 0.15,
+          },
+        })
+        .time(2);
     });
     const default_img = "./common/imgs/default_img.png";
     function fun() {
@@ -71,7 +107,7 @@
           <dd>
             <img src="${item.imgs ? item.imgs : default_img}" alt="" />
           </dd>
-          <dd><a target="_blank" href="${item.src}">${item.name}</a></dd>
+          <dd data-splitting="chars"><a target="_blank" href="${item.src}" >${item.name}</a></dd>
         </dl>
       </div>
              `;
@@ -126,11 +162,11 @@
         id: n++,
         imgs: "./zhaoshuaibo/img/1.jpg",
         name: "赵帅博",
-        src: "./zhaoshuaibo/1.html",
+        src: "./zhaoshuaibo/2.html",
       },
       {
         id: n++,
-        imgs: "https://w.wallhaven.cc/full/d6/wallhaven-d6wy6o.jpg",
+        imgs: "./liujia/img/s4.jpg",
         name: "刘佳佳",
         src: "./liujia/aaaaaa.html",
       },
