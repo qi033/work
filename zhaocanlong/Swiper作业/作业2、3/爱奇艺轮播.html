@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="../swiper/swiper-bundle.min.css" />
+    <!-- Demo styles -->
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+      .swiper {
+        position: relative;
+        top: 150px;
+        width: 1000px;
+        height: 600px;
+        
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      .swiper-button-next{
+        position: absolute;
+        top: 30px;
+        
+        width: 80px;
+        height: 80px;
+        background-color: oldlace;
+        opacity: 0.5;
+        --swiper-navigation-color: gray;
+      }
+      .swiper-button-prev{
+        position: absolute;
+        top: 30px;
+        left: 800px;
+        width: 80px;
+        height: 80px;
+        background-color: oldlace;
+        opacity: 0.5;
+        --swiper-navigation-color: gray;
+      }
+      span{
+        position: absolute;
+        left: 100px;
+        top: 540px;
+        font-size: 25px;
+        color: gray;
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://img2.baidu.com/it/u=294439246,955045102&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1471"><span>太阳升起</span></div>
+        <div class="swiper-slide"><img src="https://n.sinaimg.cn/sinacn20111/178/w640h1138/20181217/ebe3-hqhtqsp2729472.jpg"><span>太阳落下</span></div>
+        <div class="swiper-slide"><img src="https://img1.baidu.com/it/u=801175154,454122638&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889"><span>火棘之花</span></div>
+        <div class="swiper-slide"><img src="https://img1.baidu.com/it/u=1933870352,2444320287&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=1422"><span>读书喷泉</span></div>
+        <div class="swiper-slide"><img src="https://img0.baidu.com/it/u=534966597,2984568057&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889"><span>夜光月色</span></div>
+        <div class="swiper-slide"><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F18%2F20200318094508_krisn.thumb.1000_0.jpg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1685883457&t=63d74fd82b77c9f6bb3c80915e6a6006"><span>即将开始</span></div>
+        <div class="swiper-slide"><img src="https://img2.baidu.com/it/u=1734909540,1726839284&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889"><span>蒹葭苍苍</span></div>
+        <div class="swiper-slide"><img src="https://img2.baidu.com/it/u=2361562459,1095736085&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=833"><span>蓝天公路</span></div>
+        <div class="swiper-slide"><img src="https://img1.baidu.com/it/u=3738069412,2936826347&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889"><span>失落平衡</span></div>
+        <div class="swiper-slide"><img src="https://img1.baidu.com/it/u=2776353843,1412292094&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=996"><span>失落平衡</span></div>
+        <div class="swiper-slide"><img src="https://img2.baidu.com/it/u=3605557677,2610851532&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889"><span>失落平衡</span></div>
+        <div class="swiper-slide"><img src="https://img2.baidu.com/it/u=3626042903,2375662336&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889"><span>失落平衡</span></div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+    
+    <!-- Swiper JS -->
+    <script src="../swiper/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        slidesPerGroup: 4,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+  </body>
+</html>
