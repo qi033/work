@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="../swiper/swiper-bundle.min.css" />
+
+    <!-- Demo styles -->
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+      body {
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        background-color: antiquewhite;
+      }
+
+      .swiper {
+        width: 75%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .swiper-wrapper {
+        height: 750px;
+      }
+      .swiper {
+        width: 75%;
+        height: 80%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .swiper-slide {
+        background-size: cover;
+        background-position: center;
+      }
+      .mySwiper2 {
+        height: 100%;
+        width: 80%;
+        position: absolute;
+      }
+      .mySwiper {
+        height: 100%;
+        width: 75%;
+        box-sizing: border-box;
+        position: absolute;
+        left: 807px;
+      }
+      .mySwiper .swiper-slide {
+        width: 25%;
+        height: 200px;
+        opacity: 0.4;
+      }
+
+      .mySwiper .swiper-slide-thumb-active {
+        opacity: 1;
+      }
+      #box {
+        position: relative;
+        margin: 80px auto;
+        width: 1000px;
+        height: 600px;
+        border: 1px solid rgb(142, 142, 142);
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Swiper -->
+    <div id="box">
+      <div
+        style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+        class="swiper mySwiper2"
+      >
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img
+              src="https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1682020592268-9ca7acf44c5b?ixid=Mnw0MjI2NjN8MHwxfHRvcGljfHw2c01WalRMU2tlUXx8fHx8Mnx8MTY4MzAwMDI3MQ&ixlib=rb-4.0.3&w=300&h=150&fmt=webp"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1681846101305-d00856ddf7ad?ixid=Mnw0MjI2NjN8MHwxfHRvcGljfHw2c01WalRMU2tlUXx8fHx8Mnx8MTY4MzAwMDI3MQ&ixlib=rb-4.0.3&w=300&h=150&fmt=webp"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1681316282069-60281576790b?ixid=Mnw0MjI2NjN8MHwxfHRvcGljfHw2c01WalRMU2tlUXx8fHx8Mnx8MTY4MzExMDg0Nw&ixlib=rb-4.0.3&w=300&h=150&fmt=webp"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1680984580142-37e1ad42ea83?ixid=MnwyNjY4NDZ8MHwxfHRvcGljfHw2c01WalRMU2tlUXx8fHx8Mnx8MTY4MzEyNDMwOQ&ixlib=rb-4.0.3&w=300&h=150&fmt=webp"
+            />
+          </div>
+        </div>
+      </div>
+      <div thumbsSlider="" class="swiper mySwiper" id="box2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img
+              src="https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1682020592268-9ca7acf44c5b?ixid=Mnw0MjI2NjN8MHwxfHRvcGljfHw2c01WalRMU2tlUXx8fHx8Mnx8MTY4MzAwMDI3MQ&ixlib=rb-4.0.3&w=300&h=150&fmt=webp"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1681846101305-d00856ddf7ad?ixid=Mnw0MjI2NjN8MHwxfHRvcGljfHw2c01WalRMU2tlUXx8fHx8Mnx8MTY4MzAwMDI3MQ&ixlib=rb-4.0.3&w=300&h=150&fmt=webp"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1681316282069-60281576790b?ixid=Mnw0MjI2NjN8MHwxfHRvcGljfHw2c01WalRMU2tlUXx8fHx8Mnx8MTY4MzExMDg0Nw&ixlib=rb-4.0.3&w=300&h=150&fmt=webp"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1680984580142-37e1ad42ea83?ixid=MnwyNjY4NDZ8MHwxfHRvcGljfHw2c01WalRMU2tlUXx8fHx8Mnx8MTY4MzEyNDMwOQ&ixlib=rb-4.0.3&w=300&h=150&fmt=webp"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../swiper/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        direction: "vertical",
+        spaceBetween: 8,
+        slidesPerView: 4,
+        mousewheel: true,
+        loop: true,
+        freeMode: true,
+        watchSlidesProgress: true,
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false,
+        },
+      });
+      var swiper2 = new Swiper(".mySwiper2", {
+        spaceBetween: 30,
+        slidesPerView: 1,
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false,
+        },
+        thumbs: {
+          swiper: swiper,
+        },
+      });
+    </script>
+  </body>
+</html>
