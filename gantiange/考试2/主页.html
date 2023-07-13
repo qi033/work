@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="/work/common/echarts.min.js"></script>
+  <script src="./cdn.Echarts.min.js"></script>
   <link rel="stylesheet" href="./1.css">
   <script type="text/javascript">
     window._AMapSecurityConfig = {
@@ -15,12 +15,11 @@
   <script type="text/javascript"
     src="https://webapi.amap.com/maps?v=2.0&key=4a69c14a328f35a3c02293344f4906e9&plugin=AMap.Driving"></script>
   <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
-  <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+  <!-- <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script> -->
   <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
-  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-  <link rel="stylesheet" href="/work/common/swiper/swiper-bundle.css">
-  <script src="/work/common/swiper/swiper-bundle.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+  <!-- <script src="/work/common/swiper/swiper-bundle.js"></script> -->
 
 </head>
 
@@ -641,11 +640,11 @@
     new AMap.LngLat(113.427738, 34.774703),
     function (status, result) {
       // result 即是对应的驾车导航信息，相关数据结构文档请参考  https://lbs.amap.com/api/javascript-api/reference/route-search#m_DrivingResult
-      if (status === "complete") {
-        log.success("绘制驾车路线完成");
-      } else {
-        log.error("获取驾车数据失败：" + result);
-      }
+      // if (status === "complete") {
+      //   log.success("绘制驾车路线完成");
+      // } else {
+      //   log.error("获取驾车数据失败：" + result);
+      // }
     }
   );
   //dianbiaoji
