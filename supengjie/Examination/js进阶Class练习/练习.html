@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // class User {
+        // }
+        // console.log(new Article());
+        // //赋值表达式定义
+        // let Article = class {
+        // };
+        // console.log(new User());
+
+        // class User {
+        //     constructor(name) {
+        //         this.name = name;
+        //         this.show = function () { };
+        //     }
+        //     getName() {
+        //         return this.name;
+        //     }
+        // }
+        // const zs = new User("张三");
+        // console.log(zs);
+
+
+        class User {
+            #data ={
+                pwd:111111,
+                srx:222222,
+            };
+            constructor(name) {
+                this.#data={name}
+            };
+            get name(){
+                this.#data.name
+            };
+            set name(value) {
+                if(value.trim()=="") throw new Error("asdasdasd");
+                this.#data.name = value
+            }
+        }
+        let uname = new User('刘针州')
+
+    </script>
+</body>
+
+</html>

@@ -1,61 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2302 作业目录</title>
-  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <!-- 引入 layui.css -->
-  <!-- 引入 layui.css -->
-  <link href="//unpkg.com/layui@2.8.6/dist/css/layui.css" rel="stylesheet" />
-  <!-- 引入 layui.js -->
-  <script src="//unpkg.com/layui@2.8.6/dist/layui.js"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2302 作业目录</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- 引入 layui.css -->
+    <!-- 引入 layui.css -->
+    <link href="//unpkg.com/layui@2.8.6/dist/css/layui.css" rel="stylesheet" />
+    <!-- 引入 layui.js -->
+    <script src="//unpkg.com/layui@2.8.6/dist/layui.js"></script>
+  </head>
 
 <style>
   body {
     background-image: linear-gradient(0deg,
         #f3e7e9 0%,
         #e3eeff 99%,
-        #e3eeff 100%);
-  }
+        #e3eeff 100%
+      );
+    }
+    #box {
+      width: 80%;
+      padding: 20px;
+      margin: 0px auto;
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .no:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+    }
+    .no {
+      width: 150px;
+      height: 150px;
+      background-color: white;
+      border-radius: 10%;
+      text-align: center;
+      padding: 10px;
+      margin: 10px 25px;
+    }
 
-  #box {
-    width: 80%;
-    padding: 20px;
-    margin: 0px auto;
-    border-radius: 10px;
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .no:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
-  }
-
-  .no {
-    width: 150px;
-    height: 150px;
-    background-color: white;
-    border-radius: 10%;
-    text-align: center;
-    padding: 10px;
-    margin: 10px 25px;
-  }
-
-  img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50px;
-  }
-
-  dd {
-    margin: 10px;
-  }
-</style>
+    img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50px;
+    }
+    dd {
+      margin: 10px;
+    }
+  </style>
 
 <body>
   <div id="box">
@@ -71,13 +67,12 @@
       stu.forEach((item) => {
         html += `
              <div class="no">
-              <a target="_blank" href="${item.src}"> <dl>
+        <dl>
           <dd>
             <img src="${item.imgs ? item.imgs : default_img}" alt="" />
           </dd>
-          <dd>${item.name}</dd>
+          <dd><a target="_blank" href="${item.src}">${item.name}</a></dd>
         </dl>
-      </a>
       </div>
              `;
       });

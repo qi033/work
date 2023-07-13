@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #div {
+        width: 100%;
+        height: 700px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      canvas {
+        margin-top: 50px;
+        background-color: rgb(243, 238, 249);
+        border: 1px solid red;
+      }
+
+      #div1 {
+        width: 100%;
+        height: 700px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      canvas {
+        background-color: rgb(243, 238, 249);
+        border: 1px solid red;
+        padding: 30px;
+      }
+      #div2 {
+        margin-top: 200px;
+        width: 100%;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      canvas {
+        background-color: rgb(243, 238, 249);
+        border: 1px solid red;
+        padding: 30px;
+      }
+      #div3 {
+        margin-top: 250px;
+        margin-bottom: 150px;
+        width: 100%;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #box3 {
+        background-color: red;
+        border: 1px solid red;
+        padding: 30px;
+        
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="div">
+      <canvas id="box" width="500px" height="500px"></canvas>
+    </div>
+    <div id="div1">
+      <canvas id="box1" width="600px" height="550px"></canvas>
+    </div>
+    <div id="div2">
+      <canvas id="box2" width="800px" height="800px"></canvas>
+    </div>
+    <div id="div3">
+      <canvas id="box3" width="1000px" height="600px"></canvas>
+    </div>
+  </body>
+  <script>
+    window.onload = function () {
+      const box = document.querySelector("#box");
+      const context = box.getContext("2d");
+
+      //先画一个大圆
+      context.beginPath();
+      context.arc(250, 250, 200, 0, 2 * Math.PI, false);
+      context.closePath();
+      context.fillStyle = "#fff";
+      context.lineWidth = 1;
+      context.fill();
+
+      //画左半边的半圆（从0.5*Math.PI-1.5*Math.PI）,颜色填充为黑色
+      context.beginPath();
+      context.arc(250, 250, 200, 0.5 * Math.PI, 1.5 * Math.PI, false);
+      context.closePath();
+      context.fillStyle = "#000";
+      context.fill();
+
+      //画左半边上面的半圆（从0.5*Math.PI-1.5*Math.PI）,颜色填充为白色
+      context.beginPath();
+      context.arc(250, 150, 100, 0.5 * Math.PI, 1.5 * Math.PI, false);
+      context.closePath();
+      context.fillStyle = "#fff";
+      context.fill();
+
+      //画右半边下面的半圆（从0.5*Math.PI-1.5*Math.PI）,颜色填充为黑色
+      context.beginPath();
+      context.arc(250, 350, 100, 0.5 * Math.PI, 1.5 * Math.PI, true);
+      context.closePath();
+      context.fillStyle = "#000";
+      context.fill();
+
+      //在上面的半圆内画一个比半圆小的整圆,颜色填充为黑色
+      context.beginPath();
+      context.arc(250, 150, 30, 0, 2 * Math.PI, false);
+      context.closePath();
+      context.fillStyle = "#000";
+      context.fill();
+
+      //在下面的半圆内画一个比半圆小的整圆,颜色填充为白色
+      context.beginPath();
+      context.arc(250, 350, 30, 0, 2 * Math.PI, false);
+      context.closePath();
+      context.fillStyle = "#fff";
+      context.fill();
+    };
+  </script>
+  <script>
+    const box1 = document.querySelector("#box1");
+    const ctx = box1.getContext("2d");
+    //填充画布颜色
+    ctx.fillStyle = "#71717171";
+    ctx.fillRect(0, 0, box1.width, box1.height);
+    //开始画线
+    ctx.beginPath();
+    ctx.moveTo(0, 200);
+    ctx.lineTo(500, 500);
+    ctx.moveTo(0, 200);
+    ctx.lineTo(600, 200);
+    ctx.moveTo(100, 500);
+    ctx.lineTo(600, 200);
+    ctx.moveTo(100, 500);
+    ctx.lineTo(300, 0);
+    ctx.moveTo(500, 500);
+    ctx.lineTo(300, 0);
+
+    //线宽
+    ctx.lineWidth = 15;
+    //线颜色
+    ctx.strokeStyle = "#00000";
+    //画线
+    ctx.stroke();
+  </script>
+  <script>
+    let box2 = document.querySelector("#box2");
+
+    box2.style.backgroundColor = "#fff";
+    ctx1 = box2.getContext("2d");
+
+    let taijiNum = 0,
+      recNum = 0,
+      lineNum = 0;
+
+    // 八边形框
+    function drawOutline() {
+      lineNum += 1;
+      let lineDeg = (lineNum * Math.PI) / 360;
+
+      ctx1.beginPath();
+      ctx1.lineJoin = "round";
+
+      for (let i = 0; i < 8; i++) {
+        ctx1.lineTo(
+          400 + 320 * Math.cos(lineDeg + Math.PI / 8 + (Math.PI / 4) * i),
+          400 - 320 * Math.sin(lineDeg + Math.PI / 8 + (Math.PI / 4) * i)
+        );
+      }
+
+      ctx1.closePath();
+      ctx1.lineWidth = 10;
+      ctx1.strokeStyle = "#333";
+      ctx1.stroke();
+    }
+
+    // 画太极
+    function drawTaiji() {
+      taijiNum -= Math.PI / 360;
+
+      // 大圆描边
+      ctx1.beginPath();
+      ctx1.arc(400, 400, 160, 0, Math.PI * 2);
+      ctx1.lineWidth = 1;
+      ctx1.strokeStyle = "#333";
+      ctx1.stroke();
+
+      // 左边半圆
+      ctx1.fillStyle = "#333";
+      ctx1.beginPath();
+      ctx1.arc(
+        400,
+        400,
+        160,
+        taijiNum + Math.PI * 0.5,
+        taijiNum + Math.PI * 1.5
+      );
+      ctx1.fill();
+
+      // 右边半圆
+      ctx1.fillStyle = "#fff";
+      ctx1.beginPath();
+      ctx1.arc(
+        400,
+        400,
+        160,
+        taijiNum + Math.PI * 0.5,
+        taijiNum + Math.PI * 1.5,
+        true
+      );
+      ctx1.fill();
+
+      // 上半边
+      ctx1.fillStyle = "#fff";
+      ctx1.beginPath();
+      ctx1.arc(
+        400 - 80 * Math.sin(taijiNum),
+        400 + 80 * Math.cos(taijiNum),
+        80,
+        taijiNum + Math.PI * 0.5,
+        taijiNum + Math.PI * 1.5
+      );
+      ctx1.fill();
+      // 清除间隔线条
+      ctx1.beginPath();
+      ctx1.moveTo(
+        400 - 160 * Math.sin(taijiNum),
+        400 + 160 * Math.cos(taijiNum)
+      );
+      ctx1.lineTo(400, 400);
+      ctx1.lineWidth = 2;
+      ctx1.strokeStyle = "#fff";
+      ctx1.stroke();
+
+      // 下半边
+      ctx1.fillStyle = "#333";
+      ctx1.beginPath();
+      ctx1.arc(
+        400 + 80 * Math.sin(taijiNum),
+        400 - 80 * Math.cos(taijiNum),
+        80,
+        taijiNum + Math.PI * 0.5,
+        taijiNum + Math.PI * 1.5,
+        true
+      );
+      ctx1.fill();
+
+      // 清除间隔线条
+      ctx1.beginPath();
+      ctx1.moveTo(
+        400 + 160 * Math.sin(taijiNum),
+        400 - 160 * Math.cos(taijiNum)
+      );
+      ctx1.lineTo(400, 400);
+      ctx1.strokeStyle = "#333";
+      ctx1.stroke();
+
+      // 上边小圆
+      ctx1.fillStyle = "#333";
+      ctx1.beginPath();
+      ctx1.arc(
+        400 - 80 * Math.sin(taijiNum),
+        400 + 80 * Math.cos(taijiNum),
+        16,
+        0,
+        Math.PI * 2
+      );
+      ctx1.fill();
+
+      // 下边小圆
+      ctx1.fillStyle = "#fff";
+      ctx1.beginPath();
+      ctx1.arc(
+        400 + 80 * Math.sin(taijiNum),
+        400 - 80 * Math.cos(taijiNum),
+        16,
+        0,
+        Math.PI * 2
+      );
+      ctx1.fill();
+    }
+
+    // 画方格
+    function drawRec() {
+      let arcNum = (Math.PI * 2) / 8;
+      let colors = [
+        "red",
+        "blue",
+        "green",
+        "pink",
+        "gray",
+        "orange",
+        "yellow",
+        "violet",
+      ];
+      recNum += Math.PI / 360;
+
+      for (let i = 0; i < 8; i++) {
+        let arc = recNum + arcNum / 2 + i * arcNum;
+        ctx1.save();
+
+        ctx1.translate(
+          400 + 260 * Math.cos(arc + arcNum / 2),
+          400 + 260 * Math.sin(arc + arcNum / 2)
+        );
+        // rotate方法旋转当前的绘图
+        ctx1.rotate(arc + arcNum / 2 + Math.PI / 2);
+
+        // ctx1.fillStyle = colors[i]
+        ctx1.fillStyle = "#333";
+        ctx1.fillRect(-50, 0, 100, 10);
+        ctx1.fillRect(-50, 20, 100, 10);
+        ctx1.fillRect(-50, 40, 100, 10);
+
+        ctx1.fillStyle = "#fff";
+
+        if (i === 0) {
+          ctx1.fillRect(-15, 39, 30, 12);
+        } else if (i === 1) {
+          ctx1.fillRect(-15, -1, 30, 12);
+          ctx1.fillRect(-15, 39, 30, 12);
+        } else if (i === 2) {
+          ctx1.fillRect(-15, 19, 30, 12);
+          ctx1.fillRect(-15, 39, 30, 12);
+        } else if (i === 3) {
+          ctx1.fillRect(-15, -1, 30, 12);
+          ctx1.fillRect(-15, 19, 30, 12);
+          ctx1.fillRect(-15, 39, 30, 12);
+        } else if (i === 4) {
+          ctx1.fillRect(-15, -1, 30, 12);
+          ctx1.fillRect(-15, 19, 30, 12);
+        } else if (i === 5) {
+          ctx1.fillRect(-15, 19, 30, 12);
+        } else if (i === 6) {
+          ctx1.fillRect(-15, -1, 30, 12);
+        } else {
+        }
+
+        ctx1.restore();
+      }
+    }
+
+    function draw() {
+      ctx1.globalCompositeOperation = "source-over";
+      ctx1.clearRect(0, 0, 800, 800);
+      drawOutline();
+      drawTaiji();
+      drawRec();
+      /* window.requestAnimationFrame(draw); */
+    }
+    draw();
+  </script>
+  <script>
+    //获取画布
+    const box3 = document.querySelector("#box3");
+    const myCanvas = box3.getContext("2d");
+    // 画线条函数
+    function line(x1, y1, x2, y2) {
+      myCanvas.moveTo(x1, y1);
+      myCanvas.lineTo(x2, y2);
+      myCanvas.stroke();
+    }
+    // line(0,100,300,100);
+    // line(150,0,150,200);
+
+    // 画网格  横线  参考线
+    // for (var i = 0; i < 10; i++) {
+    //     myCanvas.moveTo(0, i * 10);
+    //     myCanvas.lineTo(150, i * 10);
+    //     myCanvas.stroke();
+    // }
+    // 竖线
+    // for (var i = 0; i < 15; i++) {
+    //     myCanvas.moveTo(i * 10, 0);
+    //     myCanvas.lineTo(i * 10, 100);
+    //     myCanvas.stroke();
+    // }
+
+    // 画参考圆的方法
+    function circle(x, y, r) {
+      myCanvas.beginPath();
+      myCanvas.arc(x, y, r, 0, Math.PI * 2);
+      myCanvas.strokeStyle = "yellow";
+      myCanvas.stroke();
+    }
+
+    // 画大圆
+    // circle(50, 50, 30);
+    // 画小圆
+    // circle(100, 20, 10);
+    // circle(120, 40, 10);
+    // circle(120, 70, 10);
+    // circle(100, 90, 10);
+
+    // 画大五角星
+    star(130, 170, 90, 0);
+
+    // 画小五角星
+    star(270, 40,  32, Math.atan((40 - 20) /  (70 - 100)) - Math.PI / 2);
+    star(330, 130, 32, Math.atan((40 - 40) / (70 - 120)) - Math.PI / 2);
+    star(330, 240, 32, Math.atan((40 - 70) / (70 - 120)) - Math.PI / 2);
+    star(270, 310, 32, Math.atan((40 - 90) / (70 - 100)) - Math.PI / 2);
+
+    // 绘制五角星的方法
+    function star(x, y, r, deg) {
+      myCanvas.save();
+      myCanvas.translate(x, y);
+      myCanvas.rotate(deg);
+      myCanvas.beginPath();
+      var x = 0,
+        y = 0;
+      var du = (Math.PI * 4) / 5;
+      for (var i = 0; i < 5; i++) {
+        myCanvas.lineTo(
+          Math.cos(i * du - Math.PI / 2) * r,
+          Math.sin(i * du - Math.PI / 2) * r
+        );
+      }
+      myCanvas.closePath();
+      // myCanvas.stroke();
+      myCanvas.fillStyle = "yellow";
+      myCanvas.fill();
+      myCanvas.restore();
+    }
+
+    // 封装前的方法，操作
+    // myCanvas.lineTo(0,-30);
+    // myCanvas.lineTo(Math.cos(du-Math.PI/2)*30,Math.sin(du-Math.PI/2)*30);
+    // myCanvas.lineTo(Math.cos(2*du-Math.PI/2)*30,Math.sin(2*du-Math.PI/2)*30);
+    // myCanvas.lineTo(Math.cos(3*du-Math.PI/2)*30,Math.sin(3*du-Math.PI/2)*30);
+    // myCanvas.lineTo(Math.cos(4*du-Math.PI/2)*30,Math.sin(4*du-Math.PI/2)*30);
+
+    // myCanvas.translate(50,50);
+    // myCanvas.beginPath();
+    // myCanvas.arc(0,0,50,0,Math.PI/2);
+    // myCanvas.strokeStyle="blue";
+    // myCanvas.stroke();
+
+    // myCanvas.strokeStyle="black";
+    // line(50,50,100,20);
+    // line(50,50,120,40);
+    // line(50,50,120,70);
+    // line(50,50,100,90);
+  </script>
+</html>
