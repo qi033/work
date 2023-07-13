@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Directory Page</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- 引入 layui.css -->
+    <!-- 引入 layui.css -->
+    <link href="//unpkg.com/layui@2.8.6/dist/css/layui.css" rel="stylesheet" />
+    <!-- 引入 layui.js -->
+    <script src="//unpkg.com/layui@2.8.6/dist/layui.js"></script>
+    <style>
+      /* Reset default browser styles */
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      /* Page styles */
+      body {
+        font-family: Arial, sans-serif;
+        /* background-color: #301818; */
+        height: 875px;
+        padding: 20px;
+        background: url(./img/1\ copy.gif);
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        margin-left: 100px;
+      }
+      h3 {
+        margin: 10px;
+      }
+      a {
+        color: white;
+      }
+
+      .directory {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 0;
+      }
+
+      .directory-item {
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.1);
+        color: white;
+      }
+
+      .directory-item img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 10px;
+      }
+
+      .directory-item h3 {
+        margin-bottom: 5px;
+      }
+
+      .directory-item p {
+        color: #888;
+      }
+      .right {
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Directory Page</h1>
+
+    <div class="directory">
+      <div class="directory-item">
+        <h3><a href="作业1.html">我的作业</a></h3>
+        <h3><a href="./zhuoye1/考试.html">考试题</a></a></h3>
+        <h3><a href="./zhuoye1/轮播图.html/1.html">轮播图</a></h3>
+        <h3><a href="./zhuoye1/邮政j局/邮政.html">邮政</a></h3>
+        <h3><a href="./zhuoye1/weixin/微信.html">微信</a></h3>
+    
+      </div>
+      <div class="directory-item right">
+        <h3><a href="./zhuoye1/7.7考试/index.html">7.7考试</a></h3>
+        <h3><a href="./zhuoye1/qq.音乐/index.html">qq音乐</a></h3>
+        <h3><a href="./zhuoye1/canvas/练习.html">canvas</a></h3>
+        <h3><a href="./zhuoye1/canvas/红旗.html">红旗</a></h3>
+        <h3><a href="./zhuoye1/canvas/太极图.html">太极图</a></h3>
+
+
+      </div>
+
+      <!-- Add more directory items here -->
+    </div>
+
+  </body>
+</html>
