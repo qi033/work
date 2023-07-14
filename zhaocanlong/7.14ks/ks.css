@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+.box{
+    position: relative;
+    min-height: 100vh;
+}
+.her{
+    width: 100vw;
+    height: 40vh;
+    background-color: #ff7754;
+}
+.her2 {
+    width: 100vw;
+    height: 60vh;
+
+
+}
+.layui-tab-content{
+    width: 100vw;
+    height: 48vh;
+    overflow: auto !important;
+}
+
+h5{
+    position: absolute;
+    top: 3vh;
+    left: 40vw;
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+}
+.btn svg{
+    position: absolute;
+    top: 10vh;
+    left: 38vw;
+}
+.btn p{
+    position: absolute;
+    top: 25vh;
+    left: 34vw;
+    font-size: 30px;
+    color: white;
+}
+.layui-tab .layui-tab-title li{
+    min-width: 16%;
+}
+.layui-tab-title{
+    overflow-x: scroll !important; 
+}
+.layui-tab-brief>.layui-tab-title .layui-this{
+    color: black;
+}
+.layui-tab-bar{
+    position: absolute;
+    left:-31px;
+    top:-1px;
+}
+.layui-tab-brief>.layui-tab-more li.layui-this:after, .layui-tab-brief>.layui-tab-title .layui-this:after{
+    width: 8vw;
+    position: absolute;
+    left: 29px;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap; /* 允许项目自动换行 */
+}
+.bttn{
+    width: 24vw;
+    height: 15vh;
+    margin: 0.5vw 0.5vw 0.5vw 0.5vw;
+}
+.bttn dt{
+    margin-top: 2.2vh;
+    text-align: center;
+}
+.bttn dd{
+    margin-top: 2vh;
+    text-align: center;
+}
+.box2{
+    position: fixed;
+    display: flex;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 10vh; /* 底部盒子的高度 */
+    background-color: #f5f5f5;
+}
+.cont{
+    width: 18vw;
+    height: 8vh;
+    margin-top: 0.6vh;
+    text-align: center;
+    flex:1px; 
+}
+.btn svg,.btn1 svg,.btn2 svg,.btn3 svg,.btn4 svg,.btn5 svg,.btn6 svg,.btn7 svg,.btn8 svg,.btn9 svg,.btn10 svg,.btn11 svg,.btn12 svg{
+    position: absolute;
+    top: 10vh;
+    left: 38vw;
+}
+.btn p,.btn1 p,.btn2 p,.btn3 p,.btn4 p,.btn5 p,.btn6 p,.btn7 p,.btn8 p,.btn9 p,.btn10 p,.btn11 p,.btn12 p{
+    position: absolute;
+    top: 25vh;
+    left: 34vw;
+    font-size: 30px;
+    color: white;
+}
