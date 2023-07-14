@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.css"
+    />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.js"></script>
+    <link rel="stylesheet" href="./作业6文件/css.css" />
+    <script src="./作业6文件/jquery.min.js"></script>
+    <script src="./作业6文件/ZoomPic.js"></script>
+  </head>
+  <style>
+    img {
+      height: 600px;
+    }
+
+    li {
+      border: 7px solid #31322f;
+    }
+  </style>
+
+  <body>
+    <div id="jswbox">
+      <pre class="prev">prev</pre>
+      <pre class="next">next</pre>
+      <ul id="box">
+        <li class="nidaye">
+          <img
+            src="https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/83/83or3o.jpg?w=400&h=200&fmt=webp"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            src="https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/4d/4d3zpo.jpg?w=400&h=200&fmt=webp"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            src="https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/q6/q62ldr.jpg?w=400&h=200&fmt=webp"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            src="https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/r2/r25pwq.jpg?w=400&h=200&fmt=webp"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            src="https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/13/13owz3.jpg?w=400&h=200&fmt=webp"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            src="https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/48/485271.jpg?w=400&h=200&fmt=webp"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            src="https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/r2/r2dm7m.jpg?w=400&h=200&fmt=webp"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            src="https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/x1/x15py3.jpg?w=400&h=200&fmt=webp"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            src="https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/yj/yj737g.jpg?w=400&h=200&fmt=webp"
+            alt=""
+          />
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    var mySwiper = new Swiper("#box", {
+      autoplay: {
+        delay: 1000,
+      },
+    });
+    $(function () {
+      new ZoomPic("jswbox");
+    });
+  </script>
+</html>

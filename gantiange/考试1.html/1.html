@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-   <script src="/work/common/echarts.js"></script>
- <script src="/work/common/jquery-3.7.0.min.js"></script>
+   <script src="./cdn.Echarts.min.js"></script>
+ <!-- <script src="/work/common/jquery-3.7.0.min.js"></script> -->
  <style>
     #main{
            width: 600px;
@@ -333,74 +333,5 @@ setInterval(function () {
 }, 3000);
 option && myChart.setOption(option);
 </script> -->
-<script>
-var chartDom = document.getElementById('dong');
-var myChart = echarts.init(chartDom);
-var option;
-const data = [
-    
-];
-for (let i = 0; i < 4; ++i) {
-  data.push(Math.round(Math.random() * 100));
-}
-option = {
-  xAxis: {
-    max: 'dataMax',
-    data: ["10", "20", "30", "40", "50", "60", "70","80", "90", "100"]
-  },
-  yAxis: {
-    type: 'category',
-    data: ["1", "2", "3", "4",],
-    // inverse: true,
-    // animationDuration: 300,
-    // animationDurationUpdate: 300,
-    // max: 2 // only the largest 3 bars will be displayed
-  },
-  series: [
-    {
-      realtimeSort: true,
-      name: 'X',
-      type: 'bar',
-      data: data,
-      label: {
-        show: true,
-        position: 'right',
-        valueAnimation: true
-      }
-    }
-  ],
-  legend: {
-    show: true
-  },
-  // animationDuration: 0,
-  // animationDurationUpdate: 3000,
-  // animationEasing: 'linear',
-  // animationEasingUpdate: 'linear'
-};
-function run() {
-  for (var i = 0; i < data.length; ++i) {
-    if (Math.random() > 0.9) {
-      data[i] += Math.round(Math.random() * 2000);
-    } else {
-      data[i] += Math.round(Math.random() * 200);
-    }
-  }
-  myChart.setOption({
-    series: [
-      {
-        type: 'bar',
-        data:data,
-      }
-    ]
-  });
-}
-setTimeout(function () {
-  run();
-}, 0);
-setInterval(function () {
-  run();
-}, 3000);
 
-option && myChart.setOption(option);
-</script>
 </html>
