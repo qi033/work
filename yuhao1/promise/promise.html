@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+        background: yellowgreen;
+        position: absolute;
+    }
+</style>
+
+<body>
+    <div></div>
+</body>
+
+<script>
+    // function interval(callback, delay = 100) {
+    //     let id = setInterval(() => callback(id), delay);
+    // }
+    // const div = document.querySelector("div");
+    // interval((timeId) => {
+    //     const left = parseInt(window.getComputedStyle(div).left);
+    //     div.style.left = left + 10 + "px";
+    //     if (left > 500) {
+    //         clearInterval(timeId);
+    //         interval((timeId) => {
+    //             const width = parseInt(window.getComputedStyle(div).width);
+    //             div.style.width = width - 1 + "px";
+    //             if (width <= 0) clearInterval(timeId);
+    //         }, 10);
+    //     }
+    // }, 100);
+
+
+
+    // 这段程序先输出1，等待3秒，在输出2实现delay
+
+
+    //     function delay(ms) {
+    //         return new Promise(resolve => setTimeout(resolve, 3000));
+    //     }
+    //     console.log(1)
+    //     await delay(3000)
+    //     console.log(2)
+
+    // console.log('1')
+
+    // const p = new Promise((resolve, reject) => {
+    //     console.log('2')
+    // })
+
+    // console.log('3')
+
+
+
+    // const first = new Promise((res, rej) => {
+    //     setTimeout(res, 500, "one")
+    // })
+    // const second = new Promise((res, rej) => {
+    //     setTimeout(res, 100, "two")
+    // })
+    // Promise.race([first, second]).then(res => {
+    //     console.log(res);
+    // })
+
+</script>
+
+</html>
