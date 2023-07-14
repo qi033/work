@@ -10,6 +10,7 @@
     <link href="//unpkg.com/layui@2.8.6/dist/css/layui.css" rel="stylesheet" />
     <!-- 引入 layui.js -->
     <script src="//unpkg.com/layui@2.8.6/dist/layui.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
     <style>
       /* Reset default browser styles */
       * {
@@ -22,9 +23,12 @@
       body {
         font-family: Arial, sans-serif;
         /* background-color: #301818; */
-        height: 875px;
-        padding: 20px;
-        background: url(./img/1\ copy.gif);
+        position: relative;
+}
+#box{
+width: 100%;
+min-height: 850px;
+  background: url(./img/1\ copy.gif);
         background-size: cover;
         background-repeat: no-repeat;
       }
@@ -75,9 +79,20 @@
       .right {
         float: right;
       }
+      #vcomments{
+        width: 60%;
+        position: absolute;
+         top: 72%;
+         left: 20%;
+         background-color: #fff
+       
+      }
     </style>
   </head>
   <body>
+    <div id="box">
+
+
     <h1>Directory Page</h1>
 
     <div class="directory">
@@ -99,8 +114,18 @@
 
       </div>
 
-      <!-- Add more directory items here -->
+
     </div>
+        </div>
+      <!-- Add more directory items here -->
+<div id="vcomments"></div>
 
   </body>
+  <script>
+      new Valine({
+            el: '#vcomments',
+            appId: 'WBpzoRS3akTplT7fhIqJx2Hf-gzGzoHsz',
+            appKey: '4NOzhe44VEsMO6GqVxBwv5ye'
+        })
+  </script>
 </html>
