@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../壁纸库/layui/css/layui.css">
+    <link rel="stylesheet" href="./0714.css">
+</head>
+
+<script type="text/javascript">
+    (function () {
+        var styleNode = document.createElement("style");
+        var w = document.documentElement.clienwidth;
+        var w = document.documentElement.clientWidth / 12;
+        styleNode.innerHTML = "html{font-size:" + w + "px!important}";
+        document.head.appendChild(styleNode);
+    }
+    )()
+</script>
+
+<body>
+    <div class="wrap">
+        <!-- 网页头部 -->
+        <div class="header">
+            <div class="content">
+                <div class="hot">
+                    <p>小睡眠</p>
+                    <div class="imgs">
+                        <svg t="1689323370088" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="3290" width="64" height="64">
+                            <path
+                                d="M750.1 347.7l-71.9 70.4s0-281.6-239.6-375.5c0 0-24 258.1-143.8 352-119.7 93.9-359.3 375.5 119.9 586.7 0 0-239.6-258.1 71.9-445.9 0 0-24 93.9 95.8 187.7 119.8 93.9 0 258.1 0 258.1s575.1-140.7 167.7-633.5z"
+                                fill="#ffffff" p-id="3291"></path>
+                        </svg>
+                    </div>
+                    <p>红泥小炉</p>
+                </div>
+            </div>
+        </div>
+        <!-- 网页主体 -->
+        <div class="main">
+            <div class="content">
+                <div class="layui-tab" lay-filter="test-hash">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this" lay-id="11">全部</li>
+                        <li lay-id="22">雷雨</li>
+                        <li lay-id="33">江湖</li>
+                        <li lay-id="44">课堂</li>
+                        <li lay-id="55">自然</li>
+                        <li lay-id="55">ASMR</li>
+                        <li lay-id="55">动物</li>
+                        <li lay-id="55">旋律</li>
+                        <li lay-id="55">脑波</li>
+                        <li lay-id="55">生活</li>
+                        <li lay-id="55">城市</li>
+                        <li lay-id="55">宝宝</li>
+                    </ul>
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show" id="allbox"></div>
+                        <div class="layui-tab-item" id="allbox2">内容-2</div>
+                        <div class="layui-tab-item" id="allbox3">内容-3</div>
+                        <div class="layui-tab-item" id="allbox4">内容-4</div>
+                        <div class="layui-tab-item" id="allbox5">内容-5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 网页底部 -->
+        <div class="footer">
+            <div class="content" id="footer">
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../壁纸库/layui/layui.js"></script>
+    <script>
+        layui.use(function () {
+            var element = layui.element;
+
+            // hash 地址定位
+            var hashName = 'tabid'; // hash 名称
+            var layid = location.hash.replace(new RegExp('^#' + hashName + '='), ''); // 获取 lay-id 值
+
+            // 初始切换
+            element.tabChange('test-hash', layid);
+            // 切换事件
+            element.on('tab(test-hash)', function (obj) {
+                location.hash = hashName + '=' + this.getAttribute('lay-id');
+            });
+        });
+    </script>
+    <script src="../../common/jquery-3.7.0.min.js"></script>
+    <script src="./0714.js"></script>
+</body>
+
+</html>
