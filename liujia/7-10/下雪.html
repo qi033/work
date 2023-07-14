@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+</head>
+
+<body>
+    <!-- 画布元素 -->
+    <canvas id="canvas" width="1500" height="1500" style="overflow: hidden; border: solid 20px #000"></canvas>
+
+    <script>
+        class Draw {
+            constructor(width, height) {
+                this.el = document.querySelector("#canvas");
+                this.app = this.el.getContext("2d");
+                this.btns = this.el.insertAdjacentElement(
+                    "afterend",
+                    document.createElement("div")
+                );
+                this.el.width = width;
+                this.el.height = height;
+                this.setBackground();
+                this.event();
+            }
+
+            //事件绑定
+            event() {
+                //bind会返回新函数，addEventListener与removeEventListener要使用相同函数
+                const callback = this.drawEventCallback.bind(this);
+
+                this.el.addEventListener("mousedown", () => {
+                    //重新画线
+                    this.app.beginPath();
+                    //鼠标移动事件
+                    this.el.addEventListener("mousemove", callback);
+                });
+
+                //鼠标抬起时移除事件
+                this.el.addEventListener("mouseup", () =>
+                    this.el.removeEventListener("mousemove", callback)
+                );
+                return this;
+            }
+
+            //黑板写字的事件回调函数
+            drawEventCallback(event) {
+                this.app.lineTo(event.offsetX, event.offsetY);
+                this.app.strokeStyle = "white";
+                this.app.stroke();
+            }
+
+            //截图
+            short() {
+                const bt = document.createElement("button");
+                bt.innerText = "截图";
+                this.btns.insertAdjacentElement("beforeend", bt);
+                const img = new Image();
+                this.el.insertAdjacentElement("afterend", img);
+
+                bt.addEventListener("click", () => {
+                    //使用canval标签的toDataURL方法，获取图片数据内容
+                    img.src = this.el.toDataURL("image/jpeg");
+                    img.style.cssText =
+                        "width:300px;position:absolute;bottom:50px;right:0;border:solid 10px white;left:50%;transform:translateX(-50%);";
+                });
+                return this;
+            }
+
+            //清屏
+            clear() {
+                const bt = document.createElement("button");
+                bt.innerText = "清屏";
+                this.btns.insertAdjacentElement("beforeend", bt);
+                bt.addEventListener("click", () => {
+                    this.app.fillStyle = "#000";
+                    this.app.fillRect(0, 0, this.el.width, this.el.height);
+                });
+            }
+
+            //初始背景为黑色
+            setBackground() {
+                this.app.fillStyle = "#000";
+                this.app.fillRect(0, 0, this.el.width, this.el.height);
+            }
+        }
+
+        const blackboard = new Draw(800, 300);
+        blackboard.short();
+        blackboard.clear();
+    </script>
+</body>
+
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #box {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="box">你的浏览器不支持 canvas,请升级你的浏览器。</canvas>
+    <script>
+        const canvas = document.getElementById("box");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const ctx = canvas.getContext("2d");
+
+        // 设置画布大小
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // 创建雪花数组
+        const snowflakes = [];
+        const numSnowflakes = 100;
+
+        // 加载雪花图片
+        const snowflakeImg = new Image();
+        snowflakeImg.src = "./img/xh.png"; // 替换为你自己的图片路径
+
+        // 雪花对象
+        function Snowflake(x, y, radius, speed) {
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+            this.speed = speed;
+        }
+
+        // 初始化雪花数组
+        for (let i = 0; i < numSnowflakes; i++) {
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height;
+            const radius = Math.random() * 10 + 5;
+            const speed = Math.random() * 2 + 1;
+            snowflakes.push(new Snowflake(x, y, radius, speed));
+        }
+
+        // 绘制雪花
+        function drawSnowflakes() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#000";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < numSnowflakes; i++) {
+                const snowflake = snowflakes[i];
+
+                // 绘制雪花图片
+                ctx.drawImage(
+                    snowflakeImg,
+                    snowflake.x,
+                    snowflake.y,
+                    snowflake.radius,
+                    snowflake.radius
+                );
+            }
+        }
+
+        // 更新雪花位置
+        function updateSnowflakes() {
+            for (let i = 0; i < numSnowflakes; i++) {
+                const snowflake = snowflakes[i];
+
+                snowflake.y += snowflake.speed;
+
+                if (snowflake.y > canvas.height) {
+                    snowflake.y = 0;
+                }
+            }
+        }
+
+        // 动画循环
+        function animate() {
+            drawSnowflakes();
+            updateSnowflakes();
+
+            requestAnimationFrame(animate);
+        }
+
+        // 图片加载完成后开始动画
+        snowflakeImg.onload = function () {
+            animate();
+        };
+    </script>
+</body>
+
+</html> -->
+日报
+今日学习： Canvas
+今日任务： 已完成
+今日问题： 无
