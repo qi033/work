@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <button onclick="showBox(1)">显示盒子 1</button>
+  <button onclick="showBox(2)">显示盒子 2</button>
+  <div id="box1" class="box hidden">盒子 1</div>
+  <div id="box2" class="box hidden">盒子 2</div>
+<style>
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  margin-bottom: 10px;
+}
+
+.hidden {
+  display: none;
+}
+</style>
+<script>
+var currentBox = null;
+
+function showBox(boxNumber) {
+  if (currentBox !== null) {
+    currentBox.classList.add("hidden");
+  }
+  
+  var box = document.getElementById("box" + boxNumber);
+  box.classList.remove("hidden");
+  
+  currentBox = box;
+}
+</script>
+
+</body>
+</html>
