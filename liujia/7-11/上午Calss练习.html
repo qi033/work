@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+
+        let common = {
+            show() {
+                return this.name;
+            }
+        };
+        let user = {
+            __proto__: common,
+            name: "user",
+            show() {
+                return super.show(this);
+            }
+        };
+        let admin = {
+            __proto__: user,
+            name: "admin",
+            get() {
+                return super.show();
+            }
+        };
+        console.log(admin.get());
+
+        // let common = {
+        //     show() {
+        //         console.log("common.init");
+        //     }
+        // };
+        // let user = {
+        //     __proto__: common,
+        //     name: "user",
+        //     show() {
+        //         return this.__proto__.show.call(this);
+        //     }
+        // };
+        // let admin = {
+        //     __proto__: user,
+        //     name: "admin",
+        //     get() {
+        //         return this.__proto__.show();
+        //     }
+        // };
+        // console.log(admin.get());
+
+        // let user = {
+        //     name: "user",
+        //     show() {
+        //         return this.name;
+        //     }
+        // };
+        // let admin = {
+        //     __proto__: user,
+        //     name: "admin",
+        //     show() {
+        //         return this.__proto__.show.call(this);
+        //     }
+        // };
+        // console.log(admin.show());
+
+        // let user = {
+        //     name: "user",
+        //     show() {
+        //         return this.name;
+        //     }
+        // };
+        // let admin = {
+        //     __proto__: user,
+        //     name: "admin",
+        //     show() {
+        //         return this.__proto__.show();
+        //     }
+        // };
+        // console.log(admin.show());
+
+        // function controller() {
+        //     return class {
+        //         show() {
+        //             console.log("user.show");
+        //         }
+        //     };
+        // }
+        // class Admin extends controller() {
+        //     info() {
+        //         this.show();
+        //     }
+        // }
+        // let hd = new Admin();
+        // console.dir(hd);
+
+        // class Person {
+        //     constructor(name) {
+        //         this.name = name;
+        //     }
+        //     show() {
+        //         return `姓名: ${this.name}`;
+        //     }
+        // }
+        // class User extends Person {
+        //     constructor(name) {
+        //         super(name);
+        //     }
+        //     run() {
+        //         return super.show();
+        //     }
+        // }
+        // const ren = new User("张三");
+        // console.dir(ren.run());
+
+        // class User {
+        //     show() {
+        //         console.log("user.show");
+        //     }
+        // }
+        // class Admin extends User {
+        //     info() {
+        //         this.show();
+        //     }
+        // }
+        // let hd = new Admin();
+        // console.dir(hd);
+
+        // class User {
+        //     constructor(name) {
+        //         this.name = name;
+        //     }
+        // }
+        // class Admin extends User {
+        //     constructor(name) {
+        //         super(name);
+        //     }
+        // }
+        // let obj = new Admin("好前程");
+        // console.log(obj);
+
+        // function Parent(name) {
+        //     this.name = name;
+        // }
+        // function User(...args) {
+        //     Parent.apply(this, args);
+        // }
+        // User.prototype = Object.create(User.prototype)
+        // User.prototype.constructor = User;
+        // const hd = new User("好前程");
+        // console.log(hd.name);
+
+        // class User {
+        //     constructor(name) {
+        //         this.name = name;
+        //     }
+        //     show() {
+        //         console.log(this.name);
+        //     }
+        // }
+        // class Admin extends User {
+        //     constructor(name) {
+        //         super(name);
+        //     }
+        // }
+        // let hd = new Admin("好前程");
+        // hd.show();
+
+        // let user = {
+        //     name: "user",
+        //     show() {
+        //         return this.name;
+        //     },
+        // };
+        // let admin = {
+        //     __proto__: user,
+        //     name: "admin",
+        //     get: function () {
+        //         return this.show();
+        //     },
+        // };
+        // console.log(admin.get()); //Uncaught SyntaxError: 'super' keyword unexpected here
+
+        // let common = {
+        //     show() {
+        //         return this.name;
+        //     },
+        // };
+        // let user = {
+        //     __proto__: common,
+        //     name: "user",
+        //     show() {
+        //         return super.show(this);
+        //     },
+        // };
+        // let admin = {
+        //     __proto__: user,
+        //     name: "admin",
+        //     get() {
+        //         return super.show();
+        //     },
+        // };
+        // console.log(admin.get());
+
+        // let common = {
+        //     show() {
+        //         console.log("common.init");
+        //     }
+        // };
+        // let user = {
+        //     __proto__: common,
+        //     name: "user",
+        //     show() {
+        //         return this.__proto__.show.call(this);
+        //     }
+        // };
+        // let admin = {
+        //     __proto__: user,
+        //     name: "admin",
+        //     get() {
+        //         return this.__proto__.show();
+        //     }
+        // };
+        // console.log(admin.get());
+
+        // let user = {
+        //     name: "user",
+        //     show() {
+        //         return this.name;
+        //     }
+        // };
+        // let admin = {
+        //     __proto__: user,
+        //     name: "admin",
+        //     show() {
+        //         return this.__proto__.show.call(this);
+        //     }
+        // };
+        // console.log(admin.show());
+
+        // let user = {
+        //     name: "user",
+        //     show() {
+        //         return this.name;
+        //     }
+        // };
+        // let admin = {
+        //     __proto__: user,
+        //     name: "admin",
+        //     show() {
+        //         return this.__proto__.show();
+        //     }
+        // };
+        // console.log(admin.show());
+
+        // class Person {
+        //     constructor(name) {
+        //         this.name = name;
+        //     }
+        //     show() {
+        //         return `姓名: ${this.name}`;
+        //     }
+        // }
+        // class User extends Person {
+        //     constructor(name) {
+        //         super(name);
+        //     }
+        //     run() {
+        //         return super.show();
+        //     }
+        // }
+        // const ren = new User("张三");
+        // console.dir(ren.run());
+
+        // class User {
+        //     show() {
+        //         console.log("user.show");
+        //     }
+        // }
+        // class Admin extends User {
+        //     info() {
+        //         this.show();
+        //     }
+        // }
+        // let hd = new Admin();
+        // console.dir(hd);
+
+        // class User {
+        //     constructor(name) {
+        //         this.name = name;
+        //     }
+        // }
+        // class Admin extends User {
+        //     constructor(name) {
+        //         super(name);
+        //     }
+        // }
+        // let obj = new Admin("好前程");
+        // console.log(obj);
+
+        // function User(name) {
+        //     this.name = name;
+        // }
+        // function Admin(name) {
+        //     User.call(this, name);
+        // }
+        // let obj = new Admin("好前程");
+        // console.log(obj);
+
+        // const protecteds = Symbol("protected");
+        // class User {
+        //     constructor(name) {
+        //         this[protecteds] = { name };
+        //     }
+        //     get name() {
+        //         return this[protecteds].name;
+        //     }
+        //     set name(value) {
+        //         if (value.trim() == "") throw new Error("invalid params");
+        //         this[protecteds].name = value;
+        //     }
+        // }
+        // let obj = new User("李四");
+        // obj.name = "王五";
+        // console.log(obj.name);
+        // console.log(Object.keys(obj));
+
+        // class User {
+        //     //private
+        //     #host = "https://api.com";
+        //     constructor(name) {
+        //         this.name = name;
+        //         this.#check(name);
+        //     }
+        //     set host(url) {
+        //         if (!/^https?:/i.test(url)) {
+        //             throw new Error("非常网址");
+        //         }
+        //         this.#host = url;
+        //     }
+        //     get host() {
+        //         return this.#host;
+        //     }
+        //     #check = () => {
+        //         if (this.name.length <= 5) {
+        //             throw new Error("用户名长度不能小于五位");
+        //         }
+        //         return true;
+        //     };
+        // }
+        // let obj = new User("张三你好a");
+        // obj.host = "https://www.hqc.com";
+        // console.log(obj.host);
+
+        // const protecteds = Symbol();
+        // class Common {
+        //     constructor() {
+        //         this[protecteds] = {};
+        //         this[protecteds].host = "https://api.com";
+        //     }
+        //     set host(url) {
+        //         if (!/^https?:/i.test(url)) {
+        //             throw new Error("非常网址");
+        //         }
+        //         this[protecteds].host = url;
+        //     }
+        //     get host() {
+        //         return this[protecteds].host;
+        //     }
+        // }
+        // class User extends Common {
+        //     constructor(name) {
+        //         super();
+        //         this[protecteds].name = name;
+        //     }
+        //     get name() {
+        //         return this[protecteds].name;
+        //     }
+        // }
+        // let user = new User("张三");
+        // user.host = "https://www.hqc.com";
+        // // console.log(user[Symbol()]);
+        // console.log(user.name);
+
+        // class Common {
+        //     _host = "https://api.com";
+        //     set host(url) {
+        //         if (!/^https:\/\//i.test(url)) {
+        //             throw new Error("网址错误");
+        //         }
+        //         this._host = url;
+        //     }
+        // }
+        // class Article extends Common {
+        //     lists() {
+        //         return `${this._host}/article`;
+        //     }
+        // }
+        // let article = new Article();
+        // console.log(article.lists()); //https://api.com/article
+        // article.host = "https://hqc.com";
+        // console.log(article.lists()); //https://hqc.com/article
+
+        // class User {
+        //     #data = {
+        //         pwd: 123,
+        //         id: 1232123213,
+        //     };
+        //     constructor(name) {
+        //         this.#data.name = { name };
+        //     }
+        //     get name() {
+        //         this.#data.name;
+        //     }
+        //     set name(value) {
+        //         if (value.trim() == "") throw new Error("invalid params");
+        //         this.#data.name = value;
+        //     }
+        // }
+        // let uname = new User("张三");
+        // // uname.#data.name = "李四";
+        // console.log(uname);
+
+        // console.log(uname.name);
+
+
+        // class User {
+        //     constructor(name) {
+        //         this.name = name;
+        //     }
+        //     show() {
+        //         function test() {
+        //             //严格模式下输出 undefined
+        //             console.log(this);
+        //         }
+        //         test();
+        //     }
+        // }
+        // let zs = new User("张三");
+        // zs.show();
+
+        // function User2(name) {
+        //     this.name = name;
+        // }
+        // User2.prototype.show = function () {
+        //     function test() {
+        //         //非严格模式输出 Window
+        //         console.log(this);
+        //     }
+        //     test();
+        // };
+        // let obj = new User2("李四");
+        // obj.show();
+        // class User {
+        //     constructor(name) {
+        //         this.name = name;
+        //     }
+        //     show() {
+        //         console.log(this.name);
+        //     }
+        // }
+        // let zs = new User("张三");
+        // //不会枚举出show属性
+        // for (const key in zs) {
+        //     console.log(key);
+        // }
+
+        // function User2(name) {
+        //     this.name = name;
+        // }
+        // User2.prototype.show = function () {
+        //     console.log(this.name);
+        // };
+        // let obj = new User2("李四");
+        // for (const key in obj) {
+        //     console.log(key);
+        // }
+        // class User {
+        //     constructor(name) {
+        //         this.name = name;
+        //     }
+        //     getname() { }
+        // }
+        // console.log(User == User.prototype.constructor); //true
+        // function User2(name) {
+        //     this.name = name;
+        // }
+        // console.log(User2 == User2.prototype.constructor); //true
+        // console.dir(User);
+        // console.dir(User2);
+        // class User {
+        //     constructor(name) {
+        //         this.name = name;
+        //         this.show = function () { };
+        //     }
+        //     getName() {
+        //         return this.name;
+        //     }
+        // }
+        // const zs = new User("张三");
+        // console.log(zs);
+    </script>
+</body>
+
+</html>
+<!-- 日报
+今日学习: Class
+今日作业:
+今日单词:
+        构造函数:constructor 会在 new 时自动执行
+    子构造器中调用完super 后才可以使用 this
+        静态属性：在 class 中为属性添加 static 关键字即声明为静态属性
+    可以把为所有对象使用的值定义为静态属性
+    一般来讲方法不需要对象属性参与计算就可以定义为静态方法 -->

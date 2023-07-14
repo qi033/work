@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* class User {
+        constructor(name) {
+          this.name = name;
+        }
+        show() {
+          console.log(this.name);
+        }
+      }
+      let zs = new User("张三");
+      //不会枚举出show属性
+      for (const key in zs) {
+        console.log(key);
+      }
+
+      function User2(name) {
+        this.name = name;
+      }
+      User2.prototype.show = function () {
+        console.log(this.name);
+      };
+      let obj = new User2("李四");
+      for (const key in obj) {
+        console.log(key);
+      } */
+      /* class User {
+        constructor(name) {
+          this.name = name;
+        }
+        show() {
+          function test() {
+            //严格模式下输出 undefined
+            console.log(this);
+          }
+          test();
+        }
+      }
+      let zs = new User("张三");
+      zs.show();
+
+      function User2(name) {
+        this.name = name;
+      }
+      User2.prototype.show = function () {
+        function test() {
+          //非严格模式输出 Window
+          console.log(this);
+        }
+        test();
+      };
+      let obj = new User2("李四");
+      obj.show(); */
+      class User {
+        #data = {
+          age: 18,
+        };
+        constructor(name) {
+          this.#data.naem = name;
+        }
+        get name() {
+          return this.#data.name;
+        }
+        set name(value) {
+          if (value.trim() == "") throw new Error("invalid params");
+          this.#data.name = value;
+        }
+      }
+      let uname = new User("张三");
+      /* uname.name = "李四"; */
+      console.log(uname.age);
+    </script>
+  </body>
+</html>

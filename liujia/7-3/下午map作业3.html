@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map作业1</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+    }
+
+    #container {
+        width: 800px;
+        height: 500px;
+
+    }
+
+    #panel {
+        position: fixed;
+        background-color: white;
+        max-height: 90%;
+        overflow-y: auto;
+        top: 10px;
+        right: 10px;
+        width: 280px;
+    }
+
+    #panel .amap-call {
+        background-color: #009cf9;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+
+    #panel .amap-lib-driving {
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        overflow: hidden;
+    }
+</style>
+
+<body>
+    <div id="container"></div>
+    <div id="panel"></div>
+    <button onclick="show()" class="layui-btn">点击显示路线</button>
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode: "fb8a0fe7f98d71bcdcd12fc2f652f75e",
+        }
+    </script>
+    <script src="https://webapi.amap.com/maps?v=2.0&key=12234fb3874d1b83a6084737b5166179&plugin=AMap.Driving"></script>
+    <script type="text/javascript">
+        var map = new AMap.Map('container', {
+            resizeEnable: true, // 默认使用 2D 模式
+            center: [113.427532, 34.765086],
+            zoom: 16
+        });
+        function show() {
+            var driving = new AMap.Driving({
+                map: map,
+                panel: "panel"
+            });
+            driving.search(
+                new AMap.LngLat(113.427532, 34.765086),
+                new AMap.LngLat(113.428198, 34.774311),
+                function (status, result) {
+                    if (status === "complete") {
+                        log.success("绘制驾车路线完成");
+                    } else {
+                        log.error("获取驾车数据失败：" + result);
+                    }
+                })
+        }
+    </script>
+</body>
+
 </html>

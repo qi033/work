@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 400px;
+        height: 400px;
+        border: 1px solid black;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <canvas id="tutorial" width="400" height="400"></canvas>
+    </div>
+    <div class="box">
+      <canvas id="canvas" width="400" height="300"></canvas>
+    </div>
+    <div class="box">
+      <canvas id="myCanvas" width="400" height="400"></canvas>
+    </div>
+    <script>
+      var ctx = tutorial.getContext("2d");
+      //1.绘制最外边的大圆
+      ctx.beginPath();
+      ctx.arc(200, 200, 100, 0, (360 * Math.PI) / 180);
+      ctx.closePath();
+      ctx.stroke();
+      //2.绘制左边的实心半圆
+      ctx.beginPath();
+      ctx.arc(200, 200, 100, (-90 * Math.PI) / 180, (90 * Math.PI) / 180, true);
+      //true是逆时针，false默认值---顺时针
+      ctx.closePath();
+      ctx.fill();
+      //3.绘制黑色圆
+      ctx.beginPath();
+      ctx.arc(200, 250, 50, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.fill();
+      //4.上面的白色圆
+      ctx.beginPath();
+      ctx.arc(200, 150, 50, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.fillStyle = "#fff";
+      ctx.fill();
+      //5.绘制一黑一白圆形
+      ctx.beginPath();
+      ctx.arc(200, 250, 20, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.fill();
+      //黑色圆
+      ctx.fillStyle = "#000";
+      ctx.beginPath();
+      ctx.arc(200, 150, 20, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.fill();
+      var canvas = document.getElementById("canvas");
+      var context = canvas.getContext("2d");
+      var width = canvas.width; //确定画布的宽度（600）
+      var height = (width * 2) / 3; //确定画布的高度 （400）
+      var w = width / 30; //小网格的宽   （20）
+      context.fillStyle = "red";
+      context.fillRect(0, 0, width, height);
+      var maxR = 0.15,
+        minR = 0.05; //大五角星的半径，小五角星的半径
+      var maxX = 0.25,
+        maxY = 0.25; //大五星的位置
+      // 小五角星的位置
+      var minX = [0.5, 0.6, 0.6, 0.5];
+      var minY = [0.1, 0.2, 0.35, 0.45];
+      // 画大 ☆
+      var ox = height * maxX,
+        oy = height * maxY;
+      create5star(context, ox, oy, height * maxR, "#ff0", 0); //绘制五角星
+      // 画小 ★
+      for (var idx = 0; idx < 4; idx++) {
+        var sx = minX[idx] * height,
+          sy = minY[idx] * height;
+        // 计算大五角星圆心和小五角星圆心连线的斜率（也就是画布旋转的弧度值）
+        var theta = Math.atan((oy - sy) / (ox - sx));
+        create5star(
+          context,
+          sx,
+          sy,
+          height * minR,
+          "#ff0",
+          -Math.PI / 2 + theta
+        );
+      }
+      function create5star(context, sx, sy, radius, color, rotato) {
+        context.save();
+        context.fillStyle = color;
+        context.translate(sx, sy); //移动坐标原点
+        context.rotate(Math.PI + rotato); //旋转
+        context.beginPath(); //创建路径
+        var x = Math.sin(0);
+        var y = Math.cos(0);
+        var dig = (Math.PI / 5) * 4;
+        for (var i = 0; i < 5; i++) {
+          //画五角星的五条边
+          var x = Math.sin(i * dig);
+          var y = Math.cos(i * dig);
+          context.lineTo(x * radius, y * radius);
+        }
+        context.closePath();
+        context.stroke();
+        context.fill();
+        context.restore();
+      }
+      var myCanvas = document.getElementById("myCanvas");
+      if (myCanvas.getContext) {
+        // 创建context对象
+        // getContext("2d") 对象是内建的 HTML5 对象，拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法
+        var ctx = myCanvas.getContext("2d");
+        // beginPath：开始绘制一段新的路径
+        ctx.beginPath();
+        var horn = 5; // 画5个角
+        var angle = 360 / horn; // 五个角的度数
+        // 两个圆的半径
+        var R = 200;
+        var r = 80;
+        // 坐标
+        var x = 200;
+        var y = 200;
+        for (var i = 0; i < horn; i++) {
+          // 角度转弧度：角度/180*Math.PI
+          // 外圆顶点坐标
+          ctx.lineTo(
+            Math.cos(((18 + i * angle) / 180) * Math.PI) * R + x,
+            -Math.sin(((18 + i * angle) / 180) * Math.PI) * R + y
+          );
+          // 內圆顶点坐标
+          ctx.lineTo(
+            Math.cos(((54 + i * angle) / 180) * Math.PI) * r + x,
+            -Math.sin(((54 + i * angle) / 180) * Math.PI) * r + y
+          );
+        }
+        // closePath：关闭路径，将路径的终点与起点相连
+        ctx.closePath();
+        ctx.lineWidth = "3";
+        ctx.fillStyle = "#E4EF00";
+        ctx.strokeStyle = "red";
+        ctx.fill();
+        ctx.stroke();
+      }
+    </script>
+  </body>
+</html>

@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #1f1f1f;
+  background-color: #696969;
 }
 
 #box {
@@ -31,7 +31,7 @@ body {
   cursor: pointer;
 }
 
-#box1 #boxyou span:hover {
+#box1 #boxyou p:hover {
   color: #fff;
   cursor: pointer;
 }
@@ -54,22 +54,11 @@ body {
 #box2zuo #boxbtn button {
   width: 122px;
   height: 38px;
-  background-color: #0000;
+  background-color: #606161;
   border: 1px solid #7D7D7D;
   color: #DDDDDD;
-  margin-left: 30px;
+  margin-left: 20px;
   border-radius: 5px;
-}
-
-#box2zuo button svg {
-  margin-right: 10px;
-  margin-top: 5px;
-}
-
-#box2zuo button span {
-  position: relative;
-  left: -5px;
-  top: -4px;
 }
 
 #box2zuo #boxbtn button:hover {
@@ -82,14 +71,16 @@ body {
   color: #C6C6C6;
 }
 
-#box2zuo #boxta table tr th:nth-child(1),
-#box2zuo #boxta table tr td:nth-child(1) {
-  position: relative;
-  left: 40px;
+#box2zuo #boxta table tr th:nth-child(2) {
+  float: left;
 }
 
-#box2zuo #boxta table tr td:hover {
+#box2zuo #boxta table tr th:hover {
   color: #fff;
+}
+
+#box2zuo #boxta table tr th {
+  font-weight: lighter;
 }
 
 #box2zuo #boxta table tr {
@@ -97,14 +88,10 @@ body {
   height: 45px;
 }
 
-#box2zuo #boxta thead,
-#box2zuo #boxta tbody {
-  text-align: center;
-}
-
 #box2you {
   width: 20%;
   height: 300px;
+  background-color: aquamarine;
   text-align: center;
   color: #C9C9C9;
 }
@@ -113,23 +100,6 @@ body {
   background: url("https://y.qq.com/ryqq/static/media/album_cover_player.8dfd80d6.png?max_age=2592000") no-repeat;
   background-size: 100%;
   background-position: 10px 0px;
-}
-
-.container {
-  position: relative;
-  top: 50px;
-  width: 300px;
-  height: 250px;
-  overflow-y: scroll;
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-
-#lyric {
-  width: 300px;
-  height: 800px;
 }
 
 #box2you #box2img p:hover {
@@ -167,13 +137,14 @@ body {
 .zuixiabi1 button {
   width: 70px;
   margin-left: 10%;
-  background-color: #1f1f1f;
-  border: none;
+  background-color: #696969;
+  border: 1px solid #696969;
   font-size: 35px;
 }
 
 .zuixiabi3 {
   width: 10%;
+  background-color: aqua;
 }
 
 .zuixiabi2 {
@@ -187,6 +158,4 @@ body {
 #box2xia pre.active {
   color: #22e36f;
   font-weight: bold;
-}
-
-/*# sourceMappingURL=QQ.css.map */
+}/*# sourceMappingURL=QQ音乐.css.map */
