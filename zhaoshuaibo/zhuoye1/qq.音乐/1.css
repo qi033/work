@@ -49,7 +49,7 @@
   float: left;
 }
 .raw li .w {
-  margin-left: 50px;
+  margin-left: 10px;
   margin-right: 50px;
 }
 .raw #noe {
@@ -67,7 +67,7 @@
 
 .right {
   float: right;
-  width: 43%;
+  width: 40%;
   height: 800px;
   text-align: center;
 }
