@@ -29,7 +29,6 @@
 }
 .nev button:hover {
   border: 1px solid white;
-  
 }
 
 .raw {
@@ -49,7 +48,7 @@
   float: left;
 }
 .raw li .w {
-  margin-left: 10px;
+  margin-left: 50px;
   margin-right: 50px;
 }
 .raw #noe {
@@ -67,7 +66,7 @@
 
 .right {
   float: right;
-  width: 40%;
+  width: 43%;
   height: 800px;
   text-align: center;
 }
