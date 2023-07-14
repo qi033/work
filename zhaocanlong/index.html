@@ -1,39 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>主页面</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
 </head>
 <style>
     * {
         margin: 0;
         padding: 0;
     }
+
     body {
         background-color: aliceblue;
     }
 
-    .container {
+    @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&display=swap");
+
+    .char {
+        font-variation-settings: "wght" var(--weight, 100);
+        color: hsl(var(--hue), calc(var(--saturation) * 1%), 65%);
+    }
+
+    .buttons {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
         width: 90%;
         height: 75%;
-        margin: 3% auto;
+        margin: auto;
     }
 
-    .container>div {
+    .buttons>div {
         width: 20vw;
         height: 25vh;
         border-radius: 8%;
         margin: 1%;
-        box-shadow: 5px 5px 5px #cecece;
     }
 
-    .container>div:hover {
-        margin-top: -0.1%;
+    .buttons>div:hover {
+        margin-top: 1px;
     }
 
     img {
@@ -48,227 +59,502 @@
         line-height: 10vh;
         color: blueviolet;
     }
+
     @media (max-width: 1100px) {
-        .container>div{
+        .buttons>div {
             width: 27vw;
             height: 25vh;
         }
     }
+
     @media (max-width: 680px) {
-        .container>div{
+        .buttons>div {
             width: 40vw;
             height: 26vh;
         }
     }
+
     @media (max-width: 500px) {
-        .container {
+        .buttons {
             width: 50vw;
         }
     }
 </style>
 <style>
-    .cont{
+    .cont {
         width: 100%;
         height: 100%;
         display: flex;
         flex-wrap: wrap;
     }
-    .item1{
+
+    .item1 {
         width: 40%;
         height: 50%;
-        border-radius:8% 0 0 0;
+        border-radius: 8% 0 0 0;
     }
-    .item2{
+
+    .item2 {
         width: 60%;
         height: 50%;
         line-height: 7vh;
         font-size: 18px;
         font-weight: 500;
         color: rgb(69, 88, 194);
-        border-radius:0 8% 0 0;
+        border-radius: 0 8% 0 0;
     }
-    .item3{
+
+    .item3 a {
+        height: 25px;
+        line-height: 20px;
+        color: black;
+        float: left;
+    }
+
+    .item3 {
         width: 100%;
         height: 50%;
         margin-left: 10px;
-        border-radius:0 0 8% 8%;
+        border-radius: 0 0 8% 8%;
     }
-    .item1 img{
+
+    .item1 img {
         margin: 10px;
         width: 80%;
         height: 80%;
-        border-radius:8px;
+        border-radius: 8px;
+    }
+    .out{
+        position: absolute;
+        top: 30px;
+        left: 38%;
+        display: inline-block;
+    }
+    .animate {
+        padding-left: 20px;
+        font-size: 23px;
+        line-height: 40px;
+        color: #000;
+        display: inline-block;
+        white-space: nowrap;
+        animation: 5s wordsLoop linear infinite normal;
+    }
+</style>
+<style>
+    #vcomments {
+        margin: auto;
+        width: 90vw;
+        border: 1px solid #c4c4c4;
+        color: #000;
+        border-radius: 3px;
+        box-shadow: 3px 3px 3px rgba(177, 177, 177, 0.3);
+    }
+</style>
+<style>
+    .buttons {
+        text-align: center;
+    }
+
+    .btn-hover {
+        width: 100%;
+        color: #fff;
+        cursor: pointer;
+        height: 100%;
+        text-align: center;
+        border: none;
+        background-size: 300% 100%;
+
+        border-radius: 8%;
+        moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+    }
+
+    .btn-hover:hover {
+        background-position: 100% 0;
+        moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+    }
+
+    .btn-hover:focus {
+        outline: none;
+    }
+
+    .btn-hover.color-1 {
+        background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+        box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+    }
+
+    .btn-hover.color-2 {
+        background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+        box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+    }
+
+    .btn-hover.color-3 {
+        background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+        box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+    }
+
+    .btn-hover.color-4 {
+        background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516);
+        box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
+    }
+
+    .btn-hover.color-5 {
+        background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+        box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+    }
+
+    .btn-hover.color-6 {
+        background-image: linear-gradient(to right, #009245, #FCEE21, #00A8C5, #D9E021);
+        box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+    }
+
+    .btn-hover.color-7 {
+        background-image: linear-gradient(to right, #6253e1, #852D91, #A3A1FF, #F24645);
+        box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+    }
+
+    .btn-hover.color-8 {
+        background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+        box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+    }
+
+    .btn-hover.color-9 {
+        background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+        box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+    }
+
+    .btn-hover.color-10 {
+        background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a, #FBB03B);
+        box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+    }
+
+    .btn-hover.color-11 {
+        background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);
+        box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+    }
+
+    .btn-hover.color-12 {
+        background-image: linear-gradient(to right, #39e5eb, #5ef199, #4e69e1, #e23753);
+        box-shadow: 0 5px 15px rgba(242, 196, 97, 0.4);
     }
 </style>
 </head>
+
 <body>
-    <div class="container">
-        <div
-            style="background:linear-gradient(0deg, rgb(255, 154, 158) 0%, rgb(254, 207, 239) 99%, rgb(254, 207, 239) 100%)">
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
-                <div class="item2">名称</div>
-                <div class="item3">文本</div>
+    <canvas id="canvas"></canvas>
+    <div class="out">
+        <p class="animate" data-splitting="chars">
+            以下作业单个标签是一个作业
+        </p>
+    </div>
+    <div class="buttons">
+        <div>
+            <div class="cont btn-hover color-1">
+                <div class="item1"><img
+                        src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg"
+                        alt=""></div>
+                <div class="item2">6.30考试</div>
+                <div class="item3" data-splitting="chars"><a href="./6.30ks.html">ECharts图表</a></div>
             </div>
         </div>
-        <div
-            style="background: linear-gradient(-225deg, rgb(93, 159, 255) 0%, rgb(184, 220, 255) 48%, rgb(107, 187, 255) 100%)">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
-                <div class="item2">名称</div>
-                <div class="item3">文本</div>
+        <div>
+            <div class="cont btn-hover color-2">
+                <div class="item1"><img
+                        src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg"
+                        alt=""></div>
+                <div class="item2">7.7考试</div>
+                <div class="item3" data-splitting="chars"><a href="./7.7ks/kaosi.html"> 折线图、地图、轮播图、视频、</a></div>
             </div>
         </div>
-        <div
-            style="background:linear-gradient(-225deg, rgb(212, 255, 236) 0%, rgb(87, 242, 204) 48%, rgb(69, 150, 251) 100%)">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
-                <div class="item2">名称</div>
-                <div class="item3">文本</div>
+        <div>
+            <div class="cont btn-hover color-3">
+                <div class="item1"><img
+                        src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg"
+                        alt=""></div>
+                <div class="item2">Audio作业</div>
+                <div class="item3" data-splitting="chars"><a href="./音频/QQ.html">音频、QQ音乐</a></div>
             </div>
         </div>
-        <div
-            style="background:linear-gradient(-225deg, rgb(192, 255, 253) 0%, rgb(135, 191, 226) 53%, rgb(116, 99, 243) 100%)">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
-                <div class="item2">名称</div>
-                <div class="item3">文本</div>
+        <div>
+            <div class="cont btn-hover color-4">
+                <div class="item1"><img
+                        src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg"
+                        alt=""></div>
+                <div class="item2">Echarts作业</div>
+                <div class="item3" data-splitting="chars"><a href="./6.29yxlm.html">对战数据</a>、<br><br><a
+                        href="./6.29ldt.html">雷达图、</a></BR> </div>
             </div>
         </div>
-        <div
-            style="background:linear-gradient(-225deg, rgb(105, 234, 203) 0%, rgb(234, 204, 248) 48%, rgb(102, 84, 241) 100%)">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
-                <div class="item2">名称</div>
-                <div class="item3">文本</div>
+        <div>
+            <div class="cont btn-hover color-5">
+                <div class="item1"><img
+                        src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg"
+                        alt=""></div>
+                <div class="item2">Map作业</div>
+                <div class="item3" data-splitting="chars"><a href="./Map/map1.html">层级图、</a><a
+                        href="./Map/map2.html">颜色区域、</a> <a href="./Map/map地图标记吾悦广场.html">地图标记、</a><br><br><a
+                        href="./Map/map地图输入地图名称查看地址.html">输入查看地图、</a><a href="./Map/map奥特科创-吾悦广场路线图.html">点击查看地图、</a>
+                </div>
             </div>
         </div>
-        <div style="background: linear-gradient(120deg, rgb(212, 252, 121) 0%, rgb(150, 230, 161) 100%);">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
-                <div class="item2">名称</div>
-                <div class="item3">文本</div>
+        <div>
+            <div class="cont btn-hover color-6">
+                <div class="item1"><img
+                        src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg"
+                        alt=""></div>
+                <div class="item2">Swiper作业</div>
+                <div class="item3" data-splitting="chars"><a href="./Swiper作业/作业1/bilibili首页.html">作业1、</a><a
+                        href="./Swiper作业/作业2、3/swiper-iqy.html">作业2、</a><a href="./Swiper作业/作业2、3/爱奇艺轮播.html">作业3、</a><a
+                        href="./Swiper作业/作业5/作业5.html">作业4、</a><a href="./Swiper作业/作业6/作业6.html">作业5、</a><a
+                        href="./Swiper作业/作业7/作业7.html">作业6、</a><a href="./Swiper作业/作业8、9/作业8.3.html">作业7、</a><a
+                        href="./Swiper作业/作业8、9/作业8.html">作业8、</a></div>
             </div>
         </div>
-        <div style="background: linear-gradient(120deg, rgb(132, 250, 176) 0%, rgb(143, 211, 244) 100%);">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
-                <div class="item2">名称</div>
-                <div class="item3">文本</div>
+        <div>
+            <div class="cont btn-hover color-7">
+                <div class="item1"><img
+                        src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg"
+                        alt=""></div>
+                <div class="item2">政府网页</div>
+                <div class="item3" data-splitting="chars"><a href="./政府网页/flex网页.html">government网页</a></div>
             </div>
         </div>
-        <div
-            style="background:linear-gradient(-225deg, rgb(44, 216, 213) 0%, rgb(197, 193, 255) 56%, rgb(81, 77, 201) 100%)">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
-                <div class="item2">名称</div>
-                <div class="item3">文本</div>
+        <div>
+            <div class="cont btn-hover color-8">
+                <div class="item1"><img
+                        src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg"
+                        alt=""></div>
+                <div class="item2">微信页面</div>
+                <div class="item3" data-splitting="chars"><a href="./WeChat微信/WeChat.html">WeChat微信</a></div>
             </div>
         </div>
-        <div style="background: linear-gradient(120deg, rgb(166, 192, 254) 0%, rgb(246, 128, 132) 100%);">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
-                <div class="item2">名称</div>
-                <div class="item3">文本</div>
+        <div>
+            <div class="cont btn-hover color-9">
+                <div class="item1"><img
+                        src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg"
+                        alt=""></div>
+                <div class="item2">Canvas作业</div>
+                <div class="item3" data-splitting="chars"><a href="./Canvas作业/canvas作业.html">八卦图、五角星、八卦阵、五星红旗</a></div>
             </div>
         </div>
-        <div style="background: linear-gradient(120deg, rgb(224, 195, 252) 0%, rgb(142, 197, 252) 100%);">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
+        <div>
+            <div class="cont btn-hover color-10">
+                <div class="item1"><img
+                        src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg"
+                        alt=""></div>
                 <div class="item2">名称</div>
-                <div class="item3">文本</div>
+                <div class="item3" data-splitting="chars">文本</div>
             </div>
         </div>
-        <div style="background:linear-gradient(-225deg, rgb(227, 253, 245) 0%, rgb(255, 230, 250) 100%)">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
+        <div>
+            <div class="cont btn-hover color-11">
+                <div class="item1"><img
+                        src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg"
+                        alt=""></div>
                 <div class="item2">名称</div>
-                <div class="item3">文本</div>
+                <div class="item3" data-splitting="chars">文本</div>
             </div>
         </div>
-        <div style="background: linear-gradient(0deg, rgb(79, 172, 254) 0%, rgb(0, 242, 254) 100%);">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
+        <div>
+            <div class="cont btn-hover color-12">
+                <div class="item1"><img
+                        src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg"
+                        alt=""></div>
                 <div class="item2">名称</div>
-                <div class="item3">文本</div>
-            </div>
-        </div>
-        <div style="background: linear-gradient(0deg, rgb(67, 233, 123) 0%, rgb(210, 177, 121) 100%);">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
-                <div class="item2">名称</div>
-                <div class="item3">文本</div>
-            </div>
-        </div>
-        <div style="background: linear-gradient(120deg, rgb(240, 147, 251) 0%, rgb(245, 87, 108) 100%);">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
-                <div class="item2">名称</div>
-                <div class="item3">文本</div>
-            </div>
-        </div>
-        <div style="background: linear-gradient(0deg, rgb(238, 162, 162) 0%,rgb(87, 198, 225) 100%);">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
-                <div class="item2">名称</div>
-                <div class="item3">文本</div>
-            </div>
-        </div>
-        <div style="background: linear-gradient(0deg, rgb(170, 90, 255) 0%, rgb(37, 117, 252) 100%);">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
-                <div class="item2">名称</div>
-                <div class="item3">文本</div>
-            </div>
-        </div>
-        <div style="background: linear-gradient(0deg, rgb(219, 220, 215) 0%,  rgb(231, 98, 125) 100%);">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
-                <div class="item2">名称</div>
-                <div class="item3">文本</div>
-            </div>
-        </div>
-        <div style="background: linear-gradient(0deg, rgb(164, 255, 152) 0%, rgb(148, 199, 251) 100%);">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
-                <div class="item2">名称</div>
-                <div class="item3">文本</div>
-            </div>
-        </div>
-        <div style="background: linear-gradient(0deg, rgb(217, 175, 217) 0%, rgb(151, 217, 225) 100%);">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
-                <div class="item2">名称</div>
-                <div class="item3">文本</div>
-            </div>
-        </div>
-        <div style="background: linear-gradient(0deg, rgb(255, 121, 186) 0%, rgb(208, 150, 147) 100%);">
-            <a href=""></a>
-            <div class="cont">
-                <div class="item1"><img src="https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d000baa1cd11728b79ddc6a1c1fcc3cec2fd2c44.jpg" alt=""></div>
-                <div class="item2">名称</div>
-                <div class="item3">文本</div>
+                <div class="item3" data-splitting="chars">文本</div>
             </div>
         </div>
     </div>
 </body>
+<div id="vcomments"></div>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'aVL2cIhLbRkVHvRr3aqLkXYF-gzGzoHsz',
+        appKey: 'rj6smE9uKKbTubKGxE3AX8ys'
+    })
+</script>
+<script>
+    Splitting();
+    gsap.set('.char', {
+        '--hue': gsap.utils.distribute({
+            base: 0,
+            amount: 330,
+        })
+    })
+    gsap.to('.char', {
+        '--weight': 700,
+        '--saturation': 80,
+        ease: 'sine.inOut',
+        duration: 0.5,
+        stagger: {
+            yoyo: true,
+            repeat: -1,
+            each: 0.15,
+        }
+    }).time(3)
+</script>
+<script>
+    //==========================================
+    // File:    star.js
+    // Title:   几何星空连线背景
+    // Author   李少杰
+    //==========================================
+
+    // 可调参数
+    var BACKGROUND_COLOR = "#5E7987";   // 背景颜色
+    var POINT_NUM = 100;                        // 星星数目
+    var POINT_COLOR = "rgba(255,255,255,0.7)";  // 点的颜色
+    var LINE_LENGTH = 10000;                    // 点之间连线长度(的平方)
+
+    // 创建背景画布
+    var cvs = document.createElement("canvas");
+    cvs.width = window.innerWidth;
+    cvs.height = window.innerHeight;
+    cvs.style.cssText = "\
+        position:fixed;\
+        top:0px;\
+        left:0px;\
+        z-index:-1;\
+        opacity:1.0;\
+        ";
+    document.body.appendChild(cvs);
+
+    var ctx = cvs.getContext("2d");
+
+    var startTime = new Date().getTime();
+
+    //随机数函数
+    function randomInt(min, max) {
+        return Math.floor((max - min + 1) * Math.random() + min);
+    }
+
+    function randomFloat(min, max) {
+        return (max - min) * Math.random() + min;
+    }
+
+    //构造点类
+    function Point() {
+        this.x = randomFloat(0, cvs.width);
+        this.y = randomFloat(0, cvs.height);
+
+        var speed = randomFloat(0.3, 1.4);
+        var angle = randomFloat(0, 2 * Math.PI);
+
+        this.dx = Math.sin(angle) * speed;
+        this.dy = Math.cos(angle) * speed;
+
+        this.r = 1.2;
+
+        this.color = POINT_COLOR;
+    }
+
+    Point.prototype.move = function () {
+        this.x += this.dx;
+        if (this.x < 0) {
+            this.x = 0;
+            this.dx = -this.dx;
+        } else if (this.x > cvs.width) {
+            this.x = cvs.width;
+            this.dx = -this.dx;
+        }
+        this.y += this.dy;
+        if (this.y < 0) {
+            this.y = 0;
+            this.dy = -this.dy;
+        } else if (this.y > cvs.height) {
+            this.y = cvs.height;
+            this.dy = -this.dy;
+        }
+    }
+
+    Point.prototype.draw = function () {
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.fill();
+    }
+
+    var points = [];
+
+    function initPoints(num) {
+        for (var i = 0; i < num; ++i) {
+            points.push(new Point());
+        }
+    }
+
+    var p0 = new Point(); //鼠标
+    p0.dx = p0.dy = 0;
+    var degree = 2.5;
+    document.onmousemove = function (ev) {
+        p0.x = ev.clientX;
+        p0.y = ev.clientY;
+    }
+    document.onmousedown = function (ev) {
+        degree = 5.0;
+        p0.x = ev.clientX;
+        p0.y = ev.clientY;
+    }
+    document.onmouseup = function (ev) {
+        degree = 2.5;
+        p0.x = ev.clientX;
+        p0.y = ev.clientY;
+    }
+    window.onmouseout = function () {
+        p0.x = null;
+        p0.y = null;
+    }
+
+    function drawLine(p1, p2, deg) {
+        var dx = p1.x - p2.x;
+        var dy = p1.y - p2.y;
+        var dis2 = dx * dx + dy * dy;
+        if (dis2 < 2 * LINE_LENGTH) {
+            if (dis2 > LINE_LENGTH) {
+                if (p1 === p0) {
+                    p2.x += dx * 0.03;
+                    p2.y += dy * 0.03;
+                } else return;
+            }
+            var t = (1.05 - dis2 / LINE_LENGTH) * 0.2 * deg;
+            ctx.strokeStyle = "rgba(255,255,255," + t + ")";
+            ctx.beginPath();
+            ctx.lineWidth = 1.5;
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.closePath();
+            ctx.stroke();
+        }
+        return;
+    }
+
+    //绘制每一帧
+    function drawFrame() {
+        cvs.width = window.innerWidth;
+        cvs.height = window.innerHeight;
+        ctx.fillStyle = BACKGROUND_COLOR;
+        ctx.fillRect(0, 0, cvs.width, cvs.height);
+
+        var arr = (p0.x == null ? points : [p0].concat(points));
+        for (var i = 0; i < arr.length; ++i) {
+            for (var j = i + 1; j < arr.length; ++j) {
+                drawLine(arr[i], arr[j], 1.0);
+            }
+            arr[i].draw();
+            arr[i].move();
+        }
+
+        window.requestAnimationFrame(drawFrame);
+    }
+
+    initPoints(POINT_NUM);
+    drawFrame();
+</script>
 
 </html>

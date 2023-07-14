@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../引入/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0 auto;
+
+        }
+
+        .box {
+            width: 1250px;
+            height: 681px;
+            background-color: #5B402C;
+            margin: auto;
+        }
+
+        .div {
+            display: block;
+            position: absolute;
+            top: 0px;
+            width: 1250px;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            position: absolute;
+            top: 20px;
+            left: 40px;
+
+        }
+
+        .box1 {
+            position: absolute;
+            top: 75px;
+            left: 150px;
+            width: 700px;
+            height: 38px;
+            margin: auto;
+
+        }
+
+        .box1 .ul1 {
+
+            width: 100%;
+        }
+
+        .box1 .ul1 li {
+            width: 120px;
+            height: 38px;
+            border: 1px #7E7367 solid;
+            border-radius: 2px;
+            margin-left: 7px;
+            margin-right: 7px;
+            text-align: center;
+            line-height: 38px;
+            display: inline-block;
+            list-style: none;
+
+        }
+
+        .box1 .ul1 li a {
+            width: 100%;
+            height: 100%;
+
+            color: #BBB1A8;
+        }
+
+        .icon {
+            position: relative;
+            top: 4px;
+            left: -3px;
+        }
+
+        h1 a {
+            color: #7E7367;
+            opacity: 0.5;
+        }
+
+        h1 a:hover {
+            color: white;
+        }
+
+        .box2 {
+            width: 100%;
+            height: 300px;
+            float: left;
+            margin-top: 20px;
+        }
+
+        .box2 .ul2 li {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            margin-top: 10px;
+
+        }
+
+        input[type=checkbox] {
+            width: 30px;
+            height: 30px;
+            margin-left: 10px;
+            line-height: 30px
+        }
+
+        .ul2 li span {
+            position: relative;
+            top: -9px;
+            color: #AFA7A1;
+            display: inline-block;
+            line-height: 30px
+        }
+
+        .aaa {
+
+            width: 390px;
+            height: 100%;
+        }
+
+        .aaa .icon {
+            float: right;
+            width: 40px;
+            height: 90%;
+            display: none;
+        }
+
+        .aaa .icon :hover {
+            color: aliceblue;
+        }
+
+        .bbb {
+
+            width: 120px;
+            height: 100%;
+        }
+
+        .ppp {
+            text-align: right;
+            width: 135px;
+            height: 100%;
+
+        }
+
+        .box3 {
+            position: relative;
+            left: 340px;
+            float: right;
+            width: 300px;
+            height: 485px;
+
+            margin-top: -370px;
+
+
+        }
+
+        .box3 .imgsss {
+            width: 80%;
+            height: 180px;
+            margin: auto;
+            background: url("https://y.qq.com/ryqq/static/media/album_cover_player.8dfd80d6.png?max_age=2592000") no-repeat 0 0/100% 100%;
+            text-align: center;
+        }
+
+        .box4 {
+            margin-top: -100px;
+            width: 100%;
+            height: 55px;
+
+        }
+
+        audio {
+            width: 1100px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #lyric,
+        #lyric1,
+        #lyric2,
+        #lyric3,
+        #lyric4 {
+            margin-top: 15px;
+            color: hsla(0, 0%, 88.2%, .8);
+            font-size: 15px;
+            width: 100%;
+            height: 290px;
+            text-align: center;
+            overflow-y: scroll;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        #lyric p,
+        #lyric1 p,
+        #lyric2 p,
+        #lyric3 p,
+        #lyric4 p {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="div">
+            <h1><a href="https://y.qq.com/">QQ音乐</a></h1>
+            <div class="box1">
+                <ul class="ul1">
+                    <li><a href=""><svg t="1688902275847" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="3926" width="20" height="20">
+                                <path
+                                    d="M512 1024c-12.8 0-32-6.4-38.4-19.2L44.8 403.2C12.8 358.4 0 307.2 0 256c0-140.8 121.6-256 268.8-256C377.6 0 467.2 64 512 153.6 556.8 64 646.4 0 755.2 0 902.4 0 1024 115.2 1024 256c0 51.2-12.8 102.4-44.8 140.8l-428.8 601.6C544 1017.6 524.8 1024 512 1024zM268.8 51.2C147.2 51.2 51.2 140.8 51.2 256c0 38.4 12.8 83.2 32 115.2L512 972.8l428.8-601.6C960 339.2 972.8 300.8 972.8 256c0-115.2-96-211.2-217.6-211.2C633.6 51.2 537.6 140.8 537.6 256L486.4 256C486.4 140.8 390.4 51.2 268.8 51.2z"
+                                    fill="#8C8C8C" p-id="3927"></path>
+                            </svg>收藏</a></li>
+                    <li><a href=""><svg t="1688902319733" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="4973" width="20" height="20">
+                                <path
+                                    d="M856.3 128H167.7c-21.9 0-39.7 17.8-39.7 39.7v688.7c0 21.9 17.8 39.7 39.7 39.7h688.7c21.9 0 39.7-17.8 39.7-39.7V167.7c-0.1-21.9-17.9-39.7-39.8-39.7z m-10.9 717.4H178.6V178.6h666.8v666.8z"
+                                    p-id="4974" fill="#8a8a8a"></path>
+                                <path
+                                    d="M356.4 537.3h130.3v130.3c0 14 11.3 25.3 25.3 25.3s25.3-11.3 25.3-25.3V537.3h130.3c14 0 25.3-11.3 25.3-25.3s-11.3-25.3-25.3-25.3H537.3V356.4c0-14-11.3-25.3-25.3-25.3s-25.3 11.3-25.3 25.3v130.3H356.4c-14 0-25.3 11.3-25.3 25.3s11.3 25.3 25.3 25.3z"
+                                    p-id="4975" fill="#8a8a8a"></path>
+                            </svg>添加到</a></li>
+                    <li><a href=""><svg t="1688902376877" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="6201" width="20" height="20">
+                                <path
+                                    d="M794.0096 445.2608a35.4304 35.4304 0 0 0-9.3696-24.9344l-0.512-0.512a34.49344 34.49344 0 0 0-24.01792-9.57952 36.5568 36.5568 0 0 0-26.33728 11.29472L547.84 607.4624V107.46368a35.84 35.84 0 1 0-71.68 0v499.8144L290.42688 421.53984c-6.97856-6.97856-15.97952-10.85952-25.41568-11.0848l-0.86016-0.01024c-9.1136 0-17.60768 3.43552-24.07936 9.37984l-0.512 0.512c-13.29664 13.83424-12.76416 36.38784 1.7152 50.3552l242.54464 242.54464a35.90656 35.90656 0 0 0 11.94496 9.82528c0.59392 0.31744 1.2032 0.59392 1.81248 0.87552 0.22528 0.09728 0.44544 0.20992 0.67584 0.30208 4.224 1.80224 8.7552 2.72896 13.3376 2.72896l0.08704-0.00512 0.32256 0.01536c0.09216 0 0.17408-0.01536 0.26624-0.01536 0.09728 0 0.18944 0.01536 0.28672 0.01536a33.75616 33.75616 0 0 0 20.224-6.67136c2.51904-1.79712 4.80768-3.8912 6.784-6.26176l243.36384-243.36896c6.97856-6.97344 10.85952-15.97952 11.0848-25.41568z"
+                                    fill="#8a8a8a" p-id="6202"></path>
+                                <path
+                                    d="M880.64 747.57632v61.44c0 39.58784-32.09216 71.68-71.68 71.68H215.04c-39.58784 0-71.68-32.09216-71.68-71.68v-61.44a35.84 35.84 0 1 0-71.68 0v61.44c0 79.17568 64.18432 143.36 143.36 143.36h593.92c79.17568 0 143.36-64.18432 143.36-143.36v-61.44a35.84 35.84 0 1 0-71.68 0z"
+                                    fill="#8a8a8a" p-id="6203"></path>
+                            </svg>下载</a></li>
+                    <li id="delete-selected-btn"><a href=""><svg t="1688902423404" class="icon" viewBox="0 0 1024 1024"
+                                version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7364" width="20" height="20">
+                                <path
+                                    d="M256 298.666667h512v554.666666H256V298.666667z m85.333333 85.333333v384h341.333334V384H341.333333z m42.666667 85.333333h85.333333v213.333334H384v-213.333334z m170.666667 0h85.333333v213.333334h-85.333333v-213.333334zM213.333333 298.666667h597.333334v85.333333H213.333333V298.666667z m170.666667-128h256v85.333333H384V170.666667z"
+                                    fill="#8a8a8a" p-id="7365"></path>
+                            </svg>删除</a></li>
+                    <li><a href=""><svg t="1688902461137" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="8458" width="20" height="20">
+                                <path
+                                    d="M848.592153 24.523c84.889185 49.025504 115.291623 155.268374 67.979899 237.369812L817.561328 433.38496l82.741249 47.791583c58.771193 33.875698 79.804974 107.476791 47.003244 164.317127L762.480472 965.559029c-32.813155 56.840336-107.054059 75.406274-165.825252 41.484876l-472.923018-273.062115c-58.771193-33.932823-79.8621-107.533917-47.048945-164.317127L261.497181 249.587879c32.790304-56.851761 107.054059-75.474826 165.813827-41.484876L510.109382 255.928861l99.022149-171.514999C656.466106 2.289574 763.702968-24.513929 848.592153 24.523z m-584.969886 385.143259L147.656557 610.589705a40.296656 40.296656 0 0 0 15.68679 54.76095l67.111584 38.754255 65.569183-109.681853a40.136703 40.136703 0 0 1 54.052589-14.45287l1.393873 0.754063a39.439767 39.439767 0 0 1 15.206932 53.698408c-0.194228 0.342756-0.388457 0.685512-0.59411 1.016842l-65.294978 109.350523 187.544544 108.333681 67.808521-113.475018a40.136703 40.136703 0 0 1 54.064014-14.441444l1.382448 0.742638a39.439767 39.439767 0 0 1 15.206932 53.698407c-0.182803 0.342756-0.388457 0.685512-0.59411 1.028268l-67.545741 113.04086 77.611336 44.798182a40.296656 40.296656 0 0 0 55.28651-13.813058l120.478661-208.738278z m416.368311-284.31593L541.482962 365.405061l-153.771673-88.739475a40.308081 40.308081 0 0 0-55.240809 13.813059L303.519041 340.47529l548.409268 306.195175 24.404213-42.181813a40.296656 40.296656 0 0 0-15.675365-54.749525l-153.680273-88.739475 138.621868-240.054732c25.478181-44.204072 9.140154-101.421439-36.560618-127.813635S705.594436 81.123407 679.990578 125.350329z"
+                                    fill="#8a8a8a" p-id="8459"></path>
+                            </svg>清空列表</a></li>
+                </ul>
+                <div class="box2">
+                    <ul class="ul2">
+                        <li><input type="checkbox" id="select-all">
+                            <span class="aaa">歌曲</span>
+                            <span class="bbb">歌手</span>
+                            <span class="ppp">时长</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box3">
+                    <div class="imgsss">
+                        <img src="https://y.qq.com/music/photo_new/T002R300x300M000004FKCj71O4Hhz_1.jpg?max_age=2592000"
+                            alt="" width="184px" height="184px" id="img">
+                        <img src="https://y.qq.com/music/photo_new/T002R300x300M000000WDNPt4XUrXs_2.jpg?max_age=2592000"
+                            alt="" width="184px" height="184px" id="img1" style="display: none;">
+                        <img src="https://y.qq.com/music/photo_new/T002R300x300M000004TvSd03uUezv_1.jpg?max_age=2592000"
+                            alt="" width="184px" height="184px" id="img2" style="display: none;">
+                        <img src="https://y.qq.com/music/photo_new/T002R300x300M000000K9Zp13TZp5s_1.jpg?max_age=2592000"
+                            alt="" width="184px" height="184px" id="img3" style="display: none;">
+                        <img src="https://y.qq.com/music/photo_new/T002R300x300M000003y8dsH2wBHlo_1.jpg?max_age=2592000"
+                            alt="" width="184px" height="184px" id="img4" style="display: none;">
+                    </div>
+                    <div id="lyric" style="display: none;">
+
+                    </div>
+                    <div id="lyric1" style="display: none;">
+
+                    </div>
+                    <div id="lyric2" style="display: none;">
+
+                    </div>
+                    <div id="lyric3" style="display: none;">
+
+                    </div>
+                    <div id="lyric4" style="display: none;">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="box4">
+        <audio controls id="audio" style="display: none;">
+            <source src="./音频、歌词/在你的身边 - 盛哲.mp3" type="audio/mpeg">
+        </audio>
+        <audio controls id="audio1" style="display: none;">
+            <source src="./音频、歌词/谁 - 曲肖冰.mp3" type="audio/mpeg">
+        </audio>
+        <audio controls id="audio2" style="display: none;">
+            <source src="./音频、歌词/交换余生 - 林俊杰.mp3" type="audio/mpeg">
+        </audio>
+        <audio controls id="audio3" style="display: none;">
+            <source src="./音频、歌词/天外来物 - 薛之谦.mp3" type="audio/mpeg">
+        </audio>
+        <audio controls id="audio4" style="display: none;">
+            <source src="./音频、歌词/演员 - 薛之谦.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+</body>
+<script src="./QQ音乐.js"></script>
+
+</html>

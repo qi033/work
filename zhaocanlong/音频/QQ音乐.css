@@ -1,0 +1,161 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  background-color: #696969;
+}
+
+#box {
+  width: 100%;
+  height: 40px;
+}
+
+#box1 {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 15px 0px 15px;
+  color: #777778;
+}
+
+#box1 #boxyou {
+  display: flex;
+}
+
+#box1 #boxyou p {
+  padding-right: 20px;
+}
+
+#box1 #boxzuo:hover img {
+  cursor: pointer;
+}
+
+#box1 #boxyou p:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+#box2 {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#box2zuo {
+  width: 60%;
+  height: 300px;
+}
+
+#box2zuo #boxbtn {
+  display: flex;
+}
+
+#box2zuo #boxbtn button {
+  width: 122px;
+  height: 38px;
+  background-color: #606161;
+  border: 1px solid #7D7D7D;
+  color: #DDDDDD;
+  margin-left: 20px;
+  border-radius: 5px;
+}
+
+#box2zuo #boxbtn button:hover {
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+#box2zuo #boxta table {
+  width: 100%;
+  color: #C6C6C6;
+}
+
+#box2zuo #boxta table tr th:nth-child(2) {
+  float: left;
+}
+
+#box2zuo #boxta table tr th:hover {
+  color: #fff;
+}
+
+#box2zuo #boxta table tr th {
+  font-weight: lighter;
+}
+
+#box2zuo #boxta table tr {
+  line-height: 45px;
+  height: 45px;
+}
+
+#box2you {
+  width: 20%;
+  height: 300px;
+  background-color: aquamarine;
+  text-align: center;
+  color: #C9C9C9;
+}
+
+#box2img img {
+  background: url("https://y.qq.com/ryqq/static/media/album_cover_player.8dfd80d6.png?max_age=2592000") no-repeat;
+  background-size: 100%;
+  background-position: 10px 0px;
+}
+
+#box2you #box2img p:hover {
+  color: #fff;
+}
+
+#box2xia {
+  height: 250px;
+  margin-top: 10%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  text-align: center;
+}
+
+#box2xia::-webkit-scrollbar {
+  display: none;
+}
+
+#box2xia pre {
+  line-height: 35px;
+  margin-left: -100%;
+  font-size: 25px;
+}
+
+#zuixiabi {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 25%;
+}
+
+.zuixiabi1 {
+  width: 30%;
+}
+
+.zuixiabi1 button {
+  width: 70px;
+  margin-left: 10%;
+  background-color: #696969;
+  border: 1px solid #696969;
+  font-size: 35px;
+}
+
+.zuixiabi3 {
+  width: 10%;
+  background-color: aqua;
+}
+
+.zuixiabi2 {
+  width: 50%;
+}
+
+.zuixiabi2 iframe {
+  width: 350px;
+}
+
+#box2xia pre.active {
+  color: #22e36f;
+  font-weight: bold;
+}/*# sourceMappingURL=QQ音乐.css.map */

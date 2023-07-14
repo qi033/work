@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- 引入 layui.css -->
+    <!-- 引入 layui.css -->
+    <!-- 引入 layui.js -->
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/layui/2.7.6/css/layui.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.bootcdn.net/ajax/libs/layui/2.7.6/layui.min.js"></script>
+    <link rel="stylesheet" href="1.css" />
+  </head>
+  <body>
+    <div class="box">
+      <img src="./qq_logo.png" alt="" />
+      <div class="nev">
+        <button class="layui-btn layui-btn-primary">
+          <img src="./img/爱心.png" style="margin-right: 5px" />收藏
+        </button>
+        <button class="layui-btn layui-btn-primary">
+          <img src="./img/品类增加_o.png" style="margin-right: 5px" />添加到
+        </button>
+        <button class="layui-btn layui-btn-primary">
+          <img src="./img/下载.png" style="margin-right: 5px" />下载
+        </button>
+        <button class="layui-btn layui-btn-primary">
+          <img src="./img/删除.png" style="margin-right: 5px" />删除
+        </button>
+        <button class="layui-btn layui-btn-primary">
+          <img src="./img/清空.png" style="margin-right: 5px" />清空列表
+        </button>
+      </div>
+      <div class="raw">
+        <ul>
+          <li><span>歌曲</span><span class="w">歌手</span><span>时长</span></li>
+        </ul>
+        <div id="noe"></div>
+      </div>
+      <div class="right">
+        <img
+          src="https://y.qq.com/music/photo_new/T002R300x300M000002KSDg90IaScI_1.jpg?max_age=2592000"
+          alt=""
+        /><br />
+        <div id="geci">
+          <div id="lyric" style="overflow: hidden; height: 300px">
+            <textarea id="lrc_content" name="textfield" cols="70" rows="10">
+[00:00.000] 作词 : 许嵩
+[00:01.000] 作曲 : 许嵩
+[00:17.100]那阵子我们的感情出了一些问题,
+[00:21.200]可是我也不太清楚问题出在哪里,
+[00:25.830]你面无表情的话语不剩多少意义,
+[00:29.729]就当我求求你 给我一些说明,
+[00:34.629]ok 我猜你只是暂时的压抑心情,
+[00:38.379]不再去追问你 多给你一些关心,
+[00:41.249]打电话请你去看最新的电影,
+[00:44.979]你说工作很忙要加班到夜里,
+[00:48.799]ooook 入冬了想给你买一条围巾,
+[00:53.719]怕眼光不行所以叫着紧跟潮流的妹妹和我一起,
+[00:56.529]和妹妹说说笑笑 缓释最近糟糕心绪,
+[01:00.449]在下一个转角却和你相遇,
+[01:04.589]她只是我的妹妹 妹妹说紫色很有韵味,
+[01:11.109]她只是我的妹妹 我在担心你是否误会,
+[01:19.779]她只是我的妹妹 对这个解释你无所谓,
+[01:27.499]我没有思想准备 看到你身旁还有一位,
+[01:32.529]不知道他是谁,
+[01:40.889]那阵子我们的感情出了一些问题,
+[01:44.589]可是我也不太清楚问题出在哪里,
+[01:48.378]你面无表情的话语不剩多少意义,
+[01:51.259]就当我求求你 给我一些说明,
+[01:56.429]ooook 入冬了想给你买一条围巾,
+[01:59.169]怕眼光不行所以叫着紧跟潮流的妹妹和我一起,
+[02:04.799]和妹妹说说笑笑 缓释最近糟糕心绪,
+[02:07.580]在下一个转角却和你相遇,
+[02:11.650]她只是我的妹妹 妹妹说紫色很有韵味,
+[02:19.320]她只是我的妹妹 我在担心你是否误会,
+[02:26.000]她只是我的妹妹 对这个解释你无所谓,
+[02:33.650]我没有思想准备 看到你身旁还有一位,
+[02:40.650]不知道他是谁,
+[02:46.800]紫色的围巾 交到你手里,
+[02:50.950]你放进包里 说句谢谢你,
+[02:54.780]要加班的你 却出现在这里,
+[02:57.400]故事的结局不需要任何说明,
+[03:02.300]她只是我的妹妹 妹妹说紫色很有韵味,
+[03:08.240]她只是我的妹妹 我在担心你是否误会,
+[03:16.990]她只是我的妹妹 对这个解释你无所谓,
+[03:23.650]我没有思想准备 看到你身旁还有一位,
+[03:30.600]不知道他是谁,
+[03:33.300]她只是我的妹妹 妹妹说紫色很有韵味,
+[03:39.950]她只是我的妹妹 我在担心你是否误会,
+[03:46.640]她只是我的妹妹 对这个解释你无所谓,
+[03:54.440]我没有思想准备 看到你身旁还有一位,
+[04:01.360]不知道他是谁,</textarea
+            >
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <audio controls id="audio">
+          <source id="ip3" src="./img/M800001hzH4w27R0yV.mp3" />
+        </audio>
+      </div>
+    </div>
+    <div id="mok"></div>
+  </body>
+  <script src="./1.js"></script>
+  <script>
+    $("#mok").load("./歌词2.html");
+    var arr, lrcContent;
+
+    $(function () {
+      let a = $("#audio");
+      $(".right").hide();
+      $("#noe").on("click", "li", function () {
+        renderLyric();
+        $(".right").show();
+        let res = myMusic.filter((item) => {
+          return $(this).children("span").text().includes(item.name);
+        });
+
+        $(".right img").prop("src", res[0].imgs);
+
+        arr = res;
+        if (res[0].name == "电音之王") {
+          lrcContent = $("#gecic").html();
+        }
+
+        if (res[0].name == "多余的妹妹") {
+          lrcContent = $("#mm").html();
+        }
+        if (res[0].name == "写给黄淮") {
+          lrcContent = $("#huanghuai").html();
+        }
+
+        $(this).addClass("colors").siblings().removeClass("colors");
+
+        var audio = document.getElementById("audio");
+        var source = document.getElementById("ip3");
+        // 更换音频源的src
+        source.src = res[0].url;
+        // 重新加载音频
+        audio.load();
+        // 播放音频
+        audio.play();
+        // console.log(lrcContent);
+        name(lrcContent);
+      });
+      fun();
+    });
+    //歌词函数,
+
+    //显示歌曲列表
+    function fun() {
+      let i = 1,
+        html = "";
+      myMusic.forEach((item, index) => {
+        html += `
+           <li>
+            <span>
+                <input type="checkbox" name="" id="">
+                 ${i++} ${item.name}</span>
+            <span class="w">${item.genre}</span>
+            <span>${item.price}</span>
+          </li>
+          `;
+      });
+      $("#noe").html(html);
+    }
+  </script>
+  <script>
+    let lrc = [];
+    const pattern = /\[(.+)\](.+)/;
+    lrcContent = $("#lrc_content").html();
+
+    $(function () {});
+    function name(n) {
+      n = n.trim();
+      lrc = n.split("\n");
+      lrc = lrc.map((currentItem) => {
+        let tmp = currentItem.match(pattern);
+
+        return {
+          time: s(tmp[1]),
+          lyric: tmp[2],
+        };
+      });
+
+      renderLyric();
+    }
+    function renderLyric() {
+      let html = "";
+      lrc.forEach((currentItem) => {
+        html += `<p>${currentItem.lyric}</p>`;
+      });
+      $("#lyric").html(html);
+    }
+    $("#audio").on("play", function () {
+      setInterval(() => {
+        ctime = Math.floor(this.currentTime);
+        lrc.forEach((currentItem, index) => {
+          if (ctime >= currentItem.time && ctime < lrc[index + 1].time) {
+            $("p").eq(index).css({
+              "margin-top": "50px",
+              color: "red",
+            });
+            $("p")
+              .eq(index - 1)
+              .css({
+                display: "none",
+              });
+          }
+        });
+      }, 500);
+    });
+
+    function s(timeString) {
+      const [minutes, seconds] = timeString.split(":");
+      return parseInt(minutes) * 60 + parseInt(seconds);
+    }
+  </script>
+</html>

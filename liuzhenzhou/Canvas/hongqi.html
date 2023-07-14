@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <canvas id="myCanvass" width="800" height="800">
+        您的浏览器不支持Canvas绘图
+    </canvas>
+    <script>
+                function drawStar(ctx,starCenterX,starCenterY,starRadius) {
+    var aX = starCenterX;
+    var aY = starCenterY - starRadius;
+    var bX = starCenterX - Math.cos(18 * Math.PI / 180) * starRadius;
+    var bY = starCenterY - Math.sin(18 * Math.PI / 180) * starRadius;
+    var cX = starCenterX - Math.cos(54 * Math.PI / 180) * starRadius;
+    var cY = starCenterY + Math.sin(54 * Math.PI / 180) * starRadius;
+    var dX = starCenterX + Math.cos(54 * Math.PI / 180) * starRadius;
+    var dY = starCenterY + Math.sin(54 * Math.PI / 180) * starRadius;
+    var eX = starCenterX + Math.cos(18 * Math.PI / 180) * starRadius;
+    var eY = starCenterY - Math.sin(18 * Math.PI / 180) * starRadius;
+    ctx.beginPath();
+    ctx.fillStyle = "yellow";
+    ctx.moveTo(aX, aY);
+    ctx.lineTo(cX, cY);
+    ctx.lineTo(eX, eY);
+    ctx.lineTo(bX, bY);
+    ctx.lineTo(dX, dY);
+    ctx.lineTo(aX, aY);
+    ctx.fill();
+    ctx.closePath();
+}
+
+window.onload = function () {
+    var c = document.getElementById("myCanvass");
+    var ctx = c.getContext("2d");
+    ctx.clearRect(0, 0, c.width, c.height);
+    var width = 300*1.5;
+    var height = 200*1.5;
+    var sX = 50; //其实坐标
+    var sY = 50; //其实坐标
+    var step = 10*1.5;
+    //绘制矩形
+    ctx.beginPath();
+    ctx.lineWidth = 1;
+    ctx.fillStyle = "red";
+    ctx.fillRect(sX, sY, width, height);
+    ctx.closePath();
+    //绘制大五角星
+    var bigStarCenterX = sX + 5 * step;
+    var bigStarCenterY = sY + 5 * step;
+    var bigStarRadius = (height * 3 / 10) / 2; //外接圆直径为旗高3/10，半径要再除以2
+    drawStar(ctx, bigStarCenterX, bigStarCenterY, bigStarRadius);
+    //绘制小五角星
+    var smallStarRadius = (height * 1 / 10) / 2; //外接圆直径为旗高1/10，半径要再除以2
+
+    var smallStarCenterX_1 = sX + 10 * step;
+    var smallStarCenterY_1 = sY + 2 * step;
+    drawStar(ctx, smallStarCenterX_1, smallStarCenterY_1, smallStarRadius);
+    var smallStarCenterX_2 = sX + 12 * step;
+    var smallStarCenterY_2 = sY + 4 * step;
+    drawStar(ctx, smallStarCenterX_2, smallStarCenterY_2, smallStarRadius);
+    var smallStarCenterX_3 = sX + 12 * step;
+    var smallStarCenterY_3 = sY + 7 * step;
+    drawStar(ctx, smallStarCenterX_3, smallStarCenterY_3, smallStarRadius);
+    var smallStarCenterX_4 = sX + 10 * step;
+    var smallStarCenterY_4 = sY + 9 * step;
+    drawStar(ctx, smallStarCenterX_4, smallStarCenterY_4, smallStarRadius);
+};
+    </script>
+</body>
+</html>

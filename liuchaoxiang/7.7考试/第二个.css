@@ -1,7 +1,4 @@
-@media only all and (max-width: 800px) {
-  body{
-    background-color: red
-  }
+@media only screen and (max-width: 800px) {
   * {
     margin: 0;
     padding: 0;
@@ -27,29 +24,29 @@
     margin-left: 10%;
   }
   .shu {
-    width: 300px;
+    width: 30%;
     height: 400px;
     background-color: white;
-
+    float: left;
   }
   .ba {
-    width:  300px;
+    width: 30%;
     height: 400px;
     background-color: white;
-
+    float: left;
   }
   .luen {
-    width:  300px;
+    width: 30%;
     height: 400px;
     background-color: white;
-
+    float: left;
   }
   .di {
     width: 80%;
     height: 540px;
     background-color: white;
     margin-left: 10%;
-
+    float: left;
   }
   #panel {
     position: fixed;
@@ -88,27 +85,19 @@
     text-align: center;
     font-size: 18px;
     background: white;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
     align-items: center;
   }
   .swiper-slide img {
     display: block;
     width: 80%;
     height: 80%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   .shi {
-    width:  300px;
+    width: 30%;
     height: 54px;
     background-color: white;
   }
@@ -118,6 +107,4 @@
     line-height: 26px;
     font-size: 18px;
   }
-}
-
-/*# sourceMappingURL=%E7%AC%AC%E4%BA%8C%E4%B8%AA.css.map */
+}/*# sourceMappingURL=第二个.css.map */

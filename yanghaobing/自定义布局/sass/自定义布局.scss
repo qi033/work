@@ -1,0 +1,268 @@
+:root {
+  --background-color: #0072ff;
+  --size-color: #70e1f5;
+  --resize-color: #ffd194;
+  --background-color-slip: #4b134f;
+  --background-colors-slip: #23074d;
+  --background-color-back: #0f0c29;
+  --moz-background-clip: #302b63;
+  --moz-backface-visibility: #24243e;
+  --background-green: #0f9b0f;
+  --moz-background-red: #c31432;
+  --moz-background-gold: #f5af19;
+  --moz-background-white: #dbdbdb;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+
+.header {
+  width: 100%;
+  height: 240vh;
+  background: linear-gradient(
+    to right,
+    var(--background-color),
+    var(--background-color-back)
+  );
+  position: relative;
+}
+.container {
+  margin: auto;
+  width: 1200px;
+  height: 100%;
+  //   margin: auto;
+  //   background-color: #c31432;
+  background: url("https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de0d2ddb5ac7bf6c81800a4c75")
+    no-repeat left top;
+  background-size: cover;
+  //   line-height: 450px;
+}
+.fl {
+  width: 100%;
+  height: 500px;
+  background-color: var(--background-green);
+}
+.fr {
+  width: 100%;
+  height: 600px;
+  background-color: var(--background-color-slip);
+}
+.left {
+  float: left;
+  width: 600px;
+  height: 500px;
+  background-color: var(--resize-color);
+}
+.right {
+  float: right;
+  width: 600px;
+  height: 500px;
+  background-color: var(--background-color);
+}
+.clear {
+  clear: both;
+}
+.custom-content-marker {
+  position: relative;
+  width: 25px;
+  height: 34px;
+}
+
+.custom-content-marker img {
+  width: 100%;
+  height: 100%;
+}
+
+.custom-content-marker .close-btn {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  width: 15px;
+  height: 15px;
+  font-size: 12px;
+  background: #ccc;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 15px;
+  box-shadow: -1px 1px 1px rgba(10, 10, 10, 0.2);
+}
+
+.custom-content-marker .close-btn:hover {
+  background: #666;
+}
+#panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: white;
+  max-height: 150px;
+  overflow-y: auto;
+  width: 580px;
+  z-index: 999;
+}
+#panel .amap-call {
+  background-color: #009cf9;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+#panel .amap-lib-driving {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  overflow: hidden;
+}
+#map {
+  width: 100%;
+  height: 100%;
+}
+.text-container {
+  overflow: hidden;
+  height: 6.2em; /* 设置容器的高度，确保只显示一行文本 */
+}
+
+.text-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: textScroll 10s linear infinite; /* 定义动画并应用于文本列表 */
+}
+
+@keyframes textScroll {
+  0% {
+    transform: translateX(0);
+  } /* 初始位置 */
+  100% {
+    transform: translateX(100%);
+  } /* 滚动到顶部的位置 */
+}
+
+.text-list li {
+  height: 90px;
+  font-family: KaiTi;
+  line-height: 2.2em;
+  color: var(--moz-background-red);
+  font-weight: bold;
+  font-style: italic;
+  //   text-decoration: underline;
+  font-size: 27px;
+  text-shadow: 0px 0px 0 rgb(231, 231, 231), 1px 1px 0 rgb(216, 216, 216),
+    2px 2px 0 rgb(202, 202, 202), 3px 3px 0 rgb(187, 187, 187),
+    4px 4px 0 rgb(173, 173, 173), 5px 5px 0 rgb(158, 158, 158),
+    6px 6px 0 rgb(144, 144, 144), 7px 7px 6px rgba(0, 0, 0, 0.6),
+    7px 7px 1px rgba(0, 0, 0, 0.5), 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+.footer {
+  width: 100%;
+  height: 450px;
+  background: url("https://img1.baidu.com/it/u=4049022245,514596079&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1688835600&t=645e436e9365a53b6f03f4b3f9b122a4")
+    no-repeat;
+  background-size: cover;
+}
+.swipert {
+  float: left;
+  width: 600px;
+  height: 100%;
+  background: var(--background-color-slip);
+}
+.vc {
+  float: right;
+  width: 600px;
+  height: 100%;
+  background-color: var(--moz-backface-visibility);
+}
+.swiper {
+  width: 300px;
+  height: 300px;
+  margin-top: 50px;
+  z-index: 999;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    margin: auto;
+    width: 1200px;
+    height: 100%;
+    //   margin: auto;
+    //   background-color: #c31432;
+    background: url("https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de0d2ddb5ac7bf6c81800a4c75")
+      no-repeat left top;
+    background-size: cover;
+    //   line-height: 450px;
+  }
+  .footer {
+    width: 100%;
+    height: 550px;
+    background: url("https://img1.baidu.com/it/u=4049022245,514596079&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1688835600&t=645e436e9365a53b6f03f4b3f9b122a4")
+      no-repeat;
+    background-size: cover;
+  }
+  .fl {
+    width: 100%;
+    height: 500px;
+    background-color: var(--background-green);
+  }
+  .fr {
+    width: 100%;
+    height: 600px;
+    background-color: var(--background-color-slip);
+  }
+  .left {
+    width: 600px;
+    height: 500px;
+    background-color: var(--resize-color);
+  }
+  .right {
+    width: 600px;
+    height: 500px;
+    background-color: var(--background-color);
+  }
+  .text-container {
+    overflow: hidden;
+    height: 10.2em; /* 设置容器的高度，确保只显示一行文本 */
+  }
+  #map {
+    width: 500px;
+    height: 100%;
+  }
+  .swipert {
+    width: 600px;
+    height: 550px;
+    background: var(--background-color-slip);
+  }
+  .vc {
+    width: 600px;
+    height: 100%;
+    background-color: var(--moz-backface-visibility);
+    margin-top: 150px;
+    margin-left: -150px;
+  }
+  .swiper {
+    width: 500px;
+    height: 500px;
+    margin-top: 252px;
+    z-index: 999;
+  }
+
+  video {
+    width: 500px;
+  }
+}

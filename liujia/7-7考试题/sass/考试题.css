@@ -54,7 +54,6 @@ body {
 .swiper-slide {
   font-size: 18px;
   color: #fff;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 40px 60px;
 }
@@ -65,7 +64,6 @@ body {
   top: 0;
   width: 130%;
   height: 100%;
-  -webkit-background-size: cover;
   background-size: cover;
   background-position: center;
 }
@@ -126,18 +124,9 @@ body {
 
 .sign {
   min-height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -146,11 +135,11 @@ body {
   text-align: center;
   line-height: 1;
   color: #c6e2ff;
-  -webkit-animation: neon 0.08s ease-in-out infinite alternate;
   animation: neon 0.08s ease-in-out infinite alternate;
 }
 
 /*-- Animation Keyframes --*/
+<<<<<<< HEAD
 @-webkit-keyframes neon {
   from {
     text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(30, 132, 242, 0.92), 0 0 34px rgba(30, 132, 242, 0.78), 0 0 54px rgba(30, 132, 242, 0.92);
@@ -159,6 +148,8 @@ body {
     text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px rgba(30, 132, 242, 0.84), 0 0 38px rgba(30, 132, 242, 0.88), 0 0 60px #1e84f2;
   }
 }
+=======
+>>>>>>> 546be007be5d2da41f47f916cafb9bd8d15112e9
 @keyframes neon {
   from {
     text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(30, 132, 242, 0.92), 0 0 34px rgba(30, 132, 242, 0.78), 0 0 54px rgba(30, 132, 242, 0.92);
@@ -265,6 +256,4 @@ body {
     height: 100%;
     color: white !important;
   }
-}
-
-/*# sourceMappingURL=%E8%80%83%E8%AF%95%E9%A2%98.css.map */
+}/*# sourceMappingURL=考试题.css.map */

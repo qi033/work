@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>liujia</title>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
     <style>
         * {
             margin: 0;
@@ -41,18 +42,22 @@
         }
 
         body {
-            display: flex;
+            width: 100%;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             background: #252839;
+            margin: auto;
         }
 
         ul {
+            width: 75%;
+            padding: 40px;
             position: relative;
             display: flex;
             flex-direction: column;
             gap: 30px;
+            margin: auto;
         }
 
         ul li {
@@ -87,6 +92,11 @@
             width: 100%;
             filter: drop-shadow(0 0 25px var(--clr))
         }
+
+        #vcomments {
+            width: 75%;
+            margin: auto;
+        }
     </style>
 </head>
 
@@ -94,88 +104,101 @@
     <div id="box">
         <ul id="son1">
             <li style="--clr:#00ade1">
-                <a href="6-27" data-text="6-27的作业">6-27的作业</a>
+                <a href="7-14考试题" data-text="7-14考试题">7-14的考試題
+                </a>
             </li>
             <li>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="6-27/作业.html">作业</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-14考试/kaoshi.html">考试题:小程序</a>
             </li>
-            <li style="--clr:#ff6492">
-                <a href="6-28">6-28的作业</a>
-            </li>
-            <li>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="6-28/作业.html">作业</a>
-            </li>
-            <li style="--clr:#ffdd1c">
-                <a href="6-29">6-29的作业</a>
+            <li style="--clr:#dc00d4">
+                <a href="7-10的作业" data-text="7-10的作业">7-10的作业</a>
             </li>
             <li>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="6-29/全国地图.html">全国地图</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-10/下午太极图.html">太极图</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-10/下午五角星图.html">五角星图</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-10/下午有线五角星.html">有线五角星</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-10/下午旋转八卦图.html">八卦图</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-10/下午五星红旗.html">五星红旗</a>
             </li>
             <li style="--clr:#00dc82">
-                <a href="6-30考试题">6-30的考试题</a>
+                <a href="7-7考试题" data-text="7-7的作业">7-7的作业</a>
             </li>
             <li>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="6-30考试题/主页面.html">考试题</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-7考试题/考试题.html">考试题:切换图</a>
             </li>
-            <li style="--clr:#dc00d4">
-                <a href="7-3">7-3的作业</a>
-            </li>
-            <li>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="7-3/下午map作业1.html">作业1</a>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="7-3/下午map作业2.html">作业2</a>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="7-3/下午map作业2不要按钮版.html">作业3不要按钮版</a>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="7-3/下午map作业3.html">作业3</a>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="7-3/下午map作业4.html">作业4</a>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="7-3/下午map作业5.html">作业5</a>
-            </li>
-            <li style="--clr:#dc00d4">
-                <a href="7-4">7-4的作业</a>
-            </li>
-            <li>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业.html">作业1</a>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业2.html">作业2</a>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业3.html">作业3</a>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业4.html">作业4</a>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业5.html">作业5</a>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业6.html">作业6</a>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业8.html">作业7</a>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业9.html">作业8</a>
-            </li>
-            <li style="--clr:#00ade1">
-                <a href="7-5">7-5的作业</a>
-            </li>
-            <li>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="7-5/下午邮政局作业.html">邮政局作业</a>
-            </li>
-            <li style="--clr:#00ade1">
-                <a href="7-6">7-6的作业</a>
+            <li style="--clr:#ffdd1c">
+                <a href="7-6" data-text="7-6的作业">7-6的作业</a>
             </li>
             <li>
                 <a style="margin-left: 50px;font-size: 1.5em;" href="7-6/下午下载微信界面.html">下载微信界面</a>
             </li>
-            <li style="--clr:#00ade1">
-                <a href="7-7考试题">7-7的作业</a>
+            <li style="--clr:#ff6492">
+                <a href="7-5" data-text="7-5的作业">7-5的作业</a>
             </li>
             <li>
-                <a style="margin-left: 50px;font-size: 1.5em;" href="7-7考试题/考试题.html">考试题</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-5/下午邮政局作业.html">邮政局页面作业</a>
             </li>
             <li style="--clr:#00ade1">
-                <a href="#" data-text="Home">Home</a>
+                <a href="7-4" data-text="7-4的作业">7-4的作业</a>
             </li>
-            <li style="--clr:#ff6492">
-                <a href="#" data-text="About">About</a>
-            </li>
-            <li style="--clr:#ffdd1c">
-                <a href="#" data-text="Services">Services</a>
-            </li>
-            <li style="--clr:#00dc82">
-                <a href="#" data-text="Blog">Blog</a>
+            <li>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业.html">爱奇艺图文轮播图</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业2.html">爱奇艺加载更多轮播</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业3.html">仿bili轮播图</a><br><br>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业4.html">人民政府网页轮播图格式</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业5.html">轮播C位图</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业6.html">轮播缩略图</a><br><br>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业8.html">立绘轮播切换</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-4/下午swp轮播图作业9.html">横向循环焦点图片</a>
             </li>
             <li style="--clr:#dc00d4">
-                <a href="#" data-text="Contact">Contact</a>
+                <a href="7-3" data-text="7-3的作业">7-3的作业</a>
+            </li>
+            <li>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-3/下午map作业1.html">作业1:文本标记</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-3/下午map作业2.html">作业2:制作两地间路线</a><br><br>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-3/下午map作业2不要按钮版.html">作业3不要按钮版:制驾车路线</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-3/下午map作业3.html">作业3:点击按钮绘制驾车路线</a><br><br>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-3/下午map作业4.html">作业4:显示三地之间的区域线</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="7-3/下午map作业5.html">作业5:显示河南省所有县</a>
+            </li>
+            <li style="--clr:#00dc82">
+                <a href="6-30考试题" data-text="6-30的考试题">6-30的考试题</a>
+            </li>
+            <li>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="6-30考试题/主页面.html">考试题:学生成绩Echarts图</a>
+            </li>
+            <li style="--clr:#ffdd1c">
+                <a href="6-29" data-text="6-29的作业">6-29的作业</a>
+            </li>
+            <li>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="6-29/地图.html">地图</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="6-29/作业1左柱状图.html">双方战绩图</a>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="6-29/作业2结果图.html">单角战绩图</a>
+            </li>
+            <li style="--clr:#ff6492">
+                <a href="6-28" data-text="6-28的作业">6-28的作业</a>
+            </li>
+            <li>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="6-28/作业.html">作业:Echarts练习</a>
+            </li>
+            <li style="--clr:#00ade1">
+                <a href="6-27" data-text="6-27的作业">6-27的作业</a>
+            </li>
+            <li>
+                <a style="margin-left: 50px;font-size: 1.5em;" href="6-27/作业.html">作业:壁纸切换</a>
             </li>
         </ul>
     </div>
+    <div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: '7uGkFGXID7mcQUnPQufBsJx1-gzGzoHsz',
+            appKey: '6mLtFNUSlZhErwS5lPZF9qpU',
+            avatar: 'robohash' // (''/mp/identicon/monsterid/wavatar/robohash/retro/hide)
+        })
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../common/jquery-3.7.0.min.js"></script>
+  </head>
+  <body>
+    <div id="box">
+      <audio controls id="play">
+        <source src="./MP3/棉花糖 - 至上励合.mp3" />
+      </audio>
+      <div id="lyric"></div>
+    </div>
+    <script>
+      let lrc = [];
+      const pattern = /\[(.+)\](.+)/;
+
+      $(function () {
+        $.get("./MP3/棉花糖 - 至上励合.lrc", function (data) {
+          lrc = data.split("\n");
+          lrc = lrc.map((currentItem) => {
+            let tmp = currentItem.match(pattern);
+            console.log(tmp);
+            return {
+              time: s(tmp[1]),
+              lyric: tmp[2],
+            };
+          });
+          //渲染歌词
+          renderLyric();
+        });
+      });
+      function renderLyric() {
+        let html = "";
+        lrc.forEach((currentItem) => {
+          html += `<p>${currentItem.lyric}</p>`;
+        });
+        $("#lyric").html(html);
+      }
+      $("#play").on("play", function () {
+        setInterval(() => {
+          ctime = Math.floor(this.currentTime);
+          lrc.forEach((currentItem, index) => {
+            if (ctime >= currentItem.time && ctime < lrc[index + 1].time) {
+              $("p").eq(index).css("color", "red");
+            }
+          });
+        }, 500);
+      });
+
+      function s(timeString) {
+        const [minutes, seconds] = timeString.split(":");
+        return parseInt(minutes) * 60 + parseInt(seconds);
+      }
+    </script>
+  </body>
+</html>

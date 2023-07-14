@@ -337,7 +337,7 @@ h2 {
 .hhdged {
     position: relative;
     top: 20px;
-    width: 120vh;
+    width: 790px;
     height: 83.5%;
     margin: auto;
     background-color: azure;
@@ -371,8 +371,9 @@ h2 {
     display: none;
 }
 #box3 {
-    width: 800px;
-    height: 100%;
+    display: inline-block;
+    width: 790px;
+    height: 500px;
     margin: auto;
     overflow-y: scroll;
 }

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>作业提交</title>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
 
@@ -132,6 +133,30 @@
             text-decoration: none;
             color: #fff;
         }
+
+        #vcomments {
+            position: relative;
+            top: -40px;
+            left: 60px;
+        }
+
+        .vpanel {
+            width: 100%;
+        }
+
+        .vemojis {
+            width: 450px;
+            height: 600px;
+        }
+
+        .vcards {
+            height: 220px;
+            overflow-y: scroll;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
     </style>
 </head>
 
@@ -195,7 +220,41 @@
                     <p>7.7</p>
                 </div>
             </div>
+            <div class="list-item">
+                <div class="rank"><span>9</span></div>
+                <div class="name">
+                    <h4><a href="./h5音频视频/QQ音乐.html">QQ音乐</a></h4>
+                    <p>未知</p>
+                </div>
+            </div>
+            <div class="list-item">
+                <div class="rank"><span>10</span></div>
+                <div class="name">
+                    <h4><a href="./Canvas/index.html">Canvas作业</a></h4>
+                    <p>7.10</p>
+                </div>
+            </div>
+            <div class="list-item">
+                <div class="rank"><span>11</span></div>
+                <div class="name">
+                    <h4><a href="./7.14考试(赵宗福)/7.14考试(赵宗福).html">考试题</a></h4>
+                    <p>7.14</p>
+                </div>
+            </div>
         </div>
+        <div id="vcomments"></div>
+        <script>
+            new Valine({
+                el: '#vcomments',
+                appId: 'sqCv0XU1xFy8uBUVnlbRcmmu-gzGzoHsz',
+                appKey: 'xzW5IayTTvsOVPXtjJmPtqlW',
+                avatar: 'robohash',// (''/mp/identicon/monsterid/wavatar/robohash/retro/hide)
+                lang: 'en',
+                visitor: true,
+            })
+        </script>
     </div>
+
 </body>
+
 </html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="my_canvas"></canvas>
+    <script>
+        //获取画布
+        var oCanvas = document.getElementById("my_canvas");
+        // 设置画布的尺寸
+        oCanvas.width = 300;
+        oCanvas.height = 200;
+        // 获取/创建画布环境
+        var myCanvas = oCanvas.getContext("2d");
+        // 画线条函数
+        function line(x1, y1, x2, y2) {
+            myCanvas.moveTo(x1, y1);
+            myCanvas.lineTo(x2, y2);
+            myCanvas.stroke();
+        }
+        // line(0,100,300,100);
+        // line(150,0,150,200);
+
+        // 画网格  横线  参考线
+        // for (var i = 0; i < 10; i++) {
+        //     myCanvas.moveTo(0, i * 10);
+        //     myCanvas.lineTo(150, i * 10);
+        //     myCanvas.stroke();
+        // }
+        // 竖线
+        // for (var i = 0; i < 15; i++) {
+        //     myCanvas.moveTo(i * 10, 0);
+        //     myCanvas.lineTo(i * 10, 100);
+        //     myCanvas.stroke();
+        // }
+
+        // 画参考圆的方法
+        function circle(x, y, r) {
+            myCanvas.beginPath();
+            myCanvas.arc(x, y, r, 0, Math.PI * 2);
+            myCanvas.strokeStyle = "yellow";
+            myCanvas.stroke();
+        }
+
+        // 画大圆
+        // circle(50, 50, 30);
+        // 画小圆
+        // circle(100, 20, 10);
+        // circle(120, 40, 10);
+        // circle(120, 70, 10);
+        // circle(100, 90, 10);
+
+        // 画大五角星
+        star(50, 50, 30, 0);
+
+
+        // 画小五角星
+        star(100, 20, 10, Math.atan((50 - 20) / (50 - 100)) - Math.PI / 2);
+        star(120, 40, 10, Math.atan((50 - 40) / (50 - 120)) - Math.PI / 2);
+        star(120, 70, 10, Math.atan((50 - 70) / (50 - 120)) - Math.PI / 2);
+        star(100, 90, 10, Math.atan((50 - 90) / (50 - 100)) - Math.PI / 2);
+
+        // 绘制五角星的方法
+        function star(x, y, r, deg) {
+            myCanvas.save();
+            myCanvas.translate(x, y);
+            myCanvas.rotate(deg)
+            myCanvas.beginPath();
+            var x = 0,
+                y = 0;
+            var du = Math.PI * 4 / 5;
+            for (var i = 0; i < 5; i++) {
+                myCanvas.lineTo(Math.cos(i * du - Math.PI / 2) * r, Math.sin(i * du - Math.PI / 2) * r);
+            }
+            myCanvas.closePath();
+            // myCanvas.stroke();
+            myCanvas.fillStyle = "yellow";
+            myCanvas.fill();
+            myCanvas.restore();
+        }
+
+
+    // 封装前的方法，操作
+    // myCanvas.lineTo(0,-30);
+    // myCanvas.lineTo(Math.cos(du-Math.PI/2)*30,Math.sin(du-Math.PI/2)*30);
+    // myCanvas.lineTo(Math.cos(2*du-Math.PI/2)*30,Math.sin(2*du-Math.PI/2)*30);
+    // myCanvas.lineTo(Math.cos(3*du-Math.PI/2)*30,Math.sin(3*du-Math.PI/2)*30);
+    // myCanvas.lineTo(Math.cos(4*du-Math.PI/2)*30,Math.sin(4*du-Math.PI/2)*30);
+
+
+
+    // myCanvas.translate(50,50);
+    // myCanvas.beginPath();
+    // myCanvas.arc(0,0,50,0,Math.PI/2);
+    // myCanvas.strokeStyle="blue";
+    // myCanvas.stroke();
+
+    // myCanvas.strokeStyle="black";
+    // line(50,50,100,20);
+    // line(50,50,120,40);
+    // line(50,50,120,70);
+    // line(50,50,100,90);
+    </script>
+</body>
+
+</html>

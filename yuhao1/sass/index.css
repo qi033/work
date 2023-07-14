@@ -1,0 +1,935 @@
+@charset "UTF-8";
+/* 定义变量与值 */
+/* 使用变量 */
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+.header {
+  width: 100%;
+  height: 250px;
+  background: url(https://www.spb.gov.cn/gjyzj/xhtml/images/public/headerbg.png) no-repeat 0 0/100% 250px;
+  display: inline-block;
+}
+
+.header-nav {
+  width: 1200px;
+  height: 214px;
+  margin: auto;
+}
+
+.nav {
+  width: 220px;
+  height: 20px;
+  float: right;
+  margin-top: 20px;
+}
+
+.nav ul {
+  width: 100px;
+  height: 20px;
+  display: inline-block;
+}
+
+.nav li {
+  float: left;
+  padding: 0 5px;
+  color: white;
+  font-size: 14px;
+}
+
+.nav li:first-child {
+  border-right: 2px solid white;
+}
+
+.header-title {
+  display: inline-block;
+  width: 1200px;
+  height: 120px;
+  margin: auto;
+  margin-top: 55px;
+}
+
+.header-title .title {
+  margin-top: 20px;
+}
+
+.search {
+  width: 425px;
+  float: right;
+  position: relative;
+  margin-top: 20px;
+}
+
+.search input {
+  width: 425px;
+  height: 44px;
+  background-color: #e9f0fa;
+  outline: none;
+  border: 1px solid black;
+  padding-left: 20px;
+}
+
+.search button {
+  width: 95px;
+  position: absolute;
+  right: -21px;
+  top: 1px;
+  height: 44px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #1f559f;
+  border-radius: 2px;
+  cursor: pointer;
+  border-color: #1f559f;
+}
+
+.search li {
+  float: left;
+  font-size: 14px;
+  padding: 10px 5px;
+  color: #666666;
+}
+
+.snav {
+  width: 100%;
+  height: 50px;
+  background-color: #1f559f;
+}
+
+.snav .shou {
+  width: 1200px;
+  height: 50px;
+  margin: auto;
+}
+
+.snav .shou li {
+  width: 198px;
+  height: 48px;
+  float: left;
+  font-size: 18px;
+  text-align: center;
+  line-height: 48px;
+  border-right: 1px solid white;
+}
+
+.snav .shou li:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.snav .shou li:last-child {
+  border-right: none;
+}
+
+.snav .shou li a {
+  color: white;
+}
+
+.main {
+  width: 1200px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.main .icon {
+  width: 1200px;
+  height: 84px;
+}
+
+.main .icon img:first-child {
+  float: left;
+}
+
+.main .icon img:last-child {
+  float: right;
+}
+
+.lunlie {
+  width: 1200px;
+  height: 430px;
+  margin-top: 20px;
+}
+
+.banner {
+  width: 732px;
+  height: 391px;
+  float: left;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+  margin-left: 260px;
+}
+
+#box:after {
+  width: 100%;
+  height: 45px;
+  background: rgba(0, 0, 0, 0.5);
+  content: "快递跑出“加速度” 百色芒果“忙”起来";
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 45px;
+}
+
+#box1:after {
+  width: 100%;
+  height: 45px;
+  background: rgba(0, 0, 0, 0.5);
+  content: "快递助果农增收致富 丰收季共创“梅”好生活";
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 45px;
+}
+
+#box2:after {
+  width: 100%;
+  height: 45px;
+  background: rgba(0, 0, 0, 0.5);
+  content: "技能成才 竞展风采";
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 45px;
+}
+
+#box3:after {
+  width: 100%;
+  height: 45px;
+  background: rgba(0, 0, 0, 0.5);
+  content: "匠心创造 技能兴滇";
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 45px;
+}
+
+#box4:after {
+  width: 100%;
+  height: 45px;
+  background: rgba(0, 0, 0, 0.5);
+  content: "庆“七一” 忆初心";
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 45px;
+}
+
+.list {
+  width: 444px;
+  height: 391px;
+  float: right;
+}
+
+.list-main {
+  width: 444px;
+  height: 331px;
+}
+
+.layui-nav {
+  background-color: white;
+}
+
+#layui-nav-item {
+  font-size: 17px;
+  color: black;
+  font-weight: bold;
+}
+
+#list-main li {
+  list-style-type: disc;
+  height: 38px;
+  line-height: 38px;
+  margin-left: 15px;
+  font-size: 16px;
+}
+
+#list-main li span {
+  float: right;
+  color: #999999;
+}
+
+.geng {
+  float: right;
+  margin-top: 20px;
+}
+
+.geng a {
+  color: #999999;
+}
+
+.affairs {
+  width: 1200px;
+  height: 340px;
+  margin-top: 20px;
+}
+
+.affairs-left {
+  width: 768px;
+  height: 340px;
+  float: left;
+}
+
+.affairs-left-header {
+  width: 100%;
+  height: 40px;
+  background: url(https://www.spb.gov.cn/gjyzj/xhtml/images/index/zwgkbj.png) no-repeat 0 0/100% 40px;
+}
+
+.affairs-left-header span {
+  font-size: 22px;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 5px;
+  margin-left: 40px;
+}
+
+.affairs-rigt {
+  width: 400px;
+  height: 336px;
+  float: right;
+  background: url(https://www.spb.gov.cn/gjyzj/xhtml/images/index/tjzsbj.png) no-repeat 0 0/100% 100%;
+}
+
+.affairs-rigt-nav {
+  width: 400px;
+  height: 50px;
+  border-bottom: 1px solid gray;
+}
+
+.affairs-rigt-nav li {
+  width: 100px;
+}
+
+.affairs-rigt-nav li:first-child {
+  float: left;
+  margin-left: 20px;
+}
+
+.affairs-rigt-nav li:last-child a {
+  color: #999999;
+}
+
+.affairs-rigt-nav li:last-child {
+  width: 37px;
+  float: right;
+  margin-top: 17px;
+  margin-right: 10px;
+}
+
+.affairs-rigt-nav h2 {
+  color: #1f559f;
+  border-bottom: 2px solid #1f559f;
+  line-height: 50px;
+}
+
+.affairs-rigt img {
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+.administration {
+  width: 1200px;
+  height: 430px;
+  background-color: #f4f8ff;
+  margin-top: 20px;
+}
+
+.give {
+  width: 844px;
+  height: 430px;
+  float: left;
+}
+
+.give-left {
+  width: 54px;
+  height: 430px;
+  background-color: #e5eaf5;
+  float: left;
+}
+
+.give-left ul {
+  width: 54px;
+  height: 430px;
+}
+
+.give-left li {
+  width: 54px;
+  height: 215px;
+  background: #E5EAF5;
+  text-align: center;
+}
+
+.give-left li:hover {
+  background-color: #1f559f;
+}
+
+.give-left li:hover a {
+  color: white;
+}
+
+.give-left a {
+  width: 22px;
+  margin: 0 auto;
+  font-size: 22px;
+  font-family: Microsoft YaHei;
+  font-weight: bold;
+  color: #333333;
+  display: block;
+  padding-top: 57px;
+}
+
+.give-left-main {
+  width: 765px;
+  height: 401px;
+  display: inline-block;
+  margin-top: 27px;
+  float: right;
+  background-color: white;
+}
+
+.give-left-main-nav {
+  width: 765px;
+  height: 71px;
+  background-color: #1f559f;
+  position: relative;
+}
+
+.give-left-main-nav img {
+  border: none;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.give-left-main-nav h2 {
+  display: inline-block;
+  height: 25px;
+  font-size: 24px;
+  font-family: Microsoft YaHei;
+  font-weight: bold;
+  color: #FFFFFF;
+  position: absolute;
+  top: 20px;
+  left: 90px;
+}
+
+.give-left-main-nav span {
+  position: absolute;
+  width: 53px;
+  height: 20px;
+  background: rgba(31, 86, 159, 0);
+  border: 1px solid #C8E1FB;
+  border-radius: 2px;
+  font-size: 14px;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: #C9E1FB;
+  top: 27px;
+  right: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.zmhdul li {
+  width: 209px;
+  height: 120px;
+  float: left;
+  margin-left: 30px;
+  margin-top: 30px;
+  background-color: #ecf2f8;
+  position: relative;
+}
+
+.zmhdul li a p {
+  display: inline-block;
+  position: absolute;
+  top: 45px;
+  left: 110px;
+  font-size: 18px;
+}
+
+.zmhdul li a img {
+  display: inline-block;
+  position: absolute;
+  top: 35px;
+  left: 40px;
+}
+
+.zmhdul1 li {
+  float: left;
+  width: 191px;
+  height: 114px;
+  margin-top: 40px;
+}
+
+.zmhdul1 a img {
+  margin-left: 75px;
+  margin-top: 20px;
+}
+
+.zmhdul1 a p {
+  margin: auto;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.give-left-main1 {
+  width: 765px;
+  height: 401px;
+  display: inline-block;
+  margin-top: 27px;
+  float: right;
+  background-color: white;
+}
+
+.give-right {
+  width: 315px;
+  height: 382px;
+  float: right;
+  margin-top: 25px;
+  margin-right: 15px;
+}
+
+.give-right li {
+  width: 315px;
+  height: 78px;
+  background: url(https://www.spb.gov.cn/gjyzj/xhtml/images/index/cxfw.png) no-repeat 0 0/100% 100%;
+}
+
+.give-right li:nth-child(2) {
+  margin-top: 30px;
+}
+
+.give-right li:nth-child(3) {
+  margin-top: 30px;
+}
+
+.give-right li:nth-child(4) {
+  margin-top: 30px;
+}
+
+.give-right li img {
+  margin-left: 10px;
+}
+
+.give-right li a {
+  line-height: 78px;
+  margin-left: 10px;
+  color: black;
+  font-size: 16px;
+}
+
+.bannes {
+  width: 100%;
+  height: 260px;
+  background-color: #e5e8ee;
+  margin-top: 40px;
+}
+
+.bannes-main {
+  width: 1200px;
+  height: 200px;
+  margin: auto;
+}
+
+.bannes-main img {
+  margin-top: 30px;
+}
+
+.footer {
+  width: 100%;
+  height: 208px;
+  background-color: #20569f;
+}
+
+.footer-main {
+  width: 1200px;
+  height: 170px;
+  margin: auto;
+}
+
+.footer-main-nav {
+  width: 1200px;
+  height: 60px;
+  border-bottom: 1px solid white;
+}
+
+.footer-main-nav li {
+  float: left;
+  padding: 0px 10px;
+}
+
+.footer-main-nav a {
+  color: white;
+  font-size: 16px;
+  line-height: 60px;
+}
+
+.footer-main-left {
+  width: 80px;
+  height: 80px;
+  float: left;
+  display: inline-block;
+  margin-top: 40px;
+}
+
+.dang {
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.footer-main-left p {
+  width: 500px;
+  float: right;
+  font-size: 14px;
+  color: white;
+  margin-top: 10px;
+}
+
+.zi {
+  position: absolute;
+  width: 500px;
+  height: 80px;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.footer-main-right {
+  width: 384px;
+  height: 80px;
+  float: right;
+  margin-top: 50px;
+}
+
+.footer-main-right li {
+  float: left;
+}
+
+.footer-main-right li a {
+  font-size: 14px;
+  color: white;
+  line-height: 60px;
+  padding: 0 10px;
+  border-right: 2px solid white;
+}
+
+.dlbbanner {
+  width: 1200px;
+  height: 110px;
+}
+
+.fangtan {
+  width: 1200px;
+  height: 326px;
+  margin-top: 30px;
+}
+
+.fangtan-left {
+  width: 338px;
+  height: 296px;
+  background-color: #f4f8ff;
+  float: left;
+}
+
+.fangtan-left-nav {
+  width: 100%;
+  height: 42px;
+  border-bottom: 1px solid black;
+}
+
+.fangtan-left-nav li {
+  float: left;
+  width: 33%;
+  height: 42px;
+  text-align: center;
+  line-height: 42px;
+}
+
+.fangtan-left-nav li a {
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+}
+
+.fangtan-left-nav li :hover {
+  border-bottom: 2px solid #20569f;
+  padding: 9px 0;
+}
+
+.fangtan-left-nav li a:hover {
+  color: #20569f;
+}
+
+.fangtan-left-main {
+  width: 304px;
+  height: 230px;
+  background-color: white;
+  margin: auto;
+  margin-top: 16px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.fangtan-left-main-header {
+  width: 100%;
+  height: 44px;
+  background-color: #1f559f;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.fangtan-left-main-header a {
+  font-size: 13px;
+  color: white;
+  line-height: 44px;
+  padding: 0 10px;
+}
+
+.fangtan-left-main img {
+  width: 272px;
+  height: 168px;
+  margin-left: 15px;
+  margin-top: 5px;
+}
+
+.mpostal {
+  width: 476px;
+  height: 286px;
+  float: left;
+  margin-left: 20px;
+}
+
+.mpostal-nav {
+  width: 100%;
+  height: 42px;
+  border-bottom: 1px solid #666666;
+}
+
+.mpostal-nav li {
+  width: 200px;
+}
+
+.mpostal-nav a {
+  float: left;
+  margin-right: 30px;
+  font-size: 20px;
+  font-family: Microsoft YaHei;
+  font-weight: bold;
+  line-height: 42px;
+  margin-left: 20px;
+  border-bottom: 2px solid #1f559f;
+  color: #1f559f;
+}
+
+.mpostal-nav li:last-child {
+  float: right;
+}
+
+.mpostal-nav span {
+  float: right;
+  font-size: 14px;
+  color: #999;
+  line-height: 42px;
+}
+
+.mpostal-main {
+  margin-top: 20px;
+}
+
+.mpostal-main li {
+  height: 38px;
+  width: 100%;
+  line-height: 38px;
+  font-size: 16px;
+  color: black;
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.shang {
+  width: 338px;
+  height: 296px;
+  background-color: #f4f8ff;
+  float: right;
+}
+
+.shang .fangtan-left-nav a {
+  color: #1f559f;
+  border-bottom: 2px solid #1f559f;
+  padding: 10px 0;
+}
+
+.shang-main {
+  width: 314px;
+  height: 216px;
+  background-color: white;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.swiper2 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.swiper2 .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper2 .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.swiper2 .swiper-slide {
+  background-color: #e5e8ee;
+}
+
+.bubbly-button {
+  font-family: "Helvetica", "Arial", sans-serif;
+  display: inline-block;
+  font-size: 1em;
+  padding: 1em 2em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background-color: #ff0081;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+}
+
+.bubbly-button:focus {
+  outline: 0;
+}
+
+.bubbly-button:before, .bubbly-button:after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 140%;
+  height: 100%;
+  left: -20%;
+  z-index: -1000;
+  transition: all ease-in-out 0.5s;
+  background-repeat: no-repeat;
+}
+
+.bubbly-button:before {
+  display: none;
+  top: -75%;
+  background-image: radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 20%, #ff0081 20%, transparent 30%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+}
+
+.bubbly-button:after {
+  display: none;
+  bottom: -75%;
+  background-image: radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+
+.bubbly-button:active {
+  transform: scale(0.9);
+  background-color: #e60074;
+  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+}
+
+.bubbly-button.animate:before {
+  display: block;
+  animation: topBubbles ease-in-out 0.75s forwards;
+}
+
+.bubbly-button.animate:after {
+  display: block;
+  animation: bottomBubbles ease-in-out 0.75s forwards;
+}
+
+@keyframes topBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+  }
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+  }
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+@keyframes bottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+  }
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+  }
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../common/jQuery/jquery-3.7.0.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <audio controls id="play">
+            <source src="../7-7/mp3/AM阿军 - 唱给我的短发女孩.mp3" />
+        </audio>
+        <div id="lyric"></div>
+    </div>
+    <script>
+        let lrc = [];
+        const pattern = /\[(.+)\](.+)/;
+        $(function () {
+            $.get("./img/天外来物.lrc", function (data) {
+                lrc = data.split("\n");
+
+                lrc = lrc.map((currentItem) => {
+                    let tmp = currentItem.match(pattern);
+
+                    if (tmp) {
+                        return {
+                            time: s(tmp[1]),
+                            lyric: tmp[2],
+                        }
+                    } else {
+                        return null
+                    }
+                    console.log(tmp);
+                });
+                console.log(lrc);
+                //渲染歌词
+                renderLyric();
+            });
+
+        });
+        function renderLyric() {
+            let html1 = "";
+            lrc.forEach((currentItem) => {
+                console.log(currentItem);
+                html1 += `<p>${currentItem.lyric}</p >`;
+            });
+            $("#lyric").html(html1);
+        }
+        $("#audio").on("play", function () {
+            setInterval(() => {
+                ctime = Math.floor(this.currentTime);
+                lrc.forEach((currentItem, index) => {
+                    if (ctime >= currentItem.time && ctime < lrc[index + 1].time) {
+                        $("p").eq(index).css("color", "yellowgreen");
+                    }
+                });
+            }, 500);
+        });
+
+        function s(timeString) {
+            const [minutes, seconds] = timeString.split(":");
+            return parseInt(minutes) * 60 + parseInt(seconds);
+        }
+    </script>
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var o = {
+            a: 10,
+            b: {
+                fn: function () {
+                    console.log(this.a); //undefined
+                }
+            }
+        }
+        o.b.fn();
+    </script>
+</body>
+
+</html> -->

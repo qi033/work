@@ -188,17 +188,8 @@ body,
   font-size: 18px;
   background: #fff;
   /* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
   align-items: center;
 }
 
@@ -206,7 +197,8 @@ body,
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   position: relative;
 }
 
@@ -713,17 +705,8 @@ body,
   text-align: center;
   font-size: 18px;
   /* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
   align-items: center;
 }
 
@@ -831,4 +814,4 @@ body,
   padding: 5px 0 5px 15px;
   background: url("https://www.spb.gov.cn/gjyzj/xhtml/images/public/lidian.png") no-repeat 0px;
   position: relative;
-}
+}/*# sourceMappingURL=zf.css.map */
