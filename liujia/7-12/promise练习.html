@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: yellowgreen;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div></div>
+
+
+    <script>
+
+        function load(file, resolve, reject) {
+            const script = document.createElement("script");
+            script.src = file;
+            script.onload = resolve;
+            script.onerror = reject;
+            document.body.appendChild(script);
+        }
+        load(
+            "js/index.js",
+            (script) => {
+                console.log(`${script.path[0].src} 加载成功`);
+                show();
+            },
+            (error) => {
+                console.log(`${error.srcElement.src} 加载失败`);
+            }
+        );
+
+
+        // function loadImage(file, resolve, reject) {
+        //     const image = new Image();
+        //     image.src = file;
+        //     image.onload = () => {
+        //         resolve(image);
+        //     };
+        //     image.onerror = () => {
+        //         reject(new Error("load fail"));
+        //     };
+        //     document.body.appendChild(image);
+        // }
+
+        // loadImage(
+        //     "images/1.jpg",
+        //     (image) => {
+        //         image.style.border = "solid 5px red";
+        //     },
+        //     (error) => {
+        //         console.log(error);
+        //     }
+        // );
+
+        // function interval(callback, delay = 100) {
+        //     let id = setInterval(() => callback(id), delay);
+        // }
+        // const div = document.querySelector("div");
+        // interval((timeId) => {
+        //     const left = parseInt(window.getComputedStyle(div).left);
+        //     div.style.left = left + 10 + "px";
+        //     if (left > 500) {
+        //         clearInterval(timeId);
+        //         interval((timeId) => {
+        //             const width = parseInt(window.getComputedStyle(div).width);
+        //             div.style.width = width - 1 + "px";
+        //             if (width <= 0) clearInterval(timeId);
+        //         }, 10);
+        //     }
+        // }, 100);
+    </script>
+
+
+</body>
+
+</html>
