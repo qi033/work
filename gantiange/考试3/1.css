@@ -1,0 +1,103 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 50%;
+  background: #ff5722;
+  opacity: 0.7; /* 设置元素的透明度 */
+  color: white;
+}
+.top p {
+  margin-top: 10%;
+}
+.top img {
+  width: 30vw;
+}
+
+.top > * {
+  flex: 0 0 auto;
+  margin-bottom: 10px;
+}
+
+.loge {
+  width: 100%;
+  height: 30px;
+  background: url(./img/6.png);
+  background-position: center;
+}
+
+.loges {
+  width: 100%;
+  height: 30px;
+  background: url(./img/666.png);
+  background-position: center;
+}
+
+.layui-tab .layui-tab-title li {
+  min-width: 10px !important;
+  width: 13%;
+  padding: 0;
+  margin: 0 10px;
+}
+
+.condent .noe ul .layui-tab-brief > .layui-tab-title .layui-this {
+  font-size: 10px !important;
+}
+
+.n {
+  width: 100%;
+  display: flex;
+}
+
+.no {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.no dl {
+  margin: 5px 8px;
+  width: 20vw;
+  height: 12vh;
+  text-align: center;
+}
+.no dl dt {
+  width: 70%;
+  border-radius: 100%;
+  margin-left: 3vw;
+}
+.no dl dt:hover {
+  background: #ff5722;
+}
+.no dl dd {
+  margin-top: 10px;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 5px;
+  width: 100%;
+  display: flex;
+  background: white;
+}
+.bottom dl {
+  text-align: center;
+  width: 20vw;
+}
+.bottom .bottom-box .noe4 {
+  width: 20vw;
+}
+
+.tops {
+  height: 50vh;
+}/*# sourceMappingURL=1.css.map */
