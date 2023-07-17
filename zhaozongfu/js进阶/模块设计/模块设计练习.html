@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <button>好前程</button>
+  <script>
+    document.querySelector("button").addEventListener("click", () => {
+      let res = import("./index.js").then(module => {
+        console.log(module.site);
+      });
+    });
+  </script>
+  <!--  <script type="module">
+        /*   import { index } from "./index.js";
+          console.log(index); */
+        /*   import { User, site, func } from "./index.js";
+          console.log(site);
+          console.log(User); */
+        /*   import * as api from "./index.js";
+          console.log(api.site);
+          console.log(api.User); */
+        // import show, { name } from "./index.js";
+        import * as api from "./index.js";
+        console.log(api);
+        api.hqc2.get();
+        console.log(api.hqc1.site);
+    </script> -->
+</body>
+
+</html>
