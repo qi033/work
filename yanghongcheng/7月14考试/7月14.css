@@ -74,6 +74,7 @@ a {
   width: 100%;
   height: 11.2rem;
   float: left;
+  background-color: #ebebeb;
 }
 .bottonwidth {
   width: 100%;
@@ -172,6 +173,12 @@ a {
   background-color: #4ff512;
   margin-bottom: 0.32rem;
 }
+.bix13 {
+  width: 100%;
+  height: 11.2rem;
+  background-color: #00ccff;
+  margin-bottom: 0.32rem;
+}
 .flx {
   width: 2.24rem;
   height: 1.92rem;
@@ -194,8 +201,9 @@ a {
 }
 .footer {
   width: 12rem;
-  float: left;
-  height: 1.92rem;
+  height: 2.4rem;
+  background-color: #e7e7e7;
+  position: fixed;
   bottom: 0;
 }
 .flx:hover {
@@ -214,4 +222,11 @@ a {
 .footr p {
   text-align: center;
   font-size: 0.576rem;
+}
+.max {
+  width: 0.96rem;
+  height: 0.96rem;
+  background-color: aqua;
+  float: right;
+  margin: 0.96rem 0.96rem 0.96rem 0.96rem;
 }
