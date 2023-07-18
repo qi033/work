@@ -1,0 +1,17 @@
+{
+    "name": "userlist",
+    "list": [
+        {
+            "id": "1",
+            "username": "zhangsan333",
+            "pwd": "12333",
+            "sex": "男33"
+        },
+        {
+            "id": "2",
+            "username": "王五",
+            "pwd": "456",
+            "sex": "太u见"
+        }
+    ]
+}

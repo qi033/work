@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var cookieParser = require("cookie-parser");
 var util = require("util");
+var fs = require("fs");
 //获取框架的实例对象
 var app = express();
 app.use(cookieParser());
@@ -41,35 +42,55 @@ app.post("/user", urlencodedParser, (req, res) => {
   console.log(response);
   res.end(JSON.stringify(response));
 });
+//显示登录页面
+app.get("/login.html", function (req, res) {
+  res.sendFile(__dirname + "/" + "login.html");
+});
+app.get("/userinfo", function (req, res) {
+  const userid = req.cookies.userid;
+  var data = fs.readFileSync("user.json");
+  data = JSON.parse(data);
+  let index = data.list.findIndex((item) => {
+    return item.id == userid;
+  });
+  res.json(data.list[index]);
+});
+app.post("/save", urlencodedParser, (req, res) => {
+  console.log(req.body);
+  var data = fs.readFileSync("user.json");
+  data = JSON.parse(data);
+  const userid = req.cookies.userid;
+  let index = data.list.findIndex((item) => {
+    return item.id == userid;
+  });
+  data.list[index] = {
+    id: userid,
+    ...req.body,
+  };
+  fs.writeFileSync("user.json", JSON.stringify(data, null, 4));
+  res.json({
+    msg: "success",
+  });
+});
 app.post("/login", urlencodedParser, (req, res) => {
-  res.setHeader("Content-type", "application/json");
-  //   let users = [
-  //     {
-  //         id,
-  //         username,
-  //         pwd,
-  //         nickname,
-  //         age,
-  //         sex,
-  //         desc,
-  //     },{
-
-  //     }
-  //   ]
-  if (req.body.username == "liyanyang" && req.body.password == "123456") {
-    res.cookie("user", "liyanyang", { maxAge: 24 * 60 * 60 * 1000 });
-    res.json({
-      code: 200,
-      msg: "login success",
-    });
+  var data = fs.readFileSync("user.json");
+  data = JSON.parse(data);
+  let index = data.list.findIndex((item) => {
+    return item.username == req.body.username && item.pwd == req.body.password;
+  });
+  if (index > -1) {
+    res.cookie("userid", data.list[index].id);
+    res.sendFile(__dirname + "/" + "userinfo.html");
+    // res.json({
+    //   code: 200,
+    //   msg: "登录成功",
+    // });
   } else {
     res.json({
       code: -1,
-      msg: "login faild",
+      msg: "用户不存在或密码错误",
     });
   }
-  console.log(response);
-  res.end(JSON.stringify(response));
 });
 app.get("/cookie", (req, res) => {
   //   req.wr("Content-type", "application/json");
