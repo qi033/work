@@ -1,0 +1,16 @@
+{
+   "name":"jieke",
+   "list":[
+     {
+        "id":1,
+        "username":"liyanyang",
+        "pwd":"♂"
+     },
+     {
+        "id":2,
+        "username":"zhaocanlong",
+        "pwd":"123",
+        "sex":"♀"
+     }
+   ]
+}
