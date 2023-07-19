@@ -1,5 +1,15 @@
 {
   "dependencies": {
     "gatsby-plugin-valine": "^1.0.2"
-  }
+  },
+  "name": "work",
+  "description": "交作业使用",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
