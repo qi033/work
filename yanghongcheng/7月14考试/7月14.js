@@ -29,3 +29,12 @@ function renderImage() {
     box.appendChild(image);
     box.appendChild(textNode);
   }
+    // 在页面加载完成时触发的事件处理函数
+    window.addEventListener('DOMContentLoaded', function() {
+        // 获取按钮元素
+        var expandButton = document.getElementById('expandButton');
+        var expandButtons = document.getElementById('expandButtons');
+        // 触发按钮的点击事件
+        expandButton.click();
+        expandButtons.click();
+      });
