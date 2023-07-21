@@ -6,19 +6,107 @@
     <title>Document</title>
   </head>
   <body>
-    <button id="expandButton">展开按钮</button>
-    <style>
-
-    </style>
     <script>
-      // 在页面加载完成时触发的事件处理函数
-    window.addEventListener('DOMContentLoaded', function() {
-      // 获取按钮元素
-      var expandButton = document.getElementById('expandButton');
-      
-      // 触发按钮的点击事件
-      expandButton.click();
-    });
+      function login() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var captcha = document.getElementById("captcha").value;
+
+        if (username === "123456" && password === "123" && captcha === "1111") {
+          window.location.href = "../7月14考试/7月14考试.html"; // 跳转到新页面
+        } else {
+          alert("登录失败，请检查账号、密码和验证码。");
+        }
+      }
     </script>
+    <div class="box">
+      <div class="hwan">
+        <img
+          src="http://101.34.139.112/static/img/logo.67745850.png"
+          class="img"
+        /><b>MyAdmin后台管理系统</b>
+      </div>
+      <div>
+        <input type="text" id="username" required class="zhanh" />
+        <span class="name">
+          <svg t="1689930987616" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2918" width="20" height="20"><path d="M500 128.8c-95.2 5.6-173.6 83.2-180 178.4-7.2 112 80.8 205.6 191.2 205.6 106.4 0 192-86.4 192-192 0.8-110.4-92-198.4-203.2-192zM512 575.2c-128 0-383.2 64-383.2 192v96c0 17.6 14.4 32 32 32h702.4c17.6 0 32-14.4 32-32V766.4c0-127.2-255.2-191.2-383.2-191.2z" p-id="2919" fill="#bfbfbf" class="svg"></path></svg>
+        &nbsp&nbsp账号
+        </span>
+      </div>
+      <div>
+        <input type="password" id="password" required class="zhanh" />
+        <span class="name">
+          <svg t="1689931535656" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4120" width="20" height="20"><path d="M780.8 440.746667v-106.666667A250.453333 250.453333 0 0 0 512 85.333333a250.453333 250.453333 0 0 0-268.8 248.746667v106.666667H128V938.666667h768V440.746667h-115.2m-230.4 274.773333v116.48h-76.8v-116.48a69.973333 69.973333 0 0 1-38.4-61.44 73.813333 73.813333 0 0 1 76.8-70.826667 73.813333 73.813333 0 0 1 76.8 70.826667 69.973333 69.973333 0 0 1-38.4 61.44z m153.6-274.773333h-384V334.506667A174.506667 174.506667 0 0 1 512 156.586667a174.506667 174.506667 0 0 1 192 177.493333v106.666667" fill="#bfbfbf" p-id="4121" class="svg"></path></svg>
+        &nbsp&nbsp密码
+        </span>
+      </div>
+      <div>
+        <input type="text" id="captcha" required class="zhanh" />
+        <span class="name">
+          <svg t="1689931642696" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5360" width="20" height="20"><path d="M943.1 172c-2.4-0.2-245.1-25.3-413.8-147.8-5.1-3.7-11-5.6-17.3-5.6-6.2 0-12.2 1.9-17.3 5.6C326.9 146 83.3 171.8 80.9 172c-15.2 1.4-26.6 14.1-26.6 29.3 0 6.7 0.6 165.8 54.8 344.4 32.1 105.8 76.4 196.4 131.9 269.2 70.3 92.3 158.5 156 262 189.2 2.9 0.9 5.9 1.4 9 1.4s6.1-0.5 8.9-1.4c103.6-33.2 191.7-96.8 262-189.2 55.4-72.7 99.8-163.2 131.9-269.2 54.1-178.6 54.8-337.7 54.8-344.4C969.7 186.1 958.3 173.5 943.1 172zM910.1 227.2l-0.1 1.6c-2.9 58.1-13.4 174.4-51.4 299.9-66.7 220.1-183.1 360.1-346 416.1L512 945l-0.6-0.2C349 888.9 232.7 749.4 165.8 530.1c-39.8-130.5-49.4-254.2-51.8-301.4l-0.1-1.6 1.5-0.2c70.6-10.3 250.5-44.8 395.5-142.4l0.9-0.7 1 0.7C658 182.1 837.9 216.6 908.5 227L910.1 227.2z" p-id="5361" fill="#bfbfbf"></path><path d="M641.8 351 467 580.3l-89-76.1c-5.3-4.5-12.1-7-19.1-7-8.6 0-16.8 3.7-22.4 10.3-10.5 12.3-9.1 31 3.3 41.5l112.7 96.4c5.2 4.4 12.4 7 19.6 7 0.9 0 1.8 0 2.7-0.1 8-0.8 15.4-5 20.3-11.4l193.7-254c4.8-6.3 6.8-14 5.7-21.8-1-7.8-5.1-14.7-11.3-19.5C670.1 335.6 651.6 338.1 641.8 351z" p-id="5362" fill="#bfbfbf" class="svg"></path></svg>
+        &nbsp验证码，不区分大小写
+        </span>
+      </div>
+      <div class="zhanh">
+        <input type="checkbox" style="width: 15px; height: 15px;">记住我&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp验证码：1111
+      </div>
+      
+      <button class="denl" onclick="login()">登录</button>
+    </div>
+
+    <style>
+      .box {
+        width: 400px;
+        height: 350px;
+        padding: 15px;
+        margin: auto;
+        background-color: rgb(255, 238, 238);
+      }
+      .hwan {
+        /* background-color: beige; */
+        width: 250px;
+        height: 40px;
+        margin: auto;
+        color: #707070;
+      }
+      .img {
+        width: 27px;
+        height: 27px;
+        float: left;
+      }
+      .box div {
+        font-size: 20px;
+      }
+      .zhanh {
+        width: 350px;
+        height: 36px;
+        float: left;
+        color: #707070;
+        margin-top: 20px;
+      }
+      .denl {
+        width: 200px;
+        height: 35px;
+        float: left;
+        margin-left: 100px;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        background-color: dodgerblue;
+      }
+      .name {
+        float: left;
+        margin-left: -351px;
+        margin-top: 30px;
+        color: #707070;
+        font-size: 17px;
+        display: flex;
+        align-items: center;
+      }
+      .svg{
+        line-height: 36px;
+      }
+    </style>
   </body>
 </html>
