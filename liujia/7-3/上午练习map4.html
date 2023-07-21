@@ -1,1 +1,111 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>图层的层级(zIndex)设定</title>
+    <meta name="description" content="通过 setzIndex() 方法设置图层的层级。">
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <style>
+        html,
+        body,
+        #container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .vertical-range {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            height: 220px;
+            width: 75px;
+        }
+
+        .vertical-range .vertical-slider {
+            position: absolute;
+            width: 200px;
+            transform: rotate(-90deg) translate(-50%, 0);
+        }
+
+        .vertical-range input[type="range"] {
+            width: 100%;
+        }
+
+        .vertical-range p {
+            position: absolute;
+            writing-mode: vertical-lr;
+        }
+
+        .vertical-range span {
+            color: #0288d1;
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <!-- 滑块 -->
+    <div class="input-card" style="width: auto;">
+        <h4>拖动滑块调整图层 zIndex</h4>
+        <div class="vertical-range">
+            <div class="vertical-slider" style="left: -55px;">
+                <input type="range" id="zindex-1" value="12" oninput="change1(this.value)"
+                    onchange="change1(this.value)" max="20" min="10" step="1">
+            </div>
+            <div class="vertical-slider" style="left: 30px;">
+                <input type="range" id="zindex-2" value="18" oninput="change2(this.value)"
+                    onchange="change2(this.value)" max="20" min="10" step="1">
+            </div>
+            <p style="left: -10px; top: 10px;">卫星图层：<span id="z1">-</span></p>
+            <p style="left: 72px; top: 10px;">道路图层：<span id="z2">-</span></p>
+        </div>
+    </div>
+    <script src="https://cache.amap.com/lbs/static/es5.min.js"></script>
+    <script src="https://webapi.amap.com/maps?v=2.0&key=12234fb3874d1b83a6084737b5166179"></script>
+    <script>
+        var map = new AMap.Map('container', {
+            center: [116.40, 39.91],
+            features: ['road', 'bg'],
+            zoom: 13
+        });
+
+        var satellite = new AMap.TileLayer.Satellite({
+            map: map,
+            zIndex: 12,
+            opacity: 0.8
+        });
+
+        var roadNetLayer = new AMap.TileLayer.RoadNet({
+            map: map,
+            zIndex: 18,
+            opacity: 0.8
+        });
+
+        // 滑块鼠标事件
+        function updateZInfo(id, val) {
+            document.getElementById(id).innerText = val;
+        }
+
+        function change1(z) {
+            // 设置 zIndex 属性
+            satellite.setzIndex(z);
+            updateZInfo('z1', z);
+        }
+
+        function change2(z) {
+            // 设置 zIndex 属性
+            roadNetLayer.setzIndex(z);
+            updateZInfo('z2', z);
+        }
+
+        updateZInfo('z1', 12);
+        updateZInfo('z2', 18);
+
+    </script>
+</body>
+
 </html>

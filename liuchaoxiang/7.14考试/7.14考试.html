@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      body {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        position: relative;
+      }
+      .box {
+        width: 100%;
+        height: 667px;
+        background-color: red;
+      }
+      .top {
+        width: 100%;
+        height: 50%;
+        background-color: aquamarine;
+      }
+      .top h2 {
+        width: 100%;
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        color: white;
+        position: relative;
+        z-index: 3;
+      }
+      .top div {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        margin-top: -40px;
+        position: relative;
+        z-index: 2;
+        background: rgba(183, 230, 26);
+      }
+      .top div img {
+        width: 80%;
+        height: 60%;
+        margin-left: 30px;
+        margin-top: 40px;
+        float: left;
+      }
+      .top div p {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        float: left;
+        font-size: 25px;
+        text-align: center;
+      }
+      .top div audio {
+        display: none;
+      }
+      .bottom {
+        width: 100%;
+        height: 40%;
+        background-color: #ddd;
+        overflow-y: scroll;
+        position: relative;
+        z-index: 3;
+      }
+      .an {
+        height: 50%;
+        position: absolute;
+        top: 40%;
+      }
+      .xia {
+        width: 100%;
+        height: 20px;
+        display: block;
+        text-align: center;
+        font-size: 18px;
+        line-height: 20px;
+        display: block;
+      }
+      .xias {
+        width: 100%;
+        height: 20px;
+        display: block;
+        text-align: center;
+        font-size: 18px;
+        line-height: 20px;
+        float: left;
+        display: none;
+      }
+
+      .ul {
+        width: 100%;
+        height: 20px;
+        overflow: hidden;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+      .ul li {
+        width: 60px;
+        height: 20px;
+        line-height: 20px;
+        display: inline-block;
+        text-align: center;
+      }
+      .nei {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .nei div {
+        width: 19%;
+        height: 60px;
+        margin-top: 10px;
+      }
+      .nei div img {
+        width: 50px;
+        height: 40px;
+        margin-left: 10px;
+        float: left;
+        color: black;
+      }
+      .nei div p {
+        width: 100%;
+        height: 20px;
+        float: left;
+        line-height: 20px;
+        font-size: 13px;
+        text-align: center;
+        color: black;
+      }
+      .nei div audio {
+        width: 100%;
+        height: 60px;
+        display: none;
+      }
+      .di {
+        width: 100%;
+        height: 10%;
+        background-color: white;
+        position: absolute;
+        bottom: 0;
+      }
+      .di ul {
+        width: 100%;
+        height: 100%;
+      }
+      .di ul li {
+        width: 20%;
+        height: 100%;
+        float: left;
+      }
+      .di ul li img {
+        width: 45px;
+        height: 45px;
+        margin-left: 15px;
+      }
+      .di ul li span {
+        width: 100%;
+        height: 16.69px;
+        text-align: center;
+        line-height: 16.69px;
+        font-size: 13px;
+        float: left;
+      }
+      .ta {
+        color: rgba(18, 150, 219) !important;
+      }
+      .yi {
+        background: rgba(183, 230, 26) !important;
+      }
+      .er {
+        background: rgba(200, 79, 206) !important;
+      }
+      .san {
+        background: rgba(178, 109, 31) !important;
+      }
+      .si {
+        background: rgba(178, 109, 31) !important;
+      }
+      .wu {
+        background: rgba(143, 179, 231) !important;
+      }
+      .liu {
+        background: rgba(197, 120, 94) !important;
+      }
+      .qi {
+        background: rgba(161, 126, 156) !important;
+      }
+      .ba {
+        background: rgba(0, 178, 242) !important;
+      }
+      .jiu {
+        background: rgba(204, 2, 2) !important;
+      }
+      .shi {
+        background: rgba(255, 192, 0) !important;
+      }
+      .shiyi {
+        background: rgba(110, 141, 187) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="top" id="top">
+        <h2>小睡眠</h2>
+        <div>
+          <a href="#">
+            <img
+              src="https://res.psy-1.com/music/Breathstudy_img09_BGM250-VS8DH8pcIQuootr1EtOS.png"
+            />
+            <p>隐隐春雷</p>
+          </a>
+          <audio controls>
+            <source
+              src="https://private.psy-1.com/music/bgm009-ed2HPrAlRFcFXhTETelG.mp3?e=1689350991&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:ADqr1PaOXJjDpi0w21BWlt25zkM="
+            />
+          </audio>
+        </div>
+      </div>
+      <div class="bottom">
+        <span class="xia" id="xia">^</span>
+        <span class="xias" id="xias">X</span>
+        <ul class="ul">
+          <li>全部</li>
+          <li>雷雨</li>
+          <li>江湖</li>
+          <li>课堂</li>
+          <li>自然</li>
+          <li>ASMR</li>
+          <li>动物</li>
+          <li>旋律</li>
+          <li>脑波</li>
+          <li>生活</li>
+          <li>城市</li>
+          <li>宝宝</li>
+        </ul>
+        <div class="nei"></div>
+      </div>
+      <div class="di">
+        <ul>
+          <li><img src="./img/下雨-白天.png" /><span>声音</span></li>
+          <li><img src="./img/莲花.png" /><span>助眠</span></li>
+          <li><img src="./img/圆圈.png" /><span>呼吸</span></li>
+          <li><img src="./img/推荐.png" /><span>推荐</span></li>
+          <li><img src="./img/我的 (1).png" /><span>我的</span></li>
+        </ul>
+      </div>
+    </div>
+    <script src="../../common/jquery-3.7.0.min.js"></script>
+    <script>
+      $("#xia").click(function () {
+        if ($(this).html() == "^") {
+          $(".bottom").addClass("an");
+          $("#xias").toggle();
+          $("#xia").toggle();
+        }
+      });
+      $("#xias").click(function () {
+        if ($(this).html() == "X") {
+          $(".bottom").removeClass("an");
+          $("#xias").toggle();
+          $("#xia").toggle();
+        }
+      });
+      let arr = [
+        {
+          tu: "https://res.psy-1.com/music/Breathstudy_img09_BGM250-VS8DH8pcIQuootr1EtOS.png",
+          huan: ["雷雨"],
+          wen: ["隐隐春雷"],
+          mp: "https://private.psy-1.com/music/bgm009-ed2HPrAlRFcFXhTETelG.mp3?e=1689350991&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:ADqr1PaOXJjDpi0w21BWlt25zkM=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/%E7%BA%AF%E9%98%B3%E7%AE%AB%E8%B5%B7-dTo1Hexj2ocLqQhpfDfw.png",
+          huan: ["江湖"],
+          wen: ["纯阳萧起"],
+          mp: "https://private.psy-1.com/music/xsj034-H4g9NwDdcsV7ClOYH3AU.mp3?e=1689358404&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:frnAPcIKuZn3m5IzGpohwgBU6pY=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/260W-250-p8r3Ff6Llh9SSkOhHQmV.png",
+          huan: ["课堂"],
+          wen: ["语文课II"],
+          mp: "https://private.psy-1.com/music/%E8%AF%AD%E6%96%87%E8%AF%BE%20%E2%85%A1-XYrQjxWn1nFbsrFcsJnt.mp3?e=1689358988&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:NPhJ2bzMTsMjzNsfyjMtI9yuTXk=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/wx88_h-1UQur8z9yIAzZRoYiRJd.png",
+          huan: ["自然"],
+          wen: ["大海深处"],
+          mp: "https://private.psy-1.com/music/wx_bgm088-YLvk8CHajNiw7uko3HpI.mp3?e=1689358492&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:hC87ayz9xRcSHOxrXAcYG_rPQLc=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/Breathstudy_img_047_250-YixNWk5SxftyLMbIKgTg.png",
+          huan: ["ASMR"],
+          wen: ["一碗面"],
+          mp: "https://private.psy-1.com/music/wx_bgm047-SVIPFI7W9ETZXln2MdN1.mp3?e=1689358561&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:nBYqqfvhHb_BCuRldKN1EBlNpxU=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/Breathstudy_img027_BGM@2x-nQBuwwNadJWO3KdOrMJz.png",
+          huan: ["动物"],
+          wen: ["绵羊咩咩"],
+          mp: "https://private.psy-1.com/music/bgm027-NUQMSgFYE25tzRaZhb6F.mp3?e=1689358620&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:01AjoAOe76qO02UmTaQljXJOUCA=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/Breathstudy_img039_BGM250-631zQGtK7GwIqUCT8MU4.png",
+          huan: ["旋律"],
+          wen: ["铃铛叮当"],
+          mp: "https://private.psy-1.com/music/bgm039-IXcvPwRGmheG1bpUwN58.mp3?e=1689358681&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:Ao-jq2Zi_qXRaLtIOhGcvCkURrk=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/Breathstudy_img_03_250-EyHqepDiHOiIId5MbNtd.png",
+          huan: ["脑波"],
+          wen: ["身心放松"],
+          mp: "https://private.psy-1.com/music/mix003-9iY6ywt7UgivkEnaOFUw.mp3?e=1689358724&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:gpSy2z-Ia3A2aGw-Z22eM8rdcgU=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/Breathstudy_img019_BGM250-BEVZFGU9SjkRdgg5UQsC.png",
+          huan: ["生活"],
+          wen: ["落水滴嗒"],
+          mp: "https://private.psy-1.com/music/bgm019-DR6ivk15zhBIPPispOh4.mp3?e=1689358771&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:emMIA_w6HM8iIDG9QAaQcrg043A=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/5-250%20(1)-7t33iii4NxGj4pr1IEhJ.png",
+          huan: ["城市"],
+          wen: ["高铁铁路"],
+          mp: "https://private.psy-1.com/music/wx_bgm083-mm3Ikm7Ga8Dt3MTFmfii.mp3?e=1689358818&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:u4Ei_XAcb0Lhhs07jbM0m-2cbFg=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/193-2OnZRsB26o5PsxBNbwVa.png",
+          huan: ["宝宝"],
+          wen: ["同年歌谣"],
+          mp: "https://private.psy-1.com/music/bgm193-MzihR9gXsUAtLD1r8MLw.mp3?e=1689358845&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:lmvtk06nHhyMQFI6i0jfPnHzacQ=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/193-2OnZRsB26o5PsxBNbwVa.png",
+          huan: "",
+          wen: "",
+          mp: "https://private.psy-1.com/music/bgm193-MzihR9gXsUAtLD1r8MLw.mp3?e=1689358845&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:lmvtk06nHhyMQFI6i0jfPnHzacQ=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/193-2OnZRsB26o5PsxBNbwVa.png",
+          huan: "",
+          wen: "",
+          mp: "https://private.psy-1.com/music/bgm193-MzihR9gXsUAtLD1r8MLw.mp3?e=1689358845&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:lmvtk06nHhyMQFI6i0jfPnHzacQ=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/193-2OnZRsB26o5PsxBNbwVa.png",
+          huan: "",
+          wen: "",
+          mp: "https://private.psy-1.com/music/bgm193-MzihR9gXsUAtLD1r8MLw.mp3?e=1689358845&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:lmvtk06nHhyMQFI6i0jfPnHzacQ=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/193-2OnZRsB26o5PsxBNbwVa.png",
+          huan: "",
+          wen: "",
+          mp: "https://private.psy-1.com/music/bgm193-MzihR9gXsUAtLD1r8MLw.mp3?e=1689358845&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:lmvtk06nHhyMQFI6i0jfPnHzacQ=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/193-2OnZRsB26o5PsxBNbwVa.png",
+          huan: "",
+          wen: "",
+          mp: "https://private.psy-1.com/music/bgm193-MzihR9gXsUAtLD1r8MLw.mp3?e=1689358845&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:lmvtk06nHhyMQFI6i0jfPnHzacQ=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/193-2OnZRsB26o5PsxBNbwVa.png",
+          huan: "",
+          wen: "",
+          mp: "https://private.psy-1.com/music/bgm193-MzihR9gXsUAtLD1r8MLw.mp3?e=1689358845&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:lmvtk06nHhyMQFI6i0jfPnHzacQ=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/193-2OnZRsB26o5PsxBNbwVa.png",
+          huan: "",
+          wen: "",
+          mp: "https://private.psy-1.com/music/bgm193-MzihR9gXsUAtLD1r8MLw.mp3?e=1689358845&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:lmvtk06nHhyMQFI6i0jfPnHzacQ=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/193-2OnZRsB26o5PsxBNbwVa.png",
+          huan: "",
+          wen: "",
+          mp: "https://private.psy-1.com/music/bgm193-MzihR9gXsUAtLD1r8MLw.mp3?e=1689358845&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:lmvtk06nHhyMQFI6i0jfPnHzacQ=",
+        },
+        {
+          tu: "https://res.psy-1.com/music/193-2OnZRsB26o5PsxBNbwVa.png",
+          huan: "",
+          wen: "",
+          mp: "https://private.psy-1.com/music/bgm193-MzihR9gXsUAtLD1r8MLw.mp3?e=1689358845&token=AeUmy2NNIlfYNcqkPirZ_XumyfDKy8TPHaoTyyjm:lmvtk06nHhyMQFI6i0jfPnHzacQ=",
+        },
+      ];
+      // 自治性函数
+      $(function () {
+        let str = "";
+        arr.forEach((item, index) => {
+          str += `
+          <div>
+          <a href="#">
+            <img
+              src="${item.tu}"
+            />
+            <p>${item.wen}</p>
+          </a>
+          <audio controls>
+          <source src = "${item.mp}">
+          </audio>
+          </div>
+
+        `;
+        });
+        $(".nei").html(str);
+      });
+      // 点击渲染页面的
+      $(".nei").on("click", "div", function () {
+        let an = $(this).text();
+        an = an.trim();
+        $(".nei div").removeClass("yi");
+        $(".nei div").removeClass("er");
+        $(".nei div").removeClass("san");
+        $(".nei div").removeClass("si");
+        $(".nei div").removeClass("wu");
+        $(".nei div").removeClass("liu");
+        $(".nei div").removeClass("qi");
+        $(".nei div").removeClass("ba");
+        $(".nei div").removeClass("jiu");
+        $(".nei div").removeClass("shi");
+        $(".nei div").removeClass("shiyi");
+        switch (an) {
+          case "隐隐春雷":
+            nies(an);
+            $(this).addClass("yi");
+            $(".top div").addClass("yi");
+            break;
+          case "纯阳萧起":
+            nies(an);
+            $(this).addClass("er");
+            $(".top div").addClass("er");
+            break;
+          case "语文课II":
+            nies(an);
+            $(this).addClass("san");
+            $(".top div").addClass("san");
+            break;
+          case "大海深处":
+            nies(an);
+            $(this).addClass("si");
+            $(".top div").addClass("si");
+            break;
+          case "一碗面":
+            nies(an);
+            $(this).addClass("wu");
+            $(".top div").addClass("wu");
+            break;
+          case "绵羊咩咩":
+            nies(an);
+            $(this).addClass("shiyi");
+            $(".top div").addClass("shiyi");
+            break;
+          case "铃铛叮当":
+            nies(an);
+            $(this).addClass("liu");
+            $(".top div").addClass("liu");
+            break;
+          case "身心放松":
+            nies(an);
+            $(this).addClass("shi");
+            $(".top div").addClass("shi");
+            break;
+          case "落水滴嗒":
+            nies(an);
+            $(this).addClass("qi");
+            $(".top div").addClass("qi");
+            break;
+          case "高铁铁路":
+            nies(an);
+            $(this).addClass("ba");
+            $(".top div").addClass("ba");
+            break;
+          case "同年歌谣":
+            nies(an);
+            $(this).addClass("jiu");
+            $(".top div").addClass("jiu");
+            break;
+        }
+        let ta = $(".nei div img");
+      });
+      // 判断筛选的
+      $(".ul").on("click", "li", function () {
+        let an = $(this).html();
+        switch (an) {
+          case "全部":
+            suo();
+            break;
+          case "雷雨":
+            sui(an);
+            break;
+          case "江湖":
+            sui(an);
+            break;
+          case "课堂":
+            sui(an);
+            break;
+          case "自然":
+            sui(an);
+            break;
+          case "ASMR":
+            sui(an);
+            break;
+          case "动物":
+            sui(an);
+            break;
+          case "旋律":
+            sui(an);
+            break;
+          case "脑波":
+            sui(an);
+            break;
+          case "生活":
+            sui(an);
+            break;
+          case "城市":
+            sui(an);
+            break;
+          case "宝宝":
+            sui(an);
+            break;
+        }
+      });
+      // 点击筛选的
+      function sui(data) {
+        let str = "";
+        arr.forEach((item, index) => {
+          if (item.huan.includes(data)) {
+            str += `
+            <div>
+          <a href="#">
+            <img
+              src="${item.tu}"
+            />
+            <p>${item.wen}</p>
+          </a>
+          <audio controls>
+          <source src = "${item.mp}">
+          </audio>
+          </div>
+        `;
+          }
+        });
+        $(".nei").html(str);
+      }
+      // 点击全部的
+      function suo() {
+        let str = "";
+        arr.forEach((item, index) => {
+          str += `
+          <div>
+          <a href="#">
+            <img
+              src="${item.tu}"
+            />
+            <p>${item.wen}</p>
+          </a>
+          <audio controls>
+          <source src = "${item.mp}">
+          </audio>
+          </div>
+        `;
+        });
+        $(".nei").html(str);
+      }
+      //添加到上面
+      function nies(date) {
+        let str = "";
+        arr.forEach((item, index) => {
+          if (item.wen.includes(date)) {
+            str += `
+            <h2>小睡眠</h2>
+            <div>
+          <a href="#">
+            <img
+              src="${item.tu}"
+            />
+            <p>${item.wen}</p>
+          </a>
+          <audio autoplay>
+          <source src = "${item.mp}">
+          </audio>
+          </div>
+        `;
+          }
+        });
+        $(".top").html(str);
+      }
+      function si(data) {
+        let arr = [
+          "183,230,26",
+          "110,141,187",
+          "255,192,0",
+          "204,2,2",
+          "0,178,242",
+          "161,126,156",
+          "197,120,94",
+          "143,179,231",
+          "178,109,31",
+          "200,79,206",
+          "92,227,62",
+          "255,65,99",
+        ];
+        arr.forEach((item, index) => {
+          console.log(item);
+        });
+      }
+      $(".di").on("click", "ul li", function () {
+        $(".di ul li").removeClass("ta");
+        $(this).addClass("ta");
+      });
+    </script>
+  </body>
+</html>
