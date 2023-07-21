@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MyAdmin 主页面</title>
+    <link rel="shortcut icon" href="./img/标.png">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//cdn.staticfile.org/layui/2.8.11/css/layui.css" rel="stylesheet">
+    <link rel="stylesheet" href="./main.css">
+
+</head>
+
+<body>
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo layui-hide-xs layui-bg-black"><img src="./img/Z图.png" alt="" width="120px"
+                    height="40px"></div>
+            <!-- 头部区域（可配合layui 已有的水平导航） -->
+            <ul class="layui-nav layui-layout-left">
+                <!-- 移动端显示 -->
+                <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-header-event="menuLeft">
+                    <i class="layui-icon layui-icon-spread-left"></i>
+                </li>
+                <li class="layui-nav-item"><a href="javascript:;"><svg t="1689939162164" class="icon"
+                            viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1308"
+                            width="18" height="18">
+                            <path
+                                d="M271.058824 903.529412h722.823529v60.235294H271.058824zM271.058824 481.882353h722.823529v60.235294H271.058824zM271.058824 60.235294h722.823529v60.235294H271.058824z"
+                                fill="#707070" p-id="1309"></path>
+                            <path
+                                d="M30.117647 843.294118m60.235294 0l60.235294 0q60.235294 0 60.235294 60.235294l0 60.235294q0 60.235294-60.235294 60.235294l-60.235294 0q-60.235294 0-60.235294-60.235294l0-60.235294q0-60.235294 60.235294-60.235294Z"
+                                fill="#707070" p-id="1310"></path>
+                            <path
+                                d="M30.117647 421.647059m60.235294 0l60.235294 0q60.235294 0 60.235294 60.235294l0 60.235294q0 60.235294-60.235294 60.235294l-60.235294 0q-60.235294 0-60.235294-60.235294l0-60.235294q0-60.235294 60.235294-60.235294Z"
+                                fill="#707070" p-id="1311"></path>
+                            <path
+                                d="M30.117647 0m60.235294 0l60.235294 0q60.235294 0 60.235294 60.235294l0 60.235294q0 60.235294-60.235294 60.235294l-60.235294 0q-60.235294 0-60.235294-60.235294l0-60.235294q0-60.235294 60.235294-60.235294Z"
+                                fill="#707070" p-id="1312"></path>
+                        </svg></a></li>
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item layui-hide layui-show-sm-inline-block">
+                    <a href="javascript:;">
+                        <img src="./img/头像.webp" class="layui-nav-img">
+                        管理员
+                    </a>
+                    <dl class="layui-nav-child" id="tui">
+                        <dd><a href="javascript:;">退出登录</a></dd>
+                    </dl>
+                </li>
+
+            </ul>
+        </div>
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item"><a href="javascript:;">首页</a></li>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;">系统管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">用户管理</a></dd>
+                            <dd><a href="javascript:;">角色管理</a></dd>
+                            <dd><a href="javascript:;">部门管理</a></dd>
+                            <dd><a href="javascript:;">菜单管理</a></dd>
+                            <dd><a href="javascript:;">业务字典</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">系统监控</a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;">日志监控</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">登录日志</a></dd>
+                            <dd><a href="javascript:;">操作日志</a></dd>
+                        </dl>
+                    </li>
+                    </dd>
+                    <dd><a href="javascript:;">服务监控</a></dd>
+                    <dd><a href="javascript:;">数据源监控</a></dd>
+                    </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">系统工具</a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="javascript:;">代码生成</a>
+                            </dd>
+                            <dd><a href="javascript:;">接口文档</a></dd>
+                            <dd><a href="javascript:;">图标</a></dd>
+                            <dd><a href="javascript:;">图表</a></dd>
+                            <dd><a href="javascript:;">地图</a></dd>
+                            <dd><a href="javascript:;">常用组件</a></dd>
+                            <dd>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;">错误页面</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">404</a></dd>
+                            <dd><a href="javascript:;">401</a></dd>
+                        </dl>
+                    </li>
+                    </dd>
+                    </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">工作流</a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="javascript:;">模型管理</a>
+                            </dd>
+                            <dd><a href="javascript:;">流程管理</a></dd>
+                            <dd><a href="javascript:;">待办任务</a></dd>
+                            <dd><a href="javascript:;">已办任务</a></dd>
+                            <dd><a href="javascript:;">运行中流程</a></dd>
+                            <dd><a href="javascript:;">已结束流程</a></dd>
+                            <dd>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;">流程实例</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">请假审批演示</a></dd>
+                            <dd><a href="javascript:;">购物流程业务流</a></dd>
+                        </dl>
+                    </li>
+                    </dd>
+                    </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">业务管理</a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                    <li class="layui-nav-item">
+                        <a class="" href="javascript:;">示例</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">生成代码演示</a></dd>
+                        </dl>
+                    </li>
+                    </dd>
+                    </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div style="padding: 15px;">
+                <blockquote class="layui-elem-quote layui-text">
+                    <div class="text">
+                        <div class="dian"></div>
+                        <span class="shou">首页</span>
+                    </div>
+                </blockquote>
+                <div class="maxbox">
+                    <div class="maxbox1">
+                        <div class="minbox" id="option">
+                            <div class="ic">
+                                <svg t="1689941226693" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="3514" width="89" height="89">
+                                    <path
+                                        d="M515.541449 7.082899c-280.359429 0-508.458551 228.120391-508.458551 508.458551s228.120391 508.458551 508.458551 508.458551 508.458551-228.120391 508.458551-508.458551S795.900879 7.082899 515.541449 7.082899zM515.541449 981.864196c-257.132626 0-466.301477-209.190121-466.301477-466.322747 0-257.132626 209.168851-466.322747 466.301477-466.322747s466.301477 209.190121 466.301477 466.322747S772.674075 981.864196 515.541449 981.864196zM614.574414 524.177056 614.574414 524.177056c47.751075-31.96876 79.230625-86.398604 79.230625-148.187857 0-98.437405-79.804915-178.24232-178.24232-178.24232-98.437405 0-178.24232 79.804915-178.24232 178.24232 0 61.810523 31.479551 116.219097 79.251895 148.187857-100.266622 39.519598-171.244501 137.170014-171.244501 251.453545 0 0.23397 0 0.446669 0.02127 0.659369 0 0.04254-0.02127 0.10635-0.02127 0.14889 0 15.612155 12.65563 28.246516 28.267786 28.246516 15.590885 0 21.886796-12.63436 21.886796-28.246516 0-0.340319-0.08508-0.659369-0.10635-1.020958 0.10635-118.005774 102.159649-219.995264 220.207964-219.995264 118.112124 0 220.207964 102.095839 220.207964 220.207964 0 0.14889-1.467628 29.054774 21.971875 29.054774 15.505806 0 28.076356-12.57055 28.076356-28.055086 0-0.06381-0.02127-0.12762-0.02127-0.2127 0-0.25524 0.02127-0.510479 0.02127-0.786989C785.797645 661.34707 714.798496 563.696654 614.574414 524.177056zM515.541449 510.734437c-74.402343 0-134.723968-60.321625-134.723968-134.723968 0-74.423613 60.321625-134.723968 134.723968-134.723968 74.423613 0 134.723968 60.321625 134.723968 134.723968S589.943792 510.734437 515.541449 510.734437z"
+                                        fill="#40c9c6" p-id="3515"></path>
+                                </svg>
+                            </div>
+                            <span>用户登陆量</span>
+                            <p>242</p>
+                        </div>
+                        <div class="minbox1" id="option1">
+                            <div class="ic1">
+                                <svg t="1689941455208" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="4428" width="89" height="89">
+                                    <path
+                                        d="M581.632 784.384l215.552 93.184c13.312 5.632 28.16-2.56 30.208-16.896l113.664-757.248c2.56-17.92-16.896-31.232-32.256-22.016L111.616 550.4c-14.848 8.704-13.824 30.72 1.536 38.4L291.84 672.768c8.192 3.584 17.408 2.56 24.064-3.584l541.696-492.544-438.784 547.84c-3.072 3.584-4.608 8.192-4.608 12.8l-4.096 166.912c-0.512 20.48 25.088 30.208 38.4 14.336l109.056-128c5.12-7.168 15.36-9.728 24.064-6.144z"
+                                        fill="#1296db" p-id="4429"></path>
+                                </svg>
+                            </div>
+                            <span>接口请求量</span>
+                            <p>1</p>
+                        </div>
+                        <div class="minbox2" id="option2">
+                            <div class="ic2">
+                                <svg t="1689941530045" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="6579" width="89" height="89">
+                                    <path
+                                        d="M601.024 99.584a32 32 0 0 0-8.064 63.488 380.384 380.384 0 0 1 175.68 69.952c-115.744 26.336-150.944 106.048-158.336 175.008-10.72 99.68 60.224 151.968 107.168 186.56 16.48 12.16 41.376 30.528 42.528 39.104 0.16 1.248-0.992 5.408-6.56 12.416-61.056 76.96-83.808 140.832-67.552 189.952 4.96 14.912 15.296 32.896 36.288 47.84A381.856 381.856 0 0 1 544 928c-3.008 0-5.952-0.352-8.96-0.416 40.096-67.392 25.728-118.304 3.424-151.104-54.08-79.488-134.912-104.128-211.04-64.192-5.28 2.848-9.6 1.696-34.4-21.632-24.448-23.04-63.232-58.944-120.032-48.32-5.024-19.2-8.992-38.88-11.04-59.2a32.128 32.128 0 0 0-35.072-28.64c-17.568 1.792-30.4 17.472-28.64 35.072A446.496 446.496 0 0 0 544 992c247.04 0 448-200.96 448-448 0-225.024-168.064-416.064-390.976-444.416zM195.072 704.32c18.368 0.704 33.12 13.216 54.08 32.928 24 22.624 60.352 56.672 108 31.712 63.328-33.28 107.616 12.992 128.384 43.488 8.128 11.936 28.896 42.592-22.432 106.752a381.856 381.856 0 0 1-268.032-214.88z m589.344 138.656c-20.992-6.016-33.824-15.072-37.824-27.072-8.544-25.76 12.736-74.368 56.928-129.984 15.872-20 22.56-40.416 19.872-60.672-4.736-35.52-35.456-58.176-68-82.144-43.392-32-88.288-65.056-81.504-128.192 5.536-51.264 28.288-118.336 156.704-126.112A383.232 383.232 0 0 1 928 544c0 120.768-56.16 228.544-143.584 298.976z"
+                                        p-id="6580" fill="#f4ea2a"></path>
+                                    <path
+                                        d="M266.464 599.68a32 32 0 0 0 43.072 0C456.544 466.016 528 358.816 528 272 528 139.648 420.352 32 288 32S48 139.648 48 272c0 86.816 71.456 194.016 218.464 327.68zM288 96c97.056 0 176 78.944 176 176 0 43.872-31.232 124.128-176 260.416C143.232 396.128 112 315.872 112 272 112 174.944 190.944 96 288 96z"
+                                        p-id="6581" fill="#f4ea2a"></path>
+                                    <path d="M288 272m-80 0a80 80 0 1 0 160 0 80 80 0 1 0-160 0Z" p-id="6582"
+                                        fill="#f4ea2a"></path>
+                                </svg>
+                            </div>
+                            <span>ip登陆量</span>
+                            <p>1</p>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <div id="main" style="width: 100%;height: 100%;"></div>
+                    </div>
+                </div>
+
+                <br><br>
+            </div>
+        </div>
+    </div>
+
+    <script src="//cdn.staticfile.org/layui/2.8.11/layui.js"></script>
+    <script src="../引入/jquery.min.js"></script>
+    <script src="../引入/echarts.min.js"></script>
+    <script>
+        //JS 
+        layui.use(['element', 'layer', 'util'], function () {
+            var element = layui.element;
+            var layer = layui.layer;
+            var util = layui.util;
+            var $ = layui.$;
+
+            //头部事件
+            util.event('lay-header-event', {
+                menuLeft: function (othis) { // 左侧菜单事件
+                    layer.msg('展开左侧菜单的操作', { icon: 0 });
+                },
+                menuRight: function () {  // 右侧菜单事件
+                    layer.open({
+                        type: 1,
+                        title: '更多',
+                        content: '<div style="padding: 15px;">处理右侧面板的操作</div>',
+                        area: ['260px', '100%'],
+                        offset: 'rt', // 右上角
+                        anim: 'slideLeft', // 从右侧抽屉滑出
+                        shadeClose: true,
+                        scrollbar: false
+                    });
+                }
+            });
+        });
+        $("#tui").click(function () {
+            if (confirm("确认退出登录吗?")) {
+                window.location.href = 'login.html';
+            }
+        })
+        var chartDom = document.getElementById('main');
+        var myChart = echarts.init(chartDom);
+        var option;
+        var option1;
+        var option2;
+
+        option = {
+            title: {
+                text: '用户登录量'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {},
+            toolbox: {
+                show: true,
+                feature: {
+                    dataZoom: {
+                        yAxisIndex: 'none'
+                    },
+                    dataView: { readOnly: false },
+                    magicType: { type: ['line', 'bar'] },
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['星期六', '星期天', '星期一', '星期二', '星期三', '星期四', '今天']
+            },
+            yAxis: {
+                type: 'value',
+
+            },
+            series: [
+                {
+                    name: '本周',
+                    type: 'line',
+                    data: [85, 23, 60, 22, 68, 27, 90],
+                    markPoint: {
+                        data: [
+                            { type: 'max', name: 'Max' },
+                            { type: 'min', name: 'Min' }
+                        ]
+                    },
+                    markLine: {
+                        data: [{ type: 'average', name: 'Avg' }]
+                    }
+                },
+                {
+                    name: '上周',
+                    type: 'line',
+                    data: [130, 37, 86, 15, 84, 55, 76],
+                    markPoint: {
+                        data: [{ name: '周最低', value: -2, xAxis: 1, yAxis: -1.5 }]
+                    },
+                    markLine: {
+                        data: [
+                            { type: 'average', name: 'Avg' },
+                            [
+                                {
+                                    symbol: 'none',
+                                    x: '90%',
+                                    yAxis: 'max'
+                                },
+                                {
+                                    symbol: 'circle',
+                                    label: {
+                                        position: 'start',
+                                        formatter: 'Max'
+                                    },
+                                    type: 'max',
+                                    name: '最高点'
+                                }
+                            ]
+                        ]
+                    }
+                }
+            ]
+        };
+        option1 = {
+            title: {
+                text: '接口请求量'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {},
+            toolbox: {
+                show: true,
+                feature: {
+                    dataZoom: {
+                        yAxisIndex: 'none'
+                    },
+                    dataView: { readOnly: false },
+                    magicType: { type: ['line', 'bar'] },
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['星期六', '星期天', '星期一', '星期二', '星期三', '星期四', '今天']
+            },
+            yAxis: {
+                type: 'value',
+
+            },
+            series: [
+                {
+                    name: '本周',
+                    type: 'line',
+                    data: [234, 343, 777, 88, 11, 23, 22],
+                    markPoint: {
+                        data: [
+                            { type: 'max', name: 'Max' },
+                            { type: 'min', name: 'Min' }
+                        ]
+                    },
+                    markLine: {
+                        data: [{ type: 'average', name: 'Avg' }]
+                    }
+                },
+                {
+                    name: '上周',
+                    type: 'line',
+                    data: [244, 242, 55, 22, 77, 456, 35],
+                    markPoint: {
+                        data: [{ name: '周最低', value: -2, xAxis: 1, yAxis: -1.5 }]
+                    },
+                    markLine: {
+                        data: [
+                            { type: 'average', name: 'Avg' },
+                            [
+                                {
+                                    symbol: 'none',
+                                    x: '90%',
+                                    yAxis: 'max'
+                                },
+                                {
+                                    symbol: 'circle',
+                                    label: {
+                                        position: 'start',
+                                        formatter: 'Max'
+                                    },
+                                    type: 'max',
+                                    name: '最高点'
+                                }
+                            ]
+                        ]
+                    }
+                }
+            ]
+        };
+        option2 = {
+            title: {
+                text: 'ip登录量'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {},
+            toolbox: {
+                show: true,
+                feature: {
+                    dataZoom: {
+                        yAxisIndex: 'none'
+                    },
+                    dataView: { readOnly: false },
+                    magicType: { type: ['line', 'bar'] },
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['星期六', '星期天', '星期一', '星期二', '星期三', '星期四', '今天']
+            },
+            yAxis: {
+                type: 'value',
+
+            },
+            series: [
+                {
+                    name: '本周',
+                    type: 'line',
+                    data: [24, 53, 24, 86, 24, 75, 35],
+                    markPoint: {
+                        data: [
+                            { type: 'max', name: 'Max' },
+                            { type: 'min', name: 'Min' }
+                        ]
+                    },
+                    markLine: {
+                        data: [{ type: 'average', name: 'Avg' }]
+                    }
+                },
+                {
+                    name: '上周',
+                    type: 'line',
+                    data: [123, 97, 123, 66, 88, 24, 77],
+                    markPoint: {
+                        data: [{ name: '周最低', value: -2, xAxis: 1, yAxis: -1.5 }]
+                    },
+                    markLine: {
+                        data: [
+                            { type: 'average', name: 'Avg' },
+                            [
+                                {
+                                    symbol: 'none',
+                                    x: '90%',
+                                    yAxis: 'max'
+                                },
+                                {
+                                    symbol: 'circle',
+                                    label: {
+                                        position: 'start',
+                                        formatter: 'Max'
+                                    },
+                                    type: 'max',
+                                    name: '最高点'
+                                }
+                            ]
+                        ]
+                    }
+                }
+            ]
+        };
+        option && myChart.setOption(option);
+        $("#option").on("click", function () {
+            myChart.setOption(option);
+        });
+        $("#option1").on("click", function () {
+            myChart.setOption(option1);
+        });
+        $("#option2").on("click", function () {
+            myChart.setOption(option2);
+        });
+    </script>
+
+</body>
+
+</html>
