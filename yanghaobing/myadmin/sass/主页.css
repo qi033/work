@@ -1,0 +1,196 @@
+:root {
+  --root-background-color: #0072ff;
+  --root-backgrounds-color: #0f9b0f;
+  --root-color-background: #000000;
+  --root-background-red: #b92b27;
+  --root-bacground-yellow: #fffc00;
+  --root-background-purple: #ff0099;
+  --root-background-orange: #f5af19;
+  --root-background-whlie: #dbdbdb;
+  --root-color-whilie: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#span {
+  display: inline-block;
+  margin: 0;
+  color: #fff;
+  font-weight: 600;
+  line-height: 50px;
+  font-size: 14px;
+  font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+  vertical-align: middle;
+}
+
+.icon {
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+#box {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+}
+
+.header {
+  padding: 25px;
+  height: 108px;
+  cursor: pointer;
+  font-size: 12px;
+  position: relative;
+  overflow: hidden;
+  color: #666;
+  background: #fff;
+  -webkit-box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
+  box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+.header-left {
+  display: inline-block;
+  width: 491.98px;
+  height: 108px;
+  background-color: var(--root-background-whlie);
+}
+
+.svg {
+  float: left;
+  width: 92px;
+  height: 92px;
+}
+
+.header-left .svg:hover {
+  background-color: #40c9c6;
+}
+
+.text-herf {
+  float: right;
+  width: 80px;
+  height: 53px;
+  text-align: center;
+}
+
+.text-herf .herf {
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 16px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.text-herf span {
+  font-size: 20px;
+}
+
+.header-center {
+  width: 491.98px;
+  height: 108px;
+  display: inline-block;
+  margin-left: 80px;
+  background-color: var(--root-background-whlie);
+}
+
+.header-right {
+  width: 491.98px;
+  height: 108px;
+  float: right;
+  background-color: var(--root-background-whlie);
+  margin-right: 16px;
+}
+
+.header-center .svg:hover {
+  background-color: #36a3f7;
+}
+
+.header-right .svg:hover {
+  background-color: #e6a23c;
+}
+
+#main {
+  width: 100%;
+  height: 600px;
+}
+
+@media screen and (max-width: 1700px) {
+  #box {
+    width: 100%;
+    height: 600px;
+    border: 1px solid #ccc;
+  }
+  .header {
+    padding: 25px;
+    height: 108px;
+    cursor: pointer;
+    font-size: 12px;
+    position: relative;
+    overflow: hidden;
+    color: #666;
+    background: #fff;
+    -webkit-box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
+    box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.05);
+  }
+  .header-left {
+    display: inline-block;
+    width: 279.98px;
+    height: 108px;
+    background-color: var(--root-background-whlie);
+  }
+  .svg {
+    float: left;
+    width: 92px;
+    height: 92px;
+  }
+  .header-left .svg:hover {
+    background-color: #40c9c6;
+  }
+  .text-herf {
+    float: right;
+    width: 80px;
+    height: 53px;
+    text-align: center;
+  }
+  .text-herf .herf {
+    line-height: 20px;
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 16px;
+    text-align: center;
+    margin-top: 12px;
+  }
+  .text-herf span {
+    font-size: 20px;
+  }
+  .header-center {
+    width: 279.98px;
+    height: 108px;
+    display: inline-block;
+    margin-left: 136px;
+    background-color: var(--root-background-whlie);
+  }
+  .header-right {
+    width: 279.98px;
+    height: 108px;
+    float: right;
+    background-color: var(--root-background-whlie);
+    margin-right: 16px;
+  }
+  .header-center .svg:hover {
+    background-color: #36a3f7;
+  }
+  .header-right .svg:hover {
+    background-color: #e6a23c;
+  }
+  #main {
+    width: 100%;
+    height: 600px;
+  }
+}
+.clear {
+  clear: both;
+}/*# sourceMappingURL=主页.css.map */

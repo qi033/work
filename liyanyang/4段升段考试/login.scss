@@ -1,0 +1,116 @@
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.login {
+  width: 480px;
+  height: 400px;
+  background-color: white;
+  opacity: 0.8;
+  position: absolute;
+  left: 35%;
+  bottom: 25%;
+  margin: auto;
+  z-index: 3;
+}
+.top {
+  width: 480px;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 50px;
+}
+.content {
+  width: 100%;
+  height: 430px;
+}
+#box {
+  margin: auto;
+  text-align: center;
+  position: relative;
+  border-radius: 300px;
+}
+
+input {
+  border-radius: 5px;
+}
+
+.icon {
+  position: relative;
+  top: 9px;
+}
+a {
+  color: black;
+  background-color: whitesmoke;
+  border: 1px solid black;
+}
+#sub {
+  width: 300px;
+  height: 30px;
+  background-color: #409eff;
+  border: 2px solid #409eff;
+  color: white;
+}
+#sp {
+  position: relative;
+  right: 60px;
+}
+.loading {
+  z-index: 4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("http://101.34.139.112/static/img/login-loading.0e8edbca.gif");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  opacity: 1;
+  transition: opacity 3s ease-in-out;
+}

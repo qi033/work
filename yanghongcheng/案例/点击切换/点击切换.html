@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <button id="button1">按钮1</button>
+  <button id="button2">按钮2</button>
+  <button id="button3">按钮3</button>
+  
+  <div id="box1" class="box">盒子1</div>
+  <div id="box2" class="box">盒子2</div>
+  <div id="box3" class="box">盒子3</div>
+  <style>
+.box {
+  display: none;
+  width: 200px;
+  height: 200px;
+  background-color: #ccc;
+  margin-bottom: 10px;
+}
+  </style>
+<script>
+// 获取按钮元素
+var button1 = document.getElementById('button1');
+var button2 = document.getElementById('button2');
+var button3 = document.getElementById('button3');
+
+// 获取盒子元素
+var box1 = document.getElementById('box1');
+var box2 = document.getElementById('box2');
+var box3 = document.getElementById('box3');
+
+// 为按钮1添加点击事件监听器
+button1.addEventListener('click', function() {
+  showBox(box1);  // 显示盒子1
+});
+
+// 为按钮2添加点击事件监听器
+button2.addEventListener('click', function() {
+  showBox(box2);  // 显示盒子2
+});
+
+// 为按钮3添加点击事件监听器
+button3.addEventListener('click', function() {
+  showBox(box3);  // 显示盒子3
+});
+
+// 显示指定的盒子
+function showBox(box) {
+  // 隐藏所有盒子
+  var boxes = document.getElementsByClassName('box');
+  for (var i = 0; i < boxes.length; i++) {
+    boxes[i].style.display = 'none';
+  }
+  
+  // 显示指定的盒子
+  box.style.display = 'block';
+}
+</script>
+
+</body>
+</html>

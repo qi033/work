@@ -11,12 +11,18 @@
 </head>
 
 <body>
+
     <div class="box">
+
         <div class="header">
             <div class="header-main">
-                <button id="toggleButton1">一键切换主题颜色</button>
-                <button id="toggleButton2">一键切换文字颜色</button>
-                <button id="toggleButton3">一键切边框颜色</button>
+                <div id="switchBtn">
+                    <button id="toggleButton1">一键切换主题颜色</button>
+                    <button id="toggleButton2">一键切换文字颜色</button>
+                    <button id="toggleButton3">一键切换边框颜色</button>
+                </div>
+
+
                 <div class="h-top">
                     <span>简体|繁體</span>&emsp;
                     <span>登录|注册</span>
@@ -373,8 +379,6 @@
     });
 </script>
 <script>
-    // 背景颜色切换
-    // 获取按钮元素
     var toggleButton1 = document.getElementById('toggleButton1');
     var currentColor1 = '#1f559f';
     toggleButton1.addEventListener('click', function () {
@@ -386,16 +390,11 @@
             currentColor1 = '#1f559f'; // 更新当前颜色为白色
         }
     });
-    // 字体颜色切换
-    // 获取按钮元素
     var toggleButton2 = document.getElementById('toggleButton2');
-    // 初始颜色设置为白色
     var currentColor2 = 'white';
     var currentColor3 = 'black';
     var currentColor4 = '#999999';
-    // 监听按钮的点击事件
     toggleButton2.addEventListener('click', function () {
-        // 切换颜色
         if (currentColor2 === 'white') {
             document.documentElement.style.setProperty('--fontColor2', 'red');
             currentColor2 = 'red'; // 更新当前颜色为红色
@@ -419,7 +418,6 @@
             currentColor4 = '#999999'; // 更新当前颜色为白色
         }
     });
-
     var toggleButton3 = document.getElementById('toggleButton3');
     var currentColor5 = '#999998';
     var currentColor6 = 'white';
