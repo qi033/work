@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layout 管理界面大布局示例 - Layui</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//cdn.staticfile.org/layui/2.8.11/css/layui.css" rel="stylesheet">
+  <link rel="stylesheet" href="./index.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.common.js"></script>
+</head>
+<body>
+<div class="layui-layout layui-layout-admin">
+ <div class="layui-header">
+    <div class="layui-logo layui-hide-xs layui-bg-black">
+        <img src="./img/1.png" class="en">
+     <h5>MyAdmin</h5>   
+    </div>
+    <!-- 头部区域（可配合layui 已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+      <!-- 移动端显示 -->
+      <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-header-event="menuLeft">
+        <i class="layui-icon layui-icon-spread-left"></i>
+      </li>
+      <li class="layui-nav-item layui-hide-xs"><a href="javascript:;"></a></li>
+      <li class="layui-nav-item layui-hide-xs"><a href="javascript:;">首页</a></li>
+      
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item layui-hide layui-show-sm-inline-block">
+        <a href="javascript:;">
+          <img src="./img/下载.jpg" class="layui-nav-img">
+         管理员
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="javascript:;">个人中心</a></dd>
+          <dd><a href="javascript:;">首页</a></dd>
+          <dd><a href="javascript:;">github</a></dd>
+          <dd><a href="javascript:;">gitee</a></dd>
+          <dd><a href="javascript:;">博客</a></dd>
+          <dd><a href="./index.html">退出登录</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
+        <a href="javascript:;">
+          <i class="layui-icon layui-icon-more-vertical"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree" lay-filter="test">
+        <li class="layui-nav-item layui-nav-itemed">
+            <a class="" href="javascript:;">⏲️首页</a>
+          </li>
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">🧰系统管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">🧔🏻‍♂️用户管理</a></dd>
+          <dd><a href="javascript:;">🎰角色管理</a></dd>
+          <dd><a href="javascript:;">👥部门管理</a></dd>
+          <dd><a href="javascript:;">🐻‍❄️菜单管理</a></dd>
+          <dd><a href="javascript:;">🗒️业务字典</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">💻系统监控</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">🕑日志监控</a></dd>
+            <dd><a href="javascript:;">💁🏻‍♂️服务监控</a></dd>
+            <dd><a href="javascript:;">🔢数据源监控</a></dd>
+        </dl>
+        </li>
+        <li class="layui-nav-item"><a href="javascript:;">📦系统工具</a>
+            <dl class="layui-nav-child">
+                <dd><a href="javascript:;">🗒️代码生成</a></dd>
+                <dd><a href="javascript:;">📥接口文档</a></dd>
+                <dd><a href="javascript:;">🐰图标</a></dd>
+                <dd><a href="javascript:;">🌏地图</a></dd>
+                <dd><a href="javascript:;">🐵常用组件</a></dd>
+                <dd><a href="javascript:;">❌错误页面</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item"><a href="javascript:;">Ⓜ️工作流程</a>
+            <dl class="layui-nav-child">
+            <dd><a href="javascript:;">🤖模型管理</a></dd>
+            <dd><a href="javascript:;">🙍🏻流程管理</a></dd>
+            <dd><a href="javascript:;">💻代办任务</a></dd>
+            <dd><a href="javascript:;">🗒️已办任务</a></dd>
+            <dd><a href="javascript:;">💁🏻‍♂️运行中流程</a></dd>
+            <dd><a href="javascript:;">🧰已结束流程</a></dd>
+            <dd><a href="javascript:;">🎰流程实列</a></dd>
+        </dl>
+        </li>
+        <li class="layui-nav-item"><a href="javascript:;">🦜业务管理</a>
+            <dl class="layui-nav-child"></dl>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;">
+      <blockquote class="layui-elem-quote layui-text"
+      style="border-left:none;">
+       <h3 style="color:aliceblue">⚪首页</h3> 
+      </blockquote>
+      <div class="layui-card layui-panel">
+        <!-- <div class="layui-card-header">
+       
+        </div> -->
+        <div class="layui-card-body">
+          <div class="left">
+            <div class="xiao">
+                <img src="./img/2.png"class="tu">
+            </div>
+            <div class="right">
+                <h2>用户登录量</h2>
+                <h2>32</h2>
+            </div>
+          </div>
+          <div class="left">
+            <div class="xiao">
+                <img src="./img/3.png"class="tu">
+            </div>
+            <div class="right">
+                <h2>接口请求量</h2>
+                <h2>131</h2>
+            </div>
+          </div>
+          <div class="left">
+            <div class="xiao">
+                <img src="./img/微信截图_20230721201446.png"class="tu">
+            </div>
+            <div class="right">
+                <h2>ip登录量</h2>
+                <h2>2</h2>
+            </div>
+          </div>
+          <div id="tub">
+            <div id="zhe"></div>
+          </div>
+        </div>
+      </div>
+      <br><br>
+    </div>
+  </div>
+  <!-- <div class="layui-footer">
+    底部固定区域 
+    底部固定区域
+  </div> -->
+</div>
+ 
+<script src="//cdn.staticfile.org/layui/2.8.11/layui.js"></script>
+<script>
+   //JS 
+layui.use(['element', 'layer', 'util'], function(){
+  var element = layui.element;
+  var layer = layui.layer;
+  var util = layui.util;
+  var $ = layui.$;
+  
+  //头部事件
+  util.event('lay-header-event', {
+    menuLeft: function(othis){ // 左侧菜单事件
+      layer.msg('展开左侧菜单的操作', {icon: 0});
+    },
+    menuRight: function(){  // 右侧菜单事件
+      layer.open({
+        type: 1,
+        title: '更多',
+        content: '<div style="padding: 15px;">处理右侧面板的操作</div>',
+        area: ['260px', '100%'],
+        offset: 'rt', // 右上角
+        anim: 'slideLeft', // 从右侧抽屉滑出
+        shadeClose: true,
+        scrollbar: false
+      });
+    }
+  });
+});
+var chartDom = document.getElementById('zhe');
+var myChart = echarts.init(chartDom);
+var option;
+option = {
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {},
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: ['星期六', '星期天', '星期一', '星期二','星期三','星期四','今天']
+  },
+  yAxis: {
+    type: 'value',
+    },
+  series: [
+    {
+      name: '本周',
+      type: 'line',
+      data: [3,2.2,1.8,6,2.4,3.6,1.1],
+    },
+    
+    {
+      name: '上周',
+      type: 'line',
+      data: [1,1.2,3.8,5,2.3,0,1.1],
+    },
+    
+  ]
+};
+option && myChart.setOption(option);
+</script>
+</body>
+</html>
