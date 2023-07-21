@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="../../../common/swiper/swiper-bundle.css">
+    <link href="//unpkg.com/layui@2.8.11/dist/css/layui.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="boss"></div>
+    <div class="box">
+        <div class="banner">
+
+            <div class="from-box">
+                <div class="title">
+                    <img src="http://101.34.139.112/static/img/logo.67745850.png" alt="">
+                    <span>MyAdmin后台管理系统</span>
+                </div>
+                <!-- layui -->
+                <div class="login">
+                    <form class="layui-form">
+                        <div class="demo-login-container">
+                            <div class="layui-form-item">
+                                <div class="layui-input-wrap">
+                                    <div class="layui-input-prefix">
+                                        <i class="layui-icon layui-icon-username"></i>
+                                    </div>
+                                    <input type="text" name="username" value="" lay-verify="required" placeholder="账号"
+                                        lay-reqtext="请填写用户名" autocomplete="off" class="layui-input" lay-affix="clear">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-input-wrap">
+                                    <div class="layui-input-prefix">
+                                        <i class="layui-icon layui-icon-password"></i>
+                                    </div>
+                                    <input type="password" name="password" value="" lay-verify="required"
+                                        placeholder="密   码" lay-reqtext="请填写密码" autocomplete="off" class="layui-input"
+                                        lay-affix="eye">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-row">
+                                    <div class="layui-col-xs7">
+                                        <div class="layui-input-wrap">
+                                            <div class="layui-input-prefix">
+                                                <i class="layui-icon layui-icon-vercode"></i>
+                                            </div>
+                                            <input type="text" name="captcha" value="" lay-verify="required"
+                                                placeholder="验证码，不区分大小写" lay-reqtext="请填写验证码" autocomplete="off"
+                                                class="layui-input" lay-affix="clear">
+                                        </div>
+                                    </div>
+                                    <div class="layui-col-xs5">
+                                        <div style="margin-left: 10px;">
+                                            <div class="even">获取验证码</div>
+                                            <!-- <img src="https://www.oschina.net/action/user/captcha"
+                                                onclick="this.src='https://www.oschina.net/action/user/captcha?t='+ new Date().getTime();"> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <input type="checkbox" name="remember" lay-skin="primary" title="记住密码">
+                                <a href="#forget" style="float: right; margin-top: 7px;">忘记密码？</a>
+                            </div>
+                            <div class="layui-form-item">
+                                <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="demo-login">登录</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- 轮播图 -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img
+                            src="http://cdfan.gitee.io/myadmin-resources/img/login-background1.png" alt=""></div>
+                    <div class="swiper-slide"><img
+                            src="http://cdfan.gitee.io/myadmin-resources/img/login-background2.png" alt=""></div>
+                    <div class="swiper-slide"><img
+                            src="http://cdfan.gitee.io/myadmin-resources/img/login-background3.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="../../../common/swiper/swiper-bundle.min.js"></script>
+<!-- 背景轮播图 -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        cssMode: true,
+        mousewheel: true,
+        keyboard: true,
+        loop: true,
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
+    });
+</script>
+<!-- 登录操作 -->
+<script src="//unpkg.com/layui@2.8.11/dist/layui.js"></script>
+<script src="../../../common/jquery-3.7.0.min.js"></script>
+<script>
+    let arr = {
+        username: "admin",
+        pwd: "123456",
+    };
+    function rand(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+    var action = document.querySelector(".even");
+    action.onclick = function () {
+        var randnum = rand(1000, 9999);
+        document.querySelector(".even").innerHTML = randnum;
+        setTimeout(function () {
+            document.querySelector(".even").innerHTML = "验证码已过期";
+        }, 10000);
+    };
+    layui.use(function () {
+        var form = layui.form;
+        var layer = layui.layer;
+        form.on("submit(demo-login)", function (data) {
+            event.preventDefault();
+            var field = data.field;
+            console.log(field);
+            console.log(arr);
+            let action = $(".even").html();
+            if (
+                arr.username == field.username &&
+                arr.pwd == field.password &&
+                action == field.captcha
+            ) {
+                window.location.href = "./mainTwo.html";
+            } else {
+                alert("密码、用户名错误或验证码错误");
+            }
+            return false;
+        });
+    });
+    $('div[lay-skin="primary"]').on("click", function () {
+        console.log(1111);
+    });
+
+    window.addEventListener("load", function () {
+        function hideDiv() {
+            $(".boss").css("display", "none");
+            $(".box").css("display", "block");
+        }
+        function generateRandomTime() {
+            return Math.floor(Math.random() * 2000) + 2000; // 生成2到4秒之间的随机时间
+        }
+
+        setTimeout(hideDiv, generateRandomTime());
+    });
+
+</script>
+
+</html>
