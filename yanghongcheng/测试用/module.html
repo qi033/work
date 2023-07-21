@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <!-- <script type="module">
+        import {index} from "./module.js"
+        console.log(index);
+    </script> -->
+
+    <!-- <script type="module">
+        console.log(document.querySelector("button")); //Button
+      </script>
+      <script>
+        console.log(document.querySelector("button")); //undefined
+      </script>
+        <button>点击按钮</button> -->
+
+        <!-- <script type="module">
+            import {User,site,func} from "./module.js"
+            console.log(site);
+            console.log(func());
+        </script> -->
+
+        <!-- <script type="module">
+            import * as api from "./module.js";
+          console.log(api.site);
+          console.log(api.func());
+          </script> -->
+
+          <script type="module">
+            import { User as user, func as action, site as name } from "./module.js";
+          let func = "hqc";
+          console.log(name);
+          console.log(user);
+          console.log(action);
+          </script>
+</body> 
+</html>

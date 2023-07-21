@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="./7月21.css">
+    <link rel="stylesheet" href="../壁纸库/layui/css/layui.css">
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="backimg" id="backimg">
+        <img src="http://101.34.139.112/static/img/login-loading.0e8edbca.gif" alt="">
+    </div>
+    <div class="wrap">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://w.wallhaven.cc/full/ym/wallhaven-ymjy5x.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://w.wallhaven.cc/full/nz/wallhaven-nzzd6g.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://w.wallhaven.cc/full/xl/wallhaven-xl8y9z.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://w.wallhaven.cc/full/nm/wallhaven-nm55vk.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://w.wallhaven.cc/full/l8/wallhaven-l83o92.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="log">
+        <div class="content">
+            <div class="title">
+                <img src="http://101.34.139.112/static/img/logo.67745850.png" alt="">
+                <h2>MyAdmin后台管理系统</h2>
+            </div>
+            <div class="forms">
+                <form class="layui-form">
+                    <div class="demo-login-container">
+                        <div class="layui-form-item">
+                            <div class="layui-input-wrap">
+                                <div class="layui-input-prefix">
+                                    <i class="layui-icon layui-icon-username"></i>
+                                </div>
+                                <input type="text" name="username" value="" lay-verify="required" placeholder="用户名"
+                                    lay-reqtext="请填写用户名" autocomplete="off" class="layui-input" lay-affix="clear"
+                                    id="useName">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-wrap">
+                                <div class="layui-input-prefix">
+                                    <i class="layui-icon layui-icon-password"></i>
+                                </div>
+                                <input type="password" name="password" value="" lay-verify="required"
+                                    placeholder="密   码" lay-reqtext="请填写密码" autocomplete="off" class="layui-input"
+                                    lay-affix="eye" id="pwd">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-row">
+                                <div class="layui-col-xs7">
+                                    <div class="layui-input-wrap">
+                                        <div class="layui-input-prefix">
+                                            <i class="layui-icon layui-icon-vercode"></i>
+                                        </div>
+                                        <input type="text" name="captcha" value="" lay-verify="required"
+                                            placeholder="验证码" lay-reqtext="请填写验证码" autocomplete="off"
+                                            class="layui-input" lay-affix="clear" id="code">
+                                    </div>
+                                </div>
+                                <div class="layui-col-xs5">
+                                    <div style="margin-left: 10px;" class="code" id="code-html">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <input type="checkbox" name="remember" lay-skin="primary" title="记住我">
+                        </div>
+                        <div class="layui-form-item">
+                            <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="demo-login"
+                                id="logButn">登录</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="../../common/jquery-3.7.0.min.js"></script>
+    <script src="../../common/swiper/swiper-bundle.js"></script>
+    <script src="../壁纸库/layui/layui.js"></script>
+    <script src="./7月21.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            simulateTouch: false,
+            autoplay: {
+                delay: 1500,
+                stopOnLastSlide: false,
+                disableOnInteraction: true,
+            },
+        });
+    </script>
+</body>
+
+</html>

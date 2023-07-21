@@ -823,7 +823,7 @@
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
   display: inline;
-  position: absolute;
+  position: fixed !important;
   float: left;
   cursor: pointer;
 }
@@ -848,15 +848,23 @@
 
 #toggleButton1 {
   left: 0;
-  top: 100%;
+  top: 50%;
 }
 
 #toggleButton2 {
   left: 0;
-  top: 120%;
+  top: 0%;
 }
 
 #toggleButton3 {
   left: 0;
   top: 140%;
-}/*# sourceMappingURL=YZ.css.map */
+}
+
+#switchBtn {
+  width: 300px;
+  height: 500px;
+  background-color: red;
+}
+
+/*# sourceMappingURL=YZ.css.map */
