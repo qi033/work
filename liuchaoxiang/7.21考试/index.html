@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../common/swiper/swiper-bundle.min.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 100%;
+        height: 100vh;
+        background-color: red;
+        position: relative;
+      }
+      .swiper {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .yi {
+        width: 400px;
+        height: 320px;
+        background-color: white;
+        position: absolute;
+        top: 30%;
+        left: 40%;
+        z-index: 3;
+        border-radius: 5px;
+      }
+      .yi h2 {
+        text-align: center;
+        margin-top: 10px;
+      }
+      .yi input {
+        width: 260px;
+        height: 26px;
+        margin-left: 30px;
+      }
+      .yi .yan {
+        width: 180px;
+        float: left;
+      }
+      .yi p {
+        width: 260px;
+        height: 26px;
+        margin-top: 30px;
+        margin-left: 20px;
+      }
+      .san {
+        width: 60px;
+        height: 28px;
+        float: left;
+        margin-left: 5px;
+        text-align: center;
+        line-height: 28px;
+        font-size: 17px;
+        position: absolute;
+        bottom: 107px;
+      }
+      #hao {
+        width: 100px;
+        height: 20px;
+        margin-left: 50px;
+        margin-top: 5px;
+        float: left;
+        font-size: 14px;
+        color: red;
+      }
+      #ma {
+        width: 100px;
+        height: 20px;
+        margin-left: 50px;
+        margin-top: 5px;
+        float: left;
+        font-size: 14px;
+        color: red;
+      }
+      #xuan {
+        width: 20px;
+        height: 20px;
+        float: left;
+        margin-top: 3px;
+      }
+      .a {
+        text-indent: 0.5em;
+      }
+      #deng {
+        width: 380px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        margin-left: 10px;
+        margin-top: 10px;
+        color: white;
+        background-color: cornflowerblue;
+        border: none;
+        border-radius: 5px;
+      }
+      .b {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 75px;
+        margin: 0;
+      }
+      .c {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 133px;
+        margin: 0;
+      }
+      .d {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 188px;
+        left: 21px;
+      }
+      #zheng {
+        width: 100px;
+        height: 20px;
+        float: left;
+        margin-left: 50px;
+        margin-top: 5px;
+        font-size: 14px;
+        color: red;
+        position: absolute;
+        top: 208px;
+        left: 1px;
+      }
+      .an {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        z-index: 5;
+        background: url("http://101.34.139.112/static/img/login-loading.0e8edbca.gif")
+          no-repeat 0 -50vh /100% 100%;
+        background-size: 100%;
+        transition: opacity 3s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="an"></div>
+    <div class="box">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img
+              src="https://ts1.cn.mm.bing.net/th/id/R-C.3054c8016b1381b6fb3712cff8c2a3cf?rik=1wKKi9Ih3HpwTg&riu=http%3a%2f%2fi2.img.969g.com%2fdown%2fimgx2013%2f03%2f25%2f206_141333_f7e78.jpg&ehk=4nPYKpmVoP0wpRxpQlmbO%2fpiRd4BRtSwuFAYqDzMOcw%3d&risl=&pid=ImgRaw&r=0"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/03/ChMkJlbKx12IUVNFAAU10tlxrHsAALHygOAG3oABTXq029.jpg"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://ts1.cn.mm.bing.net/th/id/R-C.8b9b5c7c72cca0902c77ea254dd523ac?rik=eOAgZ8yFdsR8gw&riu=http%3a%2f%2fpic.3h3.com%2fup%2f2016-11%2f20161125163041219310.jpg&ehk=c3tzx5nsaJZZQqI46TEp1RqyWLZbOf47nVXpNIrHalw%3d&risl=&pid=ImgRaw&r=0"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://ts1.cn.mm.bing.net/th/id/R-C.9dc732d161c236002d554cd7c9bdc3f5?rik=85%2fP8rvIentgeQ&riu=http%3a%2f%2fpic.bizhi360.com%2fbbpic%2f43%2f7243.jpg&ehk=MvpgYPJCuV%2fXxLzVh3L4g9Vy8ahNJQSNxJOYzCSWpmU%3d&risl=&pid=ImgRaw&r=0"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://ol.3dmgame.com/uploads/images/thumbvideo/20171204/1512364336_799874.jpg"
+            />
+          </div>
+        </div>
+        <div class="yi">
+          <h2>MyAdmin后台管理器</h2>
+          <p>
+            <img src="账号.png" alt="" class="b" />
+            <input type="text" placeholder="账号" id="zhang" />
+          </p>
+          <span id="hao"></span>
+          <p>
+            <img src="密码.png" alt="" class="c" />
+            <input type="text" placeholder="密码" id="mi" />
+          </p>
+          <span id="ma"></span>
+          <p class="a">
+            <img src="验证码.png" alt="" class="d" />
+            <input
+              type="text"
+              placeholder="验证码,不区分大小写"
+              class="yan"
+              id="yang"
+            />
+          </p>
+          <span class="san"></span>
+          <span id="zheng"></span>
+          <p class="a"><input type="checkbox" id="xuan" />记住我</p>
+          <button id="deng">登录</button>
+        </div>
+      </div>
+    </div>
+    <script src="../../common/swiper/swiper-bundle.min.js"></script>
+    <script src="../../common/jquery-3.7.0.min.js"></script>
+    <script>
+      const zhang = "admin";
+      const mima = 123456;
+      $(function () {
+        $(".san").html(sui(1000, 9999));
+        let an = localStorage.getItem("arr");
+        if (an != null) {
+          location.href = "concat.html";
+        }
+      });
+      $("#deng").click(function () {
+        let an = document.getElementById("xuan").checked;
+        if ($("#zhang").val() == zhang && $("#mi").val() == mima) {
+          if (an == true) {
+            let ta = {
+              naem: $("#zhang").val(),
+              pow: $("#mi").val(),
+            };
+            localStorage.setItem("arr", JSON.stringify(ta));
+          }
+          location.href = "concat.html";
+        }
+      });
+      $(".san").click(function () {
+        $(this).html(sui(1000, 9999));
+      });
+      $("#zhang").blur(function () {
+        let an = $(this).val();
+        if (an != zhang) {
+          $("#hao").html("账号不能为空");
+        }
+        if (an == zhang) {
+          $("#hao").html("");
+        }
+      });
+      $("#mi").blur(function () {
+        let an = $(this).val();
+        if (an != mima) {
+          $("#ma").html("密码不能为空");
+        }
+        if (an == mima) {
+          $("#ma").html("");
+        }
+      });
+      $("#yang").blur(function () {
+        let an = $(this).val();
+        if (an != $(".san").html()) {
+          $("#zheng").html("验证码不能为空");
+        }
+        if (an == $(".san").html()) {
+          $("#zheng").html("");
+        }
+      });
+      function sui(max, min) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      }
+      var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        centeredSlides: false,
+        simulateTouch: false,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: false,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+      window.onload = function () {
+        var loading = document.querySelector(".an");
+        loading.style.opacity = 0;
+        setTimeout(function () {
+          loading.style.display = "none";
+        }, 3000);
+      };
+    </script>
+  </body>
+</html>
