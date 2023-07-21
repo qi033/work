@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        <form action="http://127.0.0.1:8081/save" method="POST">
+            用户名<input type="text" name="username" id="username"><br>
+            密码<input type="text" name="pwd" id="pwd"><br>
+            性别<input type="text" name="sex" id="sex"><br>
+            <input type="submit" onclick="fun()" name="" value="提交">
+        </form>
+    </div>
+
+</body>
+<script>
+    window.onload = function () {
+        let xhr = new XMLHttpRequest();
+        xhr.open("get", '/userinfo', true);
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                let data = JSON.parse(xhr.responseText);
+                let box = document.getElementById("box");
+                username.value = data.username
+                pwd.value = data.pwd
+                sex.value = data.sex
+            }
+        } 
+        xhr.withCredentials = true;
+        xhr.send();
+    }
+</script>
+
+</html>

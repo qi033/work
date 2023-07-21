@@ -180,17 +180,6 @@ function datasfun(){
 var indicatorname = ['枪法', '致胜', '突破', '狙杀', '道具'];
 var maxdata = [100, 100, 100, 100, 100];
 
-
-// （独立解决问题）：
-
-// （指派型结果）
-
-// （善于学习）：
-
-// （体验至上）：
-
-// （主动参与）:
-
 function contains(arrays, obj) {
     var i = arrays.length;
     while (i--) {

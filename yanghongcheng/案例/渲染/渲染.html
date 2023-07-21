@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div id="container1"></div>
+  <div id="container2"></div>
+  <div id="container3"></div>
+  <style>
+    #container1{
+      width: 400px;
+      height: 400px;
+      background-color: aqua;
+    }
+    #container2{
+      width: 400px;
+      height: 400px;
+      background-color: blue;
+    }
+    #container3{
+      width: 400px;
+      height: 400px;
+      background-color: cadetblue;
+    }
+  </style>
+<script>
+var dataSets = [
+  {
+    data: ['数据组1的数据1', '数据组1的数据2', '数据组1的数据3'],
+    imageUrl: '图片1的URL'
+  },
+  {
+    data: ['数据组2的数据A', '数据组2的数据B', '数据组2的数据C'],
+    imageUrl: '图片2的URL'
+  },
+  {
+    data: ['数据组3的数据X', '数据组3的数据Y', '数据组3的数据Z'],
+    imageUrl: '图片3的URL'
+  }
+];  // 假设您有多个数据组，每个数据组包含数据和图片URL
+
+for (var i = 0; i < dataSets.length; i++) {
+  var container = document.getElementById('container' + (i + 1));
+
+  // 创建并添加数据列表
+  var list = document.createElement('ul');
+  for (var j = 0; j < dataSets[i].data.length; j++) {
+    var listItem = document.createElement('li');
+    listItem.textContent = dataSets[i].data[j];
+    list.appendChild(listItem);
+  }
+  container.appendChild(list);
+
+  // 创建并添加图片
+  var image = document.createElement('img');
+  image.src = dataSets[i].imageUrl;
+  container.appendChild(image);
+}
+</script>
+
+</body>
+</html>

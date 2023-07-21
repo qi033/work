@@ -1,0 +1,136 @@
+<style>
+  div {
+    width: 100px;
+    height: 100px;
+    background: yellowgreen;
+    position: absolute;
+  }
+</style>
+
+<body>
+  <div></div>
+</body>
+<!-- 引入jquery cdn -->
+<script src="../common/jquery-3.7.0.min.js"></script>
+<script>
+  var jsPromise = Promise.resolve($.ajax("/1231.json"));
+  jsPromise
+    .then(() => {})
+    .catch((err) => {
+      console.log(err.statusText, 123);
+    });
+  console.log(jsPromise);
+  let p1 = new Promise((resolve, reject) => {
+    reject(1123123);
+  }).then();
+  //   p1.then((aaa)).catch(() => {
+  //     console.log(555);
+  //   });
+  //   let p1 = new Promise((resolve) => {
+  //     resolve();
+  //   });
+  //   let p2 = p1.then(() => {
+  //     console.log("好前程");
+  //     return new Promise((resolve) => {
+  //       resolve("baidu.com");
+  //     });
+  //   });
+  //   p2.then(
+  //     () => {
+  //       console.log("baidu.com");
+  //     },
+  //     (msg) => {
+  //       console.log(msg);
+  //     }
+  //   );
+  //   console.log(p1); // Promise {<fulfilled>}
+  //   console.log(p2); // Promise {<pending>}
+
+  // # 再试试把上面两行放在 setTimeout里
+  //   setTimeout(() => {
+  //     console.log(p1); // Promise {<resolved>}
+  //     console.log(p2); // Promise {<resolved>}
+  //   });
+  //   let promise = new Promise((resolve, reject) => {
+  //     resolve("fulfilled");
+  //   })
+  //     .then()
+  //     .then((resolve) => {
+  //       console.log(resolve);
+  //     });
+  //   const p1 = new Promise((resolve, reject) => {
+  //     resolve(
+  //       //p2
+  //       new Promise((s, e) => {
+  //         s("成功");
+  //       })
+  //     );
+  //   }).then((msg) => {
+  //     console.log(msg);
+  //   });
+  //   const p1 = new Promise((resolve, reject) => {
+  //     // resolve("fulfilled");
+  //     reject("rejected");
+  //   });
+  //   const p2 = new Promise((resolve) => {
+  //     resolve(p1);
+  //   }).then(
+  //     (value) => {
+  //       console.log(value, 222);
+  //     },
+  //     (reason) => {
+  //       console.log(reason, 111);
+  //     }
+  //   );
+  //   new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       reject("fulfilled");
+  //     }, 3000);
+  //   }).then(
+  //     (msg) => {
+  //       console.log(msg);
+  //     },
+  //     (error) => {
+  //       console.log(error, 1111);
+  //     }
+  //   );
+  //   const promise = new Promise((resolve) => resolve("success"));
+  //   promise.then(alert);
+  //   alert("baidu.com");
+  //   promise.then(() => {
+  //     alert("好好学习");
+  //   });
+  //   let promise = new Promise((resolve, reject) => {
+  //     console.log("1111");
+  //     setTimeout(() => {
+  //       console.log("33333");
+  //       resolve("fulfilled"); //3
+  //     }, 2000);
+  //     console.log("好前程"); //1
+  //   });
+  //   promise.then((msg) => {
+  //     console.log(msg);
+  //   });
+  //   console.log("666666"); //2
+  //   console.log(
+  //     new Promise((resolve, reject) => {
+  //       resolve(6666);
+  //     })
+  //   );
+  //   function interval(callback, delay = 100) {
+  //     let id = setInterval(() => callback(id), delay);
+  //   }
+  //   const div = document.querySelector("div");
+  //   interval((timeId) => {
+  //     const left = parseInt(window.getComputedStyle(div).left);
+  //     div.style.left = left + 10 + "px";
+  //     if (left > 500) {
+  //       clearInterval(timeId);
+  //       interval((timeId) => {
+  //         const width = parseInt(window.getComputedStyle(div).width);
+  //         div.style.width = width - 1 + "px";
+  //         if (width <= 0) clearInterval(timeId);
+  //       }, 10);
+  //     }
+  //   }, 100);
+</script>
