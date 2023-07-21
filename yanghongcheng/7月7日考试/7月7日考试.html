@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="../../yanghongcheng/scss/index.css" />
     <link rel="stylesheet" href="../../common/swiper/swiper-bundle.css" />
     <script src="../../common/swiper/swiper-bundle.js"></script>
+    <link rel="stylesheet" href="./7月7日考试.css" />
   </head>
+
   <body>
     <div class="box">
       <div class="body">
@@ -46,7 +48,7 @@
           </audio>
         </div>
         <div id="l"></div>
-        <div id="panel"></div>
+        <div id="panel" style="display: none"></div>
       </div>
       <div class="footer"></div>
     </div>
@@ -67,6 +69,7 @@
       //自动滚动
       // setInterval("swiper.slidePrev()", 3000);
     </script>
+
     <script type="text/javascript">
       window._AMapSecurityConfig = {
         securityJsCode: "23f3f0cf4dff3ca4392ab168669f4732",
@@ -86,7 +89,17 @@
         map: map,
         panel: "panel",
       });
-      driving.search([113.428749, 34.765308], [113.42857, 34.772388]);
+      driving.search(
+        [113.428749, 34.765308],
+        [113.42857, 34.772388],
+        function (status, result) {
+          if (status === "complete") {
+            log.success("绘制步行路线完成");
+          } else {
+            log.error("步行路线数据查询失败" + result);
+          }
+        }
+      );
     </script>
   </body>
 </html>
