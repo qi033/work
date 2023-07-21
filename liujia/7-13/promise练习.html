@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: yellowgreen;
+            position: absolute;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div></div>
+</body>
+
+<script>
+
+    var p1 = new Promise(function (resolve, reject) {
+        //异步操作 resolve(obj1)  或者 reject(obj2)
+    });
+    p1.then(function (rs) {
+        // 如果p1的状态是resolved，则then中的函数
+        //会执行，且obj1的值会传给rs
+    }).catch(function (rs) {
+        // 如果p1的状态是reject，则catch中的函数
+        //    会执行，且obj2的值会传给rs
+    }).finally(function () {
+        // 一定会执行的函数
+    })
+
+
+    // function load(file, resolve, reject) {
+    //     const script = document.createElement("script");
+    //     script.src = file;
+    //     script.onload = resolve;
+    //     script.onerror = reject;
+    //     document.body.appendChild(script);
+    // }
+    // load(
+    //     "js/index.js",
+    //     (script) => {
+    //         console.log(`${script.path[0].src} 加载成功`);
+    //         show();
+    //     },
+    //     (error) => {
+    //         console.log(`${error.srcElement.src} 加载失败`);
+    //     }
+    // );
+    // function interval(callback, delay = 100) {
+    //     let id = setInterval(() => callback(id), delay);
+    // }
+    // const div = document.querySelector("div");
+    // interval((timeId) => {
+    //     const left = parseInt(window.getComputedStyle(div).left);
+    //     div.style.left = left + 10 + "px";
+    //     if (left > 500) {
+    //         clearInterval(timeId);
+    //         interval((timeId) => {
+    //             const width = parseInt(window.getComputedStyle(div).width);
+    //             div.style.width = width - 1 + "px";
+    //             if (width <= 0) clearInterval(timeId);
+    //         }, 10);
+    //     }
+    // }, 100);
+</script>
+
+</body>
+
+</html>
+<!-- 日报
+今日学习:  Promise 对象
+今日任务:  完成
+今日单词:  promise对象仅有三种状态: pending(进行中)
+                                  fulfilled(已成功)
+                                  rejected(已失败) -->

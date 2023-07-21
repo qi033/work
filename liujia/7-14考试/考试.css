@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 31.25rem;
+}
+#box {
+  width: 12rem;
+  height: 100vh;
+  background-color: aquamarine;
+}
+#top {
+  width: 12rem;
+  height: 7.68rem;
+  background-color: brown;
+}
+#top span {
+  display: block;
+  font-size: 0.8rem;
+  text-align: center;
+  position: relative;
+  top: 0.64rem;
+  color: #fff;
+}
+#content {
+  position: relative;
+  top: -0.288rem;
+  width: 12rem;
+  height: 15.04rem;
+  background-color: #ffffff;
+}
+#footer {
+  width: 12rem;
+  height: 3.2rem;
+  background-color: blue;
+  position: fixed;
+  display: flex;
+  bottom: 0px;
+}
+#footer div {
+  width: 25%;
+  height: 100%;
+  background-color: aqua;
+}
+.logo {
+  position: relative;
+  top: 0.8rem;
+  width: 3.84rem;
+  height: 5.12rem;
+  margin: auto;
+}
+.tu {
+  position: relative;
+  top: 0.32rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  margin: auto;
+}
+.logo span {
+  display: block;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #fff;
+}
+.layui-tab {
+  position: relative;
+}
+.layui-tab .layui-tab-title li {
+  min-width: 1.696rem;
+}
+.layui-tab-item {
+  overflow-y: scroll;
+}
+.layui-tab-item .zzzzzzzzz {
+  width: 65px;
+  height: 90px;
+  margin: 10px;
+  float: left;
+}
