@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="http://101.34.139.112/favicon.ico">
+    <meta charset="utf-8">
+    <title>首页-MyAdmin</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//cdn.staticfile.org/layui/2.8.11/css/layui.css" rel="stylesheet">
+
+</head>
+<style>
+    .icon {
+        display: block;
+    }
+
+    .fangwen {
+        width: 300px;
+        height: 100px;
+        background-color: #fff;
+        float: left;
+        margin-left: 75px;
+        position: relative;
+
+    }
+
+    .fangwen :hover {
+        cursor: pointer;
+    }
+
+    .fangwen1 {
+        width: 300px;
+        height: 100px;
+        background-color: #fff;
+        float: left;
+        margin-left: 75px;
+        position: relative;
+
+    }
+
+    .fangwen1:hover {
+        cursor: pointer;
+    }
+
+    .fangwen2 {
+        width: 300px;
+        height: 100px;
+        background-color: #fff;
+        float: left;
+        margin-left: 75px;
+        position: relative;
+
+    }
+
+    .fangwen2:hover {
+        cursor: pointer;
+    }
+
+    .liulan {
+        width: 1200px;
+        height: 100px;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    .ico {
+        width: 92px;
+        height: 92px;
+        margin-left: 5px;
+        margin-top: 5px;
+        border-radius: 10px;
+        display: inline-block;
+    }
+
+    .ico:hover {
+        background-color: aqua;
+    }
+
+    .ico1 {
+        width: 92px;
+        height: 92px;
+        margin-left: 5px;
+        margin-top: 5px;
+        border-radius: 10px;
+        display: inline-block;
+    }
+
+    .ico1:hover {
+        background-color: purple;
+    }
+
+    .ico2 {
+        width: 92px;
+        height: 92px;
+        margin-left: 5px;
+        margin-top: 5px;
+        border-radius: 10px;
+        display: inline-block;
+    }
+
+    .ico2:hover {
+        background-color: orange;
+    }
+
+    .icon1 {
+        width: 62px;
+        height: 62px;
+        background-color: aqua;
+        margin-left: 14px;
+        margin-top: 15px;
+        border-radius: 50%;
+    }
+
+    .icon3 {
+        width: 62px;
+        height: 62px;
+        background-color: aqua;
+        margin-left: 14px;
+        margin-top: 12px;
+        border-radius: 50%;
+    }
+
+    .icon2 {
+        width: 77px;
+        height: 62px;
+        margin-left: 10px;
+        margin-top: 15px;
+        border-radius: 50%;
+    }
+
+    .layui-body {
+        background-color: #f0f2f5;
+    }
+
+    h3 {
+        display: inline-block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: rgba(0, 0, 0, .45);
+    }
+
+    h2 {
+        display: inline-block;
+        position: absolute;
+        top: 50px;
+        right: 80px;
+        color: rgba(0, 0, 0, .45);
+    }
+
+    #swiper {
+        width: 1200px;
+        height: 500px;
+        margin-top: 50px;
+    }
+
+    #one {
+        width: 1200px;
+        height: 600px;
+        /* display: inline-block; */
+        margin: auto;
+    }
+</style>
+
+<body>
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo layui-hide-xs layui-bg-black">
+                <img src="http://101.34.139.112/static/img/logo.67745850.png" alt="" width="25px" height="25px">
+                <span>MyAdmin</span>
+            </div>
+            <!-- 头部区域（可配合layui 已有的水平导航） -->
+            <ul class="layui-nav layui-layout-left">
+                <!-- 移动端显示 -->
+                <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-header-event="menuLeft">
+                    <i class="layui-icon layui-icon-spread-left"></i>
+                </li>
+                <li class="layui-nav-item layui-hide-xs"><a href="javascript:;" class="ic">
+                        <svg t="1689938635622" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="3043" width="32" height="32">
+                            <path
+                                d="M176 224h672c12.8 0 24-11.2 24-24S860.8 176 848 176H176c-12.8 0-24 11.2-24 24S163.2 224 176 224zM848 384H176c-12.8 0-24 11.2-24 24S163.2 432 176 432h672c12.8 0 24-11.2 24-24S860.8 384 848 384zM416 592H176c-12.8 0-24 11.2-24 24S163.2 640 176 640h240c12.8 0 24-11.2 24-24S428.8 592 416 592zM416 800H176c-12.8 0-24 11.2-24 24S163.2 848 176 848h240c12.8 0 24-11.2 24-24S428.8 800 416 800zM777.6 744c19.2-24 30.4-54.4 30.4-86.4 0-75.2-60.8-137.6-137.6-137.6-75.2 0-137.6 60.8-137.6 137.6 0 75.2 60.8 137.6 137.6 137.6 25.6 0 49.6-6.4 68.8-19.2l67.2 67.2c4.8 4.8 11.2 6.4 17.6 6.4s12.8-1.6 17.6-6.4c9.6-9.6 9.6-24 0-33.6l-64-65.6z m-195.2-86.4c0-49.6 40-89.6 89.6-89.6 49.6 0 89.6 40 89.6 89.6 0 49.6-40 89.6-89.6 89.6-49.6-1.6-89.6-41.6-89.6-89.6z"
+                                p-id="3044" fill="#515151"></path>
+                        </svg>
+                    </a></li>
+                <li class="layui-nav-item layui-hide-xs"><a href="javascript:;">首页</a></li>
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item layui-hide layui-show-sm-inline-block">
+                    <a href="javascript:;">
+                        <img src="http://101.34.139.112/api/resources/img/avatar/avatar1.jpg" class="layui-nav-img">
+                        管理员
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" id="tui">点击退出</a></dd>
+                        <dd><a href="javascript:;">Settings</a></dd>
+                        <dd><a href="javascript:;">Sign out</a></dd>
+                    </dl>
+                </li>
+
+            </ul>
+        </div>
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item"><a href="javascript:;">首页</a></li>
+
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">系统管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">list 1</a></dd>
+                            <dd><a href="javascript:;">list 2</a></dd>
+                            <dd><a href="javascript:;">超链接</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">系统监控</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">list 1</a></dd>
+                            <dd><a href="javascript:;">list 2</a></dd>
+                            <dd><a href="javascript:;">超链接</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">系统工具</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">list 1</a></dd>
+                            <dd><a href="javascript:;">list 2</a></dd>
+                            <dd><a href="javascript:;">超链接</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">工作流</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">list 1</a></dd>
+                            <dd><a href="javascript:;">list 2</a></dd>
+                            <dd><a href="javascript:;">超链接</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">业务管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">list 1</a></dd>
+                            <dd><a href="javascript:;">list 2</a></dd>
+                            <dd><a href="javascript:;">超链接</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div style="padding: 15px;" class="liulan">
+                <div class="fangwen">
+                    <div class="ico">
+                        <svg t="1689941548898" class="icon1" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="2449" width="32" height="32">
+                            <path
+                                d="M882.8 903.5C881.4 743.7 780 609 638.6 555.6c82-43.7 138.1-129.5 138.1-229.1 0-144.2-116.9-261.1-261.1-261.2v-0.1c-1.7 0-3.3 0.2-4.9 0.2-1.7 0-3.3-0.2-4.9-0.2l-0.1 0.1c-144.2 0.1-261.1 117-261.1 261.2 0 99.6 56 185.4 138.1 229.1C241.1 609 139.8 743.7 138.3 903.5v5.2c0.2 9.3 2.1 18.1 2.8 27.4h0.6c1.5 14.4 13.7 25.4 28.2 25.4s26.7-11 28.2-25.4h0.9c-0.8-9.8-2.9-19.2-2.9-29.1 0-84.7 33.6-165.9 93.5-225.8 58.7-58.7 138-92 220.9-93.3 82.9 1.3 162.2 34.5 220.9 93.3 60 59.9 93.6 141.1 93.6 225.8 0 9.9-2 19.3-2.9 29.1h0.9c1.5 14.4 13.7 25.4 28.2 25.4s26.7-11 28.2-25.4h0.6c0.7-9.3 2.6-18.1 2.8-27.4v-5.2z m-570.5-577c0-110.6 88.4-200.4 198.3-203 109.9 2.7 198.3 92.4 198.3 203s-88.4 200.4-198.3 203c-110-2.7-198.3-92.4-198.3-203z"
+                                p-id="2450" fill="#515151"></path>
+                        </svg>
+                    </div>
+                    <h3>用户登陆量</h3>
+                    <h2>36</h2>
+                </div>
+                <div class="fangwen1">
+                    <div class="ico1">
+                        <svg t="1689942710074" class="icon2" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="3870" width="32" height="32">
+                            <path
+                                d="M974.376 154.192a16.04 16.04 0 0 1 19.26 20.62l-227.748 678.376a25.14 25.14 0 0 1-38.448 12.46l-224.36-160.26-186.176 143.716a26.4 26.4 0 0 1-42.52-20.548l-3.304-251.168-227.144-129.344a28.52 28.52 0 0 1 6.9-52.372l923.54-241.48z"
+                                fill="#00AAFF" p-id="3871"></path>
+                            <path
+                                d="M271.08 577.388l-227.144-129.344a28.52 28.52 0 0 1 6.9-52.372l923.54-241.48a16.024 16.024 0 0 1 12.62 1.956L271.08 577.388z"
+                                fill="#00D9FF" p-id="3872"></path>
+                            <path
+                                d="M986.996 156.148a16.052 16.052 0 0 1 6.64 18.664l-227.748 678.376a25.14 25.14 0 0 1-35.368 14.34l-95.636-67.992-131.804-94.148-0.296 0.228-7.392-5.252a33.416 33.416 0 0 1-4.204-50.94L986.996 156.148z"
+                                fill="#00D9FF" p-id="3873"></path>
+                        </svg>
+                        <h3>接口请求量</h3>
+                        <h2 style="right: 70px;">163</h2>
+                    </div>
+
+                </div>
+                <div class="fangwen2">
+                    <div class="ico2">
+                        <svg t="1689943381989" class="icon3" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="5925" width="32" height="32">
+                            <path
+                                d="M512 1024a512 512 0 1 1 512-512 512 512 0 0 1-512 512z m0-960a448 448 0 1 0 448 448A448 448 0 0 0 512 64z"
+                                fill="#f4ea2a" p-id="5926"></path>
+                            <path d="M480 64h64v896h-64z" fill="#f4ea2a" p-id="5927"></path>
+                            <path
+                                d="M512 1024c-143.68 0-256-224-256-512s112.32-512 256-512 256 224 256 512-112.32 512-256 512z m0-960c-90.88 0-192 184-192 448s101.12 448 192 448 192-184 192-448-101.12-448-192-448z"
+                                fill="#f4ea2a" p-id="5928"></path>
+                            <path d="M32 480h960v64H32zM96 256h832v64H96zM96 704h832v64H96z" fill="#f4ea2a" p-id="5929">
+                            </path>
+                        </svg>
+                        <h3>ip登录量</h3>
+                        <h2 style="right: 70px;">2</h2>
+                    </div>
+                </div>
+                <br><br>
+            </div>
+            <div id="one">
+                <div id="swiper">
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="layui-footer">
+
+        </div>
+    </div>
+
+    <script src="//cdn.staticfile.org/layui/2.8.11/layui.js"></script>
+    <script src="../../common/jquery-3.7.0.min.js"></script>
+
+    <script src="../../common/echarts.min.js"></script>
+    <script>
+        var chartDom = document.getElementById('swiper');
+        var myChart = echarts.init(chartDom);
+        var option;
+        option = {
+            backgroundColor: '#fff',
+            title: {
+                // text: `{a|分部毛利增速图}`,
+                textStyle: {
+                    rich: {
+                        a: {
+                            fontSize: 16,
+                            fontWeight: 600,
+                        },
+                    },
+                },
+                top: '2%',
+                left: '2%',
+            },
+            legend: {
+                data: ['本周', '上周'],
+                textStyle: {
+                    align: 'right',
+                },
+                top: '2%',
+                right: '2%',
+            },
+
+            tooltip: {
+                trigger: 'axis',
+            },
+
+            grid: {
+                top: '18%',
+                left: '8%',
+                right: '3%',
+                bottom: '10%',
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    axisLine: {
+                        show: true,
+                    },
+                    splitArea: {
+                        // show: true,
+                        color: '#f00',
+                        lineStyle: {
+                            color: '#f00',
+                        },
+                    },
+                    splitLine: {
+                        show: false,
+                    },
+                    axisLabel: {
+                        margin: 10,
+                    },
+                    boundaryGap: false,
+                    data: ["周一", "周二", "周三", "周四", "周五"],
+                },
+            ],
+
+            yAxis: [
+                {
+                    type: 'value',
+                    // min: 0,
+                    // max: 140,
+                    splitNumber: 4,
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: '#e3e3e3',
+                        },
+                    },
+                    axisLine: {
+                        show: false,
+                    },
+                    axisLabel: {
+                        show: true,
+                        margin: 20,
+                        formatter: '{value} %',
+                    },
+                    axisTick: {
+                        show: false,
+                    },
+                },
+            ],
+            series: [
+                {
+                    name: '本周',
+                    type: 'line',
+                    smooth: true, //是否平滑
+                    showAllSymbol: true,
+                    symbol: 'circle',
+                    symbolSize: 12,
+                    lineStyle: {
+                        normal: {
+                            color: '#7AA1FF',
+                        },
+                    },
+                    itemStyle: {
+                        color: '#7AA1FF',
+                        borderWidth: 3,
+                        borderColor: '#f3f3f3',
+                    },
+                    data: [31.9, 10.9, 3.1, 35, 7],
+                },
+                {
+                    name: '上周',
+                    type: 'line',
+                    smooth: true, //是否平滑
+                    showAllSymbol: true,
+                    symbol: 'circle',
+                    symbolSize: 12,
+                    lineStyle: {
+                        normal: {
+                            color: '#00ca95',
+                        },
+                    },
+                    itemStyle: {
+                        color: '#00ca95',
+                        borderColor: '#fff',
+                        borderWidth: 3,
+                    },
+                    data: [0, 0, 48.5, 31.7, 41.8],
+                },
+            ],
+        };
+
+        option && myChart.setOption(option);
+
+        // window.onload = function () {
+        //     // num()
+        // }
+
+
+        // let arr
+        // function num() {
+        //     if (window.location.reload()) {
+        //         arr++
+        //     }
+        // }
+        $(".fangwen").on("mouseover", function () {
+            $('.icon1').css("background", "white")
+            $('.ico').css("background", "aqua")
+        })
+        $(".fangwen").on("mouseleave", function () {
+            $('.icon1').css("background", "aqua")
+            $('.ico').css("background", "white")
+        })
+        //JS 
+        layui.use(['element', 'layer', 'util'], function () {
+            var element = layui.element;
+            var layer = layui.layer;
+            var util = layui.util;
+            var $ = layui.$;
+
+            //头部事件
+            util.event('lay-header-event', {
+                menuLeft: function (othis) { // 左侧菜单事件
+                    layer.msg('展开左侧菜单的操作', { icon: 0 });
+                },
+                menuRight: function () {  // 右侧菜单事件
+                    layer.open({
+                        type: 1,
+                        title: '更多',
+                        content: '<div style="padding: 15px;">处理右侧面板的操作</div>',
+                        area: ['260px', '100%'],
+                        offset: 'rt', // 右上角
+                        anim: 'slideLeft', // 从右侧抽屉滑出
+                        shadeClose: true,
+                        scrollbar: false
+                    });
+                }
+            });
+        });
+
+
+        $("#tui").on("click", function () {
+            if (confirm("确认退出吗？")) {
+                window.location.href = '7.21.html';
+            }
+        })
+    </script>
+</body>
+
+</html>
