@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo</title>
+</head>
+
+<body>
+    <style>
+        .box {
+            width: 600px;
+            height: 400px;
+            background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+            border-radius: 15px;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) !important;
+        }
+
+        form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+            border-radius: 15px;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        input {
+            margin-top: 20px;
+        }
+
+        input[type="submit"] {
+            width: 80px;
+            height: 30px;
+            border: none;
+            border-radius: 15px;
+            background-color: aliceblue;
+        }
+    </style>
+    <div class="box">
+        <form action="http://127.0.0.1:8081/login" method="POST">
+            First Name: <input type="text" name="username"> <br>
+            password: <input type="text" name="password">
+            <input type="submit" value="提交信息">
+        </form>
+    </div>
+</body>
+
+</html>
