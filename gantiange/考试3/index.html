@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+   <link href="//unpkg.com/layui@2.8.6/dist/css/layui.css" rel="stylesheet" />
+  <script src="//unpkg.com/layui@2.8.6/dist/layui.js"></script>
+    <link rel="stylesheet" href="./1.css" />
+  </head>
+  <body>
+    <div class="box">
+      <div class="top">
+        <p>小睡眠</p>
+        <img src="./img/水滴.png" alt="" />
+        <h2>红泥小炉</h2>
+      </div>
+      <div class="loge"></div>
+      <div class="condent">
+        <div class="layui-tab layui-tab-brief noe">
+          <ul class="layui-tab-title">
+            <li class="layui-this li-btn">全部</li>
+            <li class="li-btn">雷雨</li>
+            <li class="li-btn">江湖</li>
+            <li class="li-btn">自然</li>
+            <li class="li-btn">动物</li>
+            >
+          </ul>
+          <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+              <div class="no"></div>
+            </div>
+            <div class="layui-tab-item"><div class="no"></div></div>
+            <div class="layui-tab-item"><div class="no"></div></div>
+            <div class="layui-tab-item"><div class="no"></div></div>
+            <div class="layui-tab-item"><div class="no"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <dl>
+        <dt><img src="./img/下雨.png" alt="" /></dt>
+        <dd>声音</dd>
+      </dl>
+      <dl>
+        <dt><img src="./img/狮子座.png" alt="" /></dt>
+        <dd>助眠</dd>
+      </dl>
+      <dl>
+        <dt><img src="./img/半颗星.png" alt="" /></dt>
+        <dd>呼吸</dd>
+      </dl>
+      <dl>
+        <dt><img src="./img/推荐.png" alt="" /></dt>
+        <dd>推荐</dd>
+      </dl>
+      <dl>
+        <dt><img src="./img/个人.png" alt="" /></dt>
+        <dd>我的</dd>
+      </dl>
+    </div>
+  </body>
+  <script src="./1.js"></script>
+  <script>
+    $(function () {
+      fun(arr[0]);
+      //点击
+      $(".loge").click(function () {
+        var boxOriginalWidth = $(".top").height() + "px"; // 记录盒子的原始宽度
+        var boxExpanded = true; // 盒子的初始状态为未变大
+        console.log(boxExpanded);
+        if (!boxExpanded) {
+          $(".top").animate(
+            {
+              height: "226px", // 将盒子的宽度恢复到原始宽度
+            },
+            "slow"
+          );
+        } else {
+          $(".top").animate(
+            {
+              height: "50vh", // 将盒子的宽度变大
+            },
+            "slow"
+          );
+          boxExpanded = true;
+        }
+
+        // 切换盒子的状态
+      });
+      dj(arr[0]);
+      //切换
+      $(".li-btn").click(function () {
+        arr.forEach((item, index) => {
+          if ($(this).html() == item.name) {
+            fun(arr[index]);
+            dj(arr[index]);
+          }
+        });
+        console.log();
+      });
+    });
+    function dj(res) {
+      $(".ok").click(function () {
+        let id = $(this).attr("data-id");
+        console.log(res.void[id].name);
+
+        $(".top h2").html(res.void[id].dd);
+        $(".top img").prop("src", res.void[id].img);
+        $(".top").css("background", "#1e9fff");
+        $(this).children("dt").css({ background: "#d5e0ec" });
+        $(this).siblings().children("dt").css({ background: "" });
+        $(".loge").addClass("loges");
+        if ($(this).attr("data-id") % 2 == 0) {
+          $(".top").css("background", "#ff5722");
+          $(this).children("dt").css({ background: "#ff5722" });
+          $(".loge").removeClass("loges");
+        }
+      });
+    }
+    function fun(res) {
+      let html = "";
+
+      res.void.forEach((item, index) => {
+        html += `
+               <dl data-id="${index}" class="ok">
+                <dt>
+                  <img src="${item.img}" alt="" />
+                </dt>
+                <dd>${item.dd}</dd>
+              </dl>
+           `;
+      });
+      $(".no").html(html);
+    }
+  </script>
+</html>

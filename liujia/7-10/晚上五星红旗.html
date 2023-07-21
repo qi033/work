@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五星红旗</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<link rel="shortcut icon"
+    href="https://img0.baidu.com/it/u=1986346369,2883632777&fm=253&fmt=auto&app=138&f=GIF?w=450&h=300">
+
+<body>
+    <canvas id="flag" width=600 height="400" style="background-color: red;"></canvas><!-- 五星红旗 -->
+    <script>
+        //红旗
+        var flag = document.getElementById("flag");
+        var ctxss = flag.getContext('2d');
+        function drawStar(x, y, r, deg) {//xy中心坐标，r半径，deg旋转角度
+            ctxss.beginPath();
+            ctxss.translate(x, y);
+            ctxss.rotate(deg * Math.PI / 180);
+            var dit = Math.PI * 4 / 5;
+            var sin = Math.sin(0) * r;
+            var cos = Math.cos(0) * r;
+            ctxss.moveTo(cos, sin);
+            for (var i = 0; i < 5; i++) {
+                var tempDit = dit * i;
+                sin = Math.sin(tempDit) * r;
+                cos = Math.cos(tempDit) * r;
+                ctxss.lineTo(cos, sin);
+            }
+            ctxss.closePath();
+            ctxss.fillStyle = "#ffde00";
+            ctxss.fill();
+            ctxss.rotate(-deg * Math.PI / 180);
+            ctxss.translate(-x, -y);
+        }
+
+        drawStar(100, 100, 60, -18);
+        drawStar(200, 40, 20, 0);
+        drawStar(240, 80, 20, 27);
+        drawStar(240, 140, 20, -18);
+        drawStar(200, 180, 20, 0);
+    </script>
+    <!-- Code injected by live-server -->
+    <script>
+        // <![CDATA[  <-- For SVG support
+        if ('WebSocket' in window) {
+            (function () {
+                function refreshCSS() {
+                    var sheets = [].slice.call(document.getElementsByTagName("link"));
+                    var head = document.getElementsByTagName("head")[0];
+                    for (var i = 0; i < sheets.length; ++i) {
+                        var elem = sheets[i];
+                        var parent = elem.parentElement || head;
+                        parent.removeChild(elem);
+                        var rel = elem.rel;
+                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                        }
+                        parent.appendChild(elem);
+                    }
+                }
+                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                var address = protocol + window.location.host + window.location.pathname + '/ws';
+                var socket = new WebSocket(address);
+                socket.onmessage = function (msg) {
+                    if (msg.data == 'reload') window.location.reload();
+                    else if (msg.data == 'refreshcss') refreshCSS();
+                };
+                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                    console.log('Live reload enabled.');
+                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                }
+            })();
+        }
+        else {
+            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+        }
+	// ]]>
+    </script>
+</body>
+
+</html>

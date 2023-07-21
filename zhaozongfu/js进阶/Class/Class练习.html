@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // class User {
+        //     constructor(name) {
+        //         this.name = name;
+        //         this.show = function () { };
+        //     }
+        //     getName() {
+        //         return this.name;
+        //     }
+        // }
+        // const zs = new User("张三");
+        // console.log(zs);
+        // class User {
+        //     constructor(name) {
+        //         this.name = name;
+        //     }
+        //     getname() { }
+        // }
+        // console.log(User == User.prototype.constructor); //true
+        // function User2(name) {
+        //     this.name = name;
+        // }
+        // console.log(User2 == User2.prototype.constructor); //true
+        // console.dir(User);
+        // console.dir(User2);
+        // class User {
+        //     constructor(name) {
+        //         this.name = name;
+        //     }
+        //     show() {
+        //         console.log(this.name);
+        //     }
+        // }
+        // let zs = new User("张三");
+        // //不会枚举出show属性
+        // for (const key in zs) {
+        //     console.log(key);
+        // }
+        // function User2(name) {
+        //     this.name = name;
+        // }
+        // User2.prototype.show = function () {
+        //     console.log(this.name);
+        // };
+        // let obj = new User2("李四");
+        // for (const key in obj) {
+        //     console.log(key);
+        // }
+        class User {
+            #data = {
+                pwd: 121341,
+                idcard: 51431814615467,
+            };
+            constructor(name) {
+                this.#data.name = { name };
+            }
+            get name() {
+                this.#data.name;
+            }
+            set name(value) {
+                if (value.trim() == "") throw new Error("invail params");
+                this.#data.name = value;
+            }
+        }
+        let uname = new User("张三")
+    </script>
+</body>
+
+</html>

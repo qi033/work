@@ -182,6 +182,7 @@ $("#li6").click(function () {
     $("#li8 .icon").css("backgroundColor", "");
     $("#li9 .icon").css("backgroundColor", "");
     $(".span1").css("display", "none");
+    $(".span2").css("display", "none");
     $(".span3").css("display", "none");
     $(".span4").css("display", "none");
     $(".span5").css("display", "none");
