@@ -72,12 +72,11 @@ body {
 
 #box2zuo #boxta table {
     width: 100%;
-
     color: #C6C6C6;
 }
 
 #box2zuo #boxta table tr th:nth-child(2) {
-
+   margin-left: 10px;
     float: left;
     // width: 100%;
 }
@@ -94,7 +93,10 @@ body {
     line-height: 45px;
     height: 45px;
 }
-
+    tbody tr{
+    position: relative;
+    left: 30px;
+}
 #box2you {
     width: 20%;
     height: 300px;

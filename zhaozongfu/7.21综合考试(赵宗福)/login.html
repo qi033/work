@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="shortcut icon" href="./img/标.png">
+    <link rel="stylesheet" href="../引入/swiper.min.css">
+    <link href="//unpkg.com/layui@2.8.11/dist/css/layui.css" rel="stylesheet">
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .box {
+            z-index: 1;
+            width: 480px;
+            height: 400px;
+            background-color: #fff;
+            opacity: 0.8;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .box .span1 {
+            display: block;
+            position: relative;
+            top: 30px;
+            width: 240px;
+            height: 35px;
+
+            margin: auto;
+        }
+
+        .box .span1 img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .layui-form {
+            position: relative;
+            top: 60px;
+            width: 360px;
+            height: 300px;
+            margin: auto;
+        }
+
+        .layui-form-item button {
+            background-color: #409EFF;
+            border-radius: 5px;
+        }
+
+        #tishi {
+            position: relative;
+            top: 10px;
+            color: red;
+            margin: auto;
+            text-align: center;
+            display: none;
+        }
+
+        #tishi1 {
+            position: relative;
+            top: 10px;
+            color: rgb(233, 155, 9);
+            margin: auto;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="./img/login1.png" alt=""></div>
+            <div class="swiper-slide"><img src="./img/login2.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/login3.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/login4.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="./img/login5.jpg" alt=""></div>
+        </div>
+        <div class="box">
+            <span class="span1">
+                <img src="./img/图1.png" alt="">
+            </span>
+            <form class="layui-form" id="Form">
+                <div class="demo-login-container">
+                    <div class="layui-form-item">
+                        <div class="layui-input-wrap">
+                            <div class="layui-input-prefix">
+                                <i class="layui-icon layui-icon-username"></i>
+                            </div>
+                            <input type="text" name="username" id="username" value="" lay-verify="required"
+                                placeholder="用户名" lay-reqtext="请填写用户名" autocomplete="off" class="layui-input"
+                                lay-affix="clear">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-wrap">
+                            <div class="layui-input-prefix">
+                                <i class="layui-icon layui-icon-password"></i>
+                            </div>
+                            <input type="password" name="password" id="password" value="" lay-verify="required"
+                                placeholder="密   码" lay-reqtext="请填写密码" autocomplete="off" class="layui-input"
+                                lay-affix="eye">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-row">
+                            <div class="layui-col-xs7">
+                                <div class="layui-input-wrap">
+                                    <div class="layui-input-prefix">
+                                        <i class="layui-icon layui-icon-vercode"></i>
+                                    </div>
+                                    <input type="text" name="captcha" value="" lay-verify="required" placeholder="验证码"
+                                        lay-reqtext="请填写验证码" autocomplete="off" class="layui-input" lay-affix="clear">
+                                </div>
+                            </div>
+                            <div class="layui-col-xs5">
+                                <div style="margin-left: 10px;">
+                                    <img src="https://www.oschina.net/action/user/captcha"
+                                        onclick="this.src='https://www.oschina.net/action/user/captcha?t='+ new Date().getTime();">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <input type="checkbox" name="remember" id="rememberMe" lay-skin="primary" title="记住我">
+                    </div>
+                    <div class="layui-form-item">
+                        <button class="layui-btn layui-btn-fluid">登录</button>
+                    </div>
+                </div>
+            </form>
+            <div id="tishi">用户名或密码错误，请重新输入。</div>
+            <div id="tishi1">用户名或密码不能为空。</div>
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="../引入/swiper.min.js"></script>
+    <script src="//unpkg.com/layui@2.8.11/dist/layui.js"></script>
+    <script src="../引入/jquery.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            cssMode: true,
+            simulateTouch: false,//禁止鼠标模拟
+            keyboard: true,
+            loop: true,
+            autoplay: {
+                delay: 2000,
+                stopOnLastSlide: false,
+                disableOnInteraction: true,
+            },
+        });
+        layui.use(function () {
+            var form = layui.form;
+            var layer = layui.layer;
+            // 提交事件
+            form.on('submit(demo-login)', function (data) {
+                var field = data.field; // 获取表单字段值
+                // 显示填写结果，仅作演示用
+                layer.alert(JSON.stringify(field), {
+                    title: '当前填写的字段值'
+                });
+                // 此处可执行 Ajax 等操作
+                // …
+                return false; // 阻止默认 form 跳转
+            });
+        });
+        $(document).ready(function () {
+            $('#Form').submit(function (event) {
+                event.preventDefault();
+                var username = $('#username').val();
+                var password = $('#password').val();
+                if (username === 'admin' && password === '123456') {
+                    $('#tishi').css("display", "none");
+                    $('#Form')[0].reset();
+                    window.location.href = 'main page.html';
+                } else {
+                    $('#tishi').css("display", "block");
+                    $('#tishi1').css("display", "none");
+                }
+                if (username == '' && password == '') {
+                    $('#tishi').css("display", "none");
+                    $('#tishi1').css("display", "block");
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>

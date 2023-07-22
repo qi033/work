@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../common/layui/css/layui.css">
+    <script src="../common/layui/layui.js"></script>
+    <link rel="stylesheet" href="../common/swiper/swiper-bundle.min.css">
+    <script src="../common/swiper/swiper-bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        #box {
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(0, 0, 0);
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #box1 {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 2;
+            width: 330px;
+            height: 300px;
+            color: black;
+            /* background: rgba(rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255), 0.5); */
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 25px 40px;
+            border-radius: 20px;
+        }
+
+        #box2 {
+            position: fixed;
+            width: 600px;
+            text-align: center;
+            height: 60px;
+            line-height: 60px;
+            z-index: 2;
+            left: 0;
+            right: 0;
+            margin: auto;
+            bottom: 10px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">
+        <form class="layui-form">
+            <div class="demo-login-container">
+                <div style="height: 40px;line-height: 40px;text-align: center;font-size: 18px;padding-bottom: 15px;">
+                    <img src="http://101.34.139.112/static/img/logo.67745850.png" style="width: 30px;height: 30px;">
+                    MyAdmin后台管理系统
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-wrap">
+                        <div class="layui-input-prefix">
+                            <i class="layui-icon layui-icon-username"></i>
+                        </div>
+                        <input id="username" type="text" name="username" value="" lay-verify="required"
+                            placeholder="用户名" lay-reqtext="请填写用户名" autocomplete="off" class="layui-input"
+                            lay-affix="clear">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-wrap">
+                        <div class="layui-input-prefix">
+                            <i class="layui-icon layui-icon-password"></i>
+                        </div>
+                        <input id="password" type="password" name="password" value="" lay-verify="required"
+                            placeholder="密   码" lay-reqtext="请填写密码" autocomplete="off" class="layui-input"
+                            lay-affix="eye">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-row">
+                        <div class="layui-col-xs7">
+                            <div class="layui-input-wrap">
+                                <div class="layui-input-prefix">
+                                    <i class="layui-icon layui-icon-vercode"></i>
+                                </div>
+                                <input type="text" name="captcha" value="" lay-verify="required" placeholder="验证码"
+                                    lay-reqtext="请填写验证码" autocomplete="off" class="layui-input" lay-affix="clear">
+                            </div>
+                        </div>
+                        <div class="layui-col-xs5">
+                            <div style="margin-left: 10px;">
+                                <img src="https://www.oschina.net/action/user/captcha"
+                                    onclick="this.src='https://www.oschina.net/action/user/captcha?t='+ new Date().getTime();">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <input type="checkbox" name="remember" lay-skin="primary" title="记住密码">
+                    <a href="#forget" style="float: right; margin-top: 7px;">忘记密码？</a>
+                </div>
+                <div class="layui-form-item">
+                    <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="demo-login"
+                        style="border-radius: 20px !important;">登录</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="box2">Copyright © 2020 Fan chun de. All Rights Reserved.</div>
+    <div id="box">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper swiper-no-swiping">
+                <div class="swiper-slide">
+                    <img src="https://w.wallhaven.cc/full/gp/wallhaven-gp2g8l.png">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://w.wallhaven.cc/full/85/wallhaven-85dzjo.png">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://w.wallhaven.cc/full/m3/wallhaven-m32q59.png">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://w.wallhaven.cc/full/ex/wallhaven-exepzk.jpg">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://w.wallhaven.cc/full/qz/wallhaven-qzgygr.jpg">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+
+        layui.use(function () {
+
+            var form = layui.form;
+            var layer = layui.layer;
+            // 提交事件
+            form.on('submit(demo-login)', function (data) {
+
+                var field = data.field; // 获取表单字段值
+                // 显示填写结果，仅作演示用
+                console.log(field);
+                if (field.username == "admin" && field.password == "123456") {
+                    alert("登陆成功")
+                    window.location.href = '用户信息页面.html';
+                } else {
+                    alert("登陆失败")
+                    window.location.reload()
+                }
+                return false; // 阻止默认 form 跳转
+            });
+        });
+
+
+
+    </script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            centeredSlides: true,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+        });
+    </script>
+</body>
+
+</html>

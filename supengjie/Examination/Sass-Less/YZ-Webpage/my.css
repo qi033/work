@@ -823,7 +823,7 @@
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
   display: inline;
-  position: absolute;
+  position: fixed;
   float: left;
   cursor: pointer;
 }
@@ -848,17 +848,18 @@
 
 #toggleButton1 {
   left: 0;
-  top: 100%;
+  top: 35%;
 }
 
 #toggleButton2 {
   left: 0;
-  top: 120%;
+  top: 42%;
 }
 
 #toggleButton3 {
   left: 0;
-  top: 140%;
+  top: 49%;
 }
+
 
 /*# sourceMappingURL=my.css.map */
