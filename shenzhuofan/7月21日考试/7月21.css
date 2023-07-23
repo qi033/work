@@ -60,12 +60,14 @@ a{
 .backimg{
     width:100%;
     height: 100%;
+    background-color: black;
     position:absolute;
     top: 0;
     left: 0;
     z-index: 20;
 }
 .backimg img{
-    width:100%;
-    height: 100%;
+    width: 500px;
+    position: absolute;
+    transform: translate(115%,50%);
 }
