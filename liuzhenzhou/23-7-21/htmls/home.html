@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link href="//cdn.staticfile.org/layui/2.8.11/css/layui.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/home_page.css">
+</head>
+<body>
+<script src="../node_modules/layui/dist/layui.js"></script>
+        <ul class="layui-nav layui-nav-tree layui-nav-side">
+          <li class="layui-nav-item li1" style="height:50px;">
+            <img src="http://101.34.139.112/static/img/logo.67745850.png" width="25px" height="25px">
+            <span style="font-weight: bold;">WyAdmin</span>
+        </li>
+          <li class="layui-nav-item layui-this sou"> <a href="#"><i class="layui-icon layui-icon-console"></i>&emsp;首页</a></li>
+          <li class="layui-nav-item">
+            <a href="javascript:;"> <i class="layui-icon layui-icon-read"></i>&emsp;系统管理</a>
+            <dl class="layui-nav-child">
+              <dd class="guan"><a href="javascript:#;">用户管理</a></dd>
+              <dd><a href="javascript:#;">角色管理</a></dd>
+              <dd><a href="javascript:#;">部门管理</a></dd>
+              <dd><a href="javascript:#;">菜单管理</a></dd>
+              <dd><a href="javascript:#;">业务管理</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item">
+             <a href="javascript:;"><i class="layui-icon layui-icon-chart-screen"></i>&emsp;系统监控</a>
+            <dl class="layui-nav-child">
+              <dd><a href="#">日志监控</a></dd>
+              <dd class="xing"><a href="#">服务监控</a></dd>
+              <dd><a href="#">数据源监控</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item">
+            <a href="javascript:;"><i class="layui-icon layui-icon-tabs"></i>&emsp;系统工具</a>
+            <dl class="layui-nav-child">
+              <dd><a href="#">代码生成</a></dd>
+              <dd><a href="#">接口文档</a></dd>
+              <dd><a href="#">图标</a></dd>
+              <dd><a href="#">图表</a></dd>
+              <dd><a href="#">地图</a></dd>
+              <dd><a href="#">常用组件</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item">
+             <a href="javascript:;"><i class="layui-icon layui-icon-friends"></i>&emsp;工作流</a>
+            <dl class="layui-nav-child">
+              <dd><a href="#">模型管理</a></dd>
+              <dd><a href="#">流程管理</a></dd>
+              <dd><a href="#">待办任务</a></dd>
+              <dd><a href="#">已办任务</a></dd>
+              <dd><a href="#">运行中流程</a></dd>
+              <dd><a href="#">已结束流程</a></dd>
+            </dl>
+          </li>
+        </ul>
+        <div class="box1">
+          <div class="svgs">
+            <svg data-v-1d8d6039="" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="hamburger is-active"><path data-v-1d8d6039="" d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM142.4 642.1L298.7 519a8.84 8.84 0 0 0 0-13.9L142.4 381.9c-5.8-4.6-14.4-.5-14.4 6.9v246.3a8.9 8.9 0 0 0 14.4 7z"></path></svg>
+          </div>
+            <span>首页</span>
+                 <ul class="layui-nav layui-layout-right">
+                         <li class="layui-nav-item layui-hide layui-show-sm-inline-block li2">
+                            <a href="#">
+                                <img src="	http://101.34.139.112/api/resources/img/avatar/avatar1.jpg">
+                                <span>管理员</span>
+                            <span id="username"></span>
+                           </a>
+                           <dl class="layui-nav-child">
+                              <dd><a href="javascript:;" id="signOut">退出登录</a></dd>
+                           </dl>
+                         </li>
+                         <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
+                         </li>
+                        </ul>
+            </div>
+            <div class="box2">
+                <div class="layui-tab" lay-allowclose="true">
+                    <ul class="layui-tab-title">
+                      <li class="layui-this">首页</li>
+                    </ul>
+                    <div class="layui-tab-content">
+                      <div class="layui-tab-item layui-show home">
+                        <div class="group-row">
+                            <div class="card-panle" id="yong">
+                                <div class="leftcard">
+                                    <span>用户登录量</span>
+                                    <span>49</span>
+                                </div>
+                                <div class="rightcard">
+                                   <div>
+                                    <i  class="layui-icon layui-icon-username i1"></i>
+                                   </div>
+                                </div>
+                            </div>
+                            <div class="card-panle" id="jie">
+                                <div class="leftcard">
+                                    <span>接口请求量</span>
+                                    <span>408</span>
+                                </div>
+                                <div class="rightcard">
+                                   <div>
+                                    <i class="layui-icon layui-icon-release i1"></i>
+                                   </div>
+                                </div>
+                            </div>
+                            <div class="card-panle" id="ipliang">
+                                <div class="leftcard">
+                                    <span>ip登录量</span>
+                                    <span>4</span>
+                                </div>
+                                <div class="rightcard">
+                                   <div>
+                                     <i class="layui-icon layui-icon-website i1"></i></i>
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="echarts1">
+                    <div id="main" style="width: 100%;height:400px;"></div>
+                  </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div id="popupContainer">
+              <div id="popupContent">
+                <h4>
+                  <svg t="1689943411694" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6563" width="24" height="24"><path d="M512 512m-403.2 0a403.2 403.2 0 1 0 806.4 0 403.2 403.2 0 1 0-806.4 0Z" fill="#F9D65D" p-id="6564"></path><path d="M512 608c-19.2 0-38.4-19.2-38.4-38.4V288c0-19.2 19.2-38.4 38.4-38.4s38.4 19.2 38.4 38.4V576c0 12.8-19.2 32-38.4 32z" fill="#FFFFFF" p-id="6565"></path><path d="M512 736m-44.8 0a44.8 44.8 0 1 0 89.6 0 44.8 44.8 0 1 0-89.6 0Z" fill="#FFFFFF" p-id="6566"></path></svg>&emsp;通知
+                <a href="#" id="acuo">×</a>
+                </h4>
+                <p>由于服务器变更，新的演示地址为：<br>
+                  <a class="a1">http://101.34.139.112/</a>，旧的演示地址<br>
+                  <a class="a2">（http://8.129.86.120/）</a>将在2021/11关<br>
+                  闭</p>
+              </div>
+            </div>
+</body>
+<script src="../js/jquery.js"></script>
+<script src="//cdn.staticfile.org/layui/2.8.11/layui.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script src="../js/content.js"></script>
+<script>
+  $("#signOut").on("click", function(){
+   if (confirm("是否要退出")) {
+    window.location.href = "./register.html";
+   }
+  })
+  window.addEventListener('load', function() {
+  var popupContainer = document.getElementById('popupContainer');
+  popupContainer.style.display = 'block';
+});
+$("#acuo").on("click", function(){
+  $("#popupContainer").css("display", 'none');
+})
+</script>
+</html>

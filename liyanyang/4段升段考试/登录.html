@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Link Swiper's CSS -->
+    <script src="./jquery.js"></script>
+    <link rel="stylesheet" href="./login.css" />
+    <link rel="stylesheet" href="./swiper-bundle.min.css" />
+    <script src="./swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/layui@2.6.8/dist/layui.js"></script>
+  </head>
+  <body>
+    <div class="loading"></div>
+    <div class="login">
+      <div class="top">
+        <div>
+          <img
+            src="http://101.34.139.112/static/img/logo.67745850.png"
+            alt=""
+            width="25px"
+            height="25px"
+          />MyAdmin后台管理系统
+        </div>
+      </div>
+      <div class="content">
+        <form>
+          <div id="box">
+            <br /><svg
+              t="1684973160572"
+              class="icon"
+              viewBox="0 0 1024 1024"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              p-id="1468"
+              width="28"
+              height="28"
+            >
+              <path
+                d="M904.4 346.2c-21.5-50.7-52.2-96.3-91.3-135.4-39.1-39.1-84.6-69.8-135.4-91.3C625.3 97.4 569.5 86.1 512 86.1s-113.3 11.3-165.8 33.5c-50.7 21.5-96.3 52.2-135.4 91.3-39.1 39.1-69.8 84.6-91.3 135.4C97.4 398.7 86.1 454.5 86.1 512c0 57.5 11.3 113.3 33.5 165.8 21.5 50.7 52.2 96.3 91.3 135.4 39.1 39.1 84.6 69.8 135.4 91.3 52.5 22.2 108.3 33.5 165.8 33.5s113.3-11.3 165.8-33.5c50.7-21.5 96.3-52.2 135.4-91.3 39.1-39.1 69.8-84.6 91.3-135.4 22.2-52.5 33.5-108.3 33.5-165.8-0.2-57.5-11.5-113.3-33.7-165.8zM770.7 770.7c-69.1 69.1-161 107.2-258.7 107.2s-189.6-38.1-258.7-107.2-107.2-161-107.2-258.7 38.1-189.6 107.2-258.7 161-107.2 258.7-107.2 189.6 38.1 258.7 107.2 107.2 161 107.2 258.7-38.1 189.6-107.2 258.7z"
+                fill="#666666"
+                p-id="1469"
+              ></path>
+              <path
+                d="M618.9 552.8c47.3-33.6 78.2-88.7 78.2-151 0-102-83-185.1-185.1-185.1s-185.1 83-185.1 185.1c0 62.3 30.9 117.4 78.2 151-67.5 32.9-118.4 96-133.4 173.5-3.1 16.3 7.5 32 23.8 35.1 1.9 0.4 3.8 0.5 5.7 0.5 14.1 0 26.7-10 29.4-24.3 16.7-86.6 93-149.5 181.3-149.5 88.4 0 164.6 62.9 181.3 149.5 3.1 16.3 18.9 26.9 35.1 23.8 16.3-3.1 26.9-18.9 23.8-35.1-14.8-77.6-65.7-140.7-133.2-173.5zM512 276.7c69 0 125.1 56.1 125.1 125.1s-56.1 125-125.1 125-125.1-56.1-125.1-125.1 56.1-125 125.1-125z"
+                fill="#666666"
+                p-id="1470"
+              ></path>
+            </svg>
+            用户名:<input
+              type="text"
+              id="tet"
+              placeholder="请输入用户名"
+            /><span></span><br />
+            <br /><svg
+              t="1684973408588"
+              class="icon"
+              viewBox="0 0 1024 1024"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              p-id="9286"
+              width="28"
+              height="28"
+            >
+              <path
+                d="M510.362 995.587c-269.967 0-489.609-219.642-489.609-489.595s219.642-489.609 489.609-489.609 489.595 219.642 489.595 489.609-219.628 489.595-489.595 489.595zM510.362 57.344c-247.385 0-448.649 201.25-448.649 448.649s201.264 448.635 448.649 448.635 448.635-201.25 448.635-448.635-201.264-448.649-448.635-448.649z"
+                fill="#8a8a8a"
+                p-id="9287"
+              ></path>
+              <path
+                d="M707.092 797.082h-393.475c-33.874 0-61.44-27.566-61.44-61.44v-230.386c0-33.874 27.566-61.44 61.44-61.44h393.475c33.874 0 61.44 27.566 61.44 61.44v230.386c0 33.888-27.566 61.44-61.44 61.44zM313.617 484.775c-11.292 0-20.48 9.188-20.48 20.48v230.386c0 11.292 9.188 20.48 20.48 20.48h393.475c11.292 0 20.48-9.188 20.48-20.48v-230.386c0-11.292-9.188-20.48-20.48-20.48h-393.475z"
+                fill="#8a8a8a"
+                p-id="9288"
+              ></path>
+              <path
+                d="M653.148 484.625h-306.067v-126.948c0-90.030 73.236-163.28 163.266-163.28s163.28 73.25 163.28 163.28v7.55h-40.96v-7.55c0-67.447-54.873-122.32-122.32-122.32-67.434 0-122.306 54.873-122.306 122.32v85.988h265.107v40.96z"
+                fill="#8a8a8a"
+                p-id="9289"
+              ></path>
+            </svg>
+            密&emsp;码:<input
+              type="password"
+              id="pas"
+              placeholder="请输入密码"
+            /><span></span><br />
+            <br />
+            &emsp;&emsp;<svg
+              t="1684973341458"
+              class="icon"
+              viewBox="0 0 1024 1024"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              p-id="6229"
+              width="28"
+              height="28"
+            >
+              <path
+                d="M512 150.84C584.07 219.89 689.35 247 808.2 277.6c6.85 1.76 13.79 3.55 20.8 5.36v107.98c0 60.37-8.2 121.12-24.38 180.57-15.81 58.09-38.31 111.62-66.86 159.11-28.26 47-60.78 85.24-96.64 113.65-35.34 28-72.49 45.13-110.43 50.92l-15.97 2.44-20.7-3.11c-38.02-5.72-75.25-22.8-110.67-50.77-35.94-28.38-68.53-66.61-96.86-113.63-28.63-47.5-51.18-101.07-67.04-159.2C203.23 511.42 195 450.6 195 390.16V282.97c7.01-1.82 13.96-3.6 20.81-5.37C334.66 247 439.94 219.89 512 150.84m0-89.19c-5.69 0-11.38 2.74-15.06 8.21-63.6 94.8-190.94 117.22-352.06 160.08-8.16 2.17-13.88 9.84-13.88 18.65v141.58c0 268.29 150.63 537.14 353.51 567.64l30.28 4.55 25.55-3.9C742.83 927.57 893 658.9 893 390.95V248.59c0-8.81-5.73-16.48-13.88-18.65C718 187.08 590.66 164.66 527.06 69.86c-3.67-5.48-9.37-8.21-15.06-8.21z"
+                p-id="6230"
+                fill="#707070"
+              ></path>
+              <path
+                d="M504.15 654.85a32.03 32.03 0 0 1-22.42-9.16L326.21 493.02c-12.61-12.38-12.8-32.64-0.42-45.25s32.64-12.8 45.25-0.42l131.78 129.36 192.86-212.37c11.88-13.08 32.12-14.06 45.2-2.18 13.08 11.88 14.06 32.12 2.18 45.2l-215.23 237a32 32 0 0 1-22.77 10.47c-0.3 0.02-0.61 0.02-0.91 0.02z"
+                p-id="6231"
+                fill="#707070"
+              ></path>
+            </svg>
+            验证码:<input type="text" id="yzm" placeholder="请输入验证码" />
+            &emsp;&emsp;<br /><br /><a id="btn" onclick="fun()"
+              >点击生成验证码</a
+            ><span id="arr1"></span><br /><br />
+            <span id="sp">
+              记住我: <input type="checkbox" name="" id="jz" /></span
+            ><br /><br />
+            <button type="submit" id="sub">登录</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="http://cdfan.gitee.io/myadmin-resources/img/login-background1.png"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="http://cdfan.gitee.io/myadmin-resources/img/login-background2.png"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="http://cdfan.gitee.io/myadmin-resources/img/login-background3.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- 轮播图 -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
+      simulateTouch: false, //禁止鼠标模拟
+    });
+  </script>
+  <!-- 功能 -->
+  <script>
+    var tetObj = document.getElementById("tet");
+    var spaObj = document.getElementsByTagName("span");
+    var oneObj = false;
+    tetObj.onchange = function () {
+      let reg = "admin";
+      if (reg != tetObj.value) {
+        spaObj[0].innerHTML = "X";
+        spaObj[0].style.color = "red";
+        oneObj = false;
+      } else {
+        spaObj[0].innerHTML = "√";
+        spaObj[0].style.color = "green";
+        oneObj = true;
+      }
+    };
+    //密码
+    var pasObj = document.getElementById("pas");
+    var twoObj = false;
+    pasObj.onchange = function () {
+      let reg1 = 123456;
+      if (reg1 != pasObj.value) {
+        spaObj[1].innerHTML = "X";
+        spaObj[1].style.color = "red";
+        twoObj = false;
+      } else {
+        spaObj[1].innerHTML = "√";
+        spaObj[1].style.color = "green";
+        twoObj = true;
+      }
+    };
+    //验证码
+    var btnObj = document.getElementById("btn");
+    var yzmObj = document.getElementById("yzm");
+    var fiveObj = false;
+    let timer = null;
+    flag = true;
+    function fun() {
+      if (!flag) {
+        return;
+      }
+      if (timer) {
+        clearInterval(timer);
+      }
+      flag = false;
+      let i = 60;
+      spaObj[2].innerHTML = Math.floor(Math.random() * 10000);
+      timer = setInterval(function () {
+        btnObj.innerHTML = --i + "s后重新发送";
+        if (i == 0) {
+          clearInterval(timer);
+          btnObj.innerHTML = "发送验证码";
+          flag = true;
+        }
+      }, 1000);
+    }
+    yzmObj.onchange = function () {
+      if (yzmObj.value != spaObj[2].innerHTML) {
+        spaObj[2].innerHTML = "X";
+        spaObj[2].style.color = "red";
+        fiveObj = false;
+      } else {
+        spaObj[2].innerHTML = "√";
+        spaObj[2].style.color = "green";
+        fiveObj = true;
+      }
+    };
+    var subObj = document.getElementById("sub");
+    subObj.onclick = function () {
+      if (oneObj == true && twoObj == true && fiveObj == true) {
+        alert("登录成功");
+        window.open("页面.html");
+
+        return true;
+      } else {
+        alert("信息不规范");
+        return false;
+      }
+    };
+    window.onload = function () {
+      setTimeout(function () {
+        $("bdy");
+      }, 3000);
+    };
+  </script>
+  <!-- 动画 -->
+  <script>
+    window.onload = function () {
+      var loading = document.querySelector(".loading");
+      loading.style.opacity = 0;
+      setTimeout(function () {
+        loading.style.display = "none";
+      }, 3000);
+    };
+  </script>
+</html>

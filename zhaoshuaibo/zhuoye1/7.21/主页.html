@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>管理界面</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- 引入 layui.css -->
+    <!-- 引入 layui.css -->
+    <link href="//unpkg.com/layui@2.8.6/dist/css/layui.css" rel="stylesheet" />
+    <!-- 引入 layui.js -->
+    <script src="//unpkg.com/layui@2.8.6/dist/layui.js"></script>
+    <!-- 引入图表 -->
+       <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.2/echarts.common.js"></script>
+       <script src="./js/浏览统计.js"></script>
+
+  <style>
+    .layui-card-body {
+      height: 800px;
+    }
+    .top{
+      height: 120px;
+      display: flex;
+      flex-wrap: wrap;
+      
+    }
+      #h1 {
+      margin: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      width: 31%;
+      border-radius: 5px;
+      background-color: #ffffff;
+  
+    }
+    .h1 {
+      width: 70%;
+  
+    }
+    .h2 {
+      width: 30%;
+      font-size: 18px;
+      font-weight: bolder;
+       padding-top: 20px;
+     
+    }
+    #h2 {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 10px;
+      width: 31%;
+      border-radius: 5px;
+      background-color: #ffffff;
+    }
+    .j1 {
+      width: 70%;
+      
+    }
+    .j2 {
+      width: 30%;
+      font-size: 18px;
+      font-weight: bolder;
+       padding-top: 20px;
+    }
+    #h3 {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 10px;
+      width: 31%;
+      border-radius: 5px;
+      background-color: #ffffff;
+    
+    }
+    #h1:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    #h2:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    #h3:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .k1 {
+      width: 70%;
+    }
+    .k2 {
+      width: 30%;
+      font-size: 18px;
+      font-weight: bolder;
+       padding-top: 20px;
+    }
+    p {
+      color: rgb(91, 91, 91);
+    }
+    span:hover {
+      color: green;
+    }
+    .h1,
+    .j1,
+    .k1 {
+      position: relative;
+      left: 30px;
+      margin-top: 15px;
+    }
+    #loge2{
+        z-index: 100;
+        width: 100%;
+    }
+  </style>
+  <body>
+    <div class="layui-layout layui-layout-admin">
+      <div class="layui-header">
+        <div class="layui-logo layui-hide-xs layui-bg-black">
+          <img
+            src="http://101.34.139.112/static/img/logo.67745850.png"
+            class="layui-nav-img"
+          />
+          MyAdmin
+        </div>
+        <!-- 头部区域（可配合layui 已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+          <!-- 移动端显示 -->
+          <li
+            class="layui-nav-item layui-show-xs-inline-block layui-hide-sm"
+            lay-header-event="menuLeft"
+          >
+            <i class="layui-icon layui-icon-spread-left"></i>
+          </li>
+          <li class="layui-nav-item layui-hide-xs" data-url="echarts.html">
+            <a href="javascript:;">首页</a>
+          </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+          <li class="layui-nav-item layui-hide layui-show-sm-inline-block">
+            <a href="javascript:;">
+              <img src="http://101.34.139.112/static/img/logo.67745850.png" class="layui-nav-img" style="width: 3vh; height: 3vh;" />
+              Admin
+            </a>
+            <dl class="layui-nav-child">
+              <dd><a href="#" id="btn10">退出登录</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
+            <a href="javascript:;">
+              <i class="layui-icon layui-icon-more-vertical"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+          <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+          <ul class="layui-nav layui-nav-tree" lay-filter="test">
+            <li class="layui-nav-item layui-nav-itemed" data-url="echarts.html">
+              <a class="" href="javascript:;">首页</a>
+            </li>
+            <li class="layui-nav-item">
+              <a href="javascript:;">系统管理</a>
+              <dl class="layui-nav-child">
+                <dd data-url="user.html">
+                  <a href="javascript:;">用户管理</a>
+                </dd>
+                <dd data-url="login.html">
+                  <a href="javascript:;">角色管理</a>
+                </dd>
+                <dd><a href="javascript:;">部门管理</a></dd>
+                <dd><a href="javascript:;">菜单管理</a></dd>
+                <dd><a href="javascript:;">业务管理</a></dd>
+              </dl>
+            </li>
+            <li class="layui-nav-item" data-url="shuju.html">
+              <a href="javascript:;">系统监控</a>
+            </li>
+            <li class="layui-nav-item">
+              <a href="javascript:;">系统工具</a>
+              <dl class="layui-nav-child">
+                <dd><a href="javascript:;">用户管理</a></dd>
+                <dd><a href="javascript:;">角色管理</a></dd>
+              </dl>
+            </li>
+            <li class="layui-nav-item">
+              <a href="javascript:;">工作流</a>
+              <dl class="layui-nav-child">
+                <dd><a href="javascript:;">用户管理</a></dd>
+                <dd><a href="javascript:;">角色管理</a></dd>
+              </dl>
+            </li>
+            <li class="layui-nav-item">
+              <a href="javascript:;">业务管理</a>
+              <dl class="layui-nav-child">
+                <dd><a href="javascript:;">用户管理</a></dd>
+                <dd><a href="javascript:;">角色管理</a></dd>
+              </dl>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px">
+          <blockquote class="layui-elem-quote layui-text">
+            Layui 框体布局内容主体区域
+          </blockquote>
+          <!-- <div class="layui-card layui-panel">
+            <div class="layui-card-body">
+              <iframe
+                class="layui-card-body"
+                id="ifrm"
+                style="width: 100%; height: 100%"
+                src="echarts.html"
+                frameborder="0"
+              >
+              </iframe>
+            </div>
+          </div> -->
+  <div class="top">
+    <div id="h1" onclick="btn1()">
+        <div class="h1">
+          <img src="./img/1.png" alt="" />
+        </div>
+        <div class="h2">
+          <p>用户登录量</p>
+          <span class="a" id="busuanzi_container_site_uv">1</span>
+        </div>
+      </div>
+      <div id="h2" onclick="btn2()">
+        <div class="j1">
+          <img src="./img/2.png" alt="" />
+        </div>
+        <div class="j2">
+          <p>接口请求量</p>
+          <span class="a" id="busuanzi_value_site_uv"></span>
+        </div>
+      </div>
+      <div id="h3" onclick="btn3()">
+        <div class="k1">
+          <img src="./img/3.png" alt="" />
+        </div>
+        <div class="k2">
+          <p>总访问量</p>
+          <span class="a" id="busuanzi_container_site_uv">1</span>
+        </div>
+      </div>
+    </div>
+    <!-- 图表 -->
+      <div class="no1">
+        <div
+          id="main"
+          style="
+            width: 90%;
+            height: 60vh;
+            background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+            margin: 10px 20px;
+          "
+        ></div>
+        <script type="text/javascript">
+          // var echarts = require("echarts");
+           let sun1=[3, random(1, 6), random(3, 9), random(6, 13),random(9, 17) , random(13, 21), random(17, 24), random(25, 27), random(20, 30), random(10, 25),random(9, 18),random(1, 10)],
+           sun2=[ 5, random(1, 15), random(1, 15), random(1, 15),random(1, 15) , random(1, 15), random(1, 15), random(1, 15), random(1, 15), random(1, 15),random(1, 15),random(5, 10)];
+           $(function(){
+            fun()
+           })
+           function btn1(){
+            let a=[4,8,5,7,8,10,13],
+              n=[6,8,2,3,6,12,7]
+             fun(a,n)
+           }
+           function btn2(){
+            let a=[1,3,5,7,18,10,7],
+              n=[9,2,4,3,5,2,7]
+             fun(a,n)
+           }
+           function btn3(){
+            let a=[12,10,5,7,7,10,19],
+              n=[2,8,6,13,10,12,5]
+             fun(a,n)
+           }
+           //随机数
+           function random(min, max) {
+                  return Math.floor(Math.random() * (max - min + 1) + min);
+                       // return Math.random() * (max - min + 1) + min;
+                                      }
+
+         function fun(a=sun1,b=sun2){
+             var chartDom = document.getElementById("main");
+          var myChart = echarts.init(chartDom);
+          var option;
+         
+          option = {
+            tooltip: {
+              trigger: "axis",
+              axisPointer: {
+                type: "cross",
+                crossStyle: {
+                  color: "#999",
+                },
+              },
+            },
+            //标题显示
+            legend: {
+              data: ["本周", "上周", ],
+            },
+            //底部显示器
+            xAxis: [
+              {
+                type: "category",
+                data: ["星期六", "星期天", "星期一", "星期二", "星期三", "星期四", "今天"],
+                axisPointer: {
+                  type: "shadow",
+                },
+              },
+            ],
+            //左边显示范围
+            yAxis: [
+              {
+                type: "value",
+                name: "",
+                min: 0,
+                max: 35,
+                interval: 5,
+                axisPointer: {
+                  type: "shadow",
+                },
+              },
+              //右边显示范围
+              {
+                type: "value",
+                name: "",
+                min: 0,
+                max: 35,
+                interval: 0,
+                axisLabel: {
+                  formatter: "",
+                },
+              },
+            ],
+            series: [
+            
+              {
+                name: "本周",
+                type: "line",
+                tooltip: {
+                  valueFormatter: function (value) {
+                    return value + " ";
+                  },
+                },
+                data: a,
+              },
+              {
+                name: "上周",
+                type: "line",
+                yAxisIndex: 1,
+                tooltip: {
+                  valueFormatter: function (value) {
+                    return value + " ";
+                  },
+                },
+                data:b,
+              },
+            ],
+          };
+
+          option && myChart.setOption(option);
+         }
+        </script>
+    
+  
+      </div>
+        </div>
+      </div>
+      <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        底部固定区域
+      </div>
+    </div>
+      <img src="./img/2955f06d0f28da8ed9e30789aa021747.gif" alt="" id="loge2">
+    <script>
+      //JS
+      layui.use(["element", "layer", "util"], function () {
+        var element = layui.element;
+        var layer = layui.layer;
+        var util = layui.util;
+        var $ = layui.$;
+        //头部事件
+        util.event("lay-header-event", {
+          menuLeft: function (othis) {
+            // 左侧菜单事件
+            layer.msg("展开左侧菜单的操作", { icon: 0 });
+          },
+          menuRight: function () {
+            // 右侧菜单事件
+            layer.open({
+              type: 1,
+              title: "更多",
+              content: '<div style="padding: 15px;">处理右侧面板的操作</div>',
+              area: ["260px", "100%"],
+              offset: "rt", //右上角
+              anim: "slideLeft",
+              shadeClose: true,
+              scrollbar: false,
+            });
+          },
+        });
+      });
+    </script>
+    <script>
+      $(function () {
+
+       $("#loge2").hide()
+        //给li点击事件
+        $("dd").click(liFun);
+        $("li").click(liFun);
+        $("#btn10").click(function(e){
+             e.preventDefault()
+             setInterval(()=>{
+                 location.href="./登录.html"
+             },3000)
+              $(".layui-layout").hide()
+               $("#loge2").show()
+            
+        })
+      });
+      function liFun() {
+        let url = $(this).attr("data-url");
+        
+        $("#ifrm").prop("src", url);
+      }
+    </script>
+  </body>
+</html>

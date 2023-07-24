@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Swiper JS -->
+    <script src="./swiper/swiper-bundle.min.js"></script>
+    <!-- Swiper css -->
+    <link rel="stylesheet" href="./swiper/swiper-bundle.min.css">
+    <script src="./Layui/node_modules/layui/dist/layui.js"></script>
+    <link rel="stylesheet" href="./Layui/node_modules/layui/dist/css/layui.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
+<script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+    <style>
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        .layui-form {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: 1;
+            width: 430px;
+            height: 390px;
+            border-radius: 5px;
+            background-color: rgb(255, 255, 255);
+        }
+    </style>
+    <!-- Latui css -->
+    <style>
+        h1 {
+            font-size: 18px;
+            color: gray;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .demo-login-container {
+            width: 320px;
+            margin: 27px auto 0;
+        }
+
+        #name {
+            position: absolute;
+            margin-top: -5px;
+            right: 0px;
+        }
+
+        #paw {
+            position: absolute;
+            margin-top: -5px;
+            right: 0px;
+        }
+
+        .layui-form-item {
+            margin-bottom: 23px;
+        }
+
+        .demo-login-other .layui-icon {
+            position: relative;
+            display: inline-block;
+            margin: 0 2px;
+            top: 2px;
+            font-size: 26px;
+        }
+
+        #cross {
+            color: red;
+            font-size: 20px;
+        }
+
+        #checkmark {
+            color: green;
+        }
+
+        #Code {
+            background-color: rgb(208, 208, 208) !important;
+            padding: 10px;
+            color: white;
+            font-weight: 600;
+            border-radius: 3px;
+        }
+    </style>
+    <style>
+        .loading {
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("./image/444.png");
+            background-size: 100%;
+            opacity: 1;
+            transition: opacity 15s ease-in-out;
+        }
+
+        .loading:before {
+            content: "";
+            box-sizing: border-box;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateY(0deg);
+            width: 80px;
+            height: 80px;
+            background-image: url("./image/555.png");
+            background-size: 100%;
+            border-top: 2px solid transparent;
+            border-radius: 15px;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: translateX(-240px) rotate(-540deg);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(150px) rotate(0deg);
+                opacity: 1;
+            }
+        }
+        @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&display=swap");
+
+    .char {
+        font-variation-settings: "wght" var(--weight, 100);
+        color: hsl(var(--hue), calc(var(--saturation) * 1%), 65%);
+    }
+        .loading-text {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 页面加载 -->
+    <div class="loading">
+        <div class="loading-text">页面加载中...</div>
+    </div>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img
+                    src="https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1640291700542-4daf357837d4?ixid=M3w0MjI2NjN8MHwxfHRvcGljfHw2c01WalRMU2tlUXx8fHx8Mnx8MTY4OTY2NjY4M3w&ixlib=rb-4.0.3&w=2560&h=1440&fmt=webp"
+                    alt=""></div>
+            <div class="swiper-slide"><img
+                    src="https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1688118935892-b40fbf3b5e69?ixid=M3w0MjI2NjN8MHwxfHRvcGljfHw2c01WalRMU2tlUXx8fHx8Mnx8MTY4OTgyNzU2M3w&ixlib=rb-4.0.3&w=2560&h=1440&fmt=webp"
+                    alt=""></div>
+            <div class="swiper-slide"><img
+                    src="https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1688153454230-a3a4d253df0a?ixid=M3wyNjY4NDZ8MHwxfHRvcGljfHw2c01WalRMU2tlUXx8fHx8Mnx8MTY4OTgzNDg5MHw&ixlib=rb-4.0.3&w=2560&h=1440&fmt=webp"
+                    alt=""></div>
+            <div class="swiper-slide"><img
+                    src="https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1687984351000-1afcdcfe5913?ixid=M3wyNjY4NDZ8MHwxfHRvcGljfHw2c01WalRMU2tlUXx8fHx8Mnx8MTY4OTg0NTI2NHw&ixlib=rb-4.0.3&w=2560&h=1440&fmt=webp"
+                    alt=""></div>
+            <div class="swiper-slide"><img
+                    src="https://dogefs.s3.ladydaily.com/~/source/unsplash/photo-1672243777342-0698e84a41fc?ixid=M3wyNjY4NDZ8MHwxfHRvcGljfHw2c01WalRMU2tlUXx8fHx8Mnx8MTY4OTQxNDIzOXw&ixlib=rb-4.0.3&w=2560&h=1440&fmt=webp"
+                    alt=""></div>
+        </div>
+    </div>
+
+    <form class="layui-form" onsubmit="return validateForm()">
+        <div class="demo-login-container">
+            <h1><img src="http://101.34.139.112/static/img/logo.67745850.png" width="25px" height="25px" alt="">
+                MyAdmin后台管理系统</h1>
+            <div class="layui-form-item">
+                <div class="layui-input-wrap">
+                    <div class="layui-input-prefix">
+                        <i class="layui-icon layui-icon-username"></i>
+                    </div>
+                    <input type="text" name="username" value="" lay-verify="required" id="username"
+                        onblur="checkUsername()" placeholder="用户名" lay-reqtext="请填写用户名" autocomplete="off"
+                        class="layui-input" lay-affix="clear">
+                    <span id="name"></span>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-wrap">
+                    <div class="layui-input-prefix">
+                        <i class="layui-icon layui-icon-password"></i>
+                    </div>
+                    <input type="password" name="password" value="" lay-verify="required" id="password"
+                        onblur="checkUserpassword()" placeholder="密   码" lay-reqtext="请填写密码" autocomplete="off"
+                        class="layui-input" lay-affix="eye">
+                    <span id="paw"></span>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-row">
+                    <div class="layui-col-xs7">
+                        <div class="layui-input-wrap">
+                            <div class="layui-input-prefix">
+                                <i class="layui-icon layui-icon-vercode"></i>
+                            </div>
+                            <input type="text" name="captcha" value="" lay-verify="required"
+                                onblur="checkVerificationCode()" id="verificationCode" placeholder="验证码"
+                                lay-reqtext="请填写验证码" autocomplete="off" class="layui-input" lay-affix="clear">
+                        </div>
+                    </div>
+                    <div class="layui-col-xs5">
+                        <div style="margin-left: 10px; margin-top: 10px;">
+                            <span id="Code" data-splitting="chars"></span>
+                            <i id="span">&nbsp;&nbsp;&nbsp;</i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <input type="checkbox" name="remember" lay-skin="primary" title="记住密码">
+            </div>
+            <div class="layui-form-item">
+                <button class="layui-btn layui-btn-fluid" type="submit" lay-submit lay-filter="demo-login">登录</button>
+            </div>
+        </div>
+    </form>
+    <script>
+        //页面加载时动画
+        window.onload = function () {
+            var loading = document.querySelector(".loading");
+            loading.style.opacity = 0;
+            setTimeout(function () {
+                loading.style.display = "none";
+            }, 3500);
+        };
+    </script>
+    <script>
+        //用户名
+        function checkUsername() {
+            var inputName = document.getElementById("username").value;
+            var correctName = "Admin"; // 正确的用户名
+            if (inputName === correctName) {
+                document.getElementById("name").innerHTML = '<span id="checkmark">&#10004;</span>';
+            } else {
+                document.getElementById("name").innerHTML = '<span id="cross">x</span>';
+            }
+        }
+        //密码
+        function checkUserpassword() {
+            var inputName = document.getElementById("password").value;
+            var correctName = "123456"; // 正确的密码
+            if (inputName === correctName) {
+                document.getElementById("paw").innerHTML = '<span id="checkmark">&#10004;</span>';
+            } else {
+                document.getElementById("paw").innerHTML = '<span id="cross">x</span>';
+            }
+        }
+        //验证码
+        function generateRandomCode() {
+            var code = "";
+            var codeLength = 4;  // 验证码长度
+            var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var charactersLength = characters.length;
+            for (var i = 0; i < codeLength; i++) {
+                code += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            return code;
+        }
+        window.onload = function () {
+            var randomCode = generateRandomCode();
+            document.getElementById("Code").innerHTML = randomCode;
+        }
+        function checkVerificationCode() {
+            var enteredCode = document.getElementById("verificationCode").value;
+            var displayedCode = document.getElementById("Code").innerHTML.replace("随机生成的验证码：", "");
+            if (enteredCode === displayedCode) {
+                document.getElementById("span").innerHTML += '<span id="checkmark">&#10004;</span>';
+                return;
+            } else {
+                if (enteredCode !== "") { // 只有在用户输入了验证码的情况下显示错误提示
+                    document.getElementById("span").innerHTML = '<span id="cross">x</span>';
+                } else { // 用户未输入验证码时清空结果
+                    document.getElementById("span").innerHTML = "";
+                }
+            }
+        }
+        //登录跳转
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var verificationCode = document.getElementById("verificationCode").value;
+            var displayedCode = document.getElementById("Code").value
+            // 进行登录验证
+            if (username === "Admin" && password === "123456") {
+                alert("登录成功！");
+                window.open("平台页面.html")
+            } else {
+                alert("用户名、密码或验证码错误，请重新输入！");
+                // 在这里添加停留在当前页面或其他处理逻辑
+            }
+        }
+    </script>
+    <script>
+        Splitting();
+        gsap.set('.char', {
+            '--hue': gsap.utils.distribute({
+                base: 0,
+                amount: 330,
+            })
+        })
+        gsap.to('.char', {
+            '--weight': 700,
+            '--saturation': 80,
+            ease: 'sine.inOut',
+            duration: 0.5,
+            stagger: {
+                yoyo: true,
+                repeat: -1,
+                each: 0.15,
+            }
+        }).time(20)
+    </script>
+</body>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        centeredSlides: false,
+        simulateTouch: false,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: false,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+
+</html>

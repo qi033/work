@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../common/jQuery/jquery-3.7.0.js"></script>
+    <link rel="stylesheet" href="../common/layui/css/layui.css">
+    <script src="../common/layui/layui.js"></script>
+    <script src="../common/echars/echarts.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .layui-layout .layui-header {
+            background-color: white !important;
+            color: black !important;
+        }
+
+        .layui-layout .layui-header,
+        /* .layui-layout .layui-header .layui-hide-xs li, */
+        .layui-layout .layui-header .layui-nav-item a {
+            color: black !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="box" style="width: 100%;height: 100%;z-index: 3;position: relative;">
+        <img src="http://101.34.139.112/static/img/login-loading.0e8edbca.gif"
+            style="z-index: 2;height: 100vh;position: absolute;left: 0;right: 0;margin: auto;">
+    </div> -->
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header" style="border-bottom: 1px solid rgb(219, 219, 219);">
+            <div class="layui-logo layui-hide-xs layui-bg-black" style="border-bottom: 1px solid rgb(51, 51, 51);">
+                <img src="http://101.34.139.112/static/img/logo.67745850.png"
+                    style="width: 20px;height: 20px;margin-right: 10px;">MyAdmin
+            </div>
+            <!-- 头部区域（可配合layui 已有的水平导航） -->
+            <ul class="layui-nav layui-layout-left" style="background-color:while !important;">
+                <!-- 移动端显示 -->
+                <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-header-event="menuLeft">
+                    <i class="layui-icon layui-icon-spread-left"></i>
+                </li>
+                <li class="layui-nav-item layui-hide-xs"><a href="javascript:;">首页</a></li>
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item layui-hide layui-show-sm-inline-block">
+                    <a href="javascript:;">
+                        <img src="//unpkg.com/outeres@0.0.10/img/layui/icon-v2.png" class="layui-nav-img">
+                        管理员
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd id="tui"><a href="./登陆页面.html">退出</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item"><a href="javascript:;">首页</a></li>
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">系统管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">用户管理</a></dd>
+                            <dd><a href="javascript:;">角色管理</a></dd>
+                            <dd><a href="javascript:;">部门管理</a></dd>
+                            <dd><a href="javascript:;">菜单管理</a></dd>
+                            <dd><a href="javascript:;">业务管理</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">系统监控</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">日志监控</a>
+                                <dl class="layui-nav-child">
+                                    <dd><a href="javascript:;">登录日志</a></dd>
+                                    <dd><a href="javascript:;">操作日志</a></dd>
+                                </dl>
+                            </dd>
+                            <dd><a href="javascript:;">服务监控</a></dd>
+                            <dd><a href="javascript:;">数据源监控</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">系统工具</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">代码生成</a></dd>
+                            <dd><a href="javascript:;">接口文档</a></dd>
+                            <dd><a href="javascript:;">图标</a>
+                                <dl class="layui-nav-child">
+                                    <dd><a href="javascript:;">图表</a>
+                                        <dl class="layui-nav-child">
+                                            <dd><a href="javascript:;">地图</a></dd>
+                                        </dl>
+                                    </dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">工作流</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">模型管理</a></dd>
+                            <dd><a href="javascript:;">流程管理</a></dd>
+                            <dd><a href="javascript:;">待办任务</a></dd>
+                            <dd><a href="javascript:;">已办任务</a></dd>
+                            <dd><a href="javascript:;">运行中流程</a></dd>
+                            <dd><a href="javascript:;">已结束流程</a></dd>
+                            <dd><a href="javascript:;">流量示例</a>
+                                <dl class="layui-nav-child">
+                                    <dd><a href="javascript:;">请假审批流演示</a></dd>
+                                    <dd><a href="javascript:;">购物流程业务流</a></dd>
+                                </dl>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">业务管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">示例</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="layui-body" style="background-color: rgb(210, 210, 210);">
+            <!-- 内容主体区域 -->
+            <div style="padding: 15px;">
+                <div style="width: 1250px;">
+                    <div class="w1"
+                        style="width: 250px;height: 100px;display: inline-block;background-color: rgb(255, 255, 255);margin-right: 17%;margin-left: 50px;">
+                        <div style="width: 50%;height: 100%;position: relative;float: left;">
+                            <svg style="position: absolute;left: 0;right: 0;margin: auto;" t="1689928079842"
+                                class="icon q1" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                p-id="3140" width="64" height="100">
+                                <path
+                                    d="M513.536 628.6336c101.6832 0 280.8832 38.7072 310.8864 193.7408 77.5168-77.5168 124.928-185.9584 124.928-305.0496 0-241.152-194.6624-435.8144-435.8144-435.8144S77.7216 277.0944 77.7216 517.2224c0 119.0912 47.4112 227.6352 124.928 306.0736 30.0032-154.9312 209.2032-194.6624 310.8864-194.6624z m0-439.7056c112.3328 0 204.3904 91.0336 204.3904 204.3904 0 112.3328-91.0336 204.3904-204.3904 204.3904a203.776 203.776 0 0 1-204.3904-204.3904c0.1024-112.4352 92.0576-204.3904 204.3904-204.3904z m0 0"
+                                    fill="#1296db" p-id="3141"></path>
+                                <path
+                                    d="M515.4816 1006.8992c-65.8432 0-129.8432-12.9024-189.952-38.4-58.1632-24.576-110.2848-59.8016-155.136-104.5504A485.56032 485.56032 0 0 1 65.8432 708.8128c-25.6-60.2112-38.5024-124.1088-38.5024-189.952 0-65.8432 12.9024-129.8432 38.4-189.952 24.576-58.1632 59.8016-110.2848 104.5504-155.136 44.8512-44.8512 96.9728-79.9744 155.136-104.5504C385.6384 43.6224 449.536 30.72 515.4816 30.72c65.8432 0 129.8432 12.9024 189.952 38.4 58.1632 24.576 110.2848 59.8016 155.136 104.5504 44.8512 44.8512 79.9744 96.9728 104.5504 155.136C990.6176 389.0176 1003.52 452.9152 1003.52 518.8608c0 65.8432-12.9024 129.8432-38.4 189.952-24.576 58.1632-59.8016 110.2848-104.5504 155.136a485.56032 485.56032 0 0 1-155.136 104.5504 484.39296 484.39296 0 0 1-189.952 38.4z m0-936.8576c-60.6208 0-119.3984 11.8784-174.6944 35.2256a447.76448 447.76448 0 0 0-142.6432 96.1536A444.42624 444.42624 0 0 0 101.9904 344.064a446.70976 446.70976 0 0 0-35.2256 174.6944c0 60.6208 11.8784 119.3984 35.2256 174.6944 22.6304 53.4528 54.9888 101.4784 96.1536 142.6432 41.1648 41.2672 89.1904 73.6256 142.6432 96.1536 55.296 23.3472 114.0736 35.2256 174.6944 35.2256 60.6208 0 119.3984-11.8784 174.6944-35.2256 53.4528-22.6304 101.4784-54.9888 142.6432-96.1536 41.2672-41.1648 73.6256-89.1904 96.1536-142.6432 23.3472-55.296 35.2256-114.0736 35.2256-174.6944 0-60.6208-11.8784-119.3984-35.2256-174.6944a447.76448 447.76448 0 0 0-96.1536-142.6432 444.42624 444.42624 0 0 0-142.6432-96.1536 447.44704 447.44704 0 0 0-174.6944-35.2256z m0 0"
+                                    fill="#1296db" p-id="3142"></path>
+                            </svg>
+                            <svg style="position: absolute;left: 0;right: 0;margin: auto;display: none;"
+                                t="1689943179530" class="icon q6" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="9912" width="64" height="100">
+                                <path
+                                    d="M513.536 628.6336c101.6832 0 280.8832 38.7072 310.8864 193.7408 77.5168-77.5168 124.928-185.9584 124.928-305.0496 0-241.152-194.6624-435.8144-435.8144-435.8144S77.7216 277.0944 77.7216 517.2224c0 119.0912 47.4112 227.6352 124.928 306.0736 30.0032-154.9312 209.2032-194.6624 310.8864-194.6624z m0-439.7056c112.3328 0 204.3904 91.0336 204.3904 204.3904 0 112.3328-91.0336 204.3904-204.3904 204.3904a203.776 203.776 0 0 1-204.3904-204.3904c0.1024-112.4352 92.0576-204.3904 204.3904-204.3904z m0 0"
+                                    fill="#e6e6e6" p-id="9913"></path>
+                                <path
+                                    d="M515.4816 1006.8992c-65.8432 0-129.8432-12.9024-189.952-38.4-58.1632-24.576-110.2848-59.8016-155.136-104.5504A485.56032 485.56032 0 0 1 65.8432 708.8128c-25.6-60.2112-38.5024-124.1088-38.5024-189.952 0-65.8432 12.9024-129.8432 38.4-189.952 24.576-58.1632 59.8016-110.2848 104.5504-155.136 44.8512-44.8512 96.9728-79.9744 155.136-104.5504C385.6384 43.6224 449.536 30.72 515.4816 30.72c65.8432 0 129.8432 12.9024 189.952 38.4 58.1632 24.576 110.2848 59.8016 155.136 104.5504 44.8512 44.8512 79.9744 96.9728 104.5504 155.136C990.6176 389.0176 1003.52 452.9152 1003.52 518.8608c0 65.8432-12.9024 129.8432-38.4 189.952-24.576 58.1632-59.8016 110.2848-104.5504 155.136a485.56032 485.56032 0 0 1-155.136 104.5504 484.39296 484.39296 0 0 1-189.952 38.4z m0-936.8576c-60.6208 0-119.3984 11.8784-174.6944 35.2256a447.76448 447.76448 0 0 0-142.6432 96.1536A444.42624 444.42624 0 0 0 101.9904 344.064a446.70976 446.70976 0 0 0-35.2256 174.6944c0 60.6208 11.8784 119.3984 35.2256 174.6944 22.6304 53.4528 54.9888 101.4784 96.1536 142.6432 41.1648 41.2672 89.1904 73.6256 142.6432 96.1536 55.296 23.3472 114.0736 35.2256 174.6944 35.2256 60.6208 0 119.3984-11.8784 174.6944-35.2256 53.4528-22.6304 101.4784-54.9888 142.6432-96.1536 41.2672-41.1648 73.6256-89.1904 96.1536-142.6432 23.3472-55.296 35.2256-114.0736 35.2256-174.6944 0-60.6208-11.8784-119.3984-35.2256-174.6944a447.76448 447.76448 0 0 0-96.1536-142.6432 444.42624 444.42624 0 0 0-142.6432-96.1536 447.44704 447.44704 0 0 0-174.6944-35.2256z m0 0"
+                                    fill="#e6e6e6" p-id="9914"></path>
+                            </svg>
+                        </div>
+                        <b class="q7" style="width: 50%; height: 100%;float: right;text-align: center;">
+                            <p style="margin-top: 20px;color: gray;">用户登录量</p>
+                            <b style="margin-top: 10px;display: block;">29</b>
+                        </b>
+                    </div>
+                    <div class="w2"
+                        style="width: 250px;height: 100px;display: inline-block;background-color: rgb(255, 255, 255);">
+                        <div style="position: relative;width: 50%;height: 100%;float: left;">
+                            <svg style="position: absolute;left: 0;right: 0;margin: auto;" t="1689942223089"
+                                class="icon q2" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                p-id="4462" width="64" height="100">
+                                <path
+                                    d="M1023.200312 43.682936L877.057399 920.640375c-1.899258 10.995705-8.096837 19.592347-18.292854 25.689965-5.29793 2.898868-11.295588 4.598204-17.693089 4.598204-4.19836 0-8.796564-0.99961-13.69465-2.898868l-236.707536-96.762202c-12.994924-5.29793-27.889106-1.499414-36.785631 9.296368l-123.251855 150.341273c-6.897306 8.796564-16.293635 13.094885-27.989066 13.094885-4.898087 0-9.096447-0.799688-12.695041-2.299102-7.197189-2.698946-12.994924-6.997267-17.393206-13.394768-4.398282-6.29754-6.697384-13.194846-6.697384-20.891839V811.083171c0-14.794221 5.098009-28.988676 14.394377-40.484186l478.912925-587.070676-602.864506 521.796174c-4.598204 3.898477-10.995705 4.998048-16.493557 2.698945L23.390863 619.358063C9.296369 614.060133 1.599375 603.664194 0.599766 587.870363c-0.799688-15.194065 5.29793-26.489652 18.292854-33.786802L968.921515 5.997657c5.797735-3.498633 11.795392-5.098009 18.292854-5.098008 7.696993 0 14.594299 2.199141 20.691918 6.397501 12.695041 8.996486 17.593128 21.291683 15.294025 36.385786z"
+                                    p-id="4463" fill="#1296db"></path>
+                            </svg>
+                            <svg style="position: absolute;left: 0;right: 0;margin: auto;display: none;"
+                                t="1689943110383" class="icon q5" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="7108" width="64" height="100">
+                                <path
+                                    d="M1023.200312 43.682936L877.057399 920.640375c-1.899258 10.995705-8.096837 19.592347-18.292854 25.689965-5.29793 2.898868-11.295588 4.598204-17.693089 4.598204-4.19836 0-8.796564-0.99961-13.69465-2.898868l-236.707536-96.762202c-12.994924-5.29793-27.889106-1.499414-36.785631 9.296368l-123.251855 150.341273c-6.897306 8.796564-16.293635 13.094885-27.989066 13.094885-4.898087 0-9.096447-0.799688-12.695041-2.299102-7.197189-2.698946-12.994924-6.997267-17.393206-13.394768-4.398282-6.29754-6.697384-13.194846-6.697384-20.891839V811.083171c0-14.794221 5.098009-28.988676 14.394377-40.484186l478.912925-587.070676-602.864506 521.796174c-4.598204 3.898477-10.995705 4.998048-16.493557 2.698945L23.390863 619.358063C9.296369 614.060133 1.599375 603.664194 0.599766 587.870363c-0.799688-15.194065 5.29793-26.489652 18.292854-33.786802L968.921515 5.997657c5.797735-3.498633 11.795392-5.098009 18.292854-5.098008 7.696993 0 14.594299 2.199141 20.691918 6.397501 12.695041 8.996486 17.593128 21.291683 15.294025 36.385786z"
+                                    p-id="7109" fill="#e6e6e6"></path>
+                            </svg>
+                        </div>
+                        <b class="q7" style="width: 50%; height: 100%;float: right;text-align: center;">
+                            <p style="margin-top: 20px;color: gray;">接口请求量</p>
+                            <b style="margin-top: 10px;display: block;">9</b>
+                        </b>
+                    </div>
+                    <div class="w3"
+                        style="width: 250px;height: 100px;float: right;background-color: rgb(255, 255, 255);">
+                        <div style="position: relative;width: 50%;height: 100%;float: left;">
+                            <svg style="position: absolute;left: 0;right: 0;margin: auto;" t="1689942461763"
+                                class="icon q3" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                p-id="5884" width="64" height="100">
+                                <path
+                                    d="M912.6 512.2c0-214.3-169.4-389.7-381.3-399.5V83.9c0-10.3-8.4-18.7-18.7-18.7-10.3 0-18.7 8.4-18.7 18.7v28.7C282 122.4 112.6 297.8 112.6 512.2c0 214.3 169.4 389.7 381.3 399.5v30.8c0 10.3 8.4 18.7 18.7 18.7 10.3 0 18.7-8.3 18.7-18.7v-30.8c211.9-9.8 381.3-185.3 381.3-399.5z m-78.9 123c-16.3-7.6-43.9-14.1-89.7-19.8 5.5-32.9 8.6-67.5 8.6-103.2 0-35.2-3-69.9-8.5-103.2 45.8-5.7 73.4-12.2 89.6-19.8 14.7 38.2 22.8 79.7 22.8 123 0.1 43.3-8.1 84.7-22.8 123zM569 851.4c-12.4 2.1-25 3.5-37.8 4.2V641c66 0.5 122.9 3.3 168.3 7.3C676.1 746 628.1 821.5 569 851.4zM325.6 648.3c45.5-4 102.3-6.9 168.3-7.3v214.6c-12.8-0.7-25.4-2.1-37.8-4.2-59-29.9-107-105.4-130.5-203.1z m-15.7-136.1c0-34 2.9-67.3 8.3-99.3 51.1 4.7 111.6 7.4 175.7 7.8v183c-64.1 0.5-124.7 3.2-175.8 7.9-5.3-31.6-8.2-65-8.2-99.4z m221.4 91.4v-183c64.1-0.4 124.6-3.1 175.7-7.8 5.4 32 8.3 65.4 8.3 99.3 0 34.5-2.9 67.8-8.2 99.4-51.2-4.7-111.7-7.4-175.8-7.9zM367.2 200.5c-4 5-8 10.1-11.8 15.5-6 8.4-4 20.1 4.4 26.1s20.1 4 26-4.4c21.3-30 45.7-52 71.5-65 12-1.9 24.2-3.3 36.6-4V238c0 10.3 8.4 18.7 18.7 18.7 10.3 0 18.7-8.4 18.7-18.7v-69.3c12.4 0.7 24.6 2.1 36.6 4 25.8 13 50.3 35 71.6 65 3.7 5.1 9.4 7.8 15.3 7.8 3.7 0 7.5-1.1 10.8-3.5 8.4-6 10.4-17.6 4.4-26-3.8-5.4-7.8-10.6-11.9-15.5 69.1 32.4 125.7 87 160.5 154.7-9.9 5.5-38.2 11.7-81.6 16.9-6.1-26-13.8-51-23.2-74.5-3.8-9.6-14.7-14.2-24.3-10.4-9.6 3.9-14.2 14.7-10.4 24.3 8.2 20.4 14.9 42 20.3 64.5-45.4 4-102.2 6.9-168.1 7.3v-60.8c0-10.3-8.4-18.7-18.7-18.7-10.3 0-18.7 8.4-18.7 18.7v60.8c-65.9-0.5-122.7-3.3-168.1-7.3 5.5-22.4 12.2-44.1 20.4-64.5 3.8-9.6-0.8-20.4-10.4-24.3-9.6-3.8-20.4 0.8-24.3 10.4-9.4 23.5-17.2 48.5-23.3 74.5-43.4-5.2-71.7-11.4-81.6-16.9 34.9-67.6 91.5-122.3 160.6-154.7zM191.4 389.1c16.2 7.6 43.9 14.1 89.6 19.8-5.5 33.4-8.5 68-8.5 103.2 0 35.7 3 70.3 8.6 103.2-45.8 5.7-73.4 12.2-89.7 19.8-14.7-38.2-22.9-79.7-22.9-123 0.1-43.3 8.3-84.8 22.9-123zM206.6 669c10-5.5 38.3-11.7 81.9-16.9 16.3 68.9 44.2 128.5 79.9 172.2-69.6-32.2-126.7-87.2-161.8-155.3z m450.1 155.4c35.7-43.7 63.6-103.3 79.9-172.2 43.6 5.2 71.9 11.4 81.9 16.9-35 68-92.1 123-161.8 155.3z"
+                                    fill="#df964f" p-id="5885"></path>
+                            </svg>
+                            <svg style="position: absolute;left: 0;right: 0;margin: auto;display: none;"
+                                t="1689942461763" class="icon q4" viewBox="0 0 1024 1024" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" p-id="5884" width="64" height="100">
+                                <path
+                                    d="M912.6 512.2c0-214.3-169.4-389.7-381.3-399.5V83.9c0-10.3-8.4-18.7-18.7-18.7-10.3 0-18.7 8.4-18.7 18.7v28.7C282 122.4 112.6 297.8 112.6 512.2c0 214.3 169.4 389.7 381.3 399.5v30.8c0 10.3 8.4 18.7 18.7 18.7 10.3 0 18.7-8.3 18.7-18.7v-30.8c211.9-9.8 381.3-185.3 381.3-399.5z m-78.9 123c-16.3-7.6-43.9-14.1-89.7-19.8 5.5-32.9 8.6-67.5 8.6-103.2 0-35.2-3-69.9-8.5-103.2 45.8-5.7 73.4-12.2 89.6-19.8 14.7 38.2 22.8 79.7 22.8 123 0.1 43.3-8.1 84.7-22.8 123zM569 851.4c-12.4 2.1-25 3.5-37.8 4.2V641c66 0.5 122.9 3.3 168.3 7.3C676.1 746 628.1 821.5 569 851.4zM325.6 648.3c45.5-4 102.3-6.9 168.3-7.3v214.6c-12.8-0.7-25.4-2.1-37.8-4.2-59-29.9-107-105.4-130.5-203.1z m-15.7-136.1c0-34 2.9-67.3 8.3-99.3 51.1 4.7 111.6 7.4 175.7 7.8v183c-64.1 0.5-124.7 3.2-175.8 7.9-5.3-31.6-8.2-65-8.2-99.4z m221.4 91.4v-183c64.1-0.4 124.6-3.1 175.7-7.8 5.4 32 8.3 65.4 8.3 99.3 0 34.5-2.9 67.8-8.2 99.4-51.2-4.7-111.7-7.4-175.8-7.9zM367.2 200.5c-4 5-8 10.1-11.8 15.5-6 8.4-4 20.1 4.4 26.1s20.1 4 26-4.4c21.3-30 45.7-52 71.5-65 12-1.9 24.2-3.3 36.6-4V238c0 10.3 8.4 18.7 18.7 18.7 10.3 0 18.7-8.4 18.7-18.7v-69.3c12.4 0.7 24.6 2.1 36.6 4 25.8 13 50.3 35 71.6 65 3.7 5.1 9.4 7.8 15.3 7.8 3.7 0 7.5-1.1 10.8-3.5 8.4-6 10.4-17.6 4.4-26-3.8-5.4-7.8-10.6-11.9-15.5 69.1 32.4 125.7 87 160.5 154.7-9.9 5.5-38.2 11.7-81.6 16.9-6.1-26-13.8-51-23.2-74.5-3.8-9.6-14.7-14.2-24.3-10.4-9.6 3.9-14.2 14.7-10.4 24.3 8.2 20.4 14.9 42 20.3 64.5-45.4 4-102.2 6.9-168.1 7.3v-60.8c0-10.3-8.4-18.7-18.7-18.7-10.3 0-18.7 8.4-18.7 18.7v60.8c-65.9-0.5-122.7-3.3-168.1-7.3 5.5-22.4 12.2-44.1 20.4-64.5 3.8-9.6-0.8-20.4-10.4-24.3-9.6-3.8-20.4 0.8-24.3 10.4-9.4 23.5-17.2 48.5-23.3 74.5-43.4-5.2-71.7-11.4-81.6-16.9 34.9-67.6 91.5-122.3 160.6-154.7zM191.4 389.1c16.2 7.6 43.9 14.1 89.6 19.8-5.5 33.4-8.5 68-8.5 103.2 0 35.7 3 70.3 8.6 103.2-45.8 5.7-73.4 12.2-89.7 19.8-14.7-38.2-22.9-79.7-22.9-123 0.1-43.3 8.3-84.8 22.9-123zM206.6 669c10-5.5 38.3-11.7 81.9-16.9 16.3 68.9 44.2 128.5 79.9 172.2-69.6-32.2-126.7-87.2-161.8-155.3z m450.1 155.4c35.7-43.7 63.6-103.3 79.9-172.2 43.6 5.2 71.9 11.4 81.9 16.9-35 68-92.1 123-161.8 155.3z"
+                                    fill="#e6e6e6" p-id="5885"></path>
+                            </svg>
+                        </div>
+                        <b class="q7" style="width: 50%; height: 100%;float: right;text-align: center;">
+                            <p style="margin-top: 20px;color: gray;">地址访问量</p>
+                            <b style="margin-top: 10px;display: block;">1</b>
+                        </b>
+                    </div>
+                </div>
+                <div id="main" class="layui-card layui-panel" style="height: 470px;width: 100%;margin-top: 20px;">
+                </div>
+            </div>
+            <div class="layui-footer">
+
+            </div>
+        </div>
+        <script>
+            // $(".layui-layout-admin").css("display", "none");
+            // var text = setTimeout(function () {
+            //     $("#box").css("display", "none")
+            //     $(".layui-layout-admin").css("display", "block");
+            // }, 5000)
+            //JS 
+            $("#tui").click(function () {
+                if (confirm("确认退出登录吗?")) {
+                    window.location.href = '登陆页面.html';
+                }
+            })
+            layui.use(['element', 'layer', 'util'], function () {
+                var element = layui.element;
+                var layer = layui.layer;
+                var util = layui.util;
+                var $ = layui.$;
+
+                //头部事件
+                util.event('lay-header-event', {
+                    menuLeft: function (othis) { // 左侧菜单事件
+                        layer.msg('展开左侧菜单的操作', { icon: 0 });
+                    },
+                    menuRight: function () {  // 右侧菜单事件
+                        layer.open({
+                            type: 1,
+                            title: '更多',
+                            content: '<div style="padding: 15px;">处理右侧面板的操作</div>',
+                            area: ['260px', '100%'],
+                            offset: 'rt', // 右上角
+                            anim: 'slideLeft', // 从右侧抽屉滑出
+                            shadeClose: true,
+                            scrollbar: false
+                        });
+                    }
+                });
+            });
+
+            $(".w1").mouseover(function () {
+                $(".q1").css("display", "none");
+                $(".q6").css("display", "inline-block");
+                $(".w1 div").css("background", "rgb(51, 80, 119)")
+            })
+            $(".w1").mouseout(function () {
+                $(".q1").css("display", "inline-block");
+                $(".q6").css("display", "none");
+                $(".w1 div").css("background", "white")
+            })
+            $(".w2").mouseover(function () {
+                $(".q2").css("display", "none");
+                $(".q5").css("display", "inline-block");
+                $(".w2 div").css("background", "rgb(45, 107, 117)")
+            })
+            $(".w2").mouseout(function () {
+                $(".q2").css("display", "inline-block");
+                $(".q5").css("display", "none");
+                $(".w2 div").css("background", "white")
+            })
+            $(".w3").mouseover(function () {
+                $(".q3").css("display", "none");
+                $(".q4").css("display", "inline-block");
+                $(".w3 div").css("background", "rgb(194, 141, 55)")
+            })
+            $(".w3").mouseout(function () {
+                $(".q3").css("display", "inline-block");
+                $(".q4").css("display", "none");
+                $(".w3 div").css("background", "white")
+            })
+        </script>
+        <script>
+            var chartDom = document.getElementById('main');
+            var myChart = echarts.init(chartDom);
+            var option;
+
+            const colors = ['#5470C6', '#EE6666'];
+            option = {
+                color: colors,
+                tooltip: {
+                    trigger: 'none',
+                    axisPointer: {
+                        type: 'cross'
+                    }
+                },
+                legend: {},
+                grid: {
+                    top: 70,
+                    bottom: 50
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        axisTick: {
+                            alignWithLabel: true
+                        },
+                        axisLine: {
+                            onZero: false,
+                            lineStyle: {
+                                color: colors[1]
+                            }
+                        },
+                        axisPointer: {
+                            label: {
+                                formatter: function (params) {
+                                    return (
+                                        'Precipitation  ' +
+                                        params.value +
+                                        (params.seriesData.length ? '：' + params.seriesData[0].data : '')
+                                    );
+                                }
+                            }
+                        },
+                        // prettier-ignore
+                        data: ['2016-1', '2016-2', '2016-3', '2016-4', '2016-5', '2016-6', '2016-7', '2016-8', '2016-9', '2016-10', '2016-11', '2016-12']
+                    },
+                    {
+                        type: 'category',
+                        axisTick: {
+                            alignWithLabel: true
+                        },
+                        axisLine: {
+                            onZero: false,
+                            lineStyle: {
+                                color: colors[0]
+                            }
+                        },
+                        axisPointer: {
+                            label: {
+                                formatter: function (params) {
+                                    return (
+                                        'Precipitation  ' +
+                                        params.value +
+                                        (params.seriesData.length ? '：' + params.seriesData[0].data : '')
+                                    );
+                                }
+                            }
+                        },
+                        // prettier-ignore
+                        data: ['2015-1', '2015-2', '2015-3', '2015-4', '2015-5', '2015-6', '2015-7', '2015-8', '2015-9', '2015-10', '2015-11', '2015-12']
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value'
+                    }
+                ],
+                series: [
+                    {
+                        name: 'Precipitation(2015)',
+                        type: 'line',
+                        xAxisIndex: 1,
+                        smooth: true,
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [
+                            2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3
+                        ]
+                    },
+                    {
+                        name: 'Precipitation(2016)',
+                        type: 'line',
+                        smooth: true,
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        data: [
+                            3.9, 5.9, 11.1, 18.7, 48.3, 69.2, 231.6, 46.6, 55.4, 18.4, 10.3, 0.7
+                        ]
+                    }
+                ]
+            };
+
+            option && myChart.setOption(option);
+        </script>
+</body>
+
+</html>
