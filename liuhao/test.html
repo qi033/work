@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../common/jquery-3.7.0.min.js"></script>
+  </head>
+  <body>
+    <div id="box">
+      汽车名字:<input id="car_name" type="text" /><br />
+      汽车颜色: <input id="car_color" type="color" /><br />
+      <input id="sub" type="submit" value="提交" />
+    </div>
+    <script>
+      $(function () {
+        $("#sub").click(function () {
+          let data = {
+            car_name: $("#car_name").val(),
+            car_color: $("#car_color").val(),
+          };
+          $.ajax({
+            type: "",
+            url: "http://127.0.0.1:3000/cars/add",
+            data: data,
+            dataType: "json",
+            headers:{
+                token:"1`231231"
+            },
+            success: function (res) {
+              console.log(res);
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
