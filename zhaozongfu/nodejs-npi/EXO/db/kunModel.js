@@ -12,12 +12,15 @@ const getKun = () => {
     })
 }
 //添加
-const insertCar = (param) => {
+const addKun = (param) => {
     return new Promise((resolve, reject) => {
-        connection.query("insert into Car(name,color) values(?,?)", [param.name, param.color], (err, data) => {
-            //如果err为null则成功
-            resolve(data)
-        })
+        connection.query(
+            `insert into kunkun(name,color) values(?,?)`,
+            [param.name, param.color],
+            (err, data) => {
+                //如果err为null则成功
+                resolve(data)
+            })
     })
 }
 //改
@@ -41,7 +44,7 @@ const deleteCar = (param) => {
 //导出方法，在需要使用到的模块中导入
 module.exports = {
     getKun,
-   /*  insertCar,
+    addKun,
     updateCar,
-    deleteCar */
+    deleteCar
 }

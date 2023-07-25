@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../common/jQuery/jquery-3.7.0.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 300px;
+            height: 160px;
+            background-color: rgb(99, 172, 183);
+            padding: 10px;
+            border-radius: 15px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 3;
+            display: none;
+            border: 1px solid aliceblue;
+        }
+
+        #box1 {
+            width: 85%;
+            height: 100%;
+            padding: 20px;
+            position: relative;
+            background-color: rgb(74, 161, 149);
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 100px;
+            margin: auto;
+            border-radius: 25px;
+        }
+
+        input,
+        button {
+            padding: 5px 10px;
+            margin: 10px;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 90%;
+            padding: 20px;
+            position: relative;
+            left: 0;
+            right: 0;
+            border-color: white;
+            margin: auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='box'>
+        <h5 style="text-align: center;">添加</h5>
+        汽车名字:<input id="car_name" type="text"><br>
+        汽车颜色:<input id="car_color" type="color"><br>
+        <input id="sub" type="submit" value="提交">
+    </div>
+    <div id="box1">
+        <button id="tianjia" style="margin-left: 75px;">添加</button>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th><input type="checkbox"></th>
+                    <th>id</th>
+                    <th>名字</th>
+                    <th>颜色</th>
+                    <th>时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+    </div>
+
+    <script>
+
+        $(function () {
+            $("#tianjia").on("click", function () {
+                $("#box").css("display", "block")
+            })
+            //添加   
+            $("#sub").click(function () {
+                let data = {
+                    car_name: $("#car_name").val(),
+                    car_color: $("#car_color").val()
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "http://127.0.0.1:3000/cars/add",
+                    data: data,
+                    dataType: "json",
+                    success: function (data) {
+                        huoqushuju()
+                    }
+                })
+                $("#box").css("display", "none")
+            })
+            //渲染
+            huoqushuju()
+        });
+        function huoqushuju() {
+            $.ajax({
+                url: 'http://127.0.0.1:3000/cars',
+                data: {
+                    name: "zhoujielun",
+                    age: 38
+                },
+                success: function (data) {
+                    console.log(data);
+                    xuanran(data)
+                },
+            });
+        }
+        //渲染页面
+        function xuanran(data) {
+            let html = "";
+            console.log(data);
+            data.data.forEach((item, index) => {
+                html += `
+                <tr>
+                    <td><input type="checkbox"></td>
+                   <td>${item.id}</td>
+                   <td>${item.name}</td>
+                   <td>${item.color}</td>
+                   <td>${item.created_at}</td>
+                   <td>
+                    <button>删除</button>
+                    <button>修改</button> 
+                    <button>查看</button>
+                   </td>
+                </tr>
+                `
+            });
+            $("tbody").html(html);
+        };
+    </script>
+</body>
+
+</html>
+<!-- 日报
+今日学习:nodejs
+今日问题:无
+今日任务:完成60% -->

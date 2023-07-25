@@ -1,0 +1,7 @@
+extend layout 
+
+block content 
+  form(action="/cars/add",method="POST")
+   input(type="text",name="car_name")
+   input(type="color",name="car_color")
+   input(type="submit",value="提交")
